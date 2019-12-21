@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Headers SNAPSHOTS should render H1 1`] = `
+<h1>
+  HEADER
+</h1>
+`;
+
+exports[`Headers SNAPSHOTS should render H2 1`] = `
+<h2>
+  HEADER
+</h2>
+`;
+
+exports[`Headers SNAPSHOTS should render H3 1`] = `
+<h3>
+  HEADER
+</h3>
+`;
+
+exports[`Headers SNAPSHOTS should render H4 1`] = `
+<h4>
+  HEADER
+</h4>
+`;
+
+exports[`Headers SNAPSHOTS should render H5 1`] = `
+<h5>
+  HEADER
+</h5>
+`;
+
+exports[`Headers SNAPSHOTS should render H6 1`] = `
+<h6>
+  HEADER
+</h6>
+`;
+
+exports[`Headers SNAPSHOTS should render Header 1`] = `
+<header>
+  HEADER
+</header>
+`;
+
+exports[`Headers SNAPSHOTS should render Header with classnames .header and .box 1`] = `
+<header
+  className="box header"
+>
+  HEADER
+</header>
+`;

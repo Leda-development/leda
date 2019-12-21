@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TwoColumns SNAPSHOTS should render 1`] = `
+<Dl
+  _w25={true}
+>
+  <dl
+    className="w-25"
+  >
+    <Dt>
+      <dt>
+        Term
+      </dt>
+    </Dt>
+    <Dd>
+      <dd>
+        Definition
+      </dd>
+    </Dd>
+  </dl>
+</Dl>
+`;

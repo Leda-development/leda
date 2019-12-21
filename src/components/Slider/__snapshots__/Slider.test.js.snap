@@ -1,0 +1,702 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slider SNAPSHOTS should render 1`] = `
+<Slider>
+  <Div
+    className="slider-wrapper"
+  >
+    <div
+      className="slider-wrapper"
+    >
+      <ReactSlider
+        barClassName="bar"
+        className="slider-container"
+        defaultValue={0}
+        disabled={false}
+        handleActiveClassName="active"
+        handleClassName="slider-handle"
+        invert={false}
+        key="slider-2"
+        max={100}
+        min={0}
+        minDistance={0}
+        onAfterChange={[Function]}
+        onChange={[Function]}
+        orientation="horizontal"
+        pearling={false}
+        snapDragDisabled={false}
+        step={1}
+        value={0}
+        withBars={true}
+      >
+        <div
+          className="slider-container"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "position": "relative",
+            }
+          }
+        >
+          <div
+            className="bar bar-0"
+            key="bar0"
+            style={
+              Object {
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "willChange": "",
+              }
+            }
+          />
+          <div
+            className="bar bar-1"
+            key="bar1"
+            style={
+              Object {
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "willChange": "",
+              }
+            }
+          />
+          <div
+            aria-valuemax={100}
+            aria-valuemin={0}
+            aria-valuenow={0}
+            className="slider-handle slider-handle-0 "
+            key="handle0"
+            onFocus={[Function]}
+            onMouseDown={[Function]}
+            onTouchStart={[Function]}
+            role="slider"
+            style={
+              Object {
+                "left": "0px",
+                "position": "absolute",
+                "willChange": "",
+                "zIndex": 1,
+              }
+            }
+            tabIndex={0}
+          >
+            <SliderTooltip
+              key="0"
+              shouldRender={false}
+              theme={
+                Object {
+                  "container": "slider-container",
+                  "handle": "slider-handle",
+                  "label": "slider-label",
+                  "labelContainer": "slider-label-container",
+                  "tooltipArrow": "tooltip-arrow",
+                  "tooltipInner": "tooltip-inner",
+                  "tooltipWrap": "tooltip top",
+                  "track": "slider-track",
+                  "trackActive": "active",
+                  "wrapper": "slider-wrapper",
+                }
+              }
+              value={0}
+            />
+          </div>
+        </div>
+      </ReactSlider>
+      <SliderLabels
+        max={100}
+        min={0}
+        shouldRender={true}
+        theme={
+          Object {
+            "container": "slider-container",
+            "handle": "slider-handle",
+            "label": "slider-label",
+            "labelContainer": "slider-label-container",
+            "tooltipArrow": "tooltip-arrow",
+            "tooltipInner": "tooltip-inner",
+            "tooltipWrap": "tooltip top",
+            "track": "slider-track",
+            "trackActive": "active",
+            "wrapper": "slider-wrapper",
+          }
+        }
+        type="minmax"
+        value={0}
+      >
+        <div
+          className="slider-label-container"
+        >
+          <Span
+            className="slider-label"
+          >
+            <span
+              className="slider-label"
+            >
+              0
+               
+              <Units>
+                <Span>
+                  <span />
+                </Span>
+              </Units>
+            </span>
+          </Span>
+          <Span
+            className="slider-label"
+          >
+            <span
+              className="slider-label"
+            >
+              100
+               
+              <Units>
+                <Span>
+                  <span />
+                </Span>
+              </Units>
+            </span>
+          </Span>
+        </div>
+      </SliderLabels>
+    </div>
+  </Div>
+</Slider>
+`;
+
+exports[`Slider SNAPSHOTS should render controllable mode 1`] = `
+<Slider
+  hasTooltip={true}
+  value={50}
+>
+  <Div
+    className="slider-wrapper"
+  >
+    <div
+      className="slider-wrapper"
+    >
+      <ReactSlider
+        barClassName="bar"
+        className="slider-container"
+        defaultValue={0}
+        disabled={false}
+        handleActiveClassName="active"
+        handleClassName="slider-handle"
+        invert={false}
+        key="slider-2"
+        max={100}
+        min={0}
+        minDistance={0}
+        onAfterChange={[Function]}
+        onChange={[Function]}
+        orientation="horizontal"
+        pearling={false}
+        snapDragDisabled={false}
+        step={1}
+        value={50}
+        withBars={true}
+      >
+        <div
+          className="slider-container"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "position": "relative",
+            }
+          }
+        >
+          <div
+            className="bar bar-0"
+            key="bar0"
+            style={
+              Object {
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "willChange": "",
+              }
+            }
+          />
+          <div
+            className="bar bar-1"
+            key="bar1"
+            style={
+              Object {
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "willChange": "",
+              }
+            }
+          />
+          <div
+            aria-valuemax={100}
+            aria-valuemin={0}
+            aria-valuenow={50}
+            className="slider-handle slider-handle-0 "
+            key="handle0"
+            onFocus={[Function]}
+            onMouseDown={[Function]}
+            onTouchStart={[Function]}
+            role="slider"
+            style={
+              Object {
+                "left": "0px",
+                "position": "absolute",
+                "willChange": "",
+                "zIndex": 1,
+              }
+            }
+            tabIndex={0}
+          >
+            <SliderTooltip
+              key="0"
+              shouldRender={true}
+              theme={
+                Object {
+                  "container": "slider-container",
+                  "handle": "slider-handle",
+                  "label": "slider-label",
+                  "labelContainer": "slider-label-container",
+                  "tooltipArrow": "tooltip-arrow",
+                  "tooltipInner": "tooltip-inner",
+                  "tooltipWrap": "tooltip top",
+                  "track": "slider-track",
+                  "trackActive": "active",
+                  "wrapper": "slider-wrapper",
+                }
+              }
+              value={50}
+            >
+              <div
+                className="tooltip top"
+                key="50"
+              >
+                <div
+                  className="tooltip-arrow"
+                />
+                <div
+                  className="tooltip-inner"
+                >
+                  50
+                </div>
+              </div>
+            </SliderTooltip>
+          </div>
+        </div>
+      </ReactSlider>
+      <SliderLabels
+        max={100}
+        min={0}
+        shouldRender={true}
+        theme={
+          Object {
+            "container": "slider-container",
+            "handle": "slider-handle",
+            "label": "slider-label",
+            "labelContainer": "slider-label-container",
+            "tooltipArrow": "tooltip-arrow",
+            "tooltipInner": "tooltip-inner",
+            "tooltipWrap": "tooltip top",
+            "track": "slider-track",
+            "trackActive": "active",
+            "wrapper": "slider-wrapper",
+          }
+        }
+        type="minmax"
+        value={50}
+      >
+        <div
+          className="slider-label-container"
+        >
+          <Span
+            className="slider-label"
+          >
+            <span
+              className="slider-label"
+            >
+              0
+
+              <Units>
+                <Span>
+                  <span />
+                </Span>
+              </Units>
+            </span>
+          </Span>
+          <Span
+            className="slider-label"
+          >
+            <span
+              className="slider-label"
+            >
+              100
+
+              <Units>
+                <Span>
+                  <span />
+                </Span>
+              </Units>
+            </span>
+          </Span>
+        </div>
+      </SliderLabels>
+    </div>
+  </Div>
+</Slider>
+`;
+
+exports[`Slider SNAPSHOTS should render controllable mode 2`] = `
+<Slider
+  hasTooltip={true}
+  value={65}
+>
+  <Div
+    className="slider-wrapper"
+  >
+    <div
+      className="slider-wrapper"
+    >
+      <ReactSlider
+        barClassName="bar"
+        className="slider-container"
+        defaultValue={0}
+        disabled={false}
+        handleActiveClassName="active"
+        handleClassName="slider-handle"
+        invert={false}
+        key="slider-2"
+        max={100}
+        min={0}
+        minDistance={0}
+        onAfterChange={[Function]}
+        onChange={[Function]}
+        orientation="horizontal"
+        pearling={false}
+        snapDragDisabled={false}
+        step={1}
+        value={65}
+        withBars={true}
+      >
+        <div
+          className="slider-container"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "position": "relative",
+            }
+          }
+        >
+          <div
+            className="bar bar-0"
+            key="bar0"
+            style={
+              Object {
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "willChange": "",
+              }
+            }
+          />
+          <div
+            className="bar bar-1"
+            key="bar1"
+            style={
+              Object {
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "willChange": "",
+              }
+            }
+          />
+          <div
+            aria-valuemax={100}
+            aria-valuemin={0}
+            aria-valuenow={65}
+            className="slider-handle slider-handle-0 "
+            key="handle0"
+            onFocus={[Function]}
+            onMouseDown={[Function]}
+            onTouchStart={[Function]}
+            role="slider"
+            style={
+              Object {
+                "left": "0px",
+                "position": "absolute",
+                "willChange": "",
+                "zIndex": 1,
+              }
+            }
+            tabIndex={0}
+          >
+            <SliderTooltip
+              key="0"
+              shouldRender={true}
+              theme={
+                Object {
+                  "container": "slider-container",
+                  "handle": "slider-handle",
+                  "label": "slider-label",
+                  "labelContainer": "slider-label-container",
+                  "tooltipArrow": "tooltip-arrow",
+                  "tooltipInner": "tooltip-inner",
+                  "tooltipWrap": "tooltip top",
+                  "track": "slider-track",
+                  "trackActive": "active",
+                  "wrapper": "slider-wrapper",
+                }
+              }
+              value={65}
+            >
+              <div
+                className="tooltip top"
+                key="65"
+              >
+                <div
+                  className="tooltip-arrow"
+                />
+                <div
+                  className="tooltip-inner"
+                >
+                  65
+                </div>
+              </div>
+            </SliderTooltip>
+          </div>
+        </div>
+      </ReactSlider>
+      <SliderLabels
+        max={100}
+        min={0}
+        shouldRender={true}
+        theme={
+          Object {
+            "container": "slider-container",
+            "handle": "slider-handle",
+            "label": "slider-label",
+            "labelContainer": "slider-label-container",
+            "tooltipArrow": "tooltip-arrow",
+            "tooltipInner": "tooltip-inner",
+            "tooltipWrap": "tooltip top",
+            "track": "slider-track",
+            "trackActive": "active",
+            "wrapper": "slider-wrapper",
+          }
+        }
+        type="minmax"
+        value={65}
+      >
+        <div
+          className="slider-label-container"
+        >
+          <Span
+            className="slider-label"
+          >
+            <span
+              className="slider-label"
+            >
+              0
+
+              <Units>
+                <Span>
+                  <span />
+                </Span>
+              </Units>
+            </span>
+          </Span>
+          <Span
+            className="slider-label"
+          >
+            <span
+              className="slider-label"
+            >
+              100
+
+              <Units>
+                <Span>
+                  <span />
+                </Span>
+              </Units>
+            </span>
+          </Span>
+        </div>
+      </SliderLabels>
+    </div>
+  </Div>
+</Slider>
+`;
+
+exports[`Slider SNAPSHOTS should render disabled state 1`] = `
+<Slider
+  isDisabled={true}
+  value={50}
+>
+  <Div
+    className="slider-wrapper"
+  >
+    <div
+      className="slider-wrapper"
+    >
+      <ReactSlider
+        barClassName="bar"
+        className="slider-container"
+        defaultValue={0}
+        disabled={true}
+        handleActiveClassName="active"
+        handleClassName="slider-handle"
+        invert={false}
+        key="slider-2"
+        max={100}
+        min={0}
+        minDistance={0}
+        onAfterChange={[Function]}
+        onChange={[Function]}
+        orientation="horizontal"
+        pearling={false}
+        snapDragDisabled={false}
+        step={1}
+        value={50}
+        withBars={true}
+      >
+        <div
+          className="slider-container disabled"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "position": "relative",
+            }
+          }
+        >
+          <div
+            className="bar bar-0"
+            key="bar0"
+            style={
+              Object {
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "willChange": "",
+              }
+            }
+          />
+          <div
+            className="bar bar-1"
+            key="bar1"
+            style={
+              Object {
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "willChange": "",
+              }
+            }
+          />
+          <div
+            aria-valuemax={100}
+            aria-valuemin={0}
+            aria-valuenow={50}
+            className="slider-handle slider-handle-0 "
+            key="handle0"
+            onFocus={[Function]}
+            onMouseDown={[Function]}
+            onTouchStart={[Function]}
+            role="slider"
+            style={
+              Object {
+                "left": "0px",
+                "position": "absolute",
+                "willChange": "",
+                "zIndex": 1,
+              }
+            }
+            tabIndex={0}
+          >
+            <SliderTooltip
+              key="0"
+              shouldRender={false}
+              theme={
+                Object {
+                  "container": "slider-container",
+                  "handle": "slider-handle",
+                  "label": "slider-label",
+                  "labelContainer": "slider-label-container",
+                  "tooltipArrow": "tooltip-arrow",
+                  "tooltipInner": "tooltip-inner",
+                  "tooltipWrap": "tooltip top",
+                  "track": "slider-track",
+                  "trackActive": "active",
+                  "wrapper": "slider-wrapper",
+                }
+              }
+              value={50}
+            />
+          </div>
+        </div>
+      </ReactSlider>
+      <SliderLabels
+        max={100}
+        min={0}
+        shouldRender={true}
+        theme={
+          Object {
+            "container": "slider-container",
+            "handle": "slider-handle",
+            "label": "slider-label",
+            "labelContainer": "slider-label-container",
+            "tooltipArrow": "tooltip-arrow",
+            "tooltipInner": "tooltip-inner",
+            "tooltipWrap": "tooltip top",
+            "track": "slider-track",
+            "trackActive": "active",
+            "wrapper": "slider-wrapper",
+          }
+        }
+        type="minmax"
+        value={50}
+      >
+        <div
+          className="slider-label-container"
+        >
+          <Span
+            className="slider-label"
+          >
+            <span
+              className="slider-label"
+            >
+              0
+               
+              <Units>
+                <Span>
+                  <span />
+                </Span>
+              </Units>
+            </span>
+          </Span>
+          <Span
+            className="slider-label"
+          >
+            <span
+              className="slider-label"
+            >
+              100
+               
+              <Units>
+                <Span>
+                  <span />
+                </Span>
+              </Units>
+            </span>
+          </Span>
+        </div>
+      </SliderLabels>
+    </div>
+  </Div>
+</Slider>
+`;

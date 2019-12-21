@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProgressBar SNAPSHOTS should render 1`] = `
+<ProgressBar
+  value={40}
+>
+  <Div
+    className="progressbar-wrapper"
+  >
+    <div
+      className="progressbar-wrapper"
+    >
+      <div
+        className="progressbar-fill"
+        style={
+          Object {
+            "width": "40%",
+          }
+        }
+      >
+        40%
+      </div>
+    </div>
+  </Div>
+</ProgressBar>
+`;
+
+exports[`ProgressBar SNAPSHOTS should render value in controllable mode 1`] = `
+<ProgressBar
+  value={40}
+>
+  <Div
+    className="progressbar-wrapper"
+  >
+    <div
+      className="progressbar-wrapper"
+    >
+      <div
+        className="progressbar-fill"
+        style={
+          Object {
+            "width": "40%",
+          }
+        }
+      >
+        40%
+      </div>
+    </div>
+  </Div>
+</ProgressBar>
+`;
+
+exports[`ProgressBar SNAPSHOTS should render value in controllable mode 2`] = `
+<ProgressBar
+  value={50}
+>
+  <Div
+    className="progressbar-wrapper"
+  >
+    <div
+      className="progressbar-wrapper"
+    >
+      <div
+        className="progressbar-fill"
+        style={
+          Object {
+            "width": "50%",
+          }
+        }
+      >
+        50%
+      </div>
+    </div>
+  </Div>
+</ProgressBar>
+`;

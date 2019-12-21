@@ -1,0 +1,7 @@
+assets
+dist
+node_modules
+.idea
+esphere
+debug.log
+.vscode

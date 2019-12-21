@@ -1,0 +1,17 @@
+export const svgNamespacesDictionary = [
+  'arbitrage',
+  'badge',
+  'docs',
+  'empty',
+  'glyphs',
+  'mail',
+  'notifications',
+  'rat',
+  'rea',
+  'relations',
+  'scanner',
+  'service',
+  'slim',
+  'techs',
+  'transport',
+];

@@ -1,0 +1,198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tags SNAPSHOTS should render 1`] = `
+<Tags>
+  <Wrapper
+    className="tags-wrapper"
+  >
+    <Div
+      className="tags-wrapper"
+    >
+      <div
+        className="tags-wrapper"
+      >
+        <Tag
+          icon={
+            <ForwardRef
+              className="i-del"
+            />
+          }
+          key=".0"
+          onClick={[MockFunction]}
+          theme={
+            Object {
+              "closeIcon": "tags-icon",
+              "defaultIcon": "icon-default",
+              "tag": "tags-item",
+              "wrapper": "tags-wrapper",
+            }
+          }
+        >
+          <Wrapper
+            className="tags-item"
+            icon={
+              <ForwardRef
+                className="i-del"
+              />
+            }
+            onClick={[MockFunction]}
+          >
+            <Span
+              className="tags-item"
+              icon={
+                <ForwardRef
+                  className="i-del"
+                />
+              }
+              onClick={[MockFunction]}
+            >
+              <span
+                className="tags-item"
+                icon={
+                  <ForwardRef
+                    className="i-del"
+                  />
+                }
+                onClick={[MockFunction]}
+              >
+                #selfie
+                <Icon
+                  className="tags-icon icon-default"
+                >
+                  <Span
+                    className="tags-icon icon-default"
+                  >
+                    <span
+                      className="tags-icon icon-default"
+                    />
+                  </Span>
+                </Icon>
+              </span>
+            </Span>
+          </Wrapper>
+        </Tag>
+        <Tag
+          icon={
+            <ForwardRef
+              className="i-del"
+            />
+          }
+          key=".1"
+          onClick={[MockFunction]}
+          theme={
+            Object {
+              "closeIcon": "tags-icon",
+              "defaultIcon": "icon-default",
+              "tag": "tags-item",
+              "wrapper": "tags-wrapper",
+            }
+          }
+        >
+          <Wrapper
+            className="tags-item"
+            icon={
+              <ForwardRef
+                className="i-del"
+              />
+            }
+            onClick={[MockFunction]}
+          >
+            <Span
+              className="tags-item"
+              icon={
+                <ForwardRef
+                  className="i-del"
+                />
+              }
+              onClick={[MockFunction]}
+            >
+              <span
+                className="tags-item"
+                icon={
+                  <ForwardRef
+                    className="i-del"
+                  />
+                }
+                onClick={[MockFunction]}
+              >
+                #style
+                <Icon
+                  className="tags-icon icon-default"
+                >
+                  <Span
+                    className="tags-icon icon-default"
+                  >
+                    <span
+                      className="tags-icon icon-default"
+                    />
+                  </Span>
+                </Icon>
+              </span>
+            </Span>
+          </Wrapper>
+        </Tag>
+        <Tag
+          icon={
+            <ForwardRef
+              className="i-del"
+            />
+          }
+          key=".2"
+          onClick={[MockFunction]}
+          theme={
+            Object {
+              "closeIcon": "tags-icon",
+              "defaultIcon": "icon-default",
+              "tag": "tags-item",
+              "wrapper": "tags-wrapper",
+            }
+          }
+        >
+          <Wrapper
+            className="tags-item"
+            icon={
+              <ForwardRef
+                className="i-del"
+              />
+            }
+            onClick={[MockFunction]}
+          >
+            <Span
+              className="tags-item"
+              icon={
+                <ForwardRef
+                  className="i-del"
+                />
+              }
+              onClick={[MockFunction]}
+            >
+              <span
+                className="tags-item"
+                icon={
+                  <ForwardRef
+                    className="i-del"
+                  />
+                }
+                onClick={[MockFunction]}
+              >
+                #awesome
+                <Icon
+                  className="tags-icon icon-default"
+                >
+                  <Span
+                    className="tags-icon icon-default"
+                  >
+                    <span
+                      className="tags-icon icon-default"
+                    />
+                  </Span>
+                </Icon>
+              </span>
+            </Span>
+          </Wrapper>
+        </Tag>
+      </div>
+    </Div>
+  </Wrapper>
+</Tags>
+`;

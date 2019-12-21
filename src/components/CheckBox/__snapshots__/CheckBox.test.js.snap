@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckBox SNAPSHOTS should render 1`] = `
+<CheckBox
+  id="test"
+>
+  <Wrapper>
+    <Span>
+      <span>
+        <Input
+          checked={false}
+          className="checkbox-input"
+          id="test"
+          key="test"
+          onChange={[Function]}
+          type="checkbox"
+        >
+          <input
+            checked={false}
+            className="checkbox-input"
+            id="test"
+            onChange={[Function]}
+            type="checkbox"
+          />
+        </Input>
+        <label
+          className="checkbox-label"
+          htmlFor="test"
+          key="label-test"
+        />
+      </span>
+    </Span>
+  </Wrapper>
+</CheckBox>
+`;
+
+exports[`CheckBox SNAPSHOTS should render controllable mode 1`] = `
+<CheckBox
+  id="test"
+  onChange={[Function]}
+  value={true}
+>
+  <Wrapper>
+    <Span>
+      <span>
+        <Input
+          checked={true}
+          className="checkbox-input"
+          id="test"
+          key="test"
+          onChange={[Function]}
+          type="checkbox"
+        >
+          <input
+            checked={true}
+            className="checkbox-input"
+            id="test"
+            onChange={[Function]}
+            type="checkbox"
+          />
+        </Input>
+        <label
+          className="checkbox-label"
+          htmlFor="test"
+          key="label-test"
+        />
+      </span>
+    </Span>
+  </Wrapper>
+</CheckBox>
+`;
+
+exports[`CheckBox SNAPSHOTS should render controllable mode 2`] = `
+<CheckBox
+  id="test"
+  onChange={[Function]}
+  value={false}
+>
+  <Wrapper>
+    <Span>
+      <span>
+        <Input
+          checked={false}
+          className="checkbox-input"
+          id="test"
+          key="test"
+          onChange={[Function]}
+          type="checkbox"
+        >
+          <input
+            checked={false}
+            className="checkbox-input"
+            id="test"
+            onChange={[Function]}
+            type="checkbox"
+          />
+        </Input>
+        <label
+          className="checkbox-label"
+          htmlFor="test"
+          key="label-test"
+        />
+      </span>
+    </Span>
+  </Wrapper>
+</CheckBox>
+`;

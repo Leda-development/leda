@@ -1,0 +1,98 @@
+.flex-row {
+  display: flex;
+  flex-direction: row;
+
+  &.flex-reverse {
+    flex-direction: row-reverse;
+  }
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+
+  &.flex-reverse {
+    flex-direction: column-reverse;
+  }
+}
+
+.flex-inline {
+  display: inline-flex;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+  
+.justify-content-around {
+  justify-content: space-around;
+}
+  
+.justify-content-center {
+  justify-content: center;
+}
+  
+.justify-content-left {
+  justify-content: left;
+}
+  
+.justify-content-right {
+  justify-content: right;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.align-items-start {
+  align-items: flex-start;
+}
+
+.align-items-end {
+  align-items: flex-end;
+}
+
+.align-items-stretch {
+  align-items: stretch;
+}
+
+.align-items-baseline {
+  align-items: baseline;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.align-self-start {
+  align-self: flex-start;
+}
+
+.align-self-end {
+  align-self: flex-end;
+}
+
+.align-self-stretch {
+  align-self: stretch;
+}
+
+.align-self-baseline {
+  align-self: baseline;
+}
+
+@for $i from 0 through 5 {
+  .grow-#{$i} {
+    flex-grow: $i;
+  }
+  .shrink-#{$i} {
+    flex-shrink: $i;
+  }
+}
+
+@for $i from 0 through 20 {
+  .max-width-#{$i*5} {
+    max-width: $i*5%;
+  }
+  .min-width-#{$i*5} {
+    min-width: $i*5%;
+  }
+}

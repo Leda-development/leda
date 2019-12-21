@@ -1,0 +1,3729 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropDownSelect ATTRIBUTES should display custom values with JSX 1`] = `
+<DropDownSelect
+  data={
+    Array [
+      "one",
+      "two",
+      "three",
+    ]
+  }
+  isOpen={true}
+  itemRender={[Function]}
+  onChange={[MockFunction]}
+  placeholder="Choose..."
+>
+  <Wrapper
+    className="dropdownselect-wrapper"
+  >
+    <Div
+      className="dropdownselect-wrapper"
+    >
+      <div
+        className="dropdownselect-wrapper"
+      >
+        <Div
+          className="dropdownselect-input-wrapper"
+        >
+          <div
+            className="dropdownselect-input-wrapper"
+          >
+            <Input
+              aria-invalid={false}
+              aria-required={false}
+              className="dropdownselect-input"
+              disabled={false}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              placeholder="Choose..."
+              readOnly={true}
+              value=""
+            >
+              <input
+                aria-invalid={false}
+                aria-required={false}
+                className="dropdownselect-input"
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                placeholder="Choose..."
+                readOnly={true}
+                value=""
+              />
+            </Input>
+            <Icon
+              className="dropdownselect-select-icon opened"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+            >
+              <Span
+                className="dropdownselect-select-icon opened"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+              >
+                <span
+                  className="dropdownselect-select-icon opened"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                />
+              </Span>
+            </Icon>
+          </div>
+        </Div>
+        <SuggestionList
+          data={
+            Array [
+              "one",
+              "two",
+              "three",
+            ]
+          }
+          highlightedSuggestion={null}
+          isLoading={false}
+          isOpen={true}
+          itemRender={[Function]}
+          onClick={[Function]}
+          placeholder="Choose..."
+          selectedSuggestion={null}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "dropdownselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "input": "dropdownselect-input",
+              "inputWrapper": "dropdownselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "selectIcon": "dropdownselect-select-icon",
+              "selectIconClosed": "closed",
+              "selectIconOpened": "opened",
+              "wrapper": "dropdownselect-wrapper",
+            }
+          }
+          value={null}
+        >
+          <Div
+            className="suggestion-wrapper"
+            onMouseDown={[Function]}
+          >
+            <div
+              className="suggestion-wrapper"
+              onMouseDown={[Function]}
+            >
+              <List
+                className="suggestion-list"
+              >
+                <Ul
+                  className="suggestion-list"
+                >
+                  <ul
+                    className="suggestion-list"
+                  >
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item="one"
+                      itemRender={[Function]}
+                      key="one"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="one"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <span
+                          className="test"
+                        >
+                          ---one
+                        </span>
+                      </Suggestion>
+                    </SuggestionItem>
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item="two"
+                      itemRender={[Function]}
+                      key="two"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="two"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <span
+                          className="test"
+                        >
+                          ---two
+                        </span>
+                      </Suggestion>
+                    </SuggestionItem>
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item="three"
+                      itemRender={[Function]}
+                      key="three"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="three"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <span
+                          className="test"
+                        >
+                          ---three
+                        </span>
+                      </Suggestion>
+                    </SuggestionItem>
+                  </ul>
+                </Ul>
+              </List>
+            </div>
+          </Div>
+        </SuggestionList>
+      </div>
+    </Div>
+  </Wrapper>
+</DropDownSelect>
+`;
+
+exports[`DropDownSelect ATTRIBUTES should display custom values with string data 1`] = `
+<DropDownSelect
+  data={
+    Array [
+      "one",
+      "two",
+      "three",
+    ]
+  }
+  isOpen={true}
+  itemRender={[Function]}
+  onChange={[MockFunction]}
+  placeholder="Choose..."
+  shouldAllowEmpty={true}
+>
+  <Wrapper
+    className="dropdownselect-wrapper"
+  >
+    <Div
+      className="dropdownselect-wrapper"
+    >
+      <div
+        className="dropdownselect-wrapper"
+      >
+        <Div
+          className="dropdownselect-input-wrapper"
+        >
+          <div
+            className="dropdownselect-input-wrapper"
+          >
+            <Input
+              aria-invalid={false}
+              aria-required={false}
+              className="dropdownselect-input"
+              disabled={false}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              placeholder="Choose..."
+              readOnly={true}
+              value=""
+            >
+              <input
+                aria-invalid={false}
+                aria-required={false}
+                className="dropdownselect-input"
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                placeholder="Choose..."
+                readOnly={true}
+                value=""
+              />
+            </Input>
+            <Icon
+              className="dropdownselect-select-icon opened"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+            >
+              <Span
+                className="dropdownselect-select-icon opened"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+              >
+                <span
+                  className="dropdownselect-select-icon opened"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                />
+              </Span>
+            </Icon>
+          </div>
+        </Div>
+        <SuggestionList
+          data={
+            Array [
+              "one",
+              "two",
+              "three",
+            ]
+          }
+          highlightedSuggestion={null}
+          isLoading={false}
+          isOpen={true}
+          itemRender={[Function]}
+          onClick={[Function]}
+          placeholder="Choose..."
+          selectedSuggestion={null}
+          shouldAllowEmpty={true}
+          theme={
+            Object {
+              "clearIcon": "dropdownselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "input": "dropdownselect-input",
+              "inputWrapper": "dropdownselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "selectIcon": "dropdownselect-select-icon",
+              "selectIconClosed": "closed",
+              "selectIconOpened": "opened",
+              "wrapper": "dropdownselect-wrapper",
+            }
+          }
+          value={null}
+        >
+          <Div
+            className="suggestion-wrapper"
+            onMouseDown={[Function]}
+          >
+            <div
+              className="suggestion-wrapper"
+              onMouseDown={[Function]}
+            >
+              <List
+                className="suggestion-list"
+              >
+                <Ul
+                  className="suggestion-list"
+                >
+                  <ul
+                    className="suggestion-list"
+                  >
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={true}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item={null}
+                      itemRender={[Function]}
+                      key="Choose..."
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="Choose..."
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item placeholder"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item placeholder"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item placeholder"
+                            onClick={[Function]}
+                          >
+                            ---Choose...
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item="one"
+                      itemRender={[Function]}
+                      key="one"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="one"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            ---one
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item="two"
+                      itemRender={[Function]}
+                      key="two"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="two"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            ---two
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item="three"
+                      itemRender={[Function]}
+                      key="three"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="three"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            ---three
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                  </ul>
+                </Ul>
+              </List>
+            </div>
+          </Div>
+        </SuggestionList>
+      </div>
+    </Div>
+  </Wrapper>
+</DropDownSelect>
+`;
+
+exports[`DropDownSelect ATTRIBUTES should display loader if dataLoading 1`] = `
+<DropDownSelect
+  _box={true}
+  data={
+    Array [
+      "1",
+    ]
+  }
+  isLoading={true}
+  isOpen={true}
+  onChange={[MockFunction]}
+>
+  <Wrapper
+    className="dropdownselect-wrapper box"
+  >
+    <Div
+      className="dropdownselect-wrapper box"
+    >
+      <div
+        className="dropdownselect-wrapper box"
+      >
+        <Div
+          className="dropdownselect-input-wrapper"
+        >
+          <div
+            className="dropdownselect-input-wrapper"
+          >
+            <Input
+              aria-invalid={false}
+              aria-required={false}
+              className="dropdownselect-input"
+              disabled={false}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              readOnly={true}
+              value=""
+            >
+              <input
+                aria-invalid={false}
+                aria-required={false}
+                className="dropdownselect-input"
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={true}
+                value=""
+              />
+            </Input>
+            <Icon
+              className="dropdownselect-select-icon opened"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+            >
+              <Span
+                className="dropdownselect-select-icon opened"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+              >
+                <span
+                  className="dropdownselect-select-icon opened"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                />
+              </Span>
+            </Icon>
+          </div>
+        </Div>
+        <SuggestionList
+          data={
+            Array [
+              "1",
+            ]
+          }
+          highlightedSuggestion={null}
+          isLoading={true}
+          isOpen={true}
+          onClick={[Function]}
+          selectedSuggestion={null}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "dropdownselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "input": "dropdownselect-input",
+              "inputWrapper": "dropdownselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "selectIcon": "dropdownselect-select-icon",
+              "selectIconClosed": "closed",
+              "selectIconOpened": "opened",
+              "wrapper": "dropdownselect-wrapper",
+            }
+          }
+          value={null}
+        >
+          <Div
+            className="suggestion-wrapper"
+            onMouseDown={[Function]}
+          >
+            <div
+              className="suggestion-wrapper"
+              onMouseDown={[Function]}
+            >
+              <Loader>
+                <Div
+                  className="loader-wrapper"
+                >
+                  <div
+                    className="loader-wrapper"
+                  >
+                    <div
+                      className="loader-container"
+                    >
+                      <Icon
+                        className="loader-element"
+                      >
+                        <Span
+                          className="loader-element"
+                        >
+                          <span
+                            className="loader-element"
+                          />
+                        </Span>
+                      </Icon>
+                    </div>
+                  </div>
+                </Div>
+              </Loader>
+            </div>
+          </Div>
+        </SuggestionList>
+      </div>
+    </Div>
+  </Wrapper>
+</DropDownSelect>
+`;
+
+exports[`DropDownSelect ATTRIBUTES should display noDataTemplate if no data 1`] = `
+<DropDownSelect
+  _box={true}
+  isOpen={true}
+  noSuggestionsRender={[Function]}
+  onChange={[MockFunction]}
+>
+  <Wrapper
+    className="dropdownselect-wrapper box"
+  >
+    <Div
+      className="dropdownselect-wrapper box"
+    >
+      <div
+        className="dropdownselect-wrapper box"
+      >
+        <Div
+          className="dropdownselect-input-wrapper"
+        >
+          <div
+            className="dropdownselect-input-wrapper"
+          >
+            <Input
+              aria-invalid={false}
+              aria-required={false}
+              className="dropdownselect-input"
+              disabled={false}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              readOnly={true}
+              value=""
+            >
+              <input
+                aria-invalid={false}
+                aria-required={false}
+                className="dropdownselect-input"
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={true}
+                value=""
+              />
+            </Input>
+            <Icon
+              className="dropdownselect-select-icon opened"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+            >
+              <Span
+                className="dropdownselect-select-icon opened"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+              >
+                <span
+                  className="dropdownselect-select-icon opened"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                />
+              </Span>
+            </Icon>
+          </div>
+        </Div>
+        <SuggestionList
+          highlightedSuggestion={null}
+          isLoading={false}
+          isOpen={true}
+          noSuggestionsRender={[Function]}
+          onClick={[Function]}
+          selectedSuggestion={null}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "dropdownselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "input": "dropdownselect-input",
+              "inputWrapper": "dropdownselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "selectIcon": "dropdownselect-select-icon",
+              "selectIconClosed": "closed",
+              "selectIconOpened": "opened",
+              "wrapper": "dropdownselect-wrapper",
+            }
+          }
+          value={null}
+        >
+          <Div
+            className="suggestion-wrapper"
+            onMouseDown={[Function]}
+          >
+            <div
+              className="suggestion-wrapper"
+              onMouseDown={[Function]}
+            >
+              <NoSuggestions
+                className="nodata"
+              >
+                <span
+                  className="nodata"
+                >
+                  No data we are sorry :((
+                </span>
+              </NoSuggestions>
+            </div>
+          </Div>
+        </SuggestionList>
+      </div>
+    </Div>
+  </Wrapper>
+</DropDownSelect>
+`;
+
+exports[`DropDownSelect ATTRIBUTES should render custom values with object data 1`] = `
+<DropDownSelect
+  data={
+    Array [
+      Object {
+        "txt": "one",
+        "val": 1,
+      },
+      Object {
+        "txt": "two",
+        "val": 2,
+      },
+      Object {
+        "txt": "three",
+        "val": 3,
+      },
+    ]
+  }
+  isOpen={true}
+  itemRender={[Function]}
+  onChange={[MockFunction]}
+  placeholder="Choose..."
+  textField="txt"
+>
+  <Wrapper
+    className="dropdownselect-wrapper"
+  >
+    <Div
+      className="dropdownselect-wrapper"
+    >
+      <div
+        className="dropdownselect-wrapper"
+      >
+        <Div
+          className="dropdownselect-input-wrapper"
+        >
+          <div
+            className="dropdownselect-input-wrapper"
+          >
+            <Input
+              aria-invalid={false}
+              aria-required={false}
+              className="dropdownselect-input"
+              disabled={false}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              placeholder="Choose..."
+              readOnly={true}
+              value=""
+            >
+              <input
+                aria-invalid={false}
+                aria-required={false}
+                className="dropdownselect-input"
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                placeholder="Choose..."
+                readOnly={true}
+                value=""
+              />
+            </Input>
+            <Icon
+              className="dropdownselect-select-icon opened"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+            >
+              <Span
+                className="dropdownselect-select-icon opened"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+              >
+                <span
+                  className="dropdownselect-select-icon opened"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                />
+              </Span>
+            </Icon>
+          </div>
+        </Div>
+        <SuggestionList
+          data={
+            Array [
+              Object {
+                "txt": "one",
+                "val": 1,
+              },
+              Object {
+                "txt": "two",
+                "val": 2,
+              },
+              Object {
+                "txt": "three",
+                "val": 3,
+              },
+            ]
+          }
+          highlightedSuggestion={null}
+          isLoading={false}
+          isOpen={true}
+          itemRender={[Function]}
+          onClick={[Function]}
+          placeholder="Choose..."
+          selectedSuggestion={null}
+          shouldAllowEmpty={false}
+          textField="txt"
+          theme={
+            Object {
+              "clearIcon": "dropdownselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "input": "dropdownselect-input",
+              "inputWrapper": "dropdownselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "selectIcon": "dropdownselect-select-icon",
+              "selectIconClosed": "closed",
+              "selectIconOpened": "opened",
+              "wrapper": "dropdownselect-wrapper",
+            }
+          }
+          value={null}
+        >
+          <Div
+            className="suggestion-wrapper"
+            onMouseDown={[Function]}
+          >
+            <div
+              className="suggestion-wrapper"
+              onMouseDown={[Function]}
+            >
+              <List
+                className="suggestion-list"
+              >
+                <Ul
+                  className="suggestion-list"
+                >
+                  <ul
+                    className="suggestion-list"
+                  >
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item={
+                        Object {
+                          "txt": "one",
+                          "val": 1,
+                        }
+                      }
+                      itemRender={[Function]}
+                      key="{\\"txt\\":\\"one\\",\\"val\\":1}"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="one"
+                      textField="txt"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Div
+                          className="custom-item"
+                        >
+                          <div
+                            className="custom-item"
+                          >
+                            Item text: one
+                          </div>
+                        </Div>
+                      </Suggestion>
+                    </SuggestionItem>
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item={
+                        Object {
+                          "txt": "two",
+                          "val": 2,
+                        }
+                      }
+                      itemRender={[Function]}
+                      key="{\\"txt\\":\\"two\\",\\"val\\":2}"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="two"
+                      textField="txt"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Div
+                          className="custom-item"
+                        >
+                          <div
+                            className="custom-item"
+                          >
+                            Item text: two
+                          </div>
+                        </Div>
+                      </Suggestion>
+                    </SuggestionItem>
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item={
+                        Object {
+                          "txt": "three",
+                          "val": 3,
+                        }
+                      }
+                      itemRender={[Function]}
+                      key="{\\"txt\\":\\"three\\",\\"val\\":3}"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="three"
+                      textField="txt"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Div
+                          className="custom-item"
+                        >
+                          <div
+                            className="custom-item"
+                          >
+                            Item text: three
+                          </div>
+                        </Div>
+                      </Suggestion>
+                    </SuggestionItem>
+                  </ul>
+                </Ul>
+              </List>
+            </div>
+          </Div>
+        </SuggestionList>
+      </div>
+    </Div>
+  </Wrapper>
+</DropDownSelect>
+`;
+
+exports[`DropDownSelect SNAPSHOTS controllable mode should render data 1`] = `
+<DropDownSelect
+  data={
+    Array [
+      "text1",
+      "text2",
+      "text3",
+    ]
+  }
+  isOpen={true}
+  onChange={[MockFunction]}
+>
+  <Wrapper
+    className="dropdownselect-wrapper"
+  >
+    <Div
+      className="dropdownselect-wrapper"
+    >
+      <div
+        className="dropdownselect-wrapper"
+      >
+        <Div
+          className="dropdownselect-input-wrapper focused"
+        >
+          <div
+            className="dropdownselect-input-wrapper focused"
+          >
+            <Input
+              aria-invalid={false}
+              aria-required={false}
+              className="dropdownselect-input"
+              disabled={false}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              readOnly={true}
+              value=""
+            >
+              <input
+                aria-invalid={false}
+                aria-required={false}
+                className="dropdownselect-input"
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={true}
+                value=""
+              />
+            </Input>
+            <Icon
+              className="dropdownselect-select-icon opened"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+            >
+              <Span
+                className="dropdownselect-select-icon opened"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+              >
+                <span
+                  className="dropdownselect-select-icon opened"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                />
+              </Span>
+            </Icon>
+          </div>
+        </Div>
+        <SuggestionList
+          data={
+            Array [
+              "text1",
+              "text2",
+              "text3",
+            ]
+          }
+          highlightedSuggestion={null}
+          isLoading={false}
+          isOpen={true}
+          onClick={[Function]}
+          selectedSuggestion={null}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "dropdownselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "input": "dropdownselect-input",
+              "inputWrapper": "dropdownselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "selectIcon": "dropdownselect-select-icon",
+              "selectIconClosed": "closed",
+              "selectIconOpened": "opened",
+              "wrapper": "dropdownselect-wrapper",
+            }
+          }
+          value={null}
+        >
+          <Div
+            className="suggestion-wrapper"
+            onMouseDown={[Function]}
+          >
+            <div
+              className="suggestion-wrapper"
+              onMouseDown={[Function]}
+            >
+              <List
+                className="suggestion-list"
+              >
+                <Ul
+                  className="suggestion-list"
+                >
+                  <ul
+                    className="suggestion-list"
+                  >
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item="text1"
+                      key="text1"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="text1"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            text1
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item="text2"
+                      key="text2"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="text2"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            text2
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item="text3"
+                      key="text3"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="text3"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            text3
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                  </ul>
+                </Ul>
+              </List>
+            </div>
+          </Div>
+        </SuggestionList>
+      </div>
+    </Div>
+  </Wrapper>
+</DropDownSelect>
+`;
+
+exports[`DropDownSelect SNAPSHOTS controllable mode should render data 2`] = `
+<DropDownSelect
+  data={
+    Array [
+      Object {
+        "txt": "textObj1",
+        "val": 1,
+      },
+      Object {
+        "txt": "textObj2",
+        "val": 2,
+      },
+      Object {
+        "txt": "textObj3",
+        "val": 3,
+      },
+    ]
+  }
+  isOpen={true}
+  onChange={[MockFunction]}
+  textField="txt"
+>
+  <Wrapper
+    className="dropdownselect-wrapper"
+  >
+    <Div
+      className="dropdownselect-wrapper"
+    >
+      <div
+        className="dropdownselect-wrapper"
+      >
+        <Div
+          className="dropdownselect-input-wrapper focused"
+        >
+          <div
+            className="dropdownselect-input-wrapper focused"
+          >
+            <Input
+              aria-invalid={false}
+              aria-required={false}
+              className="dropdownselect-input"
+              disabled={false}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              readOnly={true}
+              value=""
+            >
+              <input
+                aria-invalid={false}
+                aria-required={false}
+                className="dropdownselect-input"
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={true}
+                value=""
+              />
+            </Input>
+            <Icon
+              className="dropdownselect-select-icon opened"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+            >
+              <Span
+                className="dropdownselect-select-icon opened"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+              >
+                <span
+                  className="dropdownselect-select-icon opened"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                />
+              </Span>
+            </Icon>
+          </div>
+        </Div>
+        <SuggestionList
+          data={
+            Array [
+              Object {
+                "txt": "textObj1",
+                "val": 1,
+              },
+              Object {
+                "txt": "textObj2",
+                "val": 2,
+              },
+              Object {
+                "txt": "textObj3",
+                "val": 3,
+              },
+            ]
+          }
+          highlightedSuggestion={null}
+          isLoading={false}
+          isOpen={true}
+          onClick={[Function]}
+          selectedSuggestion={null}
+          shouldAllowEmpty={false}
+          textField="txt"
+          theme={
+            Object {
+              "clearIcon": "dropdownselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "input": "dropdownselect-input",
+              "inputWrapper": "dropdownselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "selectIcon": "dropdownselect-select-icon",
+              "selectIconClosed": "closed",
+              "selectIconOpened": "opened",
+              "wrapper": "dropdownselect-wrapper",
+            }
+          }
+          value={null}
+        >
+          <Div
+            className="suggestion-wrapper"
+            onMouseDown={[Function]}
+          >
+            <div
+              className="suggestion-wrapper"
+              onMouseDown={[Function]}
+            >
+              <List
+                className="suggestion-list"
+              >
+                <Ul
+                  className="suggestion-list"
+                >
+                  <ul
+                    className="suggestion-list"
+                  >
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item={
+                        Object {
+                          "txt": "textObj1",
+                          "val": 1,
+                        }
+                      }
+                      key="{\\"txt\\":\\"textObj1\\",\\"val\\":1}"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="textObj1"
+                      textField="txt"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            textObj1
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item={
+                        Object {
+                          "txt": "textObj2",
+                          "val": 2,
+                        }
+                      }
+                      key="{\\"txt\\":\\"textObj2\\",\\"val\\":2}"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="textObj2"
+                      textField="txt"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            textObj2
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item={
+                        Object {
+                          "txt": "textObj3",
+                          "val": 3,
+                        }
+                      }
+                      key="{\\"txt\\":\\"textObj3\\",\\"val\\":3}"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="textObj3"
+                      textField="txt"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            textObj3
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                  </ul>
+                </Ul>
+              </List>
+            </div>
+          </Div>
+        </SuggestionList>
+      </div>
+    </Div>
+  </Wrapper>
+</DropDownSelect>
+`;
+
+exports[`DropDownSelect SNAPSHOTS controllable mode should render value 1`] = `
+<DropDownSelect
+  data={
+    Array [
+      Object {
+        "txt": "text1",
+        "val": 1,
+      },
+      Object {
+        "txt": "text2",
+        "val": 2,
+      },
+      Object {
+        "txt": "text3",
+        "val": 3,
+      },
+    ]
+  }
+  onChange={[MockFunction]}
+  textField="txt"
+  value={
+    Object {
+      "txt": "text1",
+      "val": 1,
+    }
+  }
+>
+  <Wrapper
+    className="dropdownselect-wrapper"
+  >
+    <Div
+      className="dropdownselect-wrapper"
+    >
+      <div
+        className="dropdownselect-wrapper"
+      >
+        <Div
+          className="dropdownselect-input-wrapper"
+        >
+          <div
+            className="dropdownselect-input-wrapper"
+          >
+            <Input
+              aria-invalid={false}
+              aria-required={false}
+              className="dropdownselect-input"
+              disabled={false}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              placeholder=""
+              readOnly={true}
+              value="text1"
+            >
+              <input
+                aria-invalid={false}
+                aria-required={false}
+                className="dropdownselect-input"
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                placeholder=""
+                readOnly={true}
+                value="text1"
+              />
+            </Input>
+            <Icon
+              className="dropdownselect-select-icon closed"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+            >
+              <Span
+                className="dropdownselect-select-icon closed"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+              >
+                <span
+                  className="dropdownselect-select-icon closed"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                />
+              </Span>
+            </Icon>
+          </div>
+        </Div>
+        <SuggestionList
+          data={
+            Array [
+              Object {
+                "txt": "text1",
+                "val": 1,
+              },
+              Object {
+                "txt": "text2",
+                "val": 2,
+              },
+              Object {
+                "txt": "text3",
+                "val": 3,
+              },
+            ]
+          }
+          highlightedSuggestion={null}
+          isLoading={false}
+          isOpen={false}
+          onClick={[Function]}
+          selectedSuggestion={null}
+          shouldAllowEmpty={false}
+          textField="txt"
+          theme={
+            Object {
+              "clearIcon": "dropdownselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "input": "dropdownselect-input",
+              "inputWrapper": "dropdownselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "selectIcon": "dropdownselect-select-icon",
+              "selectIconClosed": "closed",
+              "selectIconOpened": "opened",
+              "wrapper": "dropdownselect-wrapper",
+            }
+          }
+          value={
+            Object {
+              "txt": "text1",
+              "val": 1,
+            }
+          }
+        />
+        <InvalidMessageWrapper>
+          <InvalidMessage
+            isValid={true}
+            messages={Array []}
+          >
+            <InvalidMessage
+              isValid={true}
+              messages={Array []}
+            />
+          </InvalidMessage>
+        </InvalidMessageWrapper>
+      </div>
+    </Div>
+  </Wrapper>
+</DropDownSelect>
+`;
+
+exports[`DropDownSelect SNAPSHOTS controllable mode should render value 2`] = `
+<DropDownSelect
+  data={
+    Array [
+      Object {
+        "txt": "text1",
+        "val": 1,
+      },
+      Object {
+        "txt": "text2",
+        "val": 2,
+      },
+      Object {
+        "txt": "text3",
+        "val": 3,
+      },
+    ]
+  }
+  onChange={[MockFunction]}
+  textField="txt"
+  value={
+    Object {
+      "txt": "text2",
+      "val": 2,
+    }
+  }
+>
+  <Wrapper
+    className="dropdownselect-wrapper"
+  >
+    <Div
+      className="dropdownselect-wrapper"
+    >
+      <div
+        className="dropdownselect-wrapper"
+      >
+        <Div
+          className="dropdownselect-input-wrapper"
+        >
+          <div
+            className="dropdownselect-input-wrapper"
+          >
+            <Input
+              aria-invalid={false}
+              aria-required={false}
+              className="dropdownselect-input"
+              disabled={false}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              placeholder=""
+              readOnly={true}
+              value="text2"
+            >
+              <input
+                aria-invalid={false}
+                aria-required={false}
+                className="dropdownselect-input"
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                placeholder=""
+                readOnly={true}
+                value="text2"
+              />
+            </Input>
+            <Icon
+              className="dropdownselect-select-icon closed"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+            >
+              <Span
+                className="dropdownselect-select-icon closed"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+              >
+                <span
+                  className="dropdownselect-select-icon closed"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                />
+              </Span>
+            </Icon>
+          </div>
+        </Div>
+        <SuggestionList
+          data={
+            Array [
+              Object {
+                "txt": "text1",
+                "val": 1,
+              },
+              Object {
+                "txt": "text2",
+                "val": 2,
+              },
+              Object {
+                "txt": "text3",
+                "val": 3,
+              },
+            ]
+          }
+          highlightedSuggestion={null}
+          isLoading={false}
+          isOpen={false}
+          onClick={[Function]}
+          selectedSuggestion={null}
+          shouldAllowEmpty={false}
+          textField="txt"
+          theme={
+            Object {
+              "clearIcon": "dropdownselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "input": "dropdownselect-input",
+              "inputWrapper": "dropdownselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "selectIcon": "dropdownselect-select-icon",
+              "selectIconClosed": "closed",
+              "selectIconOpened": "opened",
+              "wrapper": "dropdownselect-wrapper",
+            }
+          }
+          value={
+            Object {
+              "txt": "text2",
+              "val": 2,
+            }
+          }
+        />
+        <InvalidMessageWrapper>
+          <InvalidMessage
+            isValid={true}
+            messages={Array []}
+          >
+            <InvalidMessage
+              isValid={true}
+              messages={Array []}
+            />
+          </InvalidMessage>
+        </InvalidMessageWrapper>
+      </div>
+    </Div>
+  </Wrapper>
+</DropDownSelect>
+`;
+
+exports[`DropDownSelect SNAPSHOTS controllable mode should render value 3`] = `
+<DropDownSelect
+  data={
+    Array [
+      Object {
+        "txt": "text1",
+        "val": 1,
+      },
+      Object {
+        "txt": "text2",
+        "val": 2,
+      },
+      Object {
+        "txt": "text3",
+        "val": 3,
+      },
+    ]
+  }
+  onChange={[MockFunction]}
+  textField="txt"
+  value={
+    Object {
+      "txt": "text3",
+      "val": 3,
+    }
+  }
+>
+  <Wrapper
+    className="dropdownselect-wrapper"
+  >
+    <Div
+      className="dropdownselect-wrapper"
+    >
+      <div
+        className="dropdownselect-wrapper"
+      >
+        <Div
+          className="dropdownselect-input-wrapper"
+        >
+          <div
+            className="dropdownselect-input-wrapper"
+          >
+            <Input
+              aria-invalid={false}
+              aria-required={false}
+              className="dropdownselect-input"
+              disabled={false}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              placeholder=""
+              readOnly={true}
+              value="text3"
+            >
+              <input
+                aria-invalid={false}
+                aria-required={false}
+                className="dropdownselect-input"
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                placeholder=""
+                readOnly={true}
+                value="text3"
+              />
+            </Input>
+            <Icon
+              className="dropdownselect-select-icon closed"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+            >
+              <Span
+                className="dropdownselect-select-icon closed"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+              >
+                <span
+                  className="dropdownselect-select-icon closed"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                />
+              </Span>
+            </Icon>
+          </div>
+        </Div>
+        <SuggestionList
+          data={
+            Array [
+              Object {
+                "txt": "text1",
+                "val": 1,
+              },
+              Object {
+                "txt": "text2",
+                "val": 2,
+              },
+              Object {
+                "txt": "text3",
+                "val": 3,
+              },
+            ]
+          }
+          highlightedSuggestion={null}
+          isLoading={false}
+          isOpen={false}
+          onClick={[Function]}
+          selectedSuggestion={null}
+          shouldAllowEmpty={false}
+          textField="txt"
+          theme={
+            Object {
+              "clearIcon": "dropdownselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "input": "dropdownselect-input",
+              "inputWrapper": "dropdownselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "selectIcon": "dropdownselect-select-icon",
+              "selectIconClosed": "closed",
+              "selectIconOpened": "opened",
+              "wrapper": "dropdownselect-wrapper",
+            }
+          }
+          value={
+            Object {
+              "txt": "text3",
+              "val": 3,
+            }
+          }
+        />
+        <InvalidMessageWrapper>
+          <InvalidMessage
+            isValid={true}
+            messages={Array []}
+          >
+            <InvalidMessage
+              isValid={true}
+              messages={Array []}
+            />
+          </InvalidMessage>
+        </InvalidMessageWrapper>
+      </div>
+    </Div>
+  </Wrapper>
+</DropDownSelect>
+`;
+
+exports[`DropDownSelect SNAPSHOTS multi-type attributes data should render object data 1`] = `
+<DropDownSelect
+  data={
+    Array [
+      Object {
+        "text": "text1",
+        "value": "value1",
+      },
+      Object {
+        "text": "text2",
+        "value": "value2",
+      },
+      Object {
+        "text": "text3",
+        "value": "value3",
+      },
+    ]
+  }
+  isOpen={true}
+  onChange={[MockFunction]}
+  textField="text"
+>
+  <Wrapper
+    className="dropdownselect-wrapper"
+  >
+    <Div
+      className="dropdownselect-wrapper"
+    >
+      <div
+        className="dropdownselect-wrapper"
+      >
+        <Div
+          className="dropdownselect-input-wrapper"
+        >
+          <div
+            className="dropdownselect-input-wrapper"
+          >
+            <Input
+              aria-invalid={false}
+              aria-required={false}
+              className="dropdownselect-input"
+              disabled={false}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              readOnly={true}
+              value=""
+            >
+              <input
+                aria-invalid={false}
+                aria-required={false}
+                className="dropdownselect-input"
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={true}
+                value=""
+              />
+            </Input>
+            <Icon
+              className="dropdownselect-select-icon opened"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+            >
+              <Span
+                className="dropdownselect-select-icon opened"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+              >
+                <span
+                  className="dropdownselect-select-icon opened"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                />
+              </Span>
+            </Icon>
+          </div>
+        </Div>
+        <SuggestionList
+          data={
+            Array [
+              Object {
+                "text": "text1",
+                "value": "value1",
+              },
+              Object {
+                "text": "text2",
+                "value": "value2",
+              },
+              Object {
+                "text": "text3",
+                "value": "value3",
+              },
+            ]
+          }
+          highlightedSuggestion={null}
+          isLoading={false}
+          isOpen={true}
+          onClick={[Function]}
+          selectedSuggestion={null}
+          shouldAllowEmpty={false}
+          textField="text"
+          theme={
+            Object {
+              "clearIcon": "dropdownselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "input": "dropdownselect-input",
+              "inputWrapper": "dropdownselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "selectIcon": "dropdownselect-select-icon",
+              "selectIconClosed": "closed",
+              "selectIconOpened": "opened",
+              "wrapper": "dropdownselect-wrapper",
+            }
+          }
+          value={null}
+        >
+          <Div
+            className="suggestion-wrapper"
+            onMouseDown={[Function]}
+          >
+            <div
+              className="suggestion-wrapper"
+              onMouseDown={[Function]}
+            >
+              <List
+                className="suggestion-list"
+              >
+                <Ul
+                  className="suggestion-list"
+                >
+                  <ul
+                    className="suggestion-list"
+                  >
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item={
+                        Object {
+                          "text": "text1",
+                          "value": "value1",
+                        }
+                      }
+                      key="{\\"text\\":\\"text1\\",\\"value\\":\\"value1\\"}"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="text1"
+                      textField="text"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            text1
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item={
+                        Object {
+                          "text": "text2",
+                          "value": "value2",
+                        }
+                      }
+                      key="{\\"text\\":\\"text2\\",\\"value\\":\\"value2\\"}"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="text2"
+                      textField="text"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            text2
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item={
+                        Object {
+                          "text": "text3",
+                          "value": "value3",
+                        }
+                      }
+                      key="{\\"text\\":\\"text3\\",\\"value\\":\\"value3\\"}"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="text3"
+                      textField="text"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            text3
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                  </ul>
+                </Ul>
+              </List>
+            </div>
+          </Div>
+        </SuggestionList>
+      </div>
+    </Div>
+  </Wrapper>
+</DropDownSelect>
+`;
+
+exports[`DropDownSelect SNAPSHOTS multi-type attributes data should render string data 1`] = `
+<DropDownSelect
+  data={
+    Array [
+      "value1",
+      "value2",
+      "value3",
+    ]
+  }
+  isOpen={true}
+  onChange={[MockFunction]}
+>
+  <Wrapper
+    className="dropdownselect-wrapper"
+  >
+    <Div
+      className="dropdownselect-wrapper"
+    >
+      <div
+        className="dropdownselect-wrapper"
+      >
+        <Div
+          className="dropdownselect-input-wrapper"
+        >
+          <div
+            className="dropdownselect-input-wrapper"
+          >
+            <Input
+              aria-invalid={false}
+              aria-required={false}
+              className="dropdownselect-input"
+              disabled={false}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              readOnly={true}
+              value=""
+            >
+              <input
+                aria-invalid={false}
+                aria-required={false}
+                className="dropdownselect-input"
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={true}
+                value=""
+              />
+            </Input>
+            <Icon
+              className="dropdownselect-select-icon opened"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+            >
+              <Span
+                className="dropdownselect-select-icon opened"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+              >
+                <span
+                  className="dropdownselect-select-icon opened"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                />
+              </Span>
+            </Icon>
+          </div>
+        </Div>
+        <SuggestionList
+          data={
+            Array [
+              "value1",
+              "value2",
+              "value3",
+            ]
+          }
+          highlightedSuggestion={null}
+          isLoading={false}
+          isOpen={true}
+          onClick={[Function]}
+          selectedSuggestion={null}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "dropdownselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "input": "dropdownselect-input",
+              "inputWrapper": "dropdownselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "selectIcon": "dropdownselect-select-icon",
+              "selectIconClosed": "closed",
+              "selectIconOpened": "opened",
+              "wrapper": "dropdownselect-wrapper",
+            }
+          }
+          value={null}
+        >
+          <Div
+            className="suggestion-wrapper"
+            onMouseDown={[Function]}
+          >
+            <div
+              className="suggestion-wrapper"
+              onMouseDown={[Function]}
+            >
+              <List
+                className="suggestion-list"
+              >
+                <Ul
+                  className="suggestion-list"
+                >
+                  <ul
+                    className="suggestion-list"
+                  >
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item="value1"
+                      key="value1"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="value1"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            value1
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item="value2"
+                      key="value2"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="value2"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            value2
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item="value3"
+                      key="value3"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="value3"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            value3
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                  </ul>
+                </Ul>
+              </List>
+            </div>
+          </Div>
+        </SuggestionList>
+      </div>
+    </Div>
+  </Wrapper>
+</DropDownSelect>
+`;
+
+exports[`DropDownSelect SNAPSHOTS multi-type attributes should render string placeholder 1`] = `
+<DropDownSelect
+  data={
+    Array [
+      "1",
+    ]
+  }
+  onChange={[MockFunction]}
+  placeholder="Choose..."
+>
+  <Wrapper
+    className="dropdownselect-wrapper"
+  >
+    <Div
+      className="dropdownselect-wrapper"
+    >
+      <div
+        className="dropdownselect-wrapper"
+      >
+        <Div
+          className="dropdownselect-input-wrapper"
+        >
+          <div
+            className="dropdownselect-input-wrapper"
+          >
+            <Input
+              aria-invalid={false}
+              aria-required={false}
+              className="dropdownselect-input"
+              disabled={false}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              placeholder="Choose..."
+              readOnly={true}
+              value=""
+            >
+              <input
+                aria-invalid={false}
+                aria-required={false}
+                className="dropdownselect-input"
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                placeholder="Choose..."
+                readOnly={true}
+                value=""
+              />
+            </Input>
+            <Icon
+              className="dropdownselect-select-icon closed"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+            >
+              <Span
+                className="dropdownselect-select-icon closed"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+              >
+                <span
+                  className="dropdownselect-select-icon closed"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                />
+              </Span>
+            </Icon>
+          </div>
+        </Div>
+        <SuggestionList
+          data={
+            Array [
+              "1",
+            ]
+          }
+          highlightedSuggestion={null}
+          isLoading={false}
+          isOpen={false}
+          onClick={[Function]}
+          placeholder="Choose..."
+          selectedSuggestion={null}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "dropdownselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "input": "dropdownselect-input",
+              "inputWrapper": "dropdownselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "selectIcon": "dropdownselect-select-icon",
+              "selectIconClosed": "closed",
+              "selectIconOpened": "opened",
+              "wrapper": "dropdownselect-wrapper",
+            }
+          }
+          value={null}
+        />
+        <InvalidMessageWrapper>
+          <InvalidMessage
+            isValid={true}
+            messages={Array []}
+          >
+            <InvalidMessage
+              isValid={true}
+              messages={Array []}
+            />
+          </InvalidMessage>
+        </InvalidMessageWrapper>
+      </div>
+    </Div>
+  </Wrapper>
+</DropDownSelect>
+`;
+
+exports[`DropDownSelect SNAPSHOTS should render 1`] = `
+<DropDownSelect
+  data={
+    Array [
+      Object {
+        "txt": "text1",
+        "val": "value1",
+      },
+      Object {
+        "txt": "text2",
+        "val": "value2",
+      },
+      Object {
+        "txt": "text3",
+        "val": "value3",
+      },
+    ]
+  }
+  onChange={[MockFunction]}
+>
+  <Wrapper
+    className="dropdownselect-wrapper"
+  >
+    <Div
+      className="dropdownselect-wrapper"
+    >
+      <div
+        className="dropdownselect-wrapper"
+      >
+        <Div
+          className="dropdownselect-input-wrapper"
+        >
+          <div
+            className="dropdownselect-input-wrapper"
+          >
+            <Input
+              aria-invalid={false}
+              aria-required={false}
+              className="dropdownselect-input"
+              disabled={false}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              readOnly={true}
+              value=""
+            >
+              <input
+                aria-invalid={false}
+                aria-required={false}
+                className="dropdownselect-input"
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={true}
+                value=""
+              />
+            </Input>
+            <Icon
+              className="dropdownselect-select-icon closed"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+            >
+              <Span
+                className="dropdownselect-select-icon closed"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+              >
+                <span
+                  className="dropdownselect-select-icon closed"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                />
+              </Span>
+            </Icon>
+          </div>
+        </Div>
+        <SuggestionList
+          data={
+            Array [
+              Object {
+                "txt": "text1",
+                "val": "value1",
+              },
+              Object {
+                "txt": "text2",
+                "val": "value2",
+              },
+              Object {
+                "txt": "text3",
+                "val": "value3",
+              },
+            ]
+          }
+          highlightedSuggestion={null}
+          isLoading={false}
+          isOpen={false}
+          onClick={[Function]}
+          selectedSuggestion={null}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "dropdownselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "input": "dropdownselect-input",
+              "inputWrapper": "dropdownselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "selectIcon": "dropdownselect-select-icon",
+              "selectIconClosed": "closed",
+              "selectIconOpened": "opened",
+              "wrapper": "dropdownselect-wrapper",
+            }
+          }
+          value={null}
+        />
+        <InvalidMessageWrapper>
+          <InvalidMessage
+            isValid={true}
+            messages={Array []}
+          >
+            <InvalidMessage
+              isValid={true}
+              messages={Array []}
+            />
+          </InvalidMessage>
+        </InvalidMessageWrapper>
+      </div>
+    </Div>
+  </Wrapper>
+</DropDownSelect>
+`;
+
+exports[`DropDownSelect SNAPSHOTS should test different component states should be disabled 1`] = `
+<DropDownSelect
+  data={
+    Array [
+      "1",
+    ]
+  }
+  isDisabled={true}
+  onChange={[MockFunction]}
+>
+  <Wrapper
+    className="dropdownselect-wrapper"
+  >
+    <Div
+      className="dropdownselect-wrapper"
+    >
+      <div
+        className="dropdownselect-wrapper"
+      >
+        <Div
+          className="dropdownselect-input-wrapper disabled"
+        >
+          <div
+            className="dropdownselect-input-wrapper disabled"
+          >
+            <Input
+              aria-invalid={false}
+              aria-required={false}
+              className="dropdownselect-input"
+              disabled={true}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              readOnly={true}
+              value=""
+            >
+              <input
+                aria-invalid={false}
+                aria-required={false}
+                className="dropdownselect-input"
+                disabled={true}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={true}
+                value=""
+              />
+            </Input>
+            <Icon
+              className="dropdownselect-select-icon closed"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+            >
+              <Span
+                className="dropdownselect-select-icon closed"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+              >
+                <span
+                  className="dropdownselect-select-icon closed"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                />
+              </Span>
+            </Icon>
+          </div>
+        </Div>
+        <SuggestionList
+          data={
+            Array [
+              "1",
+            ]
+          }
+          highlightedSuggestion={null}
+          isLoading={false}
+          isOpen={false}
+          onClick={[Function]}
+          selectedSuggestion={null}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "dropdownselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "input": "dropdownselect-input",
+              "inputWrapper": "dropdownselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "selectIcon": "dropdownselect-select-icon",
+              "selectIconClosed": "closed",
+              "selectIconOpened": "opened",
+              "wrapper": "dropdownselect-wrapper",
+            }
+          }
+          value={null}
+        />
+      </div>
+    </Div>
+  </Wrapper>
+</DropDownSelect>
+`;
+
+exports[`DropDownSelect SNAPSHOTS should test different component states should be isOpen 1`] = `
+<DropDownSelect
+  data={
+    Array [
+      Object {
+        "txt": "text1",
+        "val": "value1",
+      },
+      Object {
+        "txt": "text2",
+        "val": "value2",
+      },
+      Object {
+        "txt": "text3",
+        "val": "value3",
+      },
+    ]
+  }
+  isOpen={true}
+  onChange={[MockFunction]}
+  textField="txt"
+>
+  <Wrapper
+    className="dropdownselect-wrapper"
+  >
+    <Div
+      className="dropdownselect-wrapper"
+    >
+      <div
+        className="dropdownselect-wrapper"
+      >
+        <Div
+          className="dropdownselect-input-wrapper"
+        >
+          <div
+            className="dropdownselect-input-wrapper"
+          >
+            <Input
+              aria-invalid={false}
+              aria-required={false}
+              className="dropdownselect-input"
+              disabled={false}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              readOnly={true}
+              value=""
+            >
+              <input
+                aria-invalid={false}
+                aria-required={false}
+                className="dropdownselect-input"
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={true}
+                value=""
+              />
+            </Input>
+            <Icon
+              className="dropdownselect-select-icon opened"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+            >
+              <Span
+                className="dropdownselect-select-icon opened"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+              >
+                <span
+                  className="dropdownselect-select-icon opened"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                />
+              </Span>
+            </Icon>
+          </div>
+        </Div>
+        <SuggestionList
+          data={
+            Array [
+              Object {
+                "txt": "text1",
+                "val": "value1",
+              },
+              Object {
+                "txt": "text2",
+                "val": "value2",
+              },
+              Object {
+                "txt": "text3",
+                "val": "value3",
+              },
+            ]
+          }
+          highlightedSuggestion={null}
+          isLoading={false}
+          isOpen={true}
+          onClick={[Function]}
+          selectedSuggestion={null}
+          shouldAllowEmpty={false}
+          textField="txt"
+          theme={
+            Object {
+              "clearIcon": "dropdownselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "input": "dropdownselect-input",
+              "inputWrapper": "dropdownselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "selectIcon": "dropdownselect-select-icon",
+              "selectIconClosed": "closed",
+              "selectIconOpened": "opened",
+              "wrapper": "dropdownselect-wrapper",
+            }
+          }
+          value={null}
+        >
+          <Div
+            className="suggestion-wrapper"
+            onMouseDown={[Function]}
+          >
+            <div
+              className="suggestion-wrapper"
+              onMouseDown={[Function]}
+            >
+              <List
+                className="suggestion-list"
+              >
+                <Ul
+                  className="suggestion-list"
+                >
+                  <ul
+                    className="suggestion-list"
+                  >
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item={
+                        Object {
+                          "txt": "text1",
+                          "val": "value1",
+                        }
+                      }
+                      key="{\\"txt\\":\\"text1\\",\\"val\\":\\"value1\\"}"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="text1"
+                      textField="txt"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            text1
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item={
+                        Object {
+                          "txt": "text2",
+                          "val": "value2",
+                        }
+                      }
+                      key="{\\"txt\\":\\"text2\\",\\"val\\":\\"value2\\"}"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="text2"
+                      textField="txt"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            text2
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item={
+                        Object {
+                          "txt": "text3",
+                          "val": "value3",
+                        }
+                      }
+                      key="{\\"txt\\":\\"text3\\",\\"val\\":\\"value3\\"}"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="text3"
+                      textField="txt"
+                      theme={
+                        Object {
+                          "clearIcon": "dropdownselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "input": "dropdownselect-input",
+                          "inputWrapper": "dropdownselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "selectIcon": "dropdownselect-select-icon",
+                          "selectIconClosed": "closed",
+                          "selectIconOpened": "opened",
+                          "wrapper": "dropdownselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            text3
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                  </ul>
+                </Ul>
+              </List>
+            </div>
+          </Div>
+        </SuggestionList>
+      </div>
+    </Div>
+  </Wrapper>
+</DropDownSelect>
+`;

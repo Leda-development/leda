@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropDown SNAPSHOTS should render 1`] = `
+<DropDown>
+  <Wrapper
+    className="dropdown-wrapper"
+  >
+    <Span
+      className="dropdown-wrapper"
+    >
+      <span
+        className="dropdown-wrapper"
+      />
+    </Span>
+  </Wrapper>
+</DropDown>
+`;

@@ -1,0 +1,198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ul SNAPSHOTS should render 1`] = `
+<Ul>
+  <ul>
+    <Li>
+      <li>
+        item1
+      </li>
+    </Li>
+    <Li>
+      <li>
+        item2
+      </li>
+    </Li>
+    <Li>
+      <li>
+        item3
+      </li>
+    </Li>
+  </ul>
+</Ul>
+`;
+
+exports[`Ul SNAPSHOTS should render different component states should render circle 1`] = `
+<Ul
+  circle={true}
+>
+  <ul
+    circle={true}
+  >
+    <Li>
+      <li>
+        item1
+      </li>
+    </Li>
+    <Li>
+      <li>
+        item2
+      </li>
+    </Li>
+    <Li>
+      <li>
+        item3
+      </li>
+    </Li>
+  </ul>
+</Ul>
+`;
+
+exports[`Ul SNAPSHOTS should render different component states should render decimal 1`] = `
+<Ol
+  decimal={true}
+>
+  <ol
+    decimal={true}
+  >
+    <Li>
+      <li>
+        item1
+      </li>
+    </Li>
+    <Li>
+      <li>
+        item2
+      </li>
+    </Li>
+    <Li>
+      <li>
+        item3
+      </li>
+    </Li>
+  </ol>
+</Ol>
+`;
+
+exports[`Ul SNAPSHOTS should render different component states should render disc 1`] = `
+<Ul
+  disc={true}
+>
+  <ul
+    disc={true}
+  >
+    <Li>
+      <li>
+        item1
+      </li>
+    </Li>
+    <Li>
+      <li>
+        item2
+      </li>
+    </Li>
+    <Li>
+      <li>
+        item3
+      </li>
+    </Li>
+  </ul>
+</Ul>
+`;
+
+exports[`Ul SNAPSHOTS should render different component states should render lowerAlpha 1`] = `
+<Ul
+  lowerAlpha={true}
+>
+  <ul
+    lowerAlpha={true}
+  >
+    <Li>
+      <li>
+        item1
+      </li>
+    </Li>
+    <Li>
+      <li>
+        item2
+      </li>
+    </Li>
+    <Li>
+      <li>
+        item3
+      </li>
+    </Li>
+  </ul>
+</Ul>
+`;
+
+exports[`Ul SNAPSHOTS should render different component states should render subUl 1`] = `
+<Ul
+  tree={true}
+>
+  <ul
+    tree={true}
+  >
+    <Li>
+      <li>
+        <Ul
+          decimal={true}
+          subUl={true}
+        >
+          <ul
+            decimal={true}
+            subUl={true}
+          >
+            <Li>
+              <li>
+                subitem1
+              </li>
+            </Li>
+            <Li>
+              <li>
+                subitem2
+              </li>
+            </Li>
+          </ul>
+        </Ul>
+      </li>
+    </Li>
+    <Li>
+      <li>
+        item2
+      </li>
+    </Li>
+    <Li>
+      <li>
+        item3
+      </li>
+    </Li>
+  </ul>
+</Ul>
+`;
+
+exports[`Ul SNAPSHOTS should render different component states should render tree 1`] = `
+<Ul
+  tree={true}
+>
+  <ul
+    tree={true}
+  >
+    <Li>
+      <li>
+        item1
+      </li>
+    </Li>
+    <Li>
+      <li>
+        item2
+      </li>
+    </Li>
+    <Li>
+      <li>
+        item3
+      </li>
+    </Li>
+  </ul>
+</Ul>
+`;

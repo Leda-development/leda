@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`THead component tests: should render 1`] = `
+<thead>
+  test
+</thead>
+`;

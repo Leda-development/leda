@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Paragraph SNAPSHOTS should render 1`] = `
+<p>
+  Text
+</p>
+`;

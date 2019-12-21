@@ -1,0 +1,244 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rating SNAPSHOTS should render 1`] = `
+<Rating
+  value={5}
+>
+  <Span
+    className="rating-wrapper"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <span
+      className="rating-wrapper"
+      onClick={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+    >
+      <Icon
+        className="rating-item filled"
+        key="0"
+      >
+        <Span
+          className="rating-item filled"
+        >
+          <span
+            className="rating-item filled"
+          />
+        </Span>
+      </Icon>
+      <Icon
+        className="rating-item filled"
+        key="1"
+      >
+        <Span
+          className="rating-item filled"
+        >
+          <span
+            className="rating-item filled"
+          />
+        </Span>
+      </Icon>
+      <Icon
+        className="rating-item filled"
+        key="2"
+      >
+        <Span
+          className="rating-item filled"
+        >
+          <span
+            className="rating-item filled"
+          />
+        </Span>
+      </Icon>
+      <Icon
+        className="rating-item filled"
+        key="3"
+      >
+        <Span
+          className="rating-item filled"
+        >
+          <span
+            className="rating-item filled"
+          />
+        </Span>
+      </Icon>
+      <Icon
+        className="rating-item filled"
+        key="4"
+      >
+        <Span
+          className="rating-item filled"
+        >
+          <span
+            className="rating-item filled"
+          />
+        </Span>
+      </Icon>
+    </span>
+  </Span>
+</Rating>
+`;
+
+exports[`Rating SNAPSHOTS should render controllable mode 1`] = `
+<Rating
+  value={5}
+>
+  <Span
+    className="rating-wrapper"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <span
+      className="rating-wrapper"
+      onClick={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+    >
+      <Icon
+        className="rating-item filled"
+        key="0"
+      >
+        <Span
+          className="rating-item filled"
+        >
+          <span
+            className="rating-item filled"
+          />
+        </Span>
+      </Icon>
+      <Icon
+        className="rating-item filled"
+        key="1"
+      >
+        <Span
+          className="rating-item filled"
+        >
+          <span
+            className="rating-item filled"
+          />
+        </Span>
+      </Icon>
+      <Icon
+        className="rating-item filled"
+        key="2"
+      >
+        <Span
+          className="rating-item filled"
+        >
+          <span
+            className="rating-item filled"
+          />
+        </Span>
+      </Icon>
+      <Icon
+        className="rating-item filled"
+        key="3"
+      >
+        <Span
+          className="rating-item filled"
+        >
+          <span
+            className="rating-item filled"
+          />
+        </Span>
+      </Icon>
+      <Icon
+        className="rating-item filled"
+        key="4"
+      >
+        <Span
+          className="rating-item filled"
+        >
+          <span
+            className="rating-item filled"
+          />
+        </Span>
+      </Icon>
+    </span>
+  </Span>
+</Rating>
+`;
+
+exports[`Rating SNAPSHOTS should render controllable mode 2`] = `
+<Rating
+  value={2}
+>
+  <Span
+    className="rating-wrapper"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <span
+      className="rating-wrapper"
+      onClick={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+    >
+      <Icon
+        className="rating-item filled"
+        key="0"
+      >
+        <Span
+          className="rating-item filled"
+        >
+          <span
+            className="rating-item filled"
+          />
+        </Span>
+      </Icon>
+      <Icon
+        className="rating-item filled"
+        key="1"
+      >
+        <Span
+          className="rating-item filled"
+        >
+          <span
+            className="rating-item filled"
+          />
+        </Span>
+      </Icon>
+      <Icon
+        className="rating-item"
+        key="2"
+      >
+        <Span
+          className="rating-item"
+        >
+          <span
+            className="rating-item"
+          />
+        </Span>
+      </Icon>
+      <Icon
+        className="rating-item"
+        key="3"
+      >
+        <Span
+          className="rating-item"
+        >
+          <span
+            className="rating-item"
+          />
+        </Span>
+      </Icon>
+      <Icon
+        className="rating-item"
+        key="4"
+      >
+        <Span
+          className="rating-item"
+        >
+          <span
+            className="rating-item"
+          />
+        </Span>
+      </Icon>
+    </span>
+  </Span>
+</Rating>
+`;

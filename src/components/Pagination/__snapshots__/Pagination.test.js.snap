@@ -1,0 +1,3306 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination SNAPSHOTS cotrollable mode should render currentPage 1`] = `
+<Pagination
+  pageSize={2}
+  totalItems={10}
+>
+  <Div
+    className="pagination-wrapper"
+  >
+    <div
+      className="pagination-wrapper"
+    >
+      <PaginationControl
+        className="pagination-controls pagination-button first"
+        onClick={[Function]}
+        page={0}
+        title="Первая"
+      >
+        <A
+          className="pagination-controls pagination-button first disabled"
+          onClick={[Function]}
+          title="Первая"
+        >
+          <a
+            className="pagination-controls pagination-button first disabled"
+            onClick={[Function]}
+            title="Первая"
+          >
+            <Span
+              className="icon-first"
+            >
+              <span
+                className="icon-first"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PaginationControl
+        className="pagination-controls pagination-button prev"
+        onClick={[Function]}
+        page={0}
+        title="Предыдущая"
+      >
+        <A
+          className="pagination-controls pagination-button prev disabled"
+          onClick={[Function]}
+          title="Предыдущая"
+        >
+          <a
+            className="pagination-controls pagination-button prev disabled"
+            onClick={[Function]}
+            title="Предыдущая"
+          >
+            <Span
+              className="icon-prev"
+            >
+              <span
+                className="icon-prev"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PagesList
+        currentPage={1}
+        onClick={[Function]}
+        pageNumbers={
+          Array [
+            1,
+            2,
+            3,
+            4,
+            5,
+          ]
+        }
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <Ul
+          className="pagination-numbers"
+        >
+          <ul
+            className="pagination-numbers"
+          >
+            <Li
+              key="1"
+            >
+              <li>
+                <Span
+                  className="pagination-button selected"
+                >
+                  <span
+                    className="pagination-button selected"
+                  >
+                    1
+                  </span>
+                </Span>
+              </li>
+            </Li>
+            <Li
+              key="2"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={2}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      2
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+            <Li
+              key="3"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={3}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      3
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+            <Li
+              key="4"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={4}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      4
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+            <Li
+              key="5"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={5}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      5
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+          </ul>
+        </Ul>
+      </PagesList>
+      <PaginationControl
+        className="pagination-controls pagination-button next"
+        onClick={[Function]}
+        page={2}
+        title="Следующая"
+      >
+        <A
+          className="pagination-controls pagination-button next"
+          onClick={[Function]}
+          title="Следующая"
+        >
+          <a
+            className="pagination-controls pagination-button next"
+            onClick={[Function]}
+            title="Следующая"
+          >
+            <Span
+              className="icon-next"
+            >
+              <span
+                className="icon-next"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PaginationControl
+        className="pagination-controls pagination-button last"
+        onClick={[Function]}
+        page={5}
+        title="Последняя"
+      >
+        <A
+          className="pagination-controls pagination-button last"
+          onClick={[Function]}
+          title="Последняя"
+        >
+          <a
+            className="pagination-controls pagination-button last"
+            onClick={[Function]}
+            title="Последняя"
+          >
+            <Span
+              className="icon-last"
+            >
+              <span
+                className="icon-last"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PagesDropDown
+        handlePageSizeChange={[Function]}
+        isPageSizeChangeable={false}
+        pageSize={2}
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <PagesDropDown
+          handlePageSizeChange={[Function]}
+          isPageSizeChangeable={false}
+          pageSize={2}
+          theme={
+            Object {
+              "button": "pagination-button",
+              "controlButtons": "pagination-controls",
+              "controlFirst": "first",
+              "controlLast": "last",
+              "controlNext": "next",
+              "controlPrev": "prev",
+              "iconFirst": "icon-first",
+              "iconLast": "icon-last",
+              "iconNext": "icon-next",
+              "iconPrev": "icon-prev",
+              "labelInfo": "pagination-label-info",
+              "labelSizeOptions": "pagination-label-options",
+              "numberButtons": "pagination-numbers",
+              "numberSelected": "selected",
+              "wrapper": "pagination-wrapper",
+            }
+          }
+        >
+          <div
+            className="pagination-label-options"
+          />
+        </PagesDropDown>
+      </PagesDropDown>
+      <ItemsInfo
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <PaginationInfo
+          theme={
+            Object {
+              "button": "pagination-button",
+              "controlButtons": "pagination-controls",
+              "controlFirst": "first",
+              "controlLast": "last",
+              "controlNext": "next",
+              "controlPrev": "prev",
+              "iconFirst": "icon-first",
+              "iconLast": "icon-last",
+              "iconNext": "icon-next",
+              "iconPrev": "icon-prev",
+              "labelInfo": "pagination-label-info",
+              "labelSizeOptions": "pagination-label-options",
+              "numberButtons": "pagination-numbers",
+              "numberSelected": "selected",
+              "wrapper": "pagination-wrapper",
+            }
+          }
+        >
+          <Span
+            className="pagination-label-info"
+          >
+            <span
+              className="pagination-label-info"
+            >
+              <ItemsRangeInfo
+                endingItemNumber={2}
+                startingItemNumber={1}
+                totalItemsNumber={10}
+              >
+                <PaginationRangeInfo
+                  endingItemNumber={2}
+                  startingItemNumber={1}
+                  totalItemsNumber={10}
+                >
+                  1 - 2 из 10
+                </PaginationRangeInfo>
+              </ItemsRangeInfo>
+            </span>
+          </Span>
+        </PaginationInfo>
+      </ItemsInfo>
+    </div>
+  </Div>
+</Pagination>
+`;
+
+exports[`Pagination SNAPSHOTS cotrollable mode should render currentPage 2`] = `
+<Pagination
+  currentPage={3}
+  pageSize={2}
+  totalItems={10}
+>
+  <Div
+    className="pagination-wrapper"
+  >
+    <div
+      className="pagination-wrapper"
+    >
+      <PaginationControl
+        className="pagination-controls pagination-button first"
+        onClick={[Function]}
+        page={1}
+        title="Первая"
+      >
+        <A
+          className="pagination-controls pagination-button first"
+          onClick={[Function]}
+          title="Первая"
+        >
+          <a
+            className="pagination-controls pagination-button first"
+            onClick={[Function]}
+            title="Первая"
+          >
+            <Span
+              className="icon-first"
+            >
+              <span
+                className="icon-first"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PaginationControl
+        className="pagination-controls pagination-button prev"
+        onClick={[Function]}
+        page={2}
+        title="Предыдущая"
+      >
+        <A
+          className="pagination-controls pagination-button prev"
+          onClick={[Function]}
+          title="Предыдущая"
+        >
+          <a
+            className="pagination-controls pagination-button prev"
+            onClick={[Function]}
+            title="Предыдущая"
+          >
+            <Span
+              className="icon-prev"
+            >
+              <span
+                className="icon-prev"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PagesList
+        currentPage={3}
+        onClick={[Function]}
+        pageNumbers={
+          Array [
+            1,
+            2,
+            3,
+            4,
+            5,
+          ]
+        }
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <Ul
+          className="pagination-numbers"
+        >
+          <ul
+            className="pagination-numbers"
+          >
+            <Li
+              key="1"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={1}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      1
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+            <Li
+              key="2"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={2}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      2
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+            <Li
+              key="3"
+            >
+              <li>
+                <Span
+                  className="pagination-button selected"
+                >
+                  <span
+                    className="pagination-button selected"
+                  >
+                    3
+                  </span>
+                </Span>
+              </li>
+            </Li>
+            <Li
+              key="4"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={4}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      4
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+            <Li
+              key="5"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={5}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      5
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+          </ul>
+        </Ul>
+      </PagesList>
+      <PaginationControl
+        className="pagination-controls pagination-button next"
+        onClick={[Function]}
+        page={4}
+        title="Следующая"
+      >
+        <A
+          className="pagination-controls pagination-button next"
+          onClick={[Function]}
+          title="Следующая"
+        >
+          <a
+            className="pagination-controls pagination-button next"
+            onClick={[Function]}
+            title="Следующая"
+          >
+            <Span
+              className="icon-next"
+            >
+              <span
+                className="icon-next"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PaginationControl
+        className="pagination-controls pagination-button last"
+        onClick={[Function]}
+        page={5}
+        title="Последняя"
+      >
+        <A
+          className="pagination-controls pagination-button last"
+          onClick={[Function]}
+          title="Последняя"
+        >
+          <a
+            className="pagination-controls pagination-button last"
+            onClick={[Function]}
+            title="Последняя"
+          >
+            <Span
+              className="icon-last"
+            >
+              <span
+                className="icon-last"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PagesDropDown
+        handlePageSizeChange={[Function]}
+        isPageSizeChangeable={false}
+        pageSize={2}
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <PagesDropDown
+          handlePageSizeChange={[Function]}
+          isPageSizeChangeable={false}
+          pageSize={2}
+          theme={
+            Object {
+              "button": "pagination-button",
+              "controlButtons": "pagination-controls",
+              "controlFirst": "first",
+              "controlLast": "last",
+              "controlNext": "next",
+              "controlPrev": "prev",
+              "iconFirst": "icon-first",
+              "iconLast": "icon-last",
+              "iconNext": "icon-next",
+              "iconPrev": "icon-prev",
+              "labelInfo": "pagination-label-info",
+              "labelSizeOptions": "pagination-label-options",
+              "numberButtons": "pagination-numbers",
+              "numberSelected": "selected",
+              "wrapper": "pagination-wrapper",
+            }
+          }
+        >
+          <div
+            className="pagination-label-options"
+          />
+        </PagesDropDown>
+      </PagesDropDown>
+      <ItemsInfo
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <PaginationInfo
+          theme={
+            Object {
+              "button": "pagination-button",
+              "controlButtons": "pagination-controls",
+              "controlFirst": "first",
+              "controlLast": "last",
+              "controlNext": "next",
+              "controlPrev": "prev",
+              "iconFirst": "icon-first",
+              "iconLast": "icon-last",
+              "iconNext": "icon-next",
+              "iconPrev": "icon-prev",
+              "labelInfo": "pagination-label-info",
+              "labelSizeOptions": "pagination-label-options",
+              "numberButtons": "pagination-numbers",
+              "numberSelected": "selected",
+              "wrapper": "pagination-wrapper",
+            }
+          }
+        >
+          <Span
+            className="pagination-label-info"
+          >
+            <span
+              className="pagination-label-info"
+            >
+              <ItemsRangeInfo
+                endingItemNumber={6}
+                startingItemNumber={5}
+                totalItemsNumber={10}
+              >
+                <PaginationRangeInfo
+                  endingItemNumber={6}
+                  startingItemNumber={5}
+                  totalItemsNumber={10}
+                >
+                  5 - 6 из 10
+                </PaginationRangeInfo>
+              </ItemsRangeInfo>
+            </span>
+          </Span>
+        </PaginationInfo>
+      </ItemsInfo>
+    </div>
+  </Div>
+</Pagination>
+`;
+
+exports[`Pagination SNAPSHOTS cotrollable mode should render pageSize 1`] = `
+<Pagination
+  currentPage={1}
+  pageSize={2}
+  totalItems={10}
+>
+  <Div
+    className="pagination-wrapper"
+  >
+    <div
+      className="pagination-wrapper"
+    >
+      <PaginationControl
+        className="pagination-controls pagination-button first"
+        onClick={[Function]}
+        page={0}
+        title="Первая"
+      >
+        <A
+          className="pagination-controls pagination-button first disabled"
+          onClick={[Function]}
+          title="Первая"
+        >
+          <a
+            className="pagination-controls pagination-button first disabled"
+            onClick={[Function]}
+            title="Первая"
+          >
+            <Span
+              className="icon-first"
+            >
+              <span
+                className="icon-first"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PaginationControl
+        className="pagination-controls pagination-button prev"
+        onClick={[Function]}
+        page={0}
+        title="Предыдущая"
+      >
+        <A
+          className="pagination-controls pagination-button prev disabled"
+          onClick={[Function]}
+          title="Предыдущая"
+        >
+          <a
+            className="pagination-controls pagination-button prev disabled"
+            onClick={[Function]}
+            title="Предыдущая"
+          >
+            <Span
+              className="icon-prev"
+            >
+              <span
+                className="icon-prev"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PagesList
+        currentPage={1}
+        onClick={[Function]}
+        pageNumbers={
+          Array [
+            1,
+            2,
+            3,
+            4,
+            5,
+          ]
+        }
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <Ul
+          className="pagination-numbers"
+        >
+          <ul
+            className="pagination-numbers"
+          >
+            <Li
+              key="1"
+            >
+              <li>
+                <Span
+                  className="pagination-button selected"
+                >
+                  <span
+                    className="pagination-button selected"
+                  >
+                    1
+                  </span>
+                </Span>
+              </li>
+            </Li>
+            <Li
+              key="2"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={2}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      2
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+            <Li
+              key="3"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={3}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      3
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+            <Li
+              key="4"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={4}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      4
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+            <Li
+              key="5"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={5}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      5
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+          </ul>
+        </Ul>
+      </PagesList>
+      <PaginationControl
+        className="pagination-controls pagination-button next"
+        onClick={[Function]}
+        page={2}
+        title="Следующая"
+      >
+        <A
+          className="pagination-controls pagination-button next"
+          onClick={[Function]}
+          title="Следующая"
+        >
+          <a
+            className="pagination-controls pagination-button next"
+            onClick={[Function]}
+            title="Следующая"
+          >
+            <Span
+              className="icon-next"
+            >
+              <span
+                className="icon-next"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PaginationControl
+        className="pagination-controls pagination-button last"
+        onClick={[Function]}
+        page={5}
+        title="Последняя"
+      >
+        <A
+          className="pagination-controls pagination-button last"
+          onClick={[Function]}
+          title="Последняя"
+        >
+          <a
+            className="pagination-controls pagination-button last"
+            onClick={[Function]}
+            title="Последняя"
+          >
+            <Span
+              className="icon-last"
+            >
+              <span
+                className="icon-last"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PagesDropDown
+        handlePageSizeChange={[Function]}
+        isPageSizeChangeable={false}
+        pageSize={2}
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <PagesDropDown
+          handlePageSizeChange={[Function]}
+          isPageSizeChangeable={false}
+          pageSize={2}
+          theme={
+            Object {
+              "button": "pagination-button",
+              "controlButtons": "pagination-controls",
+              "controlFirst": "first",
+              "controlLast": "last",
+              "controlNext": "next",
+              "controlPrev": "prev",
+              "iconFirst": "icon-first",
+              "iconLast": "icon-last",
+              "iconNext": "icon-next",
+              "iconPrev": "icon-prev",
+              "labelInfo": "pagination-label-info",
+              "labelSizeOptions": "pagination-label-options",
+              "numberButtons": "pagination-numbers",
+              "numberSelected": "selected",
+              "wrapper": "pagination-wrapper",
+            }
+          }
+        >
+          <div
+            className="pagination-label-options"
+          />
+        </PagesDropDown>
+      </PagesDropDown>
+      <ItemsInfo
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <PaginationInfo
+          theme={
+            Object {
+              "button": "pagination-button",
+              "controlButtons": "pagination-controls",
+              "controlFirst": "first",
+              "controlLast": "last",
+              "controlNext": "next",
+              "controlPrev": "prev",
+              "iconFirst": "icon-first",
+              "iconLast": "icon-last",
+              "iconNext": "icon-next",
+              "iconPrev": "icon-prev",
+              "labelInfo": "pagination-label-info",
+              "labelSizeOptions": "pagination-label-options",
+              "numberButtons": "pagination-numbers",
+              "numberSelected": "selected",
+              "wrapper": "pagination-wrapper",
+            }
+          }
+        >
+          <Span
+            className="pagination-label-info"
+          >
+            <span
+              className="pagination-label-info"
+            >
+              <ItemsRangeInfo
+                endingItemNumber={2}
+                startingItemNumber={1}
+                totalItemsNumber={10}
+              >
+                <PaginationRangeInfo
+                  endingItemNumber={2}
+                  startingItemNumber={1}
+                  totalItemsNumber={10}
+                >
+                  1 - 2 из 10
+                </PaginationRangeInfo>
+              </ItemsRangeInfo>
+            </span>
+          </Span>
+        </PaginationInfo>
+      </ItemsInfo>
+    </div>
+  </Div>
+</Pagination>
+`;
+
+exports[`Pagination SNAPSHOTS cotrollable mode should render pageSize 2`] = `
+<Pagination
+  currentPage={1}
+  pageSize={5}
+  totalItems={10}
+>
+  <Div
+    className="pagination-wrapper"
+  >
+    <div
+      className="pagination-wrapper"
+    >
+      <PaginationControl
+        className="pagination-controls pagination-button first"
+        onClick={[Function]}
+        page={0}
+        title="Первая"
+      >
+        <A
+          className="pagination-controls pagination-button first disabled"
+          onClick={[Function]}
+          title="Первая"
+        >
+          <a
+            className="pagination-controls pagination-button first disabled"
+            onClick={[Function]}
+            title="Первая"
+          >
+            <Span
+              className="icon-first"
+            >
+              <span
+                className="icon-first"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PaginationControl
+        className="pagination-controls pagination-button prev"
+        onClick={[Function]}
+        page={0}
+        title="Предыдущая"
+      >
+        <A
+          className="pagination-controls pagination-button prev disabled"
+          onClick={[Function]}
+          title="Предыдущая"
+        >
+          <a
+            className="pagination-controls pagination-button prev disabled"
+            onClick={[Function]}
+            title="Предыдущая"
+          >
+            <Span
+              className="icon-prev"
+            >
+              <span
+                className="icon-prev"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PagesList
+        currentPage={1}
+        onClick={[Function]}
+        pageNumbers={
+          Array [
+            1,
+            2,
+          ]
+        }
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <Ul
+          className="pagination-numbers"
+        >
+          <ul
+            className="pagination-numbers"
+          >
+            <Li
+              key="1"
+            >
+              <li>
+                <Span
+                  className="pagination-button selected"
+                >
+                  <span
+                    className="pagination-button selected"
+                  >
+                    1
+                  </span>
+                </Span>
+              </li>
+            </Li>
+            <Li
+              key="2"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={2}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      2
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+          </ul>
+        </Ul>
+      </PagesList>
+      <PaginationControl
+        className="pagination-controls pagination-button next"
+        onClick={[Function]}
+        page={2}
+        title="Следующая"
+      >
+        <A
+          className="pagination-controls pagination-button next"
+          onClick={[Function]}
+          title="Следующая"
+        >
+          <a
+            className="pagination-controls pagination-button next"
+            onClick={[Function]}
+            title="Следующая"
+          >
+            <Span
+              className="icon-next"
+            >
+              <span
+                className="icon-next"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PaginationControl
+        className="pagination-controls pagination-button last"
+        onClick={[Function]}
+        page={2}
+        title="Последняя"
+      >
+        <A
+          className="pagination-controls pagination-button last"
+          onClick={[Function]}
+          title="Последняя"
+        >
+          <a
+            className="pagination-controls pagination-button last"
+            onClick={[Function]}
+            title="Последняя"
+          >
+            <Span
+              className="icon-last"
+            >
+              <span
+                className="icon-last"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PagesDropDown
+        handlePageSizeChange={[Function]}
+        isPageSizeChangeable={false}
+        pageSize={5}
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <PagesDropDown
+          handlePageSizeChange={[Function]}
+          isPageSizeChangeable={false}
+          pageSize={5}
+          theme={
+            Object {
+              "button": "pagination-button",
+              "controlButtons": "pagination-controls",
+              "controlFirst": "first",
+              "controlLast": "last",
+              "controlNext": "next",
+              "controlPrev": "prev",
+              "iconFirst": "icon-first",
+              "iconLast": "icon-last",
+              "iconNext": "icon-next",
+              "iconPrev": "icon-prev",
+              "labelInfo": "pagination-label-info",
+              "labelSizeOptions": "pagination-label-options",
+              "numberButtons": "pagination-numbers",
+              "numberSelected": "selected",
+              "wrapper": "pagination-wrapper",
+            }
+          }
+        >
+          <div
+            className="pagination-label-options"
+          />
+        </PagesDropDown>
+      </PagesDropDown>
+      <ItemsInfo
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <PaginationInfo
+          theme={
+            Object {
+              "button": "pagination-button",
+              "controlButtons": "pagination-controls",
+              "controlFirst": "first",
+              "controlLast": "last",
+              "controlNext": "next",
+              "controlPrev": "prev",
+              "iconFirst": "icon-first",
+              "iconLast": "icon-last",
+              "iconNext": "icon-next",
+              "iconPrev": "icon-prev",
+              "labelInfo": "pagination-label-info",
+              "labelSizeOptions": "pagination-label-options",
+              "numberButtons": "pagination-numbers",
+              "numberSelected": "selected",
+              "wrapper": "pagination-wrapper",
+            }
+          }
+        >
+          <Span
+            className="pagination-label-info"
+          >
+            <span
+              className="pagination-label-info"
+            >
+              <ItemsRangeInfo
+                endingItemNumber={5}
+                startingItemNumber={1}
+                totalItemsNumber={10}
+              >
+                <PaginationRangeInfo
+                  endingItemNumber={5}
+                  startingItemNumber={1}
+                  totalItemsNumber={10}
+                >
+                  1 - 5 из 10
+                </PaginationRangeInfo>
+              </ItemsRangeInfo>
+            </span>
+          </Span>
+        </PaginationInfo>
+      </ItemsInfo>
+    </div>
+  </Div>
+</Pagination>
+`;
+
+exports[`Pagination SNAPSHOTS cotrollable mode should render totalItems 1`] = `
+<Pagination
+  pageSize={2}
+  totalItems={10}
+>
+  <Div
+    className="pagination-wrapper"
+  >
+    <div
+      className="pagination-wrapper"
+    >
+      <PaginationControl
+        className="pagination-controls pagination-button first"
+        onClick={[Function]}
+        page={0}
+        title="Первая"
+      >
+        <A
+          className="pagination-controls pagination-button first disabled"
+          onClick={[Function]}
+          title="Первая"
+        >
+          <a
+            className="pagination-controls pagination-button first disabled"
+            onClick={[Function]}
+            title="Первая"
+          >
+            <Span
+              className="icon-first"
+            >
+              <span
+                className="icon-first"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PaginationControl
+        className="pagination-controls pagination-button prev"
+        onClick={[Function]}
+        page={0}
+        title="Предыдущая"
+      >
+        <A
+          className="pagination-controls pagination-button prev disabled"
+          onClick={[Function]}
+          title="Предыдущая"
+        >
+          <a
+            className="pagination-controls pagination-button prev disabled"
+            onClick={[Function]}
+            title="Предыдущая"
+          >
+            <Span
+              className="icon-prev"
+            >
+              <span
+                className="icon-prev"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PagesList
+        currentPage={1}
+        onClick={[Function]}
+        pageNumbers={
+          Array [
+            1,
+            2,
+            3,
+            4,
+            5,
+          ]
+        }
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <Ul
+          className="pagination-numbers"
+        >
+          <ul
+            className="pagination-numbers"
+          >
+            <Li
+              key="1"
+            >
+              <li>
+                <Span
+                  className="pagination-button selected"
+                >
+                  <span
+                    className="pagination-button selected"
+                  >
+                    1
+                  </span>
+                </Span>
+              </li>
+            </Li>
+            <Li
+              key="2"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={2}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      2
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+            <Li
+              key="3"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={3}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      3
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+            <Li
+              key="4"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={4}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      4
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+            <Li
+              key="5"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={5}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      5
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+          </ul>
+        </Ul>
+      </PagesList>
+      <PaginationControl
+        className="pagination-controls pagination-button next"
+        onClick={[Function]}
+        page={2}
+        title="Следующая"
+      >
+        <A
+          className="pagination-controls pagination-button next"
+          onClick={[Function]}
+          title="Следующая"
+        >
+          <a
+            className="pagination-controls pagination-button next"
+            onClick={[Function]}
+            title="Следующая"
+          >
+            <Span
+              className="icon-next"
+            >
+              <span
+                className="icon-next"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PaginationControl
+        className="pagination-controls pagination-button last"
+        onClick={[Function]}
+        page={5}
+        title="Последняя"
+      >
+        <A
+          className="pagination-controls pagination-button last"
+          onClick={[Function]}
+          title="Последняя"
+        >
+          <a
+            className="pagination-controls pagination-button last"
+            onClick={[Function]}
+            title="Последняя"
+          >
+            <Span
+              className="icon-last"
+            >
+              <span
+                className="icon-last"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PagesDropDown
+        handlePageSizeChange={[Function]}
+        isPageSizeChangeable={false}
+        pageSize={2}
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <PagesDropDown
+          handlePageSizeChange={[Function]}
+          isPageSizeChangeable={false}
+          pageSize={2}
+          theme={
+            Object {
+              "button": "pagination-button",
+              "controlButtons": "pagination-controls",
+              "controlFirst": "first",
+              "controlLast": "last",
+              "controlNext": "next",
+              "controlPrev": "prev",
+              "iconFirst": "icon-first",
+              "iconLast": "icon-last",
+              "iconNext": "icon-next",
+              "iconPrev": "icon-prev",
+              "labelInfo": "pagination-label-info",
+              "labelSizeOptions": "pagination-label-options",
+              "numberButtons": "pagination-numbers",
+              "numberSelected": "selected",
+              "wrapper": "pagination-wrapper",
+            }
+          }
+        >
+          <div
+            className="pagination-label-options"
+          />
+        </PagesDropDown>
+      </PagesDropDown>
+      <ItemsInfo
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <PaginationInfo
+          theme={
+            Object {
+              "button": "pagination-button",
+              "controlButtons": "pagination-controls",
+              "controlFirst": "first",
+              "controlLast": "last",
+              "controlNext": "next",
+              "controlPrev": "prev",
+              "iconFirst": "icon-first",
+              "iconLast": "icon-last",
+              "iconNext": "icon-next",
+              "iconPrev": "icon-prev",
+              "labelInfo": "pagination-label-info",
+              "labelSizeOptions": "pagination-label-options",
+              "numberButtons": "pagination-numbers",
+              "numberSelected": "selected",
+              "wrapper": "pagination-wrapper",
+            }
+          }
+        >
+          <Span
+            className="pagination-label-info"
+          >
+            <span
+              className="pagination-label-info"
+            >
+              <ItemsRangeInfo
+                endingItemNumber={2}
+                startingItemNumber={1}
+                totalItemsNumber={10}
+              >
+                <PaginationRangeInfo
+                  endingItemNumber={2}
+                  startingItemNumber={1}
+                  totalItemsNumber={10}
+                >
+                  1 - 2 из 10
+                </PaginationRangeInfo>
+              </ItemsRangeInfo>
+            </span>
+          </Span>
+        </PaginationInfo>
+      </ItemsInfo>
+    </div>
+  </Div>
+</Pagination>
+`;
+
+exports[`Pagination SNAPSHOTS cotrollable mode should render totalItems 2`] = `
+<Pagination
+  pageSize={2}
+  totalItems={20}
+>
+  <Div
+    className="pagination-wrapper"
+  >
+    <div
+      className="pagination-wrapper"
+    >
+      <PaginationControl
+        className="pagination-controls pagination-button first"
+        onClick={[Function]}
+        page={0}
+        title="Первая"
+      >
+        <A
+          className="pagination-controls pagination-button first disabled"
+          onClick={[Function]}
+          title="Первая"
+        >
+          <a
+            className="pagination-controls pagination-button first disabled"
+            onClick={[Function]}
+            title="Первая"
+          >
+            <Span
+              className="icon-first"
+            >
+              <span
+                className="icon-first"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PaginationControl
+        className="pagination-controls pagination-button prev"
+        onClick={[Function]}
+        page={0}
+        title="Предыдущая"
+      >
+        <A
+          className="pagination-controls pagination-button prev disabled"
+          onClick={[Function]}
+          title="Предыдущая"
+        >
+          <a
+            className="pagination-controls pagination-button prev disabled"
+            onClick={[Function]}
+            title="Предыдущая"
+          >
+            <Span
+              className="icon-prev"
+            >
+              <span
+                className="icon-prev"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PagesList
+        currentPage={1}
+        onClick={[Function]}
+        pageNumbers={
+          Array [
+            1,
+            2,
+            3,
+            4,
+            5,
+          ]
+        }
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <Ul
+          className="pagination-numbers"
+        >
+          <ul
+            className="pagination-numbers"
+          >
+            <Li
+              key="1"
+            >
+              <li>
+                <Span
+                  className="pagination-button selected"
+                >
+                  <span
+                    className="pagination-button selected"
+                  >
+                    1
+                  </span>
+                </Span>
+              </li>
+            </Li>
+            <Li
+              key="2"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={2}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      2
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+            <Li
+              key="3"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={3}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      3
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+            <Li
+              key="4"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={4}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      4
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+            <Li
+              key="5"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={5}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      5
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+          </ul>
+        </Ul>
+      </PagesList>
+      <PaginationControl
+        className="pagination-button"
+        isPageNumber={true}
+        onClick={[Function]}
+        page={6}
+        title="Следующие страницы"
+      >
+        <A
+          className="pagination-button"
+          onClick={[Function]}
+          tabIndex={-1}
+          title="Следующие страницы"
+        >
+          <a
+            className="pagination-button"
+            onClick={[Function]}
+            tabIndex={-1}
+            title="Следующие страницы"
+          >
+            ...
+          </a>
+        </A>
+      </PaginationControl>
+      <PaginationControl
+        className="pagination-controls pagination-button next"
+        onClick={[Function]}
+        page={2}
+        title="Следующая"
+      >
+        <A
+          className="pagination-controls pagination-button next"
+          onClick={[Function]}
+          title="Следующая"
+        >
+          <a
+            className="pagination-controls pagination-button next"
+            onClick={[Function]}
+            title="Следующая"
+          >
+            <Span
+              className="icon-next"
+            >
+              <span
+                className="icon-next"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PaginationControl
+        className="pagination-controls pagination-button last"
+        onClick={[Function]}
+        page={10}
+        title="Последняя"
+      >
+        <A
+          className="pagination-controls pagination-button last"
+          onClick={[Function]}
+          title="Последняя"
+        >
+          <a
+            className="pagination-controls pagination-button last"
+            onClick={[Function]}
+            title="Последняя"
+          >
+            <Span
+              className="icon-last"
+            >
+              <span
+                className="icon-last"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PagesDropDown
+        handlePageSizeChange={[Function]}
+        isPageSizeChangeable={false}
+        pageSize={2}
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <PagesDropDown
+          handlePageSizeChange={[Function]}
+          isPageSizeChangeable={false}
+          pageSize={2}
+          theme={
+            Object {
+              "button": "pagination-button",
+              "controlButtons": "pagination-controls",
+              "controlFirst": "first",
+              "controlLast": "last",
+              "controlNext": "next",
+              "controlPrev": "prev",
+              "iconFirst": "icon-first",
+              "iconLast": "icon-last",
+              "iconNext": "icon-next",
+              "iconPrev": "icon-prev",
+              "labelInfo": "pagination-label-info",
+              "labelSizeOptions": "pagination-label-options",
+              "numberButtons": "pagination-numbers",
+              "numberSelected": "selected",
+              "wrapper": "pagination-wrapper",
+            }
+          }
+        >
+          <div
+            className="pagination-label-options"
+          />
+        </PagesDropDown>
+      </PagesDropDown>
+      <ItemsInfo
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <PaginationInfo
+          theme={
+            Object {
+              "button": "pagination-button",
+              "controlButtons": "pagination-controls",
+              "controlFirst": "first",
+              "controlLast": "last",
+              "controlNext": "next",
+              "controlPrev": "prev",
+              "iconFirst": "icon-first",
+              "iconLast": "icon-last",
+              "iconNext": "icon-next",
+              "iconPrev": "icon-prev",
+              "labelInfo": "pagination-label-info",
+              "labelSizeOptions": "pagination-label-options",
+              "numberButtons": "pagination-numbers",
+              "numberSelected": "selected",
+              "wrapper": "pagination-wrapper",
+            }
+          }
+        >
+          <Span
+            className="pagination-label-info"
+          >
+            <span
+              className="pagination-label-info"
+            >
+              <ItemsRangeInfo
+                endingItemNumber={2}
+                startingItemNumber={1}
+                totalItemsNumber={20}
+              >
+                <PaginationRangeInfo
+                  endingItemNumber={2}
+                  startingItemNumber={1}
+                  totalItemsNumber={20}
+                >
+                  1 - 2 из 20
+                </PaginationRangeInfo>
+              </ItemsRangeInfo>
+            </span>
+          </Span>
+        </PaginationInfo>
+      </ItemsInfo>
+    </div>
+  </Div>
+</Pagination>
+`;
+
+exports[`Pagination SNAPSHOTS should render 1`] = `
+<Pagination
+  pageSize={2}
+  totalItems={10}
+>
+  <Div
+    className="pagination-wrapper"
+  >
+    <div
+      className="pagination-wrapper"
+    >
+      <PaginationControl
+        className="pagination-controls pagination-button first"
+        onClick={[Function]}
+        page={0}
+        title="Первая"
+      >
+        <A
+          className="pagination-controls pagination-button first disabled"
+          onClick={[Function]}
+          title="Первая"
+        >
+          <a
+            className="pagination-controls pagination-button first disabled"
+            onClick={[Function]}
+            title="Первая"
+          >
+            <Span
+              className="icon-first"
+            >
+              <span
+                className="icon-first"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PaginationControl
+        className="pagination-controls pagination-button prev"
+        onClick={[Function]}
+        page={0}
+        title="Предыдущая"
+      >
+        <A
+          className="pagination-controls pagination-button prev disabled"
+          onClick={[Function]}
+          title="Предыдущая"
+        >
+          <a
+            className="pagination-controls pagination-button prev disabled"
+            onClick={[Function]}
+            title="Предыдущая"
+          >
+            <Span
+              className="icon-prev"
+            >
+              <span
+                className="icon-prev"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PagesList
+        currentPage={1}
+        onClick={[Function]}
+        pageNumbers={
+          Array [
+            1,
+            2,
+            3,
+            4,
+            5,
+          ]
+        }
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <Ul
+          className="pagination-numbers"
+        >
+          <ul
+            className="pagination-numbers"
+          >
+            <Li
+              key="1"
+            >
+              <li>
+                <Span
+                  className="pagination-button selected"
+                >
+                  <span
+                    className="pagination-button selected"
+                  >
+                    1
+                  </span>
+                </Span>
+              </li>
+            </Li>
+            <Li
+              key="2"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={2}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      2
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+            <Li
+              key="3"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={3}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      3
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+            <Li
+              key="4"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={4}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      4
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+            <Li
+              key="5"
+            >
+              <li>
+                <PaginationControl
+                  className="pagination-button"
+                  isPageNumber={true}
+                  onClick={[Function]}
+                  page={5}
+                >
+                  <A
+                    className="pagination-button"
+                    onClick={[Function]}
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="pagination-button"
+                      onClick={[Function]}
+                      tabIndex={-1}
+                    >
+                      5
+                    </a>
+                  </A>
+                </PaginationControl>
+              </li>
+            </Li>
+          </ul>
+        </Ul>
+      </PagesList>
+      <PaginationControl
+        className="pagination-controls pagination-button next"
+        onClick={[Function]}
+        page={2}
+        title="Следующая"
+      >
+        <A
+          className="pagination-controls pagination-button next"
+          onClick={[Function]}
+          title="Следующая"
+        >
+          <a
+            className="pagination-controls pagination-button next"
+            onClick={[Function]}
+            title="Следующая"
+          >
+            <Span
+              className="icon-next"
+            >
+              <span
+                className="icon-next"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PaginationControl
+        className="pagination-controls pagination-button last"
+        onClick={[Function]}
+        page={5}
+        title="Последняя"
+      >
+        <A
+          className="pagination-controls pagination-button last"
+          onClick={[Function]}
+          title="Последняя"
+        >
+          <a
+            className="pagination-controls pagination-button last"
+            onClick={[Function]}
+            title="Последняя"
+          >
+            <Span
+              className="icon-last"
+            >
+              <span
+                className="icon-last"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PagesDropDown
+        handlePageSizeChange={[Function]}
+        isPageSizeChangeable={false}
+        pageSize={2}
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <PagesDropDown
+          handlePageSizeChange={[Function]}
+          isPageSizeChangeable={false}
+          pageSize={2}
+          theme={
+            Object {
+              "button": "pagination-button",
+              "controlButtons": "pagination-controls",
+              "controlFirst": "first",
+              "controlLast": "last",
+              "controlNext": "next",
+              "controlPrev": "prev",
+              "iconFirst": "icon-first",
+              "iconLast": "icon-last",
+              "iconNext": "icon-next",
+              "iconPrev": "icon-prev",
+              "labelInfo": "pagination-label-info",
+              "labelSizeOptions": "pagination-label-options",
+              "numberButtons": "pagination-numbers",
+              "numberSelected": "selected",
+              "wrapper": "pagination-wrapper",
+            }
+          }
+        >
+          <div
+            className="pagination-label-options"
+          />
+        </PagesDropDown>
+      </PagesDropDown>
+      <ItemsInfo
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <PaginationInfo
+          theme={
+            Object {
+              "button": "pagination-button",
+              "controlButtons": "pagination-controls",
+              "controlFirst": "first",
+              "controlLast": "last",
+              "controlNext": "next",
+              "controlPrev": "prev",
+              "iconFirst": "icon-first",
+              "iconLast": "icon-last",
+              "iconNext": "icon-next",
+              "iconPrev": "icon-prev",
+              "labelInfo": "pagination-label-info",
+              "labelSizeOptions": "pagination-label-options",
+              "numberButtons": "pagination-numbers",
+              "numberSelected": "selected",
+              "wrapper": "pagination-wrapper",
+            }
+          }
+        >
+          <Span
+            className="pagination-label-info"
+          >
+            <span
+              className="pagination-label-info"
+            >
+              <ItemsRangeInfo
+                endingItemNumber={2}
+                startingItemNumber={1}
+                totalItemsNumber={10}
+              >
+                <PaginationRangeInfo
+                  endingItemNumber={2}
+                  startingItemNumber={1}
+                  totalItemsNumber={10}
+                >
+                  1 - 2 из 10
+                </PaginationRangeInfo>
+              </ItemsRangeInfo>
+            </span>
+          </Span>
+        </PaginationInfo>
+      </ItemsInfo>
+    </div>
+  </Div>
+</Pagination>
+`;
+
+exports[`Pagination SNAPSHOTS should render pagination with zero totalItems with disabled controls 1`] = `
+<Pagination
+  onChange={[MockFunction]}
+  pageSize={2}
+  totalItems={0}
+>
+  <Div
+    className="pagination-wrapper"
+  >
+    <div
+      className="pagination-wrapper"
+    >
+      <PaginationControl
+        className="pagination-controls pagination-button first"
+        onClick={[Function]}
+        page={0}
+        title="Первая"
+      >
+        <A
+          className="pagination-controls pagination-button first disabled"
+          onClick={[Function]}
+          title="Первая"
+        >
+          <a
+            className="pagination-controls pagination-button first disabled"
+            onClick={[Function]}
+            title="Первая"
+          >
+            <Span
+              className="icon-first"
+            >
+              <span
+                className="icon-first"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PaginationControl
+        className="pagination-controls pagination-button prev"
+        onClick={[Function]}
+        page={0}
+        title="Предыдущая"
+      >
+        <A
+          className="pagination-controls pagination-button prev disabled"
+          onClick={[Function]}
+          title="Предыдущая"
+        >
+          <a
+            className="pagination-controls pagination-button prev disabled"
+            onClick={[Function]}
+            title="Предыдущая"
+          >
+            <Span
+              className="icon-prev"
+            >
+              <span
+                className="icon-prev"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PagesList
+        currentPage={1}
+        onClick={[Function]}
+        pageNumbers={
+          Array [
+            1,
+          ]
+        }
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <Ul
+          className="pagination-numbers"
+        >
+          <ul
+            className="pagination-numbers"
+          >
+            <Li
+              key="1"
+            >
+              <li>
+                <Span
+                  className="pagination-button selected disabled"
+                >
+                  <span
+                    className="pagination-button selected disabled"
+                  >
+                    1
+                  </span>
+                </Span>
+              </li>
+            </Li>
+          </ul>
+        </Ul>
+      </PagesList>
+      <PaginationControl
+        className="pagination-controls pagination-button next"
+        onClick={[Function]}
+        page={0}
+        title="Следующая"
+      >
+        <A
+          className="pagination-controls pagination-button next disabled"
+          onClick={[Function]}
+          title="Следующая"
+        >
+          <a
+            className="pagination-controls pagination-button next disabled"
+            onClick={[Function]}
+            title="Следующая"
+          >
+            <Span
+              className="icon-next"
+            >
+              <span
+                className="icon-next"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PaginationControl
+        className="pagination-controls pagination-button last"
+        onClick={[Function]}
+        page={0}
+        title="Последняя"
+      >
+        <A
+          className="pagination-controls pagination-button last disabled"
+          onClick={[Function]}
+          title="Последняя"
+        >
+          <a
+            className="pagination-controls pagination-button last disabled"
+            onClick={[Function]}
+            title="Последняя"
+          >
+            <Span
+              className="icon-last"
+            >
+              <span
+                className="icon-last"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PagesDropDown
+        handlePageSizeChange={[Function]}
+        isPageSizeChangeable={false}
+        pageSize={2}
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <PagesDropDown
+          handlePageSizeChange={[Function]}
+          isPageSizeChangeable={false}
+          pageSize={2}
+          theme={
+            Object {
+              "button": "pagination-button",
+              "controlButtons": "pagination-controls",
+              "controlFirst": "first",
+              "controlLast": "last",
+              "controlNext": "next",
+              "controlPrev": "prev",
+              "iconFirst": "icon-first",
+              "iconLast": "icon-last",
+              "iconNext": "icon-next",
+              "iconPrev": "icon-prev",
+              "labelInfo": "pagination-label-info",
+              "labelSizeOptions": "pagination-label-options",
+              "numberButtons": "pagination-numbers",
+              "numberSelected": "selected",
+              "wrapper": "pagination-wrapper",
+            }
+          }
+        >
+          <div
+            className="pagination-label-options"
+          />
+        </PagesDropDown>
+      </PagesDropDown>
+      <ItemsInfo
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <PaginationInfo
+          theme={
+            Object {
+              "button": "pagination-button",
+              "controlButtons": "pagination-controls",
+              "controlFirst": "first",
+              "controlLast": "last",
+              "controlNext": "next",
+              "controlPrev": "prev",
+              "iconFirst": "icon-first",
+              "iconLast": "icon-last",
+              "iconNext": "icon-next",
+              "iconPrev": "icon-prev",
+              "labelInfo": "pagination-label-info",
+              "labelSizeOptions": "pagination-label-options",
+              "numberButtons": "pagination-numbers",
+              "numberSelected": "selected",
+              "wrapper": "pagination-wrapper",
+            }
+          }
+        >
+          <Span
+            className="pagination-label-info"
+          >
+            <span
+              className="pagination-label-info"
+            >
+              <ItemsTotalInfo
+                totalItemsNumber={0}
+              >
+                <PaginationTotalInfo
+                  totalItemsNumber={0}
+                >
+                  Всего записей: 0
+                </PaginationTotalInfo>
+              </ItemsTotalInfo>
+            </span>
+          </Span>
+        </PaginationInfo>
+      </ItemsInfo>
+    </div>
+  </Div>
+</Pagination>
+`;
+
+exports[`Pagination SNAPSHOTS should render single page pagination with disabled controls 1`] = `
+<Pagination
+  onChange={[MockFunction]}
+  pageSize={2}
+  totalItems={1}
+>
+  <Div
+    className="pagination-wrapper"
+  >
+    <div
+      className="pagination-wrapper"
+    >
+      <PaginationControl
+        className="pagination-controls pagination-button first"
+        onClick={[Function]}
+        page={0}
+        title="Первая"
+      >
+        <A
+          className="pagination-controls pagination-button first disabled"
+          onClick={[Function]}
+          title="Первая"
+        >
+          <a
+            className="pagination-controls pagination-button first disabled"
+            onClick={[Function]}
+            title="Первая"
+          >
+            <Span
+              className="icon-first"
+            >
+              <span
+                className="icon-first"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PaginationControl
+        className="pagination-controls pagination-button prev"
+        onClick={[Function]}
+        page={0}
+        title="Предыдущая"
+      >
+        <A
+          className="pagination-controls pagination-button prev disabled"
+          onClick={[Function]}
+          title="Предыдущая"
+        >
+          <a
+            className="pagination-controls pagination-button prev disabled"
+            onClick={[Function]}
+            title="Предыдущая"
+          >
+            <Span
+              className="icon-prev"
+            >
+              <span
+                className="icon-prev"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PagesList
+        currentPage={1}
+        onClick={[Function]}
+        pageNumbers={
+          Array [
+            1,
+          ]
+        }
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <Ul
+          className="pagination-numbers"
+        >
+          <ul
+            className="pagination-numbers"
+          >
+            <Li
+              key="1"
+            >
+              <li>
+                <Span
+                  className="pagination-button selected disabled"
+                >
+                  <span
+                    className="pagination-button selected disabled"
+                  >
+                    1
+                  </span>
+                </Span>
+              </li>
+            </Li>
+          </ul>
+        </Ul>
+      </PagesList>
+      <PaginationControl
+        className="pagination-controls pagination-button next"
+        onClick={[Function]}
+        page={0}
+        title="Следующая"
+      >
+        <A
+          className="pagination-controls pagination-button next disabled"
+          onClick={[Function]}
+          title="Следующая"
+        >
+          <a
+            className="pagination-controls pagination-button next disabled"
+            onClick={[Function]}
+            title="Следующая"
+          >
+            <Span
+              className="icon-next"
+            >
+              <span
+                className="icon-next"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PaginationControl
+        className="pagination-controls pagination-button last"
+        onClick={[Function]}
+        page={0}
+        title="Последняя"
+      >
+        <A
+          className="pagination-controls pagination-button last disabled"
+          onClick={[Function]}
+          title="Последняя"
+        >
+          <a
+            className="pagination-controls pagination-button last disabled"
+            onClick={[Function]}
+            title="Последняя"
+          >
+            <Span
+              className="icon-last"
+            >
+              <span
+                className="icon-last"
+              />
+            </Span>
+          </a>
+        </A>
+      </PaginationControl>
+      <PagesDropDown
+        handlePageSizeChange={[Function]}
+        isPageSizeChangeable={false}
+        pageSize={2}
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <PagesDropDown
+          handlePageSizeChange={[Function]}
+          isPageSizeChangeable={false}
+          pageSize={2}
+          theme={
+            Object {
+              "button": "pagination-button",
+              "controlButtons": "pagination-controls",
+              "controlFirst": "first",
+              "controlLast": "last",
+              "controlNext": "next",
+              "controlPrev": "prev",
+              "iconFirst": "icon-first",
+              "iconLast": "icon-last",
+              "iconNext": "icon-next",
+              "iconPrev": "icon-prev",
+              "labelInfo": "pagination-label-info",
+              "labelSizeOptions": "pagination-label-options",
+              "numberButtons": "pagination-numbers",
+              "numberSelected": "selected",
+              "wrapper": "pagination-wrapper",
+            }
+          }
+        >
+          <div
+            className="pagination-label-options"
+          />
+        </PagesDropDown>
+      </PagesDropDown>
+      <ItemsInfo
+        theme={
+          Object {
+            "button": "pagination-button",
+            "controlButtons": "pagination-controls",
+            "controlFirst": "first",
+            "controlLast": "last",
+            "controlNext": "next",
+            "controlPrev": "prev",
+            "iconFirst": "icon-first",
+            "iconLast": "icon-last",
+            "iconNext": "icon-next",
+            "iconPrev": "icon-prev",
+            "labelInfo": "pagination-label-info",
+            "labelSizeOptions": "pagination-label-options",
+            "numberButtons": "pagination-numbers",
+            "numberSelected": "selected",
+            "wrapper": "pagination-wrapper",
+          }
+        }
+      >
+        <PaginationInfo
+          theme={
+            Object {
+              "button": "pagination-button",
+              "controlButtons": "pagination-controls",
+              "controlFirst": "first",
+              "controlLast": "last",
+              "controlNext": "next",
+              "controlPrev": "prev",
+              "iconFirst": "icon-first",
+              "iconLast": "icon-last",
+              "iconNext": "icon-next",
+              "iconPrev": "icon-prev",
+              "labelInfo": "pagination-label-info",
+              "labelSizeOptions": "pagination-label-options",
+              "numberButtons": "pagination-numbers",
+              "numberSelected": "selected",
+              "wrapper": "pagination-wrapper",
+            }
+          }
+        >
+          <Span
+            className="pagination-label-info"
+          >
+            <span
+              className="pagination-label-info"
+            >
+              <ItemsTotalInfo
+                totalItemsNumber={1}
+              >
+                <PaginationTotalInfo
+                  totalItemsNumber={1}
+                >
+                  Всего записей: 1
+                </PaginationTotalInfo>
+              </ItemsTotalInfo>
+            </span>
+          </Span>
+        </PaginationInfo>
+      </ItemsInfo>
+    </div>
+  </Div>
+</Pagination>
+`;

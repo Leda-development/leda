@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Th component tests: should render 1`] = `
+<th>
+  test
+</th>
+`;

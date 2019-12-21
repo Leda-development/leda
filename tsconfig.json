@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "module": "esnext",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es6",
+    "jsx": "react",
+    "incremental": false,
+    "checkJs": false,
+    "typeRoots": [
+      "./types",
+      "./node_modules/@types"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "types/*",
+        "*"
+      ],
+      "react": ["node_modules/react"]
+    },
+//    "emitDeclarationOnly": true,
+    "declarationDir": "./external-types/",
+    "outDir": "./dist",
+    "declaration": true,
+    "newLine": "LF"
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "demo"
+  ],
+  "include": [
+    "./src/"
+  ]
+}

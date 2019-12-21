@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rubles SNAPSHOTS precision should render full value with precision prop 1`] = `
+<Wrapper>
+  100 500.543
+  <CurrencySymbol
+    style={
+      Object {
+        "marginLeft": "5px",
+      }
+    }
+  >
+    ₽
+  </CurrencySymbol>
+</Wrapper>
+`;
+
+exports[`Rubles SNAPSHOTS precision should render rounded value with precision prop 1`] = `
+<Wrapper>
+  100 500.6
+  <CurrencySymbol
+    style={
+      Object {
+        "marginLeft": "5px",
+      }
+    }
+  >
+    ₽
+  </CurrencySymbol>
+</Wrapper>
+`;
+
+exports[`Rubles SNAPSHOTS precision should render rounded value without precision prop 1`] = `
+<Wrapper>
+  100 500.54
+  <CurrencySymbol
+    style={
+      Object {
+        "marginLeft": "5px",
+      }
+    }
+  >
+    ₽
+  </CurrencySymbol>
+</Wrapper>
+`;
+
+exports[`Rubles SNAPSHOTS should render 1`] = `
+<Wrapper>
+  —
+</Wrapper>
+`;
+
+exports[`Rubles SNAPSHOTS should render with units 1`] = `
+<Currency
+  currencyCode="RUB"
+  currencySymbolRender={[Function]}
+  value={100500}
+>
+  <Wrapper>
+    <Span>
+      <span>
+        100 500
+        <CurrencySymbol
+          style={
+            Object {
+              "marginLeft": "5px",
+            }
+          }
+        >
+           млн. 
+          ₽
+        </CurrencySymbol>
+      </span>
+    </Span>
+  </Wrapper>
+</Currency>
+`;
+
+exports[`Rubles SNAPSHOTS value should render a value 1`] = `
+<Wrapper>
+  100 500
+  <CurrencySymbol
+    style={
+      Object {
+        "marginLeft": "5px",
+      }
+    }
+  >
+    ₽
+  </CurrencySymbol>
+</Wrapper>
+`;
+
+exports[`Rubles SNAPSHOTS value should render as null with "not a number" value 1`] = `
+<Wrapper>
+  —
+</Wrapper>
+`;
+
+exports[`Rubles SNAPSHOTS value should render with child as value 1`] = `
+<Wrapper>
+  100 500.54
+  <CurrencySymbol
+    style={
+      Object {
+        "marginLeft": "5px",
+      }
+    }
+  >
+    ₽
+  </CurrencySymbol>
+</Wrapper>
+`;
+
+exports[`Rubles SNAPSHOTS value should render with null as value 1`] = `
+<Wrapper>
+  —
+</Wrapper>
+`;
+
+exports[`Rubles SNAPSHOTS value should render with string as value 1`] = `
+<Wrapper>
+  100 500
+  <CurrencySymbol
+    style={
+      Object {
+        "marginLeft": "5px",
+      }
+    }
+  >
+    ₽
+  </CurrencySymbol>
+</Wrapper>
+`;
+
+exports[`Rubles SNAPSHOTS value should render with string as value without spaces 1`] = `
+<Wrapper>
+  100 500
+  <CurrencySymbol
+    style={
+      Object {
+        "marginLeft": "5px",
+      }
+    }
+  >
+    ₽
+  </CurrencySymbol>
+</Wrapper>
+`;

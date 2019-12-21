@@ -1,0 +1,159 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag components test: should call onClick callback 1`] = `
+<Tags>
+  <Wrapper
+    className="tags-wrapper"
+  >
+    <Div
+      className="tags-wrapper"
+    >
+      <div
+        className="tags-wrapper"
+      >
+        <Tag
+          key=".0"
+          onClick={
+            [MockFunction] {
+              "calls": Array [
+                Array [],
+              ],
+              "results": Array [
+                Object {
+                  "type": "return",
+                  "value": undefined,
+                },
+              ],
+            }
+          }
+          theme={
+            Object {
+              "closeIcon": "tags-icon",
+              "defaultIcon": "icon-default",
+              "tag": "tags-item",
+              "wrapper": "tags-wrapper",
+            }
+          }
+        >
+          <Wrapper
+            className="tags-item"
+            onClick={
+              [MockFunction] {
+                "calls": Array [
+                  Array [],
+                ],
+                "results": Array [
+                  Object {
+                    "type": "return",
+                    "value": undefined,
+                  },
+                ],
+              }
+            }
+          >
+            <Span
+              className="tags-item"
+              onClick={
+                [MockFunction] {
+                  "calls": Array [
+                    Array [],
+                  ],
+                  "results": Array [
+                    Object {
+                      "type": "return",
+                      "value": undefined,
+                    },
+                  ],
+                }
+              }
+            >
+              <span
+                className="tags-item"
+                onClick={
+                  [MockFunction] {
+                    "calls": Array [
+                      Array [],
+                    ],
+                    "results": Array [
+                      Object {
+                        "type": "return",
+                        "value": undefined,
+                      },
+                    ],
+                  }
+                }
+              >
+                test
+                <Icon
+                  className="tags-icon icon-default"
+                >
+                  <Span
+                    className="tags-icon icon-default"
+                  >
+                    <span
+                      className="tags-icon icon-default"
+                    />
+                  </Span>
+                </Icon>
+              </span>
+            </Span>
+          </Wrapper>
+        </Tag>
+      </div>
+    </Div>
+  </Wrapper>
+</Tags>
+`;
+
+exports[`Tag components test: should render 1`] = `
+<Tags>
+  <Wrapper
+    className="tags-wrapper"
+  >
+    <Div
+      className="tags-wrapper"
+    >
+      <div
+        className="tags-wrapper"
+      >
+        <Tag
+          key=".0"
+          theme={
+            Object {
+              "closeIcon": "tags-icon",
+              "defaultIcon": "icon-default",
+              "tag": "tags-item",
+              "wrapper": "tags-wrapper",
+            }
+          }
+        >
+          <Wrapper
+            className="tags-item"
+          >
+            <Span
+              className="tags-item"
+            >
+              <span
+                className="tags-item"
+              >
+                test
+                <Icon
+                  className="tags-icon icon-default"
+                >
+                  <Span
+                    className="tags-icon icon-default"
+                  >
+                    <span
+                      className="tags-icon icon-default"
+                    />
+                  </Span>
+                </Icon>
+              </span>
+            </Span>
+          </Wrapper>
+        </Tag>
+      </div>
+    </Div>
+  </Wrapper>
+</Tags>
+`;

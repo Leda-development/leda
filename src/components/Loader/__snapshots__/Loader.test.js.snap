@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader SNAPSHOTS should render 1`] = `
+<Loader>
+  <Div
+    className="loader-wrapper"
+  >
+    <div
+      className="loader-wrapper"
+    >
+      <div
+        className="loader-container"
+      >
+        <Icon
+          className="loader-element"
+        >
+          <Span
+            className="loader-element"
+          >
+            <span
+              className="loader-element"
+            />
+          </Span>
+        </Icon>
+      </div>
+    </div>
+  </Div>
+</Loader>
+`;
+
+exports[`Loader SNAPSHOTS should render different component states should render global loader 1`] = `
+<Loader
+  isGlobal={true}
+>
+  <Div
+    className="loader-wrapper fullscreen"
+  >
+    <div
+      className="loader-wrapper fullscreen"
+    >
+      <Icon
+        className="loader-element"
+      >
+        <Span
+          className="loader-element"
+        >
+          <span
+            className="loader-element"
+          />
+        </Span>
+      </Icon>
+    </div>
+  </Div>
+</Loader>
+`;
+
+exports[`Loader SNAPSHOTS should render different component states should render spinner loader 1`] = `
+<Loader
+  iconRender={[Function]}
+>
+  <Div
+    className="loader-wrapper"
+  >
+    <div
+      className="loader-wrapper"
+    >
+      <div
+        className="loader-container"
+      >
+        <Icon
+          className="loader-element"
+        >
+          <Div
+            Element={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "displayName": "Span",
+                "render": [Function],
+              }
+            }
+            _loaderSpinner={true}
+            componentProps={
+              Object {
+                "iconRender": [Function],
+              }
+            }
+            componentState={Object {}}
+            elementProps={
+              Object {
+                "className": "loader-element",
+                "ref": null,
+              }
+            }
+          >
+            <div
+              Element={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "displayName": "Span",
+                  "render": [Function],
+                }
+              }
+              className="loader-spinner"
+              componentProps={
+                Object {
+                  "iconRender": [Function],
+                }
+              }
+              componentState={Object {}}
+              elementProps={
+                Object {
+                  "className": "loader-element",
+                  "ref": null,
+                }
+              }
+            />
+          </Div>
+        </Icon>
+      </div>
+    </div>
+  </Div>
+</Loader>
+`;
+
+exports[`Loader SNAPSHOTS should render loader in controllable mode 1`] = `
+<Loader>
+  <Div
+    className="loader-wrapper"
+  >
+    <div
+      className="loader-wrapper"
+    >
+      <div
+        className="loader-container"
+      >
+        <Icon
+          className="loader-element"
+        >
+          <Span
+            className="loader-element"
+          >
+            <span
+              className="loader-element"
+            />
+          </Span>
+        </Icon>
+      </div>
+    </div>
+  </Div>
+</Loader>
+`;
+
+exports[`Loader SNAPSHOTS should render loader in controllable mode 2`] = `
+<Loader
+  isLoading={false}
+>
+  <Div
+    className="loader-wrapper"
+  >
+    <div
+      className="loader-wrapper"
+    />
+  </Div>
+</Loader>
+`;

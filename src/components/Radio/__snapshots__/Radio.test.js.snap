@@ -1,0 +1,667 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio SNAPSHOTS different component states should render checked 1`] = `
+<RadioGroup
+  name="radio-group"
+  onChange={[MockFunction]}
+  value="radio-1"
+>
+  <Wrapper
+    className="radio-wrapper"
+  >
+    <Div
+      className="radio-wrapper"
+    >
+      <div
+        className="radio-wrapper"
+      >
+        <RadioButton
+          id="radio-1"
+          isChecked={true}
+          key=".0"
+          name="radio-group"
+          onChange={[Function]}
+          theme={
+            Object {
+              "input": "radio-button-input",
+              "item": "radio-button",
+              "label": "radio-button-label",
+              "wrapper": "radio-wrapper",
+            }
+          }
+          value="radio-1"
+        >
+          <Wrapper
+            className="radio-button"
+          >
+            <Div
+              className="radio-button"
+            >
+              <div
+                className="radio-button"
+              >
+                <input
+                  checked={true}
+                  className="radio-button-input"
+                  id="radio-1"
+                  onChange={[Function]}
+                  type="radio"
+                  value="radio-1"
+                />
+                <label
+                  className="radio-button-label"
+                  htmlFor="radio-1"
+                >
+                  1
+                </label>
+              </div>
+            </Div>
+          </Wrapper>
+        </RadioButton>
+      </div>
+    </Div>
+  </Wrapper>
+</RadioGroup>
+`;
+
+exports[`Radio SNAPSHOTS different component states should render disabled 1`] = `
+<RadioGroup
+  name="radio-group"
+  onChange={[MockFunction]}
+  value="radio-1"
+>
+  <Wrapper
+    className="radio-wrapper"
+  >
+    <Div
+      className="radio-wrapper"
+    >
+      <div
+        className="radio-wrapper"
+      >
+        <RadioButton
+          id="radio-1"
+          isChecked={true}
+          isDisabled={true}
+          key=".0"
+          name="radio-group"
+          onChange={[Function]}
+          theme={
+            Object {
+              "input": "radio-button-input",
+              "item": "radio-button",
+              "label": "radio-button-label",
+              "wrapper": "radio-wrapper",
+            }
+          }
+          value="radio-1"
+        >
+          <Wrapper
+            className="radio-button"
+          >
+            <Div
+              className="radio-button"
+            >
+              <div
+                className="radio-button"
+              >
+                <input
+                  checked={true}
+                  className="radio-button-input"
+                  disabled={true}
+                  id="radio-1"
+                  onChange={[Function]}
+                  type="radio"
+                  value="radio-1"
+                />
+                <label
+                  className="radio-button-label"
+                  htmlFor="radio-1"
+                >
+                  1
+                </label>
+              </div>
+            </Div>
+          </Wrapper>
+        </RadioButton>
+        <RadioButton
+          id="radio-2"
+          isChecked={false}
+          key=".1"
+          name="radio-group"
+          onChange={[Function]}
+          theme={
+            Object {
+              "input": "radio-button-input",
+              "item": "radio-button",
+              "label": "radio-button-label",
+              "wrapper": "radio-wrapper",
+            }
+          }
+          value="radio-2"
+        >
+          <Wrapper
+            className="radio-button"
+          >
+            <Div
+              className="radio-button"
+            >
+              <div
+                className="radio-button"
+              >
+                <input
+                  checked={false}
+                  className="radio-button-input"
+                  id="radio-2"
+                  onChange={[Function]}
+                  type="radio"
+                  value="radio-2"
+                />
+                <label
+                  className="radio-button-label"
+                  htmlFor="radio-2"
+                >
+                  2
+                </label>
+              </div>
+            </Div>
+          </Wrapper>
+        </RadioButton>
+        <RadioButton
+          id="radio-3"
+          isChecked={false}
+          key=".2"
+          name="radio-group"
+          onChange={[Function]}
+          theme={
+            Object {
+              "input": "radio-button-input",
+              "item": "radio-button",
+              "label": "radio-button-label",
+              "wrapper": "radio-wrapper",
+            }
+          }
+          value="radio-3"
+        >
+          <Wrapper
+            className="radio-button"
+          >
+            <Div
+              className="radio-button"
+            >
+              <div
+                className="radio-button"
+              >
+                <input
+                  checked={false}
+                  className="radio-button-input"
+                  id="radio-3"
+                  onChange={[Function]}
+                  type="radio"
+                  value="radio-3"
+                />
+                <label
+                  className="radio-button-label"
+                  htmlFor="radio-3"
+                >
+                  3
+                </label>
+              </div>
+            </Div>
+          </Wrapper>
+        </RadioButton>
+      </div>
+    </Div>
+  </Wrapper>
+</RadioGroup>
+`;
+
+exports[`Radio SNAPSHOTS should render 1`] = `
+<RadioGroup
+  name="radio-group"
+  onChange={[MockFunction]}
+  value="radio-1"
+>
+  <Wrapper
+    className="radio-wrapper"
+  >
+    <Div
+      className="radio-wrapper"
+    >
+      <div
+        className="radio-wrapper"
+      >
+        <RadioButton
+          id="radio-1"
+          isChecked={true}
+          key=".0"
+          name="radio-group"
+          onChange={[Function]}
+          theme={
+            Object {
+              "input": "radio-button-input",
+              "item": "radio-button",
+              "label": "radio-button-label",
+              "wrapper": "radio-wrapper",
+            }
+          }
+          value="radio-1"
+        >
+          <Wrapper
+            className="radio-button"
+          >
+            <Div
+              className="radio-button"
+            >
+              <div
+                className="radio-button"
+              >
+                <input
+                  checked={true}
+                  className="radio-button-input"
+                  id="radio-1"
+                  onChange={[Function]}
+                  type="radio"
+                  value="radio-1"
+                />
+                <label
+                  className="radio-button-label"
+                  htmlFor="radio-1"
+                >
+                  1
+                </label>
+              </div>
+            </Div>
+          </Wrapper>
+        </RadioButton>
+        <RadioButton
+          id="radio-2"
+          isChecked={false}
+          key=".1"
+          name="radio-group"
+          onChange={[Function]}
+          theme={
+            Object {
+              "input": "radio-button-input",
+              "item": "radio-button",
+              "label": "radio-button-label",
+              "wrapper": "radio-wrapper",
+            }
+          }
+          value="radio-2"
+        >
+          <Wrapper
+            className="radio-button"
+          >
+            <Div
+              className="radio-button"
+            >
+              <div
+                className="radio-button"
+              >
+                <input
+                  checked={false}
+                  className="radio-button-input"
+                  id="radio-2"
+                  onChange={[Function]}
+                  type="radio"
+                  value="radio-2"
+                />
+                <label
+                  className="radio-button-label"
+                  htmlFor="radio-2"
+                >
+                  2
+                </label>
+              </div>
+            </Div>
+          </Wrapper>
+        </RadioButton>
+        <RadioButton
+          id="radio-3"
+          isChecked={false}
+          key=".2"
+          name="radio-group"
+          onChange={[Function]}
+          theme={
+            Object {
+              "input": "radio-button-input",
+              "item": "radio-button",
+              "label": "radio-button-label",
+              "wrapper": "radio-wrapper",
+            }
+          }
+          value="radio-3"
+        >
+          <Wrapper
+            className="radio-button"
+          >
+            <Div
+              className="radio-button"
+            >
+              <div
+                className="radio-button"
+              >
+                <input
+                  checked={false}
+                  className="radio-button-input"
+                  id="radio-3"
+                  onChange={[Function]}
+                  type="radio"
+                  value="radio-3"
+                />
+                <label
+                  className="radio-button-label"
+                  htmlFor="radio-3"
+                >
+                  3
+                </label>
+              </div>
+            </Div>
+          </Wrapper>
+        </RadioButton>
+      </div>
+    </Div>
+  </Wrapper>
+</RadioGroup>
+`;
+
+exports[`Radio SNAPSHOTS should render controllable mode 1`] = `
+<RadioGroup
+  name="radio-group"
+  onChange={[MockFunction]}
+  value="radio-1"
+>
+  <Wrapper
+    className="radio-wrapper"
+  >
+    <Div
+      className="radio-wrapper"
+    >
+      <div
+        className="radio-wrapper"
+      >
+        <RadioButton
+          id="radio-1"
+          isChecked={true}
+          key=".0"
+          name="radio-group"
+          onChange={[Function]}
+          theme={
+            Object {
+              "input": "radio-button-input",
+              "item": "radio-button",
+              "label": "radio-button-label",
+              "wrapper": "radio-wrapper",
+            }
+          }
+          value="radio-1"
+        >
+          <Wrapper
+            className="radio-button"
+          >
+            <Div
+              className="radio-button"
+            >
+              <div
+                className="radio-button"
+              >
+                <input
+                  checked={true}
+                  className="radio-button-input"
+                  id="radio-1"
+                  onChange={[Function]}
+                  type="radio"
+                  value="radio-1"
+                />
+                <label
+                  className="radio-button-label"
+                  htmlFor="radio-1"
+                >
+                  1
+                </label>
+              </div>
+            </Div>
+          </Wrapper>
+        </RadioButton>
+        <RadioButton
+          id="radio-2"
+          isChecked={false}
+          key=".1"
+          name="radio-group"
+          onChange={[Function]}
+          theme={
+            Object {
+              "input": "radio-button-input",
+              "item": "radio-button",
+              "label": "radio-button-label",
+              "wrapper": "radio-wrapper",
+            }
+          }
+          value="radio-2"
+        >
+          <Wrapper
+            className="radio-button"
+          >
+            <Div
+              className="radio-button"
+            >
+              <div
+                className="radio-button"
+              >
+                <input
+                  checked={false}
+                  className="radio-button-input"
+                  id="radio-2"
+                  onChange={[Function]}
+                  type="radio"
+                  value="radio-2"
+                />
+                <label
+                  className="radio-button-label"
+                  htmlFor="radio-2"
+                >
+                  2
+                </label>
+              </div>
+            </Div>
+          </Wrapper>
+        </RadioButton>
+        <RadioButton
+          id="radio-3"
+          isChecked={false}
+          key=".2"
+          name="radio-group"
+          onChange={[Function]}
+          theme={
+            Object {
+              "input": "radio-button-input",
+              "item": "radio-button",
+              "label": "radio-button-label",
+              "wrapper": "radio-wrapper",
+            }
+          }
+          value="radio-3"
+        >
+          <Wrapper
+            className="radio-button"
+          >
+            <Div
+              className="radio-button"
+            >
+              <div
+                className="radio-button"
+              >
+                <input
+                  checked={false}
+                  className="radio-button-input"
+                  id="radio-3"
+                  onChange={[Function]}
+                  type="radio"
+                  value="radio-3"
+                />
+                <label
+                  className="radio-button-label"
+                  htmlFor="radio-3"
+                >
+                  3
+                </label>
+              </div>
+            </Div>
+          </Wrapper>
+        </RadioButton>
+      </div>
+    </Div>
+  </Wrapper>
+</RadioGroup>
+`;
+
+exports[`Radio SNAPSHOTS should render controllable mode 2`] = `
+<RadioGroup
+  name="radio-group"
+  onChange={[MockFunction]}
+  value="radio-3"
+>
+  <Wrapper
+    className="radio-wrapper"
+  >
+    <Div
+      className="radio-wrapper"
+    >
+      <div
+        className="radio-wrapper"
+      >
+        <RadioButton
+          id="radio-1"
+          isChecked={false}
+          key=".0"
+          name="radio-group"
+          onChange={[Function]}
+          theme={
+            Object {
+              "input": "radio-button-input",
+              "item": "radio-button",
+              "label": "radio-button-label",
+              "wrapper": "radio-wrapper",
+            }
+          }
+          value="radio-1"
+        >
+          <Wrapper
+            className="radio-button"
+          >
+            <Div
+              className="radio-button"
+            >
+              <div
+                className="radio-button"
+              >
+                <input
+                  checked={false}
+                  className="radio-button-input"
+                  id="radio-1"
+                  onChange={[Function]}
+                  type="radio"
+                  value="radio-1"
+                />
+                <label
+                  className="radio-button-label"
+                  htmlFor="radio-1"
+                >
+                  1
+                </label>
+              </div>
+            </Div>
+          </Wrapper>
+        </RadioButton>
+        <RadioButton
+          id="radio-2"
+          isChecked={false}
+          key=".1"
+          name="radio-group"
+          onChange={[Function]}
+          theme={
+            Object {
+              "input": "radio-button-input",
+              "item": "radio-button",
+              "label": "radio-button-label",
+              "wrapper": "radio-wrapper",
+            }
+          }
+          value="radio-2"
+        >
+          <Wrapper
+            className="radio-button"
+          >
+            <Div
+              className="radio-button"
+            >
+              <div
+                className="radio-button"
+              >
+                <input
+                  checked={false}
+                  className="radio-button-input"
+                  id="radio-2"
+                  onChange={[Function]}
+                  type="radio"
+                  value="radio-2"
+                />
+                <label
+                  className="radio-button-label"
+                  htmlFor="radio-2"
+                >
+                  2
+                </label>
+              </div>
+            </Div>
+          </Wrapper>
+        </RadioButton>
+        <RadioButton
+          id="radio-3"
+          isChecked={true}
+          key=".2"
+          name="radio-group"
+          onChange={[Function]}
+          theme={
+            Object {
+              "input": "radio-button-input",
+              "item": "radio-button",
+              "label": "radio-button-label",
+              "wrapper": "radio-wrapper",
+            }
+          }
+          value="radio-3"
+        >
+          <Wrapper
+            className="radio-button"
+          >
+            <Div
+              className="radio-button"
+            >
+              <div
+                className="radio-button"
+              >
+                <input
+                  checked={true}
+                  className="radio-button-input"
+                  id="radio-3"
+                  onChange={[Function]}
+                  type="radio"
+                  value="radio-3"
+                />
+                <label
+                  className="radio-button-label"
+                  htmlFor="radio-3"
+                >
+                  3
+                </label>
+              </div>
+            </Div>
+          </Wrapper>
+        </RadioButton>
+      </div>
+    </Div>
+  </Wrapper>
+</RadioGroup>
+`;

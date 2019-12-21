@@ -1,0 +1,520 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropZone ATTRIBUTES should customize description text 1`] = `
+<DropZone
+  infoRender={[Function]}
+  onDrop={[MockFunction]}
+  onRemove={[MockFunction]}
+>
+  <Wrapper
+    className="dropzone-wrapper"
+  >
+    <Div
+      className="dropzone-wrapper"
+    >
+      <div
+        className="dropzone-wrapper"
+      >
+        <Div
+          className="dropzone-content"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragEnter={[Function]}
+          onDragLeave={[Function]}
+          onDragOver={[Function]}
+          onDrop={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="dropzone-content"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragEnter={[Function]}
+            onDragLeave={[Function]}
+            onDragOver={[Function]}
+            onDrop={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            tabIndex={0}
+          >
+            <input
+              autoComplete="off"
+              multiple={true}
+              onChange={[Function]}
+              onClick={[Function]}
+              style={
+                Object {
+                  "display": "none",
+                }
+              }
+              tabIndex={-1}
+              type="file"
+            />
+            <UploadButton
+              className="dropzone-button"
+            >
+              <Button
+                className="dropzone-button"
+              >
+                <button
+                  className="button-wrapper dropzone-button"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Выбрать...
+                </button>
+              </Button>
+            </UploadButton>
+             
+            <Info
+              className="dropzone-description"
+            >
+              <span
+                className="dropzone-description"
+              >
+                Drop here
+              </span>
+            </Info>
+          </div>
+        </Div>
+      </div>
+    </Div>
+  </Wrapper>
+  <RejectedFiles
+    className="rejected-list margin-none"
+  >
+    <Ul
+      className="rejected-list margin-none"
+    >
+      <ul
+        className="rejected-list margin-none"
+      >
+        <RejectedFilesList
+          theme={
+            Object {
+              "button": "dropzone-button",
+              "content": "dropzone-content",
+              "description": "dropzone-description",
+              "disabled": "disabled",
+              "fileDeleteIcon": "dropzone-delete-icon",
+              "fileDeleteLink": "dropzone-file-delete internal",
+              "fileDownloadLink": "dropzone-file-download internal",
+              "rejectedFilesWrapper": "rejected-list margin-none",
+              "rejectedMessage": "dropzone-rejected-message txt-danger",
+              "status": "dropzone-status",
+              "wrapper": "dropzone-wrapper",
+            }
+          }
+          value={
+            Object {
+              "acceptedFiles": Array [],
+              "rejectedFiles": Array [],
+            }
+          }
+        />
+      </ul>
+    </Ul>
+  </RejectedFiles>
+  <AcceptedFiles
+    onChange={[Function]}
+  >
+    <AcceptedFiles
+      onChange={[Function]}
+    >
+      <DropZoneFiles
+        files={Array []}
+        onChange={[Function]}
+        shouldRender={false}
+        theme={
+          Object {
+            "button": "dropzone-button",
+            "content": "dropzone-content",
+            "description": "dropzone-description",
+            "disabled": "disabled",
+            "fileDeleteIcon": "dropzone-delete-icon",
+            "fileDeleteLink": "dropzone-file-delete internal",
+            "fileDownloadLink": "dropzone-file-download internal",
+            "rejectedFilesWrapper": "rejected-list margin-none",
+            "rejectedMessage": "dropzone-rejected-message txt-danger",
+            "status": "dropzone-status",
+            "wrapper": "dropzone-wrapper",
+          }
+        }
+        value={
+          Object {
+            "acceptedFiles": Array [],
+            "rejectedFiles": Array [],
+          }
+        }
+      />
+    </AcceptedFiles>
+  </AcceptedFiles>
+</DropZone>
+`;
+
+exports[`DropZone ATTRIBUTES should customize upload button 1`] = `
+<DropZone
+  onDrop={[MockFunction]}
+  onRemove={[MockFunction]}
+  uploadButtonRender={[Function]}
+>
+  <Wrapper
+    className="dropzone-wrapper"
+  >
+    <Div
+      className="dropzone-wrapper"
+    >
+      <div
+        className="dropzone-wrapper"
+      >
+        <Div
+          className="dropzone-content"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragEnter={[Function]}
+          onDragLeave={[Function]}
+          onDragOver={[Function]}
+          onDrop={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="dropzone-content"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragEnter={[Function]}
+            onDragLeave={[Function]}
+            onDragOver={[Function]}
+            onDrop={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            tabIndex={0}
+          >
+            <input
+              autoComplete="off"
+              multiple={true}
+              onChange={[Function]}
+              onClick={[Function]}
+              style={
+                Object {
+                  "display": "none",
+                }
+              }
+              tabIndex={-1}
+              type="file"
+            />
+            <UploadButton
+              className="dropzone-button"
+            >
+              <span
+                className="test-class"
+              >
+                Drop me
+              </span>
+            </UploadButton>
+             
+            <Info
+              className="dropzone-description"
+            >
+              <Span
+                className="dropzone-description"
+              >
+                <span
+                  className="dropzone-description"
+                >
+                  <DescriptionMessage>
+                    <Div
+                      _blockInline={true}
+                    >
+                      <div
+                        className="block-inline"
+                      >
+                        Перетащите сюда файлы для загрузки.
+                      </div>
+                    </Div>
+                  </DescriptionMessage>
+                   
+                  <DescriptionMessage>
+                    <Div
+                      _blockInline={true}
+                    >
+                      <div
+                        className="block-inline"
+                      >
+                        Размер: до 104857600 байт.
+                      </div>
+                    </Div>
+                  </DescriptionMessage>
+                   
+                  <DescriptionMessage />
+                   
+                  <DescriptionMessage />
+                   
+                  <DescriptionMessage />
+                </span>
+              </Span>
+            </Info>
+          </div>
+        </Div>
+      </div>
+    </Div>
+  </Wrapper>
+  <RejectedFiles
+    className="rejected-list margin-none"
+  >
+    <Ul
+      className="rejected-list margin-none"
+    >
+      <ul
+        className="rejected-list margin-none"
+      >
+        <RejectedFilesList
+          theme={
+            Object {
+              "button": "dropzone-button",
+              "content": "dropzone-content",
+              "description": "dropzone-description",
+              "disabled": "disabled",
+              "fileDeleteIcon": "dropzone-delete-icon",
+              "fileDeleteLink": "dropzone-file-delete internal",
+              "fileDownloadLink": "dropzone-file-download internal",
+              "rejectedFilesWrapper": "rejected-list margin-none",
+              "rejectedMessage": "dropzone-rejected-message txt-danger",
+              "status": "dropzone-status",
+              "wrapper": "dropzone-wrapper",
+            }
+          }
+          value={
+            Object {
+              "acceptedFiles": Array [],
+              "rejectedFiles": Array [],
+            }
+          }
+        />
+      </ul>
+    </Ul>
+  </RejectedFiles>
+  <AcceptedFiles
+    onChange={[Function]}
+  >
+    <AcceptedFiles
+      onChange={[Function]}
+    >
+      <DropZoneFiles
+        files={Array []}
+        onChange={[Function]}
+        shouldRender={false}
+        theme={
+          Object {
+            "button": "dropzone-button",
+            "content": "dropzone-content",
+            "description": "dropzone-description",
+            "disabled": "disabled",
+            "fileDeleteIcon": "dropzone-delete-icon",
+            "fileDeleteLink": "dropzone-file-delete internal",
+            "fileDownloadLink": "dropzone-file-download internal",
+            "rejectedFilesWrapper": "rejected-list margin-none",
+            "rejectedMessage": "dropzone-rejected-message txt-danger",
+            "status": "dropzone-status",
+            "wrapper": "dropzone-wrapper",
+          }
+        }
+        value={
+          Object {
+            "acceptedFiles": Array [],
+            "rejectedFiles": Array [],
+          }
+        }
+      />
+    </AcceptedFiles>
+  </AcceptedFiles>
+</DropZone>
+`;
+
+exports[`DropZone SNAPSHOTS should render 1`] = `
+<DropZone
+  onDrop={[MockFunction]}
+  onRemove={[MockFunction]}
+>
+  <Wrapper
+    className="dropzone-wrapper"
+  >
+    <Div
+      className="dropzone-wrapper"
+    >
+      <div
+        className="dropzone-wrapper"
+      >
+        <Div
+          className="dropzone-content"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragEnter={[Function]}
+          onDragLeave={[Function]}
+          onDragOver={[Function]}
+          onDrop={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="dropzone-content"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragEnter={[Function]}
+            onDragLeave={[Function]}
+            onDragOver={[Function]}
+            onDrop={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            tabIndex={0}
+          >
+            <input
+              autoComplete="off"
+              multiple={true}
+              onChange={[Function]}
+              onClick={[Function]}
+              style={
+                Object {
+                  "display": "none",
+                }
+              }
+              tabIndex={-1}
+              type="file"
+            />
+            <UploadButton
+              className="dropzone-button"
+            >
+              <Button
+                className="dropzone-button"
+              >
+                <button
+                  className="button-wrapper dropzone-button"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Выбрать...
+                </button>
+              </Button>
+            </UploadButton>
+             
+            <Info
+              className="dropzone-description"
+            >
+              <Span
+                className="dropzone-description"
+              >
+                <span
+                  className="dropzone-description"
+                >
+                  <DescriptionMessage>
+                    <Div
+                      _blockInline={true}
+                    >
+                      <div
+                        className="block-inline"
+                      >
+                        Перетащите сюда файлы для загрузки.
+                      </div>
+                    </Div>
+                  </DescriptionMessage>
+                   
+                  <DescriptionMessage>
+                    <Div
+                      _blockInline={true}
+                    >
+                      <div
+                        className="block-inline"
+                      >
+                        Размер: до 104857600 байт.
+                      </div>
+                    </Div>
+                  </DescriptionMessage>
+                   
+                  <DescriptionMessage />
+                   
+                  <DescriptionMessage />
+                   
+                  <DescriptionMessage />
+                </span>
+              </Span>
+            </Info>
+          </div>
+        </Div>
+      </div>
+    </Div>
+  </Wrapper>
+  <RejectedFiles
+    className="rejected-list margin-none"
+  >
+    <Ul
+      className="rejected-list margin-none"
+    >
+      <ul
+        className="rejected-list margin-none"
+      >
+        <RejectedFilesList
+          theme={
+            Object {
+              "button": "dropzone-button",
+              "content": "dropzone-content",
+              "description": "dropzone-description",
+              "disabled": "disabled",
+              "fileDeleteIcon": "dropzone-delete-icon",
+              "fileDeleteLink": "dropzone-file-delete internal",
+              "fileDownloadLink": "dropzone-file-download internal",
+              "rejectedFilesWrapper": "rejected-list margin-none",
+              "rejectedMessage": "dropzone-rejected-message txt-danger",
+              "status": "dropzone-status",
+              "wrapper": "dropzone-wrapper",
+            }
+          }
+          value={
+            Object {
+              "acceptedFiles": Array [],
+              "rejectedFiles": Array [],
+            }
+          }
+        />
+      </ul>
+    </Ul>
+  </RejectedFiles>
+  <AcceptedFiles
+    onChange={[Function]}
+  >
+    <AcceptedFiles
+      onChange={[Function]}
+    >
+      <DropZoneFiles
+        files={Array []}
+        onChange={[Function]}
+        shouldRender={false}
+        theme={
+          Object {
+            "button": "dropzone-button",
+            "content": "dropzone-content",
+            "description": "dropzone-description",
+            "disabled": "disabled",
+            "fileDeleteIcon": "dropzone-delete-icon",
+            "fileDeleteLink": "dropzone-file-delete internal",
+            "fileDownloadLink": "dropzone-file-download internal",
+            "rejectedFilesWrapper": "rejected-list margin-none",
+            "rejectedMessage": "dropzone-rejected-message txt-danger",
+            "status": "dropzone-status",
+            "wrapper": "dropzone-wrapper",
+          }
+        }
+        value={
+          Object {
+            "acceptedFiles": Array [],
+            "rejectedFiles": Array [],
+          }
+        }
+      />
+    </AcceptedFiles>
+  </AcceptedFiles>
+</DropZone>
+`;

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Svg SNAPSHOTS should render 1`] = `
+<Svg
+  notifications={true}
+  ok={true}
+>
+  <svg
+    className="icon-notifications"
+  >
+    <use
+      xlinkHref="/assets/images/svg/notifications.svg#ok"
+    />
+  </svg>
+</Svg>
+`;
+
+exports[`Svg SNAPSHOTS should render svg without icon className 1`] = `
+<Svg
+  noIconClass={true}
+  notifications={true}
+  ok={true}
+>
+  <svg>
+    <use
+      xlinkHref="/assets/images/svg/notifications.svg#ok"
+    />
+  </svg>
+</Svg>
+`;

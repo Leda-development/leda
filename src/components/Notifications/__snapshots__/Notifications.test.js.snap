@@ -1,0 +1,1473 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notifications SNAPSHOTS should render basic usage 1`] = `
+<Notifications
+  items={
+    Array [
+      Object {
+        "color": "success",
+        "delay": 10,
+        "icon": "success",
+        "id": 1,
+        "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+      },
+      Object {
+        "color": "danger",
+        "delay": 10,
+        "icon": "danger",
+        "id": 2,
+        "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+      },
+    ]
+  }
+  maxItems={3}
+  onClose={[MockFunction]}
+>
+  <Div
+    className="notifications-wrapper"
+  >
+    <div
+      className="notifications-wrapper"
+    >
+      <NotificationItem
+        item={
+          Object {
+            "color": "danger",
+            "delay": 10,
+            "icon": "danger",
+            "id": 2,
+            "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+          }
+        }
+        items={
+          Array [
+            Object {
+              "color": "success",
+              "delay": 10,
+              "icon": "success",
+              "id": 1,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+            Object {
+              "color": "danger",
+              "delay": 10,
+              "icon": "danger",
+              "id": 2,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+          ]
+        }
+        key="0"
+        onClose={[Function]}
+        theme={
+          Object {
+            "notificationCloseIcon": "notifications-icon-close uicon uicon-close",
+            "notificationContent": "notifications-content",
+            "notificationIcon": "notifications-icon",
+            "notificationWrapper": "notifications-item",
+            "wrapper": "notifications-wrapper",
+          }
+        }
+      >
+        <Div
+          className="notifications-item"
+        >
+          <div
+            className="notifications-item"
+          >
+            <NotificationIcon
+              className="notifications-icon uicon-danger txt-danger"
+              isCloseIcon={false}
+            >
+              <UIcon
+                className="notifications-icon uicon-danger txt-danger"
+              >
+                <Icon
+                  className="notifications-icon uicon-danger txt-danger"
+                  size={20}
+                  uicon={true}
+                >
+                  <i
+                    className="notifications-icon uicon-danger txt-danger"
+                    size={20}
+                  />
+                </Icon>
+              </UIcon>
+            </NotificationIcon>
+            <Div
+              className="notifications-content"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+                }
+              }
+            >
+              <div
+                className="notifications-content"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+                  }
+                }
+              />
+            </Div>
+            <NotificationIcon
+              className="notifications-icon-close uicon uicon-close"
+              isCloseIcon={true}
+              onClick={[Function]}
+            >
+              <UIcon
+                className="notifications-icon-close uicon uicon-close"
+                onClick={[Function]}
+              >
+                <Icon
+                  className="notifications-icon-close uicon uicon-close"
+                  onClick={[Function]}
+                  size={20}
+                  uicon={true}
+                >
+                  <i
+                    className="notifications-icon-close uicon uicon-close"
+                    onClick={[Function]}
+                    size={20}
+                  />
+                </Icon>
+              </UIcon>
+            </NotificationIcon>
+          </div>
+        </Div>
+      </NotificationItem>
+      <NotificationItem
+        item={
+          Object {
+            "color": "success",
+            "delay": 10,
+            "icon": "success",
+            "id": 1,
+            "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+          }
+        }
+        items={
+          Array [
+            Object {
+              "color": "success",
+              "delay": 10,
+              "icon": "success",
+              "id": 1,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+            Object {
+              "color": "danger",
+              "delay": 10,
+              "icon": "danger",
+              "id": 2,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+          ]
+        }
+        key="1"
+        onClose={[Function]}
+        theme={
+          Object {
+            "notificationCloseIcon": "notifications-icon-close uicon uicon-close",
+            "notificationContent": "notifications-content",
+            "notificationIcon": "notifications-icon",
+            "notificationWrapper": "notifications-item",
+            "wrapper": "notifications-wrapper",
+          }
+        }
+      >
+        <Div
+          className="notifications-item"
+        >
+          <div
+            className="notifications-item"
+          >
+            <NotificationIcon
+              className="notifications-icon uicon-success txt-success"
+              isCloseIcon={false}
+            >
+              <UIcon
+                className="notifications-icon uicon-success txt-success"
+              >
+                <Icon
+                  className="notifications-icon uicon-success txt-success"
+                  size={20}
+                  uicon={true}
+                >
+                  <i
+                    className="notifications-icon uicon-success txt-success"
+                    size={20}
+                  />
+                </Icon>
+              </UIcon>
+            </NotificationIcon>
+            <Div
+              className="notifications-content"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+                }
+              }
+            >
+              <div
+                className="notifications-content"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+                  }
+                }
+              />
+            </Div>
+            <NotificationIcon
+              className="notifications-icon-close uicon uicon-close"
+              isCloseIcon={true}
+              onClick={[Function]}
+            >
+              <UIcon
+                className="notifications-icon-close uicon uicon-close"
+                onClick={[Function]}
+              >
+                <Icon
+                  className="notifications-icon-close uicon uicon-close"
+                  onClick={[Function]}
+                  size={20}
+                  uicon={true}
+                >
+                  <i
+                    className="notifications-icon-close uicon uicon-close"
+                    onClick={[Function]}
+                    size={20}
+                  />
+                </Icon>
+              </UIcon>
+            </NotificationIcon>
+          </div>
+        </Div>
+      </NotificationItem>
+    </div>
+  </Div>
+</Notifications>
+`;
+
+exports[`Notifications SNAPSHOTS should render items < maxItems 1`] = `
+<Notifications
+  items={
+    Array [
+      Object {
+        "color": "success",
+        "delay": 10,
+        "icon": "success",
+        "id": 1,
+        "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+      },
+      Object {
+        "color": "danger",
+        "delay": 10,
+        "icon": "danger",
+        "id": 2,
+        "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+      },
+      Object {
+        "color": "danger",
+        "delay": 10,
+        "icon": "danger",
+        "id": 3,
+        "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+      },
+      Object {
+        "color": "danger",
+        "delay": 10,
+        "icon": "danger",
+        "id": 4,
+        "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+      },
+      Object {
+        "color": "danger",
+        "delay": 10,
+        "icon": "danger",
+        "id": 5,
+        "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+      },
+    ]
+  }
+  maxItems={3}
+  onClose={[MockFunction]}
+>
+  <Div
+    className="notifications-wrapper"
+  >
+    <div
+      className="notifications-wrapper"
+    >
+      <NotificationItem
+        item={
+          Object {
+            "color": "danger",
+            "delay": 10,
+            "icon": "danger",
+            "id": 5,
+            "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+          }
+        }
+        items={
+          Array [
+            Object {
+              "color": "success",
+              "delay": 10,
+              "icon": "success",
+              "id": 1,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+            Object {
+              "color": "danger",
+              "delay": 10,
+              "icon": "danger",
+              "id": 2,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+            Object {
+              "color": "danger",
+              "delay": 10,
+              "icon": "danger",
+              "id": 3,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+            Object {
+              "color": "danger",
+              "delay": 10,
+              "icon": "danger",
+              "id": 4,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+            Object {
+              "color": "danger",
+              "delay": 10,
+              "icon": "danger",
+              "id": 5,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+          ]
+        }
+        key="0"
+        onClose={[Function]}
+        theme={
+          Object {
+            "notificationCloseIcon": "notifications-icon-close uicon uicon-close",
+            "notificationContent": "notifications-content",
+            "notificationIcon": "notifications-icon",
+            "notificationWrapper": "notifications-item",
+            "wrapper": "notifications-wrapper",
+          }
+        }
+      >
+        <Div
+          className="notifications-item"
+        >
+          <div
+            className="notifications-item"
+          >
+            <NotificationIcon
+              className="notifications-icon uicon-danger txt-danger"
+              isCloseIcon={false}
+            >
+              <UIcon
+                className="notifications-icon uicon-danger txt-danger"
+              >
+                <Icon
+                  className="notifications-icon uicon-danger txt-danger"
+                  size={20}
+                  uicon={true}
+                >
+                  <i
+                    className="notifications-icon uicon-danger txt-danger"
+                    size={20}
+                  />
+                </Icon>
+              </UIcon>
+            </NotificationIcon>
+            <Div
+              className="notifications-content"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+                }
+              }
+            >
+              <div
+                className="notifications-content"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+                  }
+                }
+              />
+            </Div>
+            <NotificationIcon
+              className="notifications-icon-close uicon uicon-close"
+              isCloseIcon={true}
+              onClick={[Function]}
+            >
+              <UIcon
+                className="notifications-icon-close uicon uicon-close"
+                onClick={[Function]}
+              >
+                <Icon
+                  className="notifications-icon-close uicon uicon-close"
+                  onClick={[Function]}
+                  size={20}
+                  uicon={true}
+                >
+                  <i
+                    className="notifications-icon-close uicon uicon-close"
+                    onClick={[Function]}
+                    size={20}
+                  />
+                </Icon>
+              </UIcon>
+            </NotificationIcon>
+          </div>
+        </Div>
+      </NotificationItem>
+      <NotificationItem
+        item={
+          Object {
+            "color": "danger",
+            "delay": 10,
+            "icon": "danger",
+            "id": 4,
+            "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+          }
+        }
+        items={
+          Array [
+            Object {
+              "color": "success",
+              "delay": 10,
+              "icon": "success",
+              "id": 1,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+            Object {
+              "color": "danger",
+              "delay": 10,
+              "icon": "danger",
+              "id": 2,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+            Object {
+              "color": "danger",
+              "delay": 10,
+              "icon": "danger",
+              "id": 3,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+            Object {
+              "color": "danger",
+              "delay": 10,
+              "icon": "danger",
+              "id": 4,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+            Object {
+              "color": "danger",
+              "delay": 10,
+              "icon": "danger",
+              "id": 5,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+          ]
+        }
+        key="1"
+        onClose={[Function]}
+        theme={
+          Object {
+            "notificationCloseIcon": "notifications-icon-close uicon uicon-close",
+            "notificationContent": "notifications-content",
+            "notificationIcon": "notifications-icon",
+            "notificationWrapper": "notifications-item",
+            "wrapper": "notifications-wrapper",
+          }
+        }
+      >
+        <Div
+          className="notifications-item"
+        >
+          <div
+            className="notifications-item"
+          >
+            <NotificationIcon
+              className="notifications-icon uicon-danger txt-danger"
+              isCloseIcon={false}
+            >
+              <UIcon
+                className="notifications-icon uicon-danger txt-danger"
+              >
+                <Icon
+                  className="notifications-icon uicon-danger txt-danger"
+                  size={20}
+                  uicon={true}
+                >
+                  <i
+                    className="notifications-icon uicon-danger txt-danger"
+                    size={20}
+                  />
+                </Icon>
+              </UIcon>
+            </NotificationIcon>
+            <Div
+              className="notifications-content"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+                }
+              }
+            >
+              <div
+                className="notifications-content"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+                  }
+                }
+              />
+            </Div>
+            <NotificationIcon
+              className="notifications-icon-close uicon uicon-close"
+              isCloseIcon={true}
+              onClick={[Function]}
+            >
+              <UIcon
+                className="notifications-icon-close uicon uicon-close"
+                onClick={[Function]}
+              >
+                <Icon
+                  className="notifications-icon-close uicon uicon-close"
+                  onClick={[Function]}
+                  size={20}
+                  uicon={true}
+                >
+                  <i
+                    className="notifications-icon-close uicon uicon-close"
+                    onClick={[Function]}
+                    size={20}
+                  />
+                </Icon>
+              </UIcon>
+            </NotificationIcon>
+          </div>
+        </Div>
+      </NotificationItem>
+      <NotificationItem
+        item={
+          Object {
+            "color": "danger",
+            "delay": 10,
+            "icon": "danger",
+            "id": 3,
+            "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+          }
+        }
+        items={
+          Array [
+            Object {
+              "color": "success",
+              "delay": 10,
+              "icon": "success",
+              "id": 1,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+            Object {
+              "color": "danger",
+              "delay": 10,
+              "icon": "danger",
+              "id": 2,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+            Object {
+              "color": "danger",
+              "delay": 10,
+              "icon": "danger",
+              "id": 3,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+            Object {
+              "color": "danger",
+              "delay": 10,
+              "icon": "danger",
+              "id": 4,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+            Object {
+              "color": "danger",
+              "delay": 10,
+              "icon": "danger",
+              "id": 5,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+          ]
+        }
+        key="2"
+        onClose={[Function]}
+        theme={
+          Object {
+            "notificationCloseIcon": "notifications-icon-close uicon uicon-close",
+            "notificationContent": "notifications-content",
+            "notificationIcon": "notifications-icon",
+            "notificationWrapper": "notifications-item",
+            "wrapper": "notifications-wrapper",
+          }
+        }
+      >
+        <Div
+          className="notifications-item"
+        >
+          <div
+            className="notifications-item"
+          >
+            <NotificationIcon
+              className="notifications-icon uicon-danger txt-danger"
+              isCloseIcon={false}
+            >
+              <UIcon
+                className="notifications-icon uicon-danger txt-danger"
+              >
+                <Icon
+                  className="notifications-icon uicon-danger txt-danger"
+                  size={20}
+                  uicon={true}
+                >
+                  <i
+                    className="notifications-icon uicon-danger txt-danger"
+                    size={20}
+                  />
+                </Icon>
+              </UIcon>
+            </NotificationIcon>
+            <Div
+              className="notifications-content"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+                }
+              }
+            >
+              <div
+                className="notifications-content"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+                  }
+                }
+              />
+            </Div>
+            <NotificationIcon
+              className="notifications-icon-close uicon uicon-close"
+              isCloseIcon={true}
+              onClick={[Function]}
+            >
+              <UIcon
+                className="notifications-icon-close uicon uicon-close"
+                onClick={[Function]}
+              >
+                <Icon
+                  className="notifications-icon-close uicon uicon-close"
+                  onClick={[Function]}
+                  size={20}
+                  uicon={true}
+                >
+                  <i
+                    className="notifications-icon-close uicon uicon-close"
+                    onClick={[Function]}
+                    size={20}
+                  />
+                </Icon>
+              </UIcon>
+            </NotificationIcon>
+          </div>
+        </Div>
+      </NotificationItem>
+    </div>
+  </Div>
+</Notifications>
+`;
+
+exports[`Notifications add item should add new item 1`] = `
+<Notifications
+  items={
+    Array [
+      Object {
+        "color": "success",
+        "delay": 10,
+        "icon": "success",
+        "id": 1,
+        "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+      },
+      Object {
+        "color": "danger",
+        "delay": 10,
+        "icon": "danger",
+        "id": 2,
+        "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+      },
+    ]
+  }
+  maxItems={3}
+  onClose={[MockFunction]}
+>
+  <Div
+    className="notifications-wrapper"
+  >
+    <div
+      className="notifications-wrapper"
+    >
+      <NotificationItem
+        item={
+          Object {
+            "color": "danger",
+            "delay": 10,
+            "icon": "danger",
+            "id": 2,
+            "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+          }
+        }
+        items={
+          Array [
+            Object {
+              "color": "success",
+              "delay": 10,
+              "icon": "success",
+              "id": 1,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+            Object {
+              "color": "danger",
+              "delay": 10,
+              "icon": "danger",
+              "id": 2,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+          ]
+        }
+        key="0"
+        onClose={[Function]}
+        theme={
+          Object {
+            "notificationCloseIcon": "notifications-icon-close uicon uicon-close",
+            "notificationContent": "notifications-content",
+            "notificationIcon": "notifications-icon",
+            "notificationWrapper": "notifications-item",
+            "wrapper": "notifications-wrapper",
+          }
+        }
+      >
+        <Div
+          className="notifications-item"
+        >
+          <div
+            className="notifications-item"
+          >
+            <NotificationIcon
+              className="notifications-icon uicon-danger txt-danger"
+              isCloseIcon={false}
+            >
+              <UIcon
+                className="notifications-icon uicon-danger txt-danger"
+              >
+                <Icon
+                  className="notifications-icon uicon-danger txt-danger"
+                  size={20}
+                  uicon={true}
+                >
+                  <i
+                    className="notifications-icon uicon-danger txt-danger"
+                    size={20}
+                  />
+                </Icon>
+              </UIcon>
+            </NotificationIcon>
+            <Div
+              className="notifications-content"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+                }
+              }
+            >
+              <div
+                className="notifications-content"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+                  }
+                }
+              />
+            </Div>
+            <NotificationIcon
+              className="notifications-icon-close uicon uicon-close"
+              isCloseIcon={true}
+              onClick={[Function]}
+            >
+              <UIcon
+                className="notifications-icon-close uicon uicon-close"
+                onClick={[Function]}
+              >
+                <Icon
+                  className="notifications-icon-close uicon uicon-close"
+                  onClick={[Function]}
+                  size={20}
+                  uicon={true}
+                >
+                  <i
+                    className="notifications-icon-close uicon uicon-close"
+                    onClick={[Function]}
+                    size={20}
+                  />
+                </Icon>
+              </UIcon>
+            </NotificationIcon>
+          </div>
+        </Div>
+      </NotificationItem>
+      <NotificationItem
+        item={
+          Object {
+            "color": "success",
+            "delay": 10,
+            "icon": "success",
+            "id": 1,
+            "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+          }
+        }
+        items={
+          Array [
+            Object {
+              "color": "success",
+              "delay": 10,
+              "icon": "success",
+              "id": 1,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+            Object {
+              "color": "danger",
+              "delay": 10,
+              "icon": "danger",
+              "id": 2,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+          ]
+        }
+        key="1"
+        onClose={[Function]}
+        theme={
+          Object {
+            "notificationCloseIcon": "notifications-icon-close uicon uicon-close",
+            "notificationContent": "notifications-content",
+            "notificationIcon": "notifications-icon",
+            "notificationWrapper": "notifications-item",
+            "wrapper": "notifications-wrapper",
+          }
+        }
+      >
+        <Div
+          className="notifications-item"
+        >
+          <div
+            className="notifications-item"
+          >
+            <NotificationIcon
+              className="notifications-icon uicon-success txt-success"
+              isCloseIcon={false}
+            >
+              <UIcon
+                className="notifications-icon uicon-success txt-success"
+              >
+                <Icon
+                  className="notifications-icon uicon-success txt-success"
+                  size={20}
+                  uicon={true}
+                >
+                  <i
+                    className="notifications-icon uicon-success txt-success"
+                    size={20}
+                  />
+                </Icon>
+              </UIcon>
+            </NotificationIcon>
+            <Div
+              className="notifications-content"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+                }
+              }
+            >
+              <div
+                className="notifications-content"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+                  }
+                }
+              />
+            </Div>
+            <NotificationIcon
+              className="notifications-icon-close uicon uicon-close"
+              isCloseIcon={true}
+              onClick={[Function]}
+            >
+              <UIcon
+                className="notifications-icon-close uicon uicon-close"
+                onClick={[Function]}
+              >
+                <Icon
+                  className="notifications-icon-close uicon uicon-close"
+                  onClick={[Function]}
+                  size={20}
+                  uicon={true}
+                >
+                  <i
+                    className="notifications-icon-close uicon uicon-close"
+                    onClick={[Function]}
+                    size={20}
+                  />
+                </Icon>
+              </UIcon>
+            </NotificationIcon>
+          </div>
+        </Div>
+      </NotificationItem>
+    </div>
+  </Div>
+</Notifications>
+`;
+
+exports[`Notifications add item should add new items and delete more than maxItems 1`] = `
+<Notifications
+  items={
+    Array [
+      Object {
+        "color": "success",
+        "delay": 10,
+        "icon": "success",
+        "id": 1,
+        "text": "1Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+      },
+      Object {
+        "color": "danger",
+        "delay": 10,
+        "icon": "danger",
+        "id": 2,
+        "text": "2Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+      },
+      Object {
+        "color": "warning",
+        "delay": 10,
+        "icon": "warning",
+        "id": 3,
+        "text": "3Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+      },
+    ]
+  }
+  maxItems={3}
+  onClose={[MockFunction]}
+>
+  <Div
+    className="notifications-wrapper"
+  >
+    <div
+      className="notifications-wrapper"
+    >
+      <NotificationItem
+        item={
+          Object {
+            "color": "warning",
+            "delay": 10,
+            "icon": "warning",
+            "id": 3,
+            "text": "3Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+          }
+        }
+        items={
+          Array [
+            Object {
+              "color": "success",
+              "delay": 10,
+              "icon": "success",
+              "id": 1,
+              "text": "1Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+            Object {
+              "color": "danger",
+              "delay": 10,
+              "icon": "danger",
+              "id": 2,
+              "text": "2Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+            Object {
+              "color": "warning",
+              "delay": 10,
+              "icon": "warning",
+              "id": 3,
+              "text": "3Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+          ]
+        }
+        key="0"
+        onClose={[Function]}
+        theme={
+          Object {
+            "notificationCloseIcon": "notifications-icon-close uicon uicon-close",
+            "notificationContent": "notifications-content",
+            "notificationIcon": "notifications-icon",
+            "notificationWrapper": "notifications-item",
+            "wrapper": "notifications-wrapper",
+          }
+        }
+      >
+        <Div
+          className="notifications-item"
+        >
+          <div
+            className="notifications-item"
+          >
+            <NotificationIcon
+              className="notifications-icon uicon-warning txt-warning"
+              isCloseIcon={false}
+            >
+              <UIcon
+                className="notifications-icon uicon-warning txt-warning"
+              >
+                <Icon
+                  className="notifications-icon uicon-warning txt-warning"
+                  size={20}
+                  uicon={true}
+                >
+                  <i
+                    className="notifications-icon uicon-warning txt-warning"
+                    size={20}
+                  />
+                </Icon>
+              </UIcon>
+            </NotificationIcon>
+            <Div
+              className="notifications-content"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "3Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+                }
+              }
+            >
+              <div
+                className="notifications-content"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "3Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+                  }
+                }
+              />
+            </Div>
+            <NotificationIcon
+              className="notifications-icon-close uicon uicon-close"
+              isCloseIcon={true}
+              onClick={[Function]}
+            >
+              <UIcon
+                className="notifications-icon-close uicon uicon-close"
+                onClick={[Function]}
+              >
+                <Icon
+                  className="notifications-icon-close uicon uicon-close"
+                  onClick={[Function]}
+                  size={20}
+                  uicon={true}
+                >
+                  <i
+                    className="notifications-icon-close uicon uicon-close"
+                    onClick={[Function]}
+                    size={20}
+                  />
+                </Icon>
+              </UIcon>
+            </NotificationIcon>
+          </div>
+        </Div>
+      </NotificationItem>
+      <NotificationItem
+        item={
+          Object {
+            "color": "danger",
+            "delay": 10,
+            "icon": "danger",
+            "id": 2,
+            "text": "2Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+          }
+        }
+        items={
+          Array [
+            Object {
+              "color": "success",
+              "delay": 10,
+              "icon": "success",
+              "id": 1,
+              "text": "1Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+            Object {
+              "color": "danger",
+              "delay": 10,
+              "icon": "danger",
+              "id": 2,
+              "text": "2Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+            Object {
+              "color": "warning",
+              "delay": 10,
+              "icon": "warning",
+              "id": 3,
+              "text": "3Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+          ]
+        }
+        key="1"
+        onClose={[Function]}
+        theme={
+          Object {
+            "notificationCloseIcon": "notifications-icon-close uicon uicon-close",
+            "notificationContent": "notifications-content",
+            "notificationIcon": "notifications-icon",
+            "notificationWrapper": "notifications-item",
+            "wrapper": "notifications-wrapper",
+          }
+        }
+      >
+        <Div
+          className="notifications-item"
+        >
+          <div
+            className="notifications-item"
+          >
+            <NotificationIcon
+              className="notifications-icon uicon-danger txt-danger"
+              isCloseIcon={false}
+            >
+              <UIcon
+                className="notifications-icon uicon-danger txt-danger"
+              >
+                <Icon
+                  className="notifications-icon uicon-danger txt-danger"
+                  size={20}
+                  uicon={true}
+                >
+                  <i
+                    className="notifications-icon uicon-danger txt-danger"
+                    size={20}
+                  />
+                </Icon>
+              </UIcon>
+            </NotificationIcon>
+            <Div
+              className="notifications-content"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "2Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+                }
+              }
+            >
+              <div
+                className="notifications-content"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "2Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+                  }
+                }
+              />
+            </Div>
+            <NotificationIcon
+              className="notifications-icon-close uicon uicon-close"
+              isCloseIcon={true}
+              onClick={[Function]}
+            >
+              <UIcon
+                className="notifications-icon-close uicon uicon-close"
+                onClick={[Function]}
+              >
+                <Icon
+                  className="notifications-icon-close uicon uicon-close"
+                  onClick={[Function]}
+                  size={20}
+                  uicon={true}
+                >
+                  <i
+                    className="notifications-icon-close uicon uicon-close"
+                    onClick={[Function]}
+                    size={20}
+                  />
+                </Icon>
+              </UIcon>
+            </NotificationIcon>
+          </div>
+        </Div>
+      </NotificationItem>
+      <NotificationItem
+        item={
+          Object {
+            "color": "success",
+            "delay": 10,
+            "icon": "success",
+            "id": 1,
+            "text": "1Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+          }
+        }
+        items={
+          Array [
+            Object {
+              "color": "success",
+              "delay": 10,
+              "icon": "success",
+              "id": 1,
+              "text": "1Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+            Object {
+              "color": "danger",
+              "delay": 10,
+              "icon": "danger",
+              "id": 2,
+              "text": "2Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+            Object {
+              "color": "warning",
+              "delay": 10,
+              "icon": "warning",
+              "id": 3,
+              "text": "3Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+          ]
+        }
+        key="2"
+        onClose={[Function]}
+        theme={
+          Object {
+            "notificationCloseIcon": "notifications-icon-close uicon uicon-close",
+            "notificationContent": "notifications-content",
+            "notificationIcon": "notifications-icon",
+            "notificationWrapper": "notifications-item",
+            "wrapper": "notifications-wrapper",
+          }
+        }
+      >
+        <Div
+          className="notifications-item"
+        >
+          <div
+            className="notifications-item"
+          >
+            <NotificationIcon
+              className="notifications-icon uicon-success txt-success"
+              isCloseIcon={false}
+            >
+              <UIcon
+                className="notifications-icon uicon-success txt-success"
+              >
+                <Icon
+                  className="notifications-icon uicon-success txt-success"
+                  size={20}
+                  uicon={true}
+                >
+                  <i
+                    className="notifications-icon uicon-success txt-success"
+                    size={20}
+                  />
+                </Icon>
+              </UIcon>
+            </NotificationIcon>
+            <Div
+              className="notifications-content"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "1Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+                }
+              }
+            >
+              <div
+                className="notifications-content"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "1Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+                  }
+                }
+              />
+            </Div>
+            <NotificationIcon
+              className="notifications-icon-close uicon uicon-close"
+              isCloseIcon={true}
+              onClick={[Function]}
+            >
+              <UIcon
+                className="notifications-icon-close uicon uicon-close"
+                onClick={[Function]}
+              >
+                <Icon
+                  className="notifications-icon-close uicon uicon-close"
+                  onClick={[Function]}
+                  size={20}
+                  uicon={true}
+                >
+                  <i
+                    className="notifications-icon-close uicon uicon-close"
+                    onClick={[Function]}
+                    size={20}
+                  />
+                </Icon>
+              </UIcon>
+            </NotificationIcon>
+          </div>
+        </Div>
+      </NotificationItem>
+    </div>
+  </Div>
+</Notifications>
+`;
+
+exports[`Notifications handlers should trigger onClick close 1`] = `
+<Notifications
+  items={
+    Array [
+      Object {
+        "color": "success",
+        "delay": 10,
+        "icon": "success",
+        "id": 1,
+        "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+      },
+    ]
+  }
+  maxItems={3}
+  onClose={[Function]}
+>
+  <Div
+    className="notifications-wrapper"
+  >
+    <div
+      className="notifications-wrapper"
+    >
+      <NotificationItem
+        item={
+          Object {
+            "color": "success",
+            "delay": 10,
+            "icon": "success",
+            "id": 1,
+            "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+          }
+        }
+        items={
+          Array [
+            Object {
+              "color": "success",
+              "delay": 10,
+              "icon": "success",
+              "id": 1,
+              "text": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+            },
+          ]
+        }
+        key="0"
+        onClose={[Function]}
+        theme={
+          Object {
+            "notificationCloseIcon": "notifications-icon-close uicon uicon-close",
+            "notificationContent": "notifications-content",
+            "notificationIcon": "notifications-icon",
+            "notificationWrapper": "notifications-item",
+            "wrapper": "notifications-wrapper",
+          }
+        }
+      >
+        <Div
+          className="notifications-item"
+        >
+          <div
+            className="notifications-item"
+          >
+            <NotificationIcon
+              className="notifications-icon uicon-success txt-success"
+              isCloseIcon={false}
+            >
+              <UIcon
+                className="notifications-icon uicon-success txt-success"
+              >
+                <Icon
+                  className="notifications-icon uicon-success txt-success"
+                  size={20}
+                  uicon={true}
+                >
+                  <i
+                    className="notifications-icon uicon-success txt-success"
+                    size={20}
+                  />
+                </Icon>
+              </UIcon>
+            </NotificationIcon>
+            <Div
+              className="notifications-content"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+                }
+              }
+            >
+              <div
+                className="notifications-content"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Сомнение определяет <a href=\\"#\\">эмпирический катарсис</a>, не&nbsp;учитывая мнения авторитетов.",
+                  }
+                }
+              />
+            </Div>
+            <NotificationIcon
+              className="notifications-icon-close uicon uicon-close"
+              isCloseIcon={true}
+              onClick={[Function]}
+            >
+              <UIcon
+                className="notifications-icon-close uicon uicon-close"
+                onClick={[Function]}
+              >
+                <Icon
+                  className="notifications-icon-close uicon uicon-close"
+                  onClick={[Function]}
+                  size={20}
+                  uicon={true}
+                >
+                  <i
+                    className="notifications-icon-close uicon uicon-close"
+                    onClick={[Function]}
+                    size={20}
+                  />
+                </Icon>
+              </UIcon>
+            </NotificationIcon>
+          </div>
+        </Div>
+      </NotificationItem>
+    </div>
+  </Div>
+</Notifications>
+`;
+
+exports[`Notifications timeout delete items should delete by timeout items 1`] = `
+<Notifications
+  items={Array []}
+  maxItems={3}
+  onClose={[Function]}
+>
+  <Div
+    className="notifications-wrapper"
+  >
+    <div
+      className="notifications-wrapper"
+    />
+  </Div>
+</Notifications>
+`;

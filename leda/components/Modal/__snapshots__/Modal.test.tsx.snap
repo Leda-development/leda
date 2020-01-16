@@ -1,0 +1,318 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal SNAPSHOTS different component states should be closed 1`] = `
+<Modal
+  isOpen={false}
+/>
+`;
+
+exports[`Modal SNAPSHOTS different component states should have header 1`] = `
+<Modal
+  isOpen={true}
+>
+  <Portal
+    containerInfo={
+      <body
+        style="overflow: hidden;"
+      >
+        <div
+          class="modal-wrapper"
+        >
+          <div
+            class="modal-window"
+            style="width: 600px;"
+          >
+            <a
+              class="modal-cross"
+            />
+            <div
+              class="modal-header"
+            >
+              <h1>
+                Bread all over the Head
+              </h1>
+            </div>
+            <div
+              class="modal-body"
+            >
+              <span>
+                Yo, buddy
+              </span>
+            </div>
+          </div>
+        </div>
+      </body>
+    }
+  >
+    <Component
+      innerRef={null}
+      isOpen={true}
+    >
+      <Wrapper
+        className="modal-wrapper"
+        onMouseDown={[Function]}
+      >
+        <Div
+          className="modal-wrapper"
+          onMouseDown={[Function]}
+        >
+          <div
+            className="modal-wrapper"
+            onMouseDown={[Function]}
+          >
+            <div
+              className="modal-window"
+              style={
+                Object {
+                  "width": 600,
+                }
+              }
+            >
+              <Icon
+                className="modal-cross"
+                onClick={[Function]}
+              >
+                <A
+                  className="modal-cross"
+                  onClick={[Function]}
+                >
+                  <a
+                    className="modal-cross"
+                    onClick={[Function]}
+                  />
+                </A>
+              </Icon>
+              <ModalHeader>
+                <Wrapper
+                  className="modal-header"
+                >
+                  <Div
+                    className="modal-header"
+                  >
+                    <div
+                      className="modal-header"
+                    >
+                      <h1>
+                        Bread all over the Head
+                      </h1>
+                    </div>
+                  </Div>
+                </Wrapper>
+              </ModalHeader>
+              <ModalBody>
+                <Wrapper
+                  className="modal-body"
+                >
+                  <Div
+                    className="modal-body"
+                  >
+                    <div
+                      className="modal-body"
+                    >
+                      <span>
+                        Yo, buddy
+                      </span>
+                    </div>
+                  </Div>
+                </Wrapper>
+              </ModalBody>
+            </div>
+          </div>
+        </Div>
+      </Wrapper>
+    </Component>
+  </Portal>
+</Modal>
+`;
+
+exports[`Modal SNAPSHOTS different component states should render closing icon in wrapper 1`] = `
+<Modal
+  isOpen={true}
+  onCloseButtonClick={[MockFunction]}
+>
+  <Portal
+    containerInfo={
+      <body
+        style="overflow: hidden;"
+      >
+        <div
+          class="modal-wrapper"
+        >
+          <div
+            class="modal-window"
+            style="width: 600px;"
+          >
+            <a
+              class="modal-cross"
+            />
+            <div
+              class="modal-header"
+            >
+              <h1>
+                Bread all over the Head
+              </h1>
+            </div>
+            <div
+              class="modal-body"
+            >
+              <span>
+                Yo, buddy
+              </span>
+            </div>
+          </div>
+        </div>
+      </body>
+    }
+  >
+    <Component
+      innerRef={null}
+      isOpen={true}
+      onCloseButtonClick={[MockFunction]}
+    >
+      <Wrapper
+        className="modal-wrapper"
+        onMouseDown={[Function]}
+      >
+        <Div
+          className="modal-wrapper"
+          onMouseDown={[Function]}
+        >
+          <div
+            className="modal-wrapper"
+            onMouseDown={[Function]}
+          >
+            <div
+              className="modal-window"
+              style={
+                Object {
+                  "width": 600,
+                }
+              }
+            >
+              <Icon
+                className="modal-cross"
+                onClick={[Function]}
+              >
+                <A
+                  className="modal-cross"
+                  onClick={[Function]}
+                >
+                  <a
+                    className="modal-cross"
+                    onClick={[Function]}
+                  />
+                </A>
+              </Icon>
+              <ModalHeader>
+                <Wrapper
+                  className="modal-header"
+                >
+                  <Div
+                    className="modal-header"
+                  >
+                    <div
+                      className="modal-header"
+                    >
+                      <h1>
+                        Bread all over the Head
+                      </h1>
+                    </div>
+                  </Div>
+                </Wrapper>
+              </ModalHeader>
+              <ModalBody>
+                <Wrapper
+                  className="modal-body"
+                >
+                  <Div
+                    className="modal-body"
+                  >
+                    <div
+                      className="modal-body"
+                    >
+                      <span>
+                        Yo, buddy
+                      </span>
+                    </div>
+                  </Div>
+                </Wrapper>
+              </ModalBody>
+            </div>
+          </div>
+        </Div>
+      </Wrapper>
+    </Component>
+  </Portal>
+</Modal>
+`;
+
+exports[`Modal SNAPSHOTS should render 1`] = `
+<Modal
+  isOpen={true}
+>
+  <Portal
+    containerInfo={
+      <body
+        style="overflow: hidden;"
+      >
+        <div
+          class="modal-wrapper"
+        >
+          <div
+            class="modal-window"
+            style="width: 600px;"
+          >
+            <a
+              class="modal-cross"
+            />
+          </div>
+        </div>
+      </body>
+    }
+  >
+    <Component
+      innerRef={null}
+      isOpen={true}
+    >
+      <Wrapper
+        className="modal-wrapper"
+        onMouseDown={[Function]}
+      >
+        <Div
+          className="modal-wrapper"
+          onMouseDown={[Function]}
+        >
+          <div
+            className="modal-wrapper"
+            onMouseDown={[Function]}
+          >
+            <div
+              className="modal-window"
+              style={
+                Object {
+                  "width": 600,
+                }
+              }
+            >
+              <Icon
+                className="modal-cross"
+                onClick={[Function]}
+              >
+                <A
+                  className="modal-cross"
+                  onClick={[Function]}
+                >
+                  <a
+                    className="modal-cross"
+                    onClick={[Function]}
+                  />
+                </A>
+              </Icon>
+            </div>
+          </div>
+        </Div>
+      </Wrapper>
+    </Component>
+  </Portal>
+</Modal>
+`;

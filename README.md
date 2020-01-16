@@ -1,8 +1,8 @@
 # Reactive Leda
 
-Reactive Leda is a fabulously customizable UI component library with comprehensive built-in forms handling and some other niceties.
+Reactive Leda is a customizable UI component library with built-in forms handling and some other niceties.
 
-Leda supports TypeScript and React@^16.8.0 (the one with hooks.
+Leda supports TypeScript and React@^16.8.0 (the one with hooks).
 
 ## Documentation
 
@@ -11,7 +11,7 @@ All available features are documented in [Russian][1]. English version is on it'
 
 ## Credit
 
-Made by [Artem Povolskikh][2] and [@777PolarFox777][3] for their company with invaluable help of the company's frontend team:
+Made by [Artem Povolskikh][2] and [Andrey Dimitrov][3] for their company with invaluable help of the company's frontend team:
 
 - Alexei Binetsky
 - Andrey Shamin

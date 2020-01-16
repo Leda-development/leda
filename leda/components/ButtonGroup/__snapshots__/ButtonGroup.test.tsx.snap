@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonGroup SNAPSHOTS should render 1`] = `
+<ButtonGroup
+  data={
+    Array [
+      "Petya",
+      "Vasya",
+      "Oleg",
+    ]
+  }
+  name="ButtonGroupFirst"
+>
+  <Wrapper
+    className="button-group-wrapper"
+  >
+    <Div
+      className="button-group-wrapper"
+    >
+      <div
+        className="button-group-wrapper"
+      >
+        <Div
+          aria-invalid={false}
+          className="button-group-buttons-wrapper"
+          role="group"
+        >
+          <div
+            aria-invalid={false}
+            className="button-group-buttons-wrapper"
+            role="group"
+          >
+            <Button
+              className="button-group-item first"
+              key="Petya"
+              onClick={[Function]}
+            >
+              <Button
+                className="button-group-item first"
+                onClick={[Function]}
+              >
+                <button
+                  className="button-wrapper button-group-item first"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Petya
+                </button>
+              </Button>
+            </Button>
+            <Button
+              className="button-group-item"
+              key="Vasya"
+              onClick={[Function]}
+            >
+              <Button
+                className="button-group-item"
+                onClick={[Function]}
+              >
+                <button
+                  className="button-wrapper button-group-item"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Vasya
+                </button>
+              </Button>
+            </Button>
+            <Button
+              className="button-group-item last"
+              key="Oleg"
+              onClick={[Function]}
+            >
+              <Button
+                className="button-group-item last"
+                onClick={[Function]}
+              >
+                <button
+                  className="button-wrapper button-group-item last"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Oleg
+                </button>
+              </Button>
+            </Button>
+          </div>
+        </Div>
+        <InvalidMessageWrapper>
+          <InvalidMessage
+            isValid={true}
+            messages={Array []}
+          >
+            <Component
+              isValid={true}
+              messages={Array []}
+            />
+          </InvalidMessage>
+        </InvalidMessageWrapper>
+      </div>
+    </Div>
+  </Wrapper>
+</ButtonGroup>
+`;
+
+exports[`ButtonGroup SNAPSHOTS should render nothing 1`] = `<ButtonGroup />`;

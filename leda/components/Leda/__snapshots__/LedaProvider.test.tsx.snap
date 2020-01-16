@@ -1,0 +1,496 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LEDA THEME PROVIDER should be isOpen 1`] = `
+<Component
+  theme={
+    Object {
+      "buttonGroup": Object {
+        "button": "custom-buttonGroup-button",
+        "wrapper": "custom-buttonGroup-wrapper",
+      },
+      "dropDownSelect": Object {
+        "input": "custom-input-class",
+      },
+      "slider": Object {
+        "container": "custom-container-slider",
+        "handle": "custom-handle-slider",
+        "wrapper": "custom-wrapper-slider",
+      },
+    }
+  }
+>
+  <DropDownSelect
+    data={
+      Array [
+        Object {
+          "txt": "text1",
+          "val": "value1",
+        },
+        Object {
+          "txt": "text2",
+          "val": "value2",
+        },
+        Object {
+          "txt": "text3",
+          "val": "value3",
+        },
+      ]
+    }
+    isOpen={true}
+    onChange={[MockFunction]}
+    textField="txt"
+  >
+    <Wrapper
+      className="dropdownselect-wrapper"
+    >
+      <Div
+        className="dropdownselect-wrapper"
+      >
+        <div
+          className="dropdownselect-wrapper"
+        >
+          <Div
+            className="dropdownselect-input-wrapper"
+          >
+            <div
+              className="dropdownselect-input-wrapper"
+            >
+              <Input
+                aria-invalid={false}
+                aria-required={false}
+                className="custom-input-class"
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={true}
+                value=""
+              >
+                <input
+                  aria-invalid={false}
+                  aria-required={false}
+                  className="custom-input-class"
+                  disabled={false}
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  readOnly={true}
+                  value=""
+                />
+              </Input>
+              <Icon
+                className="dropdownselect-select-icon opened"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+              >
+                <Span
+                  className="dropdownselect-select-icon opened"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                >
+                  <span
+                    className="dropdownselect-select-icon opened"
+                    onClick={[Function]}
+                    onMouseDown={[Function]}
+                  />
+                </Span>
+              </Icon>
+            </div>
+          </Div>
+          <SuggestionList
+            data={
+              Array [
+                Object {
+                  "txt": "text1",
+                  "val": "value1",
+                },
+                Object {
+                  "txt": "text2",
+                  "val": "value2",
+                },
+                Object {
+                  "txt": "text3",
+                  "val": "value3",
+                },
+              ]
+            }
+            highlightedSuggestion={null}
+            isLoading={false}
+            isOpen={true}
+            onClick={[Function]}
+            selectedSuggestion={null}
+            shouldAllowEmpty={false}
+            textField="txt"
+            theme={
+              Object {
+                "clearIcon": "dropdownselect-clear-icon",
+                "container": "suggestion-wrapper",
+                "input": "custom-input-class",
+                "inputWrapper": "dropdownselect-input-wrapper",
+                "inputWrapperDisabled": "disabled",
+                "inputWrapperFocused": "focused",
+                "inputWrapperInvalid": "danger",
+                "item": "suggestion-item",
+                "itemHighlighted": "highlighted",
+                "itemPlaceholder": "placeholder",
+                "itemSelected": "selected",
+                "list": "suggestion-list",
+                "noSuggestions": "nodata",
+                "selectIcon": "dropdownselect-select-icon",
+                "selectIconClosed": "closed",
+                "selectIconOpened": "opened",
+                "wrapper": "dropdownselect-wrapper",
+              }
+            }
+            value={null}
+          >
+            <Div
+              className="suggestion-wrapper"
+              onMouseDown={[Function]}
+            >
+              <div
+                className="suggestion-wrapper"
+                onMouseDown={[Function]}
+              >
+                <List
+                  className="suggestion-list"
+                >
+                  <Ul
+                    className="suggestion-list"
+                  >
+                    <ul
+                      className="suggestion-list"
+                    >
+                      <SuggestionItem
+                        isHighlighted={false}
+                        isPlaceholder={false}
+                        isScrollTarget={false}
+                        isSelected={false}
+                        item={
+                          Object {
+                            "txt": "text1",
+                            "val": "value1",
+                          }
+                        }
+                        key="{\\"txt\\":\\"text1\\",\\"val\\":\\"value1\\"}"
+                        onClick={[Function]}
+                        suggestionRef={
+                          Object {
+                            "current": null,
+                          }
+                        }
+                        text="text1"
+                        textField="txt"
+                        theme={
+                          Object {
+                            "clearIcon": "dropdownselect-clear-icon",
+                            "container": "suggestion-wrapper",
+                            "input": "custom-input-class",
+                            "inputWrapper": "dropdownselect-input-wrapper",
+                            "inputWrapperDisabled": "disabled",
+                            "inputWrapperFocused": "focused",
+                            "inputWrapperInvalid": "danger",
+                            "item": "suggestion-item",
+                            "itemHighlighted": "highlighted",
+                            "itemPlaceholder": "placeholder",
+                            "itemSelected": "selected",
+                            "list": "suggestion-list",
+                            "noSuggestions": "nodata",
+                            "selectIcon": "dropdownselect-select-icon",
+                            "selectIconClosed": "closed",
+                            "selectIconOpened": "opened",
+                            "wrapper": "dropdownselect-wrapper",
+                          }
+                        }
+                      >
+                        <Suggestion
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <Li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            <li
+                              className="suggestion-item"
+                              onClick={[Function]}
+                            >
+                              text1
+                            </li>
+                          </Li>
+                        </Suggestion>
+                      </SuggestionItem>
+                      <SuggestionItem
+                        isHighlighted={false}
+                        isPlaceholder={false}
+                        isScrollTarget={false}
+                        isSelected={false}
+                        item={
+                          Object {
+                            "txt": "text2",
+                            "val": "value2",
+                          }
+                        }
+                        key="{\\"txt\\":\\"text2\\",\\"val\\":\\"value2\\"}"
+                        onClick={[Function]}
+                        suggestionRef={
+                          Object {
+                            "current": null,
+                          }
+                        }
+                        text="text2"
+                        textField="txt"
+                        theme={
+                          Object {
+                            "clearIcon": "dropdownselect-clear-icon",
+                            "container": "suggestion-wrapper",
+                            "input": "custom-input-class",
+                            "inputWrapper": "dropdownselect-input-wrapper",
+                            "inputWrapperDisabled": "disabled",
+                            "inputWrapperFocused": "focused",
+                            "inputWrapperInvalid": "danger",
+                            "item": "suggestion-item",
+                            "itemHighlighted": "highlighted",
+                            "itemPlaceholder": "placeholder",
+                            "itemSelected": "selected",
+                            "list": "suggestion-list",
+                            "noSuggestions": "nodata",
+                            "selectIcon": "dropdownselect-select-icon",
+                            "selectIconClosed": "closed",
+                            "selectIconOpened": "opened",
+                            "wrapper": "dropdownselect-wrapper",
+                          }
+                        }
+                      >
+                        <Suggestion
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <Li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            <li
+                              className="suggestion-item"
+                              onClick={[Function]}
+                            >
+                              text2
+                            </li>
+                          </Li>
+                        </Suggestion>
+                      </SuggestionItem>
+                      <SuggestionItem
+                        isHighlighted={false}
+                        isPlaceholder={false}
+                        isScrollTarget={false}
+                        isSelected={false}
+                        item={
+                          Object {
+                            "txt": "text3",
+                            "val": "value3",
+                          }
+                        }
+                        key="{\\"txt\\":\\"text3\\",\\"val\\":\\"value3\\"}"
+                        onClick={[Function]}
+                        suggestionRef={
+                          Object {
+                            "current": null,
+                          }
+                        }
+                        text="text3"
+                        textField="txt"
+                        theme={
+                          Object {
+                            "clearIcon": "dropdownselect-clear-icon",
+                            "container": "suggestion-wrapper",
+                            "input": "custom-input-class",
+                            "inputWrapper": "dropdownselect-input-wrapper",
+                            "inputWrapperDisabled": "disabled",
+                            "inputWrapperFocused": "focused",
+                            "inputWrapperInvalid": "danger",
+                            "item": "suggestion-item",
+                            "itemHighlighted": "highlighted",
+                            "itemPlaceholder": "placeholder",
+                            "itemSelected": "selected",
+                            "list": "suggestion-list",
+                            "noSuggestions": "nodata",
+                            "selectIcon": "dropdownselect-select-icon",
+                            "selectIconClosed": "closed",
+                            "selectIconOpened": "opened",
+                            "wrapper": "dropdownselect-wrapper",
+                          }
+                        }
+                      >
+                        <Suggestion
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <Li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            <li
+                              className="suggestion-item"
+                              onClick={[Function]}
+                            >
+                              text3
+                            </li>
+                          </Li>
+                        </Suggestion>
+                      </SuggestionItem>
+                    </ul>
+                  </Ul>
+                </List>
+              </div>
+            </Div>
+          </SuggestionList>
+        </div>
+      </Div>
+    </Wrapper>
+  </DropDownSelect>
+</Component>
+`;
+
+exports[`LEDA THEME PROVIDER should provide theme to button group 1`] = `
+<Component
+  theme={
+    Object {
+      "buttonGroup": Object {
+        "button": "custom-buttonGroup-button",
+        "wrapper": "custom-buttonGroup-wrapper",
+      },
+      "dropDownSelect": Object {
+        "input": "custom-input-class",
+      },
+      "slider": Object {
+        "container": "custom-container-slider",
+        "handle": "custom-handle-slider",
+        "wrapper": "custom-wrapper-slider",
+      },
+    }
+  }
+>
+  <ButtonGroup
+    data={
+      Array [
+        "Petya",
+        "Vasya",
+        "Oleg",
+        "Kolya",
+      ]
+    }
+  >
+    <Wrapper
+      className="custom-buttonGroup-wrapper"
+    >
+      <Div
+        className="custom-buttonGroup-wrapper"
+      >
+        <div
+          className="custom-buttonGroup-wrapper"
+        >
+          <Div
+            aria-invalid={false}
+            className="button-group-buttons-wrapper"
+            role="group"
+          >
+            <div
+              aria-invalid={false}
+              className="button-group-buttons-wrapper"
+              role="group"
+            >
+              <Button
+                className="custom-buttonGroup-button first"
+                key="Petya"
+                onClick={[Function]}
+              >
+                <Button
+                  className="custom-buttonGroup-button first"
+                  onClick={[Function]}
+                >
+                  <button
+                    className="button-wrapper custom-buttonGroup-button first"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Petya
+                  </button>
+                </Button>
+              </Button>
+              <Button
+                className="custom-buttonGroup-button"
+                key="Vasya"
+                onClick={[Function]}
+              >
+                <Button
+                  className="custom-buttonGroup-button"
+                  onClick={[Function]}
+                >
+                  <button
+                    className="button-wrapper custom-buttonGroup-button"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Vasya
+                  </button>
+                </Button>
+              </Button>
+              <Button
+                className="custom-buttonGroup-button"
+                key="Oleg"
+                onClick={[Function]}
+              >
+                <Button
+                  className="custom-buttonGroup-button"
+                  onClick={[Function]}
+                >
+                  <button
+                    className="button-wrapper custom-buttonGroup-button"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Oleg
+                  </button>
+                </Button>
+              </Button>
+              <Button
+                className="custom-buttonGroup-button last"
+                key="Kolya"
+                onClick={[Function]}
+              >
+                <Button
+                  className="custom-buttonGroup-button last"
+                  onClick={[Function]}
+                >
+                  <button
+                    className="button-wrapper custom-buttonGroup-button last"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Kolya
+                  </button>
+                </Button>
+              </Button>
+            </div>
+          </Div>
+          <InvalidMessageWrapper>
+            <InvalidMessage
+              isValid={true}
+              messages={Array []}
+            >
+              <Component
+                isValid={true}
+                messages={Array []}
+              />
+            </InvalidMessage>
+          </InvalidMessageWrapper>
+        </div>
+      </Div>
+    </Wrapper>
+  </ButtonGroup>
+</Component>
+`;

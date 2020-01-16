@@ -1,0 +1,10 @@
+webpack.*.js
+*.md
+cypress
+cypress.json
+types
+styles
+demo
+node_modules
+.gitlab
+

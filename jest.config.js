@@ -1,5 +1,6 @@
 module.exports = {
-  rootDir: './',
+  preset: 'ts-jest',
+  testEnvironment: 'jsdom',
   snapshotSerializers: [
     'enzyme-to-json/serializer',
   ],
@@ -9,19 +10,16 @@ module.exports = {
     '/cypress/',
   ],
   testURL: 'http://localhost/',
-  setupFilesAfterEnv: ['<rootDir>/testsConfig.js'],
+  setupFilesAfterEnv: ['<rootDir>/testsConfig.ts'],
   setupFiles: [
     'jest-date-mock',
   ],
   extraGlobals: [
     'document',
   ],
-  testEnvironment: 'jsdom',
   bail: true,
   verbose: true,
+  testMatch: null,
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(js|ts)x?$',
-  transform: {
-    '^.+\\.(j|t)sx?$': 'babel-jest',
-  },
 };

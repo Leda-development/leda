@@ -1,0 +1,254 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatusBar SNAPSHOTS should render 1`] = `
+<StatusBar
+  data={
+    Array [
+      Object {
+        "id": "todo",
+        "labelText": "To do",
+      },
+      Object {
+        "id": "wip",
+        "labelText": "In progress",
+      },
+      Object {
+        "id": "done",
+        "labelText": "Done",
+      },
+    ]
+  }
+  textField="labelText"
+  value={
+    Object {
+      "id": "todo",
+      "labelText": "To do",
+    }
+  }
+>
+  <Div
+    className="statusbar-wrapper"
+  >
+    <div
+      className="statusbar-wrapper"
+    >
+      <Component
+        index={0}
+        isFirst={true}
+        isLast={false}
+        item={
+          Object {
+            "id": "todo",
+            "labelText": "To do",
+          }
+        }
+        key="0"
+        labelText="To do"
+        position="current"
+        theme={
+          Object {
+            "label": "statusbar-label",
+            "statusIcon": "statusbar-icon",
+            "statusItem": "statusbar-status-item",
+            "statusItemDanger": "danger",
+            "statusItemFirst": "first",
+            "statusItemLast": "last",
+            "statusItemProgress": "progress",
+            "statusItemSuccess": "success",
+            "statusLine": "statusbar-line",
+            "wrapper": "statusbar-wrapper",
+          }
+        }
+        type={null}
+      >
+        <Item
+          className="statusbar-status-item first"
+        >
+          <Div
+            className="statusbar-status-item first"
+          >
+            <div
+              className="statusbar-status-item first"
+            >
+              <Icon
+                className="statusbar-icon progress"
+                onClick={[Function]}
+              >
+                <Span
+                  className="statusbar-icon progress"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="statusbar-icon progress"
+                    onClick={[Function]}
+                  />
+                </Span>
+              </Icon>
+              <Label
+                className="statusbar-label"
+              >
+                <Span
+                  className="statusbar-label"
+                >
+                  <span
+                    className="statusbar-label"
+                  >
+                    To do
+                  </span>
+                </Span>
+              </Label>
+            </div>
+          </Div>
+        </Item>
+        <div
+          className="statusbar-line"
+        />
+      </Component>
+      <Component
+        index={1}
+        isFirst={false}
+        isLast={false}
+        item={
+          Object {
+            "id": "wip",
+            "labelText": "In progress",
+          }
+        }
+        key="1"
+        labelText="In progress"
+        position="next"
+        theme={
+          Object {
+            "label": "statusbar-label",
+            "statusIcon": "statusbar-icon",
+            "statusItem": "statusbar-status-item",
+            "statusItemDanger": "danger",
+            "statusItemFirst": "first",
+            "statusItemLast": "last",
+            "statusItemProgress": "progress",
+            "statusItemSuccess": "success",
+            "statusLine": "statusbar-line",
+            "wrapper": "statusbar-wrapper",
+          }
+        }
+        type={null}
+      >
+        <Item
+          className="statusbar-status-item"
+        >
+          <Div
+            className="statusbar-status-item"
+          >
+            <div
+              className="statusbar-status-item"
+            >
+              <Icon
+                className="statusbar-icon"
+                onClick={[Function]}
+              >
+                <Span
+                  className="statusbar-icon"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="statusbar-icon"
+                    onClick={[Function]}
+                  />
+                </Span>
+              </Icon>
+              <Label
+                className="statusbar-label"
+              >
+                <Span
+                  className="statusbar-label"
+                >
+                  <span
+                    className="statusbar-label"
+                  >
+                    In progress
+                  </span>
+                </Span>
+              </Label>
+            </div>
+          </Div>
+        </Item>
+        <div
+          className="statusbar-line"
+        />
+      </Component>
+      <Component
+        index={2}
+        isFirst={false}
+        isLast={true}
+        item={
+          Object {
+            "id": "done",
+            "labelText": "Done",
+          }
+        }
+        key="2"
+        labelText="Done"
+        position="next"
+        theme={
+          Object {
+            "label": "statusbar-label",
+            "statusIcon": "statusbar-icon",
+            "statusItem": "statusbar-status-item",
+            "statusItemDanger": "danger",
+            "statusItemFirst": "first",
+            "statusItemLast": "last",
+            "statusItemProgress": "progress",
+            "statusItemSuccess": "success",
+            "statusLine": "statusbar-line",
+            "wrapper": "statusbar-wrapper",
+          }
+        }
+        type={null}
+      >
+        <Item
+          className="statusbar-status-item last"
+        >
+          <Div
+            className="statusbar-status-item last"
+          >
+            <div
+              className="statusbar-status-item last"
+            >
+              <Icon
+                className="statusbar-icon"
+                onClick={[Function]}
+              >
+                <Span
+                  className="statusbar-icon"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="statusbar-icon"
+                    onClick={[Function]}
+                  />
+                </Span>
+              </Icon>
+              <Label
+                className="statusbar-label"
+              >
+                <Span
+                  className="statusbar-label"
+                >
+                  <span
+                    className="statusbar-label"
+                  >
+                    Done
+                  </span>
+                </Span>
+              </Label>
+            </div>
+          </Div>
+        </Item>
+        <div
+          className="statusbar-line"
+        />
+      </Component>
+    </div>
+  </Div>
+</StatusBar>
+`;

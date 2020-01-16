@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs SNAPSHOTS should render 1`] = `
+<Tabs
+  onChange={[MockFunction]}
+>
+  <Wrapper
+    className="tabs-wrapper"
+  >
+    <Div
+      className="tabs-wrapper"
+    >
+      <div
+        className="tabs-wrapper"
+      >
+        <Heading
+          className="tabs-bar"
+        >
+          <Ul
+            className="tabs-bar"
+          >
+            <ul
+              className="tabs-bar"
+            >
+              <Tab
+                key=".0"
+                tabKey={0}
+                title="Tab1"
+              >
+                <TabItem
+                  className="tabs-item active"
+                  onClick={[Function]}
+                >
+                  <Li
+                    className="tabs-item active"
+                    onClick={[Function]}
+                  >
+                    <li
+                      className="tabs-item active"
+                      onClick={[Function]}
+                    >
+                      Tab1
+                    </li>
+                  </Li>
+                </TabItem>
+              </Tab>
+              <Tab
+                key=".1"
+                tabKey={1}
+                title="Tab2"
+              >
+                <TabItem
+                  className="tabs-item"
+                  onClick={[Function]}
+                >
+                  <Li
+                    className="tabs-item"
+                    onClick={[Function]}
+                  >
+                    <li
+                      className="tabs-item"
+                      onClick={[Function]}
+                    >
+                      Tab2
+                    </li>
+                  </Li>
+                </TabItem>
+              </Tab>
+            </ul>
+          </Ul>
+        </Heading>
+        <Content
+          className="tabs-content"
+          key="0"
+        >
+          <Div
+            className="tabs-content"
+          >
+            <div
+              className="tabs-content"
+            >
+              <Component
+                activeTabKey={0}
+              >
+                Tab1
+              </Component>
+            </div>
+          </Div>
+        </Content>
+      </div>
+    </Div>
+  </Wrapper>
+</Tabs>
+`;

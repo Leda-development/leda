@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button SNAPSHOTS should render 1`] = `
+<Button>
+  <button
+    className="button-wrapper"
+    onClick={[Function]}
+    type="button"
+  >
+    test
+  </button>
+</Button>
+`;
+
+exports[`Button SNAPSHOTS should render disabled state 1`] = `
+<Button
+  isDisabled={true}
+>
+  <button
+    className="button-wrapper disabled"
+    onClick={[Function]}
+    type="button"
+  >
+    test
+  </button>
+</Button>
+`;
+
+exports[`Button SNAPSHOTS should render isLoading state 1`] = `
+<Button
+  isLoading={true}
+>
+  <button
+    className="button-wrapper loading"
+    onClick={[Function]}
+    type="button"
+  >
+    test
+  </button>
+</Button>
+`;
+
+exports[`Button SNAPSHOTS should render with validation 1`] = `
+<div>
+  <Input
+    form="test"
+    isRequired={true}
+    name="in"
+  >
+    <Wrapper
+      className="input-wrapper"
+    >
+      <Div
+        className="input-wrapper"
+      >
+        <div
+          className="input-wrapper"
+        >
+          <Div
+            className="input-element-wrapper"
+          >
+            <div
+              className="input-element-wrapper"
+            >
+              <Input
+                aria-invalid={false}
+                aria-required={true}
+                className="input-element"
+                form="test"
+                name="in"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                value=""
+              >
+                <input
+                  aria-invalid={false}
+                  aria-required={true}
+                  className="input-element"
+                  form="test"
+                  name="in"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  value=""
+                />
+              </Input>
+            </div>
+          </Div>
+          <InvalidMessageWrapper>
+            <InvalidMessage
+              isValid={true}
+              messages={Array []}
+            >
+              <Component
+                isValid={true}
+                messages={Array []}
+              />
+            </InvalidMessage>
+          </InvalidMessageWrapper>
+        </div>
+      </Div>
+    </Wrapper>
+  </Input>
+  <Button
+    form="test"
+    onClick={[MockFunction]}
+  >
+    <button
+      className="button-wrapper"
+      onClick={[Function]}
+      type="button"
+    >
+      test
+    </button>
+  </Button>
+</div>
+`;

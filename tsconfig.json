@@ -6,7 +6,7 @@
     "module": "esnext",
     "sourceMap": true,
     "strict": true,
-    "target": "es6",
+    "target": "es2017",
     "jsx": "react",
     "incremental": false,
     "checkJs": false,
@@ -22,8 +22,7 @@
       ],
       "react": ["node_modules/react"]
     },
-//    "emitDeclarationOnly": true,
-    "declarationDir": "./external-types/",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "outDir": "./dist",
     "declaration": true,
     "newLine": "LF"
@@ -34,6 +33,6 @@
     "demo"
   ],
   "include": [
-    "./src/"
+    "./leda/"
   ]
 }

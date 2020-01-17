@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useElement } from '../../utils';
 import { A } from '../A';
 import { Div } from '../Div';
-import { LedaContext } from '../Leda';
+import { LedaContext } from '../LedaProvider';
 import { CustomElements, ModalWindowProps } from './types';
 
 export const useCustomElements = (props: ModalWindowProps): CustomElements => {

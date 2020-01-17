@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { isNil, isObject } from 'lodash';
 import { Div } from '../../components/Div';
-import { LedaContext } from '../../components/Leda';
+import { LedaContext } from '../../components/LedaProvider';
 import { Loader } from '../../components/Loader';
 import { Ul } from '../../components/Ul';
 import { COMPONENTS_NAMESPACES } from '../../constants';

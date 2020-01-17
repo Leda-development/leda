@@ -5,7 +5,7 @@ import { getClassNames, useElement } from '../../utils';
 import { StatusBarItemProps } from './types';
 import { Div } from '../Div';
 import { Span } from '../Span';
-import { LedaContext } from '../Leda';
+import { LedaContext } from '../LedaProvider';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 
 export const StatusBarItem: React.FC<StatusBarItemProps> = (props: StatusBarItemProps): React.ReactElement => {

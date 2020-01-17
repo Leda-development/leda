@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { LedaContext } from '../../components/Leda';
+import { LedaContext } from '../../components/LedaProvider';
 import { Li } from '../../components/Li';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { getClassNames, useElement } from '../../utils';

@@ -7,14 +7,7 @@ import {
 import { ButtonProps } from '../Button/types';
 import { ValidationProps } from '../Validation/types';
 
-export type Value = string | SomeObject | number;
-
-export interface ChangeEvent<T = Value | Value[]> extends React.MouseEvent {
-  component: {
-    value: T, // Значение - элемент из data
-    name?: string,
-  },
-}
+export type Value = string | SomeObject | number | null;
 
 export interface ResetEvent<T = Value | Value[]> {
   component: {
@@ -22,6 +15,15 @@ export interface ResetEvent<T = Value | Value[]> {
     name?: string,
   },
 }
+
+export interface ButtonClickEvent<T = Value | Value[]> extends React.MouseEvent {
+  component: {
+    value: T, // Значение - элемент из data
+    name?: string,
+  },
+}
+
+export type ChangeEvent<T> = ButtonClickEvent<T> | ResetEvent<T>;
 
 export interface ButtonGroupProps<T extends Value | Value[] = Value | Value[]> extends ValidationProps {
   /** Кастомизация кнопки при передачи data. По дефолту используется L.Button */
@@ -33,7 +35,7 @@ export interface ButtonGroupProps<T extends Value | Value[] = Value | Value[]> e
   /** Выключенное состояние компонента */
   isDisabled?: boolean,
   /** Обработчик события изменения активного айтема. Отдает value и index */
-  onChange?: CustomEventHandler<ChangeEvent<T> | ResetEvent<T>>,
+  onChange?: (ev: ChangeEvent<T>) => void,
   /** Обработчик клика */
   onClick?: React.MouseEventHandler<HTMLElement>,
   /** При передаче массива обьектов указать текстовое поле из которого брать значение */

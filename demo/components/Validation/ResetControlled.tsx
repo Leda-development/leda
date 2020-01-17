@@ -20,6 +20,7 @@ console.log(L.form('form-name'));
 export const ResetControlled = () => {
   const formName = 'form-name';
   const [valueOfAutoComplete, setValueOfAutoComplete] = React.useState<string | null>(null);
+  const [valueOfButtonGroup, setValueOfButtonGroup] = React.useState<L.ButtonGroupTypes.Value | undefined>(null);
   const [valueOfDatePicker, setValueOfDatePicker] = React.useState<string | null>(null);
   const [valueOfDateTimePicker, setValueOfDateTimePicker] = React.useState<string | null>(null);
   const [valueOfDateRange, setValueOfDateRange] = React.useState<[string, string] | [null, null]>([null, null]);
@@ -44,9 +45,25 @@ export const ResetControlled = () => {
             name="auto-complete"
             data={['Berlin', 'Paris']}
             value={valueOfAutoComplete}
-            onChange={event => {
+            onChange={(event) => {
               console.log(event.component);
               setValueOfAutoComplete(event.component.value);
+            }}
+          />
+        </L.Div>
+        <L.Div _inner _flexRow _alignItemsCenter>
+          <Label>
+            ButtonGroup
+          </Label>
+          <L.ButtonGroup _grow1
+            isRequired
+            form={formName}
+            name="button-group"
+            data={['Berlin', 'Paris']}
+            value={valueOfButtonGroup}
+            onChange={(event) => {
+              console.log(event.component);
+              setValueOfButtonGroup(event.component.value);
             }}
           />
         </L.Div>
@@ -59,7 +76,7 @@ export const ResetControlled = () => {
             form={formName}
             name="date-picker"
             value={valueOfDatePicker}
-            onChange={event => {
+            onChange={(event) => {
               console.log(event.component);
               setValueOfDatePicker(event.component.value);
             }}
@@ -74,7 +91,7 @@ export const ResetControlled = () => {
             form={formName}
             name="date-time-picker"
             value={valueOfDateTimePicker}
-            onChange={event => {
+            onChange={(event) => {
               console.log(event.component);
               setValueOfDateTimePicker(event.component.value);
             }}
@@ -89,7 +106,7 @@ export const ResetControlled = () => {
             form={formName}
             name="date-range"
             value={valueOfDateRange}
-            onChange={event => {
+            onChange={(event) => {
               console.log(event.component);
               setValueOfDateRange(event.component.value);
             }}
@@ -104,7 +121,7 @@ export const ResetControlled = () => {
             form={formName}
             name="date-time-range"
             value={valueOfDateTimeRange}
-            onChange={event => {
+            onChange={(event) => {
               console.log(event.component);
               setValueOfDateTimeRange(event.component.value);
             }}
@@ -120,7 +137,7 @@ export const ResetControlled = () => {
             name="drop-down-select"
             data={['Berlin', 'Paris']}
             value={valueOfDropDownSelect}
-            onChange={event => {
+            onChange={(event) => {
               console.log(event.component);
               setValueOfDropDownSelect(event.component.value);
             }}
@@ -136,7 +153,7 @@ export const ResetControlled = () => {
             form={formName}
             name="input"
             value={valueOfInput}
-            onChange={event => {
+            onChange={(event) => {
               console.log(event.component);
               setValueOfInput(event.component.value);
             }}
@@ -152,7 +169,7 @@ export const ResetControlled = () => {
             form={formName}
             name="masked-input"
             value={valueOfMaskedInput}
-            onChange={event => {
+            onChange={(event) => {
               console.log(event.component);
               setValueOfMaskedInput(event.component.value);
             }}
@@ -169,7 +186,7 @@ export const ResetControlled = () => {
             name="multi-select"
             data={['Berlin', 'Paris']}
             value={valueOfMultiSelect}
-            onChange={event => {
+            onChange={(event) => {
               console.log(event.component);
               setValueOfMultiSelect(event.component.value as string[]);
             }}
@@ -184,7 +201,7 @@ export const ResetControlled = () => {
             form={formName}
             name="numeric-range"
             value={valueOfNumericRange}
-            onChange={event => {
+            onChange={(event) => {
               console.log(event.component);
               setValueOfNumericRange(event.component.value);
             }}
@@ -199,7 +216,7 @@ export const ResetControlled = () => {
             form={formName}
             name="numeric-text-box"
             value={valueOfNumericTextBox}
-            onChange={event => {
+            onChange={(event) => {
               console.log(event.component);
               setValueOfNumericTextBox(event.component.value);
             }}
@@ -214,7 +231,7 @@ export const ResetControlled = () => {
             form={formName}
             name="textarea"
             value={valueOfTextarea}
-            onChange={event => {
+            onChange={(event) => {
               console.log(event.component);
               setValueOfTextarea(event.component.value);
             }}
@@ -225,7 +242,7 @@ export const ResetControlled = () => {
             formHelpers
           </Label>
           <L.Button _warning
-            onClick={event => {
+            onClick={(event) => {
               console.log(event);
               L.form(formName).reset();
             }}
@@ -233,7 +250,7 @@ export const ResetControlled = () => {
             Reset
           </L.Button>
           <L.Button _warning
-            onClick={event => {
+            onClick={(event) => {
               console.log(event);
               const value = L.form(formName).get();
               console.log(value);
@@ -242,7 +259,7 @@ export const ResetControlled = () => {
             Get
           </L.Button>
           <L.Button _warning
-            onClick={event => {
+            onClick={(event) => {
               console.log(event);
               const value = L.form(formName).validate();
               console.log(value);

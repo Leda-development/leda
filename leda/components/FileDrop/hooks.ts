@@ -6,7 +6,7 @@ import { useElement } from '../../utils';
 import { Div } from '../Div';
 import { Span } from '../Span';
 import { Button } from '../Button';
-import { LedaContext } from '../Leda';
+import { LedaContext } from '../LedaProvider';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 
 export const useCustomElements = (props: FileDropProps): CustomElements => {

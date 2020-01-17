@@ -10,7 +10,7 @@ import {
   FileDropError, FileType, FileDropProps,
 } from './types';
 import { A } from '../A';
-import { globalDefaultTheme } from '../Leda';
+import { globalDefaultTheme } from '../LedaProvider';
 
 export const compareFiles = (firstFile: FileType, secondFile: FileType): boolean => {
   if (firstFile.size !== secondFile.size) return false;

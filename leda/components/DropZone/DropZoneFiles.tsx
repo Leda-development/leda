@@ -3,7 +3,7 @@ import { Ul } from '../Ul';
 import { Li } from '../Li';
 import { A } from '../A';
 import { Tooltip } from '../Tooltip';
-import { globalDefaultTheme } from '../Leda';
+import { globalDefaultTheme } from '../LedaProvider';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { DropZoneFilesProps } from './types';
 

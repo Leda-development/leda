@@ -6,7 +6,7 @@ import { COMPONENTS_NAMESPACES } from '../../constants';
 import { Span } from '../Span';
 import { createChangeHandler } from './handlers';
 import { CheckBoxProps, CheckBoxRefCurrent } from './types';
-import { LedaContext } from '../Leda';
+import { LedaContext } from '../LedaProvider';
 
 export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<CheckBoxRefCurrent>): React.ReactElement => {
   const {

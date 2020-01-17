@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Div } from '../../components/Div';
-import { LedaContext } from '../../components/Leda';
+import { LedaContext } from '../../components/LedaProvider';
 import { formatDate } from '../DateTimeInput/helpers';
 import { CALENDAR_CLICK_ACTION } from './constants';
 import {

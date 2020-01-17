@@ -1,5 +1,5 @@
 import React from 'react';
-import { globalDefaultTheme } from '../Leda';
+import { globalDefaultTheme } from '../LedaProvider';
 import { CollapseContextType, CollapsePanelContextType } from './types';
 
 export const CollapseContext = React.createContext<CollapseContextType>({

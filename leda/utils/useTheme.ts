@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { merge } from 'lodash';
-import { LedaContext, globalDefaultTheme } from '../components/Leda';
+import { LedaContext, globalDefaultTheme } from '../components/LedaProvider';
 import { RecursivePartial, RecursiveRequired } from '../commonTypes';
 
 export type GlobalDefaultTheme = typeof globalDefaultTheme;

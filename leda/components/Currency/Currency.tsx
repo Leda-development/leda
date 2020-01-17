@@ -4,7 +4,7 @@ import { Span } from '../Span';
 import { bindFunctionalRef, useElement } from '../../utils';
 import { CurrencyProps, CurrencyRefCurrent, CurrencySymbolProps } from './types';
 import { formatNumber, getNumericValue } from './helpers';
-import { LedaContext } from '../Leda';
+import { LedaContext } from '../LedaProvider';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 
 export const Currency = React.forwardRef((props: CurrencyProps, ref?: React.Ref<CurrencyRefCurrent>) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { LedaContext } from '../Leda';
+import { LedaContext } from '../LedaProvider';
 import { ModalContext } from './ModalContext';
 import { Div } from '../Div';
 import { mergeClassNames, getClassNames, useElement } from '../../utils';

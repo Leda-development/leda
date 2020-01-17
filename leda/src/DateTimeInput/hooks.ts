@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { isNil, isDate } from 'lodash';
 import { Div } from '../../components/Div';
-import { LedaContext } from '../../components/Leda';
+import { LedaContext } from '../../components/LedaProvider';
 import { Span } from '../../components/Span';
 import { useElement } from '../../utils';
 import { VIEW_TYPES } from '../Calendar/constants';

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Div } from '../../components/Div';
-import { LedaContext } from '../../components/Leda';
+import { LedaContext } from '../../components/LedaProvider';
 import { Span } from '../../components/Span';
 import { useElement } from '../../utils';
 import { CustomElements, DateTimeInputRangeProps, DateTimeInputRangeState } from './types';

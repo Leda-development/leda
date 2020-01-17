@@ -8,7 +8,7 @@ import { Div } from '../Div';
 import { Ul } from '../Ul';
 import { Span } from '../Span';
 import { Button } from '../Button';
-import { LedaContext } from '../Leda';
+import { LedaContext } from '../LedaProvider';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 
 const defaultAccepted = (elProps: AcceptedFilesProps): React.ReactElement => (elProps.dropZoneFilesNode

@@ -19,7 +19,7 @@ import {
 } from './handlers';
 import { TagsContainer } from './TagsContainer';
 import { Div } from '../Div';
-import { LedaContext } from '../Leda';
+import { LedaContext } from '../LedaProvider';
 import { Tag } from '../Tags';
 import { filterData, getValue } from './helpers';
 

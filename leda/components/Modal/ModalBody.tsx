@@ -1,7 +1,7 @@
 import React from 'react';
 import { mergeClassNames, getClassNames, useElement } from '../../utils';
 import { Div } from '../Div';
-import { LedaContext } from '../Leda';
+import { LedaContext } from '../LedaProvider';
 import { ModalContext } from './ModalContext';
 import { ModalElementsProps } from './types';
 

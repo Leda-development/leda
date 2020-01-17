@@ -4,7 +4,7 @@ import { Div } from '../Div';
 import { NotificationItemProps } from './types';
 import { getClassNames, useElement } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import { LedaContext } from '../Leda';
+import { LedaContext } from '../LedaProvider';
 import { DEFAULT_NOTIFICATION_LIFETIME } from './constants';
 
 export const NotificationItem = (props: NotificationItemProps): React.ReactElement => {

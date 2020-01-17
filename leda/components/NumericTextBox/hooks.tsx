@@ -2,7 +2,7 @@ import * as React from 'react';
 import { SetState } from '../../commonTypes';
 import { useElement } from '../../utils';
 import { Div } from '../Div';
-import { LedaContext } from '../Leda';
+import { LedaContext } from '../LedaProvider';
 import { formatInputValue, formatValue } from './helpers';
 import { CustomElements, NumericTextBoxProps, NumericTextBoxState } from './types';
 

@@ -10,12 +10,21 @@ export interface TextareaRefCurrent {
   input: HTMLInputElement | null,
 }
 
-export interface ChangeEvent extends React.ChangeEvent<HTMLTextAreaElement> {
+export interface ResetEvent {
   component: {
     value: string,
     name?: string,
   },
 }
+
+export interface TypeEvent extends React.ChangeEvent<HTMLTextAreaElement> {
+  component: {
+    value: string,
+    name?: string,
+  },
+}
+
+export type ChangeEvent = TypeEvent | ResetEvent;
 
 export interface BlurEvent extends React.FocusEvent<HTMLTextAreaElement> {
   component: {
@@ -39,13 +48,6 @@ export interface FocusEvent extends React.FocusEvent<HTMLTextAreaElement> {
   },
 }
 
-export interface ResetEvent {
-  component: {
-    value: string,
-    name?: string,
-  },
-}
-
 export interface TextareaProps extends ValidationProps {
   /** Значение по умолчанию */
   defaultValue?: string,
@@ -60,7 +62,7 @@ export interface TextareaProps extends ValidationProps {
   /** Обработчик блюра */
   onBlur?: (ev: BlurEvent) => void,
   /** Обработчик изменения */
-  onChange?: (ev: ChangeEvent | ResetEvent) => void,
+  onChange?: (ev: ChangeEvent) => void,
   /** Обработчик нажатия Enter */
   onEnterPress?: (ev: EnterPressEvent) => void,
   /** Обработчик фокуса */

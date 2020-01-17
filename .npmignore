@@ -1,10 +1,9 @@
 webpack.*.js
-*.md
-cypress
+cypress/
 cypress.json
-types
+types/
 styles
-demo
-node_modules
+demo/
+node_modules/
 .gitlab
-
+.idea/

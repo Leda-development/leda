@@ -1,4 +1,4 @@
-import { globalDefaultTheme } from '../../../leda/components/Leda';
+import { globalDefaultTheme } from '../../../leda/components/LedaProvider';
 
 const theme = globalDefaultTheme.maskedInput;
 
@@ -9,7 +9,7 @@ describe('MaskedInput', () => {
 
   describe('Display', () => {
     describe('Placeholder', () => {
-      xit('should render masked input with placeholder', () => {
+      it.skip('should render masked input with placeholder', () => {
         cy.get(`.${theme.wrapper} input`)
           .eq(0)
           .focusMasked()
@@ -35,7 +35,7 @@ describe('MaskedInput', () => {
     });
 
     describe('isDisabled', () => {
-      xit('should be disabled', () => {
+      it.skip('should be disabled', () => {
         cy.contains('Toggle isDisabled')
           .click()
           .closest('.demo-story')
@@ -124,7 +124,7 @@ describe('MaskedInput', () => {
           .should('have.value', '+7 (___)-___-__-__');
       });
 
-      xit('should allow only completed values', () => {
+      it.skip('should allow only completed values', () => {
         cy.get(`.${theme.wrapper} input`)
           .eq(0)
           .focusMasked()

@@ -3,7 +3,7 @@ import { CustomElements, FileUploadProps } from './types';
 import { useElement } from '../../utils';
 import { A } from '../A';
 import { Span } from '../Span';
-import { LedaContext } from '../Leda';
+import { LedaContext } from '../LedaProvider';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 
 export const useCustomElements = (props: FileUploadProps): CustomElements => {

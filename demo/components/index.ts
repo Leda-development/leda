@@ -23,6 +23,7 @@ export { Loader } from './Loader';
 export { MaskedInput } from './MaskedInput';
 export { Modal } from './Modal';
 export { MultiSelect } from './MultiSelect';
+export { Navigation } from './Navigation';
 export { Notifications } from './Notifications';
 export { NumericRange } from './NumericRange';
 export { NumericTextBox } from './NumericTextBox';

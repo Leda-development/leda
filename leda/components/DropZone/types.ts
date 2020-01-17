@@ -2,7 +2,7 @@ import * as React from 'react';
 import { CustomRender, CustomEventHandler } from '../../commonTypes';
 import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import { globalDefaultTheme } from '../Leda';
+import { globalDefaultTheme } from '../LedaProvider';
 
 export interface ExternalFile {
   /** Имя файла. Необходимо для отображения в списке и удаления */

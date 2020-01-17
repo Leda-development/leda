@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { LedaContext } from '../../components/Leda';
+import { LedaContext } from '../../components/LedaProvider';
 import { useElement } from '../../utils';
 import { CalendarHeader as DefaultCalendarHeader } from './CalendarHeader';
 import { DateView as DefaultDateView } from './DateView';

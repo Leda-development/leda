@@ -95,7 +95,11 @@ export const ButtonGroup = React.forwardRef((props: ButtonGroupProps, ref?: Reac
         {(data as (string | number | SomeObject)[]).map((item, index) => {
           const combinedClassNames = getClassNames(
             theme.button,
-            { [theme.buttonActive]: Array.isArray(value) ? (value as (string | number | SomeObject)[]).find((val) => compareItems(val, item, textField)) : compareItems(value, item, textField) },
+            {
+              [theme.buttonActive]: Array.isArray(value)
+                ? (value as (string | number | SomeObject)[]).find((val) => compareItems(val, item, textField))
+                : compareItems(value, item, textField),
+            },
             { [theme.buttonFirst]: index === 0 },
             { [theme.buttonLast]: index === data.length - 1 },
           );

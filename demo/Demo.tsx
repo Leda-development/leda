@@ -8,12 +8,14 @@ import {
   Pagination, Radio, ProgressBar, Slider, StatusBar, StickyPanel, Switcher,
   Tabs, Tags, DropZone, Textarea, DateTimePicker, TimePicker,
   DateTimeRange, TimeRange, DropDownLink, Currency, Rating,
-  Div, Table, Dl, FileUpload, HTMLTags, Validation, Collapse, VStepper, Button, Tooltip, FileDrop,
+  Div, Table, Dl, FileUpload, HTMLTags, Validation, Navigation, Collapse, VStepper, Button, Tooltip, FileDrop,
 } from './components';
 
 export const Demo = () => (
   <L.Div style={{ color: 'black' }} _wrapper>
+    <Navigation />
     <L.Div _container>
+      <Validation />
       <L.Div _row _demoMainTitle _noGutters>
         <L.H1 _colMd12>Demo sandbox</L.H1>
         <L.P _colMd12>
@@ -63,7 +65,6 @@ export const Demo = () => (
       <TimePicker />
       <TimeRange />
       <Tooltip />
-      <Validation />
       <VStepper />
     </L.Div>
   </L.Div>

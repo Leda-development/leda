@@ -40,6 +40,18 @@ export const ResetUncontrolled = () => {
         </L.Div>
         <L.Div _inner _flexRow _alignItemsCenter>
           <Label>
+            ButtonGroup
+          </Label>
+          <L.ButtonGroup _grow1
+            isRequired
+            data={['one', 'two', 'three']}
+            form={formName}
+            name="buttongroup"
+            onChange={handleChange}
+          />
+        </L.Div>
+        <L.Div _inner _flexRow _alignItemsCenter>
+          <Label>
             DatePicker
           </Label>
           <L.DatePicker _grow1

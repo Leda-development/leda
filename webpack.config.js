@@ -34,7 +34,7 @@ module.exports = {
     contentBase: [
       path.join(__dirname, 'public'),
     ],
-    port: 9000,
+    port: 2020,
     compress: true,
     open: true,
     overlay: true,

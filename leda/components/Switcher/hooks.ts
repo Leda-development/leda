@@ -2,7 +2,7 @@ import * as React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { useElement } from '../../utils';
 import { Div } from '../Div';
-import { LedaContext } from '../Leda';
+import { LedaContext } from '../LedaProvider';
 import { Span } from '../Span';
 import { CustomElements, SwitcherProps, SwitcherState } from './types';
 

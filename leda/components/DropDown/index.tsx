@@ -5,7 +5,7 @@ import {
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { DropDownProps, DropDownRefCurrent, WrapperProps } from './types';
 import { Span } from '../Span';
-import { LedaContext } from '../Leda';
+import { LedaContext } from '../LedaProvider';
 
 export const DropDown = React.forwardRef((props: DropDownProps, ref?: React.Ref<DropDownRefCurrent>): React.ReactElement => {
   const {

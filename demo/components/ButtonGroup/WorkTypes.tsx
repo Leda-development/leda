@@ -36,6 +36,10 @@ export const WorkTypes = (args: SomeObject): React.ReactElement => {
       <br />
       <br />
       <L.Switcher value={isDisabled} onChange={ev => setIsDisabled(ev.component.value)}>isDisabled</L.Switcher>
+      <br />
+      <br />
+      <L.H6>Код примера:</L.H6>
+      <br />
     </L.Div>
   );
 };
@@ -92,7 +96,7 @@ export const WorkTypes = (args: SomeObject): React.ReactElement => {
       />
       <br />
       <br />
-      <L.Switcher value={isDisabled} onChange={ev => setIsDisabled(ev.component.value)}>isDisabled</L.Switcher>
+      <L.Switcher value={isDisabled} onChange={(ev) => setIsDisabled(ev.component.value)}>isDisabled</L.Switcher>
       <br />
       <br />
       <L.Button shouldScrollToInvalidFields _warning form="buttongroup-form" onClick={() => console.log('Clicked')}>Validate</L.Button>

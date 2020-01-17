@@ -1,4 +1,4 @@
-import { globalDefaultTheme } from '../../../leda/components/Leda';
+import { globalDefaultTheme } from '../../../leda/components/LedaProvider';
 
 const theme = globalDefaultTheme.input;
 

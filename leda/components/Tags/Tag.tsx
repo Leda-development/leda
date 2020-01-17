@@ -5,7 +5,7 @@ import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
   bindFunctionalRef, mergeClassNames, getClassNames, useElement,
 } from '../../utils';
-import { globalDefaultTheme, LedaContext } from '../Leda';
+import { globalDefaultTheme, LedaContext } from '../LedaProvider';
 import { Span } from '../Span';
 import { TagProps, TagsRefCurrent } from './types';
 

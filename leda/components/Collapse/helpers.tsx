@@ -12,7 +12,7 @@ import {
   PanelWrapperProps,
 } from './types';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import { LedaContext } from '../Leda';
+import { LedaContext } from '../LedaProvider';
 
 const defaultPanelWrapper = ({ children }: React.PropsWithChildren<{}>) => <>{children}</>;
 

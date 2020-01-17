@@ -12,7 +12,7 @@ export const getArrayValue = (value: ButtonGroupProps['value'], currentItem: num
   return [...value, currentItem];
 };
 
-export const compareItems = (value: number | string | SomeObject | undefined, currentItem: number | string | SomeObject, textField?: string): boolean => {
+export const compareItems = (value: number | string | SomeObject | undefined | null, currentItem: number | string | SomeObject, textField?: string): boolean => {
   if (isNil(value)) return false;
 
   if (!isObject(value) && !isObject(currentItem)) return value === currentItem;

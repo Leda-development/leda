@@ -28,6 +28,8 @@ export { useTheme } from './useTheme';
 
 export { useElement } from './useElement';
 
+export { useInterval } from './useInterval';
+
 export { useValue } from './useValue';
 
 export { dispatchEvent } from './dispatchEvent';

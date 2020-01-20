@@ -1,0 +1,73 @@
+image: nexus.esphere.local:5000/cypress:leda
+
+stages:
+  - prepare
+  - check
+  - cypress
+
+cache:
+  untracked: true
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+    - public/
+
+install:
+  stage: prepare
+  tags:
+    - NONPROD
+  script: npm install
+  except:
+    - tags
+    - triggers
+
+
+lint:
+  stage: check
+  tags:
+    - NONPROD
+  script: npm run lint
+  except:
+    - tags
+    - triggers
+
+test:
+  stage: check
+  tags:
+    - NONPROD
+  script: npm run test
+  except:
+    - tags
+    - triggers
+
+tsc:
+  stage: check
+  tags:
+    - NONPROD
+  script: npm run tsc
+  except:
+    - tags
+    - triggers
+
+cypress:
+  stage: cypress
+  script:
+    - npm install
+    - npm run cypress-ci
+  tags:
+    - cypress
+  variables:
+    CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+  cache:
+    key: cypress
+    paths:
+      - cache/Cypress/
+  except:
+    - tags
+    - triggers
+  artifacts:
+    expire_in: 1 week
+    when: on_failure
+    paths:
+      - cypress/screenshots
+      - cypress/videos

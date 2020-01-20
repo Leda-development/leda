@@ -1,5 +1,5 @@
 {
-  "video": false,
+  "video": true,
   "videoUploadOnPasses": false,
   "ignoreTestFiles": "*.md"
 }

@@ -10,7 +10,7 @@
     "start:external": "npm run build:external",
     "test": "npm run jest",
     "build": "rimraf dist/ && npm run tsc && npm run sass:build",
-    "build:demo": "webpack-dev-server",
+    "build:demo": "npm run sass && webpack-dev-server",
     "build:external": "npm run addStyles && webpack-dev-server --host 0.0.0.0",
     "build:analyze": "webpack --mode=production --config webpack.analyze.js",
     "build:light": "webpack --config webpack.lightVersion.config.js",

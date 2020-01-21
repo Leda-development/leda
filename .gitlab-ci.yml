@@ -15,7 +15,7 @@ cache:
 install:
   stage: prepare
   tags:
-    - cypress
+    - NONPROD
   script: npm install
   except:
     - tags
@@ -25,7 +25,7 @@ install:
 lint:
   stage: check
   tags:
-    - cypress
+    - NONPROD
   script: npm run lint
   except:
     - tags
@@ -34,7 +34,7 @@ lint:
 test:
   stage: check
   tags:
-    - cypress
+    - NONPROD
   script: npm run test
   except:
     - tags
@@ -43,7 +43,7 @@ test:
 tsc:
   stage: check
   tags:
-    - cypress
+    - NONPROD
   script: npm run tsc
   except:
     - tags

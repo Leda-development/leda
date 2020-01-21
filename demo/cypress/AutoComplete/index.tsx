@@ -44,7 +44,7 @@ export const AutoComplete = (): React.ReactElement => {
             'Ottawa',
             'Moscow',
           ]}
-          name = 'AutoComplete2'
+          name = 'AutoComplete1'
           onChange={ev => setStringValue2(ev.component.value)}
           filterRule={'startsWith'}
           hasClearButton
@@ -59,7 +59,7 @@ export const AutoComplete = (): React.ReactElement => {
             'Islamabad',
             'Berlin',
           ]}
-          name = 'AutoComplete3'
+          name = 'AutoComplete2'
           onChange={ev => setStringValue3(ev.component.value)}
           filterRule={'smart'}
           minSearchLength={3}
@@ -80,7 +80,7 @@ export const AutoComplete = (): React.ReactElement => {
             { name: 'Tokyo', region: 'Asia' },
             { name: 'Delhi', region: 'Asia' },
           ]}
-          name = 'AutoComplete4'
+          name = 'AutoComplete3'
           onChange={(ev) => { setObjectValue4(ev.component.value); testFunction(ev)} }
           filterRule={'includes'}
           isOpen={isOpen}
@@ -116,7 +116,7 @@ export const AutoComplete = (): React.ReactElement => {
             'Ottawa',
             'Moscow',
           ]}
-          name = 'AutoComplete5'
+          name = 'AutoComplete4'
           onChange={ev => setStringValue5(ev.component.value)}
           isDisabled
           
@@ -142,7 +142,7 @@ export const AutoComplete = (): React.ReactElement => {
             { name: 'Tokyo', region: 'Asia' },
             { name: 'Delhi', region: 'Asia' },
           ]}
-          name = 'AutoComplete6'
+          name = 'AutoComplete5'
           onChange={ev => setObjectValue6(ev.component.value)}
           isLoading
           filterRule={'includes'}
@@ -164,7 +164,7 @@ export const AutoComplete = (): React.ReactElement => {
             { name: 'Tokyo', region: 'Asia' },
             { name: 'Delhi', region: 'Asia' },
           ]}
-          name='AutoComplete1' 
+          name='AutoComplete6' 
           onChange={ev => setObjectValue1(ev.component.value)}
           hasClearButton
           isOpen

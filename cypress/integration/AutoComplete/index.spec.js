@@ -7,15 +7,17 @@ describe('AutoComplete', () => {
   before(() => {
     cy.visit('http://localhost:9000/cypress/autocomplete')
   });
-
+  
   describe('Display', () => {
+    //FEND-920
     it('should render placeholder', () => {
-      cy.get('[name=AutoComplete2]')
+      cy.name('AutoComplete1')
         .should('have.attr', 'placeholder', 'Type your city...');
     });
 
+    //FEND-921
     it('should render ClearButton', () => {
-      cy.get('[name=AutoComplete1]')
+      cy.name('AutoComplete6')
         .clear()
         .type('Paris')
         .parent()
@@ -23,8 +25,9 @@ describe('AutoComplete', () => {
         .should('be.visible');
     });
 
+    //FEND-922
     it('should render SuggestionList when isOpen', () => {
-      cy.get('[name=AutoComplete1')
+      cy.name('AutoComplete6')
         .clear()
         .blur()
         .parent()
@@ -35,10 +38,11 @@ describe('AutoComplete', () => {
         .children('.suggestion-item')
         .should('have.length', 2);
     });
-
+    
     describe('noSuggestionsRender', () => {
+      //FEND-923
       it('defaultMessage', () => {
-        cy.get('[name=AutoComplete2]')
+        cy.name('AutoComplete1')
           .clear()
           .type('Z')
           .parent()
@@ -46,8 +50,9 @@ describe('AutoComplete', () => {
           .should('have.text', 'Ничего не найдено')
       })
 
+      //FEND-924
       it('customMessage', () => {
-        cy.get('[name=AutoComplete4]')
+        cy.name('AutoComplete3')
           .clear()
           .type('Z')
           .parent()
@@ -55,8 +60,9 @@ describe('AutoComplete', () => {
           .should('have.text', 'набери что-то, что я знаю')
       })
 
+      //FEND-925
       it('nullMessage', () => {
-        cy.get('[name=AutoComplete1]')
+        cy.name('AutoComplete6')
           .clear()
           .type('Z')
           .parent()
@@ -65,8 +71,9 @@ describe('AutoComplete', () => {
       })
     });
 
+    //FEND-926
     it('should render loader when isLoading', () => {
-      cy.get('[name=AutoComplete6]')
+      cy.name('AutoComplete5')
         .clear()
         .type('z')
         .parent()
@@ -77,15 +84,18 @@ describe('AutoComplete', () => {
 
     });
 
+    //FEND-927
     it('should be disabled when isDisabled', () => {
-      cy.get('[name=AutoComplete5]')
+      cy.name('AutoComplete4')
         .should('be.disabled')
         .should('have.class', 'disabled');
     });
-
+    
     describe('itemRender', () => {
+
+      //FEND-928
       it('bold', () => {
-        cy.get('[name=AutoComplete4]')
+        cy.name('AutoComplete3')
           .clear()
           .type('n')
           .parent().contains('Berlin')
@@ -93,8 +103,9 @@ describe('AutoComplete', () => {
           .should('not.have.class', 'txt-success')
       })
 
+      //FEND-929
       it('succes', () => {
-        cy.get('[name=AutoComplete4]')
+        cy.name('AutoComplete3')
           .clear()
           .type('n')
           .parent().contains('Bangkok')
@@ -102,8 +113,9 @@ describe('AutoComplete', () => {
           .should('have.class', 'txt-success')
       })
 
+      //FEND-930
       it('none', () => {
-        cy.get('[name=AutoComplete4]')
+        cy.name('AutoComplete3')
           .clear()
           .type('n')
           .parent().contains('New York')
@@ -114,8 +126,9 @@ describe('AutoComplete', () => {
   });
 
   describe('minSearchLength', () => {
+    //FEND-931
     it('0', () => {
-      cy.get('[name=AutoComplete2]')
+      cy.name('AutoComplete1')
         .clear()
         .parent()
         .children('.suggestion-wrapper')
@@ -125,14 +138,15 @@ describe('AutoComplete', () => {
         .should('have.length', 10);
     })
 
+    //FEND-932
     it('3', () => {
-      cy.get('[name=AutoComplete3]')
+      cy.name('AutoComplete2')
         .clear()
         .type('Lo')
         .parent()
         .find('.suggestion-list')
         .should('not.be.visible')
-      cy.get('[name=AutoComplete3]')
+      cy.name('AutoComplete2')
         .clear()
         .type('Lon')
         .parent()
@@ -145,15 +159,16 @@ describe('AutoComplete', () => {
   })
 
   describe('FilterRule', () => {
+    //FEND-933
     it('includes', () => {
-      cy.get('[name=AutoComplete4]')
+      cy.name('AutoComplete3')
         .clear()
         .type('don')
         .parent()
         .find('.suggestion-item')
         .should('have.length', 1)
         .should('have.text', 'London (region: Europe)')
-        .get('[name=AutoComplete4]')
+        .name('AutoComplete3')
         .clear()
         .type('don lon')
         .parent()
@@ -161,15 +176,16 @@ describe('AutoComplete', () => {
         .should('be.visible')
     })
 
+    //FEND-934
     it('smart', () => {
-      cy.get('[name=AutoComplete3]')
+      cy.name('AutoComplete2')
         .clear()
         .type('don')
         .parent()
         .find('.suggestion-item')
         .should('have.length', 1)
         .should('have.text', 'London')
-        .get('[name=AutoComplete3]')
+        .name('AutoComplete2')
         .clear()
         .type('don lon')
         .parent()
@@ -178,15 +194,16 @@ describe('AutoComplete', () => {
         .should('have.text', 'London');
     })
 
+    //FEND-935
     it('startsWith', () => {
-      cy.get('[name=AutoComplete2]')
+      cy.name('AutoComplete1')
         .clear()
         .type('lon')
         .parent()
         .find('.suggestion-item')
         .should('have.length', 1)
         .should('have.text', 'London')
-        .get('[name=AutoComplete2]')
+        .name('AutoComplete1')
         .clear()
         .type('don')
         .parent()
@@ -203,38 +220,42 @@ describe('AutoComplete', () => {
         },
       })
     })
+
+    //FEND-936
     it('onBlur', () => {
-      cy.get('[name=AutoComplete3]')
+      cy.name('AutoComplete2')
         .clear()
         .type('London')
         .blur()
         .then(() => {
           expect(stub).to.be.called
           expect(lastConsole).to.have.property('type', 'blur')
-          expect(lastConsole.component).to.have.property('name', 'AutoComplete3')
+          expect(lastConsole.component).to.have.property('name', 'AutoComplete2')
           expect(lastConsole.component).to.have.property('value', 'London')
         })
     })
 
+    //FEND-937
     it('onFocus', () => {
-      cy.get('[name=AutoComplete1]')
+      cy.name('AutoComplete6')
         .focus()
         .then(() => {
           expect(stub).to.be.called
           expect(lastConsole).to.have.property('type', 'focus')
-          expect(lastConsole.component).to.have.property('name', 'AutoComplete1')
+          expect(lastConsole.component).to.have.property('name', 'AutoComplete6')
           expect(lastConsole.component).to.have.property('value', '')
         })
     })
 
+    //FEND-938
     it('OnChange', () => {
-      cy.get('[name=AutoComplete4]')
+      cy.name('AutoComplete3')
         .clear()
         .type('lon')
         .then(() => {
           expect(stub).to.be.called
           expect(lastConsole).to.have.property('type', 'change')
-          expect(lastConsole.component).to.have.property('name', 'AutoComplete4')
+          expect(lastConsole.component).to.have.property('name', 'AutoComplete3')
           expect(lastConsole.component).to.have.property('method', 'type')
           expect(lastConsole.component).to.have.property('value', 'lon')
           expect(lastConsole.component).to.have.property('suggestion', null)
@@ -245,7 +266,7 @@ describe('AutoComplete', () => {
         .then(() => {
           expect(stub).to.be.called
           expect(lastConsole).to.have.property('type', 'click')
-          expect(lastConsole.component).to.have.property('name', 'AutoComplete4')
+          expect(lastConsole.component).to.have.property('name', 'AutoComplete3')
           expect(lastConsole.component).to.have.property('method', 'click')
           expect(lastConsole.component).to.have.property('value', 'London')
           expect(lastConsole.component.suggestion).to.have.property('name', 'London')
@@ -256,14 +277,14 @@ describe('AutoComplete', () => {
 
   describe('Interaction', () => {
     it('should allow input and remove chars', () => {
-      cy.get(`[name=AutoComplete2]`)
+      cy.name('AutoComplete1')
         .clear()
         .type('Mo')
         .should('have.value', 'Mo')
         .parent()
         .find('.suggestion-item')
         .click()
-        .get(`[name=AutoComplete2]`)
+        .name('AutoComplete1')
         .should('have.value', 'Moscow')
         .type('{backspace}'.repeat(5))
         .should('have.value', 'M')
@@ -271,18 +292,18 @@ describe('AutoComplete', () => {
         .find('.suggestion-item')
         .first()
         .click()
-        .get(`.${theme.wrapper} input`)
+        .name('AutoComplete1')
         .should('have.value', 'Magadan');
     });
 
     it('should clear input on clear button click', () => {
-      cy.get('[name=AutoComplete1]')
+      cy.name('AutoComplete6')
         .clear()
         .type('Paris')
         .parent()
         .children('i.autocomplete-clear-icon')
         .click()
-        .get('[name=AutoComplete1]')
+        .name('AutoComplete6')
         .should('have.value', '');
     });
 

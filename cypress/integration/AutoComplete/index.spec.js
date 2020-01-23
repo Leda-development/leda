@@ -307,19 +307,19 @@ describe('AutoComplete', () => {
         .should('have.value', '');
     });
 
-    xit('should forbid non data values when shouldCorrectValues', () => {
-      cy.get(`.${theme.wrapper} input`)
-        .eq(2)
+    it('should forbid non data values when shouldCorrectValues', () => {
+      cy.name('AutoComplete3')
         .clear()
-        .type('Lodon')
-        .should('have.value', 'Lodon')
+        .blur()
+        .should('have.value', '')
+        .type('Lon')
         .blur()
         .should('have.value', '')
         .focus()
         .type('London')
         .should('have.value', 'London')
         .blur()
-        .should('have.value', '');
+        .should('have.value', 'London');
     });
   });
 });

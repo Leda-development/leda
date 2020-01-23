@@ -36,7 +36,7 @@ module.exports = {
     ],
     port: 9000,
     compress: true,
-    open: true,
+    open: false,
     overlay: true,
     historyApiFallback: true,
     watchContentBase: true,

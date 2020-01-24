@@ -2,50 +2,6 @@ import * as React from 'react';
 import * as L from '../../../leda';
 import { StateButtonGroup } from '../StateButtonGroup';
 
-const exampleCode = `
-export const Strings = (componentProps: any) => {
-  const [props, setProps] = React.useState({});
-  const [value, setValue] = React.useState('');
-
-  return (
-    <L.Div _box _inner _demoBg>
-      <L.AutoComplete
-        data={[
-          'London',
-          'Islamabad',
-          'Berlin',
-          'Washington',
-          'Paris',
-          'Rome',
-          'Tokyo',
-          'Budapest',
-          'Ottawa',
-          'Moscow',
-        ]}
-        value={value}
-        onChange={ev => setValue(ev.component.value)}
-        placeholder="Type your city..."
-        hasClearButton
-        isRequired
-        _width30
-        {...props}
-      />
-      <br />
-      <br />
-      <StateButtonGroup
-        data={[
-          { text: 'Default', props: {} },
-          { text: 'Loading', props: { isLoading: true } },
-          { text: 'Opened', props: { isOpen: true } },
-          { text: 'Disabled', props: { isDisabled: true } },
-        ]}
-        setProps={setProps}
-      />
-    </L.Div>
-  );
-};
-`;
-
 export const Customization = () => {
   const [props, setProps] = React.useState({});
   const [value, setValue] = React.useState('');
@@ -69,7 +25,7 @@ export const Customization = () => {
         ]}
         value={value}
         shouldCorrectValue
-        onChange={ev => setValue(ev.component.value)}
+        onChange={(ev) => setValue(ev.component.value)}
         placeholder="Type your city..."
         hasClearButton
         listRender={({ elementProps }: any) => <L.Div {...elementProps} />}
@@ -100,8 +56,8 @@ export const Customization = () => {
 
       <L.Button
         form="AwesomeForm"
-        onClick={ev => console.log('awesome form submit ev', ev)}
-        onValidationFail={ev => console.log('awesome form fail ev', ev)}
+        onClick={(ev) => console.log('awesome form submit ev', ev)}
+        onValidationFail={(ev) => console.log('awesome form fail ev', ev)}
       >
         Validate an awesome form
       </L.Button>

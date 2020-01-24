@@ -36,17 +36,23 @@ export const useTooltipEffects: UseTooltipEffects = ({
       // Проверка нужна для CheckBox и других невидимых элементов
       if ((element.nextElementSibling as HTMLElement).offsetWidth === 0 && (element.nextElementSibling as HTMLElement).offsetHeight === 0) {
         setHidden(true);
-        element.nextElementSibling.addEventListener('mouseenter', show);
-        element.nextElementSibling.addEventListener('mouseleave', hide);
+        element.nextElementSibling.addEventListener('pointerenter', show);
+        element.nextElementSibling.addEventListener('touchstart', show);
+        element.nextElementSibling.addEventListener('pointerleave', hide);
+        element.nextElementSibling.addEventListener('touchend', hide);
       } else {
-        element.nextElementSibling.addEventListener('mouseenter', show);
-        element.nextElementSibling.addEventListener('mouseleave', hide);
+        element.nextElementSibling.addEventListener('pointerenter', show);
+        element.nextElementSibling.addEventListener('touchstart', show);
+        element.nextElementSibling.addEventListener('pointerleave', hide);
+        element.nextElementSibling.addEventListener('touchend', hide);
       }
 
       return () => {
         if (element && element.nextElementSibling) {
-          element.nextElementSibling.removeEventListener('mouseenter', show);
-          element.nextElementSibling.removeEventListener('mouseleave', hide);
+          element.nextElementSibling.removeEventListener('pointerenter', show);
+          element.nextElementSibling.removeEventListener('touchstart', show);
+          element.nextElementSibling.removeEventListener('pointerleave', hide);
+          element.nextElementSibling.removeEventListener('touchend', hide);
         }
       };
     }

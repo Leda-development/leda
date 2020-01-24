@@ -25,7 +25,7 @@ describe('ButtonGroup', () => {
   });
 
   describe('Interaction', () => {
-    xit('should ignore clicks when isDisabled', () => {
+    it.skip('should ignore clicks when isDisabled', () => {
       cy.contains('isDisabled')
         .click()
         .get(`.${theme.buttonsWrapper}`)
@@ -40,7 +40,7 @@ describe('ButtonGroup', () => {
         .should('not.have.class', 'active');
     });
 
-    xit('should select button on click', () => {
+    it.skip('should select button on click', () => {
       cy.get(`.${theme.wrapper}`)
         .eq(0)
         .find(`.${theme.button}`)

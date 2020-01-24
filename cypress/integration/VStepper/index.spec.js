@@ -21,7 +21,7 @@ describe('VStepper tests', () => {
       .eq(4)
       .should('have.text', 'Дополнительная информация'));
 
-    xit('Status texts should render', () => cy
+    it.skip('Status texts should render', () => cy
       .get('.v-stepper-status')
       .first()
       .should('have.text', 'Заполнено')

@@ -38,6 +38,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     filterRule,
     footerRender,
     form,
+    groupBy,
     hasClearButton,
     headerRender,
     invalidMessage,
@@ -193,6 +194,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
 
       <SuggestionList
         data={suggestions}
+        groupBy={groupBy}
         highlightedSuggestion={highlightedSuggestion}
         selectedSuggestion={selectedSuggestion}
         isLoading={isLoading}

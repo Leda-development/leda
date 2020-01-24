@@ -1,10 +1,35 @@
 import * as React from 'react';
 import { SomeObject } from '../../../leda/commonTypes';
 import * as L from '../../../leda';
-import { StateButtonGroup } from '../StateButtonGroup';
 import { useEventSpy } from '../../useEventSpy';
 
-export const DataTypes = (args: SomeObject): React.ReactElement => {
+const MSData = [
+  {
+    city: 'Salvador', id: 1, attr: 'value1', groupName: 'Brazil',
+  },
+  {
+    city: 'Rio de Janeiro', id: 2, attr: 'value2', groupName: 'Brazil',
+  },
+  {
+    city: 'Berlin', id: 3, attr: 'value3', groupName: 'Germany',
+  },
+  {
+    city: 'Munich', id: 4, attr: 'value4', groupName: 'Germany',
+  },
+  {
+    city: 'Milan', groupName: 'Italy', id: 5, attr: 'value5',
+  },
+  {
+    city: 'Rome', groupName: 'Italy', id: 6, attr: 'value6',
+  },
+  { city: 'Islamabad', id: 7, attr: 'value7' },
+  { city: 'Washington', id: 8, attr: 'value8' },
+  { city: 'Paris', id: 9, attr: 'value9' },
+  { city: 'Tokyo', id: 10, attr: 'value10' },
+  { city: 'Budapest', id: 11, attr: 'value11' },
+];
+
+export const GroupedData = (args: SomeObject): React.ReactElement => {
   const [props, setProps] = React.useState({});
   const [isOpen, setIsOpen] = React.useState<boolean | undefined>();
   const [isDisabled, setIsDisabled] = React.useState<boolean>(false);
@@ -15,20 +40,9 @@ export const DataTypes = (args: SomeObject): React.ReactElement => {
   return (
     <L.Div _box _inner _demoBg>
       <L.MultiSelect
-        data={[
-          'London',
-          'Islamabad',
-          'Berlin',
-          'Washington',
-          'Paris',
-          'Rome',
-          'Tokyo',
-          'Budapest',
-          'Ottawa',
-          'Moscow',
-        ]}
+        data={MSData}
         data-test="multiselect"
-        defaultValue={['London']}
+        defaultValue={[{ city: 'London', val: 1 }]}
         _width40
         maxSelected={3}
         onChange={ev => update('Change', ev)}
@@ -43,50 +57,10 @@ export const DataTypes = (args: SomeObject): React.ReactElement => {
         form="multi-select-form"
         hasClearButton
         isDisabled={isDisabled}
-        {...props}
+        groupBy={(data: any) => data.groupName}
+        textField="city"
       >
       </L.MultiSelect>
-      <br />
-      <br />
-      <StateButtonGroup
-        data={[
-          {
-            text: 'String data',
-            props: {
-              data: [
-                'London',
-                'Islamabad',
-                'Berlin',
-                'Washington',
-                'Paris',
-                'Rome',
-                'Tokyo',
-                'Budapest',
-                'Ottawa',
-                'Moscow',
-              ],
-              key: 'string-data',
-            },
-          },
-          {
-            text: 'Object data',
-            props: {
-              data: [
-                { txt: 'London', val: 1 },
-                { txt: 'Islamabad', val: 2 },
-                { txt: 'Berlin', val: 3 },
-                { txt: 'Washington', val: 4 },
-                { txt: 'Paris', val: 5 },
-                { txt: 'Rome', val: 6 },
-              ],
-              textField: 'txt',
-              defaultValue: [{ txt: 'London', val: 1 }],
-              key: 'object-data',
-            },
-          },
-        ]}
-        setProps={setProps}
-      />
       <br />
       <br />
       <L.Button _warning={isDisabled} onClick={() => setIsDisabled(!isDisabled)}>Toggle isDisabled</L.Button>

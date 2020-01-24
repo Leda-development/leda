@@ -76,6 +76,8 @@ export interface FocusEvent<T = Value> extends React.FocusEvent<HTMLInputElement
 export type ChangeEvent<T = Value> = MouseSelectEvent<T> | EnterSelectEvent<T> | ClearEvent<T> | ResetEvent<T>;
 
 export interface MultiSelectProps<T extends MultiSelectValue | null | undefined = MultiSelectValue | null | undefined> extends ValidationProps {
+  /** Сравнение объектов по произвольному полю, а не по ссылке */
+  compareObjectsBy?: ((val: Value) => any) | string,
   /** Данные для отображения в списке.
    * Если передаётся массив обьектов, нужно указать textField - поле обьекта, которое содержит данные для вывода в списке
   */
@@ -84,6 +86,8 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   defaultValue?: T,
   /** Фильтр данных по правилу. smart (дефолтное значение) - "умный" поиск, startsWith - поиск по первым символам, includes - поиск по вхождению. При больших обьемах данных(больше 1-2 тысяч значений) не желательно использовать "умный поиск". */
   filterRule?: FilterRules,
+  /** Ключ для группировки */
+  groupBy?: (option: Value) => string | undefined,
   /** Кнопка очистки данных в инпуте. Появляется только в непустом инпуте. */
   hasClearButton?: boolean,
   /** Выключенное состояние инпута */
@@ -181,11 +185,18 @@ export interface MouseDownData {
 }
 
 export interface FilterDataParams {
+  compareObjectsBy: MultiSelectProps['compareObjectsBy'],
   data: MultiSelectProps['data'],
   filterRule?: FilterRules,
   filterValue: string,
   textField?: string,
   value: MultiSelectValue,
+}
+
+export interface CompareItemsParams {
+  compareObjectsBy: MultiSelectProps['compareObjectsBy'],
+  currentItem: Value,
+  dataItem: Value,
 }
 
 export interface KeyDownData {

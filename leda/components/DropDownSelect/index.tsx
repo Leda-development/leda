@@ -27,11 +27,13 @@ import { Span } from '../Span';
 
 export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref: React.Ref<DropDownSelectRefCurrent>): React.ReactElement | null => {
   const {
+    boundingContainerRef,
     className,
     data,
     defaultValue = null,
     filterRule,
     form,
+    groupBy,
     isDisabled = false,
     isLoading = false,
     isOpen: isOpenProp,
@@ -158,7 +160,9 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
         <Icon className={selectIconClassNames} onMouseDown={(ev) => ev.preventDefault()} onClick={handleIconClick} />
       </Div>
       <SuggestionList
+        boundingContainerRef={boundingContainerRef}
         data={shouldFilterValues ? filterData(data, filterValue, textField, filterRule) : data}
+        groupBy={groupBy}
         highlightedSuggestion={highlightedSuggestion}
         selectedSuggestion={selectedSuggestion}
         isLoading={isLoading}

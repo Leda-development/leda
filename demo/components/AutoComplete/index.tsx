@@ -6,6 +6,7 @@ import { Objects } from './Objects';
 import { MinSearchLength } from './MinSearchLength';
 import { Customization } from './Customization';
 import { SearchFields } from './SearchFields';
+import { GroupedObjects } from './GroupedObjects';
 
 export const AutoComplete = () => (
   <Story title="AutoComplete">
@@ -15,5 +16,6 @@ export const AutoComplete = () => (
     <Customization title="Customization" />
     <AllSuggestions title="AllSuggestions" />
     <SearchFields title="SearchFields" />
+    <GroupedObjects title="GroupedObjects" />
   </Story>
 );

@@ -1,11 +1,13 @@
 import * as React from 'react';
 import {
-  bindFunctionalRef, mergeClassNames, getClassNames, useTheme, useElement,
+  bindFunctionalRef, mergeClassNames, getClassNames, useTheme, useElement, useAdaptivePosition,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { DropDownProps, DropDownRefCurrent, WrapperProps } from './types';
 import { Span } from '../Span';
 import { LedaContext } from '../LedaProvider';
+import { DivRefCurrent } from '../Div';
+import { Ul } from '../Ul';
 
 export const DropDown = React.forwardRef((props: DropDownProps, ref?: React.Ref<DropDownRefCurrent>): React.ReactElement => {
   const {
@@ -13,12 +15,21 @@ export const DropDown = React.forwardRef((props: DropDownProps, ref?: React.Ref<
     className,
     wrapperRender,
     theme: themeProp,
+    isOpen: isOpenProp,
     ...restProps
   } = mergeClassNames(props);
 
+  const [isOpenState, setIsOpen] = React.useState(false);
+
+  const isOpen = isOpenProp ?? isOpenState;
+
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.dropDown);
 
-  const combinedClassNames = getClassNames([theme.wrapper], className);
+  const combinedClassNames = getClassNames([theme.wrapper], className, {
+    opened: isOpen,
+  });
+
+  const containerRef = React.useRef<DivRefCurrent | null>(null);
 
   const context = React.useContext(LedaContext);
 
@@ -29,15 +40,31 @@ export const DropDown = React.forwardRef((props: DropDownProps, ref?: React.Ref<
     props,
   );
 
+  const classMap = React.useMemo(() => ({
+    top: theme.wrapperTop,
+    right: theme.wrapperRight,
+    visible: theme.wrapperVisible,
+  }), [theme.wrapperTop, theme.wrapperVisible, theme.wrapperRight]);
+
+  useAdaptivePosition({ elRef: containerRef, isOpen, classNames: classMap });
+
   return (
     <Wrapper
       className={combinedClassNames}
+      onMouseOver={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
       {...restProps}
       ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
         wrapper: component.wrapper || component,
       }))}
     >
-      {children}
+      {React.Children.map(children, (child) => {
+        if (React.isValidElement(child) && child.type === Ul) {
+          return React.cloneElement(child, { ref: containerRef });
+        }
+
+        return child;
+      })}
     </Wrapper>
   );
 }) as React.FC<DropDownProps>;

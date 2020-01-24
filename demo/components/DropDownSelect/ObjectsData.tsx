@@ -22,10 +22,9 @@ export const EmptyValues = (args: SomeObject): React.ReactElement => (
 `;
 
 export const ObjectsData = (args: SomeObject): React.ReactElement => {
-
   const [value, setValue] = React.useState<string>('Berlin');
 
-  return(
+  return (
     <L.Div _box _inner _demoBg>
       <L.DropDownSelect
         data={[
@@ -33,6 +32,7 @@ export const ObjectsData = (args: SomeObject): React.ReactElement => {
           { city: 'Saint-Petersburg', id: 2, attr: 'value2' },
           { city: 'Ekaterinburg', id: 3, attr: 'value3' },
           { city: 'Novosibirsk', id: 4, attr: 'value4' },
+
         ]}
         textField="city"
         value={value}

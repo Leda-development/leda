@@ -2,16 +2,17 @@ import * as React from 'react';
 import { CALENDAR_CLICK_ACTION } from './constants';
 import { useCustomElements } from './hooks';
 import { CalendarProps } from './types';
-import { Div } from '../../components/Div';
+import { DivRefCurrent } from '../../components/Div';
 import {
   getCalendarConditions, getCalendarFormat,
 } from './helpers';
 import { TodayButton } from './TodayButton';
+import { useAdaptivePosition } from '../../utils';
 
 export const Calendar = (props: CalendarProps): React.ReactElement | null => {
   const {
     hasTodayButton,
-    isOpen,
+    isOpen = false,
     isDisabled,
     onClick,
     onMouseDown,
@@ -30,6 +31,21 @@ export const Calendar = (props: CalendarProps): React.ReactElement | null => {
 
   const format = getCalendarFormat(props.format);
 
+  const calendarRef = React.useRef<DivRefCurrent | null>(null);
+
+  const classMap = React.useMemo(() => ({
+    top: theme.wrapperTop,
+    visible: theme.wrapperVisible,
+    right: theme.wrapperRight,
+  }), [theme.wrapperRight, theme.wrapperTop, theme.wrapperVisible]);
+
+  // смена позиции календаря при скролле/открытии
+  useAdaptivePosition({
+    elRef: calendarRef,
+    isOpen,
+    classNames: classMap,
+  });
+
   const {
     DateView,
     MonthView,
@@ -44,6 +60,7 @@ export const Calendar = (props: CalendarProps): React.ReactElement | null => {
     <CalendarWrapper
       className={theme.wrapper}
       onMouseDown={onMouseDown}
+      ref={calendarRef}
     >
       <CalendarHeader
         conditions={conditions}

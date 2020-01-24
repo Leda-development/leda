@@ -3,10 +3,9 @@ import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import * as L from '../leda';
 import {
-  AutoComplete, Button, MaskedInput, VStepper, ButtonGroup, Input,
+  AutoComplete, Button, MaskedInput, VStepper, ButtonGroup, Input, DateTimePicker,
 } from './cypress';
 import { Styles } from './components/Styles';
-
 
 export const CypressLayout = () => (
   <>
@@ -18,6 +17,9 @@ export const CypressLayout = () => (
         </Route>
         <Route path="/cypress/button">
           <Button />
+        </Route>
+        <Route path="/cypress/datetimepicker">
+          <DateTimePicker />
         </Route>
         <Route path="/cypress/input">
           <Input />

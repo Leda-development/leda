@@ -3,17 +3,18 @@ import React, {
 } from 'react';
 import { isEqual, isFunction, isObject } from 'lodash';
 import {
-  mergeClassNames, bindFunctionalRef, useTheme, useElement,
+  mergeClassNames, bindFunctionalRef, useTheme, useElement, useAdaptivePosition,
 } from '../../utils';
 import { A } from '../A';
 import { DropDown } from '../DropDown';
-import { Ul } from '../Ul';
+import { Ul, UlRefCurrent } from '../Ul';
 import { DropDownLinkItem } from './DropDownLinkItem';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
   ClickEvent, DropDownLinkProps, DropDownLinkRefCurrent, DropDownLinkType, TitleProps,
 } from './types';
 import { DataObject } from '../../commonTypes';
+import { DivRefCurrent } from '../Div';
 
 export const DropDownLink = React.forwardRef((props: DropDownLinkProps, ref?: React.Ref<DropDownLinkRefCurrent>): React.ReactElement | null => {
   const {
@@ -25,6 +26,7 @@ export const DropDownLink = React.forwardRef((props: DropDownLinkProps, ref?: Re
     textField = '',
     titleRender,
     value = '',
+    isOpen: isOpenProp,
     ...restProps
   } = mergeClassNames(props);
 
@@ -39,15 +41,27 @@ export const DropDownLink = React.forwardRef((props: DropDownLinkProps, ref?: Re
 
   if (!data) return null;
 
-  const [hidden, setHidden] = useState(false);
+  const [isOpenState, setIsOpen] = useState(false);
+
+  const isOpen = isOpenProp ?? isOpenState;
+
+  const containerRef = React.useRef<DivRefCurrent | null>(null);
+
+  const classMap = React.useMemo(() => ({
+    top: theme.wrapperTop,
+    right: theme.wrapperRight,
+    visible: theme.wrapperVisible,
+  }), [theme.wrapperTop, theme.wrapperVisible, theme.wrapperRight]);
+
+  useAdaptivePosition({ elRef: containerRef, isOpen, classNames: classMap });
 
   const handleClick = useCallback((ev: ClickEvent): void => {
-    setHidden(true);
+    setIsOpen(false);
     if (isFunction(onChange)) onChange(ev);
   }, [onChange]);
 
   const handleMouseEnter = useCallback((ev): void => {
-    setHidden(false);
+    setIsOpen(true);
     if (isFunction(onMouseEnter)) onMouseEnter(ev);
   }, [onMouseEnter]);
 
@@ -63,13 +77,13 @@ export const DropDownLink = React.forwardRef((props: DropDownLinkProps, ref?: Re
       ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
         wrapper: component.wrapper,
       }))}
+      isOpen={isOpen}
       theme={{ wrapper: theme.wrapper }}
       {...restProps}
     >
       <Title className={theme.currentText}>{titleText}</Title>
-      {!hidden && (
-        <Ul default>
-          {
+      <Ul default ref={containerRef as React.Ref<UlRefCurrent>}>
+        {
             (data as (DataObject | string)[]).map((item) => (
               <DropDownLinkItem
                 className={theme.item}
@@ -82,8 +96,7 @@ export const DropDownLink = React.forwardRef((props: DropDownLinkProps, ref?: Re
               />
             ))
           }
-        </Ul>
-      )}
+      </Ul>
     </DropDown>
   );
 }) as DropDownLinkType;

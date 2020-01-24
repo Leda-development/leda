@@ -105,6 +105,8 @@ export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends Va
   filterRule?: 'smart' | 'startsWith' | 'includes',
   /** Футер под значениями в выпадающем списке */
   footerRender?: () => React.ReactNode,
+  /** Ключ для группировки */
+  groupBy?: (option: T) => string | undefined,
   /** Хедер над значениями в выпадающем списке */
   headerRender?: () => React.ReactNode,
   /** Отображение кнопки для очистки значения в инпуте */

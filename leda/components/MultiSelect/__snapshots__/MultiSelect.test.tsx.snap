@@ -42,6 +42,10 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
                 Object {
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
+                  "containerTop": "pos-top",
+                  "containerVisible": "visible",
+                  "group": "suggestion-group",
+                  "groupLabel": "suggestion-group-label",
                   "input": "multiselect-input",
                   "inputFocused": "focused",
                   "inputWrapper": "multiselect-input-wrapper",
@@ -130,172 +134,184 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
                 value=""
               />
             </Input>
-            <SuggestionList
-              data={
-                Array [
-                  "2",
-                  "3",
-                ]
-              }
-              highlightedSuggestion={null}
-              isOpen={true}
-              onClick={[Function]}
-              shouldAllowEmpty={false}
-              theme={
-                Object {
-                  "clearIcon": "multiselect-clear-icon",
-                  "container": "suggestion-wrapper",
-                  "input": "multiselect-input",
-                  "inputFocused": "focused",
-                  "inputWrapper": "multiselect-input-wrapper",
-                  "inputWrapperDisabled": "disabled",
-                  "inputWrapperFocused": "focused",
-                  "inputWrapperInvalid": "danger",
-                  "item": "suggestion-item",
-                  "itemHighlighted": "highlighted",
-                  "itemPlaceholder": "placeholder",
-                  "itemSelected": "selected",
-                  "list": "suggestion-list",
-                  "noSuggestions": "nodata",
-                  "tagsContainer": "multiselect-tags-container",
-                  "wrapper": "multiselect-wrapper",
-                }
-              }
-              value={
-                Array [
-                  "1",
-                ]
-              }
-            >
-              <Div
-                className="suggestion-wrapper"
-                onMouseDown={[Function]}
-              >
-                <div
-                  className="suggestion-wrapper"
-                  onMouseDown={[Function]}
-                >
-                  <List
-                    className="suggestion-list"
-                  >
-                    <Ul
-                      className="suggestion-list"
-                    >
-                      <ul
-                        className="suggestion-list"
-                      >
-                        <SuggestionItem
-                          isHighlighted={false}
-                          isPlaceholder={false}
-                          isScrollTarget={false}
-                          isSelected={false}
-                          item="2"
-                          key="2"
-                          onClick={[Function]}
-                          suggestionRef={
-                            Object {
-                              "current": null,
-                            }
-                          }
-                          text="2"
-                          theme={
-                            Object {
-                              "clearIcon": "multiselect-clear-icon",
-                              "container": "suggestion-wrapper",
-                              "input": "multiselect-input",
-                              "inputFocused": "focused",
-                              "inputWrapper": "multiselect-input-wrapper",
-                              "inputWrapperDisabled": "disabled",
-                              "inputWrapperFocused": "focused",
-                              "inputWrapperInvalid": "danger",
-                              "item": "suggestion-item",
-                              "itemHighlighted": "highlighted",
-                              "itemPlaceholder": "placeholder",
-                              "itemSelected": "selected",
-                              "list": "suggestion-list",
-                              "noSuggestions": "nodata",
-                              "tagsContainer": "multiselect-tags-container",
-                              "wrapper": "multiselect-wrapper",
-                            }
-                          }
-                        >
-                          <Suggestion
-                            className="suggestion-item"
-                            onClick={[Function]}
-                          >
-                            <Li
-                              className="suggestion-item"
-                              onClick={[Function]}
-                            >
-                              <li
-                                className="suggestion-item"
-                                onClick={[Function]}
-                              >
-                                2
-                              </li>
-                            </Li>
-                          </Suggestion>
-                        </SuggestionItem>
-                        <SuggestionItem
-                          isHighlighted={false}
-                          isPlaceholder={false}
-                          isScrollTarget={false}
-                          isSelected={false}
-                          item="3"
-                          key="3"
-                          onClick={[Function]}
-                          suggestionRef={
-                            Object {
-                              "current": null,
-                            }
-                          }
-                          text="3"
-                          theme={
-                            Object {
-                              "clearIcon": "multiselect-clear-icon",
-                              "container": "suggestion-wrapper",
-                              "input": "multiselect-input",
-                              "inputFocused": "focused",
-                              "inputWrapper": "multiselect-input-wrapper",
-                              "inputWrapperDisabled": "disabled",
-                              "inputWrapperFocused": "focused",
-                              "inputWrapperInvalid": "danger",
-                              "item": "suggestion-item",
-                              "itemHighlighted": "highlighted",
-                              "itemPlaceholder": "placeholder",
-                              "itemSelected": "selected",
-                              "list": "suggestion-list",
-                              "noSuggestions": "nodata",
-                              "tagsContainer": "multiselect-tags-container",
-                              "wrapper": "multiselect-wrapper",
-                            }
-                          }
-                        >
-                          <Suggestion
-                            className="suggestion-item"
-                            onClick={[Function]}
-                          >
-                            <Li
-                              className="suggestion-item"
-                              onClick={[Function]}
-                            >
-                              <li
-                                className="suggestion-item"
-                                onClick={[Function]}
-                              >
-                                3
-                              </li>
-                            </Li>
-                          </Suggestion>
-                        </SuggestionItem>
-                      </ul>
-                    </Ul>
-                  </List>
-                </div>
-              </Div>
-            </SuggestionList>
           </div>
         </Div>
+        <SuggestionList
+          data={
+            Array [
+              "2",
+              "3",
+            ]
+          }
+          highlightedSuggestion={null}
+          isOpen={true}
+          onClick={[Function]}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "multiselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "containerTop": "pos-top",
+              "containerVisible": "visible",
+              "group": "suggestion-group",
+              "groupLabel": "suggestion-group-label",
+              "input": "multiselect-input",
+              "inputFocused": "focused",
+              "inputWrapper": "multiselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "tagsContainer": "multiselect-tags-container",
+              "wrapper": "multiselect-wrapper",
+            }
+          }
+          value={
+            Array [
+              "1",
+            ]
+          }
+        >
+          <Div
+            className="suggestion-wrapper"
+            onMouseDown={[Function]}
+          >
+            <div
+              className="suggestion-wrapper"
+              onMouseDown={[Function]}
+            >
+              <List
+                className="suggestion-list"
+              >
+                <Ul
+                  className="suggestion-list"
+                >
+                  <ul
+                    className="suggestion-list"
+                  >
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item="2"
+                      key="2"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="2"
+                      theme={
+                        Object {
+                          "clearIcon": "multiselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "containerTop": "pos-top",
+                          "containerVisible": "visible",
+                          "group": "suggestion-group",
+                          "groupLabel": "suggestion-group-label",
+                          "input": "multiselect-input",
+                          "inputFocused": "focused",
+                          "inputWrapper": "multiselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "tagsContainer": "multiselect-tags-container",
+                          "wrapper": "multiselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            2
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item="3"
+                      key="3"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="3"
+                      theme={
+                        Object {
+                          "clearIcon": "multiselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "containerTop": "pos-top",
+                          "containerVisible": "visible",
+                          "group": "suggestion-group",
+                          "groupLabel": "suggestion-group-label",
+                          "input": "multiselect-input",
+                          "inputFocused": "focused",
+                          "inputWrapper": "multiselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "tagsContainer": "multiselect-tags-container",
+                          "wrapper": "multiselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            3
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                  </ul>
+                </Ul>
+              </List>
+            </div>
+          </Div>
+        </SuggestionList>
         <InvalidMessageWrapper>
           <InvalidMessage
             isValid={true}
@@ -356,6 +372,10 @@ exports[`MultiSelect ATTRIBUTES should list loading 1`] = `
                 Object {
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
+                  "containerTop": "pos-top",
+                  "containerVisible": "visible",
+                  "group": "suggestion-group",
+                  "groupLabel": "suggestion-group-label",
                   "input": "multiselect-input",
                   "inputFocused": "focused",
                   "inputWrapper": "multiselect-input-wrapper",
@@ -444,82 +464,86 @@ exports[`MultiSelect ATTRIBUTES should list loading 1`] = `
                 value=""
               />
             </Input>
-            <SuggestionList
-              data={
-                Array [
-                  "2",
-                  "3",
-                ]
-              }
-              highlightedSuggestion={null}
-              isLoading={true}
-              isOpen={true}
-              onClick={[Function]}
-              shouldAllowEmpty={false}
-              theme={
-                Object {
-                  "clearIcon": "multiselect-clear-icon",
-                  "container": "suggestion-wrapper",
-                  "input": "multiselect-input",
-                  "inputFocused": "focused",
-                  "inputWrapper": "multiselect-input-wrapper",
-                  "inputWrapperDisabled": "disabled",
-                  "inputWrapperFocused": "focused",
-                  "inputWrapperInvalid": "danger",
-                  "item": "suggestion-item",
-                  "itemHighlighted": "highlighted",
-                  "itemPlaceholder": "placeholder",
-                  "itemSelected": "selected",
-                  "list": "suggestion-list",
-                  "noSuggestions": "nodata",
-                  "tagsContainer": "multiselect-tags-container",
-                  "wrapper": "multiselect-wrapper",
-                }
-              }
-              value={
-                Array [
-                  "1",
-                ]
-              }
-            >
-              <Div
-                className="suggestion-wrapper"
-                onMouseDown={[Function]}
-              >
-                <div
-                  className="suggestion-wrapper"
-                  onMouseDown={[Function]}
-                >
-                  <Loader>
-                    <Div
-                      className="loader-wrapper"
-                    >
-                      <div
-                        className="loader-wrapper"
-                      >
-                        <div
-                          className="loader-container"
-                        >
-                          <Icon
-                            className="loader-element"
-                          >
-                            <Span
-                              className="loader-element"
-                            >
-                              <span
-                                className="loader-element"
-                              />
-                            </Span>
-                          </Icon>
-                        </div>
-                      </div>
-                    </Div>
-                  </Loader>
-                </div>
-              </Div>
-            </SuggestionList>
           </div>
         </Div>
+        <SuggestionList
+          data={
+            Array [
+              "2",
+              "3",
+            ]
+          }
+          highlightedSuggestion={null}
+          isLoading={true}
+          isOpen={true}
+          onClick={[Function]}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "multiselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "containerTop": "pos-top",
+              "containerVisible": "visible",
+              "group": "suggestion-group",
+              "groupLabel": "suggestion-group-label",
+              "input": "multiselect-input",
+              "inputFocused": "focused",
+              "inputWrapper": "multiselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "tagsContainer": "multiselect-tags-container",
+              "wrapper": "multiselect-wrapper",
+            }
+          }
+          value={
+            Array [
+              "1",
+            ]
+          }
+        >
+          <Div
+            className="suggestion-wrapper"
+            onMouseDown={[Function]}
+          >
+            <div
+              className="suggestion-wrapper"
+              onMouseDown={[Function]}
+            >
+              <Loader>
+                <Div
+                  className="loader-wrapper"
+                >
+                  <div
+                    className="loader-wrapper"
+                  >
+                    <div
+                      className="loader-container"
+                    >
+                      <Icon
+                        className="loader-element"
+                      >
+                        <Span
+                          className="loader-element"
+                        >
+                          <span
+                            className="loader-element"
+                          />
+                        </Span>
+                      </Icon>
+                    </div>
+                  </div>
+                </Div>
+              </Loader>
+            </div>
+          </Div>
+        </SuggestionList>
         <InvalidMessageWrapper>
           <InvalidMessage
             isValid={true}
@@ -579,6 +603,10 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
                 Object {
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
+                  "containerTop": "pos-top",
+                  "containerVisible": "visible",
+                  "group": "suggestion-group",
+                  "groupLabel": "suggestion-group-label",
                   "input": "multiselect-input",
                   "inputFocused": "focused",
                   "inputWrapper": "multiselect-input-wrapper",
@@ -667,172 +695,184 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
                 value=""
               />
             </Input>
-            <SuggestionList
-              data={
-                Array [
-                  "2",
-                  "3",
-                ]
-              }
-              highlightedSuggestion={null}
-              isOpen={true}
-              onClick={[Function]}
-              shouldAllowEmpty={false}
-              theme={
-                Object {
-                  "clearIcon": "multiselect-clear-icon",
-                  "container": "suggestion-wrapper",
-                  "input": "multiselect-input",
-                  "inputFocused": "focused",
-                  "inputWrapper": "multiselect-input-wrapper",
-                  "inputWrapperDisabled": "disabled",
-                  "inputWrapperFocused": "focused",
-                  "inputWrapperInvalid": "danger",
-                  "item": "suggestion-item",
-                  "itemHighlighted": "highlighted",
-                  "itemPlaceholder": "placeholder",
-                  "itemSelected": "selected",
-                  "list": "suggestion-list",
-                  "noSuggestions": "nodata",
-                  "tagsContainer": "multiselect-tags-container",
-                  "wrapper": "multiselect-wrapper",
-                }
-              }
-              value={
-                Array [
-                  "1",
-                ]
-              }
-            >
-              <Div
-                className="suggestion-wrapper"
-                onMouseDown={[Function]}
-              >
-                <div
-                  className="suggestion-wrapper"
-                  onMouseDown={[Function]}
-                >
-                  <List
-                    className="suggestion-list"
-                  >
-                    <Ul
-                      className="suggestion-list"
-                    >
-                      <ul
-                        className="suggestion-list"
-                      >
-                        <SuggestionItem
-                          isHighlighted={false}
-                          isPlaceholder={false}
-                          isScrollTarget={false}
-                          isSelected={false}
-                          item="2"
-                          key="2"
-                          onClick={[Function]}
-                          suggestionRef={
-                            Object {
-                              "current": null,
-                            }
-                          }
-                          text="2"
-                          theme={
-                            Object {
-                              "clearIcon": "multiselect-clear-icon",
-                              "container": "suggestion-wrapper",
-                              "input": "multiselect-input",
-                              "inputFocused": "focused",
-                              "inputWrapper": "multiselect-input-wrapper",
-                              "inputWrapperDisabled": "disabled",
-                              "inputWrapperFocused": "focused",
-                              "inputWrapperInvalid": "danger",
-                              "item": "suggestion-item",
-                              "itemHighlighted": "highlighted",
-                              "itemPlaceholder": "placeholder",
-                              "itemSelected": "selected",
-                              "list": "suggestion-list",
-                              "noSuggestions": "nodata",
-                              "tagsContainer": "multiselect-tags-container",
-                              "wrapper": "multiselect-wrapper",
-                            }
-                          }
-                        >
-                          <Suggestion
-                            className="suggestion-item"
-                            onClick={[Function]}
-                          >
-                            <Li
-                              className="suggestion-item"
-                              onClick={[Function]}
-                            >
-                              <li
-                                className="suggestion-item"
-                                onClick={[Function]}
-                              >
-                                2
-                              </li>
-                            </Li>
-                          </Suggestion>
-                        </SuggestionItem>
-                        <SuggestionItem
-                          isHighlighted={false}
-                          isPlaceholder={false}
-                          isScrollTarget={false}
-                          isSelected={false}
-                          item="3"
-                          key="3"
-                          onClick={[Function]}
-                          suggestionRef={
-                            Object {
-                              "current": null,
-                            }
-                          }
-                          text="3"
-                          theme={
-                            Object {
-                              "clearIcon": "multiselect-clear-icon",
-                              "container": "suggestion-wrapper",
-                              "input": "multiselect-input",
-                              "inputFocused": "focused",
-                              "inputWrapper": "multiselect-input-wrapper",
-                              "inputWrapperDisabled": "disabled",
-                              "inputWrapperFocused": "focused",
-                              "inputWrapperInvalid": "danger",
-                              "item": "suggestion-item",
-                              "itemHighlighted": "highlighted",
-                              "itemPlaceholder": "placeholder",
-                              "itemSelected": "selected",
-                              "list": "suggestion-list",
-                              "noSuggestions": "nodata",
-                              "tagsContainer": "multiselect-tags-container",
-                              "wrapper": "multiselect-wrapper",
-                            }
-                          }
-                        >
-                          <Suggestion
-                            className="suggestion-item"
-                            onClick={[Function]}
-                          >
-                            <Li
-                              className="suggestion-item"
-                              onClick={[Function]}
-                            >
-                              <li
-                                className="suggestion-item"
-                                onClick={[Function]}
-                              >
-                                3
-                              </li>
-                            </Li>
-                          </Suggestion>
-                        </SuggestionItem>
-                      </ul>
-                    </Ul>
-                  </List>
-                </div>
-              </Div>
-            </SuggestionList>
           </div>
         </Div>
+        <SuggestionList
+          data={
+            Array [
+              "2",
+              "3",
+            ]
+          }
+          highlightedSuggestion={null}
+          isOpen={true}
+          onClick={[Function]}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "multiselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "containerTop": "pos-top",
+              "containerVisible": "visible",
+              "group": "suggestion-group",
+              "groupLabel": "suggestion-group-label",
+              "input": "multiselect-input",
+              "inputFocused": "focused",
+              "inputWrapper": "multiselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "tagsContainer": "multiselect-tags-container",
+              "wrapper": "multiselect-wrapper",
+            }
+          }
+          value={
+            Array [
+              "1",
+            ]
+          }
+        >
+          <Div
+            className="suggestion-wrapper"
+            onMouseDown={[Function]}
+          >
+            <div
+              className="suggestion-wrapper"
+              onMouseDown={[Function]}
+            >
+              <List
+                className="suggestion-list"
+              >
+                <Ul
+                  className="suggestion-list"
+                >
+                  <ul
+                    className="suggestion-list"
+                  >
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item="2"
+                      key="2"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="2"
+                      theme={
+                        Object {
+                          "clearIcon": "multiselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "containerTop": "pos-top",
+                          "containerVisible": "visible",
+                          "group": "suggestion-group",
+                          "groupLabel": "suggestion-group-label",
+                          "input": "multiselect-input",
+                          "inputFocused": "focused",
+                          "inputWrapper": "multiselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "tagsContainer": "multiselect-tags-container",
+                          "wrapper": "multiselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            2
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item="3"
+                      key="3"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="3"
+                      theme={
+                        Object {
+                          "clearIcon": "multiselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "containerTop": "pos-top",
+                          "containerVisible": "visible",
+                          "group": "suggestion-group",
+                          "groupLabel": "suggestion-group-label",
+                          "input": "multiselect-input",
+                          "inputFocused": "focused",
+                          "inputWrapper": "multiselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "tagsContainer": "multiselect-tags-container",
+                          "wrapper": "multiselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            3
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                  </ul>
+                </Ul>
+              </List>
+            </div>
+          </Div>
+        </SuggestionList>
         <InvalidMessageWrapper>
           <InvalidMessage
             isValid={true}
@@ -892,6 +932,10 @@ exports[`MultiSelect ATTRIBUTES should render noData template 2`] = `
                 Object {
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
+                  "containerTop": "pos-top",
+                  "containerVisible": "visible",
+                  "group": "suggestion-group",
+                  "groupLabel": "suggestion-group-label",
                   "input": "multiselect-input",
                   "inputFocused": "focused",
                   "inputWrapper": "multiselect-input-wrapper",
@@ -980,67 +1024,71 @@ exports[`MultiSelect ATTRIBUTES should render noData template 2`] = `
                 value="test"
               />
             </Input>
-            <SuggestionList
-              highlightedSuggestion={null}
-              isOpen={true}
-              onClick={[Function]}
-              shouldAllowEmpty={false}
-              theme={
-                Object {
-                  "clearIcon": "multiselect-clear-icon",
-                  "container": "suggestion-wrapper",
-                  "input": "multiselect-input",
-                  "inputFocused": "focused",
-                  "inputWrapper": "multiselect-input-wrapper",
-                  "inputWrapperDisabled": "disabled",
-                  "inputWrapperFocused": "focused",
-                  "inputWrapperInvalid": "danger",
-                  "item": "suggestion-item",
-                  "itemHighlighted": "highlighted",
-                  "itemPlaceholder": "placeholder",
-                  "itemSelected": "selected",
-                  "list": "suggestion-list",
-                  "noSuggestions": "nodata",
-                  "tagsContainer": "multiselect-tags-container",
-                  "wrapper": "multiselect-wrapper",
-                }
-              }
-              value={
-                Array [
-                  "1",
-                ]
-              }
-            >
-              <Div
-                className="suggestion-wrapper"
-                onMouseDown={[Function]}
-              >
-                <div
-                  className="suggestion-wrapper"
-                  onMouseDown={[Function]}
-                >
-                  <NoSuggestions
-                    className="nodata"
-                  >
-                    <Component
-                      className="nodata"
-                    >
-                      <Div
-                        className="nodata"
-                      >
-                        <div
-                          className="nodata"
-                        >
-                          Ничего не найдено
-                        </div>
-                      </Div>
-                    </Component>
-                  </NoSuggestions>
-                </div>
-              </Div>
-            </SuggestionList>
           </div>
         </Div>
+        <SuggestionList
+          highlightedSuggestion={null}
+          isOpen={true}
+          onClick={[Function]}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "multiselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "containerTop": "pos-top",
+              "containerVisible": "visible",
+              "group": "suggestion-group",
+              "groupLabel": "suggestion-group-label",
+              "input": "multiselect-input",
+              "inputFocused": "focused",
+              "inputWrapper": "multiselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "tagsContainer": "multiselect-tags-container",
+              "wrapper": "multiselect-wrapper",
+            }
+          }
+          value={
+            Array [
+              "1",
+            ]
+          }
+        >
+          <Div
+            className="suggestion-wrapper"
+            onMouseDown={[Function]}
+          >
+            <div
+              className="suggestion-wrapper"
+              onMouseDown={[Function]}
+            >
+              <NoSuggestions
+                className="nodata"
+              >
+                <Component
+                  className="nodata"
+                >
+                  <Div
+                    className="nodata"
+                  >
+                    <div
+                      className="nodata"
+                    >
+                      Ничего не найдено
+                    </div>
+                  </Div>
+                </Component>
+              </NoSuggestions>
+            </div>
+          </Div>
+        </SuggestionList>
         <InvalidMessageWrapper>
           <InvalidMessage
             isValid={true}
@@ -1101,6 +1149,10 @@ exports[`MultiSelect HANDLERS should test onBlur 1`] = `
                 Object {
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
+                  "containerTop": "pos-top",
+                  "containerVisible": "visible",
+                  "group": "suggestion-group",
+                  "groupLabel": "suggestion-group-label",
                   "input": "multiselect-input",
                   "inputFocused": "focused",
                   "inputWrapper": "multiselect-input-wrapper",
@@ -1191,45 +1243,49 @@ exports[`MultiSelect HANDLERS should test onBlur 1`] = `
                 value=""
               />
             </Input>
-            <SuggestionList
-              data={
-                Array [
-                  "2",
-                  "3",
-                ]
-              }
-              highlightedSuggestion={null}
-              isOpen={false}
-              onClick={[Function]}
-              shouldAllowEmpty={false}
-              theme={
-                Object {
-                  "clearIcon": "multiselect-clear-icon",
-                  "container": "suggestion-wrapper",
-                  "input": "multiselect-input",
-                  "inputFocused": "focused",
-                  "inputWrapper": "multiselect-input-wrapper",
-                  "inputWrapperDisabled": "disabled",
-                  "inputWrapperFocused": "focused",
-                  "inputWrapperInvalid": "danger",
-                  "item": "suggestion-item",
-                  "itemHighlighted": "highlighted",
-                  "itemPlaceholder": "placeholder",
-                  "itemSelected": "selected",
-                  "list": "suggestion-list",
-                  "noSuggestions": "nodata",
-                  "tagsContainer": "multiselect-tags-container",
-                  "wrapper": "multiselect-wrapper",
-                }
-              }
-              value={
-                Array [
-                  "1",
-                ]
-              }
-            />
           </div>
         </Div>
+        <SuggestionList
+          data={
+            Array [
+              "2",
+              "3",
+            ]
+          }
+          highlightedSuggestion={null}
+          isOpen={false}
+          onClick={[Function]}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "multiselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "containerTop": "pos-top",
+              "containerVisible": "visible",
+              "group": "suggestion-group",
+              "groupLabel": "suggestion-group-label",
+              "input": "multiselect-input",
+              "inputFocused": "focused",
+              "inputWrapper": "multiselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "tagsContainer": "multiselect-tags-container",
+              "wrapper": "multiselect-wrapper",
+            }
+          }
+          value={
+            Array [
+              "1",
+            ]
+          }
+        />
         <InvalidMessageWrapper>
           <InvalidMessage
             isValid={true}
@@ -1312,6 +1368,10 @@ exports[`MultiSelect HANDLERS should test onBlur 2`] = `
                 Object {
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
+                  "containerTop": "pos-top",
+                  "containerVisible": "visible",
+                  "group": "suggestion-group",
+                  "groupLabel": "suggestion-group-label",
                   "input": "multiselect-input",
                   "inputFocused": "focused",
                   "inputWrapper": "multiselect-input-wrapper",
@@ -1402,45 +1462,49 @@ exports[`MultiSelect HANDLERS should test onBlur 2`] = `
                 value=""
               />
             </Input>
-            <SuggestionList
-              data={
-                Array [
-                  "2",
-                  "3",
-                ]
-              }
-              highlightedSuggestion={null}
-              isOpen={false}
-              onClick={[Function]}
-              shouldAllowEmpty={false}
-              theme={
-                Object {
-                  "clearIcon": "multiselect-clear-icon",
-                  "container": "suggestion-wrapper",
-                  "input": "multiselect-input",
-                  "inputFocused": "focused",
-                  "inputWrapper": "multiselect-input-wrapper",
-                  "inputWrapperDisabled": "disabled",
-                  "inputWrapperFocused": "focused",
-                  "inputWrapperInvalid": "danger",
-                  "item": "suggestion-item",
-                  "itemHighlighted": "highlighted",
-                  "itemPlaceholder": "placeholder",
-                  "itemSelected": "selected",
-                  "list": "suggestion-list",
-                  "noSuggestions": "nodata",
-                  "tagsContainer": "multiselect-tags-container",
-                  "wrapper": "multiselect-wrapper",
-                }
-              }
-              value={
-                Array [
-                  "1",
-                ]
-              }
-            />
           </div>
         </Div>
+        <SuggestionList
+          data={
+            Array [
+              "2",
+              "3",
+            ]
+          }
+          highlightedSuggestion={null}
+          isOpen={false}
+          onClick={[Function]}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "multiselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "containerTop": "pos-top",
+              "containerVisible": "visible",
+              "group": "suggestion-group",
+              "groupLabel": "suggestion-group-label",
+              "input": "multiselect-input",
+              "inputFocused": "focused",
+              "inputWrapper": "multiselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "tagsContainer": "multiselect-tags-container",
+              "wrapper": "multiselect-wrapper",
+            }
+          }
+          value={
+            Array [
+              "1",
+            ]
+          }
+        />
         <InvalidMessageWrapper>
           <InvalidMessage
             isValid={true}
@@ -1502,6 +1566,10 @@ exports[`MultiSelect HANDLERS should test onChange 1`] = `
                 Object {
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
+                  "containerTop": "pos-top",
+                  "containerVisible": "visible",
+                  "group": "suggestion-group",
+                  "groupLabel": "suggestion-group-label",
                   "input": "multiselect-input",
                   "inputFocused": "focused",
                   "inputWrapper": "multiselect-input-wrapper",
@@ -1629,120 +1697,128 @@ exports[`MultiSelect HANDLERS should test onChange 1`] = `
                 value=""
               />
             </Input>
-            <SuggestionList
-              data={
-                Array [
-                  "3",
-                ]
-              }
-              highlightedSuggestion={null}
-              isOpen={true}
-              onClick={[Function]}
-              shouldAllowEmpty={false}
-              theme={
-                Object {
-                  "clearIcon": "multiselect-clear-icon",
-                  "container": "suggestion-wrapper",
-                  "input": "multiselect-input",
-                  "inputFocused": "focused",
-                  "inputWrapper": "multiselect-input-wrapper",
-                  "inputWrapperDisabled": "disabled",
-                  "inputWrapperFocused": "focused",
-                  "inputWrapperInvalid": "danger",
-                  "item": "suggestion-item",
-                  "itemHighlighted": "highlighted",
-                  "itemPlaceholder": "placeholder",
-                  "itemSelected": "selected",
-                  "list": "suggestion-list",
-                  "noSuggestions": "nodata",
-                  "tagsContainer": "multiselect-tags-container",
-                  "wrapper": "multiselect-wrapper",
-                }
-              }
-              value={
-                Array [
-                  "2",
-                  "1",
-                ]
-              }
+          </div>
+        </Div>
+        <SuggestionList
+          data={
+            Array [
+              "3",
+            ]
+          }
+          highlightedSuggestion={null}
+          isOpen={true}
+          onClick={[Function]}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "multiselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "containerTop": "pos-top",
+              "containerVisible": "visible",
+              "group": "suggestion-group",
+              "groupLabel": "suggestion-group-label",
+              "input": "multiselect-input",
+              "inputFocused": "focused",
+              "inputWrapper": "multiselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "tagsContainer": "multiselect-tags-container",
+              "wrapper": "multiselect-wrapper",
+            }
+          }
+          value={
+            Array [
+              "2",
+              "1",
+            ]
+          }
+        >
+          <Div
+            className="suggestion-wrapper"
+            onMouseDown={[Function]}
+          >
+            <div
+              className="suggestion-wrapper"
+              onMouseDown={[Function]}
             >
-              <Div
-                className="suggestion-wrapper"
-                onMouseDown={[Function]}
+              <List
+                className="suggestion-list"
               >
-                <div
-                  className="suggestion-wrapper"
-                  onMouseDown={[Function]}
+                <Ul
+                  className="suggestion-list"
                 >
-                  <List
+                  <ul
                     className="suggestion-list"
                   >
-                    <Ul
-                      className="suggestion-list"
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item="3"
+                      key="3"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="3"
+                      theme={
+                        Object {
+                          "clearIcon": "multiselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "containerTop": "pos-top",
+                          "containerVisible": "visible",
+                          "group": "suggestion-group",
+                          "groupLabel": "suggestion-group-label",
+                          "input": "multiselect-input",
+                          "inputFocused": "focused",
+                          "inputWrapper": "multiselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "tagsContainer": "multiselect-tags-container",
+                          "wrapper": "multiselect-wrapper",
+                        }
+                      }
                     >
-                      <ul
-                        className="suggestion-list"
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
                       >
-                        <SuggestionItem
-                          isHighlighted={false}
-                          isPlaceholder={false}
-                          isScrollTarget={false}
-                          isSelected={false}
-                          item="3"
-                          key="3"
+                        <Li
+                          className="suggestion-item"
                           onClick={[Function]}
-                          suggestionRef={
-                            Object {
-                              "current": null,
-                            }
-                          }
-                          text="3"
-                          theme={
-                            Object {
-                              "clearIcon": "multiselect-clear-icon",
-                              "container": "suggestion-wrapper",
-                              "input": "multiselect-input",
-                              "inputFocused": "focused",
-                              "inputWrapper": "multiselect-input-wrapper",
-                              "inputWrapperDisabled": "disabled",
-                              "inputWrapperFocused": "focused",
-                              "inputWrapperInvalid": "danger",
-                              "item": "suggestion-item",
-                              "itemHighlighted": "highlighted",
-                              "itemPlaceholder": "placeholder",
-                              "itemSelected": "selected",
-                              "list": "suggestion-list",
-                              "noSuggestions": "nodata",
-                              "tagsContainer": "multiselect-tags-container",
-                              "wrapper": "multiselect-wrapper",
-                            }
-                          }
                         >
-                          <Suggestion
+                          <li
                             className="suggestion-item"
                             onClick={[Function]}
                           >
-                            <Li
-                              className="suggestion-item"
-                              onClick={[Function]}
-                            >
-                              <li
-                                className="suggestion-item"
-                                onClick={[Function]}
-                              >
-                                3
-                              </li>
-                            </Li>
-                          </Suggestion>
-                        </SuggestionItem>
-                      </ul>
-                    </Ul>
-                  </List>
-                </div>
-              </Div>
-            </SuggestionList>
-          </div>
-        </Div>
+                            3
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                  </ul>
+                </Ul>
+              </List>
+            </div>
+          </Div>
+        </SuggestionList>
         <InvalidMessageWrapper>
           <InvalidMessage
             isValid={true}
@@ -1805,6 +1881,10 @@ exports[`MultiSelect HANDLERS should test onDeselect 1`] = `
                 Object {
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
+                  "containerTop": "pos-top",
+                  "containerVisible": "visible",
+                  "group": "suggestion-group",
+                  "groupLabel": "suggestion-group-label",
                   "input": "multiselect-input",
                   "inputFocused": "focused",
                   "inputWrapper": "multiselect-input-wrapper",
@@ -1969,69 +2049,73 @@ exports[`MultiSelect HANDLERS should test onDeselect 1`] = `
                 value=""
               />
             </Input>
-            <SuggestionList
-              highlightedSuggestion={null}
-              isOpen={true}
-              onClick={[Function]}
-              shouldAllowEmpty={false}
-              theme={
-                Object {
-                  "clearIcon": "multiselect-clear-icon",
-                  "container": "suggestion-wrapper",
-                  "input": "multiselect-input",
-                  "inputFocused": "focused",
-                  "inputWrapper": "multiselect-input-wrapper",
-                  "inputWrapperDisabled": "disabled",
-                  "inputWrapperFocused": "focused",
-                  "inputWrapperInvalid": "danger",
-                  "item": "suggestion-item",
-                  "itemHighlighted": "highlighted",
-                  "itemPlaceholder": "placeholder",
-                  "itemSelected": "selected",
-                  "list": "suggestion-list",
-                  "noSuggestions": "nodata",
-                  "tagsContainer": "multiselect-tags-container",
-                  "wrapper": "multiselect-wrapper",
-                }
-              }
-              value={
-                Array [
-                  "1",
-                  "2",
-                  "3",
-                ]
-              }
-            >
-              <Div
-                className="suggestion-wrapper"
-                onMouseDown={[Function]}
-              >
-                <div
-                  className="suggestion-wrapper"
-                  onMouseDown={[Function]}
-                >
-                  <NoSuggestions
-                    className="nodata"
-                  >
-                    <Component
-                      className="nodata"
-                    >
-                      <Div
-                        className="nodata"
-                      >
-                        <div
-                          className="nodata"
-                        >
-                          Ничего не найдено
-                        </div>
-                      </Div>
-                    </Component>
-                  </NoSuggestions>
-                </div>
-              </Div>
-            </SuggestionList>
           </div>
         </Div>
+        <SuggestionList
+          highlightedSuggestion={null}
+          isOpen={true}
+          onClick={[Function]}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "multiselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "containerTop": "pos-top",
+              "containerVisible": "visible",
+              "group": "suggestion-group",
+              "groupLabel": "suggestion-group-label",
+              "input": "multiselect-input",
+              "inputFocused": "focused",
+              "inputWrapper": "multiselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "tagsContainer": "multiselect-tags-container",
+              "wrapper": "multiselect-wrapper",
+            }
+          }
+          value={
+            Array [
+              "1",
+              "2",
+              "3",
+            ]
+          }
+        >
+          <Div
+            className="suggestion-wrapper"
+            onMouseDown={[Function]}
+          >
+            <div
+              className="suggestion-wrapper"
+              onMouseDown={[Function]}
+            >
+              <NoSuggestions
+                className="nodata"
+              >
+                <Component
+                  className="nodata"
+                >
+                  <Div
+                    className="nodata"
+                  >
+                    <div
+                      className="nodata"
+                    >
+                      Ничего не найдено
+                    </div>
+                  </Div>
+                </Component>
+              </NoSuggestions>
+            </div>
+          </Div>
+        </SuggestionList>
         <InvalidMessageWrapper>
           <InvalidMessage
             isValid={true}
@@ -2092,6 +2176,10 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
                 Object {
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
+                  "containerTop": "pos-top",
+                  "containerVisible": "visible",
+                  "group": "suggestion-group",
+                  "groupLabel": "suggestion-group-label",
                   "input": "multiselect-input",
                   "inputFocused": "focused",
                   "inputWrapper": "multiselect-input-wrapper",
@@ -2182,172 +2270,184 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
                 value=""
               />
             </Input>
-            <SuggestionList
-              data={
-                Array [
-                  "1",
-                  "3",
-                ]
-              }
-              highlightedSuggestion={null}
-              isOpen={true}
-              onClick={[Function]}
-              shouldAllowEmpty={false}
-              theme={
-                Object {
-                  "clearIcon": "multiselect-clear-icon",
-                  "container": "suggestion-wrapper",
-                  "input": "multiselect-input",
-                  "inputFocused": "focused",
-                  "inputWrapper": "multiselect-input-wrapper",
-                  "inputWrapperDisabled": "disabled",
-                  "inputWrapperFocused": "focused",
-                  "inputWrapperInvalid": "danger",
-                  "item": "suggestion-item",
-                  "itemHighlighted": "highlighted",
-                  "itemPlaceholder": "placeholder",
-                  "itemSelected": "selected",
-                  "list": "suggestion-list",
-                  "noSuggestions": "nodata",
-                  "tagsContainer": "multiselect-tags-container",
-                  "wrapper": "multiselect-wrapper",
-                }
-              }
-              value={
-                Array [
-                  "2",
-                ]
-              }
-            >
-              <Div
-                className="suggestion-wrapper"
-                onMouseDown={[Function]}
-              >
-                <div
-                  className="suggestion-wrapper"
-                  onMouseDown={[Function]}
-                >
-                  <List
-                    className="suggestion-list"
-                  >
-                    <Ul
-                      className="suggestion-list"
-                    >
-                      <ul
-                        className="suggestion-list"
-                      >
-                        <SuggestionItem
-                          isHighlighted={false}
-                          isPlaceholder={false}
-                          isScrollTarget={false}
-                          isSelected={false}
-                          item="1"
-                          key="1"
-                          onClick={[Function]}
-                          suggestionRef={
-                            Object {
-                              "current": null,
-                            }
-                          }
-                          text="1"
-                          theme={
-                            Object {
-                              "clearIcon": "multiselect-clear-icon",
-                              "container": "suggestion-wrapper",
-                              "input": "multiselect-input",
-                              "inputFocused": "focused",
-                              "inputWrapper": "multiselect-input-wrapper",
-                              "inputWrapperDisabled": "disabled",
-                              "inputWrapperFocused": "focused",
-                              "inputWrapperInvalid": "danger",
-                              "item": "suggestion-item",
-                              "itemHighlighted": "highlighted",
-                              "itemPlaceholder": "placeholder",
-                              "itemSelected": "selected",
-                              "list": "suggestion-list",
-                              "noSuggestions": "nodata",
-                              "tagsContainer": "multiselect-tags-container",
-                              "wrapper": "multiselect-wrapper",
-                            }
-                          }
-                        >
-                          <Suggestion
-                            className="suggestion-item"
-                            onClick={[Function]}
-                          >
-                            <Li
-                              className="suggestion-item"
-                              onClick={[Function]}
-                            >
-                              <li
-                                className="suggestion-item"
-                                onClick={[Function]}
-                              >
-                                1
-                              </li>
-                            </Li>
-                          </Suggestion>
-                        </SuggestionItem>
-                        <SuggestionItem
-                          isHighlighted={false}
-                          isPlaceholder={false}
-                          isScrollTarget={false}
-                          isSelected={false}
-                          item="3"
-                          key="3"
-                          onClick={[Function]}
-                          suggestionRef={
-                            Object {
-                              "current": null,
-                            }
-                          }
-                          text="3"
-                          theme={
-                            Object {
-                              "clearIcon": "multiselect-clear-icon",
-                              "container": "suggestion-wrapper",
-                              "input": "multiselect-input",
-                              "inputFocused": "focused",
-                              "inputWrapper": "multiselect-input-wrapper",
-                              "inputWrapperDisabled": "disabled",
-                              "inputWrapperFocused": "focused",
-                              "inputWrapperInvalid": "danger",
-                              "item": "suggestion-item",
-                              "itemHighlighted": "highlighted",
-                              "itemPlaceholder": "placeholder",
-                              "itemSelected": "selected",
-                              "list": "suggestion-list",
-                              "noSuggestions": "nodata",
-                              "tagsContainer": "multiselect-tags-container",
-                              "wrapper": "multiselect-wrapper",
-                            }
-                          }
-                        >
-                          <Suggestion
-                            className="suggestion-item"
-                            onClick={[Function]}
-                          >
-                            <Li
-                              className="suggestion-item"
-                              onClick={[Function]}
-                            >
-                              <li
-                                className="suggestion-item"
-                                onClick={[Function]}
-                              >
-                                3
-                              </li>
-                            </Li>
-                          </Suggestion>
-                        </SuggestionItem>
-                      </ul>
-                    </Ul>
-                  </List>
-                </div>
-              </Div>
-            </SuggestionList>
           </div>
         </Div>
+        <SuggestionList
+          data={
+            Array [
+              "1",
+              "3",
+            ]
+          }
+          highlightedSuggestion={null}
+          isOpen={true}
+          onClick={[Function]}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "multiselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "containerTop": "pos-top",
+              "containerVisible": "visible",
+              "group": "suggestion-group",
+              "groupLabel": "suggestion-group-label",
+              "input": "multiselect-input",
+              "inputFocused": "focused",
+              "inputWrapper": "multiselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "tagsContainer": "multiselect-tags-container",
+              "wrapper": "multiselect-wrapper",
+            }
+          }
+          value={
+            Array [
+              "2",
+            ]
+          }
+        >
+          <Div
+            className="suggestion-wrapper"
+            onMouseDown={[Function]}
+          >
+            <div
+              className="suggestion-wrapper"
+              onMouseDown={[Function]}
+            >
+              <List
+                className="suggestion-list"
+              >
+                <Ul
+                  className="suggestion-list"
+                >
+                  <ul
+                    className="suggestion-list"
+                  >
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item="1"
+                      key="1"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="1"
+                      theme={
+                        Object {
+                          "clearIcon": "multiselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "containerTop": "pos-top",
+                          "containerVisible": "visible",
+                          "group": "suggestion-group",
+                          "groupLabel": "suggestion-group-label",
+                          "input": "multiselect-input",
+                          "inputFocused": "focused",
+                          "inputWrapper": "multiselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "tagsContainer": "multiselect-tags-container",
+                          "wrapper": "multiselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            1
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item="3"
+                      key="3"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="3"
+                      theme={
+                        Object {
+                          "clearIcon": "multiselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "containerTop": "pos-top",
+                          "containerVisible": "visible",
+                          "group": "suggestion-group",
+                          "groupLabel": "suggestion-group-label",
+                          "input": "multiselect-input",
+                          "inputFocused": "focused",
+                          "inputWrapper": "multiselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "tagsContainer": "multiselect-tags-container",
+                          "wrapper": "multiselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            3
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                  </ul>
+                </Ul>
+              </List>
+            </div>
+          </Div>
+        </SuggestionList>
         <InvalidMessageWrapper>
           <InvalidMessage
             isValid={true}
@@ -2411,6 +2511,10 @@ exports[`MultiSelect HANDLERS should test onDeselect by clear button 1`] = `
                 Object {
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
+                  "containerTop": "pos-top",
+                  "containerVisible": "visible",
+                  "group": "suggestion-group",
+                  "groupLabel": "suggestion-group-label",
                   "input": "multiselect-input",
                   "inputFocused": "focused",
                   "inputWrapper": "multiselect-input-wrapper",
@@ -2547,120 +2651,128 @@ exports[`MultiSelect HANDLERS should test onDeselect by clear button 1`] = `
                 value=""
               />
             </Input>
-            <SuggestionList
-              data={
-                Array [
-                  "3",
-                ]
-              }
-              highlightedSuggestion={null}
-              isOpen={true}
-              onClick={[Function]}
-              shouldAllowEmpty={false}
-              theme={
-                Object {
-                  "clearIcon": "multiselect-clear-icon",
-                  "container": "suggestion-wrapper",
-                  "input": "multiselect-input",
-                  "inputFocused": "focused",
-                  "inputWrapper": "multiselect-input-wrapper",
-                  "inputWrapperDisabled": "disabled",
-                  "inputWrapperFocused": "focused",
-                  "inputWrapperInvalid": "danger",
-                  "item": "suggestion-item",
-                  "itemHighlighted": "highlighted",
-                  "itemPlaceholder": "placeholder",
-                  "itemSelected": "selected",
-                  "list": "suggestion-list",
-                  "noSuggestions": "nodata",
-                  "tagsContainer": "multiselect-tags-container",
-                  "wrapper": "multiselect-wrapper",
-                }
-              }
-              value={
-                Array [
-                  "1",
-                  "2",
-                ]
-              }
+          </div>
+        </Div>
+        <SuggestionList
+          data={
+            Array [
+              "3",
+            ]
+          }
+          highlightedSuggestion={null}
+          isOpen={true}
+          onClick={[Function]}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "multiselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "containerTop": "pos-top",
+              "containerVisible": "visible",
+              "group": "suggestion-group",
+              "groupLabel": "suggestion-group-label",
+              "input": "multiselect-input",
+              "inputFocused": "focused",
+              "inputWrapper": "multiselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "tagsContainer": "multiselect-tags-container",
+              "wrapper": "multiselect-wrapper",
+            }
+          }
+          value={
+            Array [
+              "1",
+              "2",
+            ]
+          }
+        >
+          <Div
+            className="suggestion-wrapper"
+            onMouseDown={[Function]}
+          >
+            <div
+              className="suggestion-wrapper"
+              onMouseDown={[Function]}
             >
-              <Div
-                className="suggestion-wrapper"
-                onMouseDown={[Function]}
+              <List
+                className="suggestion-list"
               >
-                <div
-                  className="suggestion-wrapper"
-                  onMouseDown={[Function]}
+                <Ul
+                  className="suggestion-list"
                 >
-                  <List
+                  <ul
                     className="suggestion-list"
                   >
-                    <Ul
-                      className="suggestion-list"
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item="3"
+                      key="3"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="3"
+                      theme={
+                        Object {
+                          "clearIcon": "multiselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "containerTop": "pos-top",
+                          "containerVisible": "visible",
+                          "group": "suggestion-group",
+                          "groupLabel": "suggestion-group-label",
+                          "input": "multiselect-input",
+                          "inputFocused": "focused",
+                          "inputWrapper": "multiselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "tagsContainer": "multiselect-tags-container",
+                          "wrapper": "multiselect-wrapper",
+                        }
+                      }
                     >
-                      <ul
-                        className="suggestion-list"
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
                       >
-                        <SuggestionItem
-                          isHighlighted={false}
-                          isPlaceholder={false}
-                          isScrollTarget={false}
-                          isSelected={false}
-                          item="3"
-                          key="3"
+                        <Li
+                          className="suggestion-item"
                           onClick={[Function]}
-                          suggestionRef={
-                            Object {
-                              "current": null,
-                            }
-                          }
-                          text="3"
-                          theme={
-                            Object {
-                              "clearIcon": "multiselect-clear-icon",
-                              "container": "suggestion-wrapper",
-                              "input": "multiselect-input",
-                              "inputFocused": "focused",
-                              "inputWrapper": "multiselect-input-wrapper",
-                              "inputWrapperDisabled": "disabled",
-                              "inputWrapperFocused": "focused",
-                              "inputWrapperInvalid": "danger",
-                              "item": "suggestion-item",
-                              "itemHighlighted": "highlighted",
-                              "itemPlaceholder": "placeholder",
-                              "itemSelected": "selected",
-                              "list": "suggestion-list",
-                              "noSuggestions": "nodata",
-                              "tagsContainer": "multiselect-tags-container",
-                              "wrapper": "multiselect-wrapper",
-                            }
-                          }
                         >
-                          <Suggestion
+                          <li
                             className="suggestion-item"
                             onClick={[Function]}
                           >
-                            <Li
-                              className="suggestion-item"
-                              onClick={[Function]}
-                            >
-                              <li
-                                className="suggestion-item"
-                                onClick={[Function]}
-                              >
-                                3
-                              </li>
-                            </Li>
-                          </Suggestion>
-                        </SuggestionItem>
-                      </ul>
-                    </Ul>
-                  </List>
-                </div>
-              </Div>
-            </SuggestionList>
-          </div>
-        </Div>
+                            3
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                  </ul>
+                </Ul>
+              </List>
+            </div>
+          </Div>
+        </SuggestionList>
         <InvalidMessageWrapper>
           <InvalidMessage
             isValid={true}
@@ -2743,6 +2855,10 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
                 Object {
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
+                  "containerTop": "pos-top",
+                  "containerVisible": "visible",
+                  "group": "suggestion-group",
+                  "groupLabel": "suggestion-group-label",
                   "input": "multiselect-input",
                   "inputFocused": "focused",
                   "inputWrapper": "multiselect-input-wrapper",
@@ -2833,172 +2949,184 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
                 value=""
               />
             </Input>
-            <SuggestionList
-              data={
-                Array [
-                  "2",
-                  "3",
-                ]
-              }
-              highlightedSuggestion={null}
-              isOpen={true}
-              onClick={[Function]}
-              shouldAllowEmpty={false}
-              theme={
-                Object {
-                  "clearIcon": "multiselect-clear-icon",
-                  "container": "suggestion-wrapper",
-                  "input": "multiselect-input",
-                  "inputFocused": "focused",
-                  "inputWrapper": "multiselect-input-wrapper",
-                  "inputWrapperDisabled": "disabled",
-                  "inputWrapperFocused": "focused",
-                  "inputWrapperInvalid": "danger",
-                  "item": "suggestion-item",
-                  "itemHighlighted": "highlighted",
-                  "itemPlaceholder": "placeholder",
-                  "itemSelected": "selected",
-                  "list": "suggestion-list",
-                  "noSuggestions": "nodata",
-                  "tagsContainer": "multiselect-tags-container",
-                  "wrapper": "multiselect-wrapper",
-                }
-              }
-              value={
-                Array [
-                  "1",
-                ]
-              }
-            >
-              <Div
-                className="suggestion-wrapper"
-                onMouseDown={[Function]}
-              >
-                <div
-                  className="suggestion-wrapper"
-                  onMouseDown={[Function]}
-                >
-                  <List
-                    className="suggestion-list"
-                  >
-                    <Ul
-                      className="suggestion-list"
-                    >
-                      <ul
-                        className="suggestion-list"
-                      >
-                        <SuggestionItem
-                          isHighlighted={false}
-                          isPlaceholder={false}
-                          isScrollTarget={false}
-                          isSelected={false}
-                          item="2"
-                          key="2"
-                          onClick={[Function]}
-                          suggestionRef={
-                            Object {
-                              "current": null,
-                            }
-                          }
-                          text="2"
-                          theme={
-                            Object {
-                              "clearIcon": "multiselect-clear-icon",
-                              "container": "suggestion-wrapper",
-                              "input": "multiselect-input",
-                              "inputFocused": "focused",
-                              "inputWrapper": "multiselect-input-wrapper",
-                              "inputWrapperDisabled": "disabled",
-                              "inputWrapperFocused": "focused",
-                              "inputWrapperInvalid": "danger",
-                              "item": "suggestion-item",
-                              "itemHighlighted": "highlighted",
-                              "itemPlaceholder": "placeholder",
-                              "itemSelected": "selected",
-                              "list": "suggestion-list",
-                              "noSuggestions": "nodata",
-                              "tagsContainer": "multiselect-tags-container",
-                              "wrapper": "multiselect-wrapper",
-                            }
-                          }
-                        >
-                          <Suggestion
-                            className="suggestion-item"
-                            onClick={[Function]}
-                          >
-                            <Li
-                              className="suggestion-item"
-                              onClick={[Function]}
-                            >
-                              <li
-                                className="suggestion-item"
-                                onClick={[Function]}
-                              >
-                                2
-                              </li>
-                            </Li>
-                          </Suggestion>
-                        </SuggestionItem>
-                        <SuggestionItem
-                          isHighlighted={false}
-                          isPlaceholder={false}
-                          isScrollTarget={false}
-                          isSelected={false}
-                          item="3"
-                          key="3"
-                          onClick={[Function]}
-                          suggestionRef={
-                            Object {
-                              "current": null,
-                            }
-                          }
-                          text="3"
-                          theme={
-                            Object {
-                              "clearIcon": "multiselect-clear-icon",
-                              "container": "suggestion-wrapper",
-                              "input": "multiselect-input",
-                              "inputFocused": "focused",
-                              "inputWrapper": "multiselect-input-wrapper",
-                              "inputWrapperDisabled": "disabled",
-                              "inputWrapperFocused": "focused",
-                              "inputWrapperInvalid": "danger",
-                              "item": "suggestion-item",
-                              "itemHighlighted": "highlighted",
-                              "itemPlaceholder": "placeholder",
-                              "itemSelected": "selected",
-                              "list": "suggestion-list",
-                              "noSuggestions": "nodata",
-                              "tagsContainer": "multiselect-tags-container",
-                              "wrapper": "multiselect-wrapper",
-                            }
-                          }
-                        >
-                          <Suggestion
-                            className="suggestion-item"
-                            onClick={[Function]}
-                          >
-                            <Li
-                              className="suggestion-item"
-                              onClick={[Function]}
-                            >
-                              <li
-                                className="suggestion-item"
-                                onClick={[Function]}
-                              >
-                                3
-                              </li>
-                            </Li>
-                          </Suggestion>
-                        </SuggestionItem>
-                      </ul>
-                    </Ul>
-                  </List>
-                </div>
-              </Div>
-            </SuggestionList>
           </div>
         </Div>
+        <SuggestionList
+          data={
+            Array [
+              "2",
+              "3",
+            ]
+          }
+          highlightedSuggestion={null}
+          isOpen={true}
+          onClick={[Function]}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "multiselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "containerTop": "pos-top",
+              "containerVisible": "visible",
+              "group": "suggestion-group",
+              "groupLabel": "suggestion-group-label",
+              "input": "multiselect-input",
+              "inputFocused": "focused",
+              "inputWrapper": "multiselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "tagsContainer": "multiselect-tags-container",
+              "wrapper": "multiselect-wrapper",
+            }
+          }
+          value={
+            Array [
+              "1",
+            ]
+          }
+        >
+          <Div
+            className="suggestion-wrapper"
+            onMouseDown={[Function]}
+          >
+            <div
+              className="suggestion-wrapper"
+              onMouseDown={[Function]}
+            >
+              <List
+                className="suggestion-list"
+              >
+                <Ul
+                  className="suggestion-list"
+                >
+                  <ul
+                    className="suggestion-list"
+                  >
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item="2"
+                      key="2"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="2"
+                      theme={
+                        Object {
+                          "clearIcon": "multiselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "containerTop": "pos-top",
+                          "containerVisible": "visible",
+                          "group": "suggestion-group",
+                          "groupLabel": "suggestion-group-label",
+                          "input": "multiselect-input",
+                          "inputFocused": "focused",
+                          "inputWrapper": "multiselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "tagsContainer": "multiselect-tags-container",
+                          "wrapper": "multiselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            2
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                    <SuggestionItem
+                      isHighlighted={false}
+                      isPlaceholder={false}
+                      isScrollTarget={false}
+                      isSelected={false}
+                      item="3"
+                      key="3"
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      text="3"
+                      theme={
+                        Object {
+                          "clearIcon": "multiselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "containerTop": "pos-top",
+                          "containerVisible": "visible",
+                          "group": "suggestion-group",
+                          "groupLabel": "suggestion-group-label",
+                          "input": "multiselect-input",
+                          "inputFocused": "focused",
+                          "inputWrapper": "multiselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "tagsContainer": "multiselect-tags-container",
+                          "wrapper": "multiselect-wrapper",
+                        }
+                      }
+                    >
+                      <Suggestion
+                        className="suggestion-item"
+                        onClick={[Function]}
+                      >
+                        <Li
+                          className="suggestion-item"
+                          onClick={[Function]}
+                        >
+                          <li
+                            className="suggestion-item"
+                            onClick={[Function]}
+                          >
+                            3
+                          </li>
+                        </Li>
+                      </Suggestion>
+                    </SuggestionItem>
+                  </ul>
+                </Ul>
+              </List>
+            </div>
+          </Div>
+        </SuggestionList>
         <InvalidMessageWrapper>
           <InvalidMessage
             isValid={true}
@@ -3057,6 +3185,10 @@ exports[`MultiSelect SNAPSHOTS should render basic usage 1`] = `
                 Object {
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
+                  "containerTop": "pos-top",
+                  "containerVisible": "visible",
+                  "group": "suggestion-group",
+                  "groupLabel": "suggestion-group-label",
                   "input": "multiselect-input",
                   "inputFocused": "focused",
                   "inputWrapper": "multiselect-input-wrapper",
@@ -3145,45 +3277,49 @@ exports[`MultiSelect SNAPSHOTS should render basic usage 1`] = `
                 value=""
               />
             </Input>
-            <SuggestionList
-              data={
-                Array [
-                  "2",
-                  "3",
-                ]
-              }
-              highlightedSuggestion={null}
-              isOpen={false}
-              onClick={[Function]}
-              shouldAllowEmpty={false}
-              theme={
-                Object {
-                  "clearIcon": "multiselect-clear-icon",
-                  "container": "suggestion-wrapper",
-                  "input": "multiselect-input",
-                  "inputFocused": "focused",
-                  "inputWrapper": "multiselect-input-wrapper",
-                  "inputWrapperDisabled": "disabled",
-                  "inputWrapperFocused": "focused",
-                  "inputWrapperInvalid": "danger",
-                  "item": "suggestion-item",
-                  "itemHighlighted": "highlighted",
-                  "itemPlaceholder": "placeholder",
-                  "itemSelected": "selected",
-                  "list": "suggestion-list",
-                  "noSuggestions": "nodata",
-                  "tagsContainer": "multiselect-tags-container",
-                  "wrapper": "multiselect-wrapper",
-                }
-              }
-              value={
-                Array [
-                  "1",
-                ]
-              }
-            />
           </div>
         </Div>
+        <SuggestionList
+          data={
+            Array [
+              "2",
+              "3",
+            ]
+          }
+          highlightedSuggestion={null}
+          isOpen={false}
+          onClick={[Function]}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "multiselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "containerTop": "pos-top",
+              "containerVisible": "visible",
+              "group": "suggestion-group",
+              "groupLabel": "suggestion-group-label",
+              "input": "multiselect-input",
+              "inputFocused": "focused",
+              "inputWrapper": "multiselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "tagsContainer": "multiselect-tags-container",
+              "wrapper": "multiselect-wrapper",
+            }
+          }
+          value={
+            Array [
+              "1",
+            ]
+          }
+        />
         <InvalidMessageWrapper>
           <InvalidMessage
             isValid={true}
@@ -3242,6 +3378,10 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 1`] = `
                 Object {
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
+                  "containerTop": "pos-top",
+                  "containerVisible": "visible",
+                  "group": "suggestion-group",
+                  "groupLabel": "suggestion-group-label",
                   "input": "multiselect-input",
                   "inputFocused": "focused",
                   "inputWrapper": "multiselect-input-wrapper",
@@ -3330,45 +3470,49 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 1`] = `
                 value=""
               />
             </Input>
-            <SuggestionList
-              data={
-                Array [
-                  "value2",
-                  "value3",
-                ]
-              }
-              highlightedSuggestion={null}
-              isOpen={false}
-              onClick={[Function]}
-              shouldAllowEmpty={false}
-              theme={
-                Object {
-                  "clearIcon": "multiselect-clear-icon",
-                  "container": "suggestion-wrapper",
-                  "input": "multiselect-input",
-                  "inputFocused": "focused",
-                  "inputWrapper": "multiselect-input-wrapper",
-                  "inputWrapperDisabled": "disabled",
-                  "inputWrapperFocused": "focused",
-                  "inputWrapperInvalid": "danger",
-                  "item": "suggestion-item",
-                  "itemHighlighted": "highlighted",
-                  "itemPlaceholder": "placeholder",
-                  "itemSelected": "selected",
-                  "list": "suggestion-list",
-                  "noSuggestions": "nodata",
-                  "tagsContainer": "multiselect-tags-container",
-                  "wrapper": "multiselect-wrapper",
-                }
-              }
-              value={
-                Array [
-                  "value1",
-                ]
-              }
-            />
           </div>
         </Div>
+        <SuggestionList
+          data={
+            Array [
+              "value2",
+              "value3",
+            ]
+          }
+          highlightedSuggestion={null}
+          isOpen={false}
+          onClick={[Function]}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "multiselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "containerTop": "pos-top",
+              "containerVisible": "visible",
+              "group": "suggestion-group",
+              "groupLabel": "suggestion-group-label",
+              "input": "multiselect-input",
+              "inputFocused": "focused",
+              "inputWrapper": "multiselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "tagsContainer": "multiselect-tags-container",
+              "wrapper": "multiselect-wrapper",
+            }
+          }
+          value={
+            Array [
+              "value1",
+            ]
+          }
+        />
         <InvalidMessageWrapper>
           <InvalidMessage
             isValid={true}
@@ -3436,6 +3580,10 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 2`] = `
                 Object {
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
+                  "containerTop": "pos-top",
+                  "containerVisible": "visible",
+                  "group": "suggestion-group",
+                  "groupLabel": "suggestion-group-label",
                   "input": "multiselect-input",
                   "inputFocused": "focused",
                   "inputWrapper": "multiselect-input-wrapper",
@@ -3524,55 +3672,59 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 2`] = `
                 value=""
               />
             </Input>
-            <SuggestionList
-              data={
-                Array [
-                  Object {
-                    "text": "text1",
-                    "value": "value1",
-                  },
-                  Object {
-                    "text": "text2",
-                    "value": "value2",
-                  },
-                  Object {
-                    "text": "text3",
-                    "value": "value3",
-                  },
-                ]
-              }
-              highlightedSuggestion={null}
-              isOpen={false}
-              onClick={[Function]}
-              shouldAllowEmpty={false}
-              theme={
-                Object {
-                  "clearIcon": "multiselect-clear-icon",
-                  "container": "suggestion-wrapper",
-                  "input": "multiselect-input",
-                  "inputFocused": "focused",
-                  "inputWrapper": "multiselect-input-wrapper",
-                  "inputWrapperDisabled": "disabled",
-                  "inputWrapperFocused": "focused",
-                  "inputWrapperInvalid": "danger",
-                  "item": "suggestion-item",
-                  "itemHighlighted": "highlighted",
-                  "itemPlaceholder": "placeholder",
-                  "itemSelected": "selected",
-                  "list": "suggestion-list",
-                  "noSuggestions": "nodata",
-                  "tagsContainer": "multiselect-tags-container",
-                  "wrapper": "multiselect-wrapper",
-                }
-              }
-              value={
-                Array [
-                  "value1",
-                ]
-              }
-            />
           </div>
         </Div>
+        <SuggestionList
+          data={
+            Array [
+              Object {
+                "text": "text1",
+                "value": "value1",
+              },
+              Object {
+                "text": "text2",
+                "value": "value2",
+              },
+              Object {
+                "text": "text3",
+                "value": "value3",
+              },
+            ]
+          }
+          highlightedSuggestion={null}
+          isOpen={false}
+          onClick={[Function]}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "multiselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "containerTop": "pos-top",
+              "containerVisible": "visible",
+              "group": "suggestion-group",
+              "groupLabel": "suggestion-group-label",
+              "input": "multiselect-input",
+              "inputFocused": "focused",
+              "inputWrapper": "multiselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "tagsContainer": "multiselect-tags-container",
+              "wrapper": "multiselect-wrapper",
+            }
+          }
+          value={
+            Array [
+              "value1",
+            ]
+          }
+        />
         <InvalidMessageWrapper>
           <InvalidMessage
             isValid={true}
@@ -3631,6 +3783,10 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 1`] = `
                 Object {
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
+                  "containerTop": "pos-top",
+                  "containerVisible": "visible",
+                  "group": "suggestion-group",
+                  "groupLabel": "suggestion-group-label",
                   "input": "multiselect-input",
                   "inputFocused": "focused",
                   "inputWrapper": "multiselect-input-wrapper",
@@ -3719,45 +3875,49 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 1`] = `
                 value=""
               />
             </Input>
-            <SuggestionList
-              data={
-                Array [
-                  "2",
-                  "3",
-                ]
-              }
-              highlightedSuggestion={null}
-              isOpen={false}
-              onClick={[Function]}
-              shouldAllowEmpty={false}
-              theme={
-                Object {
-                  "clearIcon": "multiselect-clear-icon",
-                  "container": "suggestion-wrapper",
-                  "input": "multiselect-input",
-                  "inputFocused": "focused",
-                  "inputWrapper": "multiselect-input-wrapper",
-                  "inputWrapperDisabled": "disabled",
-                  "inputWrapperFocused": "focused",
-                  "inputWrapperInvalid": "danger",
-                  "item": "suggestion-item",
-                  "itemHighlighted": "highlighted",
-                  "itemPlaceholder": "placeholder",
-                  "itemSelected": "selected",
-                  "list": "suggestion-list",
-                  "noSuggestions": "nodata",
-                  "tagsContainer": "multiselect-tags-container",
-                  "wrapper": "multiselect-wrapper",
-                }
-              }
-              value={
-                Array [
-                  "1",
-                ]
-              }
-            />
           </div>
         </Div>
+        <SuggestionList
+          data={
+            Array [
+              "2",
+              "3",
+            ]
+          }
+          highlightedSuggestion={null}
+          isOpen={false}
+          onClick={[Function]}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "multiselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "containerTop": "pos-top",
+              "containerVisible": "visible",
+              "group": "suggestion-group",
+              "groupLabel": "suggestion-group-label",
+              "input": "multiselect-input",
+              "inputFocused": "focused",
+              "inputWrapper": "multiselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "tagsContainer": "multiselect-tags-container",
+              "wrapper": "multiselect-wrapper",
+            }
+          }
+          value={
+            Array [
+              "1",
+            ]
+          }
+        />
         <InvalidMessageWrapper>
           <InvalidMessage
             isValid={true}
@@ -3816,6 +3976,10 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 2`] = `
                 Object {
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
+                  "containerTop": "pos-top",
+                  "containerVisible": "visible",
+                  "group": "suggestion-group",
+                  "groupLabel": "suggestion-group-label",
                   "input": "multiselect-input",
                   "inputFocused": "focused",
                   "inputWrapper": "multiselect-input-wrapper",
@@ -3904,45 +4068,49 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 2`] = `
                 value=""
               />
             </Input>
-            <SuggestionList
-              data={
-                Array [
-                  "1",
-                  "3",
-                ]
-              }
-              highlightedSuggestion={null}
-              isOpen={false}
-              onClick={[Function]}
-              shouldAllowEmpty={false}
-              theme={
-                Object {
-                  "clearIcon": "multiselect-clear-icon",
-                  "container": "suggestion-wrapper",
-                  "input": "multiselect-input",
-                  "inputFocused": "focused",
-                  "inputWrapper": "multiselect-input-wrapper",
-                  "inputWrapperDisabled": "disabled",
-                  "inputWrapperFocused": "focused",
-                  "inputWrapperInvalid": "danger",
-                  "item": "suggestion-item",
-                  "itemHighlighted": "highlighted",
-                  "itemPlaceholder": "placeholder",
-                  "itemSelected": "selected",
-                  "list": "suggestion-list",
-                  "noSuggestions": "nodata",
-                  "tagsContainer": "multiselect-tags-container",
-                  "wrapper": "multiselect-wrapper",
-                }
-              }
-              value={
-                Array [
-                  "2",
-                ]
-              }
-            />
           </div>
         </Div>
+        <SuggestionList
+          data={
+            Array [
+              "1",
+              "3",
+            ]
+          }
+          highlightedSuggestion={null}
+          isOpen={false}
+          onClick={[Function]}
+          shouldAllowEmpty={false}
+          theme={
+            Object {
+              "clearIcon": "multiselect-clear-icon",
+              "container": "suggestion-wrapper",
+              "containerTop": "pos-top",
+              "containerVisible": "visible",
+              "group": "suggestion-group",
+              "groupLabel": "suggestion-group-label",
+              "input": "multiselect-input",
+              "inputFocused": "focused",
+              "inputWrapper": "multiselect-input-wrapper",
+              "inputWrapperDisabled": "disabled",
+              "inputWrapperFocused": "focused",
+              "inputWrapperInvalid": "danger",
+              "item": "suggestion-item",
+              "itemHighlighted": "highlighted",
+              "itemPlaceholder": "placeholder",
+              "itemSelected": "selected",
+              "list": "suggestion-list",
+              "noSuggestions": "nodata",
+              "tagsContainer": "multiselect-tags-container",
+              "wrapper": "multiselect-wrapper",
+            }
+          }
+          value={
+            Array [
+              "2",
+            ]
+          }
+        />
         <InvalidMessageWrapper>
           <InvalidMessage
             isValid={true}

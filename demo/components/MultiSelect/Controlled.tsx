@@ -2,51 +2,6 @@ import * as React from 'react';
 import * as L from '../../../leda';
 import { SomeObject } from '../../../leda/commonTypes';
 
-const exampleCode = `
-export const Controlled = (args: SomeObject): React.ReactElement => {
-  const [props, setProps] = React.useState({});
-  const [value, setValue] = React.useState<string[]>(['London', 'Paris']);
-  const [isOpen, setIsOpen] = React.useState<boolean | undefined>();
-  const [isDisabled, setIsDisabled] = React.useState<boolean>(false);
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
-
-  return (
-    <L.Div _box _inner _demoBg>
-      <L.MultiSelect
-        data={[
-          'London',
-          'Islamabad',
-          'Berlin',
-          'Washington',
-          'Paris',
-          'Rome',
-          'Tokyo',
-          'Budapest',
-          'Ottawa',
-          'Moscow',
-        ]}
-        defaultValue={['London']}
-        _width40
-        isOpen={isOpen}
-        isLoading={isLoading}
-        onChange={ev => setValue(ev.component.value)}
-        isDisabled={isDisabled}
-        value={value}
-        {...props}
-      >
-      </L.MultiSelect>
-      <br />
-      <br />
-      <L.Button _warning={isDisabled} onClick={() => setIsDisabled(!isDisabled)}>Toggle isDisabled</L.Button>
-      {' '}
-      <L.Button _warning={isLoading} onClick={() => setIsLoading(!isLoading)}>Toggle isLoading</L.Button>
-      {' '}
-      <L.Button _warning={isOpen} onClick={() => setIsOpen(isOpen ? undefined : true)}>Toggle isOpen</L.Button>
-    </L.Div>
-  );
-};
-`;
-
 export const Controlled = (args: SomeObject): React.ReactElement => {
   const [value, setValue] = React.useState<string[]>(['London', 'Paris']);
   const [isOpen, setIsOpen] = React.useState<boolean | undefined>();

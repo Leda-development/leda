@@ -31,37 +31,28 @@ Cypress.Commands.add('focusMasked', { prevSubject: 'element' }, (subject) => cy
   .type('{uparrow}')
   .clear());
 
-Cypress.Commands.add('name', (searchName) => {
-  cy.get(`[name="${searchName}"]`);
-});
+Cypress.Commands.add('name', (searchName) => cy.get(`[name="${searchName}"]`));
 
-Cypress.Commands.add('nameChild', { prevSubject: 'element' }, (parent, searchName) => {
-  cy.get(parent)
-    .children(`[name="${searchName}"]`);
-});
+Cypress.Commands.add('isNotInViewport', { prevSubject: 'element' }, element => {
+  cy.get(element).then(it => {
+    const bottom = Cypress.$(cy.state('window')).height()
+    const rect = it[0].getBoundingClientRect()
 
-Cypress.Commands.add('shouldBeAbove', { prevSubject: 'element' }, (topElement, bottomElement) => {
-  let topElementCoords;
-  let bottomElementCoords;
-  cy
-    .get(topElement).then(($topElement) => {
-    topElementCoords = $topElement[0].getBoundingClientRect();
+    expect(rect.top).to.be.greaterThan(bottom)
+    expect(rect.bottom).to.be.greaterThan(bottom)
+    expect(rect.top).to.be.greaterThan(bottom)
+    expect(rect.bottom).to.be.greaterThan(bottom)
   })
-    .get(bottomElement).then(($bottomElement) => {
-    bottomElementCoords = $bottomElement[0].getBoundingClientRect();
+})
+
+Cypress.Commands.add('isInViewport', { prevSubject: 'element' }, element => {
+  cy.get(element).then(it => {
+    const bottom = Cypress.$(cy.state('window')).height()
+    const rect = it[0].getBoundingClientRect()
+
+    expect(rect.top).not.to.be.greaterThan(bottom)
+    expect(rect.bottom).not.to.be.greaterThan(bottom)
+    expect(rect.top).not.to.be.greaterThan(bottom)
+    expect(rect.bottom).not.to.be.greaterThan(bottom)
   })
-    .expect(topElementCoords.bottom).to.be.greaterThan(bottomElementCoords.top)
-    .expect(topElementCoords.bottom - bottomElementCoords.top).to.be.lessThan(10);
-});
-
-Cypress.Commands.add('isInViewport', { prevSubject: 'element' }, (subject) => {
-  cy.wrap(subject).then(($el) => {
-    const bottom = Cypress.$(cy.state('window')).height();
-    const rect = $el[0].getBoundingClientRect();
-
-    expect(rect.top).not.to.be.greaterThan(bottom);
-    expect(rect.bottom).not.to.be.greaterThan(bottom);
-    expect(rect.top).not.to.be.greaterThan(bottom);
-    expect(rect.bottom).not.to.be.greaterThan(bottom);
-  });
-});
+})

@@ -303,4 +303,5 @@ describe('AutoComplete', () => {
         .should('have.value', '');
     });
   });
+    xit('Validation tests', () => {})
 });

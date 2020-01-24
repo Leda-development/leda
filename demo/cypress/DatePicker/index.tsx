@@ -9,7 +9,7 @@ export const DatePicker = (): React.ReactElement => {
   const [value4, setValue4] = React.useState('');
   const [value5, setValue5] = React.useState('');
   const [value6, setValue6] = React.useState('');
-  
+
   const handleChange1 = (event) => {
     const { date, value } = event.component;
     setValue1(value);
@@ -94,7 +94,7 @@ export const DatePicker = (): React.ReactElement => {
           value={value5}
           isDisabled
         />
-       
+
         <L.DatePicker
           max={new Date('05.04.2012')}
           min={new Date('05.03.2012')}

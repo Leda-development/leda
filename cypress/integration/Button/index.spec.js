@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions,jest/valid-expect */
 describe('Button', () => {
-  beforeEach(() => {
+  before(() => {
     cy.visit('http://localhost:9000/cypress/button');
   });
 
@@ -9,14 +9,22 @@ describe('Button', () => {
       cy.contains('Клик!')
         .should('be.visible');
     });
-
-    it ('Should be button', () => {
-      cy.get('button[type=button]')
-      .eq(0)
-      .should('have.text','Клик!')
-    })
   });
 
+  describe('Styles', () =>{
+    it('_danger', ()=> {
+      cy.contains('danger!')
+        .should('have.class', 'danger')
+    })
+    it('_warning', ()=> {
+      cy.contains('warning!')
+        .should('have.class', 'warning')
+    })
+    it('_success', ()=> {
+      cy.contains('success!')
+        .should('have.class', 'success')
+    })
+  })
   describe('Interaction', () => {
     it('should call onClick', () => {
       const stub = cy.stub();
@@ -29,6 +37,36 @@ describe('Button', () => {
         .then(() => {
           expect(stub.getCall(0)).to.be.calledWith('Alert!');
         });
+    });
+
+    it('on Validation Fail', () => {
+      const stub = cy.stub();
+      cy.on('window:alert', stub);
+      // eslint-disable-next-line jest/valid-expect-in-promise
+      cy.contains('Validate!')
+        .click()
+        .name('Input1')
+        .should('have.attr', 'aria-invalid', 'true')
+        .name('Input2')
+        .should('have.attr', 'aria-invalid', 'true')
+        .then(() => {
+          expect(stub.getCall(0)).to.be.calledWith('Alert!');
+        })
+    });
+
+    it('should Scroll To Invalid Fields', () => {
+      const stub = cy.stub();
+      cy.on('window:alert', stub);
+      cy.contains('Validate!')
+        .scrollIntoView()
+        .name('Input1')
+        .isNotInViewport()
+        .get('button')
+        .contains('Validate!')
+        .click()
+        .name('Input1')
+        .wait(200)
+        .isInViewport()
     });
 
     it('should not call onClick when isLoading', () => {

@@ -41,6 +41,9 @@ export interface DropDownLinkProps extends Omit<React.HTMLAttributes<HTMLElement
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.dropDownLink],
   /** Функция для кастомизации текущего значения */
   titleRender?: CustomRender<DropDownLinkProps, {}, TitleProps>,
+  /** Принудительное открытие списка */
+  isOpen?: boolean,
+  /** Реф */
   ref?: React.Ref<DropDownLinkRefCurrent>,
   /** Устанавливает текущее значение */
   value: Value,

@@ -129,6 +129,10 @@ exports[`LEDA THEME PROVIDER should be isOpen 1`] = `
               Object {
                 "clearIcon": "dropdownselect-clear-icon",
                 "container": "suggestion-wrapper",
+                "containerTop": "pos-top",
+                "containerVisible": "visible",
+                "group": "suggestion-group",
+                "groupLabel": "suggestion-group-label",
                 "input": "custom-input-class",
                 "inputWrapper": "dropdownselect-input-wrapper",
                 "inputWrapperDisabled": "disabled",
@@ -189,6 +193,10 @@ exports[`LEDA THEME PROVIDER should be isOpen 1`] = `
                           Object {
                             "clearIcon": "dropdownselect-clear-icon",
                             "container": "suggestion-wrapper",
+                            "containerTop": "pos-top",
+                            "containerVisible": "visible",
+                            "group": "suggestion-group",
+                            "groupLabel": "suggestion-group-label",
                             "input": "custom-input-class",
                             "inputWrapper": "dropdownselect-input-wrapper",
                             "inputWrapperDisabled": "disabled",
@@ -248,6 +256,10 @@ exports[`LEDA THEME PROVIDER should be isOpen 1`] = `
                           Object {
                             "clearIcon": "dropdownselect-clear-icon",
                             "container": "suggestion-wrapper",
+                            "containerTop": "pos-top",
+                            "containerVisible": "visible",
+                            "group": "suggestion-group",
+                            "groupLabel": "suggestion-group-label",
                             "input": "custom-input-class",
                             "inputWrapper": "dropdownselect-input-wrapper",
                             "inputWrapperDisabled": "disabled",
@@ -307,6 +319,10 @@ exports[`LEDA THEME PROVIDER should be isOpen 1`] = `
                           Object {
                             "clearIcon": "dropdownselect-clear-icon",
                             "container": "suggestion-wrapper",
+                            "containerTop": "pos-top",
+                            "containerVisible": "visible",
+                            "group": "suggestion-group",
+                            "groupLabel": "suggestion-group-label",
                             "input": "custom-input-class",
                             "inputWrapper": "dropdownselect-input-wrapper",
                             "inputWrapperDisabled": "disabled",

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { CustomRender, CustomEventHandler, SomeObject } from '../../commonTypes';
+import { DivProps } from '../../components/Div';
 import { LiProps } from '../../components/Li';
 import { UlProps } from '../../components/Ul';
 import { COMPONENTS_NAMESPACES } from '../../constants';
@@ -14,7 +15,11 @@ export interface SuggestionTarget {
 }
 
 export interface SuggestionListProps {
+  boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement }>,
   data?: Value[],
+  groupBy?: (option: Value) => string | undefined,
+  groupLabelRender?: CustomRender<{}, {}, LiProps>,
+  groupWrapperRender?: CustomRender<{}, {}, DivProps>,
   highlightedSuggestion?: Value,
   selectedSuggestion?: Value,
   isLoading?: boolean,
@@ -46,4 +51,9 @@ export interface SuggestionItemProps {
 
 export interface NoSuggestionsProps {
   className?: string,
+}
+
+export interface GroupedSomeObject {
+  key: string,
+  dataItems: SomeObject[],
 }

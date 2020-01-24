@@ -42,6 +42,10 @@ exports[`AutoComplete SNAPSHOTS should render basic usage 1`] = `
           Object {
             "closeIcon": "autocomplete-clear-icon",
             "container": "suggestion-wrapper",
+            "containerTop": "pos-top",
+            "containerVisible": "visible",
+            "group": "suggestion-group",
+            "groupLabel": "suggestion-group-label",
             "input": "autocomplete-input",
             "inputWrapperDisabled": "disabled",
             "inputWrapperFocused": "focused",
@@ -125,6 +129,10 @@ exports[`AutoComplete SNAPSHOTS should render data in controllable mode 1`] = `
           Object {
             "closeIcon": "autocomplete-clear-icon",
             "container": "suggestion-wrapper",
+            "containerTop": "pos-top",
+            "containerVisible": "visible",
+            "group": "suggestion-group",
+            "groupLabel": "suggestion-group-label",
             "input": "autocomplete-input",
             "inputWrapperDisabled": "disabled",
             "inputWrapperFocused": "focused",
@@ -203,7 +211,22 @@ exports[`AutoComplete SNAPSHOTS should render data in controllable mode 2`] = `
         value="value1"
       />
       <SuggestionList
-        data={Array []}
+        data={
+          Array [
+            Object {
+              "text": "text1",
+              "value": "value1",
+            },
+            Object {
+              "text": "text2",
+              "value": "value2",
+            },
+            Object {
+              "text": "text3",
+              "value": "value3",
+            },
+          ]
+        }
         highlightedSuggestion={null}
         isOpen={false}
         onClick={[Function]}
@@ -213,6 +236,10 @@ exports[`AutoComplete SNAPSHOTS should render data in controllable mode 2`] = `
           Object {
             "closeIcon": "autocomplete-clear-icon",
             "container": "suggestion-wrapper",
+            "containerTop": "pos-top",
+            "containerVisible": "visible",
+            "group": "suggestion-group",
+            "groupLabel": "suggestion-group-label",
             "input": "autocomplete-input",
             "inputWrapperDisabled": "disabled",
             "inputWrapperFocused": "focused",
@@ -298,6 +325,10 @@ exports[`AutoComplete SNAPSHOTS should render different component states should 
           Object {
             "closeIcon": "autocomplete-clear-icon",
             "container": "suggestion-wrapper",
+            "containerTop": "pos-top",
+            "containerVisible": "visible",
+            "group": "suggestion-group",
+            "groupLabel": "suggestion-group-label",
             "input": "autocomplete-input",
             "inputWrapperDisabled": "disabled",
             "inputWrapperFocused": "focused",
@@ -373,6 +404,10 @@ exports[`AutoComplete SNAPSHOTS should render different component states should 
           Object {
             "closeIcon": "autocomplete-clear-icon",
             "container": "suggestion-wrapper",
+            "containerTop": "pos-top",
+            "containerVisible": "visible",
+            "group": "suggestion-group",
+            "groupLabel": "suggestion-group-label",
             "input": "autocomplete-input",
             "inputWrapperDisabled": "disabled",
             "inputWrapperFocused": "focused",
@@ -483,6 +518,10 @@ exports[`AutoComplete SNAPSHOTS should render different component states should 
           Object {
             "closeIcon": "autocomplete-clear-icon",
             "container": "suggestion-wrapper",
+            "containerTop": "pos-top",
+            "containerVisible": "visible",
+            "group": "suggestion-group",
+            "groupLabel": "suggestion-group-label",
             "input": "autocomplete-input",
             "inputWrapperDisabled": "disabled",
             "inputWrapperFocused": "focused",
@@ -543,6 +582,10 @@ exports[`AutoComplete SNAPSHOTS should render different component states should 
                       Object {
                         "closeIcon": "autocomplete-clear-icon",
                         "container": "suggestion-wrapper",
+                        "containerTop": "pos-top",
+                        "containerVisible": "visible",
+                        "group": "suggestion-group",
+                        "groupLabel": "suggestion-group-label",
                         "input": "autocomplete-input",
                         "inputWrapperDisabled": "disabled",
                         "inputWrapperFocused": "focused",
@@ -602,6 +645,10 @@ exports[`AutoComplete SNAPSHOTS should render different component states should 
                       Object {
                         "closeIcon": "autocomplete-clear-icon",
                         "container": "suggestion-wrapper",
+                        "containerTop": "pos-top",
+                        "containerVisible": "visible",
+                        "group": "suggestion-group",
+                        "groupLabel": "suggestion-group-label",
                         "input": "autocomplete-input",
                         "inputWrapperDisabled": "disabled",
                         "inputWrapperFocused": "focused",
@@ -661,6 +708,10 @@ exports[`AutoComplete SNAPSHOTS should render different component states should 
                       Object {
                         "closeIcon": "autocomplete-clear-icon",
                         "container": "suggestion-wrapper",
+                        "containerTop": "pos-top",
+                        "containerVisible": "visible",
+                        "group": "suggestion-group",
+                        "groupLabel": "suggestion-group-label",
                         "input": "autocomplete-input",
                         "inputWrapperDisabled": "disabled",
                         "inputWrapperFocused": "focused",
@@ -757,6 +808,10 @@ exports[`AutoComplete SNAPSHOTS should render different component states should 
           Object {
             "closeIcon": "autocomplete-clear-icon",
             "container": "suggestion-wrapper",
+            "containerTop": "pos-top",
+            "containerVisible": "visible",
+            "group": "suggestion-group",
+            "groupLabel": "suggestion-group-label",
             "input": "autocomplete-input",
             "inputWrapperDisabled": "disabled",
             "inputWrapperFocused": "focused",
@@ -841,6 +896,10 @@ exports[`AutoComplete SNAPSHOTS should render multi-type attributes should rende
           Object {
             "closeIcon": "autocomplete-clear-icon",
             "container": "suggestion-wrapper",
+            "containerTop": "pos-top",
+            "containerVisible": "visible",
+            "group": "suggestion-group",
+            "groupLabel": "suggestion-group-label",
             "input": "autocomplete-input",
             "inputWrapperDisabled": "disabled",
             "inputWrapperFocused": "focused",
@@ -901,6 +960,10 @@ exports[`AutoComplete SNAPSHOTS should render multi-type attributes should rende
                       Object {
                         "closeIcon": "autocomplete-clear-icon",
                         "container": "suggestion-wrapper",
+                        "containerTop": "pos-top",
+                        "containerVisible": "visible",
+                        "group": "suggestion-group",
+                        "groupLabel": "suggestion-group-label",
                         "input": "autocomplete-input",
                         "inputWrapperDisabled": "disabled",
                         "inputWrapperFocused": "focused",
@@ -1010,6 +1073,10 @@ exports[`AutoComplete SNAPSHOTS should render multi-type attributes should rende
           Object {
             "closeIcon": "autocomplete-clear-icon",
             "container": "suggestion-wrapper",
+            "containerTop": "pos-top",
+            "containerVisible": "visible",
+            "group": "suggestion-group",
+            "groupLabel": "suggestion-group-label",
             "input": "autocomplete-input",
             "inputWrapperDisabled": "disabled",
             "inputWrapperFocused": "focused",
@@ -1076,6 +1143,10 @@ exports[`AutoComplete SNAPSHOTS should render multi-type attributes should rende
                       Object {
                         "closeIcon": "autocomplete-clear-icon",
                         "container": "suggestion-wrapper",
+                        "containerTop": "pos-top",
+                        "containerVisible": "visible",
+                        "group": "suggestion-group",
+                        "groupLabel": "suggestion-group-label",
                         "input": "autocomplete-input",
                         "inputWrapperDisabled": "disabled",
                         "inputWrapperFocused": "focused",
@@ -1170,6 +1241,10 @@ exports[`AutoComplete SNAPSHOTS should render value in controllable mode 1`] = `
           Object {
             "closeIcon": "autocomplete-clear-icon",
             "container": "suggestion-wrapper",
+            "containerTop": "pos-top",
+            "containerVisible": "visible",
+            "group": "suggestion-group",
+            "groupLabel": "suggestion-group-label",
             "input": "autocomplete-input",
             "inputWrapperDisabled": "disabled",
             "inputWrapperFocused": "focused",
@@ -1253,6 +1328,10 @@ exports[`AutoComplete SNAPSHOTS should render value in controllable mode 2`] = `
           Object {
             "closeIcon": "autocomplete-clear-icon",
             "container": "suggestion-wrapper",
+            "containerTop": "pos-top",
+            "containerVisible": "visible",
+            "group": "suggestion-group",
+            "groupLabel": "suggestion-group-label",
             "input": "autocomplete-input",
             "inputWrapperDisabled": "disabled",
             "inputWrapperFocused": "focused",
@@ -1363,6 +1442,10 @@ exports[`AutoComplete SNAPSHOTS should test component validation 1`] = `
           Object {
             "closeIcon": "autocomplete-clear-icon",
             "container": "suggestion-wrapper",
+            "containerTop": "pos-top",
+            "containerVisible": "visible",
+            "group": "suggestion-group",
+            "groupLabel": "suggestion-group-label",
             "input": "autocomplete-input",
             "inputWrapperDisabled": "disabled",
             "inputWrapperFocused": "focused",

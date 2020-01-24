@@ -55,7 +55,7 @@ describe('DropDown ATTRIBUTES', () => {
   });
 
   it('should have children prop', () => {
-    const wrapper = shallow(<DropDown><div className="lvl1"><span className="lvl2">TEXT</span></div></DropDown>);
+    const wrapper = mount(<DropDown><div className="lvl1"><span className="lvl2">TEXT</span></div></DropDown>);
 
     expect(wrapper.props().children).toBeDefined();
 

@@ -16,6 +16,7 @@ exports[`DropDownLink ATTRIBUTES should customize render items 1`] = `
   value="По умолчанию"
 >
   <DropDown
+    isOpen={false}
     onMouseEnter={[Function]}
     theme={
       Object {
@@ -26,17 +27,24 @@ exports[`DropDownLink ATTRIBUTES should customize render items 1`] = `
     <Wrapper
       className="dropdown-wrapper blank button-wrapper"
       onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseOver={[Function]}
     >
       <Span
         className="dropdown-wrapper blank button-wrapper"
         onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseOver={[Function]}
       >
         <span
           className="dropdown-wrapper blank button-wrapper"
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
         >
           <Title
             className="dropdown-text alt"
+            key=".0"
           >
             <A
               className="dropdown-text alt"
@@ -51,6 +59,7 @@ exports[`DropDownLink ATTRIBUTES should customize render items 1`] = `
           </Title>
           <Ul
             default={true}
+            key=".1"
           >
             <ul
               default={true}
@@ -165,6 +174,7 @@ exports[`DropDownLink ATTRIBUTES should customize title 1`] = `
   value="По умолчанию"
 >
   <DropDown
+    isOpen={false}
     onMouseEnter={[Function]}
     theme={
       Object {
@@ -175,17 +185,24 @@ exports[`DropDownLink ATTRIBUTES should customize title 1`] = `
     <Wrapper
       className="dropdown-wrapper blank button-wrapper"
       onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseOver={[Function]}
     >
       <Span
         className="dropdown-wrapper blank button-wrapper"
         onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseOver={[Function]}
       >
         <span
           className="dropdown-wrapper blank button-wrapper"
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
         >
           <Title
             className="dropdown-text alt"
+            key=".0"
           >
             <span>
               $$По умолчанию$$
@@ -193,6 +210,7 @@ exports[`DropDownLink ATTRIBUTES should customize title 1`] = `
           </Title>
           <Ul
             default={true}
+            key=".1"
           >
             <ul
               default={true}
@@ -614,6 +632,7 @@ exports[`DropDownLink SNAPSHOTS should render with array string 1`] = `
   value="По умолчанию"
 >
   <DropDown
+    isOpen={false}
     onMouseEnter={[Function]}
     theme={
       Object {
@@ -624,17 +643,24 @@ exports[`DropDownLink SNAPSHOTS should render with array string 1`] = `
     <Wrapper
       className="dropdown-wrapper blank button-wrapper"
       onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseOver={[Function]}
     >
       <Span
         className="dropdown-wrapper blank button-wrapper"
         onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseOver={[Function]}
       >
         <span
           className="dropdown-wrapper blank button-wrapper"
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
         >
           <Title
             className="dropdown-text alt"
+            key=".0"
           >
             <A
               className="dropdown-text alt"
@@ -649,6 +675,7 @@ exports[`DropDownLink SNAPSHOTS should render with array string 1`] = `
           </Title>
           <Ul
             default={true}
+            key=".1"
           >
             <ul
               default={true}
@@ -881,6 +908,7 @@ exports[`DropDownLink SNAPSHOTS should render with data objects 1`] = `
   }
 >
   <DropDown
+    isOpen={false}
     onMouseEnter={[Function]}
     theme={
       Object {
@@ -891,17 +919,24 @@ exports[`DropDownLink SNAPSHOTS should render with data objects 1`] = `
     <Wrapper
       className="dropdown-wrapper blank button-wrapper"
       onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseOver={[Function]}
     >
       <Span
         className="dropdown-wrapper blank button-wrapper"
         onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseOver={[Function]}
       >
         <span
           className="dropdown-wrapper blank button-wrapper"
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
         >
           <Title
             className="dropdown-text alt"
+            key=".0"
           >
             <A
               className="dropdown-text alt"
@@ -916,6 +951,7 @@ exports[`DropDownLink SNAPSHOTS should render with data objects 1`] = `
           </Title>
           <Ul
             default={true}
+            key=".1"
           >
             <ul
               default={true}

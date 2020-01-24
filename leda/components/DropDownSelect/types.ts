@@ -57,10 +57,12 @@ export interface FocusEvent<T extends Value = Value> extends React.FocusEvent<HT
 }
 
 export interface DropDownSelectProps<T extends Value = Value> extends ValidationProps {
+  boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement }>,
   data?: T[],
   defaultValue?: Value,
   filterRule?: FilterRules,
   filterValue?: string,
+  groupBy?: (option: T) => string | undefined,
   hasClearButton?: boolean,
   iconRender?: CustomRender<DropDownSelectProps<T>, DropDownSelectState, SpanProps>,
   inputRender?: CustomRender<DropDownSelectProps<T>, DropDownSelectState, React.InputHTMLAttributes<HTMLInputElement>>,

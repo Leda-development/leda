@@ -150,7 +150,7 @@ export const createKeyDownHandler = (
   props: MultiSelectProps, extraData: KeyDownData,
 ): React.KeyboardEventHandler<HTMLInputElement> => (ev) => {
   const {
-    data, textField, filterRule,
+    data, textField, filterRule, compareObjectsBy,
   } = props;
 
   const {
@@ -165,6 +165,7 @@ export const createKeyDownHandler = (
     textField,
     filterRule,
     value,
+    compareObjectsBy,
   }) || [];
 
   const highlightedItem = (filteredData as (string | number | SomeObject)[]).find((item) => item === highlightedSuggestion);

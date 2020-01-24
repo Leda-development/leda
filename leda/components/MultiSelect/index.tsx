@@ -26,10 +26,12 @@ import { filterData, getValue } from './helpers';
 export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React.Ref<MultiSelectRefCurrent>): React.ReactElement => {
   const {
     className,
+    compareObjectsBy,
     data,
     defaultValue,
     filterRule,
     form,
+    groupBy,
     hasClearButton,
     inputRender,
     invalidMessage,
@@ -161,10 +163,11 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
   );
 
   const filteredData = filterData({
+    compareObjectsBy,
     data,
+    filterRule,
     filterValue,
     textField,
-    filterRule,
     value,
   });
 
@@ -219,23 +222,24 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
             }
             : undefined}
         />
-        {!isMaxItemsSelected && (
-          <SuggestionList
-            data={filteredData}
-            highlightedSuggestion={highlightedSuggestion}
-            isLoading={isLoading}
-            isOpen={isNil(isOpen) ? isFocused : isOpen}
-            onClick={handleSelect}
-            itemRender={itemRender}
-            listRender={listRender}
-            noSuggestionsRender={noSuggestionsRender}
-            shouldAllowEmpty={false}
-            textField={textField}
-            theme={theme}
-            value={value}
-          />
-        )}
       </Div>
+      {!isMaxItemsSelected && (
+        <SuggestionList
+          data={filteredData}
+          groupBy={groupBy}
+          highlightedSuggestion={highlightedSuggestion}
+          isLoading={isLoading}
+          isOpen={isNil(isOpen) ? isFocused : isOpen}
+          onClick={handleSelect}
+          itemRender={itemRender}
+          listRender={listRender}
+          noSuggestionsRender={noSuggestionsRender}
+          shouldAllowEmpty={false}
+          textField={textField}
+          theme={theme}
+          value={value}
+        />
+      )}
       {!isFocused && !isDisabled && <InvalidMessage />}
     </Wrapper>
   );

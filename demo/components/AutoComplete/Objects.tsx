@@ -67,12 +67,9 @@ export const Objects = (componentProps: any) => {
           { city: 'Ottawa' },
           { city: 'Moscow' },
         ]}
-        value={value}
-        filterRule="startsWith"
         textField="city"
-        onChange={ev => {
-          return setValue(ev.component.value);
-        }}
+        value={value}
+        onChange={(ev) => setValue(ev.component.value)}
         placeholder="Type your city..."
         hasClearButton
         isRequired

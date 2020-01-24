@@ -8,7 +8,10 @@ export interface DropDownProps extends React.HTMLAttributes<HTMLElement> {
   wrapperRender?: (props: RenderEvent<DropDownProps>) => React.ReactNode,
   /** Тема компонента */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.dropDown],
+  /** Реф */
   ref?: React.Ref<DropDownRefCurrent>,
+  /** Принудительное открытие списка */
+  isOpen?: boolean,
   /** Классы переданные через _ */
   [x: string]: unknown,
 }

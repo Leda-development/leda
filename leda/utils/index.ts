@@ -41,3 +41,5 @@ export { toStringOrEmpty } from './toStringOrEmpty';
 export { escapeRegexp } from './filterStrHelpers';
 
 export { useAdaptivePosition } from './useAdaptivePosition';
+
+export { useInterval } from './useInterval';

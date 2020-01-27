@@ -1,4 +1,6 @@
-/* eslint-disable no-alert,no-console */
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
+
 import * as React from 'react';
 import * as L from '../../../leda';
 
@@ -9,9 +11,12 @@ export const AutoComplete = (): React.ReactElement => {
   const [stringValue3, setStringValue3] = React.useState<string | null>(null);
   const [stringValue5, setStringValue5] = React.useState<string | null>(null);
   const [objectValue6, setObjectValue6] = React.useState<string | null>(null);
-  const itemRender1 = ({ Element, elementProps, componentProps }) => {
-    const { item, textField } = componentProps;
-
+  const itemRender1 = ({
+    Element, elementProps, componentProps,
+  }: any) => {
+    const {
+      item, textField,
+    } = componentProps;
     return (
       <Element
         {...elementProps}
@@ -21,16 +26,17 @@ export const AutoComplete = (): React.ReactElement => {
         {item[textField]} (region: {item.region})
       </Element>
     );
-  }
+  };
   const [isOpen, setIsOpen] = React.useState<boolean | undefined>(undefined);
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const [isDisabled, setIsDisabled] = React.useState<boolean>(false);
-  const noSuggestionsRenderNull = () => null
+  const noSuggestionsRenderNull = () => null;
   const noSuggestionsRenderVal = () => <L.Div _txtCenter _inner _nodata>набери что-то, что я знаю</L.Div>;
-  const testFunction = (ev) => { console.log(ev) }
+  const testFunction = (event: {}) => {
+    console.log(event);
+  };
+
   return (
     <>
-      <L.Div _demoStory _flexRow>     
+      <L.Div _demoStory _flexRow>
         <L.AutoComplete
           data={[
             'London',
@@ -44,12 +50,12 @@ export const AutoComplete = (): React.ReactElement => {
             'Ottawa',
             'Moscow',
           ]}
-          name = 'AutoComplete2'
-          onChange={ev => setStringValue2(ev.component.value)}
-          filterRule={'startsWith'}
+          name="AutoComplete2"
+          onChange={(event) => setStringValue2(event.component.value)}
+          filterRule="startsWith"
           hasClearButton
           minSearchLength={0}
-          onBlur={ev => setStringValue2(ev.component.value)}
+          onBlur={(event) => setStringValue2(event.component.value)}
           placeholder="Type your city..."
           _width30
         />
@@ -59,11 +65,11 @@ export const AutoComplete = (): React.ReactElement => {
             'Islamabad',
             'Berlin',
           ]}
-          name = 'AutoComplete3'
-          onChange={ev => setStringValue3(ev.component.value)}
-          filterRule={'smart'}
+          name="AutoComplete3"
+          onChange={(event) => setStringValue3(event.component.value)}
+          filterRule="smart"
           minSearchLength={3}
-          onBlur={(ev) => testFunction(ev) }
+          onBlur={(event) => testFunction(event)}
           shouldCorrectValue
           value={stringValue3}
           _width30
@@ -80,9 +86,12 @@ export const AutoComplete = (): React.ReactElement => {
             { name: 'Tokyo', region: 'Asia' },
             { name: 'Delhi', region: 'Asia' },
           ]}
-          name = 'AutoComplete4'
-          onChange={(ev) => { setObjectValue4(ev.component.value); testFunction(ev)} }
-          filterRule={'includes'}
+          name="AutoComplete4"
+          onChange={(event) => {
+            setObjectValue4(event.component.value);
+            testFunction(event);
+          }}
+          filterRule="includes"
           isOpen={isOpen}
           noSuggestionsRender={noSuggestionsRenderVal}
           onBlur={() => console.log('OnBlur+')}
@@ -93,7 +102,7 @@ export const AutoComplete = (): React.ReactElement => {
           value={objectValue4}
           _width30
         />
-      </L.Div>  
+      </L.Div>
       <br />
       <br />
       <br />
@@ -102,7 +111,7 @@ export const AutoComplete = (): React.ReactElement => {
       <br />
       <br />
       <br />
-      <L.Div _demoStory _flexRow>  
+      <L.Div _demoStory _flexRow>
         <L.AutoComplete
           data={[
             'London',
@@ -116,18 +125,18 @@ export const AutoComplete = (): React.ReactElement => {
             'Ottawa',
             'Moscow',
           ]}
-          name = 'AutoComplete5'
-          onChange={ev => setStringValue5(ev.component.value)}
+          name="AutoComplete5"
+          onChange={(event) => setStringValue5(event.component.value)}
           isDisabled
-          
-          filterRule={'startsWith'}
+
+          filterRule="startsWith"
           hasClearButton
           isOpen={isOpen}
           itemRender={({ Element, elementProps, componentProps }) => <Element {...elementProps} _txtSuccess>{componentProps.item}</Element>}
           noSuggestionsRender={noSuggestionsRenderVal}
           minSearchLength={3}
-          onBlur={ev => setStringValue5(ev.component.value)}
-          onFocus={()=> console.log('OnFocus+')}        
+          onBlur={(event) => setStringValue5(event.component.value)}
+          onFocus={() => console.log('OnFocus+')}
           placeholder="Type your city..."
           _width30
         />
@@ -142,20 +151,20 @@ export const AutoComplete = (): React.ReactElement => {
             { name: 'Tokyo', region: 'Asia' },
             { name: 'Delhi', region: 'Asia' },
           ]}
-          name = 'AutoComplete6'
-          onChange={ev => setObjectValue6(ev.component.value)}
+          name="AutoComplete6"
+          onChange={(event) => setObjectValue6(event.component.value)}
           isLoading
-          filterRule={'includes'}
+          filterRule="includes"
           hasClearButton
           isOpen={isOpen}
           itemRender={({ Element, elementProps, componentProps }) => <Element {...elementProps} _txtSuccess>{componentProps.item}</Element>}
-          
+
           onBlur={() => console.log('OnBlur+')}
-          onFocus={()=> console.log('OnFocus+')}
+          onFocus={() => console.log('OnFocus+')}
           shouldCorrectValue
           placeholder="Type your city..."
           textField="name"
-          
+
           value={objectValue6}
           _width30
         />
@@ -164,13 +173,13 @@ export const AutoComplete = (): React.ReactElement => {
             { name: 'Tokyo', region: 'Asia' },
             { name: 'Delhi', region: 'Asia' },
           ]}
-          name='AutoComplete1' 
-          onChange={ev => setObjectValue1(ev.component.value)}
+          name="AutoComplete1"
+          onChange={(event) => setObjectValue1(event.component.value)}
           hasClearButton
           isOpen
           noSuggestionsRender={noSuggestionsRenderNull}
           minSearchLength={0}
-          onFocus={(ev) => testFunction(ev) }
+          onFocus={(event) => testFunction(event)}
           shouldCorrectValue
           textField="name"
           value={objectValue1}

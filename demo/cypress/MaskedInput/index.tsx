@@ -25,14 +25,14 @@ export const MaskedInput = (): React.ReactElement => {
         mask="###-###-### ##"
         placeholder="___-___-___ __"
         value={cardValue}
-        onChange={ev => setCardValue(ev.target.value)}
+        onChange={(event) => setCardValue(event.component.value)}
       />
       <L.Span>Номер телефона (контролируемый)</L.Span>
       <L.MaskedInput
         mask="+7 (###)-###-##-##"
         placeholder="+7 (___)-___-__-__"
         value={phoneValue}
-        onChange={ev => setPhoneValue(ev.target.value)}
+        onChange={(event) => setPhoneValue(event.component.value)}
       />
       <L.Span>Номер машины (не контролируемый)</L.Span>
       <L.MaskedInput
@@ -51,7 +51,7 @@ export const MaskedInput = (): React.ReactElement => {
       {' '}
       <L.Button onClick={() => setPhoneValue('9818862798')}>Set Value</L.Button>
       {' '}
-      <L.Switcher value={isDisabled} onChange={ev => setIsDisabled(ev.target.value)}>
+      <L.Switcher value={isDisabled} onChange={(event) => setIsDisabled(event.component.value)}>
         Toggle isDisabled
       </L.Switcher>
     </L.Div>

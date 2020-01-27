@@ -5,15 +5,16 @@ import * as L from '../../../leda';
 
 export const CheckBox = (): React.ReactElement => {
   const [value, setValue] = React.useState(true);
-  const handleChange = (value) => {
-    setValue(value);
+  const handleChange = (event: L.CheckBoxTypes.ChangeEvent) => {
+    setValue(event.component.value);
   };
 
   return (
     <L.Div _demoStory>
       <L.CheckBox
         onChange={() => alert('Alert!')}
-        name="checkBoxMain">
+        name="checkBoxMain"
+      >
         Main
       </L.CheckBox>
       <br />
@@ -26,7 +27,8 @@ export const CheckBox = (): React.ReactElement => {
       <L.CheckBox
         isDisabled
         name="checkBoxDisabled"
-        onChange={() => alert('Alert!')}>
+        onChange={() => alert('Alert!')}
+      >
         isDisabled
       </L.CheckBox>
       <br />
@@ -34,10 +36,11 @@ export const CheckBox = (): React.ReactElement => {
       <L.CheckBox
         name="checkBoxSemi"
         value={value}
-        onChange={event => handleChange(event.component.value)}
-        _semi={true}>
+        onChange={handleChange}
+        _semi
+      >
         isSemi
       </L.CheckBox>
     </L.Div>
-  )
+  );
 };

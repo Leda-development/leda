@@ -3,7 +3,7 @@ import * as React from 'react';
 import * as L from '../../../leda';
 
 export const ButtonGroup = (): React.ReactElement => {
-  const [value, setValue] = React.useState<string>('one');
+  const [value, setValue] = React.useState<string | undefined>('one');
   const [isDisabled, setIsDisabled] = React.useState<boolean>(false);
 
   return (
@@ -38,11 +38,11 @@ export const ButtonGroup = (): React.ReactElement => {
       <L.ButtonGroup
         data={['one', 'two', 'three']}
         value={value}
-        onChange={ev => setValue(ev.component.value)}
+        onChange={(event) => setValue(event.component.value)}
       />
       <br />
       <br />
-      <L.Switcher value={isDisabled} onChange={ev => setIsDisabled(ev.component.value)}>isDisabled</L.Switcher>
+      <L.Switcher value={isDisabled} onChange={(event) => setIsDisabled(event.component.value)}>isDisabled</L.Switcher>
     </L.Div>
   );
 };

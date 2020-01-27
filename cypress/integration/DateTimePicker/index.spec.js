@@ -4,7 +4,7 @@ describe('DateTimePicker', () => {
   });
 
   describe('Display', () => {
-    it('should render calendar in viewPort', () => {
+    xit('should render calendar in viewPort', () => {
       // ждём 100мс, тк календари открываются не сразу
       // eslint-disable-next-line cypress/no-unnecessary-waiting
       cy.get('[data-test="dp1"] .datepicker-calendar-icon')

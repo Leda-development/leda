@@ -1,5 +1,6 @@
 export { AutoComplete } from './AutoComplete';
 export { Button } from './Button';
+export { CheckBox } from './CheckBox';
 export { ButtonGroup } from './ButtonGroup';
 export { DateTimePicker } from './DateTimePicker';
 export { Input } from './Input';

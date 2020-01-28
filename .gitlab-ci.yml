@@ -48,13 +48,10 @@ tsc:
 
 cypress:
   stage: cypress
-  script:
-    - npm install --no-audit
-    - npm run cypress-ci
+  script: npm run cypress-ci
   tags:
     - cypress
   variables:
-    CYPRESS_CACHE_FOLDER: "/cache/cypress"
     GIT_CLEAN_FLAGS: -fx -e node_modules/
   except:
     - tags

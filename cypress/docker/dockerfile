@@ -1,9 +1,10 @@
-FROM cypress/base 
-WORKDIR /builds/frontend/Leda/
+FROM cypress/base
+WORKDIR /builds/frontend/leda-npm
+ENV CYPRESS_CACHE_FOLDER /cache/cypress
 
-COPY package*.json ./
+COPY package-lock.json .
+COPY package.json .
+
 RUN npm install
 
-ENV CYPRESS_CACHE_FOLDER /builds/frontend/Leda/cache/Cypress/
-RUN npm install --save-dev cypress
-RUN $(npm bin)/cypress verify
+RUN npx cypress verify

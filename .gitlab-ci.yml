@@ -1,4 +1,4 @@
-image: nexus.esphere.local:5000/cypress:leda
+image: nexus.esphere.local:5000/ledacy:275
 
 stages:
   - prepare
@@ -6,11 +6,9 @@ stages:
   - cypress
 
 cache:
-  untracked: true
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - node_modules/
-    - public/
 
 install:
   stage: prepare
@@ -20,7 +18,6 @@ install:
   except:
     - tags
     - triggers
-
 
 lint:
   stage: check
@@ -52,16 +49,13 @@ tsc:
 cypress:
   stage: cypress
   script:
-    - npm install
+    - npm install --no-audit
     - npm run cypress-ci
   tags:
     - cypress
   variables:
-    CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
-  cache:
-    key: cypress
-    paths:
-      - cache/Cypress/
+    CYPRESS_CACHE_FOLDER: "/cache/cypress"
+    GIT_CLEAN_FLAGS: -fx -e node_modules/
   except:
     - tags
     - triggers

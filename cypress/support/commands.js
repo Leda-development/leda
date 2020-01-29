@@ -1,4 +1,6 @@
-/* eslint-disable jest/no-standalone-expect,jest/valid-expect */
+/* eslint-disable jest/no-standalone-expect */
+/* eslint-disable jest/valid-expect */
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -24,6 +26,7 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
 Cypress.Commands.add('focusMasked', { prevSubject: 'element' }, (subject) => cy
   .wrap(subject)
   .focus()
@@ -33,26 +36,20 @@ Cypress.Commands.add('focusMasked', { prevSubject: 'element' }, (subject) => cy
 
 Cypress.Commands.add('name', (searchName) => cy.get(`[name="${searchName}"]`));
 
-Cypress.Commands.add('isNotInViewport', { prevSubject: 'element' }, element => {
-  cy.get(element).then(it => {
-    const bottom = Cypress.$(cy.state('window')).height()
-    const rect = it[0].getBoundingClientRect()
+Cypress.Commands.add('isNotInViewport', { prevSubject: 'element' }, (element) => {
+  cy.get(element).should((it) => {
+    const bottom = Cypress.$(cy.state('window')).height();
+    const rect = it[0].getBoundingClientRect();
+    expect(rect.top).to.be.greaterThan(bottom);
+    expect(rect.bottom).to.be.greaterThan(bottom);
+  });
+});
 
-    expect(rect.top).to.be.greaterThan(bottom)
-    expect(rect.bottom).to.be.greaterThan(bottom)
-    expect(rect.top).to.be.greaterThan(bottom)
-    expect(rect.bottom).to.be.greaterThan(bottom)
-  })
-})
-
-Cypress.Commands.add('isInViewport', { prevSubject: 'element' }, element => {
-  cy.get(element).then(it => {
-    const bottom = Cypress.$(cy.state('window')).height()
-    const rect = it[0].getBoundingClientRect()
-
-    expect(rect.top).not.to.be.greaterThan(bottom)
-    expect(rect.bottom).not.to.be.greaterThan(bottom)
-    expect(rect.top).not.to.be.greaterThan(bottom)
-    expect(rect.bottom).not.to.be.greaterThan(bottom)
-  })
-})
+Cypress.Commands.add('isInViewport', { prevSubject: 'element' }, (element) => {
+  cy.get(element).should((it) => {
+    const bottom = Cypress.$(cy.state('window')).height();
+    const rect = it[0].getBoundingClientRect();
+    expect(rect.top).not.to.be.greaterThan(bottom);
+    expect(rect.bottom).not.to.be.greaterThan(bottom);
+  });
+});

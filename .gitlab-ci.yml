@@ -1,10 +1,3 @@
-default:
-  cache: &cache
-    key: ${CI_COMMIT_REF_SLUG}
-    paths:
-      - node_modules/
-    policy: pull
-
 stages:
   - prepare
   - check
@@ -16,6 +9,11 @@ stages:
     - triggers
   tags:
     - NONPROD
+  cache: &cache
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
+    policy: pull
 
 install:
   stage: prepare
@@ -43,10 +41,15 @@ tsc:
 cypress:
   image: nexus.esphere.local:5000/ledacy:275
   stage: cypress
-  script: npm run cypress-ci
+  script:
+    - npm install
+    - npm run cypress-ci
   <<: *common
   tags:
     - cypress
+  cache:
+    <<: *cache
+    policy: pull-push
   variables:
     GIT_CLEAN_FLAGS: -fx -e node_modules/
   artifacts:

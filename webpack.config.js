@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 
@@ -8,12 +7,19 @@ module.exports = {
   entry: {
     main: './demo/index.tsx',
   },
-  resolve: {
-    extensions: ['.js', '.ts', '.tsx', '.jsx'],
-  },
   output: {
+    path: path.resolve('dist', 'demo'),
     filename: '[name].js',
-    path: path.resolve('./dist/demo'),
+    publicPath: '/',
+  },
+  resolve: {
+    extensions: [
+      '.js', '.jsx',
+      '.ts', '.tsx',
+    ],
+    modules: [
+      path.resolve('node_modules'),
+    ],
   },
   module: {
     rules: [
@@ -31,14 +37,15 @@ module.exports = {
     ],
   },
   devServer: {
+    historyApiFallback: true,
+    host: '0.0.0.0',
+    port: process.env.PORT || 9000,
     contentBase: [
-      path.join(__dirname, 'public'),
+      path.resolve('public'),
     ],
-    port: 9000,
     compress: true,
     open: false,
     overlay: true,
-    historyApiFallback: true,
     watchContentBase: true,
     watchOptions: {
       aggregateTimeout: 300,

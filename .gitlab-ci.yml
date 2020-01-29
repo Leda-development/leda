@@ -1,64 +1,57 @@
-image: nexus.esphere.local:5000/ledacy:275
+default:
+  cache: &cache
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
+    policy: pull
 
 stages:
   - prepare
   - check
   - cypress
 
-cache:
-  key: ${CI_COMMIT_REF_SLUG}
-  paths:
-    - node_modules/
+.: &common
+  except:
+    - tags
+    - triggers
+  tags:
+    - NONPROD
 
 install:
   stage: prepare
-  tags:
-    - NONPROD
   script: npm install
-  except:
-    - tags
-    - triggers
+  <<: *common
+  cache:
+    <<: *cache
+    policy: pull-push
 
 lint:
   stage: check
-  tags:
-    - NONPROD
   script: npm run lint
-  except:
-    - tags
-    - triggers
+  <<: *common
 
 test:
   stage: check
-  tags:
-    - NONPROD
   script: npm run test
-  except:
-    - tags
-    - triggers
+  <<: *common
 
 tsc:
   stage: check
-  tags:
-    - NONPROD
   script: npm run tsc
-  except:
-    - tags
-    - triggers
+  <<: *common
 
 cypress:
+  image: nexus.esphere.local:5000/ledacy:275
   stage: cypress
   script: npm run cypress-ci
+  <<: *common
   tags:
     - cypress
   variables:
     GIT_CLEAN_FLAGS: -fx -e node_modules/
-  except:
-    - tags
-    - triggers
   artifacts:
     expire_in: 1 week
     when: on_failure
     paths:
-      - cypress/screenshots
-      - cypress/videos
+      - cypress/screenshots/
+      - cypress/videos/

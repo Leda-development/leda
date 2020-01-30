@@ -22,19 +22,19 @@
 .justify-content-between {
   justify-content: space-between;
 }
-  
+
 .justify-content-around {
   justify-content: space-around;
 }
-  
+
 .justify-content-center {
   justify-content: center;
 }
-  
+
 .justify-content-left {
   justify-content: left;
 }
-  
+
 .justify-content-right {
   justify-content: right;
 }
@@ -94,5 +94,8 @@
   }
   .min-width-#{$i*5} {
     min-width: $i*5%;
+  }
+  .width-#{$i*5} {
+    width: $i*5%;
   }
 }

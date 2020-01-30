@@ -57,7 +57,7 @@ export const SingleFileView = (props: SingleFileViewProps): React.ReactElement |
         <Button className={theme.retryButton} onClick={handleRetry}>
           <Span className={theme.retryIcon} />
           {' '}
-          Перезалить
+          Заменить файл
         </Button>
       </Div>
     );
@@ -75,7 +75,7 @@ export const SingleFileView = (props: SingleFileViewProps): React.ReactElement |
         <Button className={theme.retryButton} onClick={handleRetry}>
           <Span className={theme.retryIcon} />
           {' '}
-          Перезалить
+          Заменить файл
         </Button>
       </Div>
     );

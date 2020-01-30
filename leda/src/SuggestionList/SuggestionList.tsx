@@ -8,7 +8,7 @@ import { Li } from '../../components/Li';
 import { Ul } from '../../components/Ul';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { useAdaptivePosition, useElement, useTheme } from '../../utils';
-import { getText, scrollToSuggestion } from './helpers';
+import { getSuggestionItemProps, getText, scrollToSuggestion } from './helpers';
 import { SuggestionItem } from './SuggestionItem';
 import { SuggestionListProps, GroupedSomeObject, Value } from './types';
 import { NoSuggestions } from './NoSuggestions';
@@ -16,6 +16,7 @@ import { NoSuggestions } from './NoSuggestions';
 export const SuggestionList = (props: SuggestionListProps): React.ReactElement | null => {
   const {
     boundingContainerRef,
+    compareObjectsBy,
     data,
     groupBy,
     groupLabelRender,
@@ -91,6 +92,7 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
     scrollToSuggestion(containerRef, suggestionRef);
   }, [isOpen, value, selectedSuggestion, highlightedSuggestion]);
 
+  // group suggestion list items if required
   React.useEffect((): void => {
     // used to keep track of key and indexes in the result array
     const indexByKey = new Map();
@@ -134,7 +136,9 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
     );
   }
 
-  const suggestions: (Value | GroupedSomeObject)[] = !isNil(placeholder) && shouldAllowEmpty ? [placeholder, ...resultedData] : resultedData;
+  const suggestions: (Value | GroupedSomeObject)[] = !isNil(placeholder) && shouldAllowEmpty
+    ? [placeholder, ...resultedData]
+    : resultedData;
 
   return (
     <Div className={theme.container} onMouseDown={(ev) => ev.preventDefault()} ref={wrapperRef}>
@@ -153,26 +157,23 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
                 </GroupLabel>
 
                 {(suggestion as GroupedSomeObject).dataItems.map((dataItem: Value) => {
-                  const key = isObject(dataItem) ? JSON.stringify(dataItem) : dataItem as string;
-                  const itemText: string = getText(dataItem, textField);
-                  const isPlaceholder = itemText === placeholder;
-                  const isHighlightedSuggestionGroupItem: boolean = dataItem === highlightedSuggestion;
-                  const isSelectedSuggestionGroupItem: boolean = dataItem === selectedSuggestion;
-                  const isScrollTargetSuggestionGroupItem: boolean = highlightedSuggestion ? isHighlightedSuggestionGroupItem : isSelectedSuggestionGroupItem;
+                  const suggestionItemComputedProps = getSuggestionItemProps({
+                    compareObjectsBy,
+                    highlightedSuggestion,
+                    placeholder,
+                    selectedSuggestion,
+                    suggestion: dataItem,
+                    textField,
+                  });
+
                   return (
                     <SuggestionItem
-                      isHighlighted={isHighlightedSuggestionGroupItem}
-                      isPlaceholder={isPlaceholder}
-                      isScrollTarget={isScrollTargetSuggestionGroupItem}
-                      isSelected={isSelectedSuggestionGroupItem}
-                      item={dataItem === placeholder ? null : dataItem}
                       itemRender={itemRender}
-                      key={key}
                       onClick={onClick}
                       suggestionRef={suggestionRef}
-                      text={itemText}
                       textField={textField}
                       theme={theme}
+                      {...suggestionItemComputedProps}
                     />
                   );
                 })}
@@ -180,32 +181,23 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
             );
           }
 
-          const text = getText(suggestion, textField);
+          const suggestionItemComputedProps = getSuggestionItemProps({
+            compareObjectsBy,
+            highlightedSuggestion,
+            placeholder,
+            selectedSuggestion,
+            suggestion,
+            textField,
+          });
 
-          if (!text) return null;
-
-          const isPlaceholder = text === placeholder;
-          const isHighlighted = suggestion === highlightedSuggestion;
-          const isSelected = suggestion === selectedSuggestion;
-
-          // является ли текущий элемент целью scrollToSuggestion
-          const isScrollTarget = highlightedSuggestion ? isHighlighted : isSelected;
-
-          const key = isObject(suggestion) ? JSON.stringify(suggestion) : suggestion as string;
           return (
             <SuggestionItem
-              isHighlighted={isHighlighted}
-              isPlaceholder={isPlaceholder}
-              isScrollTarget={isScrollTarget}
-              isSelected={isSelected}
-              item={suggestion === placeholder ? null : suggestion}
               itemRender={itemRender}
-              key={key}
               onClick={onClick}
               suggestionRef={suggestionRef}
-              text={text}
               textField={textField}
               theme={theme}
+              {...suggestionItemComputedProps}
             />
           );
         })}

@@ -77,7 +77,7 @@ export type ChangeEvent<T = Value> = MouseSelectEvent<T> | EnterSelectEvent<T> |
 
 export interface MultiSelectProps<T extends MultiSelectValue | null | undefined = MultiSelectValue | null | undefined> extends ValidationProps {
   /** Сравнение объектов по произвольному полю, а не по ссылке */
-  compareObjectsBy?: ((val: Value) => any) | string,
+  compareObjectsBy?: ((suggestionListItems: SomeObject) => any) | string,
   /** Данные для отображения в списке.
    * Если передаётся массив обьектов, нужно указать textField - поле обьекта, которое содержит данные для вывода в списке
   */
@@ -191,12 +191,6 @@ export interface FilterDataParams {
   filterValue: string,
   textField?: string,
   value: MultiSelectValue,
-}
-
-export interface CompareItemsParams {
-  compareObjectsBy: MultiSelectProps['compareObjectsBy'],
-  currentItem: Value,
-  dataItem: Value,
 }
 
 export interface KeyDownData {

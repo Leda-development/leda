@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { isObject } from 'lodash';
 import { SomeObject } from '../../commonTypes';
+import { GetSuggestionItemProps, SuggestionItemComputedProps } from './types';
+import { checkIsTheSameObject } from '../../utils';
 
 export const getText = (suggestion?: string | number | SomeObject | null, textField?: string): string => {
   if (!suggestion) return '';
@@ -33,4 +35,44 @@ export const scrollToSuggestion = (
   })();
 
   if (offset) containerRef.current.scrollBy?.(0, offset);
+};
+
+export const getSuggestionItemProps = ({
+  compareObjectsBy,
+  suggestion,
+  textField,
+  placeholder,
+  highlightedSuggestion,
+  selectedSuggestion,
+}: GetSuggestionItemProps): SuggestionItemComputedProps => {
+  const text = getText(suggestion, textField);
+
+  const isPlaceholder = text === placeholder;
+  const isHighlighted = checkIsTheSameObject({
+    compareObjectsBy,
+    obj1: suggestion,
+    obj2: highlightedSuggestion,
+  });
+  const isSelected = checkIsTheSameObject({
+    compareObjectsBy,
+    obj1: suggestion,
+    obj2: selectedSuggestion,
+  });
+
+  // является ли текущий элемент целью scrollToSuggestion
+  const isScrollTarget = highlightedSuggestion ? isHighlighted : isSelected;
+
+  const key = isObject(suggestion) ? JSON.stringify(suggestion) : suggestion as string;
+
+  const item = suggestion === placeholder ? null : suggestion;
+
+  return {
+    text,
+    isHighlighted,
+    isPlaceholder,
+    isSelected,
+    isScrollTarget,
+    key,
+    item,
+  };
 };

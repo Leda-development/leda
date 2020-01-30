@@ -2098,11 +2098,21 @@ exports[`DropDownSelect SNAPSHOTS controllable mode should render value 1`] = `
               },
             ]
           }
-          highlightedSuggestion={null}
+          highlightedSuggestion={
+            Object {
+              "txt": "text1",
+              "val": 1,
+            }
+          }
           isLoading={false}
           isOpen={false}
           onClick={[Function]}
-          selectedSuggestion={null}
+          selectedSuggestion={
+            Object {
+              "txt": "text1",
+              "val": 1,
+            }
+          }
           shouldAllowEmpty={false}
           textField="txt"
           theme={
@@ -2261,11 +2271,21 @@ exports[`DropDownSelect SNAPSHOTS controllable mode should render value 2`] = `
               },
             ]
           }
-          highlightedSuggestion={null}
+          highlightedSuggestion={
+            Object {
+              "txt": "text2",
+              "val": 2,
+            }
+          }
           isLoading={false}
           isOpen={false}
           onClick={[Function]}
-          selectedSuggestion={null}
+          selectedSuggestion={
+            Object {
+              "txt": "text2",
+              "val": 2,
+            }
+          }
           shouldAllowEmpty={false}
           textField="txt"
           theme={
@@ -2424,11 +2444,21 @@ exports[`DropDownSelect SNAPSHOTS controllable mode should render value 3`] = `
               },
             ]
           }
-          highlightedSuggestion={null}
+          highlightedSuggestion={
+            Object {
+              "txt": "text3",
+              "val": 3,
+            }
+          }
           isLoading={false}
           isOpen={false}
           onClick={[Function]}
-          selectedSuggestion={null}
+          selectedSuggestion={
+            Object {
+              "txt": "text3",
+              "val": 3,
+            }
+          }
           shouldAllowEmpty={false}
           textField="txt"
           theme={

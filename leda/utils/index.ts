@@ -43,3 +43,5 @@ export { escapeRegexp } from './filterStrHelpers';
 export { useAdaptivePosition } from './useAdaptivePosition';
 
 export { useInterval } from './useInterval';
+
+export { checkIsTheSameObject } from './checkIsTheSameObject';

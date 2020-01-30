@@ -19,7 +19,7 @@ import {
   createResetHandler,
 } from './handlers';
 import { filterData, getComponentClassNames, getInputValue } from './helpers';
-import { useCustomElements, useSyncedHighlightedValue } from './hooks';
+import { useCorrectSuggestionsInControlledMode, useCustomElements, useSyncedHighlightedValue } from './hooks';
 import {
   DropDownSelectProps, DropDownSelectRefCurrent, DropDownSelectState, Value,
 } from './types';
@@ -29,47 +29,48 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
   const {
     boundingContainerRef,
     className,
+    compareObjectsBy,
     data,
     defaultValue = null,
     filterRule,
+    filterValue: filterValueProp,
     form,
     groupBy,
+    hasClearButton,
+    iconRender,
+    inputRender,
+    invalidMessage,
+    invalidMessageRender,
     isDisabled = false,
     isLoading = false,
     isOpen: isOpenProp,
     isRequired = false,
+    isValid: isValidProp,
     itemRender,
     listRender,
     name,
     noSuggestionsRender,
-    placeholder,
-    shouldAllowEmpty = false,
-    shouldFilterValues = false,
-    shouldValidateUnmounted,
-    invalidMessage,
-    inputRender,
-    invalidMessageRender,
-    onFocus,
-    isValid: isValidProp,
-    iconRender,
-    filterValue: filterValueProp,
     onBlur,
     onChange,
     onFilterChange,
-    validator,
+    onFocus,
+    placeholder,
+    requiredMessage,
+    shouldAllowEmpty = false,
+    shouldFilterValues = false,
+    shouldValidateUnmounted,
     textField,
     theme: themeProp,
-    hasClearButton,
-    requiredMessage,
-    wrapperRender,
+    validator,
     value: valueProp,
+    wrapperRender,
     ...restProps
   } = mergeClassNames<DropDownSelectProps>(props);
 
   const [state, setState] = React.useState<DropDownSelectState>({
     filterValue: null,
-    highlightedSuggestion: null,
-    selectedSuggestion: null,
+    highlightedSuggestion: defaultValue ?? null,
+    selectedSuggestion: defaultValue ?? null,
     isFocused: false,
     isOpen: false,
     value: defaultValue,
@@ -116,6 +117,8 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
     filterValue, shouldFilterValues, setState, data,
   });
 
+  useCorrectSuggestionsInControlledMode({ setState, valueProp });
+
   const {
     Wrapper,
     Input,
@@ -123,6 +126,10 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
   } = useCustomElements(props, state);
 
   const shouldRenderClearIcon = !isDisabled && hasClearButton && (value !== null || filterValue !== null);
+
+  const suggestionListData = shouldFilterValues
+    ? filterData(data, filterValue, textField, filterRule)
+    : data;
 
   return (
     <Wrapper
@@ -161,10 +168,10 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
       </Div>
       <SuggestionList
         boundingContainerRef={boundingContainerRef}
-        data={shouldFilterValues ? filterData(data, filterValue, textField, filterRule) : data}
+        compareObjectsBy={compareObjectsBy}
+        data={suggestionListData}
         groupBy={groupBy}
         highlightedSuggestion={highlightedSuggestion}
-        selectedSuggestion={selectedSuggestion}
         isLoading={isLoading}
         isOpen={isDisabled ? false : isOpen}
         itemRender={itemRender}
@@ -172,6 +179,7 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
         noSuggestionsRender={noSuggestionsRender}
         onClick={handleChange}
         placeholder={placeholder}
+        selectedSuggestion={selectedSuggestion}
         shouldAllowEmpty={shouldAllowEmpty}
         textField={textField}
         theme={theme}

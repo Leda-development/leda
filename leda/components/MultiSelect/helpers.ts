@@ -1,22 +1,9 @@
-import { isFunction, isObject, isString } from 'lodash';
 import { filterSuggestionByRule } from '../../utils';
 import { getText } from '../../src/SuggestionList/helpers';
 import {
-  CompareItemsParams, FilterDataParams, MultiSelectProps, Value,
+  FilterDataParams, MultiSelectProps, Value,
 } from './types';
-
-export const checkIsTheSameItem = ({
-  dataItem,
-  currentItem,
-  compareObjectsBy,
-}: CompareItemsParams): boolean => {
-  if (isObject(dataItem) && isObject(currentItem)) {
-    if (isString(compareObjectsBy)) return dataItem[compareObjectsBy] === currentItem[compareObjectsBy];
-    if (isFunction(compareObjectsBy)) return compareObjectsBy(dataItem) === compareObjectsBy(currentItem);
-  }
-
-  return dataItem === currentItem;
-};
+import { checkIsTheSameObject } from '../../utils';
 
 export const filterData = ({
   compareObjectsBy,
@@ -30,7 +17,7 @@ export const filterData = ({
 
   const filteredData = (data as Value[])
     // убираем все значения, которые уже выбраны
-    .filter((item) => !values.find((value) => checkIsTheSameItem({ dataItem: item, currentItem: value, compareObjectsBy })))
+    .filter((item) => !values.find((value) => checkIsTheSameObject({ obj1: item, obj2: value, compareObjectsBy })))
     // и фильтруем по filterValue
     .filter((item) => filterSuggestionByRule(getText(item, textField), filterValue || '', filterRule));
 

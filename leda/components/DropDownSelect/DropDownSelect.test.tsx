@@ -2,6 +2,7 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import { DropDownSelect } from './index';
 import { Div } from '../Div';
 
@@ -329,6 +330,113 @@ describe('DropDownSelect ATTRIBUTES', () => {
     });
 
     expect(wrapper).toMatchSnapshot();
+  });
+
+  describe('compareObjectsBy', () => {
+    it('should set defaultValue as selected', () => {
+      const data = [
+        { txt: 'one', val: 1 },
+        { txt: 'two', val: 2 },
+        { txt: 'three', val: 3 },
+        { txt: 'four', val: 4 },
+      ];
+
+      render(
+        <DropDownSelect
+          data={data}
+          isOpen
+          textField="txt"
+          defaultValue={{ txt: 'one', val: 1 }}
+          compareObjectsBy="val"
+        />,
+      );
+
+      expect(document.querySelector('.selected').textContent).toEqual(data[0].txt);
+    });
+
+    it('should not work if the string does not match data objects structure', () => {
+      const data = [
+        { txt: 'one', val: 1 },
+        { txt: 'two', val: 2 },
+        { txt: 'three', val: 3 },
+        { txt: 'four', val: 4 },
+      ];
+
+      render(
+        <DropDownSelect
+          data={data}
+          isOpen
+          textField="txt"
+          defaultValue={{ txt: 'one', val: 1 }}
+          compareObjectsBy="INVALID"
+        />,
+      );
+
+      expect(document.querySelectorAll('li.selected')).toHaveLength(0);
+    });
+
+    it('should use function as value', () => {
+      const data = [
+        { txt: 'one', val: 1 },
+        { txt: 'two', val: 2 },
+        { txt: 'three', val: 3 },
+        { txt: 'four', val: 4 },
+      ];
+
+      render(
+        <DropDownSelect
+          data={data}
+          isOpen
+          textField="txt"
+          defaultValue={{ txt: 'one', val: 1 }}
+          compareObjectsBy={(item) => item.val}
+        />,
+      );
+
+      expect(document.querySelector('li.selected').textContent).toEqual(data[0].txt);
+    });
+
+    it('should not work if function return value does not match data objects structure', () => {
+      const data = [
+        { txt: 'one', val: 1 },
+        { txt: 'two', val: 2 },
+        { txt: 'three', val: 3 },
+        { txt: 'four', val: 4 },
+      ];
+
+      render(
+        <DropDownSelect
+          data={data}
+          isOpen
+          textField="txt"
+          defaultValue={{ txt: 'one', val: 1 }}
+          compareObjectsBy={(item) => item.INVALID}
+        />,
+      );
+
+      expect(document.querySelectorAll('li.selected')).toHaveLength(0);
+    });
+
+    it('should set value as selected', () => {
+      const data = [
+        { txt: 'one', val: 1 },
+        { txt: 'two', val: 2 },
+        { txt: 'three', val: 3 },
+        { txt: 'four', val: 4 },
+      ];
+
+      render(
+        <DropDownSelect
+          data={data}
+          isOpen
+          textField="txt"
+          value={{ txt: 'one', val: 1 }}
+          compareObjectsBy={(item) => item.val}
+        />,
+      );
+
+      expect(document.querySelector('li.selected').textContent).toEqual(data[0].txt);
+    });
   });
 });
 

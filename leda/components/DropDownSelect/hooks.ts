@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { SetState } from '../../commonTypes';
 import { getText } from '../../src/SuggestionList/helpers';
-import { useElement } from '../../utils';
+import { mergeState, useElement } from '../../utils';
 import { Div } from '../Div';
 import { Span } from '../Span';
 import { filterData } from './helpers';
-import { CustomElements, DropDownSelectProps, DropDownSelectState } from './types';
+import {
+  CustomElements, DropDownSelectProps, DropDownSelectState, Value,
+} from './types';
 
 export const useSyncedHighlightedValue = ({
   filterValue,
@@ -61,4 +63,21 @@ export const useCustomElements = (props: DropDownSelectProps, state: DropDownSel
     Input,
     Icon,
   };
+};
+
+export const useCorrectSuggestionsInControlledMode = ({
+  setState,
+  valueProp,
+}: {
+  setState: SetState<DropDownSelectState>,
+  valueProp?: Value,
+}) => {
+  React.useEffect(() => {
+    if (valueProp !== undefined) {
+      setState(mergeState({
+        selectedSuggestion: valueProp,
+        highlightedSuggestion: valueProp,
+      }));
+    }
+  }, [valueProp]);
 };

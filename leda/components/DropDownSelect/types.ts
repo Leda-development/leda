@@ -58,6 +58,7 @@ export interface FocusEvent<T extends Value = Value> extends React.FocusEvent<HT
 
 export interface DropDownSelectProps<T extends Value = Value> extends ValidationProps {
   boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement }>,
+  compareObjectsBy?: T extends object ? ((suggestionListItem: T) => any) | string : never,
   data?: T[],
   defaultValue?: Value,
   filterRule?: FilterRules,
@@ -80,7 +81,7 @@ export interface DropDownSelectProps<T extends Value = Value> extends Validation
   ref?: React.Ref<DropDownSelectRefCurrent>,
   shouldAllowEmpty?: boolean,
   shouldFilterValues?: boolean,
-  textField?: string,
+  textField?: T extends object ? string : never,
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.dropDownSelect],
   value?: T,
   wrapperRender?: CustomRender<DropDownSelectProps<T>, DropDownSelectState, DivProps>,

@@ -11,7 +11,7 @@ import {
   Value,
 } from './types';
 import { CustomEventHandler, SetState, SomeObject } from '../../commonTypes';
-import { SuggestionTarget } from '../../src/SuggestionList/types';
+import { SuggestionTarget, GroupedSomeObject } from '../../src/SuggestionList/types';
 import { filterData } from './helpers';
 
 export const createFocusHandler = (
@@ -69,7 +69,7 @@ export const createSelectHandler = (
   props: MultiSelectProps, extraData: SelectData,
 ): CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget> => (ev) => {
   const {
-    onChange, name, value: valueProp, isDisabled, maxSelected,
+    onChange, name, value: valueProp, isDisabled, maxSelected, data,
   } = props;
 
   if (isDisabled) return;
@@ -79,16 +79,36 @@ export const createSelectHandler = (
   } = extraData;
 
   const shouldRemoveValue = (value as (string | number | SomeObject)[]).includes(ev.target.value);
+  const groupItems: SomeObject[] = (data as SomeObject[]).filter((item) => ((item as SomeObject)?.groupName && (item as SomeObject)?.groupName === (ev.target.value as GroupedSomeObject).key));
+  const shouldRemoveGroupValues = groupItems?.some((item) => (value as SomeObject[]).includes(item));
+  const shouldRemoveAllValues = data?.length === value.length;
 
   const newValue = (() => {
     if (shouldRemoveValue) {
       return (value as (string | number | SomeObject)[]).filter((item) => (item !== ev.target.value));
     }
 
+    if (shouldRemoveGroupValues) {
+      return (value as (string | number | SomeObject)[]).filter((item) => (!groupItems.includes(item)));
+    }
+
+    if (shouldRemoveAllValues) {
+      return [];
+    }
+
+    if ((ev.target.value as GroupedSomeObject)?.dataItems) {
+      (ev.target.value as GroupedSomeObject).isSelected = true;
+      return [...value, ...(ev.target.value as GroupedSomeObject).dataItems];
+    }
+
+    if (!data?.includes(ev.target.value)) {
+      return data;
+    }
+
     return [...value, ev.target.value];
   })() as (string[] | number[] | SomeObject[]);
 
-  if (!isNil(maxSelected) && newValue.length === maxSelected) {
+  if (!isNil(maxSelected) && newValue.length >= maxSelected) {
     setFilterValue('');
   }
 

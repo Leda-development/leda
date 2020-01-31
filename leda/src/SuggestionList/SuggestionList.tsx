@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { isObject } from 'lodash';
 import { LedaContext } from '../../components/LedaProvider';
 import { Loader } from '../../components/Loader';
 import { Div, DivRefCurrent } from '../../components/Div';
@@ -6,7 +7,7 @@ import { Li } from '../../components/Li';
 import { Ul } from '../../components/Ul';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { useAdaptivePosition, useElement, useTheme } from '../../utils';
-import { getSuggestionItemProps, scrollToSuggestion } from './helpers';
+import { getSuggestionItemProps, scrollToSuggestion, getText } from './helpers';
 import { SuggestionItem } from './SuggestionItem';
 import { SuggestionListProps, GroupedSomeObject, Value } from './types';
 import { NoSuggestions } from './NoSuggestions';
@@ -19,10 +20,12 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
     groupBy,
     groupLabelRender,
     groupWrapperRender,
+    hasCheckboxes,
     highlightedSuggestion,
     selectedSuggestion,
     isLoading,
     isOpen,
+    isSelectAllButton,
     itemRender,
     listRender,
     noSuggestionsRender,
@@ -91,27 +94,9 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
 
   // group suggestion list items if required
   React.useEffect((): void => {
-    // used to keep links
-    const dataItemsMap = new Map<string, Value[]>();
-    const newResultedData = data?.reduce<(Value | GroupedSomeObject)[]>((accumulator, dataValue) => {
-      const key = groupBy?.(dataValue);
-      if (key) {
-        const dataItems = dataItemsMap.get(key) || [];
-        if (dataItems.length) {
-          dataItems.push(dataValue);
-        } else {
-          dataItemsMap.set(key, dataItems);
-          accumulator.push({
-            key, dataItems,
-          });
-        }
-      } else {
-        accumulator.push(dataValue);
-      }
-      return accumulator;
-    }, []) ?? [];
+    // grouping data
 
-    setResultedData(newResultedData);
+    setResultedData(groupData(data, groupBy));
   }, [data, groupBy, value]);
 
   const renderSuggestion = React.useCallback((suggestionProp: Value | GroupedSomeObject) => {
@@ -166,20 +151,123 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
           containerRef.current = component && component.wrapper;
         }}
       >
-        {suggestions?.map((suggestion, index) => {
-          if ((suggestion as GroupedSomeObject)?.key) {
-            const groupedSomeObject = suggestion as GroupedSomeObject;
+        {isSelectAllButton && (() => {
+          const text = 'Выбрать все';
+          const suggestionsCount = suggestions.reduce((accumulator: number, suggestion) => ((suggestion as GroupedSomeObject)?.dataItems ? (accumulator + (suggestion as GroupedSomeObject)?.dataItems.length) : (accumulator + 1)), 0);
+          const isSemi = (value as Value[]).length > 0 && (value as Value[]).every((elem) => data.includes(elem));
+          const isSelectAllChoosed = (value as Value[]).length === suggestionsCount;
+          return (
+            <SuggestionItem
+              hasCheckboxes={hasCheckboxes}
+              isChoosed={isSemi}
+              isSemi={!isSelectAllChoosed && isSemi}
+              isPlaceholder={false}
+              isScrollTarget={false}
+              item={text === placeholder ? null : text}
+              itemRender={itemRender}
+              key={text}
+              onClick={onClick}
+              suggestionRef={suggestionRef}
+              text={text}
+              textField={textField}
+              theme={theme}
+            />
+          );
+        })()}
+
+        {suggestions?.map((suggestion: GroupedSomeObject | Value) => {
+          if ((suggestion as GroupedSomeObject).key) {
+            const groupLabelKey = isObject(suggestion) ? JSON.stringify(suggestion) : suggestion as string;
+            const groupLabelItemText: string = getText(suggestion.key, textField);
+            const isGroupLabelPlaceholder = groupLabelItemText === placeholder;
+            const isHighlightedSuggestionGroupLabel: boolean = suggestion === highlightedSuggestion;
+            const isSelectedSuggestionGroupLabel: boolean = suggestion === selectedSuggestion;
+            const isGroupChoosed = (suggestion as GroupedSomeObject).dataItems.every((elem) => (value as Value[]).includes(elem));
+            const isSemi: boolean = (suggestion as GroupedSomeObject).dataItems.some((elem) => (value as Value[]).includes(elem));
+            const isScrollTargetSuggestionGroupLabel: boolean = highlightedSuggestion ? isHighlightedSuggestionGroupLabel : isSelectedSuggestionGroupLabel;
             return (
               <GroupWrapper className={theme.group} key={index}>
                 <GroupLabel className={theme.groupLabel}>
-                  {groupedSomeObject.key}
+                  <SuggestionItem
+                    hasCheckboxes={hasCheckboxes}
+                    isChoosed={isSemi}
+                    isHighlighted={isHighlightedSuggestionGroupLabel}
+                    isPlaceholder={isGroupLabelPlaceholder}
+                    isScrollTarget={isScrollTargetSuggestionGroupLabel}
+                    isSelected={isSelectedSuggestionGroupLabel}
+                    isSemi={!isGroupChoosed && isSemi}
+                    item={suggestion === placeholder ? null : suggestion}
+                    itemRender={itemRender}
+                    key={groupLabelKey}
+                    onClick={onClick}
+                    suggestionRef={suggestionRef}
+                    text={groupLabelItemText}
+                    textField={textField}
+                    theme={theme}
+                  />
                 </GroupLabel>
-                {groupedSomeObject.dataItems.map(renderSuggestion)}
+
+                {(suggestion as GroupedSomeObject).dataItems.map((dataItem: Value) => {
+                  const key = isObject(dataItem) ? JSON.stringify(dataItem) : dataItem as string;
+                  const itemText: string = getText(dataItem, textField);
+                  const isPlaceholder = itemText === placeholder;
+                  const isHighlightedSuggestionGroupItem: boolean = dataItem === highlightedSuggestion;
+                  const isSelectedSuggestionGroupItem: boolean = dataItem === selectedSuggestion;
+                  const isChoosed: boolean = (value as Value[]).includes(dataItem);
+                  const isScrollTargetSuggestionGroupItem: boolean = highlightedSuggestion ? isHighlightedSuggestionGroupItem : isSelectedSuggestionGroupItem;
+                  return (
+                    <SuggestionItem
+                      hasCheckboxes={hasCheckboxes}
+                      isChoosed={isChoosed}
+                      isHighlighted={isHighlightedSuggestionGroupItem}
+                      isPlaceholder={isPlaceholder}
+                      isScrollTarget={isScrollTargetSuggestionGroupItem}
+                      isSelected={isSelectedSuggestionGroupItem}
+                      item={dataItem === placeholder ? null : dataItem}
+                      itemRender={itemRender}
+                      key={key}
+                      onClick={onClick}
+                      suggestionRef={suggestionRef}
+                      text={itemText}
+                      textField={textField}
+                      theme={theme}
+                    />
+                  );
+                })}
               </GroupWrapper>
             );
           }
 
-          return renderSuggestion(suggestion);
+          const text = getText(suggestion, textField);
+
+          if (!text) return null;
+
+          const isPlaceholder = text === placeholder;
+          const isHighlighted = suggestion === highlightedSuggestion;
+          const isSelected = suggestion === selectedSuggestion;
+
+          // является ли текущий элемент целью scrollToSuggestion
+          const isScrollTarget = highlightedSuggestion ? isHighlighted : isSelected;
+          const isItemChoosed: boolean = (value as Value[]).includes(suggestion);
+          const key = isObject(suggestion) ? JSON.stringify(suggestion) : suggestion as string;
+          return (
+            <SuggestionItem
+              hasCheckboxes={hasCheckboxes}
+              isChoosed={isItemChoosed}
+              isHighlighted={isHighlighted}
+              isPlaceholder={isPlaceholder}
+              isScrollTarget={isScrollTarget}
+              isSelected={isSelected}
+              item={suggestion === placeholder ? null : suggestion}
+              itemRender={itemRender}
+              key={key}
+              onClick={onClick}
+              suggestionRef={suggestionRef}
+              text={text}
+              textField={textField}
+              theme={theme}
+            />
+          );
         })}
       </List>
     </Div>

@@ -36,14 +36,17 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     inputRender,
     invalidMessage,
     invalidMessageRender,
+    hasCheckboxes,
     isDisabled,
     isLoading,
     isOpen,
     isRequired,
+    isSelectAllButton,
     isValid: isValidProp,
     itemRender,
     listRender,
     maxSelected,
+    maxVisibleTags,
     name,
     noSuggestionsRender,
     onBlur,
@@ -52,7 +55,9 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     placeholder,
     requiredMessage,
     shouldValidateUnmounted,
+    shouldOpenAfterHasMaxSelected,
     tagRender,
+    tagsContainerRender,
     textField,
     theme: themeProp,
     validator,
@@ -162,7 +167,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     state,
   );
 
-  const filteredData = filterData({
+  const filteredData = hasCheckboxes ? data : filterData({
     compareObjectsBy,
     data,
     filterRule,
@@ -171,7 +176,15 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     value,
   });
 
-  const isMaxItemsSelected = !isNil(maxSelected) && value.length === maxSelected;
+  const TagsContainerCustomization = useElement(
+    'TagsContainer',
+    TagsContainer,
+    tagsContainerRender || multiSelectRenders.tagsContainerRender,
+    props,
+    state,
+  );
+
+  const isMaxItemsSelected = !isNil(maxSelected) && value.length >= maxSelected;
 
   return (
     <Wrapper
@@ -185,7 +198,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
         className={inputWrapperClassNames}
         onMouseDown={handleMouseDown}
       >
-        <TagsContainer
+        <TagsContainerCustomization
           value={value}
           theme={theme}
           onTagClick={handleSelect}
@@ -195,7 +208,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
           hasClearButton={hasClearButton}
         >
           <TagItem />
-        </TagsContainer>
+        </TagsContainerCustomization>
         <Input
           {...restProps}
           className={theme.input}
@@ -223,14 +236,16 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
             : undefined}
         />
       </Div>
-      {!isMaxItemsSelected && (
+      {(!isMaxItemsSelected || shouldOpenAfterHasMaxSelected) && (
         <SuggestionList
           compareObjectsBy={compareObjectsBy}
           data={filteredData}
           groupBy={groupBy}
+          hasCheckboxes={hasCheckboxes}
           highlightedSuggestion={highlightedSuggestion}
           isLoading={isLoading}
           isOpen={isNil(isOpen) ? isFocused : isOpen}
+          isSelectAllButton={isSelectAllButton}
           onClick={handleSelect}
           itemRender={itemRender}
           listRender={listRender}

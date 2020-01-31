@@ -17,7 +17,7 @@ export const TagsContainer = (props: TagsContainerProps): React.ReactElement | n
       className={theme.tagsContainer}
       onMouseDown={onMouseDown}
     >
-      {(value as (string | number | SomeObject)[]).map((item, index) => React.cloneElement(children, {
+      {typeof value === 'string' ? value : (value as (string | number | SomeObject)[]).map((item, index) => React.cloneElement(children, {
         key: index.toString(),
         onIconClick: (ev: React.MouseEvent<HTMLElement>) => onTagClick({
           ...ev,

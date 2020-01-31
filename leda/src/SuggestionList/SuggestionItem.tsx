@@ -5,14 +5,18 @@ import { COMPONENTS_NAMESPACES } from '../../constants';
 import { getClassNames, useElement } from '../../utils';
 import { createClickHandler } from './handlers';
 import { SuggestionItemProps } from './types';
+import { CheckBox } from '../../components/CheckBox';
 
 export const SuggestionItem = (props: SuggestionItemProps): React.ReactElement => {
   const {
+    hasCheckboxes,
     itemRender,
+    isChoosed,
     isScrollTarget,
     isPlaceholder,
     isHighlighted,
     isSelected,
+    isSemi,
     suggestionRef,
     text,
     theme,
@@ -29,6 +33,13 @@ export const SuggestionItem = (props: SuggestionItemProps): React.ReactElement =
     props,
   );
 
+  const SuggestionWrapper = useElement(
+    'SuggestionWrapper',
+    Li,
+    itemRender || suggestionRenders.itemRender,
+    props,
+  );
+
   const handleClick = createClickHandler(props);
 
   const suggestionClassNames = getClassNames(
@@ -40,10 +51,10 @@ export const SuggestionItem = (props: SuggestionItemProps): React.ReactElement =
     },
   );
 
-  return (
+  const suggestion: JSX.Element = (
     <Suggestion
       className={suggestionClassNames}
-      onClick={handleClick}
+      onClick={hasCheckboxes ? undefined : handleClick}
       ref={(component) => {
         if (isScrollTarget) {
           suggestionRef.current = (component?.wrapper || component) as HTMLElement;
@@ -52,6 +63,25 @@ export const SuggestionItem = (props: SuggestionItemProps): React.ReactElement =
     >
       {text}
     </Suggestion>
+  );
+
+  return (
+    <>
+      {hasCheckboxes
+        ? (
+          <SuggestionWrapper
+            className={suggestionClassNames}
+            onClick={handleClick}
+          >
+            <CheckBox
+              value={isChoosed}
+              _semi={isSemi}
+            >
+              {suggestion}
+            </CheckBox>
+          </SuggestionWrapper>
+        ) : suggestion}
+    </>
   );
 };
 

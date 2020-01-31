@@ -42,6 +42,15 @@
     overflow-y: auto;
   }
 
+  &-group-label {
+    color: $black-04;
+    background-color: $black-08;
+  }
+
+  &-group > .suggestion-item {
+    padding-left: 20px;
+  }
+
   &-item {
     padding: 3px 10px 5px 10px;
     margin: 2px;

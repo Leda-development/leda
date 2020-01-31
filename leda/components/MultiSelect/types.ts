@@ -90,18 +90,24 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   groupBy?: (option: Value) => string | undefined,
   /** Кнопка очистки данных в инпуте. Появляется только в непустом инпуте. */
   hasClearButton?: boolean,
+  /** Добавляются чекбоксы */
+  hasCheckboxes?: boolean,
   /** Выключенное состояние инпута */
   isDisabled?: boolean,
   /** Состояние загрузки лоадера - вместо списка в момент загрузки будет отображаться лоадер */
   isLoading?: boolean,
   /** Устанавливает открытое состояние списка */
   isOpen?: boolean,
+  /** Есть ли кнопка "Выбрать все" */
+  isSelectAllButton?: boolean,
   /** Кастомизации внешнего вида элемента выпадающего списка. */
   itemRender?: SuggestionListProps['itemRender'],
   /** Кастомизации внешнего вида выпадающего списка. */
   listRender?: SuggestionListProps['listRender'],
   /** Ограничение на количество выбранных элементов. После достижения лимита выпадающее окно перестает появляться */
   maxSelected?: number,
+  /** Ограничение на количество показанных тегов. После достижения лимита появляется только один тег с количеством выбранных тегов и текстом. */
+  maxVisibleTags?: number,
   /** Имя компонента */
   name?: string,
   /** Атрибут рендера выпадающего списка, если в data нет значений, равных содержимому инпута. Принимает JSX */
@@ -116,6 +122,8 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   onFocus?: (event: FocusEvent) => void,
   /** Плейсхолдер инпута */
   placeholder?: string,
+  /** Должен ли открыться выпадающий список, если достигнуто максимальное количество вариантов */
+  shouldOpenAfterHasMaxSelected?: boolean,
   /** Имя поля объекта, данные из которого будут рендериться в качестве элементов списка */
   textField?: T extends object ? string : never,
   /** Реф */
@@ -126,6 +134,8 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   value?: T,
   /** Кастомный рендер тегов */
   tagRender?: CustomRender<MultiSelectProps, MultiSelectState, TagProps>,
+  /** Кастомный рендер контейнера тегов */
+  tagsContainerRender?: CustomRender<MultiSelectProps, MultiSelectState, TagsContainerProps>,
   /** Кастомный рендер враппера */
   wrapperRender?: CustomRender<MultiSelectProps, MultiSelectState, DivProps>,
   /** Кастомный рендер инпута */
@@ -148,7 +158,7 @@ export interface TagsContainerProps {
   onTagClick: CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget>,
   textField?: string,
   theme: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.multiSelect],
-  value: MultiSelectValue,
+  value: MultiSelectValue | string,
 }
 
 export interface MultiSelectRefCurrent {

@@ -2,32 +2,39 @@ import * as React from 'react';
 import { SomeObject } from '../../../leda/commonTypes';
 import * as L from '../../../leda';
 import { StateButtonGroup } from '../StateButtonGroup';
-import { useEventSpy } from '../../useEventSpy';
 
-export const BasicUsage = (args: SomeObject): React.ReactElement => {
+export const Positioned = (args: SomeObject): React.ReactElement => {
   const [props, setProps] = React.useState({});
-  const [value, setValue] = React.useState<[string, string]>(['', '']);
-
-  const { update, EventInfo } = useEventSpy(['date']);
+  const containerRef = React.useRef(null);
 
   return (
     <L.Div _box _inner _demoBg>
-      <L.DateRange
-        name="DateRange"
-        placeholder={['c', 'до']}
-        onChange={ev => {
-          update('Change', ev);
-          setValue(ev.component.value);
+      <L.Div
+        style={{
+          height: '300px',
+          position: 'relative',
+          border: '1px solid red',
+          width: '400px',
+
         }}
-        onBlur={ev => {
-          update('Blur', ev);
-        }}
-        onFocus={ev => {
-          update('Focus', ev);
-        }}
-        value={value}
-        {...props}
-      />
+        ref={containerRef}
+      >
+        <L.Div
+          style={{
+            width: '150px',
+            position: 'absolute',
+            right: 0,
+            bottom: 0,
+          }}
+        >
+          <L.DatePicker
+            boundingContainerRef={containerRef}
+            _right
+            {...props}
+            data-test="datepicker"
+          />
+        </L.Div>
+      </L.Div>
       <br />
       <br />
       <StateButtonGroup
@@ -47,9 +54,6 @@ export const BasicUsage = (args: SomeObject): React.ReactElement => {
         ]}
         setProps={setProps}
       />
-      <br />
-      <br />
-      <EventInfo />
     </L.Div>
   );
 };

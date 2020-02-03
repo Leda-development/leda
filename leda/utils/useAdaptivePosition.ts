@@ -45,8 +45,17 @@ export const useAdaptivePosition = ({
 
       const boundingElRect = getElRectFromRef(boundingContainerRef);
 
-      const isOutOfRight = rect.right > window.innerWidth;
-      const isEnoughPlaceOnRight = rect.right + (rect.width - parentRect.width) < window.innerWidth;
+      const isOutOfRight = (() => {
+        if (boundingElRect) return (rect.right - boundingElRect.right) > 0;
+
+        return rect.right > window.innerWidth;
+      })();
+
+      const isEnoughPlaceOnRight = (() => {
+        if (boundingElRect) return rect.right + (rect.width - parentRect.width - boundingElRect.right) < 0;
+
+        return rect.right + (rect.width - parentRect.width) < window.innerWidth;
+      })();
 
       const isOutOfBottom = (() => {
         if (boundingElRect) return (rect.bottom - boundingElRect.bottom) > 0;

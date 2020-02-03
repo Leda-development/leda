@@ -4,14 +4,16 @@ import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 
 export interface DropDownProps extends React.HTMLAttributes<HTMLElement> {
-  /** Тег-обертка, при наведении на который, будет отображаться данный dropdown, по умолчанию <span> */
-  wrapperRender?: (props: RenderEvent<DropDownProps>) => React.ReactNode,
-  /** Тема компонента */
-  theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.dropDown],
-  /** Реф */
-  ref?: React.Ref<DropDownRefCurrent>,
+  /** Ссылка на контейнер, относительно которого нужно позиционировать элемент */
+  boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement }>,
   /** Принудительное открытие списка */
   isOpen?: boolean,
+  /** Реф */
+  ref?: React.Ref<DropDownRefCurrent>,
+  /** Тема компонента */
+  theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.dropDown],
+  /** Тег-обертка, при наведении на который, будет отображаться данный dropdown, по умолчанию <span> */
+  wrapperRender?: (props: RenderEvent<DropDownProps>) => React.ReactNode,
   /** Классы переданные через _ */
   [x: string]: unknown,
 }

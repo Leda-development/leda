@@ -6,3 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.0.1-alpha.9] - 2020-02-03
+
+### Added
+- Calendar, DropDown: boundingContainerRef prop for customized positioning
+
+### Changed
+- AutoComplete: use testing library for tests

@@ -1,331 +1,338 @@
-// @ts-nocheck
 import React from 'react';
-import toJson from 'enzyme-to-json';
-import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
+import {
+  getNodeText, render, screen,
+} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { AutoComplete } from './index';
-import { fixJSON } from '../../utils';
 
 describe('AutoComplete SNAPSHOTS', () => {
-  it('should render basic usage', () => {
-    const wrapper = mount(<AutoComplete data={['1', '2', '3']} onChange={jest.fn()} value="1" />);
-
-    expect(toJson(wrapper)).toMatchSnapshot();
+  test('basic usage', () => {
+    const wrapper = render((
+      <AutoComplete
+        onChange={jest.fn()}
+        data={['value1', 'value2']}
+        value="value"
+      />
+    ));
+    expect(wrapper.container).toMatchSnapshot();
   });
-
-  it('should render value in controllable mode', () => {
-    const wrapper = mount(<AutoComplete data={['1', '2', '3']} value="1" onChange={jest.fn()} />);
-    let wrapperJSON = toJson(wrapper);
-
-    expect(wrapper.props().value).toEqual('1');
-
-    expect(fixJSON(wrapperJSON)).toMatchSnapshot();
-
-    wrapper.setProps({ value: '2' });
-
-    expect(wrapper.props().value).toEqual('2');
-
-    wrapperJSON = toJson(wrapper);
-
-    expect(fixJSON(wrapperJSON)).toMatchSnapshot();
+  test('value in controllable mode', () => {
+    const wrapper = render((
+      <AutoComplete
+        onChange={jest.fn()}
+        data={['value1', 'value2']}
+        value="value"
+      />
+    ));
+    expect(screen.getByRole('textbox')).toHaveValue('value');
+    expect(wrapper.container).toMatchSnapshot();
   });
-
-  it('should render data in controllable mode', () => {
-    const dataString = ['value1', 'value2', 'value3'];
-    const dataObject = [
-      { text: 'text1', value: 'value1' },
-      { text: 'text2', value: 'value2' },
-      { text: 'text3', value: 'value3' },
-    ];
-    const wrapper = mount(<AutoComplete data={dataString} onChange={jest.fn()} value="value1" />);
-    let wrapperJSON = toJson(wrapper);
-
-    expect(wrapper.props().data).toHaveLength(3);
-
-    wrapper.props().data.forEach((el, index) => {
-      expect(el).toEqual(dataString[index]);
-    });
-
-    expect(fixJSON(wrapperJSON)).toMatchSnapshot();
-
-    wrapper.setProps({ data: dataObject });
-
-    wrapper.props().data.forEach((el, index) => {
-      expect(el.text).toEqual(dataObject[index].text);
-
-      expect(el.value).toEqual(dataObject[index].value);
-    });
-
-    wrapperJSON = toJson(wrapper);
-
-    expect(fixJSON(wrapperJSON)).toMatchSnapshot();
-  });
-
   describe('should render multi-type attributes', () => {
-    it('should render data', () => {
-      const dataString = ['value1', 'value2', 'value3'];
-      const dataObject = [
+    test('data', () => {
+      const wrapper = render((
+        <AutoComplete
+          onChange={jest.fn()}
+          data={['value1', 'value2']}
+          value="value"
+          isOpen
+        />
+      ));
+      expect(wrapper.container).toMatchSnapshot();
+      const data = [
         { text: 'text1', value: 'value1' },
         { text: 'text2', value: 'value2' },
-        { text: 'text3', value: 'value3' },
       ];
-
-      let wrapper = mount(<AutoComplete data={dataString} isOpen onChange={jest.fn()} value={dataString[0]} />);
-
-      let wrapperJSON = toJson(wrapper);
-
-      expect(fixJSON(wrapperJSON)).toMatchSnapshot();
-
-      wrapper = mount(<AutoComplete data={dataObject} textField="text" value={dataObject[0].text} isOpen onChange={jest.fn()} />);
-
-      wrapperJSON = toJson(wrapper);
-
-      expect(fixJSON(wrapperJSON)).toMatchSnapshot();
+      wrapper.rerender((
+        <AutoComplete
+          onChange={jest.fn()}
+          data={data}
+          value={data[0].text}
+          textField="text"
+          isOpen
+        />
+      ));
+      expect(wrapper.container).toMatchSnapshot();
     });
   });
-
   describe('should render different component states', () => {
-    it('should render readonly', () => {
-      const wrapper = mount(<AutoComplete readOnly onChange={jest.fn()} data={['1', '2', '3']} value="1" />);
-
-      const wrapperJSON = toJson(wrapper);
-
-      expect(wrapper.find('input').props().readOnly).toBeTruthy();
-
-      expect(fixJSON(wrapperJSON)).toMatchSnapshot();
+    test('readonly', () => {
+      const wrapper = render((
+        <AutoComplete
+          onChange={jest.fn()}
+          data={['value1', 'value2']}
+          value="value"
+          readOnly
+        />
+      ));
+      expect(document.querySelector('input')?.readOnly).toBeTruthy();
+      expect(wrapper.container).toMatchSnapshot();
     });
+    test('opened', () => {
+      const wrapper = render((
+        <AutoComplete
+          onChange={jest.fn()}
+          data={['value1', 'value2']}
+          value="value"
+          isOpen
+        />
+      ), {
+        queries: {
 
-    it('should render opened', () => {
-      const wrapper = mount(<AutoComplete isOpen onChange={jest.fn()} data={['1', '2', '3']} />);
-
-      const wrapperJSON = toJson(wrapper);
-
-      expect(wrapper.find('SuggestionItem')).toHaveLength(3);
-
-      expect(fixJSON(wrapperJSON)).toMatchSnapshot();
-    });
-
-    it('should render loading', () => {
-      const wrapper = mount(<AutoComplete data={['1', '2', '3']} value="1" isOpen isLoading onChange={jest.fn()} />);
-
-      const wrapperJSON = toJson(wrapper);
-
-      expect(wrapper.find('Loader')).toHaveLength(1);
-
-      expect(wrapper.find('Loader Icon')).toHaveLength(1);
-
-      expect(fixJSON(wrapperJSON)).toMatchSnapshot();
-    });
-
-    it('should render disabled', () => {
-      const wrapper = mount(<AutoComplete data={['1', '2', '3']} value="1" isDisabled onChange={jest.fn()} />);
-
-      const wrapperJSON = toJson(wrapper);
-
-      expect(wrapper.find('input').props().disabled).toBeTruthy();
-
-      expect(fixJSON(wrapperJSON)).toMatchSnapshot();
-    });
-  });
-
-  it('should test component validation', () => {
-    const wrapper = mount(<AutoComplete
-      name="name"
-      onFocus={jest.fn()}
-      onBlur={jest.fn()}
-      isRequired
-      form="test"
-      onChange={jest.fn()}
-      data={['1', '2', '3']}
-      value=""
-    />);
-
-    act(() => {
-      wrapper.find('input').props().onBlur({
-        target: {
-          value: '',
         },
       });
+      expect(screen.getAllByRole('listitem')).toHaveLength(2);
+      expect(wrapper.container).toMatchSnapshot();
     });
-
-    wrapper.update();
-
-    expect(wrapper.find('InvalidMessageWrapper')).toHaveLength(1);
-
-    const wrapperJSON = toJson(wrapper);
-
-    expect(fixJSON(wrapperJSON)).toMatchSnapshot();
+    test('loading', () => {
+      const wrapper = render((
+        <AutoComplete
+          onChange={jest.fn()}
+          data={['value1', 'value2']}
+          value="value"
+          isLoading
+          isOpen
+        />
+      ));
+      expect(document.querySelectorAll('div.loader-wrapper div.loader-container span.loader-element')).toHaveLength(1);
+      expect(wrapper.container).toMatchSnapshot();
+    });
+    test('disabled', () => {
+      render((
+        <AutoComplete
+          onChange={jest.fn()}
+          data={['value1', 'value2']}
+          isDisabled
+        />
+      ));
+      expect(screen.getByRole('textbox')).toBeDisabled();
+      expect(document.querySelectorAll('.disabled')).toHaveLength(1);
+    });
+  });
+  describe('should render validation', () => {
+    test('validation', () => {
+      const data = ['value1', 'value2'];
+      const message = 'message';
+      const validator = jest.fn((value: string) => value in data);
+      const wrapper = render((
+        <AutoComplete
+          onChange={jest.fn()}
+          data={data}
+          name="name"
+          form="form"
+          // todo fix component props type
+          invalidMessage={message}
+          validator={validator as any}
+        />
+      ));
+      screen.getByRole('textbox').focus();
+      userEvent.type(screen.getByRole('textbox'), 'value', {
+        allAtOnce: true,
+      });
+      screen.getByRole('textbox').blur();
+      expect(validator).toBeCalledTimes(1);
+      expect(screen.getByRole('textbox')).toBeInvalid();
+      expect(document.querySelector('span.invalid-message-list span.invalid-message-item')).toHaveTextContent(message);
+      expect(wrapper.container).toMatchSnapshot();
+    });
+    test('required validation', () => {
+      const onChangeHandler = jest.fn();
+      const message = 'message';
+      const wrapper = render((
+        <AutoComplete
+          onChange={onChangeHandler}
+          data={['value1', 'value2']}
+          name="name"
+          form="form"
+          requiredMessage={message}
+          isRequired
+        />
+      ));
+      screen.getByRole('textbox').focus();
+      userEvent.type(screen.getByRole('textbox'), '', {
+        allAtOnce: true,
+      });
+      // todo check event call condition
+      expect(onChangeHandler).toBeCalledTimes(0);
+      screen.getByRole('textbox').blur();
+      expect(screen.getByRole('textbox')).toBeInvalid();
+      expect(screen.getByRole('textbox')).toBeRequired();
+      expect(document.querySelector('span.invalid-message-list span.invalid-message-item')).toHaveTextContent(message);
+      expect(wrapper.container).toMatchSnapshot();
+    });
   });
 });
 
 describe('AutoComplete HANDLERS', () => {
-  it('should test onFocus', () => {
+  test('focus and blur', () => {
     const onFocusHandler = jest.fn();
-    const wrapper = mount(<AutoComplete className="test" onFocus={onFocusHandler} data={['1', '2', '3']} value="1" onChange={jest.fn()} />);
-
-    act(() => {
-      wrapper.find('input').props().onFocus({
-        target: {
-          value: '1',
-        },
-      });
-    });
-
-    const [[event]] = onFocusHandler.mock.calls;
-
-    expect(onFocusHandler).toHaveBeenCalled();
-
-    expect(event.target).toBeDefined();
-
-    expect(event.target.value).toEqual('1');
-  });
-
-  it('should test onBlur', () => {
     const onBlurHandler = jest.fn();
-    const wrapper = mount(<AutoComplete data={['1', '2', '3']} value="1" onChange={jest.fn()} name="auto" onBlur={onBlurHandler} />);
-
-    wrapper.find('input').props().onBlur({ target: { value: '1' } });
-
-    const [[event]] = onBlurHandler.mock.calls;
-
-    expect(onBlurHandler).toHaveBeenCalled();
-
-    expect(event.target).toBeDefined();
-
-    expect(event.component.name).toEqual('auto');
-
-    expect(event.target.value).toEqual('1');
-  });
-
-  it('should test onChange', () => {
-    const onChangeHandler = jest.fn();
-    const wrapper = mount(<AutoComplete data={['1', '2', '3']} value="1" name="auto" onChange={onChangeHandler} />);
-
-    // введем в инпут 'test'
-    act(() => {
-      wrapper.find('input').props().onChange({
-        currentTarget: {
-          value: '2',
-        },
-      });
+    const eventMatcher = expect.objectContaining({
+      target: expect.objectContaining({
+        value: 'value',
+      }),
+      component: expect.objectContaining({
+        name: 'name',
+        value: 'value',
+      }),
     });
-
-    const [[event]] = onChangeHandler.mock.calls;
-
-    // проверим, что обработчик onChange был вызван
-    expect(onChangeHandler).toHaveBeenCalled();
-    // проверим, что обработчик был вызван с правильными параметрами
-    expect(event.component.value).toEqual('2');
-
-    expect(event.component.name).toEqual('auto');
+    render((
+      <AutoComplete
+        onChange={jest.fn()}
+        onFocus={onFocusHandler}
+        onBlur={onBlurHandler}
+        data={['value1', 'value2']}
+        value="value"
+        name="name"
+      />
+    ));
+    screen.getByRole('textbox').focus();
+    expect(screen.getByRole('textbox')).toHaveFocus();
+    screen.getByRole('textbox').blur();
+    expect(screen.getByRole('textbox')).not.toHaveFocus();
+    expect(onFocusHandler).toBeCalledTimes(1);
+    expect(onFocusHandler).toBeCalledWith(eventMatcher);
+    expect(onBlurHandler).toBeCalledTimes(1);
+    expect(onBlurHandler).toBeCalledWith(eventMatcher);
+  });
+  test('change', () => {
+    const onChangeHandler = jest.fn();
+    const newValue = 'new value';
+    const eventMatcher = expect.objectContaining({
+      target: expect.objectContaining({
+        value: 'value',
+      }),
+      component: expect.objectContaining({
+        name: 'name',
+        value: newValue,
+      }),
+    });
+    render((
+      <AutoComplete
+        onChange={onChangeHandler}
+        data={['value1', 'value2']}
+        value="value"
+        name="name"
+      />
+    ));
+    userEvent.type(screen.getByRole('textbox'), newValue, {
+      allAtOnce: true,
+    });
+    expect(onChangeHandler).toBeCalledTimes(1);
+    expect(onChangeHandler).toBeCalledWith(eventMatcher);
   });
 });
 
 describe('AutoComplete ATTRIBUTES', () => {
-  describe('className', () => {
-    it('should test className prop', () => {
-      const wrapper = mount(<AutoComplete data={['1', '2', '3']} value="1" className="test-class" onChange={jest.fn()} />);
-
-      expect(wrapper.find('div.test-class')).toHaveLength(1);
+  describe('should render class', () => {
+    test('className', () => {
+      render((
+        <AutoComplete
+          className="test-class"
+          onChange={jest.fn()}
+          data={['value1', 'value2']}
+        />
+      ));
+      expect(document.querySelectorAll('div.test-class')).toHaveLength(1);
     });
-
-    it('should convert danger prop to className', () => {
-      const wrapper = mount(<AutoComplete _danger data={['1', '2', '3']} value="1" onChange={jest.fn()} />);
-
-      expect(wrapper.find('div.danger')).toHaveLength(1);
+    test('danger', () => {
+      render((
+        <AutoComplete
+          _danger
+          onChange={jest.fn()}
+          data={['value1', 'value2']}
+        />
+      ));
+      expect(document.querySelectorAll('div.danger')).toHaveLength(1);
     });
-
-    it('should convert active prop to className', () => {
-      const wrapper = mount(<AutoComplete _active data={['1', '2', '3']} value="1" onChange={jest.fn()} />);
-
-      expect(wrapper.find('div.active')).toHaveLength(1);
+    test('active', () => {
+      render((
+        <AutoComplete
+          _active
+          onChange={jest.fn()}
+          data={['value1', 'value2']}
+        />
+      ));
+      expect(document.querySelectorAll('div.active')).toHaveLength(1);
     });
   });
-
-  describe.skip('data attribute', () => {
-    it('should test string type', () => {
-      const dataTest = ['value1', 'value2', 'value3'];
-
-      const wrapper = mount(<AutoComplete isOpen data={dataTest} onChange={jest.fn()} />);
-
-      const texts = wrapper.find('SuggestionItem').map((node) => node.text());
-
-      expect(texts).toEqual(dataTest);
+  describe('should render data', () => {
+    test('string type', () => {
+      const data = ['value1', 'value2'];
+      render((
+        <AutoComplete
+          onChange={jest.fn()}
+          data={data}
+          isOpen
+        />
+      ));
+      expect(screen.getAllByRole('listitem').map(getNodeText)).toEqual(data);
     });
-
-    it('should test object type', () => {
-      const dataTest = [
+    test('object type', () => {
+      const data = [
         { text: 'text1', value: 'value1' },
         { text: 'text2', value: 'value2' },
-        { text: 'text3', value: 'value3' },
       ];
-
-      const wrapper = mount(<AutoComplete textField="text" isOpen data={dataTest} onChange={jest.fn()} />);
-
-      const texts = wrapper.find('SuggestionItem').map((node) => node.text());
-
-      expect(texts).toEqual(dataTest.map((el) => el.text));
+      render((
+        <AutoComplete
+          onChange={jest.fn()}
+          data={data}
+          textField="text"
+          isOpen
+        />
+      ));
+      expect(screen.getAllByRole('listitem').map(getNodeText)).toEqual(data.map((element) => element.text));
     });
   });
-
-  it('should test disabled', () => {
-    const wrapper = mount(<AutoComplete data={['1', '2', '3']} isDisabled onChange={jest.fn()} value="1" />);
-
-    expect(wrapper.find('input').props().disabled).toBeTruthy();
-
-    expect(wrapper.find('.disabled')).toHaveLength(1);
+  test('value adjustment', () => {
+    const onChangeHandler = jest.fn();
+    const data = ['value1', 'value2'];
+    const newValue = 'new value';
+    const eventMatcher = expect.objectContaining({
+      target: expect.objectContaining({}),
+      component: expect.objectContaining({
+        method: 'type',
+        name: 'name',
+        value: newValue,
+        suggestion: null,
+      }),
+    });
+    render((
+      <AutoComplete
+        onChange={onChangeHandler}
+        data={data}
+        name="name"
+        shouldCorrectValue
+      />
+    ));
+    userEvent.type(screen.getByRole('textbox'), 'new value', {
+      allAtOnce: true,
+    });
+    expect(onChangeHandler).toBeCalledTimes(1);
+    screen.getByRole('textbox').blur();
+    expect(onChangeHandler).toBeCalledWith(eventMatcher);
   });
-
-  it('should adjust value', () => {
-    const dataTest = ['value1', 'value2', 'value3'];
-    const onChange = jest.fn();
-    const wrapper = mount(<AutoComplete shouldCorrectValue data={dataTest} onChange={onChange} value="value1" />);
-
-    wrapper.setProps({ value: 'val' });
-
-    wrapper.find('input').props().onBlur({ target: {} });
-
-    expect(onChange).toHaveBeenCalledWith({
-      component: {
-        method: 'trigger', name: undefined, value: '', suggestion: null,
-      },
-      target: {},
+  test('data filtration', () => {
+    const onChangeHandler = jest.fn();
+    const value = 'value';
+    const data = ['option', value, 'variant'];
+    render((
+      <AutoComplete
+        onChange={onChangeHandler}
+        data={data}
+        isOpen
+      />
+    ));
+    expect(screen.getAllByRole('listitem')).toHaveLength(3);
+    userEvent.type(screen.getByRole('textbox'), 'va', {
+      allAtOnce: true,
     });
-  });
-
-  it('should filter data', () => {
-    const dataTest = ['value1', 'vamue2', 'calue3'];
-
-    const changeHandler = jest.fn();
-
-    const wrapper = mount(<AutoComplete isOpen data={dataTest} onChange={changeHandler} />);
-
-    expect(wrapper.find('SuggestionItem')).toHaveLength(3);
-
-    act(() => {
-      wrapper.find('input').props().onChange({
-        currentTarget: {
-          value: 'va',
-        },
-      });
+    expect(onChangeHandler).toBeCalledTimes(1);
+    expect(screen.getAllByRole('listitem')).toHaveLength(2);
+    userEvent.type(screen.getByRole('textbox'), 'val', {
+      allAtOnce: true,
     });
-
-    wrapper.update();
-
-    expect(changeHandler).toHaveBeenCalled();
-
-    expect(wrapper.find('SuggestionItem')).toHaveLength(2);
-
-    act(() => {
-      wrapper.find('input').props().onChange({
-        currentTarget: {
-          value: 'vam',
-        },
-      });
-    });
-
-    wrapper.update();
-
-    expect(wrapper.find('SuggestionItem').text()).toEqual('vamue2');
+    expect(onChangeHandler).toBeCalledTimes(2);
+    expect(screen.getAllByRole('listitem')).toHaveLength(1);
+    expect(screen.getByRole('listitem')).toHaveTextContent(value);
   });
 });

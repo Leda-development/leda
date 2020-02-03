@@ -1,1488 +1,215 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AutoComplete SNAPSHOTS should render basic usage 1`] = `
-<AutoComplete
-  data={
-    Array [
-      "1",
-      "2",
-      "3",
-    ]
-  }
-  onChange={[MockFunction]}
-  value="1"
->
-  <Div
-    className="autocomplete-wrapper"
+exports[`AutoComplete SNAPSHOTS basic usage 1`] = `
+<div>
+  <div
+    class="autocomplete-wrapper"
   >
-    <div
-      className="autocomplete-wrapper"
-    >
-      <input
-        aria-invalid={false}
-        className="autocomplete-input"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        value="1"
-      />
-      <SuggestionList
-        data={
-          Array [
-            "1",
-          ]
-        }
-        highlightedSuggestion={null}
-        isOpen={false}
-        onClick={[Function]}
-        selectedSuggestion={null}
-        shouldAllowEmpty={false}
-        theme={
-          Object {
-            "closeIcon": "autocomplete-clear-icon",
-            "container": "suggestion-wrapper",
-            "containerTop": "pos-top",
-            "containerVisible": "visible",
-            "group": "suggestion-group",
-            "groupLabel": "suggestion-group-label",
-            "input": "autocomplete-input",
-            "inputWrapperDisabled": "disabled",
-            "inputWrapperFocused": "focused",
-            "inputWrapperInvalid": "danger",
-            "item": "suggestion-item",
-            "itemHighlighted": "highlighted",
-            "itemPlaceholder": "placeholder",
-            "itemSelected": "selected",
-            "list": "suggestion-list",
-            "noSuggestions": "nodata",
-            "sectionContainer": "autocomplete__section-container",
-            "sectionContainerFirst": "first",
-            "sectionTitle": "autocomplete-section-title",
-            "suggestion": "suggestion-item",
-            "suggestionFirst": "first",
-            "suggestionHighlighted": "highlighted",
-            "suggestionsContainer": "suggestion-wrapper",
-            "suggestionsContainerOpened": "opened",
-            "suggestionsList": "suggestion-list",
-            "wrapper": "autocomplete-wrapper",
-            "wrapperOpened": "opened",
-          }
-        }
-        value="1"
-      />
-      <InvalidMessageWrapper>
-        <InvalidMessage
-          isValid={true}
-          messages={Array []}
-        >
-          <Component
-            isValid={true}
-            messages={Array []}
-          />
-        </InvalidMessage>
-      </InvalidMessageWrapper>
-    </div>
-  </Div>
-</AutoComplete>
+    <input
+      aria-invalid="false"
+      class="autocomplete-input"
+      value="value"
+    />
+  </div>
+</div>
 `;
 
-exports[`AutoComplete SNAPSHOTS should render data in controllable mode 1`] = `
-<AutoComplete
-  data={
-    Array [
-      "value1",
-      "value2",
-      "value3",
-    ]
-  }
-  onChange={[MockFunction]}
-  value="value1"
->
-  <Div
-    className="autocomplete-wrapper"
+exports[`AutoComplete SNAPSHOTS should render different component states loading 1`] = `
+<div>
+  <div
+    class="autocomplete-wrapper"
   >
+    <input
+      aria-invalid="false"
+      class="autocomplete-input"
+      value="value"
+    />
     <div
-      className="autocomplete-wrapper"
+      class="suggestion-wrapper visible"
     >
-      <input
-        aria-invalid={false}
-        className="autocomplete-input"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        value="value1"
-      />
-      <SuggestionList
-        data={
-          Array [
-            "value1",
-          ]
-        }
-        highlightedSuggestion={null}
-        isOpen={false}
-        onClick={[Function]}
-        selectedSuggestion={null}
-        shouldAllowEmpty={false}
-        theme={
-          Object {
-            "closeIcon": "autocomplete-clear-icon",
-            "container": "suggestion-wrapper",
-            "containerTop": "pos-top",
-            "containerVisible": "visible",
-            "group": "suggestion-group",
-            "groupLabel": "suggestion-group-label",
-            "input": "autocomplete-input",
-            "inputWrapperDisabled": "disabled",
-            "inputWrapperFocused": "focused",
-            "inputWrapperInvalid": "danger",
-            "item": "suggestion-item",
-            "itemHighlighted": "highlighted",
-            "itemPlaceholder": "placeholder",
-            "itemSelected": "selected",
-            "list": "suggestion-list",
-            "noSuggestions": "nodata",
-            "sectionContainer": "autocomplete__section-container",
-            "sectionContainerFirst": "first",
-            "sectionTitle": "autocomplete-section-title",
-            "suggestion": "suggestion-item",
-            "suggestionFirst": "first",
-            "suggestionHighlighted": "highlighted",
-            "suggestionsContainer": "suggestion-wrapper",
-            "suggestionsContainerOpened": "opened",
-            "suggestionsList": "suggestion-list",
-            "wrapper": "autocomplete-wrapper",
-            "wrapperOpened": "opened",
-          }
-        }
-        value="value1"
-      />
-      <InvalidMessageWrapper>
-        <InvalidMessage
-          isValid={true}
-          messages={Array []}
-        >
-          <Component
-            isValid={true}
-            messages={Array []}
-          />
-        </InvalidMessage>
-      </InvalidMessageWrapper>
-    </div>
-  </Div>
-</AutoComplete>
-`;
-
-exports[`AutoComplete SNAPSHOTS should render data in controllable mode 2`] = `
-<AutoComplete
-  data={
-    Array [
-      Object {
-        "text": "text1",
-        "value": "value1",
-      },
-      Object {
-        "text": "text2",
-        "value": "value2",
-      },
-      Object {
-        "text": "text3",
-        "value": "value3",
-      },
-    ]
-  }
-  onChange={[MockFunction]}
-  value="value1"
->
-  <Div
-    className="autocomplete-wrapper"
-  >
-    <div
-      className="autocomplete-wrapper"
-    >
-      <input
-        aria-invalid={false}
-        className="autocomplete-input"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        value="value1"
-      />
-      <SuggestionList
-        data={
-          Array [
-            Object {
-              "text": "text1",
-              "value": "value1",
-            },
-            Object {
-              "text": "text2",
-              "value": "value2",
-            },
-            Object {
-              "text": "text3",
-              "value": "value3",
-            },
-          ]
-        }
-        highlightedSuggestion={null}
-        isOpen={false}
-        onClick={[Function]}
-        selectedSuggestion={null}
-        shouldAllowEmpty={false}
-        theme={
-          Object {
-            "closeIcon": "autocomplete-clear-icon",
-            "container": "suggestion-wrapper",
-            "containerTop": "pos-top",
-            "containerVisible": "visible",
-            "group": "suggestion-group",
-            "groupLabel": "suggestion-group-label",
-            "input": "autocomplete-input",
-            "inputWrapperDisabled": "disabled",
-            "inputWrapperFocused": "focused",
-            "inputWrapperInvalid": "danger",
-            "item": "suggestion-item",
-            "itemHighlighted": "highlighted",
-            "itemPlaceholder": "placeholder",
-            "itemSelected": "selected",
-            "list": "suggestion-list",
-            "noSuggestions": "nodata",
-            "sectionContainer": "autocomplete__section-container",
-            "sectionContainerFirst": "first",
-            "sectionTitle": "autocomplete-section-title",
-            "suggestion": "suggestion-item",
-            "suggestionFirst": "first",
-            "suggestionHighlighted": "highlighted",
-            "suggestionsContainer": "suggestion-wrapper",
-            "suggestionsContainerOpened": "opened",
-            "suggestionsList": "suggestion-list",
-            "wrapper": "autocomplete-wrapper",
-            "wrapperOpened": "opened",
-          }
-        }
-        value="value1"
-      />
-      <InvalidMessageWrapper>
-        <InvalidMessage
-          isValid={true}
-          messages={Array []}
-        >
-          <Component
-            isValid={true}
-            messages={Array []}
-          />
-        </InvalidMessage>
-      </InvalidMessageWrapper>
-    </div>
-  </Div>
-</AutoComplete>
-`;
-
-exports[`AutoComplete SNAPSHOTS should render different component states should render disabled 1`] = `
-<AutoComplete
-  data={
-    Array [
-      "1",
-      "2",
-      "3",
-    ]
-  }
-  isDisabled={true}
-  onChange={[MockFunction]}
-  value="1"
->
-  <Div
-    className="autocomplete-wrapper"
-  >
-    <div
-      className="autocomplete-wrapper"
-    >
-      <input
-        aria-invalid={false}
-        className="autocomplete-input disabled"
-        disabled={true}
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        value="1"
-      />
-      <SuggestionList
-        data={
-          Array [
-            "1",
-          ]
-        }
-        highlightedSuggestion={null}
-        isOpen={false}
-        onClick={[Function]}
-        selectedSuggestion={null}
-        shouldAllowEmpty={false}
-        theme={
-          Object {
-            "closeIcon": "autocomplete-clear-icon",
-            "container": "suggestion-wrapper",
-            "containerTop": "pos-top",
-            "containerVisible": "visible",
-            "group": "suggestion-group",
-            "groupLabel": "suggestion-group-label",
-            "input": "autocomplete-input",
-            "inputWrapperDisabled": "disabled",
-            "inputWrapperFocused": "focused",
-            "inputWrapperInvalid": "danger",
-            "item": "suggestion-item",
-            "itemHighlighted": "highlighted",
-            "itemPlaceholder": "placeholder",
-            "itemSelected": "selected",
-            "list": "suggestion-list",
-            "noSuggestions": "nodata",
-            "sectionContainer": "autocomplete__section-container",
-            "sectionContainerFirst": "first",
-            "sectionTitle": "autocomplete-section-title",
-            "suggestion": "suggestion-item",
-            "suggestionFirst": "first",
-            "suggestionHighlighted": "highlighted",
-            "suggestionsContainer": "suggestion-wrapper",
-            "suggestionsContainerOpened": "opened",
-            "suggestionsList": "suggestion-list",
-            "wrapper": "autocomplete-wrapper",
-            "wrapperOpened": "opened",
-          }
-        }
-        value="1"
-      />
-    </div>
-  </Div>
-</AutoComplete>
-`;
-
-exports[`AutoComplete SNAPSHOTS should render different component states should render loading 1`] = `
-<AutoComplete
-  data={
-    Array [
-      "1",
-      "2",
-      "3",
-    ]
-  }
-  isLoading={true}
-  isOpen={true}
-  onChange={[MockFunction]}
-  value="1"
->
-  <Div
-    className="autocomplete-wrapper"
-  >
-    <div
-      className="autocomplete-wrapper"
-    >
-      <input
-        aria-invalid={false}
-        className="autocomplete-input"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        value="1"
-      />
-      <SuggestionList
-        data={
-          Array [
-            "1",
-          ]
-        }
-        highlightedSuggestion={null}
-        isLoading={true}
-        isOpen={true}
-        onClick={[Function]}
-        selectedSuggestion={null}
-        shouldAllowEmpty={false}
-        theme={
-          Object {
-            "closeIcon": "autocomplete-clear-icon",
-            "container": "suggestion-wrapper",
-            "containerTop": "pos-top",
-            "containerVisible": "visible",
-            "group": "suggestion-group",
-            "groupLabel": "suggestion-group-label",
-            "input": "autocomplete-input",
-            "inputWrapperDisabled": "disabled",
-            "inputWrapperFocused": "focused",
-            "inputWrapperInvalid": "danger",
-            "item": "suggestion-item",
-            "itemHighlighted": "highlighted",
-            "itemPlaceholder": "placeholder",
-            "itemSelected": "selected",
-            "list": "suggestion-list",
-            "noSuggestions": "nodata",
-            "sectionContainer": "autocomplete__section-container",
-            "sectionContainerFirst": "first",
-            "sectionTitle": "autocomplete-section-title",
-            "suggestion": "suggestion-item",
-            "suggestionFirst": "first",
-            "suggestionHighlighted": "highlighted",
-            "suggestionsContainer": "suggestion-wrapper",
-            "suggestionsContainerOpened": "opened",
-            "suggestionsList": "suggestion-list",
-            "wrapper": "autocomplete-wrapper",
-            "wrapperOpened": "opened",
-          }
-        }
-        value="1"
+      <div
+        class="loader-wrapper"
       >
-        <Div
-          className="suggestion-wrapper"
-          onMouseDown={[Function]}
+        <div
+          class="loader-container"
         >
-          <div
-            className="suggestion-wrapper"
-            onMouseDown={[Function]}
-          >
-            <Loader>
-              <Div
-                className="loader-wrapper"
-              >
-                <div
-                  className="loader-wrapper"
-                >
-                  <div
-                    className="loader-container"
-                  >
-                    <Icon
-                      className="loader-element"
-                    >
-                      <Span
-                        className="loader-element"
-                      >
-                        <span
-                          className="loader-element"
-                        />
-                      </Span>
-                    </Icon>
-                  </div>
-                </div>
-              </Div>
-            </Loader>
-          </div>
-        </Div>
-      </SuggestionList>
+          <span
+            class="loader-element"
+          />
+        </div>
+      </div>
     </div>
-  </Div>
-</AutoComplete>
+  </div>
+</div>
 `;
 
-exports[`AutoComplete SNAPSHOTS should render different component states should render opened 1`] = `
-<AutoComplete
-  data={
-    Array [
-      "1",
-      "2",
-      "3",
-    ]
-  }
-  isOpen={true}
-  onChange={[MockFunction]}
->
-  <Div
-    className="autocomplete-wrapper"
+exports[`AutoComplete SNAPSHOTS should render different component states opened 1`] = `
+<div>
+  <div
+    class="autocomplete-wrapper"
   >
+    <input
+      aria-invalid="false"
+      class="autocomplete-input"
+      value="value"
+    />
     <div
-      className="autocomplete-wrapper"
+      class="suggestion-wrapper visible"
     >
-      <input
-        aria-invalid={false}
-        className="autocomplete-input"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        value=""
-      />
-      <SuggestionList
-        data={
-          Array [
-            "1",
-            "2",
-            "3",
-          ]
-        }
-        highlightedSuggestion={null}
-        isOpen={true}
-        onClick={[Function]}
-        selectedSuggestion={null}
-        shouldAllowEmpty={false}
-        theme={
-          Object {
-            "closeIcon": "autocomplete-clear-icon",
-            "container": "suggestion-wrapper",
-            "containerTop": "pos-top",
-            "containerVisible": "visible",
-            "group": "suggestion-group",
-            "groupLabel": "suggestion-group-label",
-            "input": "autocomplete-input",
-            "inputWrapperDisabled": "disabled",
-            "inputWrapperFocused": "focused",
-            "inputWrapperInvalid": "danger",
-            "item": "suggestion-item",
-            "itemHighlighted": "highlighted",
-            "itemPlaceholder": "placeholder",
-            "itemSelected": "selected",
-            "list": "suggestion-list",
-            "noSuggestions": "nodata",
-            "sectionContainer": "autocomplete__section-container",
-            "sectionContainerFirst": "first",
-            "sectionTitle": "autocomplete-section-title",
-            "suggestion": "suggestion-item",
-            "suggestionFirst": "first",
-            "suggestionHighlighted": "highlighted",
-            "suggestionsContainer": "suggestion-wrapper",
-            "suggestionsContainerOpened": "opened",
-            "suggestionsList": "suggestion-list",
-            "wrapper": "autocomplete-wrapper",
-            "wrapperOpened": "opened",
-          }
-        }
-        value=""
+      <ul
+        class="suggestion-list"
       >
-        <Div
-          className="suggestion-wrapper"
-          onMouseDown={[Function]}
+        <li
+          class="suggestion-item"
         >
-          <div
-            className="suggestion-wrapper"
-            onMouseDown={[Function]}
-          >
-            <List
-              className="suggestion-list"
-            >
-              <Ul
-                className="suggestion-list"
-              >
-                <ul
-                  className="suggestion-list"
-                >
-                  <SuggestionItem
-                    isHighlighted={false}
-                    isPlaceholder={false}
-                    isScrollTarget={false}
-                    isSelected={false}
-                    item="1"
-                    key="1"
-                    onClick={[Function]}
-                    suggestionRef={
-                      Object {
-                        "current": null,
-                      }
-                    }
-                    text="1"
-                    theme={
-                      Object {
-                        "closeIcon": "autocomplete-clear-icon",
-                        "container": "suggestion-wrapper",
-                        "containerTop": "pos-top",
-                        "containerVisible": "visible",
-                        "group": "suggestion-group",
-                        "groupLabel": "suggestion-group-label",
-                        "input": "autocomplete-input",
-                        "inputWrapperDisabled": "disabled",
-                        "inputWrapperFocused": "focused",
-                        "inputWrapperInvalid": "danger",
-                        "item": "suggestion-item",
-                        "itemHighlighted": "highlighted",
-                        "itemPlaceholder": "placeholder",
-                        "itemSelected": "selected",
-                        "list": "suggestion-list",
-                        "noSuggestions": "nodata",
-                        "sectionContainer": "autocomplete__section-container",
-                        "sectionContainerFirst": "first",
-                        "sectionTitle": "autocomplete-section-title",
-                        "suggestion": "suggestion-item",
-                        "suggestionFirst": "first",
-                        "suggestionHighlighted": "highlighted",
-                        "suggestionsContainer": "suggestion-wrapper",
-                        "suggestionsContainerOpened": "opened",
-                        "suggestionsList": "suggestion-list",
-                        "wrapper": "autocomplete-wrapper",
-                        "wrapperOpened": "opened",
-                      }
-                    }
-                  >
-                    <Suggestion
-                      className="suggestion-item"
-                      onClick={[Function]}
-                    >
-                      <Li
-                        className="suggestion-item"
-                        onClick={[Function]}
-                      >
-                        <li
-                          className="suggestion-item"
-                          onClick={[Function]}
-                        >
-                          1
-                        </li>
-                      </Li>
-                    </Suggestion>
-                  </SuggestionItem>
-                  <SuggestionItem
-                    isHighlighted={false}
-                    isPlaceholder={false}
-                    isScrollTarget={false}
-                    isSelected={false}
-                    item="2"
-                    key="2"
-                    onClick={[Function]}
-                    suggestionRef={
-                      Object {
-                        "current": null,
-                      }
-                    }
-                    text="2"
-                    theme={
-                      Object {
-                        "closeIcon": "autocomplete-clear-icon",
-                        "container": "suggestion-wrapper",
-                        "containerTop": "pos-top",
-                        "containerVisible": "visible",
-                        "group": "suggestion-group",
-                        "groupLabel": "suggestion-group-label",
-                        "input": "autocomplete-input",
-                        "inputWrapperDisabled": "disabled",
-                        "inputWrapperFocused": "focused",
-                        "inputWrapperInvalid": "danger",
-                        "item": "suggestion-item",
-                        "itemHighlighted": "highlighted",
-                        "itemPlaceholder": "placeholder",
-                        "itemSelected": "selected",
-                        "list": "suggestion-list",
-                        "noSuggestions": "nodata",
-                        "sectionContainer": "autocomplete__section-container",
-                        "sectionContainerFirst": "first",
-                        "sectionTitle": "autocomplete-section-title",
-                        "suggestion": "suggestion-item",
-                        "suggestionFirst": "first",
-                        "suggestionHighlighted": "highlighted",
-                        "suggestionsContainer": "suggestion-wrapper",
-                        "suggestionsContainerOpened": "opened",
-                        "suggestionsList": "suggestion-list",
-                        "wrapper": "autocomplete-wrapper",
-                        "wrapperOpened": "opened",
-                      }
-                    }
-                  >
-                    <Suggestion
-                      className="suggestion-item"
-                      onClick={[Function]}
-                    >
-                      <Li
-                        className="suggestion-item"
-                        onClick={[Function]}
-                      >
-                        <li
-                          className="suggestion-item"
-                          onClick={[Function]}
-                        >
-                          2
-                        </li>
-                      </Li>
-                    </Suggestion>
-                  </SuggestionItem>
-                  <SuggestionItem
-                    isHighlighted={false}
-                    isPlaceholder={false}
-                    isScrollTarget={false}
-                    isSelected={false}
-                    item="3"
-                    key="3"
-                    onClick={[Function]}
-                    suggestionRef={
-                      Object {
-                        "current": null,
-                      }
-                    }
-                    text="3"
-                    theme={
-                      Object {
-                        "closeIcon": "autocomplete-clear-icon",
-                        "container": "suggestion-wrapper",
-                        "containerTop": "pos-top",
-                        "containerVisible": "visible",
-                        "group": "suggestion-group",
-                        "groupLabel": "suggestion-group-label",
-                        "input": "autocomplete-input",
-                        "inputWrapperDisabled": "disabled",
-                        "inputWrapperFocused": "focused",
-                        "inputWrapperInvalid": "danger",
-                        "item": "suggestion-item",
-                        "itemHighlighted": "highlighted",
-                        "itemPlaceholder": "placeholder",
-                        "itemSelected": "selected",
-                        "list": "suggestion-list",
-                        "noSuggestions": "nodata",
-                        "sectionContainer": "autocomplete__section-container",
-                        "sectionContainerFirst": "first",
-                        "sectionTitle": "autocomplete-section-title",
-                        "suggestion": "suggestion-item",
-                        "suggestionFirst": "first",
-                        "suggestionHighlighted": "highlighted",
-                        "suggestionsContainer": "suggestion-wrapper",
-                        "suggestionsContainerOpened": "opened",
-                        "suggestionsList": "suggestion-list",
-                        "wrapper": "autocomplete-wrapper",
-                        "wrapperOpened": "opened",
-                      }
-                    }
-                  >
-                    <Suggestion
-                      className="suggestion-item"
-                      onClick={[Function]}
-                    >
-                      <Li
-                        className="suggestion-item"
-                        onClick={[Function]}
-                      >
-                        <li
-                          className="suggestion-item"
-                          onClick={[Function]}
-                        >
-                          3
-                        </li>
-                      </Li>
-                    </Suggestion>
-                  </SuggestionItem>
-                </ul>
-              </Ul>
-            </List>
-          </div>
-        </Div>
-      </SuggestionList>
+          value1
+        </li>
+        <li
+          class="suggestion-item"
+        >
+          value2
+        </li>
+      </ul>
     </div>
-  </Div>
-</AutoComplete>
+  </div>
+</div>
 `;
 
-exports[`AutoComplete SNAPSHOTS should render different component states should render readonly 1`] = `
-<AutoComplete
-  data={
-    Array [
-      "1",
-      "2",
-      "3",
-    ]
-  }
-  onChange={[MockFunction]}
-  readOnly={true}
-  value="1"
->
-  <Div
-    className="autocomplete-wrapper"
+exports[`AutoComplete SNAPSHOTS should render different component states readonly 1`] = `
+<div>
+  <div
+    class="autocomplete-wrapper"
   >
-    <div
-      className="autocomplete-wrapper"
-    >
-      <input
-        aria-invalid={false}
-        className="autocomplete-input"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        readOnly={true}
-        value="1"
-      />
-      <SuggestionList
-        data={
-          Array [
-            "1",
-          ]
-        }
-        highlightedSuggestion={null}
-        isOpen={false}
-        onClick={[Function]}
-        selectedSuggestion={null}
-        shouldAllowEmpty={false}
-        theme={
-          Object {
-            "closeIcon": "autocomplete-clear-icon",
-            "container": "suggestion-wrapper",
-            "containerTop": "pos-top",
-            "containerVisible": "visible",
-            "group": "suggestion-group",
-            "groupLabel": "suggestion-group-label",
-            "input": "autocomplete-input",
-            "inputWrapperDisabled": "disabled",
-            "inputWrapperFocused": "focused",
-            "inputWrapperInvalid": "danger",
-            "item": "suggestion-item",
-            "itemHighlighted": "highlighted",
-            "itemPlaceholder": "placeholder",
-            "itemSelected": "selected",
-            "list": "suggestion-list",
-            "noSuggestions": "nodata",
-            "sectionContainer": "autocomplete__section-container",
-            "sectionContainerFirst": "first",
-            "sectionTitle": "autocomplete-section-title",
-            "suggestion": "suggestion-item",
-            "suggestionFirst": "first",
-            "suggestionHighlighted": "highlighted",
-            "suggestionsContainer": "suggestion-wrapper",
-            "suggestionsContainerOpened": "opened",
-            "suggestionsList": "suggestion-list",
-            "wrapper": "autocomplete-wrapper",
-            "wrapperOpened": "opened",
-          }
-        }
-        value="1"
-      />
-      <InvalidMessageWrapper>
-        <InvalidMessage
-          isValid={true}
-          messages={Array []}
-        >
-          <Component
-            isValid={true}
-            messages={Array []}
-          />
-        </InvalidMessage>
-      </InvalidMessageWrapper>
-    </div>
-  </Div>
-</AutoComplete>
+    <input
+      aria-invalid="false"
+      class="autocomplete-input"
+      readonly=""
+      value="value"
+    />
+  </div>
+</div>
 `;
 
-exports[`AutoComplete SNAPSHOTS should render multi-type attributes should render data 1`] = `
-<AutoComplete
-  data={
-    Array [
-      "value1",
-      "value2",
-      "value3",
-    ]
-  }
-  isOpen={true}
-  onChange={[MockFunction]}
-  value="value1"
->
-  <Div
-    className="autocomplete-wrapper"
+exports[`AutoComplete SNAPSHOTS should render multi-type attributes data 1`] = `
+<div>
+  <div
+    class="autocomplete-wrapper"
   >
+    <input
+      aria-invalid="false"
+      class="autocomplete-input"
+      value="value"
+    />
     <div
-      className="autocomplete-wrapper"
+      class="suggestion-wrapper visible"
     >
-      <input
-        aria-invalid={false}
-        className="autocomplete-input"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        value="value1"
-      />
-      <SuggestionList
-        data={
-          Array [
-            "value1",
-          ]
-        }
-        highlightedSuggestion={null}
-        isOpen={true}
-        onClick={[Function]}
-        selectedSuggestion={null}
-        shouldAllowEmpty={false}
-        theme={
-          Object {
-            "closeIcon": "autocomplete-clear-icon",
-            "container": "suggestion-wrapper",
-            "containerTop": "pos-top",
-            "containerVisible": "visible",
-            "group": "suggestion-group",
-            "groupLabel": "suggestion-group-label",
-            "input": "autocomplete-input",
-            "inputWrapperDisabled": "disabled",
-            "inputWrapperFocused": "focused",
-            "inputWrapperInvalid": "danger",
-            "item": "suggestion-item",
-            "itemHighlighted": "highlighted",
-            "itemPlaceholder": "placeholder",
-            "itemSelected": "selected",
-            "list": "suggestion-list",
-            "noSuggestions": "nodata",
-            "sectionContainer": "autocomplete__section-container",
-            "sectionContainerFirst": "first",
-            "sectionTitle": "autocomplete-section-title",
-            "suggestion": "suggestion-item",
-            "suggestionFirst": "first",
-            "suggestionHighlighted": "highlighted",
-            "suggestionsContainer": "suggestion-wrapper",
-            "suggestionsContainerOpened": "opened",
-            "suggestionsList": "suggestion-list",
-            "wrapper": "autocomplete-wrapper",
-            "wrapperOpened": "opened",
-          }
-        }
-        value="value1"
+      <ul
+        class="suggestion-list"
       >
-        <Div
-          className="suggestion-wrapper"
-          onMouseDown={[Function]}
+        <li
+          class="suggestion-item"
         >
-          <div
-            className="suggestion-wrapper"
-            onMouseDown={[Function]}
-          >
-            <List
-              className="suggestion-list"
-            >
-              <Ul
-                className="suggestion-list"
-              >
-                <ul
-                  className="suggestion-list"
-                >
-                  <SuggestionItem
-                    isHighlighted={false}
-                    isPlaceholder={false}
-                    isScrollTarget={false}
-                    isSelected={false}
-                    item="value1"
-                    key="value1"
-                    onClick={[Function]}
-                    suggestionRef={
-                      Object {
-                        "current": null,
-                      }
-                    }
-                    text="value1"
-                    theme={
-                      Object {
-                        "closeIcon": "autocomplete-clear-icon",
-                        "container": "suggestion-wrapper",
-                        "containerTop": "pos-top",
-                        "containerVisible": "visible",
-                        "group": "suggestion-group",
-                        "groupLabel": "suggestion-group-label",
-                        "input": "autocomplete-input",
-                        "inputWrapperDisabled": "disabled",
-                        "inputWrapperFocused": "focused",
-                        "inputWrapperInvalid": "danger",
-                        "item": "suggestion-item",
-                        "itemHighlighted": "highlighted",
-                        "itemPlaceholder": "placeholder",
-                        "itemSelected": "selected",
-                        "list": "suggestion-list",
-                        "noSuggestions": "nodata",
-                        "sectionContainer": "autocomplete__section-container",
-                        "sectionContainerFirst": "first",
-                        "sectionTitle": "autocomplete-section-title",
-                        "suggestion": "suggestion-item",
-                        "suggestionFirst": "first",
-                        "suggestionHighlighted": "highlighted",
-                        "suggestionsContainer": "suggestion-wrapper",
-                        "suggestionsContainerOpened": "opened",
-                        "suggestionsList": "suggestion-list",
-                        "wrapper": "autocomplete-wrapper",
-                        "wrapperOpened": "opened",
-                      }
-                    }
-                  >
-                    <Suggestion
-                      className="suggestion-item"
-                      onClick={[Function]}
-                    >
-                      <Li
-                        className="suggestion-item"
-                        onClick={[Function]}
-                      >
-                        <li
-                          className="suggestion-item"
-                          onClick={[Function]}
-                        >
-                          value1
-                        </li>
-                      </Li>
-                    </Suggestion>
-                  </SuggestionItem>
-                </ul>
-              </Ul>
-            </List>
-          </div>
-        </Div>
-      </SuggestionList>
+          value1
+        </li>
+        <li
+          class="suggestion-item"
+        >
+          value2
+        </li>
+      </ul>
     </div>
-  </Div>
-</AutoComplete>
+  </div>
+</div>
 `;
 
-exports[`AutoComplete SNAPSHOTS should render multi-type attributes should render data 2`] = `
-<AutoComplete
-  data={
-    Array [
-      Object {
-        "text": "text1",
-        "value": "value1",
-      },
-      Object {
-        "text": "text2",
-        "value": "value2",
-      },
-      Object {
-        "text": "text3",
-        "value": "value3",
-      },
-    ]
-  }
-  isOpen={true}
-  onChange={[MockFunction]}
-  textField="text"
-  value="text1"
->
-  <Div
-    className="autocomplete-wrapper"
+exports[`AutoComplete SNAPSHOTS should render multi-type attributes data 2`] = `
+<div>
+  <div
+    class="autocomplete-wrapper"
   >
+    <input
+      aria-invalid="false"
+      class="autocomplete-input"
+      value="text1"
+    />
     <div
-      className="autocomplete-wrapper"
+      class="suggestion-wrapper visible"
     >
-      <input
-        aria-invalid={false}
-        className="autocomplete-input"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        value="text1"
-      />
-      <SuggestionList
-        data={
-          Array [
-            Object {
-              "text": "text1",
-              "value": "value1",
-            },
-          ]
-        }
-        highlightedSuggestion={null}
-        isOpen={true}
-        onClick={[Function]}
-        selectedSuggestion={null}
-        shouldAllowEmpty={false}
-        textField="text"
-        theme={
-          Object {
-            "closeIcon": "autocomplete-clear-icon",
-            "container": "suggestion-wrapper",
-            "containerTop": "pos-top",
-            "containerVisible": "visible",
-            "group": "suggestion-group",
-            "groupLabel": "suggestion-group-label",
-            "input": "autocomplete-input",
-            "inputWrapperDisabled": "disabled",
-            "inputWrapperFocused": "focused",
-            "inputWrapperInvalid": "danger",
-            "item": "suggestion-item",
-            "itemHighlighted": "highlighted",
-            "itemPlaceholder": "placeholder",
-            "itemSelected": "selected",
-            "list": "suggestion-list",
-            "noSuggestions": "nodata",
-            "sectionContainer": "autocomplete__section-container",
-            "sectionContainerFirst": "first",
-            "sectionTitle": "autocomplete-section-title",
-            "suggestion": "suggestion-item",
-            "suggestionFirst": "first",
-            "suggestionHighlighted": "highlighted",
-            "suggestionsContainer": "suggestion-wrapper",
-            "suggestionsContainerOpened": "opened",
-            "suggestionsList": "suggestion-list",
-            "wrapper": "autocomplete-wrapper",
-            "wrapperOpened": "opened",
-          }
-        }
-        value="text1"
+      <ul
+        class="suggestion-list"
       >
-        <Div
-          className="suggestion-wrapper"
-          onMouseDown={[Function]}
+        <li
+          class="suggestion-item"
         >
-          <div
-            className="suggestion-wrapper"
-            onMouseDown={[Function]}
-          >
-            <List
-              className="suggestion-list"
-            >
-              <Ul
-                className="suggestion-list"
-              >
-                <ul
-                  className="suggestion-list"
-                >
-                  <SuggestionItem
-                    isHighlighted={false}
-                    isPlaceholder={false}
-                    isScrollTarget={false}
-                    isSelected={false}
-                    item={
-                      Object {
-                        "text": "text1",
-                        "value": "value1",
-                      }
-                    }
-                    key="{\\"text\\":\\"text1\\",\\"value\\":\\"value1\\"}"
-                    onClick={[Function]}
-                    suggestionRef={
-                      Object {
-                        "current": null,
-                      }
-                    }
-                    text="text1"
-                    textField="text"
-                    theme={
-                      Object {
-                        "closeIcon": "autocomplete-clear-icon",
-                        "container": "suggestion-wrapper",
-                        "containerTop": "pos-top",
-                        "containerVisible": "visible",
-                        "group": "suggestion-group",
-                        "groupLabel": "suggestion-group-label",
-                        "input": "autocomplete-input",
-                        "inputWrapperDisabled": "disabled",
-                        "inputWrapperFocused": "focused",
-                        "inputWrapperInvalid": "danger",
-                        "item": "suggestion-item",
-                        "itemHighlighted": "highlighted",
-                        "itemPlaceholder": "placeholder",
-                        "itemSelected": "selected",
-                        "list": "suggestion-list",
-                        "noSuggestions": "nodata",
-                        "sectionContainer": "autocomplete__section-container",
-                        "sectionContainerFirst": "first",
-                        "sectionTitle": "autocomplete-section-title",
-                        "suggestion": "suggestion-item",
-                        "suggestionFirst": "first",
-                        "suggestionHighlighted": "highlighted",
-                        "suggestionsContainer": "suggestion-wrapper",
-                        "suggestionsContainerOpened": "opened",
-                        "suggestionsList": "suggestion-list",
-                        "wrapper": "autocomplete-wrapper",
-                        "wrapperOpened": "opened",
-                      }
-                    }
-                  >
-                    <Suggestion
-                      className="suggestion-item"
-                      onClick={[Function]}
-                    >
-                      <Li
-                        className="suggestion-item"
-                        onClick={[Function]}
-                      >
-                        <li
-                          className="suggestion-item"
-                          onClick={[Function]}
-                        >
-                          text1
-                        </li>
-                      </Li>
-                    </Suggestion>
-                  </SuggestionItem>
-                </ul>
-              </Ul>
-            </List>
-          </div>
-        </Div>
-      </SuggestionList>
+          text1
+        </li>
+      </ul>
     </div>
-  </Div>
-</AutoComplete>
+  </div>
+</div>
 `;
 
-exports[`AutoComplete SNAPSHOTS should render value in controllable mode 1`] = `
-<AutoComplete
-  data={
-    Array [
-      "1",
-      "2",
-      "3",
-    ]
-  }
-  onChange={[MockFunction]}
-  value="1"
->
-  <Div
-    className="autocomplete-wrapper"
+exports[`AutoComplete SNAPSHOTS should render validation required validation 1`] = `
+<div>
+  <div
+    class="autocomplete-wrapper"
   >
-    <div
-      className="autocomplete-wrapper"
+    <input
+      aria-invalid="true"
+      aria-required="true"
+      class="autocomplete-input danger"
+      form="form"
+      name="name"
+      value=""
+    />
+    <span
+      class="invalid-message-list"
     >
-      <input
-        aria-invalid={false}
-        className="autocomplete-input"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        value="1"
-      />
-      <SuggestionList
-        data={
-          Array [
-            "1",
-          ]
-        }
-        highlightedSuggestion={null}
-        isOpen={false}
-        onClick={[Function]}
-        selectedSuggestion={null}
-        shouldAllowEmpty={false}
-        theme={
-          Object {
-            "closeIcon": "autocomplete-clear-icon",
-            "container": "suggestion-wrapper",
-            "containerTop": "pos-top",
-            "containerVisible": "visible",
-            "group": "suggestion-group",
-            "groupLabel": "suggestion-group-label",
-            "input": "autocomplete-input",
-            "inputWrapperDisabled": "disabled",
-            "inputWrapperFocused": "focused",
-            "inputWrapperInvalid": "danger",
-            "item": "suggestion-item",
-            "itemHighlighted": "highlighted",
-            "itemPlaceholder": "placeholder",
-            "itemSelected": "selected",
-            "list": "suggestion-list",
-            "noSuggestions": "nodata",
-            "sectionContainer": "autocomplete__section-container",
-            "sectionContainerFirst": "first",
-            "sectionTitle": "autocomplete-section-title",
-            "suggestion": "suggestion-item",
-            "suggestionFirst": "first",
-            "suggestionHighlighted": "highlighted",
-            "suggestionsContainer": "suggestion-wrapper",
-            "suggestionsContainerOpened": "opened",
-            "suggestionsList": "suggestion-list",
-            "wrapper": "autocomplete-wrapper",
-            "wrapperOpened": "opened",
-          }
-        }
-        value="1"
-      />
-      <InvalidMessageWrapper>
-        <InvalidMessage
-          isValid={true}
-          messages={Array []}
-        >
-          <Component
-            isValid={true}
-            messages={Array []}
-          />
-        </InvalidMessage>
-      </InvalidMessageWrapper>
-    </div>
-  </Div>
-</AutoComplete>
+      <span
+        class="invalid-message-item"
+      >
+        message
+      </span>
+    </span>
+  </div>
+</div>
 `;
 
-exports[`AutoComplete SNAPSHOTS should render value in controllable mode 2`] = `
-<AutoComplete
-  data={
-    Array [
-      "1",
-      "2",
-      "3",
-    ]
-  }
-  onChange={[MockFunction]}
-  value="2"
->
-  <Div
-    className="autocomplete-wrapper"
+exports[`AutoComplete SNAPSHOTS should render validation validation 1`] = `
+<div>
+  <div
+    class="autocomplete-wrapper"
   >
-    <div
-      className="autocomplete-wrapper"
+    <input
+      aria-invalid="true"
+      class="autocomplete-input danger"
+      form="form"
+      name="name"
+      value="value"
+    />
+    <span
+      class="invalid-message-list"
     >
-      <input
-        aria-invalid={false}
-        className="autocomplete-input"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        value="2"
-      />
-      <SuggestionList
-        data={
-          Array [
-            "2",
-          ]
-        }
-        highlightedSuggestion={null}
-        isOpen={false}
-        onClick={[Function]}
-        selectedSuggestion={null}
-        shouldAllowEmpty={false}
-        theme={
-          Object {
-            "closeIcon": "autocomplete-clear-icon",
-            "container": "suggestion-wrapper",
-            "containerTop": "pos-top",
-            "containerVisible": "visible",
-            "group": "suggestion-group",
-            "groupLabel": "suggestion-group-label",
-            "input": "autocomplete-input",
-            "inputWrapperDisabled": "disabled",
-            "inputWrapperFocused": "focused",
-            "inputWrapperInvalid": "danger",
-            "item": "suggestion-item",
-            "itemHighlighted": "highlighted",
-            "itemPlaceholder": "placeholder",
-            "itemSelected": "selected",
-            "list": "suggestion-list",
-            "noSuggestions": "nodata",
-            "sectionContainer": "autocomplete__section-container",
-            "sectionContainerFirst": "first",
-            "sectionTitle": "autocomplete-section-title",
-            "suggestion": "suggestion-item",
-            "suggestionFirst": "first",
-            "suggestionHighlighted": "highlighted",
-            "suggestionsContainer": "suggestion-wrapper",
-            "suggestionsContainerOpened": "opened",
-            "suggestionsList": "suggestion-list",
-            "wrapper": "autocomplete-wrapper",
-            "wrapperOpened": "opened",
-          }
-        }
-        value="2"
-      />
-      <InvalidMessageWrapper>
-        <InvalidMessage
-          isValid={true}
-          messages={Array []}
-        >
-          <Component
-            isValid={true}
-            messages={Array []}
-          />
-        </InvalidMessage>
-      </InvalidMessageWrapper>
-    </div>
-  </Div>
-</AutoComplete>
+      <span
+        class="invalid-message-item"
+      >
+        message
+      </span>
+    </span>
+  </div>
+</div>
 `;
 
-exports[`AutoComplete SNAPSHOTS should test component validation 1`] = `
-<AutoComplete
-  data={
-    Array [
-      "1",
-      "2",
-      "3",
-    ]
-  }
-  form="test"
-  isRequired={true}
-  name="name"
-  onBlur={
-    [MockFunction] {
-      "calls": Array [
-        Array [
-          Object {
-            "component": Object {
-              "isValid": false,
-              "name": "name",
-              "value": "",
-            },
-            "target": Object {
-              "value": "",
-            },
-          },
-        ],
-      ],
-      "results": Array [
-        Object {
-          "type": "return",
-          "value": undefined,
-        },
-      ],
-    }
-  }
-  onChange={[MockFunction]}
-  onFocus={[MockFunction]}
-  value=""
->
-  <Div
-    className="autocomplete-wrapper"
+exports[`AutoComplete SNAPSHOTS value in controllable mode 1`] = `
+<div>
+  <div
+    class="autocomplete-wrapper"
   >
-    <div
-      className="autocomplete-wrapper"
-    >
-      <input
-        aria-invalid={true}
-        aria-required={true}
-        className="autocomplete-input danger"
-        form="test"
-        name="name"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        value=""
-      />
-      <SuggestionList
-        data={Array []}
-        highlightedSuggestion={null}
-        isOpen={false}
-        onClick={[Function]}
-        selectedSuggestion={null}
-        shouldAllowEmpty={false}
-        theme={
-          Object {
-            "closeIcon": "autocomplete-clear-icon",
-            "container": "suggestion-wrapper",
-            "containerTop": "pos-top",
-            "containerVisible": "visible",
-            "group": "suggestion-group",
-            "groupLabel": "suggestion-group-label",
-            "input": "autocomplete-input",
-            "inputWrapperDisabled": "disabled",
-            "inputWrapperFocused": "focused",
-            "inputWrapperInvalid": "danger",
-            "item": "suggestion-item",
-            "itemHighlighted": "highlighted",
-            "itemPlaceholder": "placeholder",
-            "itemSelected": "selected",
-            "list": "suggestion-list",
-            "noSuggestions": "nodata",
-            "sectionContainer": "autocomplete__section-container",
-            "sectionContainerFirst": "first",
-            "sectionTitle": "autocomplete-section-title",
-            "suggestion": "suggestion-item",
-            "suggestionFirst": "first",
-            "suggestionHighlighted": "highlighted",
-            "suggestionsContainer": "suggestion-wrapper",
-            "suggestionsContainerOpened": "opened",
-            "suggestionsList": "suggestion-list",
-            "wrapper": "autocomplete-wrapper",
-            "wrapperOpened": "opened",
-          }
-        }
-        value=""
-      />
-      <InvalidMessageWrapper>
-        <InvalidMessage
-          isValid={false}
-          messages={Array []}
-        >
-          <Component
-            isValid={false}
-            messages={Array []}
-          />
-        </InvalidMessage>
-      </InvalidMessageWrapper>
-    </div>
-  </Div>
-</AutoComplete>
+    <input
+      aria-invalid="false"
+      class="autocomplete-input"
+      value="value"
+    />
+  </div>
+</div>
 `;

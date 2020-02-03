@@ -50,6 +50,8 @@ export interface FocusEvent extends React.FocusEvent<HTMLInputElement> {
 }
 
 export interface DateTimeInputProps extends ValidationProps {
+  /** Ссылка на контейнер, относительно которого нужно позиционировать элемент */
+  boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement }>,
   /** Классы для компонента */
   className?: string,
   /** Формат даты, по-умолчанию dd.MM.yyyy */

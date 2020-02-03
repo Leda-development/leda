@@ -17,6 +17,7 @@ import { DateTimeInputRangeProps, DateTimeInputRangeRefCurrent, DateTimeInputRan
 
 export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangeProps, ref: React.Ref<DateTimeInputRangeRefCurrent>) => {
   const {
+    boundingContainerRef,
     calendarHeaderRender,
     className,
     dateCellRender,
@@ -107,6 +108,7 @@ export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangePro
       })}
     >
       <DateTimeInput
+        boundingContainerRef={boundingContainerRef}
         calendarHeaderRender={calendarHeaderRender}
         dateCellRender={dateCellRender}
         dateViewRender={dateViewRender}
@@ -136,6 +138,7 @@ export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangePro
       />
       <Delimiter className={theme.delimiter}>&mdash;</Delimiter>
       <DateTimeInput
+        boundingContainerRef={boundingContainerRef}
         calendarHeaderRender={calendarHeaderRender}
         dateCellRender={dateCellRender}
         dateViewRender={dateViewRender}

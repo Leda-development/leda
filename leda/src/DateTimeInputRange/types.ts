@@ -20,6 +20,7 @@ import { COMPONENT_TYPES } from '../DateTimeInput/constants';
 import { MaskedInputBaseProps } from '../MaskedInputBase/types';
 
 export interface DateTimeInputRangeProps {
+  boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement }>,
   className?: string,
   max?: Date,
   min?: Date,

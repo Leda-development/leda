@@ -4,6 +4,7 @@ import { BasicUsage } from './BasicUsage';
 import { ControlledDate } from './ControlledDate';
 import { MinMax } from './MinMax';
 import { Customization } from './Customization';
+import { Positioned } from './Positioned';
 
 export const DatePicker = () => (
   <Story title="DatePicker">
@@ -11,5 +12,6 @@ export const DatePicker = () => (
     <ControlledDate title="Контролирование только date" />
     <MinMax title="Ограничение даты min-max" />
     <Customization title="Кастомизация" />
+    <Positioned title="Позиционирование" />
   </Story>
 );

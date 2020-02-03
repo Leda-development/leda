@@ -5,6 +5,7 @@ import { ControlledDate } from './ControlledDate';
 import { MinMax } from './MinMax';
 import { Validation } from './Validation';
 import { NameArray } from './NameArray';
+import { Positioned } from './Positioned';
 
 export const DateRange = () => (
   <Story title="DateRange">
@@ -13,5 +14,6 @@ export const DateRange = () => (
     <ControlledDate title="Контролирование только date" />
     <MinMax title="Ограничение даты min-max" />
     <Validation title="Валидация" />
+    <Positioned title="Позиционирование" />
   </Story>
 );

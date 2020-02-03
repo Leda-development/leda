@@ -11,11 +11,12 @@ import { Ul } from '../Ul';
 
 export const DropDown = React.forwardRef((props: DropDownProps, ref?: React.Ref<DropDownRefCurrent>): React.ReactElement => {
   const {
+    boundingContainerRef,
     children,
     className,
-    wrapperRender,
-    theme: themeProp,
     isOpen: isOpenProp,
+    theme: themeProp,
+    wrapperRender,
     ...restProps
   } = mergeClassNames(props);
 
@@ -46,7 +47,12 @@ export const DropDown = React.forwardRef((props: DropDownProps, ref?: React.Ref<
     visible: theme.wrapperVisible,
   }), [theme.wrapperTop, theme.wrapperVisible, theme.wrapperRight]);
 
-  useAdaptivePosition({ elRef: containerRef, isOpen, classNames: classMap });
+  useAdaptivePosition({
+    boundingContainerRef,
+    classNames: classMap,
+    elRef: containerRef,
+    isOpen,
+  });
 
   return (
     <Wrapper

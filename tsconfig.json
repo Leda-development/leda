@@ -14,14 +14,6 @@
       "./types",
       "./node_modules/@types"
     ],
-    "baseUrl": ".",
-    "paths": {
-      "*": [
-        "types/*",
-        "*"
-      ],
-      "react": ["node_modules/react"]
-    },
     "lib": ["dom", "dom.iterable", "esnext"],
     "outDir": "./dist",
     "declaration": true,

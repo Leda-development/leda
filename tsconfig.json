@@ -6,7 +6,7 @@
     "module": "esnext",
     "sourceMap": true,
     "strict": true,
-    "target": "es2015",
+    "target": "es5",
     "jsx": "react",
     "incremental": false,
     "checkJs": false,

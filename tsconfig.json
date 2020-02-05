@@ -17,7 +17,8 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "outDir": "./dist",
     "declaration": true,
-    "newLine": "LF"
+    "newLine": "LF",
+    "downlevelIteration": true
   },
   "exclude": [
     "node_modules",

@@ -15,7 +15,7 @@ export interface SuggestionTarget {
 }
 
 export interface SuggestionListProps {
-  boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement }>,
+  boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement | null }>,
   compareObjectsBy?: ((suggestionListItem: SomeObject) => any) | string,
   data?: Value[],
   groupBy?: (option: Value) => string | undefined,

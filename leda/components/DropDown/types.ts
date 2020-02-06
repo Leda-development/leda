@@ -5,7 +5,7 @@ import { COMPONENTS_NAMESPACES } from '../../constants';
 
 export interface DropDownProps extends React.HTMLAttributes<HTMLElement> {
   /** Ссылка на контейнер, относительно которого нужно позиционировать элемент */
-  boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement }>,
+  boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement | null }>,
   /** Принудительное открытие списка */
   isOpen?: boolean,
   /** Реф */

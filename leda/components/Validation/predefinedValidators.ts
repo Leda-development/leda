@@ -30,6 +30,10 @@ export const PREDEFINED_VALIDATORS: Record<PredefinedValidator, NormalizedValida
     validator: validate.snils,
     invalidMessage: 'Введите СНИЛС',
   },
+  url: {
+    validator: validate.url,
+    invalidMessage: 'Введите URL',
+  },
   ogrn: {
     validator: validate.ogrn,
     invalidMessage: 'Введите ОГРН',

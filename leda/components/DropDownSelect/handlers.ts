@@ -176,7 +176,7 @@ export const createKeyDownHandler = ({
     // предотвращение прокрутки страницы
     ev.preventDefault();
     // механизм работает как барабан
-    const nextIndex = (suggestionIndex + 1) % filteredData.length;
+    const nextIndex = (suggestionIndex + 1) % fullData.length;
     // новое значение
     const nextSuggestion = fullData[nextIndex];
 
@@ -191,7 +191,7 @@ export const createKeyDownHandler = ({
     ev.preventDefault();
     // механизм работает как барабан
     const nextIndex = (() => {
-      if (suggestionIndex <= 0) return filteredData.length - 1;
+      if (suggestionIndex <= 0) return fullData.length - 1;
 
       return suggestionIndex - 1;
     })();

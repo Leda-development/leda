@@ -68,60 +68,37 @@ export const getSuggestions = ({
 
   if (shouldShowAllSuggestions) return data;
 
-  const newData = (() => {
-    const changedData = (data as (string | DataObject)[]).filter((suggestion: string | DataObject): boolean => {
-      // обработка массива строк
-      if (typeof suggestion === 'string') {
-        return filterSuggestionByRule(suggestion, trimmedValue, filterRule);
-      }
+  return (data as (string | DataObject)[]).filter((suggestion: string | DataObject): boolean => {
+    // обработка массива строк
+    if (typeof suggestion === 'string') {
+      return filterSuggestionByRule(suggestion, trimmedValue, filterRule);
+    }
 
-      // если нужно искать по дополнительным полям в объекте
-      if (isArray(searchFields) && textField && suggestion[textField]) {
-        const suggestionValue = suggestion[textField].toString();
-        const isValueMatchingTextField = filterSuggestionByRule(suggestionValue, trimmedValue, filterRule);
+    // если нужно искать по дополнительным полям в объекте
+    if (isArray(searchFields) && textField && suggestion[textField]) {
+      const suggestionValue = suggestion[textField].toString();
+      const isValueMatchingTextField = filterSuggestionByRule(suggestionValue, trimmedValue, filterRule);
 
-        const isValueMatchingSearchFields = searchFields.some((searchField) => {
-          const isValueMatchingSearchField = filterSuggestionByRule(
-            suggestion[searchField].toString(),
-            trimmedValue,
-            filterRule,
-          );
-          return isValueMatchingSearchField;
-        });
+      const isValueMatchingSearchFields = searchFields.some((searchField) => {
+        const isValueMatchingSearchField = filterSuggestionByRule(
+          suggestion[searchField].toString(),
+          trimmedValue,
+          filterRule,
+        );
+        return isValueMatchingSearchField;
+      });
 
-        return isValueMatchingTextField || isValueMatchingSearchFields;
-      }
+      return isValueMatchingTextField || isValueMatchingSearchFields;
+    }
 
-      // обработка массива обьектов
-      if (textField && suggestion[textField]) {
-        const suggestionValue = suggestion[textField].toString();
-        return filterSuggestionByRule(suggestionValue, trimmedValue, filterRule);
-      }
+    // обработка массива обьектов
+    if (textField && suggestion[textField]) {
+      const suggestionValue = suggestion[textField].toString();
+      return filterSuggestionByRule(suggestionValue, trimmedValue, filterRule);
+    }
 
-      return true;
-    });
-
-    const filteredData = (() => changedData.map((suggestion) => {
-      // обработка массива объектов групп
-      if ((suggestion as SomeObject)?.items && textField) {
-        const returnDataItem = (suggestion as SomeObject).items?.filter((item: any) => trimmedValue !== item[textField].toString())
-        .filter((item: any) => filterSuggestionByRule(item[textField].toString(), trimmedValue, filterRule)).filter((item: any) => item);
-
-        if (returnDataItem.length) {
-          const newDat = { ...(suggestion as DataObject), items: returnDataItem };
-          return newDat;
-        }
-
-        return false;
-      }
-
-      return suggestion;
-    }))().filter((item) => item);
-
-    return filteredData;
-  })();
-
-  return newData as string[] | DataObject[];
+    return false;
+  }) as string[] | DataObject[];
 };
 
 // When suggestion is clicked, Autosuggest needs to populate the input

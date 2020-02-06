@@ -48,9 +48,6 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
 
   const checkBoxId = id || `checkbox-${generateId()}`;
 
-  // нужно различать ключи инпута и ключи лейбла
-  const key = `label-${checkBoxId}`;
-
   const handleChange = createChangeHandler(props, setUncontrolledValue);
 
   return (
@@ -68,7 +65,6 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
       <Input
         {...restProps}
         id={checkBoxId}
-        key={checkBoxId}
         onChange={handleChange}
         type="checkbox"
         name={name}
@@ -76,7 +72,12 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
         disabled={isDisabled}
         checked={value}
       />
-      <label key={key} htmlFor={checkBoxId} className={labelClassNames}>{children}</label>
+      <label
+        htmlFor={checkBoxId}
+        className={labelClassNames}
+      >
+        {children}
+      </label>
     </Wrapper>
   );
 }) as React.FC<CheckBoxProps>;

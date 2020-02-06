@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.0.1-alpha.9 - 0.0.1-alpha.11] - 2020-02-05
+
+### Fixed
+- Compilation target for IE support
+
+
 ## [0.0.1-alpha.9] - 2020-02-03
 
 ### Added

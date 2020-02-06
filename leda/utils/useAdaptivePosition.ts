@@ -13,10 +13,10 @@ interface AdaptivePositionProps {
   elRef: React.MutableRefObject<DivRefCurrent | null>,
   isOpen: boolean,
   classNames: ClassNamesMap,
-  boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement }>,
+  boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement | null}>,
 }
 
-const getElRectFromRef = (ref?: React.RefObject<HTMLElement | { wrapper: HTMLElement }>) => {
+const getElRectFromRef = (ref?: React.RefObject<HTMLElement | { wrapper: HTMLElement | null }>) => {
   if (isNil(ref)) return null;
 
   const boundingEl = (() => {

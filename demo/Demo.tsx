@@ -8,7 +8,8 @@ import {
   Pagination, Radio, ProgressBar, Slider, StatusBar, StickyPanel, Switcher,
   Tabs, Tags, DropZone, Textarea, DateTimePicker, TimePicker,
   DateTimeRange, TimeRange, DropDownLink, Currency, Rating,
-  Div, Table, Dl, FileUpload, HTMLTags, Validation, Navigation, Collapse, VStepper, Button, Tooltip, FileDrop,
+  Div, Table, Dl, FileUpload, HTMLTags, Validation, Navigation,
+  Collapsible, Collapse,VStepper, Button, Tooltip, FileDrop,
 } from './components';
 
 export const Demo = () => (
@@ -29,6 +30,7 @@ export const Demo = () => (
       <ButtonGroup />
       <CheckBox />
       <Collapse />
+      <Collapsible />
       <Currency />
       <DatePicker />
       <DateRange />

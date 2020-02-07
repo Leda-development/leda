@@ -31,6 +31,7 @@ export const Heading = React.forwardRef((props: HeadingProps, ref?: React.Ref<He
 
   return (
     <HeadingWrapper
+      // @ts-ignore
       ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
         wrapper: component.wrapper ? component.wrapper : component,
       }))}

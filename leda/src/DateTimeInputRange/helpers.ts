@@ -58,3 +58,11 @@ export const getName = (name?: string | [string | undefined, string | undefined]
 
   return [undefined, undefined];
 };
+
+export const getRequiredMessage = (message?: string | [string | undefined, string | undefined]): [string | undefined, string | undefined] => {
+  if (isString(message)) return [message, message];
+
+  if (Array.isArray(message) && message.length === 2) return message;
+
+  return [undefined, undefined];
+};

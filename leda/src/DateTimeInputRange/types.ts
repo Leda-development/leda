@@ -32,6 +32,7 @@ export interface DateTimeInputRangeProps {
   isRequired?: boolean | [boolean, boolean],
   format?: string,
   form?: string,
+  requiredMessage?: string | [string, string],
   type?: Values<typeof COMPONENT_TYPES>,
   value?: [string, string] | [Date | null, Date | null],
   placeholder?: string | [string | undefined, string | undefined],

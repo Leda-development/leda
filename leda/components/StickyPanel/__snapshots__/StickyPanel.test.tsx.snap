@@ -1,39 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`StickyPanel SNAPSHOTS should render 1`] = `
-<StickyPanel>
-  <Div
-    className="stickypanel-wrapper"
+exports[`StickyPanel SNAPSHOTS render 1`] = `
+<div>
+  <div
+    class="stickypanel-wrapper"
+    style="height: 0px;"
   >
     <div
-      className="stickypanel-wrapper"
+      class="stickypanel-container"
     >
-      <div
-        className="stickypanel-container"
-        style={Object {}}
+      <button
+        class="button-wrapper success"
+        type="button"
       >
-        <Button
-          _success={true}
-        >
-          <button
-            className="button-wrapper success"
-            onClick={[Function]}
-            type="button"
-          >
-            OK
-          </button>
-        </Button>
-        <Button>
-          <button
-            className="button-wrapper"
-            onClick={[Function]}
-            type="button"
-          >
-            Cancel
-          </button>
-        </Button>
-      </div>
+        OK
+      </button>
+      <button
+        class="button-wrapper"
+        type="button"
+      >
+        Cancel
+      </button>
     </div>
-  </Div>
-</StickyPanel>
+  </div>
+</div>
 `;

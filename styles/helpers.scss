@@ -15,7 +15,7 @@
   }
 }
 
-.flex-inline {
+.inline-flex {
   display: inline-flex;
 }
 
@@ -98,4 +98,16 @@
   .width-#{$i*5} {
     width: $i*5%;
   }
+}
+
+.block {
+  display: block;
+}
+
+.none {
+  display: none;
+}
+
+.inline-block {
+  display: inline-block;
 }

@@ -4,4 +4,6 @@ export const defaultCollapseTheme = {
   headingDisabled:      'heading-disabled',
   headingIcon:          'collapse-heading-icon',
   headingIconOpen:      'icon-expanded',
+  bodyWrapper:          'collapse-body-wrapper',
+  bodyOpened:           'opened',
 };

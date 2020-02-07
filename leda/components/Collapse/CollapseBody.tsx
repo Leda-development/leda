@@ -1,5 +1,4 @@
 import React from 'react';
-import CSSCollapse from 'react-css-collapse';
 import {
   bindFunctionalRef, mergeClassNames,
 } from '../../utils';
@@ -7,6 +6,7 @@ import { Loader } from '../Loader';
 import { CollapsePanelContext } from './CollapseContext';
 import { useBodyWrapper } from './helpers';
 import { BodyProps, BodyRefCurrent } from './types';
+import { useCollapse } from './useCollapse';
 
 export const Body = React.forwardRef((props: BodyProps, ref?: React.Ref<BodyRefCurrent>): React.ReactElement => {
   const {
@@ -41,20 +41,50 @@ export const Body = React.forwardRef((props: BodyProps, ref?: React.Ref<BodyRefC
 
   const BodyWrapper = useBodyWrapper(props);
 
+  const bodyRef = React.useRef<HTMLElement>();
+
+  const { setIsExpandedStyle, setIsCollapsedStyle, style } = useCollapse({
+    isOpen: isExpanded,
+    content: bodyRef,
+  });
+
+  const onTransitionEnd = React.useCallback((ev: React.TransitionEvent) => {
+    if (ev.target === bodyRef.current && ev.propertyName === 'height') {
+      if (isExpanded) {
+        setIsExpandedStyle();
+      } else {
+        setIsCollapsedStyle();
+      }
+
+      handleRest?.();
+    }
+  },
+  [handleRest, isExpanded, setIsCollapsedStyle, setIsExpandedStyle]);
+
+  const styles = React.useMemo(() => ({
+    willChange: 'height',
+    transition: transition ?? 'height 250ms cubic-bezier(.4, 0, .2, 1)',
+    ...style,
+  }), [style, transition]);
+
   return (
     <BodyWrapper
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-        wrapper: component.wrapper ? component.wrapper : component,
-      }))}
+      // @ts-ignore
+      ref={((component) => {
+        if (ref) {
+          bindFunctionalRef(component, ref, component && {
+            wrapper: component.wrapper ? component.wrapper : component,
+          });
+        }
+
+        bodyRef.current = component?.wrapper;
+      })}
+      onTransitionEnd={onTransitionEnd}
       className={className}
+      style={styles}
+      aria-expanded={isExpanded}
     >
-      <CSSCollapse
-        isOpen={isExpanded}
-        onRest={handleRest}
-        transition={transition || 'height 250ms cubic-bezier(.4, 0, .2, 1)'}
-      >
-        {isLoading ? <Loader /> : children}
-      </CSSCollapse>
+      {isLoading ? <Loader /> : children}
     </BodyWrapper>
   );
 }) as React.FC<BodyProps>;

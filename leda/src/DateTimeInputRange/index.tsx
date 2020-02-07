@@ -7,7 +7,7 @@ import {
 } from '../../utils';
 import { DateTimeInputRefCurrent } from '../DateTimeInput/types';
 import {
-  getDisabled, getName, getOpen, getPlaceholder, getRequired, isDateValue,
+  getDisabled, getName, getOpen, getPlaceholder, getRequired, getRequiredMessage, isDateValue,
 } from './helpers';
 import { useCustomElements, useDateRange } from './hooks';
 import {
@@ -30,6 +30,7 @@ export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangePro
     isDisabled: disabledProp,
     isOpen: openProp,
     isRequired: requiredProp,
+    requiredMessage: requiredMessageProp,
     max,
     min,
     monthViewRender,
@@ -73,6 +74,8 @@ export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangePro
   const disabled = getDisabled(disabledProp);
 
   const name = getName(nameProp);
+
+  const requiredMessages = getRequiredMessage(requiredMessageProp);
 
   const handleChange = createChangeHandler(props, state);
 
@@ -135,6 +138,7 @@ export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangePro
         wrapperRender={wrapperRender}
         yearViewRender={yearViewRender}
         calendarWrapperRender={calendarWrapperRender}
+        requiredMessage={requiredMessages[0]}
       />
       <Delimiter className={theme.delimiter}>&mdash;</Delimiter>
       <DateTimeInput
@@ -166,6 +170,7 @@ export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangePro
         wrapperRender={wrapperRender}
         yearViewRender={yearViewRender}
         calendarWrapperRender={calendarWrapperRender}
+        requiredMessage={requiredMessages[1]}
       />
     </WrapperRange>
   );

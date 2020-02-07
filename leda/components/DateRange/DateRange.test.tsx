@@ -2,6 +2,9 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
 import { mount } from 'enzyme';
+import {
+  render,
+} from '@testing-library/react';
 import { DateRange } from './index';
 import { fixJSON } from '../../utils';
 
@@ -111,8 +114,8 @@ describe.skip('DateRange HANDLERS', () => {
   });
 });
 
-describe.skip('DateRange ATTRIBUTES', () => {
-  it('should convert rangeMin to fromMin and toMin', () => {
+describe('DateRange ATTRIBUTES', () => {
+  it.skip('should convert rangeMin to fromMin and toMin', () => {
     const wrapper = mount(<DateRange rangeMin={new Date('1998-03-16T20:00:00.000Z')} onRangeChange={jest.fn()} />);
 
     expect(wrapper.find('DatePicker').first().props().min).toEqual(new Date('1998-03-16T20:00:00.000Z'));
@@ -120,11 +123,62 @@ describe.skip('DateRange ATTRIBUTES', () => {
     expect(wrapper.find('DatePicker').at(2).props().min).toEqual(new Date('1998-03-16T20:00:00.000Z'));
   });
 
-  it('should convert rangeMax to fromMax and toMax', () => {
+  it.skip('should convert rangeMax to fromMax and toMax', () => {
     const wrapper = mount(<DateRange rangeMax={new Date('1998-03-16T20:00:00.000Z')} onRangeChange={jest.fn()} />);
 
     expect(wrapper.find('DatePicker').first().props().max).toEqual(new Date('1998-03-16T20:00:00.000Z'));
 
     expect(wrapper.find('DatePicker').at(2).props().max).toEqual(new Date('1998-03-16T20:00:00.000Z'));
+  });
+
+  it('should show requiredMessage when isRequired and invalid', async () => {
+    const { container, findAllByText } = render(
+      <DateRange
+        form="form"
+        name="name"
+        isRequired
+        requiredMessage="REQUIRED"
+      />,
+    );
+
+    const [inputFrom, inputTo] = document.querySelectorAll('input');
+
+    expect(inputFrom).toBeDefined();
+    expect(inputTo).toBeDefined();
+
+    await inputFrom.focus();
+    await inputTo.focus();
+    await inputTo.blur();
+
+    const query = await findAllByText('REQUIRED');
+
+    expect(query).toHaveLength(2);
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should show different requiredMessage when isRequired and invalid', async () => {
+    const { container, findByText } = render(
+      <DateRange
+        form="form"
+        name="name"
+        isRequired
+        requiredMessage={['one', 'two']}
+      />,
+    );
+
+    const [inputFrom, inputTo] = document.querySelectorAll('input');
+
+    expect(inputFrom).toBeDefined();
+    expect(inputTo).toBeDefined();
+
+    await inputFrom.focus();
+    await inputTo.focus();
+    await inputTo.blur();
+
+    await findByText('one');
+    await findByText('two');
+
+    expect(container).toMatchSnapshot();
   });
 });

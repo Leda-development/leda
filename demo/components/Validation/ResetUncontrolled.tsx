@@ -81,6 +81,7 @@ export const ResetUncontrolled = () => {
             form={formName}
             name="date-range"
             onChange={handleChange}
+            requiredMessage="Поле обязательно"
           />
         </L.Div>
         <L.Div _inner _flexRow _alignItemsCenter>
@@ -181,7 +182,7 @@ export const ResetUncontrolled = () => {
             formHelpers
           </Label>
           <L.Button _warning
-            onClick={event => {
+            onClick={(event) => {
               console.log(event);
               L.form(formName).reset();
             }}
@@ -189,7 +190,7 @@ export const ResetUncontrolled = () => {
             Reset
           </L.Button>
           <L.Button _warning
-            onClick={event => {
+            onClick={(event) => {
               console.log(event);
               const value = L.form(formName).get();
               console.log(value);
@@ -198,7 +199,7 @@ export const ResetUncontrolled = () => {
             Get
           </L.Button>
           <L.Button _warning
-            onClick={event => {
+            onClick={(event) => {
               console.log(event);
               const value = L.form(formName).validate();
               console.log(value);

@@ -1,58 +1,41 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import { StickyPanel } from './index';
 import { Button } from '../Button';
 import { H1 } from '../Headers';
 
 describe('StickyPanel SNAPSHOTS', () => {
-  it('should render', () => {
-    const panel = (
+  beforeEach(() => {
+    (window as any).MutationObserver = function () {
+      this.observe = jest.fn();
+      this.disconnect = jest.fn();
+    };
+  });
+
+  test('render', () => {
+    const wrapper = render((
       <StickyPanel>
         <Button _success>OK</Button>
         <Button>Cancel</Button>
       </StickyPanel>
-    );
-
-    const wrapper = mount(panel);
-
-    expect(wrapper.find('div.stickypanel-wrapper')).toHaveLength(1);
-
-    expect(wrapper.find('.stickypanel-container')).toHaveLength(1);
-
-    expect(toJson(wrapper)).toMatchSnapshot();
+    ));
+    expect(document.querySelector('div.stickypanel-wrapper')).not.toBeNull();
+    expect(document.querySelector('div.stickypanel-container')).not.toBeNull();
+    expect(wrapper.container).toMatchSnapshot();
   });
 });
 
 describe('StickyPanel ATTRIBUTES', () => {
-  it('should have children', () => {
-    const panel = (
+  test('children', () => {
+    const wrapper = render((
       <StickyPanel>
         <H1>Would you like to continue?</H1>
-        <Button success>OK</Button>
+        <Button _success>OK</Button>
         <Button>Cancel</Button>
       </StickyPanel>
-    );
-
-    const wrapper = mount(panel);
-
-    expect(wrapper.containsAllMatchingElements([
-      <H1>Would you like to continue?</H1>,
-      <Button success>OK</Button>,
-      <Button>Cancel</Button>,
-    ])).toBeTruthy();
-  });
-
-  it('should accept componentOffset', () => {
-    const panel = (
-      <StickyPanel componentOffset={200}>
-        <H1>Would you like to continue?</H1>
-        <Button success>OK</Button>
-        <Button>Cancel</Button>
-      </StickyPanel>
-    );
-
-    const wrapper = mount(panel); // eslint-disable-line
-    // todo: не создает отступ, дописать тест, когда починят
+    ));
+    expect(wrapper.container).toHaveTextContent('Would you like to continue?');
+    expect(wrapper.container).toHaveTextContent('OK');
+    expect(wrapper.container).toHaveTextContent('Cancel');
   });
 });

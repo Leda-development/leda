@@ -6,8 +6,6 @@ import { SetState } from '../../commonTypes';
 export interface StickyPanelProps {
   /** Дочерние элементы */
   children: React.ReactNode,
-  /** Включает режим обновления при каждом рендере, не используйте этот атрибут, если у вас нет анимаций для StickyPanel */
-  shouldAlwaysRerender?: boolean,
   /** Отступ компонента в px от начала родителя (насколько ниже начала родителя должен появлятся компонент, чтобы компонент не перекрывал начало родителя) */
   offsetTop?: number,
   /** Реф */
@@ -18,26 +16,17 @@ export interface StickyPanelProps {
   [x: string]: unknown,
 }
 
-export interface StickyPanelState {
-  panelStyles: React.CSSProperties,
-  panelPosition: string,
-}
+export type StickyPanelPosition = 'none' | 'bottom' | 'fixed';
 
-export interface PageScroll {
-  top: number,
-  left: number,
-}
-
-export interface UpdateState {
-  (state: StickyPanelState): void,
-}
+export type StickyPanelStyles = React.CSSProperties;
 
 export interface CreatePanelPositionUpdater {
   (
-    updateState: UpdateState,
     offsetTop: number,
     panelPosition: string,
     panelRef: React.MutableRefObject<HTMLDivElement | null>,
+    setPanelPosition: SetState<StickyPanelPosition>,
+    setPanelStyles: SetState<React.CSSProperties>,
   ): UpdatePanelPosition,
 }
 
@@ -45,23 +34,14 @@ export interface UpdatePanelPosition {
   (shouldRerender?: boolean): void,
 }
 
-export interface ScrollHandler {
-  (): void,
-}
-
-export interface ResizeHandler {
-  (): void,
-}
-
 export interface UseStickyPanelEffect {
   (data: {
-    updatePanelPosition: UpdatePanelPosition,
-    handleScroll: ScrollHandler,
-    handleResize: ResizeHandler,
     panelRef: React.MutableRefObject<HTMLDivElement | null>,
-    shouldAlwaysRerender?: boolean,
-    panelStyles: React.CSSProperties,
+    offsetTop: number,
+    panelPosition: StickyPanelPosition,
+    setPanelPosition: SetState<StickyPanelPosition>,
     setPanelStyles: SetState<React.CSSProperties>,
+    shouldAlwaysRerender?: boolean,
   }): void,
 }
 

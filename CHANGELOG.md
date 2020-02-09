@@ -6,7 +6,25 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [0.0.1-alpha.9 - 0.0.1-alpha.11] - 2020-02-05
+## [0.0.1-alpha.12] - 2020-02-09
+
+### Changed
+- StickyPanel: it is better now, it works as if shouldAlwaysRerender is true, but without performance penalties
+- Collapse: in does not use external dependency anymore
+
+### Added
+- Collapse: now you can customize it as you like
+- DateRange: requiredMessage is available
+- Validation: now you can use predefined 'url' validator
+
+### Fixed
+- CheckBox: redundant rerender on each change
+- DropDownSelect: last element in the suggestions list sometimes was unavailable to choose usin keyboard
+- AutoComplete: minSearchLength and isOpen conflicts
+- DropDown, DropDownSelect: fix boundingContainerRef types
+
+
+## [0.0.1-alpha.10 - 0.0.1-alpha.11] - 2020-02-05
 
 ### Fixed
 - Compilation target for IE support

@@ -127,6 +127,7 @@ exports[`LEDA THEME PROVIDER should be isOpen 1`] = `
             textField="txt"
             theme={
               Object {
+                "checkBox": "suggestion-checkBox",
                 "clearIcon": "dropdownselect-clear-icon",
                 "container": "suggestion-wrapper",
                 "containerTop": "pos-top",
@@ -191,6 +192,7 @@ exports[`LEDA THEME PROVIDER should be isOpen 1`] = `
                         textField="txt"
                         theme={
                           Object {
+                            "checkBox": "suggestion-checkBox",
                             "clearIcon": "dropdownselect-clear-icon",
                             "container": "suggestion-wrapper",
                             "containerTop": "pos-top",
@@ -254,6 +256,7 @@ exports[`LEDA THEME PROVIDER should be isOpen 1`] = `
                         textField="txt"
                         theme={
                           Object {
+                            "checkBox": "suggestion-checkBox",
                             "clearIcon": "dropdownselect-clear-icon",
                             "container": "suggestion-wrapper",
                             "containerTop": "pos-top",
@@ -317,6 +320,7 @@ exports[`LEDA THEME PROVIDER should be isOpen 1`] = `
                         textField="txt"
                         theme={
                           Object {
+                            "checkBox": "suggestion-checkBox",
                             "clearIcon": "dropdownselect-clear-icon",
                             "container": "suggestion-wrapper",
                             "containerTop": "pos-top",

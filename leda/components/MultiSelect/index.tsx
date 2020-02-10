@@ -189,6 +189,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
 
   React.useEffect((): void => {
     if (maxSelected && (canSelectAll || canSelectGroup)) {
+      // eslint-disable-next-line no-console
       console.log("You can't set `maxSelected` and one of `canSelectAll` or `canSelectGroup` together");
     }
   }, [canSelectAll, canSelectGroup, maxSelected]);

@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { isNil, isObject } from 'lodash';
+import { isNil } from 'lodash';
 import { LedaContext } from '../../components/LedaProvider';
 import { Loader } from '../../components/Loader';
 import { Div, DivRefCurrent } from '../../components/Div';
-import { Li } from '../../components/Li';
 import { Ul } from '../../components/Ul';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { useAdaptivePosition, useElement, useTheme } from '../../utils';
@@ -198,7 +197,6 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
               isGroupLabel: true,
               hasCheckBoxes,
             });
-            // const key = isObject(suggestion) ? JSON.stringify(suggestion) : suggestion as string;
             const isGroupChosen = canSelectGroup && (suggestion as GroupedSomeObject)?.dataItems?.every((elem) => (value as Value[])?.includes(elem));
             const isSemi = (() => {
               if (!canSelectGroup) return false;
@@ -220,7 +218,6 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
                         suggestionRef={suggestionRef}
                         textField={textField}
                         theme={theme}
-                        // key={key}
                         {...suggestionGroupLabelComputedProps}
                       />
                     ) : (suggestion as GroupedSomeObject).key}
@@ -238,7 +235,6 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
                   });
 
                   const isChosen: boolean | undefined = canSelectGroup && (value as Value[])?.includes(dataItem);
-                  // const keys = isObject(dataItem) ? JSON.stringify(dataItem) : dataItem as string;
                   return (
                     <SuggestionItem
                       isChosen={isChosen}
@@ -249,7 +245,6 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
                       text={itemText}
                       textField={textField}
                       theme={theme}
-                      // key={keys}
                       {...suggestionItemComputedProps}
                     />
                   );
@@ -268,8 +263,7 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
             hasCheckBoxes,
           });
 
-          const isItemChosen: boolean | undefined = (value as Value[])?.includes(suggestion);
-          // const keyss = isObject(suggestion) ? JSON.stringify(suggestion) : suggestion as string;
+          const isItemChosen: boolean | undefined = hasCheckBoxes && (value as Value[])?.includes(suggestion);
           return (
             <SuggestionItem
               isChosen={isItemChosen}

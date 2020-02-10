@@ -47,18 +47,18 @@ export const GroupedData = (args: SomeObject): React.ReactElement => {
         data-test="multiselect"
         defaultValue={[MSData[6]]}
         _width40
-        maxSelected={3}
         onChange={(ev) => update('Change', ev)}
         onBlur={(ev) => update('Blur', ev)}
         onFocus={(ev) => update('Focus', ev)}
         placeholder="Choose cities you would like to visit!"
         isOpen={isOpen}
+        canSelectGroup
         isLoading={isLoading}
         isRequired
-        isSelectAllButton
-        hasCheckboxes
+        canSelectAll
+        hasCheckBoxes
         maxVisibleTags={3}
-        shouldOpenAfterHasMaxSelected
+        shouldOpenWhenMaxSelectedReached
         requiredMessage="Обязательное поле!"
         name="multi-pulti"
         form="multi-select-form"

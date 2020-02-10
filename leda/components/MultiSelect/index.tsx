@@ -25,6 +25,8 @@ import { filterData, getValue } from './helpers';
 
 export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React.Ref<MultiSelectRefCurrent>): React.ReactElement => {
   const {
+    canSelectAll,
+    canSelectGroup,
     className,
     compareObjectsBy,
     data,
@@ -36,12 +38,11 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     inputRender,
     invalidMessage,
     invalidMessageRender,
-    hasCheckboxes,
+    hasCheckBoxes,
     isDisabled,
     isLoading,
     isOpen,
     isRequired,
-    isSelectAllButton,
     isValid: isValidProp,
     itemRender,
     listRender,
@@ -55,7 +56,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     placeholder,
     requiredMessage,
     shouldValidateUnmounted,
-    shouldOpenAfterHasMaxSelected,
+    shouldOpenWhenMaxSelectedReached,
     tagRender,
     tagsContainerRender,
     textField,
@@ -167,7 +168,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     state,
   );
 
-  const filteredData = hasCheckboxes ? data : filterData({
+  const filteredData = hasCheckBoxes ? data : filterData({
     compareObjectsBy,
     data,
     filterRule,
@@ -185,6 +186,12 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
   );
 
   const isMaxItemsSelected = !isNil(maxSelected) && value.length >= maxSelected;
+
+  React.useEffect((): void => {
+    if (maxSelected && (canSelectAll || canSelectGroup)) {
+      console.log("You can't set `maxSelected` and one of `canSelectAll` or `canSelectGroup` together");
+    }
+  }, [canSelectAll, canSelectGroup, maxSelected]);
 
   return (
     <Wrapper
@@ -236,16 +243,17 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
             : undefined}
         />
       </Div>
-      {(!isMaxItemsSelected || shouldOpenAfterHasMaxSelected) && (
+      {(!isMaxItemsSelected || shouldOpenWhenMaxSelectedReached) && (
         <SuggestionList
           compareObjectsBy={compareObjectsBy}
           data={filteredData}
           groupBy={groupBy}
-          hasCheckboxes={hasCheckboxes}
+          hasCheckBoxes={hasCheckBoxes}
           highlightedSuggestion={highlightedSuggestion}
+          canSelectAll={canSelectAll}
+          canSelectGroup={canSelectGroup}
           isLoading={isLoading}
           isOpen={isNil(isOpen) ? isFocused : isOpen}
-          isSelectAllButton={isSelectAllButton}
           onClick={handleSelect}
           itemRender={itemRender}
           listRender={listRender}

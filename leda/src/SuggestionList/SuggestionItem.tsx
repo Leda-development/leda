@@ -9,9 +9,9 @@ import { CheckBox } from '../../components/CheckBox';
 
 export const SuggestionItem = (props: SuggestionItemProps): React.ReactElement => {
   const {
-    hasCheckboxes,
+    hasCheckBoxes,
     itemRender,
-    isChoosed,
+    isChosen,
     isScrollTarget,
     isPlaceholder,
     isHighlighted,
@@ -54,7 +54,7 @@ export const SuggestionItem = (props: SuggestionItemProps): React.ReactElement =
   const suggestion: JSX.Element = (
     <Suggestion
       className={suggestionClassNames}
-      onClick={hasCheckboxes ? undefined : handleClick}
+      onClick={hasCheckBoxes ? undefined : handleClick}
       ref={(component) => {
         if (isScrollTarget) {
           suggestionRef.current = (component?.wrapper || component) as HTMLElement;
@@ -67,17 +67,18 @@ export const SuggestionItem = (props: SuggestionItemProps): React.ReactElement =
 
   return (
     <>
-      {hasCheckboxes
+      {hasCheckBoxes
         ? (
           <SuggestionWrapper
             className={suggestionClassNames}
             onClick={handleClick}
           >
             <CheckBox
-              value={isChoosed}
+              className={theme.checkBox}
+              value={isChosen}
               _semi={isSemi}
             >
-              {suggestion}
+              {text}
             </CheckBox>
           </SuggestionWrapper>
         ) : suggestion}

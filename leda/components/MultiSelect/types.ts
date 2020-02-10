@@ -76,6 +76,10 @@ export interface FocusEvent<T = Value> extends React.FocusEvent<HTMLInputElement
 export type ChangeEvent<T = Value> = MouseSelectEvent<T> | EnterSelectEvent<T> | ClearEvent<T> | ResetEvent<T>;
 
 export interface MultiSelectProps<T extends MultiSelectValue | null | undefined = MultiSelectValue | null | undefined> extends ValidationProps {
+  /** Есть ли кнопка "Выбрать все" */
+  canSelectAll?: boolean,
+  /** Кликабельны ли названия групп */
+  canSelectGroup?: boolean,
   /** Сравнение объектов по произвольному полю, а не по ссылке */
   compareObjectsBy?: T extends object ? ((suggestionListItems: SomeObject) => any) | string : never,
   /** Данные для отображения в списке.
@@ -91,15 +95,13 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   /** Кнопка очистки данных в инпуте. Появляется только в непустом инпуте. */
   hasClearButton?: boolean,
   /** Добавляются чекбоксы */
-  hasCheckboxes?: boolean,
+  hasCheckBoxes?: boolean,
   /** Выключенное состояние инпута */
   isDisabled?: boolean,
   /** Состояние загрузки лоадера - вместо списка в момент загрузки будет отображаться лоадер */
   isLoading?: boolean,
   /** Устанавливает открытое состояние списка */
   isOpen?: boolean,
-  /** Есть ли кнопка "Выбрать все" */
-  isSelectAllButton?: boolean,
   /** Кастомизации внешнего вида элемента выпадающего списка. */
   itemRender?: SuggestionListProps['itemRender'],
   /** Кастомизации внешнего вида выпадающего списка. */
@@ -123,7 +125,7 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   /** Плейсхолдер инпута */
   placeholder?: string,
   /** Должен ли открыться выпадающий список, если достигнуто максимальное количество вариантов */
-  shouldOpenAfterHasMaxSelected?: boolean,
+  shouldOpenWhenMaxSelectedReached?: boolean,
   /** Имя поля объекта, данные из которого будут рендериться в качестве элементов списка */
   textField?: T extends object ? string : never,
   /** Реф */

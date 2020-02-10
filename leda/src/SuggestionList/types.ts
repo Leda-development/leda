@@ -17,17 +17,18 @@ export interface SuggestionTarget {
 
 export interface SuggestionListProps {
   boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement | null }>,
+  canSelectAll?: boolean,
+  canSelectGroup?: boolean,
   compareObjectsBy?: ((suggestionListItem: SomeObject) => any) | string,
   data?: Value[],
   groupBy?: (option: Value) => string | undefined,
   groupLabelRender?: CustomRender<{}, {}, LiProps>,
   groupWrapperRender?: CustomRender<{}, {}, DivProps>,
-  hasCheckboxes?: boolean,
+  hasCheckBoxes?: boolean,
   highlightedSuggestion?: Value,
   selectedSuggestion?: Value,
   isLoading?: boolean,
   isOpen: boolean,
-  isSelectAllButton?: boolean,
   itemRender?: CustomRender<SuggestionItemProps, {}, LiProps>,
   listRender?: CustomRender<SuggestionListProps, {}, UlProps>,
   noSuggestionsRender?: CustomRender<SuggestionListProps, {}, NoSuggestionsProps>,
@@ -40,8 +41,8 @@ export interface SuggestionListProps {
 }
 
 export interface SuggestionItemProps {
-  hasCheckboxes?: boolean,
-  isChoosed?: boolean,
+  hasCheckBoxes?: boolean,
+  isChosen?: boolean,
   isPlaceholder: boolean,
   isHighlighted?: boolean,
   isScrollTarget: boolean,
@@ -68,6 +69,7 @@ export interface GroupedSomeObject {
 
 export interface GetSuggestionItemProps {
   compareObjectsBy?: ((suggestionListItem: SomeObject) => any) | string,
+  hasCheckBoxes?: boolean,
   highlightedSuggestion?: Value,
   placeholder?: string,
   selectedSuggestion?: Value,
@@ -81,6 +83,7 @@ export interface SuggestionItemComputedProps {
   isHighlighted?: boolean,
   isSelected?: boolean,
   item: string | number | SomeObject | null,
+  hasCheckBoxes?: boolean,
   key: string,
   text: string | number,
 }

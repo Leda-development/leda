@@ -31,6 +31,7 @@ export const DataTypes = (args: SomeObject): React.ReactElement => {
         defaultValue={['London']}
         _width40
         maxSelected={3}
+        hasCheckBoxes
         onChange={ev => update('Change', ev)}
         onBlur={ev => update('Blur', ev)}
         onFocus={ev => update('Focus', ev)}

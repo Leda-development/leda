@@ -48,7 +48,8 @@
   }
 
   &-group > .suggestion-item {
-    padding-left: 20px;
+    padding: 10px 10px 10px 20px;
+    margin: 5px;
   }
 
   &-item {
@@ -82,4 +83,9 @@
       background-color: $black-07;
     }
   }
+
+    &-item > .suggestion-checkBox {
+      padding: 10px 10px 10px 20px;
+      margin: 5px;
+    }
 }

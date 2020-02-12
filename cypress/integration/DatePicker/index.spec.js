@@ -337,7 +337,7 @@ describe('DatePicker', () => {
         .should('have.class', 'active')
     })
 
-    it.only('YearViewDisabled', () => {
+    it('YearViewDisabled', () => {
       cy.name('MinMaxDatePicker')
         .focus()
         .wait(200)

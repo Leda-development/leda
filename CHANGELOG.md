@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.0.1-alpha.13] - 2020-02-14
+
+### Added
+- Validation: L.form('formName').get() and L.form('formName').validate() helpers are available
+
+
 ## [0.0.1-alpha.12] - 2020-02-09
 
 ### Changed

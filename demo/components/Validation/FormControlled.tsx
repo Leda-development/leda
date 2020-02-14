@@ -4,20 +4,19 @@
 import * as React from 'react';
 import * as L from '../../../leda';
 
-const Label = ({
-  children,
-}: {
+const Label = (props: {
   children: string,
 }) => (
   <L.Span
-    _width15
-    style={{ display: 'inline-block', marginRight: '10px' }}
+    style={{
+      marginRight: '10px',
+    }}
   >
-    {children}
+    {props.children}
   </L.Span>
 );
-console.log(L.form('form-name'));
-export const ResetControlled = () => {
+
+export const FormControlled = () => {
   const formName = 'form-name';
   const [valueOfAutoComplete, setValueOfAutoComplete] = React.useState<string | null>(null);
   const [valueOfButtonGroup, setValueOfButtonGroup] = React.useState<L.ButtonGroupTypes.Value | undefined>(null);
@@ -227,7 +226,6 @@ export const ResetControlled = () => {
             Textarea
           </Label>
           <L.Textarea _grow1
-            isRequired
             form={formName}
             name="textarea"
             value={valueOfTextarea}
@@ -235,6 +233,8 @@ export const ResetControlled = () => {
               console.log(event.component);
               setValueOfTextarea(event.component.value);
             }}
+            validator={(value) => value.length}
+            invalidMessage="must not be empty"
           />
         </L.Div>
         <L.Div _inner _flexRow _alignItemsCenter>
@@ -249,6 +249,7 @@ export const ResetControlled = () => {
           >
             Reset
           </L.Button>
+          {' '}
           <L.Button _warning
             onClick={(event) => {
               console.log(event);
@@ -258,6 +259,7 @@ export const ResetControlled = () => {
           >
             Get
           </L.Button>
+          {' '}
           <L.Button _warning
             onClick={(event) => {
               console.log(event);

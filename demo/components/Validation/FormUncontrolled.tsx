@@ -4,19 +4,19 @@
 import * as React from 'react';
 import * as L from '../../../leda';
 
-const Label = ({
-  children,
-}: {
+const Label = (props: {
   children: string,
 }) => (
-  <L.Span _width15
-    style={{ display: 'inline-block', marginRight: '10px' }}
+  <L.Span
+    style={{
+      marginRight: '10px',
+    }}
   >
-    {children}
+    {props.children}
   </L.Span>
 );
 
-export const ResetUncontrolled = () => {
+export const FormUncontrolled = () => {
   const formName = 'form-name';
   const handleChange = (event: {
     component: {},
@@ -171,10 +171,11 @@ export const ResetUncontrolled = () => {
             Textarea
           </Label>
           <L.Textarea _grow1
-            isRequired
             form={formName}
             name="textarea"
             onChange={handleChange}
+            validator={(value) => value.length}
+            invalidMessage="must not be empty"
           />
         </L.Div>
         <L.Div _inner _flexRow _alignItemsCenter>
@@ -189,6 +190,7 @@ export const ResetUncontrolled = () => {
           >
             Reset
           </L.Button>
+          {' '}
           <L.Button _warning
             onClick={(event) => {
               console.log(event);
@@ -198,6 +200,7 @@ export const ResetUncontrolled = () => {
           >
             Get
           </L.Button>
+          {' '}
           <L.Button _warning
             onClick={(event) => {
               console.log(event);

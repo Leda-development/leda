@@ -1,11 +1,11 @@
-import * as enzyme from 'enzyme';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
+import { act, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { form } from './form';
 import { AutoComplete } from '../components/AutoComplete';
 import { Textarea } from '../components/Textarea';
 
-describe('controlled form get', () => {
+describe('get controlled form', () => {
   const formName = 'form-name-get';
   const fieldValue = 'field-value';
   const data = [fieldValue];
@@ -21,8 +21,8 @@ describe('controlled form get', () => {
       onChange={handleChange}
     />
   );
-  enzyme.mount(component);
   test('get one', () => {
+    render(component);
     const field = form(formName, fieldName).get();
     expect(field).toMatchObject({
       name: fieldName,
@@ -30,24 +30,23 @@ describe('controlled form get', () => {
     });
   });
   test('get all', () => {
+    render(component);
     const field = form(formName).get();
-    expect(field).toMatchObject([
-      {
-        name: fieldName,
-        value: fieldValue,
-      },
-    ]);
+    expect(field).toMatchObject([{
+      name: fieldName,
+      value: fieldValue,
+    }]);
   });
 });
 
-describe('controlled form reset', () => {
+describe('reset controlled form', () => {
   const formName = 'form-name-reset';
   const fieldValue = 'field-value';
   const data = [fieldValue];
   const fieldName = 'auto-complete';
   test('reset one', () => {
     const handleChange = jest.fn();
-    const component = (
+    render((
       <AutoComplete
         form={formName}
         value={fieldValue}
@@ -56,15 +55,14 @@ describe('controlled form reset', () => {
         name={fieldName}
         onChange={handleChange}
       />
-    );
-    const wrapper = enzyme.mount(component);
+    ));
     const result = form(formName, fieldName).reset();
+    expect(handleChange).toBeCalledTimes(1);
     expect(result).toBeTruthy();
-    wrapper.unmount();
   });
   test('reset all', () => {
     const handleChange = jest.fn();
-    const component = (
+    render((
       <AutoComplete
         form={formName}
         value={fieldValue}
@@ -73,63 +71,243 @@ describe('controlled form reset', () => {
         name={fieldName}
         onChange={handleChange}
       />
-    );
-    const wrapper = enzyme.mount(component);
+    ));
     const result = form(formName).reset();
+    expect(handleChange).toBeCalledTimes(1);
     expect(result).toBeTruthy();
-    wrapper.unmount();
   });
 });
 
-describe('uncontrolled form reset', () => {
+describe('reset uncontrolled form', () => {
   const defaultValue = 'default-value';
   const newValue = 'new-value';
   const formName = 'form-name-reset';
-  const fieldName = 'auto-complete';
+  const fieldName = 'textarea';
+  const component = (
+    <Textarea
+      defaultValue={defaultValue}
+      form={formName}
+      name={fieldName}
+    />
+  );
   test('reset one', () => {
-    const component = (
-      <Textarea
-        defaultValue={defaultValue}
-        form={formName}
-        name={fieldName}
-      />
-    );
-    const wrapper = enzyme.mount(component);
-    wrapper.find('textarea').simulate('change', {
-      target: {
-        value: newValue,
-      },
-    });
-    expect(wrapper.find('textarea').props().value).toEqual(newValue);
+    render(component);
+    userEvent.type(screen.getByRole('textbox'), newValue);
+    expect(screen.getByRole('textbox')).toHaveValue(newValue);
     act(() => {
       const result = form(formName, fieldName).reset();
       expect(result).toBeTruthy();
     });
-    wrapper.update();
-    expect(wrapper.find('textarea').props().value).toEqual(defaultValue);
-    wrapper.unmount();
+    expect(screen.getByRole('textbox')).toHaveValue(defaultValue);
   });
   test('reset all', () => {
-    const component = (
-      <Textarea
-        defaultValue={defaultValue}
-        form={formName}
-        name={fieldName}
-      />
-    );
-    const wrapper = enzyme.mount(component);
-    wrapper.find('textarea').simulate('change', {
-      target: {
-        value: newValue,
-      },
-    });
-    expect(wrapper.find('textarea').props().value).toEqual(newValue);
+    render(component);
+    userEvent.type(screen.getByRole('textbox'), newValue);
+    expect(screen.getByRole('textbox')).toHaveValue(newValue);
     act(() => {
       const result = form(formName).reset();
       expect(result).toBeTruthy();
     });
-    wrapper.update();
-    expect(wrapper.find('textarea').props().value).toEqual(defaultValue);
-    wrapper.unmount();
+    expect(screen.getByRole('textbox')).toHaveValue(defaultValue);
+  });
+});
+
+describe('validate controlled form', () => {
+  const formName = 'form-name-validate';
+  const fieldValue = 'field-value';
+  const data = [fieldValue];
+  const fieldName = 'auto-complete';
+  const handleChange = jest.fn();
+  const validationReference = {
+    name: fieldName,
+    isValid: true,
+  };
+  const component = (
+    <AutoComplete
+      form={formName}
+      value={fieldValue}
+      data={data}
+      isRequired
+      name={fieldName}
+      onChange={handleChange}
+    />
+  );
+  test('validate one', () => {
+    render(component);
+    act(() => {
+      const validation = form(formName, fieldName).validate();
+      expect(validation).toMatchObject(validationReference);
+    });
+    expect(handleChange).toBeCalledTimes(0);
+  });
+  test('validate all', () => {
+    render(component);
+    act(() => {
+      const validation = form(formName).validate();
+      expect(validation).toMatchObject([validationReference]);
+    });
+    expect(handleChange).toBeCalledTimes(0);
+  });
+});
+
+describe('validate controlled form with empty field', () => {
+  const formName = 'form-name-validate';
+  const fieldValue = '';
+  const data = [fieldValue];
+  const fieldName = 'auto-complete';
+  const handleChange = jest.fn();
+  const validationReference = {
+    name: fieldName,
+    isValid: false,
+  };
+  const component = (
+    <AutoComplete
+      form={formName}
+      value={fieldValue}
+      data={data}
+      isRequired
+      name={fieldName}
+      onChange={handleChange}
+    />
+  );
+  test('validate one', () => {
+    render(component);
+    act(() => {
+      const validation = form(formName, fieldName).validate();
+      expect(validation).toMatchObject(validationReference);
+    });
+    expect(handleChange).toBeCalledTimes(0);
+  });
+  test('validate all', () => {
+    render(component);
+    act(() => {
+      const validation = form(formName).validate();
+      expect(validation).toMatchObject([validationReference]);
+    });
+    expect(handleChange).toBeCalledTimes(0);
+  });
+});
+
+describe('validate controlled form with field validator', () => {
+  const formName = 'form-name-validate';
+  const fieldValue = 'field-value';
+  const data = [fieldValue];
+  const fieldName = 'auto-complete';
+  const handleChange = jest.fn();
+  const validate = (value: string) => value.length < 9;
+  const invalidMessage = 'invalid-message';
+  const validationReference = {
+    name: fieldName,
+    isValid: false,
+    invalidMessages: [invalidMessage],
+  };
+  const component = (
+    <AutoComplete
+      form={formName}
+      value={fieldValue}
+      data={data}
+      name={fieldName}
+      onChange={handleChange}
+      validator={validate}
+      invalidMessage={invalidMessage}
+    />
+  );
+  test('validate one', () => {
+    render(component);
+    act(() => {
+      const validation = form(formName, fieldName).validate();
+      expect(validation).toMatchObject(validationReference);
+    });
+    expect(handleChange).toBeCalledTimes(0);
+  });
+  test('validate all', () => {
+    render(component);
+    act(() => {
+      const validation = form(formName).validate();
+      expect(validation).toMatchObject([validationReference]);
+    });
+    expect(handleChange).toBeCalledTimes(0);
+  });
+});
+
+describe('validate controlled form with validators', () => {
+  const formName = 'form-name-validate';
+  const fieldValue = 'field-value';
+  const data = [fieldValue];
+  const fieldName = 'auto-complete';
+  const handleChange = jest.fn();
+  const invalidMessage = 'invalid-message';
+  const validationReference = {
+    name: fieldName,
+    isValid: false,
+    invalidMessages: [invalidMessage],
+  };
+  const component = (
+    <AutoComplete
+      form={formName}
+      value={fieldValue}
+      data={data}
+      name={fieldName}
+      onChange={handleChange}
+      invalidMessage={invalidMessage}
+    />
+  );
+  const validators = [{
+    validator: (value: string) => value.length > 0,
+    invalidMessage,
+  }, {
+    validator: (value: string) => value.length < 9,
+    invalidMessage,
+  }];
+  test('validate one', () => {
+    render(component);
+    act(() => {
+      const validation = form(formName, fieldName).validate(validators);
+      expect(validation).toMatchObject(validationReference);
+    });
+    expect(handleChange).toBeCalledTimes(0);
+  });
+});
+
+describe('validate uncontrolled form with field validator', () => {
+  const formName = 'form-name-validate';
+  const fieldValue = 'field-value';
+  const data = [fieldValue];
+  const fieldName = 'auto-complete';
+  const handleChange = jest.fn();
+  const validate = (value: string) => value.length < 9;
+  const invalidMessage = 'invalid-message';
+  const validationReference = {
+    name: fieldName,
+    isValid: false,
+    invalidMessages: [invalidMessage],
+  };
+  const component = (
+    <AutoComplete
+      form={formName}
+      data={data}
+      name={fieldName}
+      onChange={handleChange}
+      validator={validate}
+      invalidMessage={invalidMessage}
+    />
+  );
+  test('validate one', () => {
+    render(component);
+    userEvent.type(screen.getByRole('textbox'), fieldValue);
+    act(() => {
+      const validation = form(formName, fieldName).validate();
+      expect(validation).toMatchObject(validationReference);
+    });
+    expect(screen.getByRole('textbox')).toHaveValue(fieldValue);
+  });
+  test('validate all', () => {
+    render(component);
+    userEvent.type(screen.getByRole('textbox'), fieldValue);
+    act(() => {
+      const validation = form(formName).validate();
+      expect(validation).toMatchObject([validationReference]);
+    });
+    expect(screen.getByRole('textbox')).toHaveValue(fieldValue);
   });
 });

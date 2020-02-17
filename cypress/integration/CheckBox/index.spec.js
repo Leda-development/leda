@@ -64,4 +64,5 @@ describe('CheckBox', () => {
         .should('be.checked')
     })
   });
+  xit('Validation tests', () => {})
 });

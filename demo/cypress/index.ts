@@ -6,3 +6,4 @@ export { DateTimePicker } from './DateTimePicker';
 export { Input } from './Input';
 export { MaskedInput } from './MaskedInput';
 export { VStepper } from './VStepper';
+export { DatePicker } from './DatePicker';

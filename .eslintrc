@@ -124,5 +124,16 @@
     "browser": true,
     "jest/globals": true,
     "cypress/globals": true
-  }
+  },
+
+  "overrides": [
+    {
+      "files": [
+        "demo/**"
+      ],
+      "rules": {
+        "no-console": "off"
+      }
+    }
+  ]
 }

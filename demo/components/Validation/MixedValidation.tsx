@@ -35,7 +35,7 @@ export const MixedValidation = (props: { title: string }) => {
         requiredMessage="required"
         // validator={val => (val.length > 5)}
         invalidMessage="val.length > 5"
-        onChange={(ev: React.ChangeEvent<HTMLInputElement>): void => {
+        onChange={(ev: L.InputTypes.ChangeEvent): void => {
           setValueI1(ev.component.value);
         }}
         value={valueI1}
@@ -59,7 +59,7 @@ export const MixedValidation = (props: { title: string }) => {
           'Moscow',
         ]}
         value={valueAC}
-        onChange={ev => setValueAC(ev.component.value)}
+        onChange={(ev) => setValueAC(ev.component.value)}
         placeholder="Type your city..."
         hasClearButton
         isRequired
@@ -70,7 +70,7 @@ export const MixedValidation = (props: { title: string }) => {
         mask="+7 (###) ###-##-##"
         placeholderChar="*"
         placeholder="Введите номер телефона"
-        onChange={ev => {
+        onChange={(ev) => {
           setValueM(ev.component.value);
           console.log('ev.component.value', ev.component.value);
         }}
@@ -93,7 +93,7 @@ export const MixedValidation = (props: { title: string }) => {
         requiredMessage="required"
         // validator={val => (val.length > 5)}
         invalidMessage="val.length > 5"
-        onChange={(ev: React.ChangeEvent<HTMLInputElement>): void => {
+        onChange={(ev: L.InputTypes.ChangeEvent): void => {
           setValueI2(ev.component.value);
         }}
         value={valueI2}
@@ -111,14 +111,14 @@ export const MixedValidation = (props: { title: string }) => {
             console.log('Successful click!');
           }
         }}
-        onValidationFail={ev => {
-          const invalidForm = ev.invalidForms.find(form => form.name === 'MixedValidation');
+        onValidationFail={(ev) => {
+          const invalidForm = ev.invalidForms.find((form) => form.name === 'MixedValidation');
           const firstInvalidFields = invalidForm?.fields
-            .filter(field => [
+            .filter((field) => [
               'input1',
             ].includes(field.name) && !field.isValid);
 
-          if (firstInvalidFields && firstInvalidFields.length > 0) {
+          if (firstInvalidFields?.length) {
             validate(refMasked);
             validate(refAC);
           } else {

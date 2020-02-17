@@ -1,373 +1,348 @@
-// @ts-nocheck
 import React from 'react';
-import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
-import { render } from '@testing-library/react';
+import {
+  getNodeText, render, screen,
+} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { DropDownSelect } from './index';
-import { Div } from '../Div';
 
 describe('DropDownSelect SNAPSHOTS', () => {
-  it('should render', () => {
+  test('should render', () => {
     const data = [
-      { txt: 'text1', val: 'value1' },
-      { txt: 'text2', val: 'value2' },
-      { txt: 'text3', val: 'value3' },
+      { id: 0, value: 'value0' },
+      { id: 1, value: 'value1' },
     ];
-    const wrapper = mount(<DropDownSelect data={data} onChange={jest.fn()} />);
+
+    const wrapper = render((
+      <DropDownSelect data={data} />
+    ));
 
     expect(wrapper).toMatchSnapshot();
   });
 
   describe('controllable mode', () => {
-    it('should render value', () => {
-      const dataObject = [
-        { txt: 'text1', val: 1 },
-        { txt: 'text2', val: 2 },
-        { txt: 'text3', val: 3 },
+    test('should render value', () => {
+      const data = [
+        { id: 0, value: 'value0' },
+        { id: 1, value: 'value1' },
       ];
 
-      const wrapper = mount(<DropDownSelect textField="txt" value={dataObject[0]} onChange={jest.fn()} data={dataObject} />);
+      const wrapper = render((
+        <DropDownSelect textField="value" value={data[0]} data={data} />
+      ));
 
-      expect(wrapper.props().value).toEqual(dataObject[0]);
-
-      expect(wrapper.find('input').props().value).toEqual('text1');
-
+      expect(screen.getByRole('textbox')).toHaveValue(data[0].value);
       expect(wrapper).toMatchSnapshot();
 
-      wrapper.setProps({ value: dataObject[1] });
+      wrapper.rerender((
+        <DropDownSelect textField="value" value={data[1]} data={data} />
+      ));
 
-      wrapper.update();
-
-      expect(wrapper.props().value).toEqual(dataObject[1]);
-
-      expect(wrapper.find('input').props().value).toEqual('text2');
-
-      expect(wrapper).toMatchSnapshot();
-
-      wrapper.setProps({ value: dataObject[2] });
-
-      wrapper.update();
-
-      expect(wrapper.props().value).toEqual(dataObject[2]);
-
-      expect(wrapper.find('input').props().value).toEqual('text3');
-
+      expect(screen.getByRole('textbox')).toHaveValue(data[1].value);
       expect(wrapper).toMatchSnapshot();
     });
 
-    it('should render data', () => {
-      const dataObject = [
-        { txt: 'textObj1', val: 1 },
-        { txt: 'textObj2', val: 2 },
-        { txt: 'textObj3', val: 3 },
+    test('should render data', () => {
+      const data = [
+        { id: 0, value: 'value0' },
+        { id: 1, value: 'value1' },
       ];
-      const dataString = [
-        'text1',
-        'text2',
-        'text3',
-      ];
+      const wrapper = render((
+        <DropDownSelect data={data.map((value) => value.value)} isOpen />
+      ));
 
-      const wrapper = mount(<DropDownSelect data={dataString} isOpen onChange={jest.fn()} />);
+      screen.getByRole('textbox').focus();
 
-      act(() => {
-        wrapper.find('input').props().onFocus();
-      });
-
-      wrapper.update();
-
-      expect(wrapper.find('li')).toHaveLength(3);
-
-      wrapper.find('li').forEach((el, index) => {
-        expect(el.text()).toEqual(dataString[index]);
-      });
-
+      expect(screen.getAllByRole('listitem')).toHaveLength(data.length);
+      expect(screen.getAllByRole('listitem').map(getNodeText)).toEqual(data.map((value) => value.value));
       expect(wrapper).toMatchSnapshot();
 
-      act(() => {
-        wrapper.find('input').props().onBlur();
-      });
+      screen.getByRole('textbox').blur();
 
-      wrapper.update();
+      wrapper.rerender((
+        <DropDownSelect data={data} textField="value" isOpen />
+      ));
 
-      wrapper.setProps({ data: dataObject, textField: 'txt' });
+      screen.getByRole('textbox').focus();
 
-      wrapper.update();
-
-      act(() => {
-        wrapper.find('input').props().onFocus();
-      });
-
-      wrapper.update();
-
-      wrapper.find('li').forEach((el, index) => {
-        expect(el.text()).toEqual(dataObject[index].txt);
-      });
-
+      expect(screen.getAllByRole('listitem')).toHaveLength(data.length);
+      expect(screen.getAllByRole('listitem').map(getNodeText)).toEqual(data.map((value) => value.value));
       expect(wrapper).toMatchSnapshot();
     });
   });
 
   describe('should test different component states', () => {
-    it('should be isOpen', () => {
+    test('should be isOpen', () => {
       const data = [
-        { txt: 'text1', val: 'value1' },
-        { txt: 'text2', val: 'value2' },
-        { txt: 'text3', val: 'value3' },
+        { id: 0, value: 'value0' },
+        { id: 1, value: 'value1' },
       ];
-      const wrapper = mount(<DropDownSelect textField="txt" data={data} isOpen onChange={jest.fn()} />);
 
-      expect(wrapper.find('li')).toHaveLength(3);
+      const wrapper = render((
+        <DropDownSelect textField="value" data={data} isOpen />
+      ));
 
+      expect(screen.getAllByRole('listitem')).toHaveLength(2);
       expect(wrapper).toMatchSnapshot();
     });
 
-    it('should be disabled', () => {
-      const wrapper = mount(<DropDownSelect data={['1']} isDisabled onChange={jest.fn()} />);
+    test('should be disabled', () => {
+      const wrapper = render((
+        <DropDownSelect data={['0']} isDisabled />
+      ));
 
-      expect(wrapper.find('input').props().disabled).toBeTruthy();
-
+      expect(screen.getByRole('textbox')).toBeDisabled();
       expect(wrapper).toMatchSnapshot();
     });
   });
 
   describe('multi-type attributes', () => {
     describe('data', () => {
-      it('should render string data', () => {
-        const dataString = ['value1', 'value2', 'value3'];
-        const wrapper = mount(<DropDownSelect data={dataString} isOpen onChange={jest.fn()} />);
+      test('should render string data', () => {
+        const data = ['value0', 'value1'];
 
-        expect(wrapper.find('li')).toHaveLength(3);
+        const wrapper = render((
+          <DropDownSelect data={data} isOpen />
+        ));
 
+        expect(screen.getAllByRole('listitem')).toHaveLength(2);
         expect(wrapper).toMatchSnapshot();
       });
 
-      it('should render object data', () => {
-        const dataObject = [
-          { text: 'text1', value: 'value1' },
-          { text: 'text2', value: 'value2' },
-          { text: 'text3', value: 'value3' },
+      test('should render object data', () => {
+        const data = [
+          { id: 0, value: 'value0' },
+          { id: 1, value: 'value1' },
         ];
 
-        const wrapper = mount(<DropDownSelect data={dataObject} textField="text" isOpen onChange={jest.fn()} />);
+        const wrapper = render((
+          <DropDownSelect data={data} textField="value" isOpen />
+        ));
 
-        expect(wrapper.find('li')).toHaveLength(3);
-
+        expect(screen.getAllByRole('listitem')).toHaveLength(2);
         expect(wrapper).toMatchSnapshot();
       });
     });
 
-    it('should render string placeholder', () => {
-      const wrapper = mount(<DropDownSelect data={['1']} placeholder="Choose..." onChange={jest.fn()} />);
+    test('should render string placeholder', () => {
+      const placeholder = 'placeholder';
 
-      expect(wrapper.find('input').props().placeholder).toEqual('Choose...');
+      const wrapper = render((
+        <DropDownSelect data={['0']} placeholder={placeholder} />
+      ));
 
+      expect(screen.getAllByPlaceholderText(placeholder)).toHaveLength(1);
       expect(wrapper).toMatchSnapshot();
     });
   });
 });
 
 describe('DropDownSelect HANDLERS', () => {
-  it('should trigger onChange and have correct event format', () => {
-    const onChange = jest.fn();
+  test('should trigger onChange and have correct event format', () => {
+    const onChangeHandler = jest.fn();
+    const name = 'name';
     const data = [
-      { text: 'text1', value: 'value1' },
-      { text: 'text2', value: 'value2' },
-      { text: 'text3', value: 'value3' },
+      { id: 0, value: 'value0' },
+      { id: 1, value: 'value1' },
     ];
-    const wrapper = mount(<DropDownSelect textField="text" name="ddselect" isOpen onChange={onChange} data={data} />);
-
-    act(() => {
-      wrapper.find('Li').at(1).props().onClick({ target: { value: 'value2', name: 'ddselect' } });
+    const eventMatcher = expect.objectContaining({
+      target: expect.objectContaining({
+        value: data[1],
+      }),
+      component: expect.objectContaining({
+        name,
+        value: data[1],
+      }),
     });
 
-    wrapper.update();
+    render((
+      <DropDownSelect textField="value" name={name} isOpen onChange={onChangeHandler} data={data} />
+    ));
 
-    expect(onChange).toHaveBeenCalled();
+    screen.getAllByRole('listitem')[1].click();
 
-    const [[event]] = onChange.mock.calls;
-
-    expect(event.target).toBeDefined();
-
-    expect(event.target.value).toEqual(data[1]);
-
-    expect(event.target.name).toEqual('ddselect');
+    expect(onChangeHandler).toBeCalledTimes(1);
+    expect(onChangeHandler).lastCalledWith(eventMatcher);
   });
 
-  it.skip('should trigger onFilterChange', () => {
-    const onFilterChange = jest.fn();
+  test.skip('should trigger onFilterChange', () => {
+    const onFilterChangeHandler = jest.fn();
+    const name = 'name';
+    const value = 'value';
     const data = [
-      { text: 'atext1', value: 'value1' },
-      { text: 'ctext2', value: 'value2' },
-      { text: 'btext3', value: 'value3' },
+      { id: 0, value: 'value0' },
+      { id: 1, value: 'value1' },
     ];
-
-    const wrapper = mount(<DropDownSelect hasFilter textField="text" name="ddselect" isOpen onFilterChange={onFilterChange} data={data} onChange={jest.fn()} />);
-
-    act(() => {
-      wrapper.find('input').last().props().onChange({ target: { value: 'value1', name: 'ddselect' } });
+    const eventMatcher = expect.objectContaining({
+      target: expect.objectContaining({
+        value,
+      }),
+      component: expect.objectContaining({
+        name,
+        value,
+      }),
     });
 
-    expect(onFilterChange).toHaveBeenCalled();
+    render((
+      <DropDownSelect hasFilter textField="value" name={name} isOpen onFilterChange={onFilterChangeHandler} data={data} />
+    ));
 
-    const [[event]] = onFilterChange.mock.calls;
+    screen.getByRole('textbox').focus();
+    userEvent.type(screen.getByRole('textbox'), value);
+    screen.getByRole('textbox').blur();
 
-    expect(event.target.value).toEqual('value1');
-
-    expect(event.target.name).toEqual('ddselect');
+    expect(onFilterChangeHandler).toBeCalledTimes(1);
+    expect(onFilterChangeHandler).lastCalledWith(eventMatcher);
   });
 });
 
 describe('DropDownSelect ATTRIBUTES', () => {
-  it('should have className, change classes through props and className should not change prop-classes', () => {
-    const wrapper = mount(<DropDownSelect data={['1']} onChange={jest.fn()} _box />);
+  test('should have className, change classes through props and className should not change prop-classes', () => {
+    const wrapper = render((
+      <DropDownSelect data={['0']} _box />
+    ));
 
-    expect(wrapper.find('Div.dropdownselect-wrapper').first().hasClass('box')).toBeTruthy();
+    expect(document.querySelectorAll('div.dropdownselect-wrapper.box')).toHaveLength(1);
 
-    wrapper.setProps({ _active: true, _box: false });
+    wrapper.rerender((
+      <DropDownSelect data={['0']} _active />
+    ));
 
-    expect(wrapper.find('Div.dropdownselect-wrapper').first().hasClass('box')).toBeFalsy();
+    expect(document.querySelectorAll('div.dropdownselect-wrapper.box')).toHaveLength(0);
+    expect(document.querySelectorAll('div.dropdownselect-wrapper.active')).toHaveLength(1);
 
-    expect(wrapper.find('Div.dropdownselect-wrapper').first().hasClass('active')).toBeTruthy();
+    wrapper.rerender((
+      <DropDownSelect data={['0']} _active className="testClass" />
+    ));
 
-    wrapper.setProps({ className: 'testClass' });
-
-    expect(wrapper.find('Div.dropdownselect-wrapper').first().hasClass('box')).toBeFalsy();
-
-    expect(wrapper.find('Div.dropdownselect-wrapper').first().hasClass('active')).toBeTruthy();
-
-    expect(wrapper.find('Div.dropdownselect-wrapper').first().hasClass('testClass')).toBeTruthy();
+    expect(document.querySelectorAll('div.dropdownselect-wrapper.box')).toHaveLength(0);
+    expect(document.querySelectorAll('div.dropdownselect-wrapper.active')).toHaveLength(1);
+    expect(document.querySelectorAll('div.dropdownselect-wrapper.testClass')).toHaveLength(1);
   });
 
-  it('should display loader if dataLoading', () => {
-    const wrapper = mount(<DropDownSelect data={['1']} isOpen isLoading onChange={jest.fn()} _box />);
+  test('should display loader if dataLoading', () => {
+    const wrapper = render((
+      <DropDownSelect data={['0']} isOpen isLoading _box />
+    ));
 
-    expect(wrapper.find('div.loader-wrapper')).toHaveLength(1);
-
-    expect(wrapper.find('span.loader-element')).toHaveLength(1);
-
+    expect(document.querySelectorAll('div.loader-wrapper')).toHaveLength(1);
+    expect(document.querySelectorAll('span.loader-element')).toHaveLength(1);
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should display noDataTemplate if no data', () => {
-    const nodata = <span className="nodata">No data we are sorry :((</span>;
-    const wrapper = mount(<DropDownSelect isOpen noSuggestionsRender={() => nodata} onChange={jest.fn()} _box />);
-    expect(wrapper.find('span.nodata').text()).toEqual('No data we are sorry :((');
+  test('should display noDataTemplate if no data', () => {
+    const value = 'no data we are sorry';
+    const noSuggestionsRender = () => (
+      <span className="nodata">{value}</span>
+    );
+    const wrapper = render((
+      <DropDownSelect isOpen noSuggestionsRender={noSuggestionsRender} _box />
+    ));
 
+    expect(document.querySelector('span.nodata')).toHaveTextContent(value);
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should display custom values with string data', () => {
-    const dataString = [
-      'one',
-      'two',
-      'three',
-    ];
-    const wrapper = mount(<DropDownSelect
-      data={dataString}
-      placeholder="Choose..."
+  test('should display custom values with string data', () => {
+    const data = ['one', 'two'];
+    const placeholder = 'placeholder';
+    const transform = (value: string) => `--${value}--`;
+    const itemRender = ({
+      Element, elementProps,
+    }: any) => (
+      <Element {...elementProps}>{transform(elementProps.children)}</Element>
+    );
+
+    const wrapper = render(<DropDownSelect
+      data={data}
+      placeholder="placeholder"
       isOpen
-      itemRender={({ Element, elementProps }) => <Element {...elementProps}>{`---${elementProps.children}`}</Element>}
-      onChange={jest.fn()}
+      itemRender={itemRender}
       shouldAllowEmpty
     />);
 
-    // placeholder тоже считается
-    expect(wrapper.find('li')).toHaveLength(4);
-
-    wrapper.find('li').forEach((el, index) => {
-      if (index !== 0) expect(el.text()).toEqual(`---${dataString[index - 1]}`);
-    });
-
+    expect(screen.getAllByRole('listitem')).toHaveLength(1 + data.length);
+    expect(screen.getAllByRole('listitem').map(getNodeText)).toEqual([placeholder, ...data].map(transform));
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should render custom values with object data', () => {
-    const dataObject = [
-      { txt: 'one', val: 1 },
-      { txt: 'two', val: 2 },
-      { txt: 'three', val: 3 },
+  test('should render custom values with object data', () => {
+    const data = [
+      { id: 0, value: 'value0' },
+      { id: 1, value: 'value1' },
     ];
-    const wrapper = mount(<DropDownSelect
-      data={dataObject}
-      placeholder="Choose..."
-      textField="txt"
-      isOpen
-      itemRender={({ elementProps }) => (
-        <Div className="custom-item">
-          {
-            `Item text: ${elementProps.children}`
-          }
-        </Div>
-      )}
-      onChange={jest.fn()}
-    />);
+    const transform = (value: string) => `--${value}--`;
+    const itemRender = ({
+      elementProps,
+    }: any) => (
+      <li {...elementProps}>{transform(elementProps.children)}</li>
+    );
 
-    wrapper.find('div.custom-item').forEach((item, index) => {
-      expect(item.text()).toEqual(`Item text: ${dataObject[index].txt}`);
-    });
+    const wrapper = render((
+      <DropDownSelect
+        data={data}
+        placeholder="placeholder"
+        textField="value"
+        isOpen
+        itemRender={itemRender}
+      />
+    ));
 
+    expect(screen.getAllByRole('listitem').map(getNodeText)).toEqual(data.map((value) => transform(value.value)));
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should display custom values with JSX', () => {
-    const dataString = [
-      'one',
-      'two',
-      'three',
-    ];
-    const wrapper = mount(<DropDownSelect
-      data={dataString}
-      placeholder="Choose..."
+  test('should display custom values with JSX', () => {
+    const data = ['one', 'two'];
+    const transform = (value: string) => `--${value}--`;
+    const itemRender = ({
+      elementProps,
+    }: any) => (
+      <li {...elementProps}>{transform(elementProps.children)}</li>
+    );
+
+    const wrapper = render(<DropDownSelect
+      data={data}
+      placeholder="placeholder"
       isOpen
-      itemRender={({ elementProps }) => <span className="test">{`---${elementProps.children}`}</span>}
-      onChange={jest.fn()}
+      itemRender={itemRender}
     />);
 
-    expect(wrapper.find('span.test')).toHaveLength(3);
-
-    wrapper.find('li').forEach((el, index) => {
-      expect(el.text()).toEqual(`---${dataString[index]}`);
-    });
-
+    expect(screen.getAllByRole('listitem').map(getNodeText)).toEqual(data.map(transform));
     expect(wrapper).toMatchSnapshot();
   });
 
   describe('compareObjectsBy', () => {
-    it('should set defaultValue as selected', () => {
+    test('should set defaultValue as selected', () => {
       const data = [
-        { txt: 'one', val: 1 },
-        { txt: 'two', val: 2 },
-        { txt: 'three', val: 3 },
-        { txt: 'four', val: 4 },
+        { id: 0, value: 'value0' },
+        { id: 1, value: 'value1' },
       ];
 
       render(
         <DropDownSelect
           data={data}
           isOpen
-          textField="txt"
-          defaultValue={{ txt: 'one', val: 1 }}
-          compareObjectsBy="val"
+          textField="value"
+          defaultValue={{ ...data[0] }}
+          compareObjectsBy="id"
         />,
       );
 
-      expect(document.querySelector('.selected').textContent).toEqual(data[0].txt);
+      expect(document.querySelector('li.selected')?.textContent).toEqual(data[0].value);
     });
 
     it('should not work if the string does not match data objects structure', () => {
       const data = [
-        { txt: 'one', val: 1 },
-        { txt: 'two', val: 2 },
-        { txt: 'three', val: 3 },
-        { txt: 'four', val: 4 },
+        { id: 0, value: 'value0' },
+        { id: 1, value: 'value1' },
       ];
 
       render(
         <DropDownSelect
           data={data}
           isOpen
-          textField="txt"
-          defaultValue={{ txt: 'one', val: 1 }}
+          textField="value"
+          defaultValue={{ ...data[0] }}
           compareObjectsBy="INVALID"
         />,
       );
@@ -377,39 +352,36 @@ describe('DropDownSelect ATTRIBUTES', () => {
 
     it('should use function as value', () => {
       const data = [
-        { txt: 'one', val: 1 },
-        { txt: 'two', val: 2 },
-        { txt: 'three', val: 3 },
-        { txt: 'four', val: 4 },
+        { id: 0, value: 'value0' },
+        { id: 1, value: 'value1' },
       ];
 
       render(
         <DropDownSelect
           data={data}
           isOpen
-          textField="txt"
-          defaultValue={{ txt: 'one', val: 1 }}
-          compareObjectsBy={(item) => item.val}
+          textField="value"
+          defaultValue={{ ...data[0] }}
+          compareObjectsBy={(item) => item.id}
         />,
       );
 
-      expect(document.querySelector('li.selected').textContent).toEqual(data[0].txt);
+      expect(document.querySelector('li.selected')?.textContent).toEqual(data[0].value);
     });
 
     it('should not work if function return value does not match data objects structure', () => {
       const data = [
-        { txt: 'one', val: 1 },
-        { txt: 'two', val: 2 },
-        { txt: 'three', val: 3 },
-        { txt: 'four', val: 4 },
+        { id: 0, value: 'value0' },
+        { id: 1, value: 'value1' },
       ];
 
       render(
         <DropDownSelect
           data={data}
           isOpen
-          textField="txt"
-          defaultValue={{ txt: 'one', val: 1 }}
+          textField="value"
+          defaultValue={{ ...data[0] }}
+          // @ts-ignore
           compareObjectsBy={(item) => item.INVALID}
         />,
       );
@@ -419,44 +391,34 @@ describe('DropDownSelect ATTRIBUTES', () => {
 
     it('should set value as selected', () => {
       const data = [
-        { txt: 'one', val: 1 },
-        { txt: 'two', val: 2 },
-        { txt: 'three', val: 3 },
-        { txt: 'four', val: 4 },
+        { id: 0, value: 'value0' },
+        { id: 1, value: 'value1' },
       ];
 
       render(
         <DropDownSelect
           data={data}
           isOpen
-          textField="txt"
-          value={{ txt: 'one', val: 1 }}
-          compareObjectsBy={(item) => item.val}
+          textField="value"
+          value={{ ...data[0] }}
+          compareObjectsBy={(item) => item.id}
         />,
       );
 
-      expect(document.querySelector('li.selected').textContent).toEqual(data[0].txt);
+      expect(document.querySelector('li.selected')?.textContent).toEqual(data[0].value);
     });
   });
 });
 
 describe('DropDownSelect VALIDATION', () => {
   it('should be invalid if component is isRequired, value is empty and onBlur was called', async () => {
-    const data = ['abc1', 'bcd2', 'cde3'];
-    const wrapper = mount(<DropDownSelect data={data} onBlur={jest.fn()} placeholder="Choose..." form="ddform" name="ddselect" isRequired onChange={jest.fn()} />);
+    render((
+      <DropDownSelect placeholder="placeholder" form="form" name="name" isRequired />
+    ));
 
-    act(() => {
-      wrapper.find('input').props().onFocus();
+    screen.getByRole('textbox').focus();
+    screen.getByRole('textbox').blur();
 
-      wrapper.find('input').props().onBlur();
-    });
-
-    await new Promise((resolve) => setTimeout(() => {
-      wrapper.update();
-
-      expect(wrapper.find('.dropdownselect-input-wrapper').first().hasClass('danger')).toBeTruthy();
-
-      resolve();
-    }, 0));
+    expect(document.querySelectorAll('div.dropdownselect-input-wrapper.danger')).toHaveLength(1);
   });
 });

@@ -135,6 +135,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     setLastCorrectValue,
     setStateValue,
     validateCurrent,
+    value,
   });
   const inputKeyDownHandler = inputKeyDownHandlerCreator({
     highlightedSuggestion,

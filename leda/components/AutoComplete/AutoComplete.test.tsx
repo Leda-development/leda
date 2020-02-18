@@ -283,16 +283,16 @@ describe('AutoComplete ATTRIBUTES', () => {
       expect(screen.getAllByRole('listitem').map(getNodeText)).toEqual(data.map((element) => element.text));
     });
   });
-  test('value adjustment', () => {
+  test('value adjustment to empty', () => {
     const onChangeHandler = jest.fn();
     const data = ['value1', 'value2'];
-    const newValue = 'new value';
+    const value = 'value';
     const eventMatcher = expect.objectContaining({
       target: expect.objectContaining({}),
       component: expect.objectContaining({
         method: 'type',
         name: 'name',
-        value: newValue,
+        value,
         suggestion: null,
       }),
     });
@@ -304,11 +304,43 @@ describe('AutoComplete ATTRIBUTES', () => {
         shouldCorrectValue
       />
     ));
-    userEvent.type(screen.getByRole('textbox'), 'new value', {
+    screen.getByRole('textbox').focus();
+    userEvent.type(screen.getByRole('textbox'), value, {
       allAtOnce: true,
     });
     expect(onChangeHandler).toBeCalledTimes(1);
     screen.getByRole('textbox').blur();
+    expect(screen.getByRole('textbox')).toHaveValue('');
+    expect(onChangeHandler).toBeCalledWith(eventMatcher);
+  });
+  test('value adjustment to data value', () => {
+    const onChangeHandler = jest.fn();
+    const data = ['value1', 'value2'];
+    const value = data[0];
+    const eventMatcher = expect.objectContaining({
+      target: expect.objectContaining({}),
+      component: expect.objectContaining({
+        method: 'type',
+        name: 'name',
+        value,
+        suggestion: value,
+      }),
+    });
+    render((
+      <AutoComplete
+        onChange={onChangeHandler}
+        data={data}
+        name="name"
+        shouldCorrectValue
+      />
+    ));
+    screen.getByRole('textbox').focus();
+    userEvent.type(screen.getByRole('textbox'), value, {
+      allAtOnce: true,
+    });
+    expect(onChangeHandler).toBeCalledTimes(1);
+    screen.getByRole('textbox').blur();
+    expect(screen.getByRole('textbox')).toHaveValue(value);
     expect(onChangeHandler).toBeCalledWith(eventMatcher);
   });
   test('data filtration', () => {

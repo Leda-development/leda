@@ -146,6 +146,7 @@ export const inputBlurHandlerCreator = ({
   setLastCorrectValue,
   setStateValue,
   validateCurrent,
+  value,
 }: {
   isValueControlled: boolean,
   lastCorrectValue: string,
@@ -154,6 +155,7 @@ export const inputBlurHandlerCreator = ({
   setLastCorrectValue: SetState<string>,
   setStateValue: SetState<string>,
   validateCurrent: () => boolean,
+  value?: string | null,
 }): React.FocusEventHandler<HTMLInputElement> => (event) => {
   const { shouldCorrectValue, onBlur, name } = props;
   const isValid = validateCurrent();
@@ -167,6 +169,7 @@ export const inputBlurHandlerCreator = ({
       props,
       setLastCorrectValue,
       setStateValue,
+      value,
     });
   }
 

@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.0.1-alpha.14] - 2020-02-19
+
+### Fixed
+- AutoComplete: shouldCorrectValue in uncontrolled mode
+
+
 ## [0.0.1-alpha.13] - 2020-02-14
 
 ### Added

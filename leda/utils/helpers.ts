@@ -16,6 +16,14 @@ export const getFileWordEnding = (number: number): string => {
   return 'ов';
 };
 
+/** Функция для подставления окончаний.
+ * Пример использования:
+ *  getPluralForm({
+      count: componentState.value.length,
+      one: 'значение',
+      two: 'значения',
+      five: 'значений',
+    })" */
 export const getPluralForm = ({
   count, one, two, five,
 }: GetPluralFormParams): string => {

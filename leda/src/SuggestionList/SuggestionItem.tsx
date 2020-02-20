@@ -72,6 +72,11 @@ export const SuggestionItem = (props: SuggestionItemProps): React.ReactElement =
           <SuggestionWrapper
             className={suggestionClassNames}
             onClick={handleClick}
+            ref={(component) => {
+              if (isScrollTarget) {
+                suggestionRef.current = (component?.wrapper || component) as HTMLElement;
+              }
+            }}
           >
             <CheckBox
               className={theme.checkBox}

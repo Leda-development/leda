@@ -301,7 +301,12 @@ export const createClearIconClickHandler = ({
     onChange(changeEvent);
   }
 
-  setState(mergeState({ filterValue: null, value: null, selectedSuggestion: null }));
+  setState(mergeState({
+    filterValue: null,
+    highlightedSuggestion: null,
+    selectedSuggestion: null,
+    value: null,
+  }));
 };
 
 export const createResetHandler = ({

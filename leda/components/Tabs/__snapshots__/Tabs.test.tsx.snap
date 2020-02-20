@@ -71,7 +71,6 @@ exports[`Tabs SNAPSHOTS should render 1`] = `
         </Heading>
         <Content
           className="tabs-content"
-          key="0"
         >
           <Div
             className="tabs-content"
@@ -81,6 +80,7 @@ exports[`Tabs SNAPSHOTS should render 1`] = `
             >
               <Component
                 activeTabKey={0}
+                key="0"
               >
                 Tab1
               </Component>

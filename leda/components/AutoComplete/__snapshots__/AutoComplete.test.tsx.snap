@@ -62,12 +62,12 @@ exports[`AutoComplete SNAPSHOTS should render different component states opened 
         <li
           class="suggestion-item"
         >
-          value1
+          value0
         </li>
         <li
           class="suggestion-item"
         >
-          value2
+          value1
         </li>
       </ul>
     </div>
@@ -109,12 +109,12 @@ exports[`AutoComplete SNAPSHOTS should render multi-type attributes data 1`] = `
         <li
           class="suggestion-item"
         >
-          value1
+          value0
         </li>
         <li
           class="suggestion-item"
         >
-          value2
+          value1
         </li>
       </ul>
     </div>
@@ -130,7 +130,7 @@ exports[`AutoComplete SNAPSHOTS should render multi-type attributes data 2`] = `
     <input
       aria-invalid="false"
       class="autocomplete-input"
-      value="text1"
+      value="value0"
     />
     <div
       class="suggestion-wrapper visible"
@@ -141,7 +141,7 @@ exports[`AutoComplete SNAPSHOTS should render multi-type attributes data 2`] = `
         <li
           class="suggestion-item"
         >
-          text1
+          value0
         </li>
       </ul>
     </div>

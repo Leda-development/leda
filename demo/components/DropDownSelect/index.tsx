@@ -14,6 +14,6 @@ export const DropDownSelect = () => (
     <EmptyValues title="Выбор пустого значения" />
     <GroupedObjectsData title="Сгруппированные списки" />
     <BoundingElementRef title="Позиционирование" />
-    <CompareObjectsBy title="CompareObjectsBy" />
+    <CompareObjectsBy title="Сравнение" />
   </Story>
 );

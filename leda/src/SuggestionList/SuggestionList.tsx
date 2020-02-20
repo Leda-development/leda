@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { isNil, isObject } from 'lodash';
-import { SomeObject } from '../../commonTypes';
 import { LedaContext } from '../../components/LedaProvider';
 import { Loader } from '../../components/Loader';
 import { Div, DivRefCurrent } from '../../components/Div';
@@ -8,7 +6,7 @@ import { Li } from '../../components/Li';
 import { Ul } from '../../components/Ul';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { useAdaptivePosition, useElement, useTheme } from '../../utils';
-import { getSuggestionItemProps, getText, scrollToSuggestion } from './helpers';
+import { getSuggestionItemProps, scrollToSuggestion } from './helpers';
 import { SuggestionItem } from './SuggestionItem';
 import { SuggestionListProps, GroupedSomeObject, Value } from './types';
 import { NoSuggestions } from './NoSuggestions';
@@ -69,7 +67,6 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
   );
 
   const wrapperRef = React.useRef<DivRefCurrent | null>(null);
-
   const containerRef = React.useRef<HTMLElement | null>(null);
   const suggestionRef = React.useRef<HTMLElement | null>(null);
 
@@ -94,29 +91,50 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
 
   // group suggestion list items if required
   React.useEffect((): void => {
-    // used to keep track of key and indexes in the result array
-    const indexByKey = new Map();
-    let currentResultIndex = 0;
-    const result: Value[] | GroupedSomeObject[] = data?.reduce((accumulator: Value[] | GroupedSomeObject[], dataItem: Value) => {
-      const key = groupBy ? groupBy(dataItem) : undefined;
-      if (!isNil(key)) {
-        if (indexByKey.get(key) === undefined) {
-          indexByKey.set(key, currentResultIndex);
+    // used to keep links
+    const dataItemsMap = new Map<string, Value[]>();
+    const newResultedData = data?.reduce<(Value | GroupedSomeObject)[]>((accumulator, dataValue) => {
+      const key = groupBy?.(dataValue);
+      if (key) {
+        const dataItems = dataItemsMap.get(key) || [];
+        if (dataItems.length) {
+          dataItems.push(dataValue);
+        } else {
+          dataItemsMap.set(key, dataItems);
           accumulator.push({
-            key,
-            dataItems: [],
+            key, dataItems,
           });
-          currentResultIndex += 1;
         }
-        (accumulator[indexByKey.get(key)] as GroupedSomeObject).dataItems.push(dataItem as SomeObject);
       } else {
-        (accumulator as Value[]).push(dataItem);
+        accumulator.push(dataValue);
       }
       return accumulator;
     }, []) ?? [];
 
-    setResultedData(result);
+    setResultedData(newResultedData);
   }, [data, groupBy, value]);
+
+  const renderSuggestion = React.useCallback((suggestionProp: Value | GroupedSomeObject) => {
+    const suggestionItemComputedProps = getSuggestionItemProps({
+      compareObjectsBy,
+      highlightedSuggestion,
+      placeholder,
+      selectedSuggestion,
+      suggestion: suggestionProp,
+      textField,
+    });
+
+    return (
+      <SuggestionItem
+        itemRender={itemRender}
+        onClick={onClick}
+        suggestionRef={suggestionRef}
+        textField={textField}
+        theme={theme}
+        {...suggestionItemComputedProps}
+      />
+    );
+  }, [compareObjectsBy, highlightedSuggestion, itemRender, onClick, placeholder, selectedSuggestion, textField, theme]);
 
   if (!isOpen) return null;
 
@@ -128,7 +146,7 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
     );
   }
 
-  if (!data || data.length === 0) {
+  if (!data?.length) {
     return (
       <Div className={theme.container} onMouseDown={(ev) => ev.preventDefault()} ref={wrapperRef}>
         <NoSuggestionsComponent className={theme.noSuggestions} />
@@ -136,7 +154,7 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
     );
   }
 
-  const suggestions: (Value | GroupedSomeObject)[] = !isNil(placeholder) && shouldAllowEmpty
+  const suggestions: (Value | GroupedSomeObject)[] = placeholder !== undefined && shouldAllowEmpty
     ? [placeholder, ...resultedData]
     : resultedData;
 
@@ -148,58 +166,20 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
           containerRef.current = component && component.wrapper;
         }}
       >
-        {suggestions?.map((suggestion: GroupedSomeObject | Value) => {
-          if (!isNil((suggestion as GroupedSomeObject).key)) {
+        {suggestions?.map((suggestion, index) => {
+          if ((suggestion as GroupedSomeObject)?.key) {
+            const groupedSomeObject = suggestion as GroupedSomeObject;
             return (
-              <GroupWrapper className={theme.group}>
+              <GroupWrapper className={theme.group} key={index}>
                 <GroupLabel className={theme.groupLabel}>
-                  {(suggestion as GroupedSomeObject).key}
+                  {groupedSomeObject.key}
                 </GroupLabel>
-
-                {(suggestion as GroupedSomeObject).dataItems.map((dataItem: Value) => {
-                  const suggestionItemComputedProps = getSuggestionItemProps({
-                    compareObjectsBy,
-                    highlightedSuggestion,
-                    placeholder,
-                    selectedSuggestion,
-                    suggestion: dataItem,
-                    textField,
-                  });
-
-                  return (
-                    <SuggestionItem
-                      itemRender={itemRender}
-                      onClick={onClick}
-                      suggestionRef={suggestionRef}
-                      textField={textField}
-                      theme={theme}
-                      {...suggestionItemComputedProps}
-                    />
-                  );
-                })}
+                {groupedSomeObject.dataItems.map(renderSuggestion)}
               </GroupWrapper>
             );
           }
 
-          const suggestionItemComputedProps = getSuggestionItemProps({
-            compareObjectsBy,
-            highlightedSuggestion,
-            placeholder,
-            selectedSuggestion,
-            suggestion,
-            textField,
-          });
-
-          return (
-            <SuggestionItem
-              itemRender={itemRender}
-              onClick={onClick}
-              suggestionRef={suggestionRef}
-              textField={textField}
-              theme={theme}
-              {...suggestionItemComputedProps}
-            />
-          );
+          return renderSuggestion(suggestion);
         })}
       </List>
     </Div>

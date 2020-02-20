@@ -23,21 +23,27 @@ export const Body = React.forwardRef((props: BodyProps, ref?: React.Ref<BodyRefC
     },
   }), [panelKey]);
 
-  const callOpenHandler = React.useCallback(() => onOpen?.(customEvent),
-    [onOpen, customEvent]);
+  const callOpenHandler = React.useCallback(() => {
+    onOpen?.(customEvent);
+  }, [onOpen, customEvent]);
 
   const callCloseHandler = React.useCallback(() => {
+    if (isClicked) {
+      onCloseByClick?.(customEvent);
+    }
+
     onClose?.(customEvent);
-    if (isClicked) onCloseByClick?.(customEvent);
-  },
-  [customEvent, isClicked, onClose, onCloseByClick]);
+  }, [customEvent, isClicked, onClose, onCloseByClick]);
 
   const handleRest = React.useCallback((): void => {
-    if (isExpanded) callOpenHandler();
-    else callCloseHandler();
+    if (isExpanded) {
+      callOpenHandler();
+    } else {
+      callCloseHandler();
+    }
+
     onBodyRest();
-  },
-  [callCloseHandler, callOpenHandler, isExpanded, onBodyRest]);
+  }, [callCloseHandler, callOpenHandler, isExpanded, onBodyRest]);
 
   const BodyWrapper = useBodyWrapper(props);
 
@@ -58,8 +64,7 @@ export const Body = React.forwardRef((props: BodyProps, ref?: React.Ref<BodyRefC
 
       handleRest?.();
     }
-  },
-  [handleRest, isExpanded, setIsCollapsedStyle, setIsExpandedStyle]);
+  }, [handleRest, isExpanded, setIsCollapsedStyle, setIsExpandedStyle]);
 
   const styles = React.useMemo(() => ({
     willChange: 'height',

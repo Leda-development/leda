@@ -9,19 +9,19 @@ const getHeight = (content: React.MutableRefObject<HTMLElement | undefined>) => 
 };
 
 export interface UseCollapseProps {
-  isOpen: boolean,
   content: React.MutableRefObject<HTMLElement | undefined>,
+  isOpen: boolean,
 }
 
-export const useCollapse = ({ isOpen, content }: UseCollapseProps) => {
+export const useCollapse = ({
+  content, isOpen,
+}: UseCollapseProps) => {
+  const [isFirstRender, setIsFirstRender] = React.useState(true);
   const [height, setHeight] = React.useState('0');
   const [overflow, setOverflow] = React.useState('hidden');
   const [visibility, setVisibility] = React.useState('hidden');
-  const [isFirstRender, setIsFirstRender] = React.useState(true);
 
   const setIsExpandedStyle = React.useCallback(() => {
-    setHeight('auto');
-    setOverflow('visible');
     setVisibility('visible');
   }, []);
 
@@ -31,39 +31,25 @@ export const useCollapse = ({ isOpen, content }: UseCollapseProps) => {
 
   React.useEffect(() => {
     if (isOpen) {
+      setHeight(isFirstRender ? 'auto' : getHeight(content));
       setVisibility('visible');
-      if (isFirstRender) {
-        setHeight('auto');
-      } else {
-        setHeight(getHeight(content));
-      }
     } else if (!isFirstRender) {
-      setHeight(getHeight(content));
-      // The magic: Set collapsed style after setting height to enable smooth transition based on height
-      window.requestAnimationFrame(() => {
-        // Setting these properties will start transition from measured height to 0
-        setTimeout(() => {
-          // Setting these properties will start transition from measured height to 0
-          setHeight('0');
-          setOverflow('hidden');
-        });
-      });
+      setHeight('0');
+      setOverflow('hidden');
     }
+
+    setIsFirstRender(false);
   }, [content, isFirstRender, isOpen]);
 
-  React.useEffect(() => {
-    setIsFirstRender(false);
-  }, []);
-
   const style = React.useMemo(() => ({
+    height,
     overflow,
     visibility,
-    height,
   }), [height, overflow, visibility]);
 
   return {
-    setIsExpandedStyle,
     setIsCollapsedStyle,
+    setIsExpandedStyle,
     style,
   };
 };

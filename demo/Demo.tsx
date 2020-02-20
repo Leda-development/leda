@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/label-has-for */
+import { hot } from 'react-hot-loader/root';
 import * as React from 'react';
 import * as L from '../leda';
 import {
@@ -9,10 +9,10 @@ import {
   Tabs, Tags, DropZone, Textarea, DateTimePicker, TimePicker,
   DateTimeRange, TimeRange, DropDownLink, Currency, Rating,
   Div, Table, Dl, FileUpload, HTMLTags, Validation, Navigation,
-  Collapsible, Collapse,VStepper, Button, Tooltip, FileDrop,
+  Collapsible, Collapse, VStepper, Button, Tooltip, FileDrop,
 } from './components';
 
-export const Demo = () => (
+export const Demo = hot(() => (
   <L.Div style={{ color: 'black' }} _wrapper>
     <Navigation />
     <L.Div _container>
@@ -70,4 +70,4 @@ export const Demo = () => (
       <VStepper />
     </L.Div>
   </L.Div>
-);
+));

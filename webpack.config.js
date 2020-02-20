@@ -13,10 +13,10 @@ module.exports = {
     publicPath: '/',
   },
   resolve: {
-    extensions: [
-      '.js', '.jsx',
-      '.ts', '.tsx',
-    ],
+    alias: {
+      'react-dom': '@hot-loader/react-dom',
+    },
+    extensions: ['.ts', '.tsx', '.js'],
     modules: [
       path.resolve('node_modules'),
     ],
@@ -40,11 +40,7 @@ module.exports = {
     historyApiFallback: true,
     host: '0.0.0.0',
     port: process.env.PORT || 9000,
-    contentBase: [
-      path.resolve('public'),
-    ],
-    compress: true,
-    open: false,
+    contentBase: path.resolve('public'),
     overlay: true,
     watchContentBase: true,
     watchOptions: {
@@ -52,15 +48,12 @@ module.exports = {
       poll: 1000,
     },
   },
-  optimization: {
-    usedExports: true,
-  },
   plugins: [
     new CircularDependencyPlugin({
       // exclude detection of files based on a RegExp
-      exclude: /node_modules/,
+      exclude: new RegExp('^' + path.resolve('node_modules')),
       // include specific files based on a RegExp
-      include: /leda/,
+      include: new RegExp('^' + path.resolve('leda')),
       // add errors to webpack instead of warnings
       failOnError: false,
       // allow import cycles that include an asyncronous import,

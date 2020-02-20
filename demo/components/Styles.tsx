@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-export const Styles = ({ theme }: any): React.ReactElement | null => {
+export const Styles = (props: {
+  theme?: string,
+}): React.ReactElement | null => {
   React.useEffect((): void => {
     const prestyles = document.getElementById('prestyles');
 
@@ -9,7 +11,7 @@ export const Styles = ({ theme }: any): React.ReactElement | null => {
     }
   }, []);
 
-  if (theme === 'Nova') {
+  if (props.theme === 'Nova') {
     return (
       <>
         <link rel="stylesheet" type="text/css" media="screen, projection" href="/demo/demo.css" />
@@ -34,7 +36,7 @@ export const Styles = ({ theme }: any): React.ReactElement | null => {
     );
   }
 
-  if (theme === 'Sber') {
+  if (props.theme === 'Sber') {
     return (
       <>
         <link rel="stylesheet" type="text/css" media="screen, projection" href="/demo/demo.css" />
@@ -61,7 +63,7 @@ export const Styles = ({ theme }: any): React.ReactElement | null => {
     );
   }
 
-  if (theme === 'Bootstrap') {
+  if (props.theme === 'Bootstrap') {
     return (
       <>
         <link rel="stylesheet" type="text/css" media="screen, projection" href="/demo/demo.css" />

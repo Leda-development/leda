@@ -10,7 +10,7 @@ describe('AutoComplete SNAPSHOTS', () => {
     const wrapper = render((
       <AutoComplete
         onChange={jest.fn()}
-        data={['value1', 'value2']}
+        data={['value0', 'value1']}
         value="value"
       />
     ));
@@ -20,7 +20,7 @@ describe('AutoComplete SNAPSHOTS', () => {
     const wrapper = render((
       <AutoComplete
         onChange={jest.fn()}
-        data={['value1', 'value2']}
+        data={['value0', 'value1']}
         value="value"
       />
     ));
@@ -32,22 +32,22 @@ describe('AutoComplete SNAPSHOTS', () => {
       const wrapper = render((
         <AutoComplete
           onChange={jest.fn()}
-          data={['value1', 'value2']}
+          data={['value0', 'value1']}
           value="value"
           isOpen
         />
       ));
       expect(wrapper.container).toMatchSnapshot();
       const data = [
-        { text: 'text1', value: 'value1' },
-        { text: 'text2', value: 'value2' },
+        { id: 0, value: 'value0' },
+        { id: 1, value: 'value1' },
       ];
       wrapper.rerender((
         <AutoComplete
           onChange={jest.fn()}
           data={data}
-          value={data[0].text}
-          textField="text"
+          value={data[0].value}
+          textField="value"
           isOpen
         />
       ));
@@ -59,7 +59,7 @@ describe('AutoComplete SNAPSHOTS', () => {
       const wrapper = render((
         <AutoComplete
           onChange={jest.fn()}
-          data={['value1', 'value2']}
+          data={['value0', 'value1']}
           value="value"
           readOnly
         />
@@ -71,7 +71,7 @@ describe('AutoComplete SNAPSHOTS', () => {
       const wrapper = render((
         <AutoComplete
           onChange={jest.fn()}
-          data={['value1', 'value2']}
+          data={['value0', 'value1']}
           value="value"
           isOpen
         />
@@ -87,7 +87,7 @@ describe('AutoComplete SNAPSHOTS', () => {
       const wrapper = render((
         <AutoComplete
           onChange={jest.fn()}
-          data={['value1', 'value2']}
+          data={['value0', 'value1']}
           value="value"
           isLoading
           isOpen
@@ -100,7 +100,7 @@ describe('AutoComplete SNAPSHOTS', () => {
       render((
         <AutoComplete
           onChange={jest.fn()}
-          data={['value1', 'value2']}
+          data={['value0', 'value1']}
           isDisabled
         />
       ));
@@ -110,7 +110,7 @@ describe('AutoComplete SNAPSHOTS', () => {
   });
   describe('should render validation', () => {
     test('validation', () => {
-      const data = ['value1', 'value2'];
+      const data = ['value0', 'value1'];
       const message = 'message';
       const validator = jest.fn((value: string) => value in data);
       const wrapper = render((
@@ -119,15 +119,12 @@ describe('AutoComplete SNAPSHOTS', () => {
           data={data}
           name="name"
           form="form"
-          // todo fix component props type
           invalidMessage={message}
-          validator={validator as any}
+          validator={validator}
         />
       ));
       screen.getByRole('textbox').focus();
-      userEvent.type(screen.getByRole('textbox'), 'value', {
-        allAtOnce: true,
-      });
+      userEvent.type(screen.getByRole('textbox'), 'value');
       screen.getByRole('textbox').blur();
       expect(validator).toBeCalledTimes(1);
       expect(screen.getByRole('textbox')).toBeInvalid();
@@ -140,7 +137,7 @@ describe('AutoComplete SNAPSHOTS', () => {
       const wrapper = render((
         <AutoComplete
           onChange={onChangeHandler}
-          data={['value1', 'value2']}
+          data={['value0', 'value1']}
           name="name"
           form="form"
           requiredMessage={message}
@@ -148,9 +145,7 @@ describe('AutoComplete SNAPSHOTS', () => {
         />
       ));
       screen.getByRole('textbox').focus();
-      userEvent.type(screen.getByRole('textbox'), '', {
-        allAtOnce: true,
-      });
+      userEvent.type(screen.getByRole('textbox'), '');
       // todo check event call condition
       expect(onChangeHandler).toBeCalledTimes(0);
       screen.getByRole('textbox').blur();
@@ -180,7 +175,7 @@ describe('AutoComplete HANDLERS', () => {
         onChange={jest.fn()}
         onFocus={onFocusHandler}
         onBlur={onBlurHandler}
-        data={['value1', 'value2']}
+        data={['value0', 'value1']}
         value="value"
         name="name"
       />
@@ -190,35 +185,35 @@ describe('AutoComplete HANDLERS', () => {
     screen.getByRole('textbox').blur();
     expect(screen.getByRole('textbox')).not.toHaveFocus();
     expect(onFocusHandler).toBeCalledTimes(1);
-    expect(onFocusHandler).toBeCalledWith(eventMatcher);
+    expect(onFocusHandler).lastCalledWith(eventMatcher);
     expect(onBlurHandler).toBeCalledTimes(1);
-    expect(onBlurHandler).toBeCalledWith(eventMatcher);
+    expect(onBlurHandler).lastCalledWith(eventMatcher);
   });
   test('change', () => {
     const onChangeHandler = jest.fn();
+    const formName = 'form name';
+    const oldValue = 'old value';
     const newValue = 'new value';
     const eventMatcher = expect.objectContaining({
       target: expect.objectContaining({
-        value: 'value',
+        value: oldValue,
       }),
       component: expect.objectContaining({
-        name: 'name',
+        name: formName,
         value: newValue,
       }),
     });
     render((
       <AutoComplete
         onChange={onChangeHandler}
-        data={['value1', 'value2']}
-        value="value"
-        name="name"
+        data={['value0', 'value1']}
+        value={oldValue}
+        name={formName}
       />
     ));
-    userEvent.type(screen.getByRole('textbox'), newValue, {
-      allAtOnce: true,
-    });
-    expect(onChangeHandler).toBeCalledTimes(1);
-    expect(onChangeHandler).toBeCalledWith(eventMatcher);
+    userEvent.type(screen.getByRole('textbox'), newValue);
+    expect(onChangeHandler).toBeCalledTimes(newValue.length);
+    expect(onChangeHandler).lastCalledWith(eventMatcher);
   });
 });
 
@@ -229,7 +224,7 @@ describe('AutoComplete ATTRIBUTES', () => {
         <AutoComplete
           className="test-class"
           onChange={jest.fn()}
-          data={['value1', 'value2']}
+          data={['value0', 'value1']}
         />
       ));
       expect(document.querySelectorAll('div.test-class')).toHaveLength(1);
@@ -239,7 +234,7 @@ describe('AutoComplete ATTRIBUTES', () => {
         <AutoComplete
           _danger
           onChange={jest.fn()}
-          data={['value1', 'value2']}
+          data={['value0', 'value1']}
         />
       ));
       expect(document.querySelectorAll('div.danger')).toHaveLength(1);
@@ -249,7 +244,7 @@ describe('AutoComplete ATTRIBUTES', () => {
         <AutoComplete
           _active
           onChange={jest.fn()}
-          data={['value1', 'value2']}
+          data={['value0', 'value1']}
         />
       ));
       expect(document.querySelectorAll('div.active')).toHaveLength(1);
@@ -257,7 +252,7 @@ describe('AutoComplete ATTRIBUTES', () => {
   });
   describe('should render data', () => {
     test('string type', () => {
-      const data = ['value1', 'value2'];
+      const data = ['value0', 'value1'];
       render((
         <AutoComplete
           onChange={jest.fn()}
@@ -269,30 +264,31 @@ describe('AutoComplete ATTRIBUTES', () => {
     });
     test('object type', () => {
       const data = [
-        { text: 'text1', value: 'value1' },
-        { text: 'text2', value: 'value2' },
+        { id: 0, value: 'value0' },
+        { id: 1, value: 'value1' },
       ];
       render((
         <AutoComplete
           onChange={jest.fn()}
           data={data}
-          textField="text"
+          textField="value"
           isOpen
         />
       ));
-      expect(screen.getAllByRole('listitem').map(getNodeText)).toEqual(data.map((element) => element.text));
+      expect(screen.getAllByRole('listitem').map(getNodeText)).toEqual(data.map((value) => value.value));
     });
   });
   test('value adjustment to empty', () => {
     const onChangeHandler = jest.fn();
-    const data = ['value1', 'value2'];
-    const value = 'value';
+    const data = ['value0', 'value1'];
+    const newValue = 'value';
     const eventMatcher = expect.objectContaining({
-      target: expect.objectContaining({}),
+      target: expect.objectContaining({
+        value: newValue,
+      }),
       component: expect.objectContaining({
         method: 'type',
-        name: 'name',
-        value,
+        value: newValue,
         suggestion: null,
       }),
     });
@@ -300,48 +296,43 @@ describe('AutoComplete ATTRIBUTES', () => {
       <AutoComplete
         onChange={onChangeHandler}
         data={data}
-        name="name"
         shouldCorrectValue
       />
     ));
     screen.getByRole('textbox').focus();
-    userEvent.type(screen.getByRole('textbox'), value, {
-      allAtOnce: true,
-    });
-    expect(onChangeHandler).toBeCalledTimes(1);
+    userEvent.type(screen.getByRole('textbox'), newValue);
+    expect(onChangeHandler).toBeCalledTimes(newValue.length);
+    expect(onChangeHandler).lastCalledWith(eventMatcher);
     screen.getByRole('textbox').blur();
     expect(screen.getByRole('textbox')).toHaveValue('');
-    expect(onChangeHandler).toBeCalledWith(eventMatcher);
   });
   test('value adjustment to data value', () => {
     const onChangeHandler = jest.fn();
-    const data = ['value1', 'value2'];
-    const value = data[0];
+    const data = ['value0', 'value1'];
+    const newValue = data[0];
     const eventMatcher = expect.objectContaining({
-      target: expect.objectContaining({}),
+      target: expect.objectContaining({
+        value: newValue,
+      }),
       component: expect.objectContaining({
         method: 'type',
-        name: 'name',
-        value,
-        suggestion: value,
+        value: newValue,
+        suggestion: newValue,
       }),
     });
     render((
       <AutoComplete
         onChange={onChangeHandler}
         data={data}
-        name="name"
         shouldCorrectValue
       />
     ));
     screen.getByRole('textbox').focus();
-    userEvent.type(screen.getByRole('textbox'), value, {
-      allAtOnce: true,
-    });
-    expect(onChangeHandler).toBeCalledTimes(1);
+    userEvent.type(screen.getByRole('textbox'), newValue);
+    expect(onChangeHandler).toBeCalledTimes(newValue.length);
+    expect(onChangeHandler).lastCalledWith(eventMatcher);
     screen.getByRole('textbox').blur();
-    expect(screen.getByRole('textbox')).toHaveValue(value);
-    expect(onChangeHandler).toBeCalledWith(eventMatcher);
+    expect(screen.getByRole('textbox')).toHaveValue(newValue);
   });
   test('data filtration', () => {
     const onChangeHandler = jest.fn();
@@ -355,16 +346,34 @@ describe('AutoComplete ATTRIBUTES', () => {
       />
     ));
     expect(screen.getAllByRole('listitem')).toHaveLength(3);
-    userEvent.type(screen.getByRole('textbox'), 'va', {
-      allAtOnce: true,
-    });
-    expect(onChangeHandler).toBeCalledTimes(1);
-    expect(screen.getAllByRole('listitem')).toHaveLength(2);
-    userEvent.type(screen.getByRole('textbox'), 'val', {
-      allAtOnce: true,
-    });
+    userEvent.type(screen.getByRole('textbox'), 'va');
     expect(onChangeHandler).toBeCalledTimes(2);
+    expect(screen.getAllByRole('listitem')).toHaveLength(2);
+    userEvent.type(screen.getByRole('textbox'), 'val');
+    expect(onChangeHandler).toBeCalledTimes(5);
     expect(screen.getAllByRole('listitem')).toHaveLength(1);
     expect(screen.getByRole('listitem')).toHaveTextContent(value);
+  });
+  test('compareObjectsBy', () => {
+    const onChangeHandler = jest.fn();
+    const newValue = 'value';
+    const data = [
+      { id: 0, name: 'value0' },
+      { id: 1, name: 'value1' },
+      { id: 2, name: newValue },
+      { id: 3, name: newValue },
+    ];
+    render((
+      <AutoComplete
+        onChange={onChangeHandler}
+        data={data}
+        textField="name"
+        compareObjectsBy="name"
+      />
+    ));
+    screen.getByRole('textbox').focus();
+    userEvent.type(screen.getByRole('textbox'), newValue);
+    expect(onChangeHandler).toBeCalledTimes(newValue.length);
+    expect(document.querySelectorAll('.selected')).toHaveLength(2);
   });
 });

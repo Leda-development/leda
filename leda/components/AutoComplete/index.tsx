@@ -34,6 +34,7 @@ import { useValidation } from '../Validation';
 export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: React.Ref<AutoCompleteRefCurrent>): React.ReactElement | null => {
   const {
     className,
+    compareObjectsBy,
     data,
     filterRule,
     footerRender,
@@ -196,6 +197,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
       )}
 
       <SuggestionList
+        compareObjectsBy={compareObjectsBy}
         data={suggestions}
         groupBy={groupBy}
         highlightedSuggestion={highlightedSuggestion}

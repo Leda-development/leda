@@ -225,6 +225,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
       </Div>
       {!isMaxItemsSelected && (
         <SuggestionList
+          compareObjectsBy={compareObjectsBy}
           data={filteredData}
           groupBy={groupBy}
           highlightedSuggestion={highlightedSuggestion}

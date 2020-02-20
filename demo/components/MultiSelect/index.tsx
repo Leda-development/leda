@@ -8,10 +8,10 @@ import { CompareObjectsBy } from './CompareObjectsBy';
 
 export const MultiSelect = (): React.ReactElement => (
   <Story title="MultiSelect">
+    <CompareObjectsBy title="Сравнение" />
     <DataTypes title="Разные типы data" />
     <Controlled title="Контролируемый режим" />
     <Customization title="Кастомизация" />
     <GroupedData title="Сгруппированные списки" />
-    <CompareObjectsBy title="Сравнение по полю" />
   </Story>
 );

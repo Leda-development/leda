@@ -3,15 +3,19 @@ import { SomeObject } from '../../../leda/commonTypes';
 import * as L from '../../../leda';
 
 const data = [
-  { id: 1, attr: 'value1', city: 'London' },
-  { id: 2, attr: 'value2', city: 'Berlin' },
-  { id: 3, attr: 'value3', city: 'Paris' },
-  { id: 4, attr: 'value4', city: 'Stockholm' },
-  { id: 5, attr: 'value5', city: 'Madrid' },
+  { id: 0, city: 'Moscow' },
+  { id: 0, city: 'Minsk' },
+  { id: 1, city: 'London' },
+  { id: 2, city: 'Berlin' },
+  { id: 3, city: 'Paris' },
+  { id: 4, city: 'Stockholm' },
+  { id: 5, city: 'Madrid' },
+  { id: 6, city: 'Madrid' },
 ];
 
+// eslint-disable-next-line
 export const CompareObjectsBy = (args: SomeObject): React.ReactElement => {
-  const [value, setValue] = React.useState<SomeObject>({ id: 1, attr: 'value1', city: 'London' });
+  const [value, setValue] = React.useState<SomeObject>({ id: 1, city: 'London' });
 
   return (
     <L.Div _box _inner _demoBg>
@@ -20,7 +24,7 @@ export const CompareObjectsBy = (args: SomeObject): React.ReactElement => {
         textField="city"
         value={value}
         placeholder="Choose a city"
-        compareObjectsBy="city"
+        compareObjectsBy="id"
         onChange={(ev) => {
           setValue(ev.component.value);
         }}
@@ -29,7 +33,7 @@ export const CompareObjectsBy = (args: SomeObject): React.ReactElement => {
       <br />
       <L.Button
         onClick={() => {
-          setValue({ id: 2, attr: 'value2', city: 'Berlin' })
+          setValue({ id: 2, city: 'Berlin' });
         }}
       >
         Set Berlin
@@ -41,12 +45,11 @@ export const CompareObjectsBy = (args: SomeObject): React.ReactElement => {
       </L.P>
       <L.DropDownSelect
         data={data}
-        isOpen
-        defaultValue={{ id: 2, attr: 'value2', city: 'Berlin' }}
+        defaultValue={{ id: 2, city: 'Berlin' }}
         textField="city"
-        compareObjectsBy={item => item.id}
+        compareObjectsBy={(item) => item.id}
         onChange={(ev) => {
-          console.log('ev.component.value', ev.component.value)
+          console.log('ev.component.value', ev.component.value);
         }}
       />
     </L.Div>

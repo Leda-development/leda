@@ -17,29 +17,44 @@ export const useCollapse = ({
   content, isOpen,
 }: UseCollapseProps) => {
   const [isFirstRender, setIsFirstRender] = React.useState(true);
-  const [height, setHeight] = React.useState('0');
-  const [overflow, setOverflow] = React.useState('hidden');
-  const [visibility, setVisibility] = React.useState('hidden');
-
-  const setIsExpandedStyle = React.useCallback(() => {
-    setVisibility('visible');
-  }, []);
+  const [height, setHeight] = React.useState(isOpen ? 'auto' : '0');
+  const [overflow, setOverflow] = React.useState(isOpen ? 'visible' : 'hidden');
+  const [visibility, setVisibility] = React.useState(isOpen ? 'visible' : 'hidden');
 
   const setIsCollapsedStyle = React.useCallback(() => {
     setVisibility('hidden');
   }, []);
 
+  const setIsExpandedStyle = React.useCallback(() => {
+    setHeight('auto');
+    setOverflow('visible');
+    setVisibility('visible');
+  }, []);
+
   React.useEffect(() => {
-    if (isOpen) {
-      setHeight(isFirstRender ? 'auto' : getHeight(content));
-      setVisibility('visible');
-    } else if (!isFirstRender) {
-      setHeight('0');
-      setOverflow('hidden');
+    if (isFirstRender) {
+      setIsFirstRender(false);
+      return;
     }
 
-    setIsFirstRender(false);
-  }, [content, isFirstRender, isOpen]);
+    setHeight(getHeight(content));
+
+    if (isOpen) {
+      setVisibility('visible');
+    } else {
+      setOverflow('hidden');
+      // set collapsed style after setting height to enable smooth transition based on height
+      window.requestAnimationFrame(() => {
+        // setting these properties will start transition from measured height to 0
+        setTimeout(() => {
+          // setting these properties will start transition from measured height to 0
+          setHeight('0');
+        });
+      });
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [content, isOpen]);
 
   const style = React.useMemo(() => ({
     height,

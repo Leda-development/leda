@@ -10,6 +10,9 @@ export const BasicUsage = (props: any): React.ReactElement => {
         onEnterPress={({ component }) => {
           console.log(component.name, component.value);
         }}
+        onChange={ev => {
+          console.log('ev.component', ev.component)
+        }}
       />
     </L.Div>
   );

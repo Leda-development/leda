@@ -52,7 +52,8 @@ export const GroupedData = (args: SomeObject): React.ReactElement => {
         onFocus={(ev) => update('Focus', ev)}
         placeholder="Choose cities you would like to visit!"
         isOpen={isOpen}
-        canSelectGroup={false}
+        canSelectGroup
+        compareObjectsBy="id"
         isLoading={isLoading}
         isRequired
         canSelectAll

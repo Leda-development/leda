@@ -21,7 +21,7 @@ import { TagsContainer } from './TagsContainer';
 import { Div } from '../Div';
 import { LedaContext } from '../LedaProvider';
 import { Tag } from '../Tags';
-import { filterData, getValue } from './helpers';
+import { filterData, getValue, groupData } from './helpers';
 
 export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React.Ref<MultiSelectRefCurrent>): React.ReactElement => {
   const {
@@ -90,6 +90,17 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
   const [isFocused, setFocused] = React.useState<boolean>(false);
 
   const inputRef = React.useRef<HTMLInputElement | null>(null);
+
+  const filteredData = hasCheckBoxes ? data : filterData({
+    compareObjectsBy,
+    data,
+    filterRule,
+    filterValue,
+    textField,
+    value,
+  });
+
+  const resultedData = groupData(filteredData, groupBy);
 
   const handleFocus = createFocusHandler(props, {
     value,
@@ -167,15 +178,6 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     props,
     state,
   );
-
-  const filteredData = hasCheckBoxes ? data : filterData({
-    compareObjectsBy,
-    data,
-    filterRule,
-    filterValue,
-    textField,
-    value,
-  });
 
   const TagsContainerCustomization = useElement(
     'TagsContainer',
@@ -263,6 +265,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
           textField={textField}
           theme={theme}
           value={value}
+          resultedData={resultedData}
         />
       )}
       {!isFocused && !isDisabled && <InvalidMessage />}

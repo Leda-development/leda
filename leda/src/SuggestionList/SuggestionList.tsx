@@ -18,7 +18,7 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
     canSelectGroup,
     compareObjectsBy,
     data,
-    groupBy,
+    resultedData,
     groupLabelRender,
     groupWrapperRender,
     hasCheckBoxes,
@@ -73,7 +73,7 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
   const containerRef = React.useRef<HTMLElement | null>(null);
   const suggestionRef = React.useRef<HTMLElement | null>(null);
 
-  const [resultedData, setResultedData] = React.useState<Value[] | GroupedSomeObject[]>([]);
+  // const [resultedData, setResultedData] = React.useState<Value[] | GroupedSomeObject[]>([]);
 
   const classMap = React.useMemo(() => ({
     top: theme.containerTop,
@@ -93,11 +93,11 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
   }, [isOpen, value, selectedSuggestion, highlightedSuggestion]);
 
   // group suggestion list items if required
-  React.useEffect((): void => {
-    // grouping data
+  // React.useEffect((): void => {
+  //   // grouping data
 
-    setResultedData(groupData(data, groupBy));
-  }, [data, groupBy, value]);
+  //   setResultedData(groupData(data, groupBy));
+  // }, [data, groupBy, value]);
 
   const renderSuggestion = React.useCallback((suggestionProp: Value | GroupedSomeObject) => {
     const suggestionItemComputedProps = getSuggestionItemProps({

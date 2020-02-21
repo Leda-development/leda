@@ -34,6 +34,7 @@ export interface SuggestionListProps {
   noSuggestionsRender?: CustomRender<SuggestionListProps, {}, NoSuggestionsProps>,
   onClick?: CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget>,
   placeholder?: string,
+  resultedData?: Value[] | GroupedSomeObject[],
   shouldAllowEmpty: boolean,
   textField?: string,
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.suggestionList],

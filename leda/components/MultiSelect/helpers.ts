@@ -1,9 +1,12 @@
-import { filterSuggestionByRule } from '../../utils';
+import isNil from 'lodash/isNil';
+import { filterSuggestionByRule, checkIsTheSameObject } from '../../utils';
 import { getText } from '../../src/SuggestionList/helpers';
 import {
   FilterDataParams, MultiSelectProps, Value,
 } from './types';
-import { checkIsTheSameObject } from '../../utils';
+
+import { GroupedSomeObject } from '../../src/SuggestionList/types';
+import { SomeObject } from '../../commonTypes';
 
 export const filterData = ({
   compareObjectsBy,
@@ -32,4 +35,28 @@ export const getValue = (valueProp: Value[] | null | undefined, valueState: Valu
   if (valueProp === null) return [];
 
   return valueProp;
+};
+
+
+export const groupData = (data: Value[] | undefined, groupBy: ((option: Value) => string | undefined) | undefined): Value[] | GroupedSomeObject[] => {
+  // used to keep track of key and indexes in the result array
+  const indexByKey = new Map();
+  let currentResultIndex = 0;
+  return data?.reduce((accumulator: Value[] | GroupedSomeObject[], dataItem: Value) => {
+    const key = groupBy ? groupBy(dataItem) : undefined;
+    if (!isNil(key)) {
+      if (indexByKey.get(key) === undefined) {
+        indexByKey.set(key, currentResultIndex);
+        accumulator.push({
+          key,
+          dataItems: [],
+        });
+        currentResultIndex += 1;
+      }
+      (accumulator[indexByKey.get(key)] as GroupedSomeObject).dataItems.push(dataItem as SomeObject);
+    } else {
+      (accumulator as Value[]).push(dataItem);
+    }
+    return accumulator;
+  }, []) ?? [];
 };

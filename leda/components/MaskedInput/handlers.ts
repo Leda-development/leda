@@ -21,14 +21,15 @@ export const createChangeHandler = (
       ...ev,
       component: {
         name,
-        value: ev.target.value,
+        inputValue: ev.component.inputValue,
+        value: ev.component.value,
       },
     };
 
     onChange(customEvent as ChangeEvent);
   }
 
-  if (valueProp === undefined) setValue(ev.target.value);
+  if (valueProp === undefined) setValue(ev.component.value);
 };
 
 export const createBlurHandler = (

@@ -38,6 +38,29 @@ export const scrollToSuggestion = (
   if (offset) containerRef.current.scrollBy?.(0, offset);
 };
 
+export const groupData = (data: Value[] | undefined, groupBy: ((option: Value) => string | undefined) | undefined): Value[] | GroupedSomeObject[] => {
+  // used to keep track of key and indexes in the result array
+  const indexByKey = new Map();
+  let currentResultIndex = 0;
+  return data?.reduce((accumulator: Value[] | GroupedSomeObject[], dataItem: Value) => {
+    const key = groupBy ? groupBy(dataItem) : undefined;
+    if (!isNil(key)) {
+      if (indexByKey.get(key) === undefined) {
+        indexByKey.set(key, currentResultIndex);
+        accumulator.push({
+          key,
+          dataItems: [],
+        });
+        currentResultIndex += 1;
+      }
+      (accumulator[indexByKey.get(key)] as GroupedSomeObject).dataItems.push(dataItem as SomeObject);
+    } else {
+      (accumulator as Value[]).push(dataItem);
+    }
+    return accumulator;
+  }, []) ?? [];
+};
+
 export const getSuggestionItemProps = ({
   compareObjectsBy,
   suggestion,

@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.0.3] - 2020-02-25
+
+### Fixed
+- MaskedInput: ChangeEvent type
+
+
 ## [0.0.2] - 2020-02-23
 
 ### Fixed

@@ -64,7 +64,7 @@ export const DateRange = (): React.ReactElement => {
           value={value1}
           name={['firstDatePicker', "secondDatePicker"]}
           placeholder={["Type your date...", "Type something...",]}
-          isRequired={[true, false]}
+          isRequired={[false, true]}
           isDisabled={[true, false]}
           form="111"
         />
@@ -92,7 +92,8 @@ export const DateRange = (): React.ReactElement => {
           format='dd.MM.yyyy'
           onBlur={(ev) => testFunction(ev)}
           name='ThirdDateRange'
-          isOpen={[true, true]}
+          isRequired
+          form="112"
         />
 
         <L.DateRange
@@ -119,7 +120,7 @@ export const DateRange = (): React.ReactElement => {
           name='disabledCalendar'
           onChange={handleChange5}
           value={value5}
-          isDisabled={[true, false]}
+          isDisabled
           isOpen={[true, false]}
         />
 
@@ -132,7 +133,7 @@ export const DateRange = (): React.ReactElement => {
           value={value6}
           name='MinMaxDatePickerOpened'
           placeholder="Type your date..."
-          isOpen={[null, true]}
+          isDisabled={[false, true]}
         />
         <L.Button _success
           form="111"

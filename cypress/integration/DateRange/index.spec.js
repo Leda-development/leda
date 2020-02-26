@@ -14,7 +14,7 @@ describe('DateRange', () => {
       .find('.daterange-delimiter')
       .should('have.length', 6)
   })
-  it.only('MinMaxTest', () => {
+  it('MinMaxTest', () => {
     cy.name('MinMaxDatePicker-from')
       .parent()
       .parent()
@@ -28,9 +28,7 @@ describe('DateRange', () => {
       .find('div.calendar-date-cell[title="12 апреля 2012"]')
       .click()
       .name('MinMaxDatePicker-from')
-      .should('have.value','12.04.2012')
-      .parents('.datepicker-wrapper')
-      .parent()
+      .should('have.value', '12.04.2012')
       .name('MinMaxDatePicker-to')
       .parent()
       .parent()
@@ -62,4 +60,57 @@ describe('DateRange', () => {
       .find('div.calendar-date-cell.disabled-date')
       .should('have.length', 18)
   })
+
+  describe('States', () => {
+    it('should be disabled when isDisabled', () => {
+      cy.name('firstDatePicker')
+        .should('be.disabled')
+        .should('have.attr', 'disabled')
+        .name('disabledCalendar-from')
+        .should('be.disabled')
+        .should('have.attr', 'disabled')
+        .name('disabledCalendar-to')
+        .should('be.disabled')
+        .should('have.attr', 'disabled')
+    })
+
+    it('should be is open when isOpen', () => {
+      cy.name('MinMaxDatePicker-to')
+        .parents()
+        .children('.calendar-wrapper')
+        .should('be.visible')
+        .name('MinMaxDatePicker-from')
+        .parents()
+        .children('.calendar-wrapper')
+        .should('be.visible')
+    })
+
+    it('should be is open when isRequired', () => {
+      cy.name('ThirdDateRange-to')
+      .should('have.attr', 'aria-required', 'true')
+        .name('ThirdDateRange-from')
+        .should('have.attr', 'aria-required', 'true')
+        .name('secondDatePicker')
+        .should('have.attr', 'aria-required', 'true')
+        .focus()
+        .blur()
+        .parent()
+        .should('have.class', 'danger')
+      })
+  })
+    describe('Display', () => {
+    it('Placeholders', () => {
+      cy.name('firstDatePicker')
+        .should('have.attr', 'placeholder', 'Type your date...')
+        .name('secondDatePicker')
+        .should('have.attr', 'placeholder', 'Type something...')
+        .name('MinMaxDatePickerOpened-to')
+        .should('have.attr', 'placeholder', 'Type your date...')
+    })
+    it('Values', () => {
+      cy.name('openedCalendar-to')
+      .should('have.attr', 'value', '11-е число  22-го месяца  33__-го года')
+    })
+  })
+
 })

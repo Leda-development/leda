@@ -122,6 +122,22 @@ exports[`LEDA THEME PROVIDER should be isOpen 1`] = `
             isLoading={false}
             isOpen={true}
             onClick={[Function]}
+            resultedData={
+              Array [
+                Object {
+                  "txt": "text1",
+                  "val": "value1",
+                },
+                Object {
+                  "txt": "text2",
+                  "val": "value2",
+                },
+                Object {
+                  "txt": "text3",
+                  "val": "value3",
+                },
+              ]
+            }
             selectedSuggestion={null}
             shouldAllowEmpty={false}
             textField="txt"

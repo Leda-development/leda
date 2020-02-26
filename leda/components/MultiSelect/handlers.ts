@@ -79,7 +79,7 @@ export const createSelectHandler = (
   } = extraData;
 
   const shouldRemoveValue = (value as (string | number | SomeObject)[]).includes(ev.target.value);
-  const groupItems: SomeObject[] = (data as SomeObject[]).filter((item) => ((item as SomeObject)?.groupName && (item as SomeObject)?.groupName === (ev.target.value as GroupedSomeObject).key));
+  const groupItems: SomeObject[] = (data as SomeObject[]).filter((item) => (item?.groupName && item?.groupName === (ev.target.value as GroupedSomeObject).key));
   const shouldRemoveGroupValues = groupItems?.some((item) => (value as SomeObject[]).includes(item));
   const shouldRemoveAllValues = data?.length === value.length;
 
@@ -97,7 +97,6 @@ export const createSelectHandler = (
     }
 
     if ((ev.target.value as GroupedSomeObject)?.dataItems) {
-      (ev.target.value as GroupedSomeObject).isSelected = true;
       return [...value, ...(ev.target.value as GroupedSomeObject).dataItems];
     }
 
@@ -174,7 +173,15 @@ export const createKeyDownHandler = (
   } = props;
 
   const {
-    filterValue, highlightedSuggestion, setHighlightedSuggestion, handleSelect, value, setFocused,
+    filterValue,
+    highlightedSuggestion,
+    setHighlightedSuggestion,
+    handleSelect,
+    value,
+    setFocused,
+    resultedData,
+    canSelectAll,
+    hasCheckBoxes,
   } = extraData;
 
   if (!data) return;
@@ -188,17 +195,31 @@ export const createKeyDownHandler = (
     compareObjectsBy,
   }) || [];
 
-  const highlightedItem = (filteredData as (string | number | SomeObject)[]).find((item) => item === highlightedSuggestion);
+  const dataForHighlight: Value[] | GroupedSomeObject[] = hasCheckBoxes ? (resultedData as (Value | GroupedSomeObject)[])
+    .reduce((acc: Value[] | GroupedSomeObject[], val: Value | GroupedSomeObject) => {
+      const groupedSomeObjectValue = val as GroupedSomeObject;
+
+      if (groupedSomeObjectValue.key) {
+        acc.push(groupedSomeObjectValue);
+        groupedSomeObjectValue.dataItems.forEach((item: Value) => (acc as Value[]).push(item));
+        return acc;
+      }
+
+      (acc as Value[]).push(val);
+      return acc;
+    }, canSelectAll ? ['Выбрать все'] : []) : filteredData;
+
+  const highlightedItem = (dataForHighlight as (string | number | SomeObject)[]).find((item) => item === highlightedSuggestion);
   // текущий индекс
-  const currentIndex = (filteredData as (string | number | SomeObject)[]).indexOf(highlightedItem || '');
+  const currentIndex = (dataForHighlight as (string | number | SomeObject)[]).indexOf(highlightedItem || '');
 
   if (ev.key === 'ArrowDown' || ev.key === 'Down') {
     // предотвращаем скролл страницы
     ev.preventDefault();
     // новый индекс, механизм работает как барабан
-    const nextIndex = (currentIndex + 1) % filteredData.length;
+    const nextIndex = (currentIndex + 1) % dataForHighlight.length;
 
-    const newHighlightedSuggestion = filteredData[nextIndex];
+    const newHighlightedSuggestion = dataForHighlight[nextIndex];
 
     setHighlightedSuggestion(newHighlightedSuggestion);
 
@@ -210,12 +231,12 @@ export const createKeyDownHandler = (
     ev.preventDefault();
     // новый индекс, механизм работает как барабан
     const nextIndex = (() => {
-      if (currentIndex <= 0) return filteredData.length - 1;
+      if (currentIndex <= 0) return dataForHighlight.length - 1;
 
       return currentIndex - 1;
     })();
 
-    const newHighlightedSuggestion = filteredData[nextIndex];
+    const newHighlightedSuggestion = dataForHighlight[nextIndex];
 
     setHighlightedSuggestion(newHighlightedSuggestion);
 

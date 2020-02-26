@@ -6,7 +6,7 @@ import {
 } from '../../commonTypes';
 import { ValidationProps } from '../Validation/types';
 import { FilterRules } from '../DropDownSelect/types';
-import { SuggestionListProps, SuggestionTarget } from '../../src/SuggestionList/types';
+import { SuggestionListProps, SuggestionTarget, GroupedSomeObject } from '../../src/SuggestionList/types';
 import { DivProps } from '../Div';
 import { TagProps } from '../Tags/types';
 
@@ -212,4 +212,7 @@ export interface KeyDownData {
   setFocused: SetState<boolean>,
   setHighlightedSuggestion: SetState<Value>,
   value: MultiSelectValue,
+  resultedData: Value[] | GroupedSomeObject[],
+  canSelectAll: boolean | undefined,
+  hasCheckBoxes: boolean | undefined,
 }

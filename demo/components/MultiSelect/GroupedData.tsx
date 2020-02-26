@@ -24,7 +24,7 @@ const MSData = [
   {
     city: 'Rome', groupName: 'Italy', id: 6, attr: 'value6',
   },
-  { city: 'London', val: 12 },
+  { city: 'London', attr: 'value7', id: 77 },
   { city: 'Islamabad', id: 7, attr: 'value7' },
   { city: 'Washington', id: 8, attr: 'value8' },
   { city: 'Paris', id: 9, attr: 'value9' },

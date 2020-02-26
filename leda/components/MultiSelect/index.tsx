@@ -21,7 +21,8 @@ import { TagsContainer } from './TagsContainer';
 import { Div } from '../Div';
 import { LedaContext } from '../LedaProvider';
 import { Tag } from '../Tags';
-import { filterData, getValue } from './helpers';
+import { filterData, getValue, groupData } from './helpers';
+import { GroupedSomeObject } from '../../src/SuggestionList/types';
 
 export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React.Ref<MultiSelectRefCurrent>): React.ReactElement => {
   const {
@@ -89,6 +90,8 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
 
   const [isFocused, setFocused] = React.useState<boolean>(false);
 
+  const [resultedData, setResultedData] = React.useState<Value[] | GroupedSomeObject[]>([]);
+
   const inputRef = React.useRef<HTMLInputElement | null>(null);
 
   const handleFocus = createFocusHandler(props, {
@@ -110,6 +113,20 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     setFilterValue,
   });
 
+  // group suggestion list items if required
+  React.useEffect((): void => {
+    const valueForFilterData = getValue(valueProp, valueState);
+    // grouping data
+    setResultedData(groupData(hasCheckBoxes ? data : filterData({
+      compareObjectsBy,
+      data,
+      filterRule,
+      filterValue,
+      textField,
+      value: valueForFilterData,
+    }), groupBy));
+  }, [data, groupBy, valueState, valueProp, hasCheckBoxes, compareObjectsBy, filterRule, filterValue, textField]);
+
   const handleKeyDown = createKeyDownHandler(props, {
     filterValue,
     highlightedSuggestion,
@@ -117,6 +134,9 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     setFocused,
     setHighlightedSuggestion,
     value,
+    resultedData,
+    canSelectAll,
+    hasCheckBoxes,
   });
 
   const handleClear = createClearHandler(props, {
@@ -168,6 +188,14 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     state,
   );
 
+  const TagsContainerCustomization = useElement(
+    'TagsContainerCustomization',
+    TagsContainer,
+    tagsContainerRender || multiSelectRenders.tagsContainerRender,
+    props,
+    state,
+  );
+
   const filteredData = hasCheckBoxes ? data : filterData({
     compareObjectsBy,
     data,
@@ -177,20 +205,11 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     value,
   });
 
-  const TagsContainerCustomization = useElement(
-    'TagsContainer',
-    TagsContainer,
-    tagsContainerRender || multiSelectRenders.tagsContainerRender,
-    props,
-    state,
-  );
-
   const isMaxItemsSelected = !isNil(maxSelected) && value.length >= maxSelected;
 
   React.useEffect((): void => {
     if (maxSelected && (canSelectAll || canSelectGroup)) {
-      // eslint-disable-next-line no-console
-      console.log("You can't set `maxSelected` and one of `canSelectAll` or `canSelectGroup` together");
+      console.error("You can't set `maxSelected` and one of `canSelectAll` or `canSelectGroup` together");
     }
   }, [canSelectAll, canSelectGroup, maxSelected]);
 
@@ -246,9 +265,9 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
       </Div>
       {(!isMaxItemsSelected || shouldOpenWhenMaxSelectedReached) && (
         <SuggestionList
+          resultedData={resultedData}
           compareObjectsBy={compareObjectsBy}
           data={filteredData}
-          groupBy={groupBy}
           hasCheckBoxes={hasCheckBoxes}
           highlightedSuggestion={highlightedSuggestion}
           canSelectAll={canSelectAll}

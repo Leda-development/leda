@@ -8,7 +8,7 @@ export const DateRange = (): React.ReactElement => {
   const [value4, setValue4] = React.useState<[string, string]>(['', '']);
   const [value5, setValue5] = React.useState<[string, string]>(['', '']);
   const [value6, setValue6] = React.useState<[string, string]>(['', '']);
-  
+
   const handleChange1 = (ev) => {
     const { value, date } = ev.component;
     console.log(value);
@@ -56,8 +56,9 @@ export const DateRange = (): React.ReactElement => {
   </link>)
   return (
     <L.Div>
-      <L.Div _demoStory _flexRow>
+      <L.Div _demoStory _flexRow _justifyContentBetween _grow1>
         <L.DateRange
+          _grow1
           onChange={handleChange1}
           onEnterPress={(ev) => testFunction(ev)}
           value={value1}
@@ -65,51 +66,65 @@ export const DateRange = (): React.ReactElement => {
           placeholder={["Type your date...", "Type something...",]}
           isRequired={[true, false]}
           isDisabled={[true, false]}
-          form = "111"
+          form="111"
         />
 
         <L.DateRange
+          _grow1
           max={new Date('05.04.2012')}
           min={new Date('04.03.2012')}
           onChange={handleChange2}
           onEnterPress={(ev) => testFunction(ev)}
           name='MinMaxDatePicker'
           placeholder="Type your date..."
+          isOpen={[true, true]}
         />
+      </L.Div>
 
+      <div style={{
+        height: '190px',
+      }} />
+
+      <L.Div _demoStory _flexRow _justifyContentBetween _grow1>
         <L.DateRange
+          _grow1
           onChange={handleChange3}
           format='dd.MM.yyyy'
           onBlur={(ev) => testFunction(ev)}
-          name = 'ThirdDateRange'
+          name='ThirdDateRange'
+          isOpen={[true, true]}
         />
 
-      </L.Div>
-      <div style={{
-        height: '30vh',
-      }} />
-
-      <L.Div _demoStory _flexRow>
         <L.DateRange
+          _grow1
           format="dd-е число  MM-го месяца  yyyy-го года"
-          name = 'openedCalendar'
+          name='openedCalendar'
           onChange={handleChange4}
           value={[value4[0], "11.22.33"]}
           onFocus={(ev) => testFunction(ev)}
           isOpen
           isDisabled={[true, false]}
         />
+      </L.Div>
 
+      <div style={{
+        height: '190px',
+      }} />
+
+
+      <L.Div _demoStory _flexRow _justifyContentBetween _grow1>
         <L.DateRange
+          _grow1
           format="dd-е число  MM-го месяца  yyyy-го года"
-          name = 'disabledCalendar'
+          name='disabledCalendar'
           onChange={handleChange5}
           value={value5}
           isDisabled={[true, false]}
           isOpen={[true, false]}
         />
-       
+
         <L.DateRange
+          _grow1
           max={new Date('05.04.2012')}
           min={new Date('05.03.2012')}
           onChange={handleChange6}
@@ -119,10 +134,14 @@ export const DateRange = (): React.ReactElement => {
           placeholder="Type your date..."
           isOpen={[null, true]}
         />
-         <L.Button _success
-          form = "111"
-          >success!</L.Button>
+        <L.Button _success
+          form="111"
+        >success!</L.Button>
       </L.Div>
+      <div style={{
+        height: '190px',
+      }} />
+
     </L.Div>
   )
 };

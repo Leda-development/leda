@@ -20,6 +20,7 @@ import { COMPONENT_TYPES } from '../DateTimeInput/constants';
 import { MaskedInputBaseProps } from '../MaskedInputBase/types';
 
 export interface DateTimeInputRangeProps {
+  boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement }>,
   className?: string,
   max?: Date,
   min?: Date,
@@ -31,6 +32,7 @@ export interface DateTimeInputRangeProps {
   isRequired?: boolean | [boolean, boolean],
   format?: string,
   form?: string,
+  requiredMessage?: string | [string, string],
   type?: Values<typeof COMPONENT_TYPES>,
   value?: [string, string] | [Date | null, Date | null],
   placeholder?: string | [string | undefined, string | undefined],

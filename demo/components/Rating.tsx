@@ -11,7 +11,7 @@ export const Rating = () => {
     <L.Div _demoStory>
       <L.H4 _title>Rating</L.H4>
       <L.Div>
-        <L.Rating max={10} value={value} {...props} onChange={ev => setValue(ev.component.value)} />
+        <L.Rating max={10} value={value} {...props} onChange={(ev) => setValue(ev.component.value)} />
         <br />
         <br />
         <Span>Кастомизация иконок: </Span>
@@ -20,10 +20,10 @@ export const Rating = () => {
           max={10}
           value={value}
           {...props}
-          onChange={ev => setValue(ev.component.value)}
+          onChange={(ev) => setValue(ev.component.value)}
           iconRender={({
             elementProps: { className },
-          }) => <Span _ratingEmpty _ratingFilled={className && className.includes('filled')} />}
+          }) => <Span _ratingEmpty _ratingFilled={className?.includes('filled')} />}
         />
       </L.Div>
       <br />

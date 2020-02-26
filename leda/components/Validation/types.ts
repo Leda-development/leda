@@ -81,6 +81,7 @@ export type PredefinedValidator =
   | 'innPrivate'
   | 'postalCode'
   | 'snils'
+  | 'url'
   | 'ogrn'
   | 'ogrnIp'
   | 'kpp'

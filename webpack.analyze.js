@@ -6,11 +6,14 @@ module.exports = {
     main: './demo/index.tsx',
   },
   output: {
+    path: path.resolve('dist', 'demo'),
     filename: '[name].js',
-    path: path.resolve('./dist/demo'),
   },
   resolve: {
-    extensions: ['.js', '.ts', '.tsx', '.jsx'],
+    extensions: [
+      '.js', '.jsx',
+      '.ts', '.tsx',
+    ],
   },
   module: {
     rules: [
@@ -21,7 +24,7 @@ module.exports = {
             loader: 'ts-loader',
             options: {
               transpileOnly: true,
-            }
+            },
           },
         ],
       },

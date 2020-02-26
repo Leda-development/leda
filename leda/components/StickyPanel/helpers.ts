@@ -1,5 +1,5 @@
 import { isNil } from 'lodash';
-import { CreatePanelPositionUpdater, PageScroll } from './types';
+import { CreatePanelPositionUpdater } from './types';
 
 // Получение размеров окна
 export const getWindowHeight = (): number => document.documentElement.clientHeight;
@@ -41,10 +41,11 @@ export const isParentEndVisible = (offsetTopProp: number, parentElement: HTMLEle
 };
 
 export const createPanelPositionUpdater: CreatePanelPositionUpdater = (
-  updateState,
   offsetTop,
   panelPosition,
   panelRef,
+  setPanelPosition,
+  setPanelStyles,
 ) => (reRenderIfFixed = true) => {
   const parentElement = panelRef.current && panelRef.current.parentElement && panelRef.current.parentElement.parentElement;
 
@@ -61,10 +62,8 @@ export const createPanelPositionUpdater: CreatePanelPositionUpdater = (
   // Если виден только нижний край parent или parent не отображается вообще
   if (isEndVisible || isParentNotVisible) {
     if (panelPosition !== 'bottom') {
-      updateState({
-        panelPosition: 'bottom',
-        panelStyles: {},
-      });
+      setPanelPosition('bottom');
+      setPanelStyles({});
     }
   } else if (isStartVisible || isMiddleVisible) {
     if (panelPosition !== 'fixed' || reRenderIfFixed) {
@@ -74,12 +73,10 @@ export const createPanelPositionUpdater: CreatePanelPositionUpdater = (
 
       const panelWrapperRect = panelWrapper.getBoundingClientRect();
 
-      updateState({
-        panelPosition: 'fixed',
-        panelStyles: {
-          left: `${panelWrapperRect.left}px`,
-          width: `${panelWrapperRect.width}px`,
-        },
+      setPanelPosition('fixed');
+      setPanelStyles({
+        left: panelWrapperRect.left,
+        width: panelWrapperRect.width,
       });
     }
   }

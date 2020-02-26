@@ -11,6 +11,7 @@ import { useAdaptivePosition } from '../../utils';
 
 export const Calendar = (props: CalendarProps): React.ReactElement | null => {
   const {
+    boundingContainerRef,
     hasTodayButton,
     isOpen = false,
     isDisabled,
@@ -41,6 +42,7 @@ export const Calendar = (props: CalendarProps): React.ReactElement | null => {
 
   // смена позиции календаря при скролле/открытии
   useAdaptivePosition({
+    boundingContainerRef,
     elRef: calendarRef,
     isOpen,
     classNames: classMap,

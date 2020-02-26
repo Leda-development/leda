@@ -2,7 +2,7 @@
   &-wrapper {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 
     & > .datepicker-wrapper {
       flex-grow: 1;

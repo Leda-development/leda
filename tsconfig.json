@@ -6,7 +6,7 @@
     "module": "esnext",
     "sourceMap": true,
     "strict": true,
-    "target": "es2017",
+    "target": "es5",
     "jsx": "react",
     "incremental": false,
     "checkJs": false,
@@ -14,18 +14,11 @@
       "./types",
       "./node_modules/@types"
     ],
-    "baseUrl": ".",
-    "paths": {
-      "*": [
-        "types/*",
-        "*"
-      ],
-      "react": ["node_modules/react"]
-    },
     "lib": ["dom", "dom.iterable", "esnext"],
     "outDir": "./dist",
     "declaration": true,
-    "newLine": "LF"
+    "newLine": "LF",
+    "downlevelIteration": true
   },
   "exclude": [
     "node_modules",

@@ -2,7 +2,6 @@ import * as React from 'react';
 import {
   CustomRender, DataObject, CustomEventHandler,
 } from '../../commonTypes';
-import { DropDownLinkItem } from './DropDownLinkItem';
 import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 
@@ -10,8 +9,8 @@ export type Value = DataObject | string | number;
 
 export interface ClickEvent<T = Value> extends React.MouseEvent<HTMLElement> {
   component: {
-    value: T,
     name?: string,
+    value: T,
   },
 }
 
@@ -22,7 +21,7 @@ export interface ChangeEvent<T = Value> extends React.ChangeEvent<HTMLElement> {
   },
 }
 
-export interface DropDownLinkProps extends Omit<React.HTMLAttributes<HTMLElement>, 'onChange'> {
+export interface DropDownLinkProps<T extends Value = Value> extends Omit<React.HTMLAttributes<HTMLElement>, 'onChange'> {
   /** Дополнительные классы компонента */
   className?: string,
   /** Данные для отображения в списке.
@@ -36,7 +35,7 @@ export interface DropDownLinkProps extends Omit<React.HTMLAttributes<HTMLElement
   /** Обработчик выбора элемента */
   onChange: (event: ChangeEvent) => void,
   /** Имя поля объекта, данные из которого будут рендериться в качестве элементов списка */
-  textField?: string,
+  textField?: T extends object ? string : never,
   /** Тема для компонента */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.dropDownLink],
   /** Функция для кастомизации текущего значения */
@@ -46,7 +45,7 @@ export interface DropDownLinkProps extends Omit<React.HTMLAttributes<HTMLElement
   /** Реф */
   ref?: React.Ref<DropDownLinkRefCurrent>,
   /** Устанавливает текущее значение */
-  value: Value,
+  value: T,
 }
 
 export interface DropDownLinkItemProps {
@@ -58,7 +57,7 @@ export interface DropDownLinkItemProps {
   textField: string,
 }
 
-export type DropDownLinkType = React.FC<DropDownLinkProps> & { Item?: typeof DropDownLinkItem };
+export type DropDownLinkType = React.FC<DropDownLinkProps> & { Item?: React.FC<DropDownLinkItemProps> };
 
 export interface ItemProps {
   children?: React.ReactNode,

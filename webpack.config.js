@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 
@@ -8,12 +7,19 @@ module.exports = {
   entry: {
     main: './demo/index.tsx',
   },
-  resolve: {
-    extensions: ['.js', '.ts', '.tsx', '.jsx'],
-  },
   output: {
+    path: path.resolve('dist', 'demo'),
     filename: '[name].js',
-    path: path.resolve('./dist/demo'),
+    publicPath: '/',
+  },
+  resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom',
+    },
+    extensions: ['.ts', '.tsx', '.js'],
+    modules: [
+      path.resolve('node_modules'),
+    ],
   },
   module: {
     rules: [
@@ -31,29 +37,23 @@ module.exports = {
     ],
   },
   devServer: {
-    contentBase: [
-      path.join(__dirname, 'public'),
-    ],
-    port: 9000,
-    compress: true,
-    open: false,
-    overlay: true,
     historyApiFallback: true,
+    host: '0.0.0.0',
+    port: process.env.PORT || 9000,
+    contentBase: path.resolve('public'),
+    overlay: true,
     watchContentBase: true,
     watchOptions: {
       aggregateTimeout: 300,
       poll: 1000,
     },
   },
-  optimization: {
-    usedExports: true,
-  },
   plugins: [
     new CircularDependencyPlugin({
       // exclude detection of files based on a RegExp
-      exclude: /node_modules/,
+      exclude: new RegExp('^' + path.resolve('node_modules')),
       // include specific files based on a RegExp
-      include: /leda/,
+      include: new RegExp('^' + path.resolve('leda')),
       // add errors to webpack instead of warnings
       failOnError: false,
       // allow import cycles that include an asyncronous import,

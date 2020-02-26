@@ -5,6 +5,7 @@ import { EmptyValues } from './EmptyValues';
 import { Filterable } from './Filterable';
 import { GroupedObjectsData } from './GroupedObjectsData';
 import { BoundingElementRef } from './BoundingElementRef';
+import { CompareObjectsBy } from './CompareObjectsBy';
 
 export const DropDownSelect = () => (
   <Story title="DropDownSelect">
@@ -13,5 +14,6 @@ export const DropDownSelect = () => (
     <EmptyValues title="Выбор пустого значения" />
     <GroupedObjectsData title="Сгруппированные списки" />
     <BoundingElementRef title="Позиционирование" />
+    <CompareObjectsBy title="Сравнение" />
   </Story>
 );

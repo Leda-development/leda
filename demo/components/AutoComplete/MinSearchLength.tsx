@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as L from '../../../leda';
 import { StateButtonGroup } from '../StateButtonGroup';
 
+// eslint-disable-next-line
 export const MinSearchLength = (componentProps: any) => {
   const [props, setProps] = React.useState({});
   const [value, setValue] = React.useState('');
@@ -23,7 +24,7 @@ export const MinSearchLength = (componentProps: any) => {
         ]}
         value={value}
         textField="city"
-        onChange={ev => setValue(ev.component.value)}
+        onChange={(ev) => setValue(ev.component.value)}
         placeholder="Type your city..."
         minSearchLength={0}
         hasClearButton

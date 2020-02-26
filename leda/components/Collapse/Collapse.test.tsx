@@ -1,12 +1,41 @@
-// @ts-nocheck
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React from 'react';
-import toJson from 'enzyme-to-json';
-import { mount } from 'enzyme';
-
+import { render } from '@testing-library/react';
 import { Collapse } from './index';
 import { Div } from '../Div';
 import { H1 } from '../Headers';
+
+// todo mock css transitions
+
+jest.useFakeTimers();
+
+const MockComponent = () => {
+  const [panels, setPanels] = React.useState<string | string[] | null>(['1', '2']);
+
+  return (
+    <Collapse
+      onSelect={(event) => setPanels(event.component.value)}
+      activePanelKey={panels}
+    >
+      <Collapse.Panel panelKey="1">
+        <Collapse.Heading>
+          <H1>HEADING 1</H1>
+        </Collapse.Heading>
+        <Collapse.Body>
+          <Div className="test-1">SOME FIRST TEST</Div>
+        </Collapse.Body>
+      </Collapse.Panel>
+      <Collapse.Panel panelKey="2">
+        <Collapse.Heading>
+          <H1>HEADING 2</H1>
+        </Collapse.Heading>
+        <Collapse.Body>
+          <Div className="test-2">SOME SECOND TEST</Div>
+        </Collapse.Body>
+      </Collapse.Panel>
+    </Collapse>
+  );
+};
 
 describe('Collapse SNAPSHOTS', () => {
   it('should render closed state', () => {
@@ -17,16 +46,19 @@ describe('Collapse SNAPSHOTS', () => {
             <H1>HEADING</H1>
           </Collapse.Heading>
           <Collapse.Body>
-            <Div>SOME TEST</Div>
+            <Div id="test">SOME TEST</Div>
           </Collapse.Body>
         </Collapse.Panel>
       </Collapse>
     );
 
-    const wrapper = mount(component);
+    const wrapper = render(component);
 
-    expect((wrapper.find('.react-css-collapse-transition').first().props()).isOpen).toBeFalsy();
-    expect(toJson(wrapper)).toMatchSnapshot();
+    const body = document.getElementById('test')?.parentElement;
+
+    expect(body?.getAttribute('aria-expanded')).toEqual('false');
+
+    expect(wrapper.container).toMatchSnapshot();
   });
 
   it('should render opened state', () => {
@@ -43,65 +75,50 @@ describe('Collapse SNAPSHOTS', () => {
       </Collapse>
     );
 
-    const wrapper = mount(component);
+    const wrapper = render(component);
 
-    expect(wrapper.find('div').last().text()).toEqual('SOME TEST');
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(wrapper.queryByText('SOME TEST')).toBeInTheDocument();
+
+    expect(wrapper.container).toMatchSnapshot();
   });
 
   describe('multi-opened state in controlled mode', () => {
-    const component = (
-      <Collapse isAccordion onSelect={jest.fn()} activePanelKey={['1', '2']}>
-        <Collapse.Panel panelKey="1">
-          <Collapse.Heading>
-            <H1>HEADING 1</H1>
-          </Collapse.Heading>
-          <Collapse.Body>
-            <Div className="test-1">SOME FIRST TEST</Div>
-          </Collapse.Body>
-        </Collapse.Panel>
-        <Collapse.Panel panelKey="2">
-          <Collapse.Heading>
-            <H1>HEADING 2</H1>
-          </Collapse.Heading>
-          <Collapse.Body>
-            <Div className="test-2">SOME SECOND TEST</Div>
-          </Collapse.Body>
-        </Collapse.Panel>
-      </Collapse>
-    );
-
-
-    const collapse = 'Collapse.react-css-collapse-transition';
-
     it('should render both bodies opened', () => {
-      const wrapper = mount(component);
+      const wrapper = render(<MockComponent />);
 
-      expect((wrapper.find(collapse).first().props()).isOpen).toBeTruthy();
+      const one = wrapper.getByText('SOME FIRST TEST');
 
-      expect((wrapper.find(collapse).last().props()).isOpen).toBeTruthy();
+      expect(one.parentElement?.getAttribute('aria-expanded')).toEqual('true');
 
-      expect(toJson(wrapper)).toMatchSnapshot();
+      const two = wrapper.getByText('SOME SECOND TEST');
+
+      expect(two.parentElement?.getAttribute('aria-expanded')).toEqual('true');
+
+      expect(wrapper.container).toMatchSnapshot();
 
       wrapper.unmount();
     });
 
     it('should render only first body opened', () => {
-      const wrapper = mount(component);
+      const wrapper = render(<MockComponent />);
 
-      wrapper.setProps({ activePanelKey: '1' });
+      wrapper.getByText('HEADING 2').click();
 
-      expect((wrapper.find(collapse).first().props()).isOpen).toBeTruthy();
+      const one = wrapper.getByText('SOME FIRST TEST');
 
-      expect((wrapper.find(collapse).last().props()).isOpen).toBeFalsy();
+      expect(one.parentElement?.getAttribute('aria-expanded')).toEqual('true');
 
-      expect(toJson(wrapper)).toMatchSnapshot();
+      const two = wrapper.getByText('SOME SECOND TEST');
+
+      expect(two.parentElement?.getAttribute('aria-expanded')).toEqual('false');
+
+      expect(wrapper.container).toMatchSnapshot();
 
       wrapper.unmount();
     });
   });
 
-  describe('multi-opened state in uncontrolled mode', () => {
+  describe('accordion state in uncontrolled mode', () => {
     const component = (
       <Collapse isAccordion>
         <Collapse.Panel panelKey="1">
@@ -123,30 +140,36 @@ describe('Collapse SNAPSHOTS', () => {
       </Collapse>
     );
 
-    const collapse = 'Collapse.react-css-collapse-transition';
-
     it('should render both bodies closed', () => {
-      const wrapper = mount(component);
+      const wrapper = render(component);
 
-      expect((wrapper.find(collapse).first().props()).isOpen).toBeFalsy();
+      const one = wrapper.getByText('SOME FIRST TEST');
 
-      expect((wrapper.find(collapse).last().props()).isOpen).toBeFalsy();
+      expect(one.parentElement?.getAttribute('aria-expanded')).toEqual('false');
 
-      expect(toJson(wrapper)).toMatchSnapshot();
+      const two = wrapper.getByText('SOME SECOND TEST');
+
+      expect(two.parentElement?.getAttribute('aria-expanded')).toEqual('false');
+
+      expect(wrapper.container).toMatchSnapshot();
 
       wrapper.unmount();
     });
 
     it('should render only first body opened', () => {
-      const wrapper = mount(component);
+      const wrapper = render(component);
 
-      (wrapper.find('.head-1 Div').first().props()).onClick({ component: {} });
+      wrapper.getByText('HEADING 1').click();
 
-      wrapper.update();
+      const one = wrapper.getByText('SOME FIRST TEST');
 
-      expect((wrapper.find(collapse).first().props()).isOpen).toBeTruthy();
+      expect(one.parentElement?.getAttribute('aria-expanded')).toEqual('true');
 
-      expect((wrapper.find(collapse).last().props()).isOpen).toBeFalsy();
+      const two = wrapper.getByText('SOME SECOND TEST');
+
+      expect(two.parentElement?.getAttribute('aria-expanded')).toEqual('false');
+
+      expect(wrapper.container).toMatchSnapshot();
 
       wrapper.unmount();
     });
@@ -166,10 +189,11 @@ describe('Collapse SNAPSHOTS', () => {
       </Collapse>
     );
 
-    const wrapper = mount(component);
+    const wrapper = render(component);
 
-    expect(wrapper.find('Loader')).toHaveLength(1);
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(document.querySelector('.loader-wrapper')).toBeInTheDocument();
+
+    expect(wrapper.container).toMatchSnapshot();
   });
 });
 
@@ -190,66 +214,70 @@ describe('Collapse HANDLERS', () => {
       </Collapse>
     );
 
-    const wrapper = mount(component);
+    const wrapper = render(component);
 
-    (wrapper.find('Div').first().props()).onClick({ component: {} });
+    wrapper.getByText('HEADING').click();
+
     expect(onSelectHandler).toHaveBeenCalled();
   });
 });
 
 describe('Collapse ATTRIBUTES', () => {
   it('should be opened if activePanelKey equals panelKey', () => {
-    let wrapper;
+    const MyTestingComponent = () => {
+      const [panels, setPanels] = React.useState<string | string[] | null>([]);
 
-    const onSelectHandler = jest.fn((ev) => {
-      const panelKey = ev.component.value;
-      wrapper.setProps({ activePanelKey: panelKey });
-    });
+      return (
+        <Collapse isAccordion onSelect={(event) => setPanels(event.component.value)} activePanelKey={panels}>
+          <Collapse.Panel panelKey="1">
+            <Collapse.Heading>
+              <H1>HEADING 1</H1>
+            </Collapse.Heading>
+            <Collapse.Body>
+              <Div className="first">SOME FIRST TEST</Div>
+            </Collapse.Body>
+          </Collapse.Panel>
+          <Collapse.Panel panelKey="2">
+            <Collapse.Heading>
+              <H1>HEADING 2</H1>
+            </Collapse.Heading>
+            <Collapse.Body>
+              <Div className="second">SOME SECOND TEST</Div>
+            </Collapse.Body>
+          </Collapse.Panel>
+        </Collapse>
+      );
+    };
 
-    const component = (
-      <Collapse onSelect={onSelectHandler}>
-        <Collapse.Panel panelKey="1">
-          <Collapse.Heading>
-            <H1>HEADING 1</H1>
-          </Collapse.Heading>
-          <Collapse.Body>
-            <Div className="first">SOME FIRST TEST</Div>
-          </Collapse.Body>
-        </Collapse.Panel>
-        <Collapse.Panel panelKey="2">
-          <Collapse.Heading>
-            <H1>HEADING 2</H1>
-          </Collapse.Heading>
-          <Collapse.Body>
-            <Div className="second">SOME SECOND TEST</Div>
-          </Collapse.Body>
-        </Collapse.Panel>
-      </Collapse>
-    );
+    const wrapper = render(<MyTestingComponent />);
 
-    wrapper = mount(component);
+    const one = wrapper.getByText('SOME FIRST TEST');
+
+    const two = wrapper.getByText('SOME SECOND TEST');
 
     // Collapse should be closed when mounted
-    expect((wrapper.find('.react-css-collapse-transition').first().props()).isOpen).toBeFalsy();
-    expect((wrapper.find('.react-css-collapse-transition').at(2).props()).isOpen).toBeFalsy();
-    // Collapse should open first panel if heading was clicked
-    wrapper.find('H1').first().parent().props()
-      .onClick({ component: {} });
+    expect(one.parentElement?.getAttribute('aria-expanded')).toEqual('false');
 
-    expect(wrapper.find('.first').last().text()).toEqual('SOME FIRST TEST');
+    expect(two.parentElement?.getAttribute('aria-expanded')).toEqual('false');
+
+    // Collapse should open first panel if heading was clicked
+    wrapper.getByText('HEADING 1').click();
+
+    expect(one.parentElement?.getAttribute('aria-expanded')).toEqual('true');
 
     // Collapse should close previous panel and open different if its heading was clicked
-    wrapper.find('H1').last().parent().props()
-      .onClick({ component: {} });
+    wrapper.getByText('HEADING 2').click();
 
-    expect(wrapper.find('.second').last().text()).toEqual('SOME SECOND TEST');
+    expect(one.parentElement?.getAttribute('aria-expanded')).toEqual('false');
+
+    expect(two.parentElement?.getAttribute('aria-expanded')).toEqual('true');
   });
 
   describe('wrapper', () => {
     describe('usage Div as a wrapper', () => {
       it('should wrap Collapse.Heading', () => {
         const component = (
-          <Collapse onSelect={jest.fn()}>
+          <Collapse>
             <Collapse.Panel panelKey="1">
               <Collapse.Heading wrapperRender={() => <Div className="test" _box _active><span>SHOOT MYSELF IN THE LEG!</span></Div>}>
                 <H1>HEADING 1</H1>
@@ -260,15 +288,10 @@ describe('Collapse ATTRIBUTES', () => {
             </Collapse.Panel>
           </Collapse>
         );
-        const wrapper = mount(component);
 
-        expect(wrapper.find('.test').last().hasClass('box')).toBeTruthy();
+        const wrapper = render(component);
 
-        expect(wrapper.find('.test').last().hasClass('active')).toBeTruthy();
-
-        expect(wrapper.find('.test').last().children().contains(<span>SHOOT MYSELF IN THE LEG!</span>)).toBeTruthy();
-
-        expect(wrapper.find('.test').last().children().contains(<H1>HEADING 1</H1>)).toBeFalsy();
+        expect(wrapper.queryByText('SHOOT MYSELF IN THE LEG!')).toBeInTheDocument();
       });
 
       it('should wrap Collapse.Body', () => {
@@ -284,15 +307,12 @@ describe('Collapse ATTRIBUTES', () => {
             </Collapse.Panel>
           </Collapse>
         );
-        const wrapper = mount(component);
 
-        expect(wrapper.find('.test').last().hasClass('box')).toBeTruthy();
+        const wrapper = render(component);
 
-        expect(wrapper.find('.test').last().hasClass('active')).toBeTruthy();
+        expect(wrapper.queryByText('SHOOT MYSELF IN THE LEG!')).toBeInTheDocument();
 
-        expect(wrapper.find('.test').last().children().contains(<span>SHOOT MYSELF IN THE LEG!</span>)).toBeTruthy();
-
-        expect(wrapper.find('.test').last().children().contains(<Div className="first">SOME FIRST TEST</Div>)).toBeFalsy();
+        expect(wrapper.queryByText('SOME FIRST TEST')).not.toBeInTheDocument();
       });
 
       it('should wrap Collapse.Panel', () => {
@@ -303,15 +323,12 @@ describe('Collapse ATTRIBUTES', () => {
             </Collapse.Panel>
           </Collapse>
         );
-        const wrapper = mount(component);
 
-        expect(wrapper.find('div').first().hasClass('box')).toBeTruthy();
+        const wrapper = render(component);
 
-        expect(wrapper.find('div').first().hasClass('active')).toBeTruthy();
+        expect(wrapper.queryByText('SHOOT MYSELF IN THE LEG!')).toBeInTheDocument();
 
-        expect(wrapper.find('div').first().children().contains(<span>SHOOT MYSELF IN THE LEG!</span>)).toBeTruthy();
-
-        expect(wrapper.find('div').first().children().contains(<Div>TEST</Div>)).toBeFalsy();
+        expect(wrapper.queryByText('TEST')).not.toBeInTheDocument();
       });
     });
 
@@ -329,15 +346,14 @@ describe('Collapse ATTRIBUTES', () => {
             </Collapse.Panel>
           </Collapse>
         );
-        const wrapper = mount(component);
 
-        expect(wrapper.find('span').first().hasClass('box')).toBeTruthy();
+        const wrapper = render(component);
 
-        expect(wrapper.find('span').first().hasClass('active')).toBeTruthy();
+        expect(wrapper.queryByText('SHOOT MYSELF IN THE LEG!')).toBeInTheDocument();
 
-        expect(wrapper.find('span.box').children().contains(<p>SHOOT MYSELF IN THE LEG!</p>)).toBeTruthy();
+        expect(wrapper.queryByText('SOME FIRST TEST')).toBeInTheDocument();
 
-        expect(wrapper.find('span').children().contains(<H1>HEADING 1</H1>)).toBeFalsy();
+        expect(wrapper.queryByText('HEADING 1')).not.toBeInTheDocument();
       });
 
       it('should wrap Collapse.Body', () => {
@@ -353,15 +369,14 @@ describe('Collapse ATTRIBUTES', () => {
             </Collapse.Panel>
           </Collapse>
         );
-        const wrapper = mount(component);
 
-        expect(wrapper.find('span').at(1).hasClass('box')).toBeTruthy();
+        const wrapper = render(component);
 
-        expect(wrapper.find('span').at(1).hasClass('active')).toBeTruthy();
+        expect(wrapper.queryByText('HEADING 1')).toBeInTheDocument();
 
-        expect(wrapper.find('span').at(1).children().contains(<p>SHOOT MYSELF IN THE LEG!</p>)).toBeTruthy();
+        expect(wrapper.queryByText('SHOOT MYSELF IN THE LEG!')).toBeInTheDocument();
 
-        expect(wrapper.find('span').at(1).children().contains(<Div className="first">SOME FIRST TEST</Div>)).toBeFalsy();
+        expect(wrapper.queryByText('SOME FIRST TEST')).not.toBeInTheDocument();
       });
 
       it('should wrap Collapse.Panel', () => {
@@ -372,15 +387,12 @@ describe('Collapse ATTRIBUTES', () => {
             </Collapse.Panel>
           </Collapse>
         );
-        const wrapper = mount(component);
 
-        expect(wrapper.find('span').hasClass('box')).toBeTruthy();
+        const wrapper = render(component);
 
-        expect(wrapper.find('span').hasClass('active')).toBeTruthy();
+        expect(wrapper.queryByText('SHOOT MYSELF IN THE LEG!')).toBeInTheDocument();
 
-        expect(wrapper.find('span').children().contains(<p>SHOOT MYSELF IN THE LEG!</p>)).toBeTruthy();
-
-        expect(wrapper.find('span').children().contains(<Div>TEST</Div>)).toBeFalsy();
+        expect(wrapper.queryByText('TEST')).not.toBeInTheDocument();
       });
     });
     describe('usage span as a wrapper without children', () => {
@@ -397,11 +409,14 @@ describe('Collapse ATTRIBUTES', () => {
             </Collapse.Panel>
           </Collapse>
         );
-        const wrapper = mount(component);
 
-        expect(wrapper.find('span').first().hasClass('box')).toBeTruthy();
+        const wrapper = render(component);
 
-        expect(wrapper.find('span').first().hasClass('active')).toBeTruthy();
+        expect(document.querySelector('.box.active')).toBeInTheDocument();
+
+        expect(wrapper.queryByText('SOME FIRST TEST')).toBeInTheDocument();
+
+        expect(wrapper.queryByText('HEADING 1')).not.toBeInTheDocument();
       });
 
       it('should wrap Collapse.Body', () => {
@@ -417,11 +432,12 @@ describe('Collapse ATTRIBUTES', () => {
             </Collapse.Panel>
           </Collapse>
         );
-        const wrapper = mount(component);
 
-        expect(wrapper.find('span').at(1).hasClass('box')).toBeTruthy();
+        const wrapper = render(component);
 
-        expect(wrapper.find('span').at(1).hasClass('active')).toBeTruthy();
+        expect(document.querySelector('.box.active')).toBeInTheDocument();
+
+        expect(wrapper.queryByText('SOME FIRST TEST')).not.toBeInTheDocument();
       });
 
       it('should wrap Collapse.Panel', () => {
@@ -432,11 +448,12 @@ describe('Collapse ATTRIBUTES', () => {
             </Collapse.Panel>
           </Collapse>
         );
-        const wrapper = mount(component);
 
-        expect(wrapper.find('span').hasClass('box')).toBeTruthy();
+        const wrapper = render(component);
 
-        expect(wrapper.find('span').hasClass('active')).toBeTruthy();
+        expect(document.querySelector('.box.active')).toBeInTheDocument();
+
+        expect(wrapper.queryByText('TEST')).not.toBeInTheDocument();
       });
     });
   });

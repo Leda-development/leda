@@ -13,15 +13,15 @@ import { Submit } from './Submit';
 import { Scroll } from './Scroll';
 import { TriggerValidation } from './TriggerValidation';
 import { RequiredSubmit } from './RequiredSubmit';
-import { ResetControlled } from './ResetControlled';
-import { ResetUncontrolled } from './ResetUncontrolled';
+import { FormControlled } from './FormControlled';
+import { FormUncontrolled } from './FormUncontrolled';
 import { MixedValidation } from './MixedValidation';
 
 export const Validation = () => (
   <>
     <Story title="Валидация">
-      <ResetUncontrolled title="reset uncontrolled" />
-      <ResetControlled title="reset controlled" />
+      <FormControlled title="reset controlled" />
+      <FormUncontrolled title="reset uncontrolled" />
       <Required title="isRequired" />
       <Form title="form" />
       <Validator title="validator" />

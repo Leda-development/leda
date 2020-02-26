@@ -5,11 +5,11 @@ import { COMPONENTS_NAMESPACES } from '../../constants';
 import { CustomRender, SetState } from '../../commonTypes';
 import { DivProps } from '../Div';
 import {
-  ChangeEvent, BlurEvent, EnterPressEvent, FocusEvent, MaskedInputBaseProps,
+  ChangeEvent as BaseChangeEvent, BlurEvent, EnterPressEvent, FocusEvent, MaskedInputBaseProps,
 } from '../../src/MaskedInputBase/types';
 
 export {
-  ChangeEvent, BlurEvent, EnterPressEvent, FocusEvent,
+  BlurEvent, EnterPressEvent, FocusEvent,
 };
 
 export interface ResetEvent {
@@ -18,6 +18,8 @@ export interface ResetEvent {
     value: string,
   },
 }
+
+export type ChangeEvent = BaseChangeEvent | ResetEvent;
 
 export interface MaskedInputProps extends ValidationProps {
   /** Отключить поле ввода */
@@ -31,7 +33,7 @@ export interface MaskedInputProps extends ValidationProps {
   /** имя компонента для использования в формах */
   name?: string,
   /** Обработчик изменения значения */
-  onChange?: (event: ChangeEvent | ResetEvent) => void,
+  onChange?: (event: ChangeEvent) => void,
   /** Обработчик изменения значения */
   onBlur?: (event: BlurEvent) => void,
   /** Обработчик нажатия Enter */

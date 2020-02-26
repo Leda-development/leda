@@ -15,7 +15,8 @@ export interface SuggestionTarget {
 }
 
 export interface SuggestionListProps {
-  boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement }>,
+  boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement | null }>,
+  compareObjectsBy?: ((suggestionListItem: SomeObject) => any) | string,
   data?: Value[],
   groupBy?: (option: Value) => string | undefined,
   groupLabelRender?: CustomRender<{}, {}, LiProps>,
@@ -56,4 +57,23 @@ export interface NoSuggestionsProps {
 export interface GroupedSomeObject {
   key: string,
   dataItems: SomeObject[],
+}
+
+export interface GetSuggestionItemProps {
+  compareObjectsBy?: ((suggestionListItem: SomeObject) => any) | string,
+  highlightedSuggestion?: Value,
+  placeholder?: string,
+  selectedSuggestion?: Value,
+  suggestion: Value,
+  textField?: string,
+}
+
+export interface SuggestionItemComputedProps {
+  isScrollTarget: boolean,
+  isPlaceholder: boolean,
+  isHighlighted?: boolean,
+  isSelected?: boolean,
+  item: string | number | SomeObject | null,
+  key: string,
+  text: string | number,
 }

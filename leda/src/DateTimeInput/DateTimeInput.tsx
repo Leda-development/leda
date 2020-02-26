@@ -31,6 +31,7 @@ import { DateTimeInputProps, DateTimeInputRefCurrent } from './types';
 
 export const DateTimeInput = React.forwardRef((props: DateTimeInputProps, ref: React.Ref<DateTimeInputRefCurrent>) => {
   const {
+    boundingContainerRef,
     calendarHeaderRender,
     calendarWrapperRender,
     className,
@@ -181,6 +182,7 @@ export const DateTimeInput = React.forwardRef((props: DateTimeInputProps, ref: R
       {!state.isFocused && !isDisabled && <InvalidMessage />}
       {type !== COMPONENT_TYPES.TIME_ONLY && (
         <Calendar
+          boundingContainerRef={boundingContainerRef}
           calendarHeaderRender={calendarHeaderRender}
           dateCellRender={dateCellRender}
           dateViewRender={dateViewRender}

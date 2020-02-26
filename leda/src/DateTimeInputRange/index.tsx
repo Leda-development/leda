@@ -7,7 +7,7 @@ import {
 } from '../../utils';
 import { DateTimeInputRefCurrent } from '../DateTimeInput/types';
 import {
-  getDisabled, getName, getOpen, getPlaceholder, getRequired, isDateValue,
+  getDisabled, getName, getOpen, getPlaceholder, getRequired, getRequiredMessage, isDateValue,
 } from './helpers';
 import { useCustomElements, useDateRange } from './hooks';
 import {
@@ -17,6 +17,7 @@ import { DateTimeInputRangeProps, DateTimeInputRangeRefCurrent, DateTimeInputRan
 
 export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangeProps, ref: React.Ref<DateTimeInputRangeRefCurrent>) => {
   const {
+    boundingContainerRef,
     calendarHeaderRender,
     className,
     dateCellRender,
@@ -29,6 +30,7 @@ export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangePro
     isDisabled: disabledProp,
     isOpen: openProp,
     isRequired: requiredProp,
+    requiredMessage: requiredMessageProp,
     max,
     min,
     monthViewRender,
@@ -73,6 +75,8 @@ export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangePro
 
   const name = getName(nameProp);
 
+  const requiredMessages = getRequiredMessage(requiredMessageProp);
+
   const handleChange = createChangeHandler(props, state);
 
   const handleEnterPress = createEnterPressHandler(props, toDateTimeInputRef);
@@ -107,6 +111,7 @@ export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangePro
       })}
     >
       <DateTimeInput
+        boundingContainerRef={boundingContainerRef}
         calendarHeaderRender={calendarHeaderRender}
         dateCellRender={dateCellRender}
         dateViewRender={dateViewRender}
@@ -133,9 +138,11 @@ export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangePro
         wrapperRender={wrapperRender}
         yearViewRender={yearViewRender}
         calendarWrapperRender={calendarWrapperRender}
+        requiredMessage={requiredMessages[0]}
       />
       <Delimiter className={theme.delimiter}>&mdash;</Delimiter>
       <DateTimeInput
+        boundingContainerRef={boundingContainerRef}
         calendarHeaderRender={calendarHeaderRender}
         dateCellRender={dateCellRender}
         dateViewRender={dateViewRender}
@@ -163,6 +170,7 @@ export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangePro
         wrapperRender={wrapperRender}
         yearViewRender={yearViewRender}
         calendarWrapperRender={calendarWrapperRender}
+        requiredMessage={requiredMessages[1]}
       />
     </WrapperRange>
   );

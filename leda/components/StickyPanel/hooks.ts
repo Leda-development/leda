@@ -1,47 +1,54 @@
 import React from 'react';
+import { createPanelPositionUpdater } from './helpers';
 import { UseStickyPanelEffect } from './types';
 
 export const useStickyPanelEffect: UseStickyPanelEffect = ({
-  updatePanelPosition,
-  handleScroll,
-  handleResize,
   panelRef,
-  shouldAlwaysRerender,
-  panelStyles,
+  offsetTop,
+  panelPosition,
+  setPanelPosition,
   setPanelStyles,
 }) => {
-  React.useEffect((): () => void => {
-    if (panelRef.current && panelRef.current.parentElement) {
-      const panelDimensions = panelRef.current.getBoundingClientRect();
-      // Устанавливаем высоту wrapper равную высоте panel чтобы при зафиксированной панели не искажалась высота родителя
-      panelRef.current.parentElement.style.height = `${panelDimensions.height}px`;
+  const updatePanelPosition = React.useMemo(() => createPanelPositionUpdater(
+    offsetTop,
+    panelPosition,
+    panelRef,
+    setPanelPosition,
+    setPanelStyles,
+  ), [panelRef, setPanelPosition, setPanelStyles, offsetTop, panelPosition]);
+
+  React.useEffect(() => {
+    const panelContainer = panelRef.current;
+    const panelWrapper = panelContainer?.parentElement;
+    const panelParent = panelWrapper?.parentElement;
+
+    if (panelContainer && panelWrapper) {
+      // устанавливаем высоте wrapper значение высоты panel
+      // чтобы при зафиксированной панели не искажалась высота родителя
+      panelWrapper.style.height = `${panelContainer.getBoundingClientRect().height}px`;
     }
-    // Устанавливаем начальное положение тулбара
-    updatePanelPosition();
 
-    document.addEventListener('scroll', handleScroll, false);
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      document.removeEventListener('scroll', handleScroll, false);
-
-      window.removeEventListener('resize', handleResize);
+    const listener = () => {
+      updatePanelPosition();
     };
-  }, [handleResize, handleScroll, panelRef, updatePanelPosition]);
 
-  // обновления на каждом рендере
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  React.useEffect((): void => {
-    if (!shouldAlwaysRerender) return;
+    document.addEventListener('scroll', listener);
+    window.addEventListener('resize', listener);
 
-    const panelWrapperRect = panelRef.current?.parentElement?.parentElement?.getBoundingClientRect();
+    const mutationObserver = new MutationObserver(listener);
 
-    if (panelWrapperRect && panelStyles.width && (`${panelWrapperRect.width}px`) !== panelStyles.width) {
-      setPanelStyles({
-        ...panelStyles,
-        width: `${panelWrapperRect.width}px`,
+    if (panelParent) {
+      mutationObserver.observe(panelParent, {
+        attributes: true,
+        characterData: true,
+        childList: true,
       });
     }
-  });
+
+    return () => {
+      document.removeEventListener('scroll', listener);
+      window.removeEventListener('resize', listener);
+      mutationObserver.disconnect();
+    };
+  }, [panelRef, updatePanelPosition]);
 };

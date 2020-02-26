@@ -7,9 +7,11 @@ import { MinSearchLength } from './MinSearchLength';
 import { Customization } from './Customization';
 import { SearchFields } from './SearchFields';
 import { GroupedObjects } from './GroupedObjects';
+import { CompareObjectsBy } from './CompareObjectsBy';
 
 export const AutoComplete = () => (
   <Story title="AutoComplete">
+    <CompareObjectsBy title="Сравнение" />
     <Strings title="Строки в data" />
     <Objects title="Объекты в data" />
     <MinSearchLength title="minSearchLength={0}" />

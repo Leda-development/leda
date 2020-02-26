@@ -2,42 +2,33 @@ import * as React from 'react';
 import { SomeObject } from '../../../leda/commonTypes';
 import * as L from '../../../leda';
 
-const exampleCode = `
-export const EmptyValues = (args: SomeObject): React.ReactElement => (
-  <L.Div _box _inner _demoBg>
-    <L.DropDownSelect
-      data={[
-        { city: 'Moscow', id: 1, attr: 'value1' },
-        { city: 'Saint-Petersburg', id: 2, attr: 'value2' },
-        { city: 'Ekaterinburg', id: 3, attr: 'value3' },
-        { city: 'Novosibirsk', id: 4, attr: 'value4' },
-      ]}
-      onChange={handleChange}
-      textField="city"
-      value={value}
-      placeholder="Choose a city"
-    />
-  </L.Div>
-);
-`;
-
-export const ObjectsData = (args: SomeObject): React.ReactElement => {
-  const [value, setValue] = React.useState<string>('Berlin');
+export const CompareObjectsBy = (args: SomeObject): React.ReactElement => {
+  const [value, setValue] = React.useState<SomeObject>({ id: 1, attr: 'value1', city: 'London' });
 
   return (
     <L.Div _box _inner _demoBg>
       <L.DropDownSelect
         data={[
-          { city: 'Moscow', id: 1, attr: 'value1' },
-          { city: 'Saint-Petersburg', id: 2, attr: 'value2' },
-          { city: 'Ekaterinburg', id: 3, attr: 'value3' },
-          { city: 'Novosibirsk', id: 4, attr: 'value4' },
+          { id: 1, attr: 'value1', city: 'London' },
+          { id: 2, attr: 'value2', city: 'Berlin' },
+          { id: 3, attr: 'value3', city: 'Paris' },
+          { id: 4, attr: 'value4', city: 'Stockholm' },
+          { id: 5, attr: 'value5', city: 'Madrid' },
 
         ]}
         textField="city"
         value={value}
         placeholder="Choose a city"
       />
+      <br />
+      <br />
+      <L.Button
+        onClick={() => {
+          setValue({ id: 2, attr: 'value2', city: 'Berlin' })
+        }}
+      >
+        Set Berlin
+      </L.Button>
     </L.Div>
   );
 };

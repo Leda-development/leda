@@ -1,11 +1,43 @@
-/* eslint-disable arrow-body-style */
-/* eslint-disable no-console */
-
 import { isString } from 'lodash';
 import * as helpers from './helpers';
-import * as types from './types';
+import * as Types from './types';
 
-const getFormFieldHelpers = (formName: string, fieldName: string): types.FormHelpers => {
+const validate = (
+  field: Types.Field, validatorWrappers?: Types.ValidatorWrapper[] | Types.ValidatorWrapper,
+): Types.Field => {
+  const invalidMessages: string[] = [];
+  const unifiedValidatorWrappers = ((): Types.ValidatorWrapper[] => {
+    if (field.isRequired) {
+      return [{
+        validator: (value: any): boolean => value != null && value.length,
+        invalidMessage: field.requiredMessage,
+      }];
+    }
+    if (!validatorWrappers) {
+      return field.validators;
+    }
+    if (!Array.isArray(validatorWrappers)) {
+      return [validatorWrappers];
+    }
+    return validatorWrappers;
+  })().map(helpers.unifyValidatorWrapper);
+  unifiedValidatorWrappers.forEach((unifiedValidatorWrapper) => {
+    if (!unifiedValidatorWrapper.validate(field.value)) {
+      field.isValid = false;
+      if (unifiedValidatorWrapper.invalidMessage) {
+        invalidMessages.push(unifiedValidatorWrapper.invalidMessage);
+      }
+    }
+  });
+  if (!field.isValid) {
+    field.invalidMessages = invalidMessages;
+  }
+  field.setIsValid(field.isValid);
+  field.setMessages(field.invalidMessages);
+  return field;
+};
+
+const getFormFieldHelpers = (formName: string, fieldName: string): Types.FormFieldHelpers => {
   const getField = () => helpers.getField(formName, fieldName);
   return {
     get: getField,
@@ -14,20 +46,23 @@ const getFormFieldHelpers = (formName: string, fieldName: string): types.FormHel
       try {
         field?.reset();
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.log(error);
-        return error;
+        return false;
       }
       return true;
     },
-    validate: (validator?: object) => {
-      // TODO validation
+    validate: (wrappedValidator) => {
       const field = getField();
-      return helpers.validate(field, validator);
+      if (!field) {
+        return undefined;
+      }
+      return validate(field, wrappedValidator);
     },
   };
 };
 
-const getFormFieldsHelpers = (formName: string, fieldNames?: string[]): types.FormHelpers => {
+const getFormFieldsHelpers = (formName: string, fieldNames?: string[]): Types.FormFieldsHelpers => {
   const getFields = () => helpers.getFields(formName, fieldNames);
   return {
     get: getFields,
@@ -38,22 +73,23 @@ const getFormFieldsHelpers = (formName: string, fieldNames?: string[]): types.Fo
           field?.reset();
         });
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.log(error);
-        return error;
+        return false;
       }
       return true;
     },
-    validate: (validator?: object) => {
-      // TODO validation
+    validate: () => {
       const fields = getFields();
-      return fields.every((field?: types.Field) => {
-        return helpers.validate(field, validator);
-      });
+      return fields.map((field: Types.Field) => validate(field));
     },
   };
 };
 
-const form = (formName: string, fieldPick?: string | string[]) => {
+const form: {
+  (name: string, field: string): Types.FormFieldHelpers,
+  (name: string, fields?: string[]): Types.FormFieldsHelpers,
+} = (formName: string, fieldPick?: string | string[]): any => {
   if (isString(fieldPick)) {
     return getFormFieldHelpers(formName, fieldPick);
   }

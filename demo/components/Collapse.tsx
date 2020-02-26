@@ -10,26 +10,27 @@ export const Collapse = () => {
     <L.Div _demoStory>
       <L.H4 _title>Collapse</L.H4>
       <br />
-      <L.Collapse isAccordion={isAccordion} activePanelKey={activeKey} onSelect={ev => setActiveKey(ev.component.value)}>
+      <L.Collapse isAccordion={isAccordion} activePanelKey={activeKey} onSelect={(event) => setActiveKey(event.component.value)}>
         <L.Collapse.Panel panelKey="1" wrapperRender={({ elementProps }) => <L.Div {...elementProps} />}>
           <L.Collapse.Heading>
-            <L.Span>Условия сделки продажи</L.Span>
+            <L.Span>Условия сделки продажи 1</L.Span>
           </L.Collapse.Heading>
           <L.Collapse.Body onClose={() => console.log('close')} onOpen={() => console.log('open')} onCloseByClick={() => console.log('close by click')}>
             <L.Div _inner>
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-              <br />euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+              <br />
+              euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
             </L.Div>
           </L.Collapse.Body>
         </L.Collapse.Panel>
-        <br />
-        <L.Collapse.Panel isDisabled={isDisabled} panelKey="2" wrapperRender={({ elementProps }) => <L.Div {...elementProps} />}>
+        <L.Collapse.Panel panelKey="2" isDisabled={isDisabled} wrapperRender={({ elementProps }) => <L.Div {...elementProps} />}>
           <L.Collapse.Heading>
             <L.Span>Условия сделки продажи 2</L.Span>
           </L.Collapse.Heading>
           <L.Collapse.Body>
             <L.Div _inner>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh<br />
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+              <br />
               euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
             </L.Div>
           </L.Collapse.Body>

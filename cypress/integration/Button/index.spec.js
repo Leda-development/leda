@@ -65,7 +65,6 @@ describe('Button', () => {
         .contains('Validate!')
         .click()
         .name('Input1')
-        .wait(200)
         .isInViewport()
     });
 

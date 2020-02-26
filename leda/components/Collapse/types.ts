@@ -2,9 +2,6 @@ import * as React from 'react';
 import { CustomRender, CustomEventHandler } from '../../commonTypes';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTheme';
-import { Body } from './CollapseBody';
-import { Heading } from './CollapseHeading';
-import { Panel } from './CollapsePanel';
 
 export interface SelectEvent {
   component: {
@@ -103,7 +100,6 @@ export interface HeadingWrapperProps {
   children?: React.ReactNode,
   className?: string,
   onClick: React.MouseEventHandler,
-  ref?: React.Ref<HeadingRefCurrent>,
 }
 
 export interface IconProps {
@@ -112,7 +108,6 @@ export interface IconProps {
 }
 
 export interface BodyWrapperProps {
-  ref?: React.Ref<BodyRefCurrent>,
   className?: string,
   children?: React.ReactNode,
 }
@@ -135,7 +130,7 @@ export interface CollapsePanelHandlers {
   onBodyRest: () => void,
 }
 
-export type CollapseComponent = React.FC<CollapseProps> & { Panel: typeof Panel, Body: typeof Body, Heading: typeof Heading };
+export type CollapseComponent = React.FC<CollapseProps> & { Panel: React.FC<PanelProps>, Body: React.FC<BodyProps>, Heading: React.FC<HeadingProps> };
 
 export interface BodyRefCurrent {
   wrapper: HTMLElement | null,

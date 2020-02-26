@@ -8,12 +8,6 @@ export interface SpyEvent {
     name?: string | [string | undefined, string | undefined],
     value: unknown,
   },
-  target: {
-    isValid?: boolean,
-    method?: string,
-    name?: string | [string | undefined, string | undefined],
-    value?: unknown,
-  },
 }
 
 export interface EventSpyReturnType {
@@ -53,7 +47,7 @@ export const useEventSpy = (extraFields?: string[]): EventSpyReturnType => {
           <L.Dd>{`${JSON.stringify(value)}`}</L.Dd>
           <L.Dt>isValid</L.Dt>
           <L.Dd>{`${JSON.stringify(isValid)}`}</L.Dd>
-          {extraFields && extraFields.map((item, index) => (
+          {extraFields?.map((item, index) => (
             <React.Fragment key={index.toString()}>
               <L.Dt>{item}</L.Dt>
               <L.Dd>{JSON.stringify(extra[index])}</L.Dd>
@@ -69,7 +63,7 @@ export const useEventSpy = (extraFields?: string[]): EventSpyReturnType => {
           <L.Dd>{`${JSON.stringify(componentValue)}`}</L.Dd>
           <L.Dt>isValid</L.Dt>
           <L.Dd>{`${JSON.stringify(isComponentValid)}`}</L.Dd>
-          {extraFields && extraFields.map((item, index) => (
+          {extraFields?.map((item, index) => (
             <React.Fragment key={index.toString()}>
               <L.Dt>{item}</L.Dt>
               <L.Dd>{JSON.stringify(componentExtra[index])}</L.Dd>
@@ -82,20 +76,20 @@ export const useEventSpy = (extraFields?: string[]): EventSpyReturnType => {
 
   const update: EventSpyReturnType['update'] = (eventType, ev) => {
     setType(eventType);
-    setValue(ev.component.value);
-    setName(ev.component.name);
-    setIsValid(ev.component.isValid);
+    setValue(ev.component?.value);
+    setName(ev.component?.name);
+    setIsValid(ev.component?.isValid);
     if (extraFields) {
       // @ts-ignore
-      setExtra(extraFields.map(field => ev.target[field]));
+      setExtra(extraFields.map((field) => ev.target[field]));
     }
 
-    setComponentValue(ev.component && ev.component.value);
-    setComponentName(ev.component && ev.component.name);
-    setIsComponentValid(ev.component && ev.component.isValid);
+    setComponentValue(ev.component?.value);
+    setComponentName(ev.component?.name);
+    setIsComponentValid(ev.component?.isValid);
     if (extraFields) {
       // @ts-ignore
-      setComponentExtra(extraFields.map(field => ev.component && ev.component[field]));
+      setComponentExtra(extraFields.map((field) => ev.component[field]));
     }
   };
 

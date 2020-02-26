@@ -34,6 +34,7 @@ import { useValidation } from '../Validation';
 export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: React.Ref<AutoCompleteRefCurrent>): React.ReactElement | null => {
   const {
     className,
+    compareObjectsBy,
     data,
     filterRule,
     footerRender,
@@ -105,10 +106,12 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
 
     if (suggestions.length === 0 && safeTrim(value).length === 0) return false;
 
+    if (isBoolean(isOpen)) return isOpen;
+
     // do not show dropdown list until minimal input length is reached
     if (minSearchLength && minSearchLength > 0 && safeTrim(value).length < minSearchLength) return false;
 
-    return isBoolean(isOpen) ? isOpen : isFocused;
+    return isFocused;
   })();
 
   const inputRef = React.useRef<HTMLInputElement | null>(null);
@@ -133,6 +136,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     setLastCorrectValue,
     setStateValue,
     validateCurrent,
+    value,
   });
   const inputKeyDownHandler = inputKeyDownHandlerCreator({
     highlightedSuggestion,
@@ -193,6 +197,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
       )}
 
       <SuggestionList
+        compareObjectsBy={compareObjectsBy}
         data={suggestions}
         groupBy={groupBy}
         highlightedSuggestion={highlightedSuggestion}

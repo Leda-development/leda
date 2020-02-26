@@ -4,17 +4,18 @@ import * as L from '../../../leda';
 import { useEventSpy } from '../../useEventSpy';
 
 const data = [
-  { txt: 'London', val: 1 },
-  { txt: 'Islamabad', val: 2 },
-  { txt: 'Berlin', val: 3 },
-  { txt: 'Washington', val: 4 },
-  { txt: 'Paris', val: 5 },
-  { txt: 'Rome', val: 6 },
-  { txt: 'Rome', val: 7 },
+  { id: 0, city: 'Moscow' },
+  { id: 0, city: 'Minsk' },
+  { id: 1, city: 'London' },
+  { id: 2, city: 'Berlin' },
+  { id: 3, city: 'Paris' },
+  { id: 4, city: 'Stockholm' },
+  { id: 5, city: 'Madrid' },
 ];
 
+// eslint-disable-next-line
 export const CompareObjectsBy = (args: SomeObject): React.ReactElement => {
-  const [value, setValue] = React.useState([{ txt: 'London', val: 1 }]);
+  const [value, setValue] = React.useState<any>([data[0]]);
 
   const [isOpen, setIsOpen] = React.useState<boolean | undefined>();
   const [isDisabled, setIsDisabled] = React.useState<boolean>(false);
@@ -26,10 +27,10 @@ export const CompareObjectsBy = (args: SomeObject): React.ReactElement => {
     <L.Div _box _inner _demoBg>
       <L.MultiSelect
         data={data}
-        textField="txt"
+        textField="city"
         data-test="multiselect"
-        compareObjectsBy="val"
-        // defaultValue={[{ txt: 'London', val: 1 }]}
+        compareObjectsBy="id"
+        // defaultValue={[data[0]]}
         value={value}
         _width40
         maxSelected={3}
@@ -38,8 +39,8 @@ export const CompareObjectsBy = (args: SomeObject): React.ReactElement => {
           setValue(ev.component.value);
           update('Change', ev);
         }}
-        onBlur={ev => update('Blur', ev)}
-        onFocus={ev => update('Focus', ev)}
+        onBlur={(ev) => update('Blur', ev)}
+        onFocus={(ev) => update('Focus', ev)}
         placeholder="Choose cities you would like to visit!"
         isOpen={isOpen}
         isLoading={isLoading}

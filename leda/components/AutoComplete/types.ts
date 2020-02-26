@@ -97,6 +97,7 @@ export interface BlurEvent extends React.FocusEvent<HTMLInputElement> {
 }
 
 export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends ValidationProps {
+  compareObjectsBy?: T extends object ? ((suggestionListItem: T) => any) | string : never,
   /** Данные для отображения в выпадающем списке */
   data: T[],
   /** Отключить ввод в инпуте компонента  */
@@ -142,7 +143,7 @@ export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends Va
   /** Поля, в которых содержатся данные для поиска */
   searchFields?: string[],
   /** Устанавливает поле из data, которое будет использоваться для отображения если передан объект. Значение в поле объекта также должно быть типом string. Если data - массив примитивов, не задавайте эту настройку */
-  textField?: string,
+  textField?: T extends object ? string : never,
   /** Реф */
   ref?: React.Ref<AutoCompleteRefCurrent>,
   /** Тема */

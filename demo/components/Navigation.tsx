@@ -5,7 +5,7 @@ import { Styles } from './Styles';
 const themes: string[] = ['Nova', 'Sber', 'Bootstrap'];
 
 export const Navigation = () => {
-  const [theme, setTheme] = React.useState<string>('Nova');
+  const [theme, setTheme] = React.useState<string>();
 
   const handleClick = (ev: L.ButtonGroupTypes.ChangeEvent<string>): void => {
     setTheme(ev.component.value);

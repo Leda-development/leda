@@ -1,834 +1,260 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Collapse SNAPSHOTS accordion state in uncontrolled mode should render both bodies closed 1`] = `
+<div>
+  <div
+    class="collapse-heading-wrapper head-1"
+  >
+    <h1>
+      HEADING 1
+    </h1>
+    <span
+      class="collapse-heading-icon"
+    />
+  </div>
+  <div
+    aria-expanded="false"
+    style="will-change: height; transition: height 250ms cubic-bezier(.4, 0, .2, 1); height: 0px; overflow: hidden; visibility: hidden;"
+  >
+    <div
+      class="test-1"
+    >
+      SOME FIRST TEST
+    </div>
+  </div>
+  <div
+    class="collapse-heading-wrapper head-2"
+  >
+    <h1>
+      HEADING 2
+    </h1>
+    <span
+      class="collapse-heading-icon"
+    />
+  </div>
+  <div
+    aria-expanded="false"
+    style="will-change: height; transition: height 250ms cubic-bezier(.4, 0, .2, 1); height: 0px; overflow: hidden; visibility: hidden;"
+  >
+    <div
+      class="test-2"
+    >
+      SOME SECOND TEST
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Collapse SNAPSHOTS accordion state in uncontrolled mode should render only first body opened 1`] = `
+<div>
+  <div
+    class="collapse-heading-wrapper head-1"
+  >
+    <h1>
+      HEADING 1
+    </h1>
+    <span
+      class="collapse-heading-icon icon-expanded"
+    />
+  </div>
+  <div
+    aria-expanded="true"
+    style="will-change: height; transition: height 250ms cubic-bezier(.4, 0, .2, 1); height: 0px; overflow: hidden; visibility: hidden;"
+  >
+    <div
+      class="test-1"
+    >
+      SOME FIRST TEST
+    </div>
+  </div>
+  <div
+    class="collapse-heading-wrapper head-2"
+  >
+    <h1>
+      HEADING 2
+    </h1>
+    <span
+      class="collapse-heading-icon"
+    />
+  </div>
+  <div
+    aria-expanded="false"
+    style="will-change: height; transition: height 250ms cubic-bezier(.4, 0, .2, 1); height: 0px; overflow: hidden; visibility: hidden;"
+  >
+    <div
+      class="test-2"
+    >
+      SOME SECOND TEST
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Collapse SNAPSHOTS multi-opened state in controlled mode should render both bodies opened 1`] = `
-<Component
-  activePanelKey={
-    Array [
-      "1",
-      "2",
-    ]
-  }
-  isAccordion={true}
-  onSelect={[MockFunction]}
->
-  <Collapse.Panel
-    panelKey="1"
+<div>
+  <div
+    class="collapse-heading-wrapper"
   >
-    <Wrapper>
-      <defaultPanelWrapper>
-        <Collapse.Heading>
-          <Wrapper
-            className="collapse-heading-wrapper"
-            onClick={[Function]}
-          >
-            <Div
-              className="collapse-heading-wrapper"
-              onClick={[Function]}
-            >
-              <div
-                className="collapse-heading-wrapper"
-                onClick={[Function]}
-              >
-                <H1>
-                  <h1>
-                    HEADING 1
-                  </h1>
-                </H1>
-                <Icon
-                  className="collapse-heading-icon icon-expanded"
-                  isExpanded={true}
-                >
-                  <defaultIcon
-                    className="collapse-heading-icon icon-expanded"
-                    isExpanded={true}
-                  >
-                    <Span
-                      className="collapse-heading-icon icon-expanded"
-                    >
-                      <span
-                        className="collapse-heading-icon icon-expanded"
-                      />
-                    </Span>
-                  </defaultIcon>
-                </Icon>
-              </div>
-            </Div>
-          </Wrapper>
-        </Collapse.Heading>
-        <Collapse.Body>
-          <Wrapper>
-            <Div>
-              <div>
-                <Collapse
-                  className="react-css-collapse-transition"
-                  isOpen={true}
-                  onRest={[Function]}
-                  transition="height 250ms cubic-bezier(.4, 0, .2, 1)"
-                >
-                  <div
-                    className="react-css-collapse-transition"
-                    onTransitionEnd={[Function]}
-                    style={
-                      Object {
-                        "height": "auto",
-                        "overflow": "visible",
-                        "transition": "height 250ms cubic-bezier(.4, 0, .2, 1)",
-                        "visibility": "visible",
-                        "willChange": "height",
-                      }
-                    }
-                  >
-                    <Div
-                      className="test-1"
-                    >
-                      <div
-                        className="test-1"
-                      >
-                        SOME FIRST TEST
-                      </div>
-                    </Div>
-                  </div>
-                </Collapse>
-              </div>
-            </Div>
-          </Wrapper>
-        </Collapse.Body>
-      </defaultPanelWrapper>
-    </Wrapper>
-  </Collapse.Panel>
-  <Collapse.Panel
-    panelKey="2"
+    <h1>
+      HEADING 1
+    </h1>
+    <span
+      class="collapse-heading-icon icon-expanded"
+    />
+  </div>
+  <div
+    aria-expanded="true"
+    style="will-change: height; transition: height 250ms cubic-bezier(.4, 0, .2, 1); height: auto; overflow: visible; visibility: visible;"
   >
-    <Wrapper>
-      <defaultPanelWrapper>
-        <Collapse.Heading>
-          <Wrapper
-            className="collapse-heading-wrapper"
-            onClick={[Function]}
-          >
-            <Div
-              className="collapse-heading-wrapper"
-              onClick={[Function]}
-            >
-              <div
-                className="collapse-heading-wrapper"
-                onClick={[Function]}
-              >
-                <H1>
-                  <h1>
-                    HEADING 2
-                  </h1>
-                </H1>
-                <Icon
-                  className="collapse-heading-icon icon-expanded"
-                  isExpanded={true}
-                >
-                  <defaultIcon
-                    className="collapse-heading-icon icon-expanded"
-                    isExpanded={true}
-                  >
-                    <Span
-                      className="collapse-heading-icon icon-expanded"
-                    >
-                      <span
-                        className="collapse-heading-icon icon-expanded"
-                      />
-                    </Span>
-                  </defaultIcon>
-                </Icon>
-              </div>
-            </Div>
-          </Wrapper>
-        </Collapse.Heading>
-        <Collapse.Body>
-          <Wrapper>
-            <Div>
-              <div>
-                <Collapse
-                  className="react-css-collapse-transition"
-                  isOpen={true}
-                  onRest={[Function]}
-                  transition="height 250ms cubic-bezier(.4, 0, .2, 1)"
-                >
-                  <div
-                    className="react-css-collapse-transition"
-                    onTransitionEnd={[Function]}
-                    style={
-                      Object {
-                        "height": "auto",
-                        "overflow": "visible",
-                        "transition": "height 250ms cubic-bezier(.4, 0, .2, 1)",
-                        "visibility": "visible",
-                        "willChange": "height",
-                      }
-                    }
-                  >
-                    <Div
-                      className="test-2"
-                    >
-                      <div
-                        className="test-2"
-                      >
-                        SOME SECOND TEST
-                      </div>
-                    </Div>
-                  </div>
-                </Collapse>
-              </div>
-            </Div>
-          </Wrapper>
-        </Collapse.Body>
-      </defaultPanelWrapper>
-    </Wrapper>
-  </Collapse.Panel>
-</Component>
+    <div
+      class="test-1"
+    >
+      SOME FIRST TEST
+    </div>
+  </div>
+  <div
+    class="collapse-heading-wrapper"
+  >
+    <h1>
+      HEADING 2
+    </h1>
+    <span
+      class="collapse-heading-icon icon-expanded"
+    />
+  </div>
+  <div
+    aria-expanded="true"
+    style="will-change: height; transition: height 250ms cubic-bezier(.4, 0, .2, 1); height: auto; overflow: visible; visibility: visible;"
+  >
+    <div
+      class="test-2"
+    >
+      SOME SECOND TEST
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Collapse SNAPSHOTS multi-opened state in controlled mode should render only first body opened 1`] = `
-<Component
-  activePanelKey="1"
-  isAccordion={true}
-  onSelect={[MockFunction]}
->
-  <Collapse.Panel
-    panelKey="1"
+<div>
+  <div
+    class="collapse-heading-wrapper"
   >
-    <Wrapper>
-      <defaultPanelWrapper>
-        <Collapse.Heading>
-          <Wrapper
-            className="collapse-heading-wrapper"
-            onClick={[Function]}
-          >
-            <Div
-              className="collapse-heading-wrapper"
-              onClick={[Function]}
-            >
-              <div
-                className="collapse-heading-wrapper"
-                onClick={[Function]}
-              >
-                <H1>
-                  <h1>
-                    HEADING 1
-                  </h1>
-                </H1>
-                <Icon
-                  className="collapse-heading-icon icon-expanded"
-                  isExpanded={true}
-                >
-                  <defaultIcon
-                    className="collapse-heading-icon icon-expanded"
-                    isExpanded={true}
-                  >
-                    <Span
-                      className="collapse-heading-icon icon-expanded"
-                    >
-                      <span
-                        className="collapse-heading-icon icon-expanded"
-                      />
-                    </Span>
-                  </defaultIcon>
-                </Icon>
-              </div>
-            </Div>
-          </Wrapper>
-        </Collapse.Heading>
-        <Collapse.Body>
-          <Wrapper>
-            <Div>
-              <div>
-                <Collapse
-                  className="react-css-collapse-transition"
-                  isOpen={true}
-                  onRest={[Function]}
-                  transition="height 250ms cubic-bezier(.4, 0, .2, 1)"
-                >
-                  <div
-                    className="react-css-collapse-transition"
-                    onTransitionEnd={[Function]}
-                    style={
-                      Object {
-                        "height": "auto",
-                        "overflow": "visible",
-                        "transition": "height 250ms cubic-bezier(.4, 0, .2, 1)",
-                        "visibility": "visible",
-                        "willChange": "height",
-                      }
-                    }
-                  >
-                    <Div
-                      className="test-1"
-                    >
-                      <div
-                        className="test-1"
-                      >
-                        SOME FIRST TEST
-                      </div>
-                    </Div>
-                  </div>
-                </Collapse>
-              </div>
-            </Div>
-          </Wrapper>
-        </Collapse.Body>
-      </defaultPanelWrapper>
-    </Wrapper>
-  </Collapse.Panel>
-  <Collapse.Panel
-    panelKey="2"
+    <h1>
+      HEADING 1
+    </h1>
+    <span
+      class="collapse-heading-icon icon-expanded"
+    />
+  </div>
+  <div
+    aria-expanded="true"
+    style="will-change: height; transition: height 250ms cubic-bezier(.4, 0, .2, 1); height: auto; overflow: visible; visibility: visible;"
   >
-    <Wrapper>
-      <defaultPanelWrapper>
-        <Collapse.Heading>
-          <Wrapper
-            className="collapse-heading-wrapper"
-            onClick={[Function]}
-          >
-            <Div
-              className="collapse-heading-wrapper"
-              onClick={[Function]}
-            >
-              <div
-                className="collapse-heading-wrapper"
-                onClick={[Function]}
-              >
-                <H1>
-                  <h1>
-                    HEADING 2
-                  </h1>
-                </H1>
-                <Icon
-                  className="collapse-heading-icon"
-                  isExpanded={false}
-                >
-                  <defaultIcon
-                    className="collapse-heading-icon"
-                    isExpanded={false}
-                  >
-                    <Span
-                      className="collapse-heading-icon"
-                    >
-                      <span
-                        className="collapse-heading-icon"
-                      />
-                    </Span>
-                  </defaultIcon>
-                </Icon>
-              </div>
-            </Div>
-          </Wrapper>
-        </Collapse.Heading>
-        <Collapse.Body>
-          <Wrapper>
-            <Div>
-              <div>
-                <Collapse
-                  className="react-css-collapse-transition"
-                  isOpen={false}
-                  onRest={[Function]}
-                  transition="height 250ms cubic-bezier(.4, 0, .2, 1)"
-                >
-                  <div
-                    className="react-css-collapse-transition"
-                    onTransitionEnd={[Function]}
-                    style={
-                      Object {
-                        "height": "auto",
-                        "overflow": "visible",
-                        "transition": "height 250ms cubic-bezier(.4, 0, .2, 1)",
-                        "visibility": "visible",
-                        "willChange": "height",
-                      }
-                    }
-                  >
-                    <Div
-                      className="test-2"
-                    >
-                      <div
-                        className="test-2"
-                      >
-                        SOME SECOND TEST
-                      </div>
-                    </Div>
-                  </div>
-                </Collapse>
-              </div>
-            </Div>
-          </Wrapper>
-        </Collapse.Body>
-      </defaultPanelWrapper>
-    </Wrapper>
-  </Collapse.Panel>
-</Component>
-`;
-
-exports[`Collapse SNAPSHOTS multi-opened state in uncontrolled mode should render both bodies closed 1`] = `
-<Component
-  isAccordion={true}
->
-  <Collapse.Panel
-    panelKey="1"
+    <div
+      class="test-1"
+    >
+      SOME FIRST TEST
+    </div>
+  </div>
+  <div
+    class="collapse-heading-wrapper"
   >
-    <Wrapper>
-      <defaultPanelWrapper>
-        <Collapse.Heading
-          className="head-1"
-        >
-          <Wrapper
-            className="collapse-heading-wrapper head-1"
-            onClick={[Function]}
-          >
-            <Div
-              className="collapse-heading-wrapper head-1"
-              onClick={[Function]}
-            >
-              <div
-                className="collapse-heading-wrapper head-1"
-                onClick={[Function]}
-              >
-                <H1>
-                  <h1>
-                    HEADING 1
-                  </h1>
-                </H1>
-                <Icon
-                  className="collapse-heading-icon"
-                  isExpanded={false}
-                >
-                  <defaultIcon
-                    className="collapse-heading-icon"
-                    isExpanded={false}
-                  >
-                    <Span
-                      className="collapse-heading-icon"
-                    >
-                      <span
-                        className="collapse-heading-icon"
-                      />
-                    </Span>
-                  </defaultIcon>
-                </Icon>
-              </div>
-            </Div>
-          </Wrapper>
-        </Collapse.Heading>
-        <Collapse.Body>
-          <Wrapper>
-            <Div>
-              <div>
-                <Collapse
-                  className="react-css-collapse-transition"
-                  isOpen={false}
-                  onRest={[Function]}
-                  transition="height 250ms cubic-bezier(.4, 0, .2, 1)"
-                >
-                  <div
-                    className="react-css-collapse-transition"
-                    onTransitionEnd={[Function]}
-                    style={
-                      Object {
-                        "height": "0",
-                        "overflow": "hidden",
-                        "transition": "height 250ms cubic-bezier(.4, 0, .2, 1)",
-                        "visibility": "hidden",
-                        "willChange": "height",
-                      }
-                    }
-                  >
-                    <Div
-                      className="test-1"
-                    >
-                      <div
-                        className="test-1"
-                      >
-                        SOME FIRST TEST
-                      </div>
-                    </Div>
-                  </div>
-                </Collapse>
-              </div>
-            </Div>
-          </Wrapper>
-        </Collapse.Body>
-      </defaultPanelWrapper>
-    </Wrapper>
-  </Collapse.Panel>
-  <Collapse.Panel
-    panelKey="2"
+    <h1>
+      HEADING 2
+    </h1>
+    <span
+      class="collapse-heading-icon"
+    />
+  </div>
+  <div
+    aria-expanded="false"
+    style="will-change: height; transition: height 250ms cubic-bezier(.4, 0, .2, 1); height: auto; overflow: visible; visibility: visible;"
   >
-    <Wrapper>
-      <defaultPanelWrapper>
-        <Collapse.Heading
-          className="head-2"
-        >
-          <Wrapper
-            className="collapse-heading-wrapper head-2"
-            onClick={[Function]}
-          >
-            <Div
-              className="collapse-heading-wrapper head-2"
-              onClick={[Function]}
-            >
-              <div
-                className="collapse-heading-wrapper head-2"
-                onClick={[Function]}
-              >
-                <H1>
-                  <h1>
-                    HEADING 2
-                  </h1>
-                </H1>
-                <Icon
-                  className="collapse-heading-icon"
-                  isExpanded={false}
-                >
-                  <defaultIcon
-                    className="collapse-heading-icon"
-                    isExpanded={false}
-                  >
-                    <Span
-                      className="collapse-heading-icon"
-                    >
-                      <span
-                        className="collapse-heading-icon"
-                      />
-                    </Span>
-                  </defaultIcon>
-                </Icon>
-              </div>
-            </Div>
-          </Wrapper>
-        </Collapse.Heading>
-        <Collapse.Body>
-          <Wrapper>
-            <Div>
-              <div>
-                <Collapse
-                  className="react-css-collapse-transition"
-                  isOpen={false}
-                  onRest={[Function]}
-                  transition="height 250ms cubic-bezier(.4, 0, .2, 1)"
-                >
-                  <div
-                    className="react-css-collapse-transition"
-                    onTransitionEnd={[Function]}
-                    style={
-                      Object {
-                        "height": "0",
-                        "overflow": "hidden",
-                        "transition": "height 250ms cubic-bezier(.4, 0, .2, 1)",
-                        "visibility": "hidden",
-                        "willChange": "height",
-                      }
-                    }
-                  >
-                    <Div
-                      className="test-2"
-                    >
-                      <div
-                        className="test-2"
-                      >
-                        SOME SECOND TEST
-                      </div>
-                    </Div>
-                  </div>
-                </Collapse>
-              </div>
-            </Div>
-          </Wrapper>
-        </Collapse.Body>
-      </defaultPanelWrapper>
-    </Wrapper>
-  </Collapse.Panel>
-</Component>
+    <div
+      class="test-2"
+    >
+      SOME SECOND TEST
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Collapse SNAPSHOTS should render closed state 1`] = `
-<Component
-  activePanelKey="0"
-  onSelect={[MockFunction]}
->
-  <Collapse.Panel
-    panelKey="1"
+<div>
+  <div
+    class="collapse-heading-wrapper"
   >
-    <Wrapper>
-      <defaultPanelWrapper>
-        <Collapse.Heading>
-          <Wrapper
-            className="collapse-heading-wrapper"
-            onClick={[Function]}
-          >
-            <Div
-              className="collapse-heading-wrapper"
-              onClick={[Function]}
-            >
-              <div
-                className="collapse-heading-wrapper"
-                onClick={[Function]}
-              >
-                <H1>
-                  <h1>
-                    HEADING
-                  </h1>
-                </H1>
-                <Icon
-                  className="collapse-heading-icon"
-                  isExpanded={false}
-                >
-                  <defaultIcon
-                    className="collapse-heading-icon"
-                    isExpanded={false}
-                  >
-                    <Span
-                      className="collapse-heading-icon"
-                    >
-                      <span
-                        className="collapse-heading-icon"
-                      />
-                    </Span>
-                  </defaultIcon>
-                </Icon>
-              </div>
-            </Div>
-          </Wrapper>
-        </Collapse.Heading>
-        <Collapse.Body>
-          <Wrapper>
-            <Div>
-              <div>
-                <Collapse
-                  className="react-css-collapse-transition"
-                  isOpen={false}
-                  onRest={[Function]}
-                  transition="height 250ms cubic-bezier(.4, 0, .2, 1)"
-                >
-                  <div
-                    className="react-css-collapse-transition"
-                    onTransitionEnd={[Function]}
-                    style={
-                      Object {
-                        "height": "0",
-                        "overflow": "hidden",
-                        "transition": "height 250ms cubic-bezier(.4, 0, .2, 1)",
-                        "visibility": "hidden",
-                        "willChange": "height",
-                      }
-                    }
-                  >
-                    <Div>
-                      <div>
-                        SOME TEST
-                      </div>
-                    </Div>
-                  </div>
-                </Collapse>
-              </div>
-            </Div>
-          </Wrapper>
-        </Collapse.Body>
-      </defaultPanelWrapper>
-    </Wrapper>
-  </Collapse.Panel>
-</Component>
+    <h1>
+      HEADING
+    </h1>
+    <span
+      class="collapse-heading-icon"
+    />
+  </div>
+  <div
+    aria-expanded="false"
+    style="will-change: height; transition: height 250ms cubic-bezier(.4, 0, .2, 1); height: 0px; overflow: hidden; visibility: hidden;"
+  >
+    <div
+      id="test"
+    >
+      SOME TEST
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Collapse SNAPSHOTS should render loading state 1`] = `
-<Component
-  activePanelKey="1"
-  onSelect={[MockFunction]}
->
-  <Collapse.Panel
-    panelKey="1"
+<div>
+  <div
+    class="collapse-heading-wrapper"
   >
-    <Wrapper>
-      <defaultPanelWrapper>
-        <Collapse.Heading>
-          <Wrapper
-            className="collapse-heading-wrapper"
-            onClick={[Function]}
-          >
-            <Div
-              className="collapse-heading-wrapper"
-              onClick={[Function]}
-            >
-              <div
-                className="collapse-heading-wrapper"
-                onClick={[Function]}
-              >
-                <H1>
-                  <h1>
-                    HEADING
-                  </h1>
-                </H1>
-                <Icon
-                  className="collapse-heading-icon icon-expanded"
-                  isExpanded={true}
-                >
-                  <defaultIcon
-                    className="collapse-heading-icon icon-expanded"
-                    isExpanded={true}
-                  >
-                    <Span
-                      className="collapse-heading-icon icon-expanded"
-                    >
-                      <span
-                        className="collapse-heading-icon icon-expanded"
-                      />
-                    </Span>
-                  </defaultIcon>
-                </Icon>
-              </div>
-            </Div>
-          </Wrapper>
-        </Collapse.Heading>
-        <Collapse.Body
-          isLoading={true}
-        >
-          <Wrapper>
-            <Div>
-              <div>
-                <Collapse
-                  className="react-css-collapse-transition"
-                  isOpen={true}
-                  onRest={[Function]}
-                  transition="height 250ms cubic-bezier(.4, 0, .2, 1)"
-                >
-                  <div
-                    className="react-css-collapse-transition"
-                    onTransitionEnd={[Function]}
-                    style={
-                      Object {
-                        "height": "auto",
-                        "overflow": "visible",
-                        "transition": "height 250ms cubic-bezier(.4, 0, .2, 1)",
-                        "visibility": "visible",
-                        "willChange": "height",
-                      }
-                    }
-                  >
-                    <Loader>
-                      <Div
-                        className="loader-wrapper"
-                      >
-                        <div
-                          className="loader-wrapper"
-                        >
-                          <div
-                            className="loader-container"
-                          >
-                            <Icon
-                              className="loader-element"
-                            >
-                              <Span
-                                className="loader-element"
-                              >
-                                <span
-                                  className="loader-element"
-                                />
-                              </Span>
-                            </Icon>
-                          </div>
-                        </div>
-                      </Div>
-                    </Loader>
-                  </div>
-                </Collapse>
-              </div>
-            </Div>
-          </Wrapper>
-        </Collapse.Body>
-      </defaultPanelWrapper>
-    </Wrapper>
-  </Collapse.Panel>
-</Component>
+    <h1>
+      HEADING
+    </h1>
+    <span
+      class="collapse-heading-icon icon-expanded"
+    />
+  </div>
+  <div
+    aria-expanded="true"
+    style="will-change: height; transition: height 250ms cubic-bezier(.4, 0, .2, 1); height: auto; overflow: visible; visibility: visible;"
+  >
+    <div
+      class="loader-wrapper"
+    >
+      <div
+        class="loader-container"
+      >
+        <span
+          class="loader-element"
+        />
+      </div>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Collapse SNAPSHOTS should render opened state 1`] = `
-<Component
-  activePanelKey="1"
-  onSelect={[MockFunction]}
->
-  <Collapse.Panel
-    panelKey="1"
+<div>
+  <div
+    class="collapse-heading-wrapper"
   >
-    <Wrapper>
-      <defaultPanelWrapper>
-        <Collapse.Heading>
-          <Wrapper
-            className="collapse-heading-wrapper"
-            onClick={[Function]}
-          >
-            <Div
-              className="collapse-heading-wrapper"
-              onClick={[Function]}
-            >
-              <div
-                className="collapse-heading-wrapper"
-                onClick={[Function]}
-              >
-                <H1>
-                  <h1>
-                    HEADING
-                  </h1>
-                </H1>
-                <Icon
-                  className="collapse-heading-icon icon-expanded"
-                  isExpanded={true}
-                >
-                  <defaultIcon
-                    className="collapse-heading-icon icon-expanded"
-                    isExpanded={true}
-                  >
-                    <Span
-                      className="collapse-heading-icon icon-expanded"
-                    >
-                      <span
-                        className="collapse-heading-icon icon-expanded"
-                      />
-                    </Span>
-                  </defaultIcon>
-                </Icon>
-              </div>
-            </Div>
-          </Wrapper>
-        </Collapse.Heading>
-        <Collapse.Body>
-          <Wrapper>
-            <Div>
-              <div>
-                <Collapse
-                  className="react-css-collapse-transition"
-                  isOpen={true}
-                  onRest={[Function]}
-                  transition="height 250ms cubic-bezier(.4, 0, .2, 1)"
-                >
-                  <div
-                    className="react-css-collapse-transition"
-                    onTransitionEnd={[Function]}
-                    style={
-                      Object {
-                        "height": "auto",
-                        "overflow": "visible",
-                        "transition": "height 250ms cubic-bezier(.4, 0, .2, 1)",
-                        "visibility": "visible",
-                        "willChange": "height",
-                      }
-                    }
-                  >
-                    <Div>
-                      <div>
-                        SOME TEST
-                      </div>
-                    </Div>
-                  </div>
-                </Collapse>
-              </div>
-            </Div>
-          </Wrapper>
-        </Collapse.Body>
-      </defaultPanelWrapper>
-    </Wrapper>
-  </Collapse.Panel>
-</Component>
+    <h1>
+      HEADING
+    </h1>
+    <span
+      class="collapse-heading-icon icon-expanded"
+    />
+  </div>
+  <div
+    aria-expanded="true"
+    style="will-change: height; transition: height 250ms cubic-bezier(.4, 0, .2, 1); height: auto; overflow: visible; visibility: visible;"
+  >
+    <div>
+      SOME TEST
+    </div>
+  </div>
+</div>
 `;

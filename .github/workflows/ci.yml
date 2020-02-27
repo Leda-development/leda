@@ -37,6 +37,7 @@ jobs:
           path: node_modules
       - uses: cypress-io/github-action@v1
         with:
+          parallel: true
           start: npm start
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}

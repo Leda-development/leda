@@ -1,4 +1,4 @@
-name: ${{ path.basename(github.workflow) }}
+name: ${{ github.workflow.split('/')[0] }}
 
 on: push
 

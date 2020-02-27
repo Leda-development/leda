@@ -8,10 +8,10 @@ jobs:
       - uses: actions/cache@v1
         id: cache
         with:
-          key: abc-${{ hashFiles('package-lock.json') }}
+          key: def-${{ hashFiles('package-lock.json') }}
           path: node_modules
           restore-keys: |
-            abc-
+            def-
       - run: echo ${{ steps.cache.outputs.cache-hit }}
       - run: echo 0
         if: steps.cache.outputs.cache-hit == 'false'
@@ -26,6 +26,9 @@ jobs:
   cypress:
     runs-on: ubuntu-16.04
     needs: install
+    strategy:
+      matrix:
+        containers: [0, 1, 2, 3]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/cache@v1
@@ -35,7 +38,13 @@ jobs:
       - uses: cypress-io/github-action@v1
         with:
           start: npm start
-          record: true
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ github.token }}
+        - uses: actions/upload-artifact@v1
+          if: failure()
+          with:
+            - name: cypress-screenshots
+              path: cypress/screenshots
+            - name: cypress-videos
+              path: cypress/videos

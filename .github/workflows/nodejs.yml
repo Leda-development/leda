@@ -1,0 +1,40 @@
+name: Node.js CI
+
+on: [push, pull_request]
+
+jobs:
+  install:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install
+      env:
+        CI: true
+  lint:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm run lint
+  
+  test:
+    needs: install
+    runs-on: [ubuntu-latest]
+    steps:
+      - run: npm run test
+
+  tsc:
+    needs: install
+    runs-on: [ubuntu-latest]
+    steps:
+      - run: npm run tsc
+

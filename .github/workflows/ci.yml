@@ -8,9 +8,9 @@ jobs:
       - uses: actions/cache@v1
         id: cache
         with:
-          key: qwe=${{ hashFiles('package-lock.json') }}
+          key: zxc=${{ hashFiles('package-lock.json') }}
           path: node_modules
-          restore-keys: qwe=
+          restore-keys: zxc=
       - run: echo ${{ steps.cache.outputs.cache-hit }}
       - run: echo 0
         if: steps.cache.outputs.cache-hit != 'false'

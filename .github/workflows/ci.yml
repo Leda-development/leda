@@ -8,9 +8,10 @@ jobs:
       - uses: actions/cache@v1
         id: cache
         with:
-          key: zxc=${{ hashFiles('package-lock.json') }}
+          key: abc-${{ hashFiles('package-lock.json') }}
           path: node_modules
-          restore-keys: zxc=
+          restore-keys: |
+            abc-
       - run: echo ${{ steps.cache.outputs.cache-hit }}
       - run: echo 0
         if: steps.cache.outputs.cache-hit == 'false'
@@ -36,5 +37,5 @@ jobs:
           start: npm start
           record: true
         env:
-          GITHUB_TOKEN: ${{ github.token }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ github.token }}

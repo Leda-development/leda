@@ -10,7 +10,7 @@ jobs:
         with:
           key: qwe=${{ hashFiles('package-lock.json') }}
           path: node_modules
-          restore-keys: package-lock=
+          restore-keys: qwe=
       - run: echo ${{ steps.cache.outputs.cache-hit }}
       - run: echo ${{ github.token }} > qwe && cat qwe
       - run: echo 0

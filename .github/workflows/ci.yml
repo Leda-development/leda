@@ -41,10 +41,10 @@ jobs:
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ github.token }}
-        - uses: actions/upload-artifact@v1
-          if: failure()
-          with:
-            - name: cypress-screenshots
-              path: cypress/screenshots
-            - name: cypress-videos
-              path: cypress/videos
+      - uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+          - name: cypress-screenshots
+            path: cypress/screenshots
+          - name: cypress-videos
+            path: cypress/videos

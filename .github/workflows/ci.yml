@@ -12,17 +12,16 @@ jobs:
           path: node_modules
           restore-keys: qwe=
       - run: echo ${{ steps.cache.outputs.cache-hit }}
-      - run: echo ${{ secrets.GITHUB_TOKEN }} | rev
       - run: echo 0
-        if: steps.cache.outputs.cache-hit == 'false'
+        if: steps.cache.outputs.cache-hit != 'false'
       - run: echo 1
-        if: steps.cache.outputs.cache-hit == 'true'
+        if: steps.cache.outputs.cache-hit != 'true'
       - run: echo 2
-        if: steps.cache.outputs.cache-hit == false
+        if: steps.cache.outputs.cache-hit != false
       - run: echo 3
-        if: steps.cache.outputs.cache-hit == true
+        if: steps.cache.outputs.cache-hit != true
       - run: npm ci
-        if: steps.cache.outputs.cache-hit == 'false'
+        if: steps.cache.outputs.cache-hit != 'true'
   cypress:
     runs-on: ubuntu-16.04
     needs: install

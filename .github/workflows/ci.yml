@@ -36,4 +36,5 @@ jobs:
           start: npm start
           record: true
         env:
+          GITHUB_TOKEN: ${{ github.token }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}

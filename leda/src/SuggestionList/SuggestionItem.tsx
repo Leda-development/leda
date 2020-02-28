@@ -51,7 +51,7 @@ export const SuggestionItem = (props: SuggestionItemProps): React.ReactElement =
     },
   );
 
-  const suggestion: JSX.Element = (
+  const suggestion: React.ReactElement = (
     <Suggestion
       className={suggestionClassNames}
       onClick={hasCheckBoxes ? undefined : handleClick}

@@ -124,7 +124,7 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   onFocus?: (event: FocusEvent) => void,
   /** Плейсхолдер инпута */
   placeholder?: string,
-  /** Должен ли открыться выпадающий список, если достигнуто максимальное количество вариантов */
+  /** Должен ли открыться выпадающий список, если достигнуто максимальное количество вариантов. По умолчанию - false */
   shouldOpenWhenMaxSelectedReached?: boolean,
   /** Имя поля объекта, данные из которого будут рендериться в качестве элементов списка */
   textField?: T extends object ? string : never,

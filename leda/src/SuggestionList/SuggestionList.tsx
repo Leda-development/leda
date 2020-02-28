@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { isNil } from 'lodash';
 import { LedaContext } from '../../components/LedaProvider';
 import { Loader } from '../../components/Loader';
 import { Div, DivRefCurrent } from '../../components/Div';
@@ -174,8 +173,8 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
           );
         })()}
 
-        {suggestions?.map((suggestion: GroupedSomeObject | Value) => {
-          if (!isNil((suggestion as GroupedSomeObject)?.key)) {
+        {suggestions?.map((suggestion: GroupedSomeObject | Value, index: number) => {
+          if ((suggestion as GroupedSomeObject)?.key) {
             const suggestionGroupLabelComputedProps = getSuggestionItemProps({
               compareObjectsBy,
               highlightedSuggestion,
@@ -210,7 +209,6 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
                         {...suggestionGroupLabelComputedProps}
                       />
                     ) : (
-                      // suggestion as GroupedSomeObject).key}
                       <SuggestionItem
                         itemRender={itemRender}
                         suggestionRef={suggestionRef}
@@ -237,10 +235,8 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
                     <SuggestionItem
                       isChosen={isChosen}
                       itemRender={itemRender}
-                      key={key}
                       onClick={onClick}
                       suggestionRef={suggestionRef}
-                      text={itemText}
                       textField={textField}
                       theme={theme}
                       hasCheckBoxes={hasCheckBoxes}
@@ -266,10 +262,8 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
             <SuggestionItem
               isChosen={isItemChosen}
               itemRender={itemRender}
-              key={key}
               onClick={onClick}
               suggestionRef={suggestionRef}
-              text={text}
               textField={textField}
               theme={theme}
               hasCheckBoxes={hasCheckBoxes}

@@ -89,7 +89,7 @@ export const createSelectHandler = (
     }
 
     if (shouldRemoveGroupValues) {
-      return (value as (string | number | SomeObject)[]).filter((item) => (!groupItems.includes(item)));
+      return (value as (string | number | SomeObject)[]).filter((item) => (!groupItems.includes(item as SomeObject)));
     }
 
     if (shouldRemoveAllValues) {

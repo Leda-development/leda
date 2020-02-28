@@ -70,9 +70,10 @@ export interface GroupedSomeObject {
 export interface GetSuggestionItemProps {
   compareObjectsBy?: ((suggestionListItem: SomeObject) => any) | string,
   highlightedSuggestion?: Value,
+  isGroupLabel?: boolean,
   placeholder?: string,
   selectedSuggestion?: Value,
-  suggestion: Value,
+  suggestion: Value | GroupedSomeObject,
   textField?: string,
 }
 

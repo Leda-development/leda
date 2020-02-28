@@ -34,7 +34,7 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
             className="multiselect-input-wrapper"
             onMouseDown={[Function]}
           >
-            <TagsContainer
+            <TagsContainerCustomization
               onClearIconClick={[Function]}
               onMouseDown={[Function]}
               onTagClick={[Function]}
@@ -69,8 +69,8 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
                 ]
               }
             >
-              <Div
-                className="multiselect-tags-container"
+              <TagsContainer
+                onClearIconClick={[Function]}
                 onMouseDown={[Function]}
                 onTagClick={[Function]}
                 theme={
@@ -104,49 +104,54 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
                   ]
                 }
               >
-                <div
+                <Div
                   className="multiselect-tags-container"
                   onMouseDown={[Function]}
                 >
-                  <TagItem
-                    key="0"
-                    onIconClick={[Function]}
+                  <div
+                    className="multiselect-tags-container"
+                    onMouseDown={[Function]}
                   >
-                    <Tag
+                    <TagItem
+                      key="0"
                       onIconClick={[Function]}
                     >
-                      <Wrapper
-                        className="tags-item"
+                      <Tag
+                        onIconClick={[Function]}
                       >
-                        <Span
+                        <Wrapper
                           className="tags-item"
                         >
-                          <span
+                          <Span
                             className="tags-item"
                           >
-                            1
-                            <Icon
-                              className="tags-icon icon-default"
-                              onClick={[Function]}
+                            <span
+                              className="tags-item"
                             >
-                              <Span
+                              1
+                              <Icon
                                 className="tags-icon icon-default"
                                 onClick={[Function]}
                               >
-                                <span
+                                <Span
                                   className="tags-icon icon-default"
                                   onClick={[Function]}
-                                />
-                              </Span>
-                            </Icon>
-                          </span>
-                        </Span>
-                      </Wrapper>
-                    </Tag>
-                  </TagItem>
-                </div>
-              </Div>
-            </TagsContainer>
+                                >
+                                  <span
+                                    className="tags-icon icon-default"
+                                    onClick={[Function]}
+                                  />
+                                </Span>
+                              </Icon>
+                            </span>
+                          </Span>
+                        </Wrapper>
+                      </Tag>
+                    </TagItem>
+                  </div>
+                </Div>
+              </TagsContainer>
+            </TagsContainerCustomization>
             <Input
               aria-invalid={false}
               className="multiselect-input"
@@ -405,7 +410,7 @@ exports[`MultiSelect ATTRIBUTES should list loading 1`] = `
             className="multiselect-input-wrapper"
             onMouseDown={[Function]}
           >
-            <TagsContainer
+            <TagsContainerCustomization
               onClearIconClick={[Function]}
               onMouseDown={[Function]}
               onTagClick={[Function]}
@@ -440,8 +445,8 @@ exports[`MultiSelect ATTRIBUTES should list loading 1`] = `
                 ]
               }
             >
-              <Div
-                className="multiselect-tags-container"
+              <TagsContainer
+                onClearIconClick={[Function]}
                 onMouseDown={[Function]}
                 onTagClick={[Function]}
                 theme={
@@ -475,49 +480,54 @@ exports[`MultiSelect ATTRIBUTES should list loading 1`] = `
                   ]
                 }
               >
-                <div
+                <Div
                   className="multiselect-tags-container"
                   onMouseDown={[Function]}
                 >
-                  <TagItem
-                    key="0"
-                    onIconClick={[Function]}
+                  <div
+                    className="multiselect-tags-container"
+                    onMouseDown={[Function]}
                   >
-                    <Tag
+                    <TagItem
+                      key="0"
                       onIconClick={[Function]}
                     >
-                      <Wrapper
-                        className="tags-item"
+                      <Tag
+                        onIconClick={[Function]}
                       >
-                        <Span
+                        <Wrapper
                           className="tags-item"
                         >
-                          <span
+                          <Span
                             className="tags-item"
                           >
-                            1
-                            <Icon
-                              className="tags-icon icon-default"
-                              onClick={[Function]}
+                            <span
+                              className="tags-item"
                             >
-                              <Span
+                              1
+                              <Icon
                                 className="tags-icon icon-default"
                                 onClick={[Function]}
                               >
-                                <span
+                                <Span
                                   className="tags-icon icon-default"
                                   onClick={[Function]}
-                                />
-                              </Span>
-                            </Icon>
-                          </span>
-                        </Span>
-                      </Wrapper>
-                    </Tag>
-                  </TagItem>
-                </div>
-              </Div>
-            </TagsContainer>
+                                >
+                                  <span
+                                    className="tags-icon icon-default"
+                                    onClick={[Function]}
+                                  />
+                                </Span>
+                              </Icon>
+                            </span>
+                          </Span>
+                        </Wrapper>
+                      </Tag>
+                    </TagItem>
+                  </div>
+                </Div>
+              </TagsContainer>
+            </TagsContainerCustomization>
             <Input
               aria-invalid={false}
               className="multiselect-input"
@@ -675,7 +685,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
             className="multiselect-input-wrapper"
             onMouseDown={[Function]}
           >
-            <TagsContainer
+            <TagsContainerCustomization
               onClearIconClick={[Function]}
               onMouseDown={[Function]}
               onTagClick={[Function]}
@@ -710,8 +720,8 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
                 ]
               }
             >
-              <Div
-                className="multiselect-tags-container"
+              <TagsContainer
+                onClearIconClick={[Function]}
                 onMouseDown={[Function]}
                 onTagClick={[Function]}
                 theme={
@@ -745,49 +755,54 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
                   ]
                 }
               >
-                <div
+                <Div
                   className="multiselect-tags-container"
                   onMouseDown={[Function]}
                 >
-                  <TagItem
-                    key="0"
-                    onIconClick={[Function]}
+                  <div
+                    className="multiselect-tags-container"
+                    onMouseDown={[Function]}
                   >
-                    <Tag
+                    <TagItem
+                      key="0"
                       onIconClick={[Function]}
                     >
-                      <Wrapper
-                        className="tags-item"
+                      <Tag
+                        onIconClick={[Function]}
                       >
-                        <Span
+                        <Wrapper
                           className="tags-item"
                         >
-                          <span
+                          <Span
                             className="tags-item"
                           >
-                            1
-                            <Icon
-                              className="tags-icon icon-default"
-                              onClick={[Function]}
+                            <span
+                              className="tags-item"
                             >
-                              <Span
+                              1
+                              <Icon
                                 className="tags-icon icon-default"
                                 onClick={[Function]}
                               >
-                                <span
+                                <Span
                                   className="tags-icon icon-default"
                                   onClick={[Function]}
-                                />
-                              </Span>
-                            </Icon>
-                          </span>
-                        </Span>
-                      </Wrapper>
-                    </Tag>
-                  </TagItem>
-                </div>
-              </Div>
-            </TagsContainer>
+                                >
+                                  <span
+                                    className="tags-icon icon-default"
+                                    onClick={[Function]}
+                                  />
+                                </Span>
+                              </Icon>
+                            </span>
+                          </Span>
+                        </Wrapper>
+                      </Tag>
+                    </TagItem>
+                  </div>
+                </Div>
+              </TagsContainer>
+            </TagsContainerCustomization>
             <Input
               aria-invalid={false}
               className="multiselect-input"
@@ -1045,7 +1060,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 2`] = `
             className="multiselect-input-wrapper"
             onMouseDown={[Function]}
           >
-            <TagsContainer
+            <TagsContainerCustomization
               onClearIconClick={[Function]}
               onMouseDown={[Function]}
               onTagClick={[Function]}
@@ -1080,8 +1095,8 @@ exports[`MultiSelect ATTRIBUTES should render noData template 2`] = `
                 ]
               }
             >
-              <Div
-                className="multiselect-tags-container"
+              <TagsContainer
+                onClearIconClick={[Function]}
                 onMouseDown={[Function]}
                 onTagClick={[Function]}
                 theme={
@@ -1115,49 +1130,54 @@ exports[`MultiSelect ATTRIBUTES should render noData template 2`] = `
                   ]
                 }
               >
-                <div
+                <Div
                   className="multiselect-tags-container"
                   onMouseDown={[Function]}
                 >
-                  <TagItem
-                    key="0"
-                    onIconClick={[Function]}
+                  <div
+                    className="multiselect-tags-container"
+                    onMouseDown={[Function]}
                   >
-                    <Tag
+                    <TagItem
+                      key="0"
                       onIconClick={[Function]}
                     >
-                      <Wrapper
-                        className="tags-item"
+                      <Tag
+                        onIconClick={[Function]}
                       >
-                        <Span
+                        <Wrapper
                           className="tags-item"
                         >
-                          <span
+                          <Span
                             className="tags-item"
                           >
-                            1
-                            <Icon
-                              className="tags-icon icon-default"
-                              onClick={[Function]}
+                            <span
+                              className="tags-item"
                             >
-                              <Span
+                              1
+                              <Icon
                                 className="tags-icon icon-default"
                                 onClick={[Function]}
                               >
-                                <span
+                                <Span
                                   className="tags-icon icon-default"
                                   onClick={[Function]}
-                                />
-                              </Span>
-                            </Icon>
-                          </span>
-                        </Span>
-                      </Wrapper>
-                    </Tag>
-                  </TagItem>
-                </div>
-              </Div>
-            </TagsContainer>
+                                >
+                                  <span
+                                    className="tags-icon icon-default"
+                                    onClick={[Function]}
+                                  />
+                                </Span>
+                              </Icon>
+                            </span>
+                          </Span>
+                        </Wrapper>
+                      </Tag>
+                    </TagItem>
+                  </div>
+                </Div>
+              </TagsContainer>
+            </TagsContainerCustomization>
             <Input
               aria-invalid={false}
               className="multiselect-input"
@@ -1296,7 +1316,7 @@ exports[`MultiSelect HANDLERS should test onBlur 1`] = `
             className="multiselect-input-wrapper"
             onMouseDown={[Function]}
           >
-            <TagsContainer
+            <TagsContainerCustomization
               onClearIconClick={[Function]}
               onMouseDown={[Function]}
               onTagClick={[Function]}
@@ -1331,8 +1351,8 @@ exports[`MultiSelect HANDLERS should test onBlur 1`] = `
                 ]
               }
             >
-              <Div
-                className="multiselect-tags-container"
+              <TagsContainer
+                onClearIconClick={[Function]}
                 onMouseDown={[Function]}
                 onTagClick={[Function]}
                 theme={
@@ -1366,49 +1386,54 @@ exports[`MultiSelect HANDLERS should test onBlur 1`] = `
                   ]
                 }
               >
-                <div
+                <Div
                   className="multiselect-tags-container"
                   onMouseDown={[Function]}
                 >
-                  <TagItem
-                    key="0"
-                    onIconClick={[Function]}
+                  <div
+                    className="multiselect-tags-container"
+                    onMouseDown={[Function]}
                   >
-                    <Tag
+                    <TagItem
+                      key="0"
                       onIconClick={[Function]}
                     >
-                      <Wrapper
-                        className="tags-item"
+                      <Tag
+                        onIconClick={[Function]}
                       >
-                        <Span
+                        <Wrapper
                           className="tags-item"
                         >
-                          <span
+                          <Span
                             className="tags-item"
                           >
-                            1
-                            <Icon
-                              className="tags-icon icon-default"
-                              onClick={[Function]}
+                            <span
+                              className="tags-item"
                             >
-                              <Span
+                              1
+                              <Icon
                                 className="tags-icon icon-default"
                                 onClick={[Function]}
                               >
-                                <span
+                                <Span
                                   className="tags-icon icon-default"
                                   onClick={[Function]}
-                                />
-                              </Span>
-                            </Icon>
-                          </span>
-                        </Span>
-                      </Wrapper>
-                    </Tag>
-                  </TagItem>
-                </div>
-              </Div>
-            </TagsContainer>
+                                >
+                                  <span
+                                    className="tags-icon icon-default"
+                                    onClick={[Function]}
+                                  />
+                                </Span>
+                              </Icon>
+                            </span>
+                          </Span>
+                        </Wrapper>
+                      </Tag>
+                    </TagItem>
+                  </div>
+                </Div>
+              </TagsContainer>
+            </TagsContainerCustomization>
             <Input
               aria-invalid={false}
               className="multiselect-input"
@@ -1554,7 +1579,7 @@ exports[`MultiSelect HANDLERS should test onBlur 2`] = `
             className="multiselect-input-wrapper"
             onMouseDown={[Function]}
           >
-            <TagsContainer
+            <TagsContainerCustomization
               onClearIconClick={[Function]}
               onMouseDown={[Function]}
               onTagClick={[Function]}
@@ -1589,8 +1614,8 @@ exports[`MultiSelect HANDLERS should test onBlur 2`] = `
                 ]
               }
             >
-              <Div
-                className="multiselect-tags-container"
+              <TagsContainer
+                onClearIconClick={[Function]}
                 onMouseDown={[Function]}
                 onTagClick={[Function]}
                 theme={
@@ -1624,49 +1649,54 @@ exports[`MultiSelect HANDLERS should test onBlur 2`] = `
                   ]
                 }
               >
-                <div
+                <Div
                   className="multiselect-tags-container"
                   onMouseDown={[Function]}
                 >
-                  <TagItem
-                    key="0"
-                    onIconClick={[Function]}
+                  <div
+                    className="multiselect-tags-container"
+                    onMouseDown={[Function]}
                   >
-                    <Tag
+                    <TagItem
+                      key="0"
                       onIconClick={[Function]}
                     >
-                      <Wrapper
-                        className="tags-item"
+                      <Tag
+                        onIconClick={[Function]}
                       >
-                        <Span
+                        <Wrapper
                           className="tags-item"
                         >
-                          <span
+                          <Span
                             className="tags-item"
                           >
-                            1
-                            <Icon
-                              className="tags-icon icon-default"
-                              onClick={[Function]}
+                            <span
+                              className="tags-item"
                             >
-                              <Span
+                              1
+                              <Icon
                                 className="tags-icon icon-default"
                                 onClick={[Function]}
                               >
-                                <span
+                                <Span
                                   className="tags-icon icon-default"
                                   onClick={[Function]}
-                                />
-                              </Span>
-                            </Icon>
-                          </span>
-                        </Span>
-                      </Wrapper>
-                    </Tag>
-                  </TagItem>
-                </div>
-              </Div>
-            </TagsContainer>
+                                >
+                                  <span
+                                    className="tags-icon icon-default"
+                                    onClick={[Function]}
+                                  />
+                                </Span>
+                              </Icon>
+                            </span>
+                          </Span>
+                        </Wrapper>
+                      </Tag>
+                    </TagItem>
+                  </div>
+                </Div>
+              </TagsContainer>
+            </TagsContainerCustomization>
             <Input
               aria-invalid={false}
               className="multiselect-input"
@@ -1791,7 +1821,7 @@ exports[`MultiSelect HANDLERS should test onChange 1`] = `
             className="multiselect-input-wrapper"
             onMouseDown={[Function]}
           >
-            <TagsContainer
+            <TagsContainerCustomization
               onClearIconClick={[Function]}
               onMouseDown={[Function]}
               onTagClick={[Function]}
@@ -1827,8 +1857,8 @@ exports[`MultiSelect HANDLERS should test onChange 1`] = `
                 ]
               }
             >
-              <Div
-                className="multiselect-tags-container"
+              <TagsContainer
+                onClearIconClick={[Function]}
                 onMouseDown={[Function]}
                 onTagClick={[Function]}
                 theme={
@@ -1863,85 +1893,90 @@ exports[`MultiSelect HANDLERS should test onChange 1`] = `
                   ]
                 }
               >
-                <div
+                <Div
                   className="multiselect-tags-container"
                   onMouseDown={[Function]}
                 >
-                  <TagItem
-                    key="0"
-                    onIconClick={[Function]}
+                  <div
+                    className="multiselect-tags-container"
+                    onMouseDown={[Function]}
                   >
-                    <Tag
+                    <TagItem
+                      key="0"
                       onIconClick={[Function]}
                     >
-                      <Wrapper
-                        className="tags-item"
+                      <Tag
+                        onIconClick={[Function]}
                       >
-                        <Span
+                        <Wrapper
                           className="tags-item"
                         >
-                          <span
+                          <Span
                             className="tags-item"
                           >
-                            2
-                            <Icon
-                              className="tags-icon icon-default"
-                              onClick={[Function]}
+                            <span
+                              className="tags-item"
                             >
-                              <Span
+                              2
+                              <Icon
                                 className="tags-icon icon-default"
                                 onClick={[Function]}
                               >
-                                <span
+                                <Span
                                   className="tags-icon icon-default"
                                   onClick={[Function]}
-                                />
-                              </Span>
-                            </Icon>
-                          </span>
-                        </Span>
-                      </Wrapper>
-                    </Tag>
-                  </TagItem>
-                  <TagItem
-                    key="1"
-                    onIconClick={[Function]}
-                  >
-                    <Tag
+                                >
+                                  <span
+                                    className="tags-icon icon-default"
+                                    onClick={[Function]}
+                                  />
+                                </Span>
+                              </Icon>
+                            </span>
+                          </Span>
+                        </Wrapper>
+                      </Tag>
+                    </TagItem>
+                    <TagItem
+                      key="1"
                       onIconClick={[Function]}
                     >
-                      <Wrapper
-                        className="tags-item"
+                      <Tag
+                        onIconClick={[Function]}
                       >
-                        <Span
+                        <Wrapper
                           className="tags-item"
                         >
-                          <span
+                          <Span
                             className="tags-item"
                           >
-                            1
-                            <Icon
-                              className="tags-icon icon-default"
-                              onClick={[Function]}
+                            <span
+                              className="tags-item"
                             >
-                              <Span
+                              1
+                              <Icon
                                 className="tags-icon icon-default"
                                 onClick={[Function]}
                               >
-                                <span
+                                <Span
                                   className="tags-icon icon-default"
                                   onClick={[Function]}
-                                />
-                              </Span>
-                            </Icon>
-                          </span>
-                        </Span>
-                      </Wrapper>
-                    </Tag>
-                  </TagItem>
-                </div>
-              </Div>
-            </TagsContainer>
+                                >
+                                  <span
+                                    className="tags-icon icon-default"
+                                    onClick={[Function]}
+                                  />
+                                </Span>
+                              </Icon>
+                            </span>
+                          </Span>
+                        </Wrapper>
+                      </Tag>
+                    </TagItem>
+                  </div>
+                </Div>
+              </TagsContainer>
+            </TagsContainerCustomization>
             <Input
               aria-invalid={false}
               className="multiselect-input"
@@ -2146,7 +2181,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 1`] = `
             className="multiselect-input-wrapper"
             onMouseDown={[Function]}
           >
-            <TagsContainer
+            <TagsContainerCustomization
               onClearIconClick={[Function]}
               onMouseDown={[Function]}
               onTagClick={[Function]}
@@ -2183,8 +2218,8 @@ exports[`MultiSelect HANDLERS should test onDeselect 1`] = `
                 ]
               }
             >
-              <Div
-                className="multiselect-tags-container"
+              <TagsContainer
+                onClearIconClick={[Function]}
                 onMouseDown={[Function]}
                 onTagClick={[Function]}
                 theme={
@@ -2220,121 +2255,126 @@ exports[`MultiSelect HANDLERS should test onDeselect 1`] = `
                   ]
                 }
               >
-                <div
+                <Div
                   className="multiselect-tags-container"
                   onMouseDown={[Function]}
                 >
-                  <TagItem
-                    key="0"
-                    onIconClick={[Function]}
+                  <div
+                    className="multiselect-tags-container"
+                    onMouseDown={[Function]}
                   >
-                    <Tag
+                    <TagItem
+                      key="0"
                       onIconClick={[Function]}
                     >
-                      <Wrapper
-                        className="tags-item"
+                      <Tag
+                        onIconClick={[Function]}
                       >
-                        <Span
+                        <Wrapper
                           className="tags-item"
                         >
-                          <span
+                          <Span
                             className="tags-item"
                           >
-                            1
-                            <Icon
-                              className="tags-icon icon-default"
-                              onClick={[Function]}
+                            <span
+                              className="tags-item"
                             >
-                              <Span
+                              1
+                              <Icon
                                 className="tags-icon icon-default"
                                 onClick={[Function]}
                               >
-                                <span
+                                <Span
                                   className="tags-icon icon-default"
                                   onClick={[Function]}
-                                />
-                              </Span>
-                            </Icon>
-                          </span>
-                        </Span>
-                      </Wrapper>
-                    </Tag>
-                  </TagItem>
-                  <TagItem
-                    key="1"
-                    onIconClick={[Function]}
-                  >
-                    <Tag
+                                >
+                                  <span
+                                    className="tags-icon icon-default"
+                                    onClick={[Function]}
+                                  />
+                                </Span>
+                              </Icon>
+                            </span>
+                          </Span>
+                        </Wrapper>
+                      </Tag>
+                    </TagItem>
+                    <TagItem
+                      key="1"
                       onIconClick={[Function]}
                     >
-                      <Wrapper
-                        className="tags-item"
+                      <Tag
+                        onIconClick={[Function]}
                       >
-                        <Span
+                        <Wrapper
                           className="tags-item"
                         >
-                          <span
+                          <Span
                             className="tags-item"
                           >
-                            2
-                            <Icon
-                              className="tags-icon icon-default"
-                              onClick={[Function]}
+                            <span
+                              className="tags-item"
                             >
-                              <Span
+                              2
+                              <Icon
                                 className="tags-icon icon-default"
                                 onClick={[Function]}
                               >
-                                <span
+                                <Span
                                   className="tags-icon icon-default"
                                   onClick={[Function]}
-                                />
-                              </Span>
-                            </Icon>
-                          </span>
-                        </Span>
-                      </Wrapper>
-                    </Tag>
-                  </TagItem>
-                  <TagItem
-                    key="2"
-                    onIconClick={[Function]}
-                  >
-                    <Tag
+                                >
+                                  <span
+                                    className="tags-icon icon-default"
+                                    onClick={[Function]}
+                                  />
+                                </Span>
+                              </Icon>
+                            </span>
+                          </Span>
+                        </Wrapper>
+                      </Tag>
+                    </TagItem>
+                    <TagItem
+                      key="2"
                       onIconClick={[Function]}
                     >
-                      <Wrapper
-                        className="tags-item"
+                      <Tag
+                        onIconClick={[Function]}
                       >
-                        <Span
+                        <Wrapper
                           className="tags-item"
                         >
-                          <span
+                          <Span
                             className="tags-item"
                           >
-                            3
-                            <Icon
-                              className="tags-icon icon-default"
-                              onClick={[Function]}
+                            <span
+                              className="tags-item"
                             >
-                              <Span
+                              3
+                              <Icon
                                 className="tags-icon icon-default"
                                 onClick={[Function]}
                               >
-                                <span
+                                <Span
                                   className="tags-icon icon-default"
                                   onClick={[Function]}
-                                />
-                              </Span>
-                            </Icon>
-                          </span>
-                        </Span>
-                      </Wrapper>
-                    </Tag>
-                  </TagItem>
-                </div>
-              </Div>
-            </TagsContainer>
+                                >
+                                  <span
+                                    className="tags-icon icon-default"
+                                    onClick={[Function]}
+                                  />
+                                </Span>
+                              </Icon>
+                            </span>
+                          </Span>
+                        </Wrapper>
+                      </Tag>
+                    </TagItem>
+                  </div>
+                </Div>
+              </TagsContainer>
+            </TagsContainerCustomization>
             <Input
               aria-invalid={false}
               className="multiselect-input"
@@ -2477,7 +2517,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
             className="multiselect-input-wrapper"
             onMouseDown={[Function]}
           >
-            <TagsContainer
+            <TagsContainerCustomization
               onClearIconClick={[Function]}
               onMouseDown={[Function]}
               onTagClick={[Function]}
@@ -2512,8 +2552,8 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
                 ]
               }
             >
-              <Div
-                className="multiselect-tags-container"
+              <TagsContainer
+                onClearIconClick={[Function]}
                 onMouseDown={[Function]}
                 onTagClick={[Function]}
                 theme={
@@ -2547,49 +2587,54 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
                   ]
                 }
               >
-                <div
+                <Div
                   className="multiselect-tags-container"
                   onMouseDown={[Function]}
                 >
-                  <TagItem
-                    key="0"
-                    onIconClick={[Function]}
+                  <div
+                    className="multiselect-tags-container"
+                    onMouseDown={[Function]}
                   >
-                    <Tag
+                    <TagItem
+                      key="0"
                       onIconClick={[Function]}
                     >
-                      <Wrapper
-                        className="tags-item"
+                      <Tag
+                        onIconClick={[Function]}
                       >
-                        <Span
+                        <Wrapper
                           className="tags-item"
                         >
-                          <span
+                          <Span
                             className="tags-item"
                           >
-                            2
-                            <Icon
-                              className="tags-icon icon-default"
-                              onClick={[Function]}
+                            <span
+                              className="tags-item"
                             >
-                              <Span
+                              2
+                              <Icon
                                 className="tags-icon icon-default"
                                 onClick={[Function]}
                               >
-                                <span
+                                <Span
                                   className="tags-icon icon-default"
                                   onClick={[Function]}
-                                />
-                              </Span>
-                            </Icon>
-                          </span>
-                        </Span>
-                      </Wrapper>
-                    </Tag>
-                  </TagItem>
-                </div>
-              </Div>
-            </TagsContainer>
+                                >
+                                  <span
+                                    className="tags-icon icon-default"
+                                    onClick={[Function]}
+                                  />
+                                </Span>
+                              </Icon>
+                            </span>
+                          </Span>
+                        </Wrapper>
+                      </Tag>
+                    </TagItem>
+                  </div>
+                </Div>
+              </TagsContainer>
+            </TagsContainerCustomization>
             <Input
               aria-invalid={false}
               className="multiselect-input"
@@ -2852,7 +2897,7 @@ exports[`MultiSelect HANDLERS should test onDeselect by clear button 1`] = `
             className="multiselect-input-wrapper"
             onMouseDown={[Function]}
           >
-            <TagsContainer
+            <TagsContainerCustomization
               hasClearButton={true}
               onClearIconClick={[Function]}
               onMouseDown={[Function]}
@@ -2889,8 +2934,9 @@ exports[`MultiSelect HANDLERS should test onDeselect by clear button 1`] = `
                 ]
               }
             >
-              <Div
-                className="multiselect-tags-container"
+              <TagsContainer
+                hasClearButton={true}
+                onClearIconClick={[Function]}
                 onMouseDown={[Function]}
                 onTagClick={[Function]}
                 theme={
@@ -2925,94 +2971,99 @@ exports[`MultiSelect HANDLERS should test onDeselect by clear button 1`] = `
                   ]
                 }
               >
-                <div
+                <Div
                   className="multiselect-tags-container"
                   onMouseDown={[Function]}
                 >
-                  <TagItem
-                    key="0"
-                    onIconClick={[Function]}
+                  <div
+                    className="multiselect-tags-container"
+                    onMouseDown={[Function]}
                   >
-                    <Tag
+                    <TagItem
+                      key="0"
                       onIconClick={[Function]}
                     >
-                      <Wrapper
-                        className="tags-item"
+                      <Tag
+                        onIconClick={[Function]}
                       >
-                        <Span
+                        <Wrapper
                           className="tags-item"
                         >
-                          <span
+                          <Span
                             className="tags-item"
                           >
-                            1
-                            <Icon
-                              className="tags-icon icon-default"
-                              onClick={[Function]}
+                            <span
+                              className="tags-item"
                             >
-                              <Span
+                              1
+                              <Icon
                                 className="tags-icon icon-default"
                                 onClick={[Function]}
                               >
-                                <span
+                                <Span
                                   className="tags-icon icon-default"
                                   onClick={[Function]}
-                                />
-                              </Span>
-                            </Icon>
-                          </span>
-                        </Span>
-                      </Wrapper>
-                    </Tag>
-                  </TagItem>
-                  <TagItem
-                    key="1"
-                    onIconClick={[Function]}
-                  >
-                    <Tag
+                                >
+                                  <span
+                                    className="tags-icon icon-default"
+                                    onClick={[Function]}
+                                  />
+                                </Span>
+                              </Icon>
+                            </span>
+                          </Span>
+                        </Wrapper>
+                      </Tag>
+                    </TagItem>
+                    <TagItem
+                      key="1"
                       onIconClick={[Function]}
                     >
-                      <Wrapper
-                        className="tags-item"
+                      <Tag
+                        onIconClick={[Function]}
                       >
-                        <Span
+                        <Wrapper
                           className="tags-item"
                         >
-                          <span
+                          <Span
                             className="tags-item"
                           >
-                            2
-                            <Icon
-                              className="tags-icon icon-default"
-                              onClick={[Function]}
+                            <span
+                              className="tags-item"
                             >
-                              <Span
+                              2
+                              <Icon
                                 className="tags-icon icon-default"
                                 onClick={[Function]}
                               >
-                                <span
+                                <Span
                                   className="tags-icon icon-default"
                                   onClick={[Function]}
-                                />
-                              </Span>
-                            </Icon>
-                          </span>
-                        </Span>
-                      </Wrapper>
-                    </Tag>
-                  </TagItem>
-                  <Span
-                    className="multiselect-clear-icon"
-                    onClick={[Function]}
-                  >
-                    <span
+                                >
+                                  <span
+                                    className="tags-icon icon-default"
+                                    onClick={[Function]}
+                                  />
+                                </Span>
+                              </Icon>
+                            </span>
+                          </Span>
+                        </Wrapper>
+                      </Tag>
+                    </TagItem>
+                    <Span
                       className="multiselect-clear-icon"
                       onClick={[Function]}
-                    />
-                  </Span>
-                </div>
-              </Div>
-            </TagsContainer>
+                    >
+                      <span
+                        className="multiselect-clear-icon"
+                        onClick={[Function]}
+                      />
+                    </Span>
+                  </div>
+                </Div>
+              </TagsContainer>
+            </TagsContainerCustomization>
             <Input
               aria-invalid={false}
               className="multiselect-input"
@@ -3237,7 +3288,7 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
             className="multiselect-input-wrapper"
             onMouseDown={[Function]}
           >
-            <TagsContainer
+            <TagsContainerCustomization
               onClearIconClick={[Function]}
               onMouseDown={[Function]}
               onTagClick={[Function]}
@@ -3272,8 +3323,8 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
                 ]
               }
             >
-              <Div
-                className="multiselect-tags-container"
+              <TagsContainer
+                onClearIconClick={[Function]}
                 onMouseDown={[Function]}
                 onTagClick={[Function]}
                 theme={
@@ -3307,49 +3358,54 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
                   ]
                 }
               >
-                <div
+                <Div
                   className="multiselect-tags-container"
                   onMouseDown={[Function]}
                 >
-                  <TagItem
-                    key="0"
-                    onIconClick={[Function]}
+                  <div
+                    className="multiselect-tags-container"
+                    onMouseDown={[Function]}
                   >
-                    <Tag
+                    <TagItem
+                      key="0"
                       onIconClick={[Function]}
                     >
-                      <Wrapper
-                        className="tags-item"
+                      <Tag
+                        onIconClick={[Function]}
                       >
-                        <Span
+                        <Wrapper
                           className="tags-item"
                         >
-                          <span
+                          <Span
                             className="tags-item"
                           >
-                            1
-                            <Icon
-                              className="tags-icon icon-default"
-                              onClick={[Function]}
+                            <span
+                              className="tags-item"
                             >
-                              <Span
+                              1
+                              <Icon
                                 className="tags-icon icon-default"
                                 onClick={[Function]}
                               >
-                                <span
+                                <Span
                                   className="tags-icon icon-default"
                                   onClick={[Function]}
-                                />
-                              </Span>
-                            </Icon>
-                          </span>
-                        </Span>
-                      </Wrapper>
-                    </Tag>
-                  </TagItem>
-                </div>
-              </Div>
-            </TagsContainer>
+                                >
+                                  <span
+                                    className="tags-icon icon-default"
+                                    onClick={[Function]}
+                                  />
+                                </Span>
+                              </Icon>
+                            </span>
+                          </Span>
+                        </Wrapper>
+                      </Tag>
+                    </TagItem>
+                  </div>
+                </Div>
+              </TagsContainer>
+            </TagsContainerCustomization>
             <Input
               aria-invalid={false}
               className="multiselect-input"
@@ -3608,7 +3664,7 @@ exports[`MultiSelect SNAPSHOTS should render basic usage 1`] = `
             className="multiselect-input-wrapper"
             onMouseDown={[Function]}
           >
-            <TagsContainer
+            <TagsContainerCustomization
               onClearIconClick={[Function]}
               onMouseDown={[Function]}
               onTagClick={[Function]}
@@ -3643,8 +3699,8 @@ exports[`MultiSelect SNAPSHOTS should render basic usage 1`] = `
                 ]
               }
             >
-              <Div
-                className="multiselect-tags-container"
+              <TagsContainer
+                onClearIconClick={[Function]}
                 onMouseDown={[Function]}
                 onTagClick={[Function]}
                 theme={
@@ -3678,49 +3734,54 @@ exports[`MultiSelect SNAPSHOTS should render basic usage 1`] = `
                   ]
                 }
               >
-                <div
+                <Div
                   className="multiselect-tags-container"
                   onMouseDown={[Function]}
                 >
-                  <TagItem
-                    key="0"
-                    onIconClick={[Function]}
+                  <div
+                    className="multiselect-tags-container"
+                    onMouseDown={[Function]}
                   >
-                    <Tag
+                    <TagItem
+                      key="0"
                       onIconClick={[Function]}
                     >
-                      <Wrapper
-                        className="tags-item"
+                      <Tag
+                        onIconClick={[Function]}
                       >
-                        <Span
+                        <Wrapper
                           className="tags-item"
                         >
-                          <span
+                          <Span
                             className="tags-item"
                           >
-                            1
-                            <Icon
-                              className="tags-icon icon-default"
-                              onClick={[Function]}
+                            <span
+                              className="tags-item"
                             >
-                              <Span
+                              1
+                              <Icon
                                 className="tags-icon icon-default"
                                 onClick={[Function]}
                               >
-                                <span
+                                <Span
                                   className="tags-icon icon-default"
                                   onClick={[Function]}
-                                />
-                              </Span>
-                            </Icon>
-                          </span>
-                        </Span>
-                      </Wrapper>
-                    </Tag>
-                  </TagItem>
-                </div>
-              </Div>
-            </TagsContainer>
+                                >
+                                  <span
+                                    className="tags-icon icon-default"
+                                    onClick={[Function]}
+                                  />
+                                </Span>
+                              </Icon>
+                            </span>
+                          </Span>
+                        </Wrapper>
+                      </Tag>
+                    </TagItem>
+                  </div>
+                </Div>
+              </TagsContainer>
+            </TagsContainerCustomization>
             <Input
               aria-invalid={false}
               className="multiselect-input"
@@ -3840,7 +3901,7 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 1`] = `
             className="multiselect-input-wrapper"
             onMouseDown={[Function]}
           >
-            <TagsContainer
+            <TagsContainerCustomization
               onClearIconClick={[Function]}
               onMouseDown={[Function]}
               onTagClick={[Function]}
@@ -3875,8 +3936,8 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 1`] = `
                 ]
               }
             >
-              <Div
-                className="multiselect-tags-container"
+              <TagsContainer
+                onClearIconClick={[Function]}
                 onMouseDown={[Function]}
                 onTagClick={[Function]}
                 theme={
@@ -3910,49 +3971,54 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 1`] = `
                   ]
                 }
               >
-                <div
+                <Div
                   className="multiselect-tags-container"
                   onMouseDown={[Function]}
                 >
-                  <TagItem
-                    key="0"
-                    onIconClick={[Function]}
+                  <div
+                    className="multiselect-tags-container"
+                    onMouseDown={[Function]}
                   >
-                    <Tag
+                    <TagItem
+                      key="0"
                       onIconClick={[Function]}
                     >
-                      <Wrapper
-                        className="tags-item"
+                      <Tag
+                        onIconClick={[Function]}
                       >
-                        <Span
+                        <Wrapper
                           className="tags-item"
                         >
-                          <span
+                          <Span
                             className="tags-item"
                           >
-                            value1
-                            <Icon
-                              className="tags-icon icon-default"
-                              onClick={[Function]}
+                            <span
+                              className="tags-item"
                             >
-                              <Span
+                              value1
+                              <Icon
                                 className="tags-icon icon-default"
                                 onClick={[Function]}
                               >
-                                <span
+                                <Span
                                   className="tags-icon icon-default"
                                   onClick={[Function]}
-                                />
-                              </Span>
-                            </Icon>
-                          </span>
-                        </Span>
-                      </Wrapper>
-                    </Tag>
-                  </TagItem>
-                </div>
-              </Div>
-            </TagsContainer>
+                                >
+                                  <span
+                                    className="tags-icon icon-default"
+                                    onClick={[Function]}
+                                  />
+                                </Span>
+                              </Icon>
+                            </span>
+                          </Span>
+                        </Wrapper>
+                      </Tag>
+                    </TagItem>
+                  </div>
+                </Div>
+              </TagsContainer>
+            </TagsContainerCustomization>
             <Input
               aria-invalid={false}
               className="multiselect-input"
@@ -4081,7 +4147,7 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 2`] = `
             className="multiselect-input-wrapper"
             onMouseDown={[Function]}
           >
-            <TagsContainer
+            <TagsContainerCustomization
               onClearIconClick={[Function]}
               onMouseDown={[Function]}
               onTagClick={[Function]}
@@ -4116,8 +4182,8 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 2`] = `
                 ]
               }
             >
-              <Div
-                className="multiselect-tags-container"
+              <TagsContainer
+                onClearIconClick={[Function]}
                 onMouseDown={[Function]}
                 onTagClick={[Function]}
                 theme={
@@ -4151,49 +4217,54 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 2`] = `
                   ]
                 }
               >
-                <div
+                <Div
                   className="multiselect-tags-container"
                   onMouseDown={[Function]}
                 >
-                  <TagItem
-                    key="0"
-                    onIconClick={[Function]}
+                  <div
+                    className="multiselect-tags-container"
+                    onMouseDown={[Function]}
                   >
-                    <Tag
+                    <TagItem
+                      key="0"
                       onIconClick={[Function]}
                     >
-                      <Wrapper
-                        className="tags-item"
+                      <Tag
+                        onIconClick={[Function]}
                       >
-                        <Span
+                        <Wrapper
                           className="tags-item"
                         >
-                          <span
+                          <Span
                             className="tags-item"
                           >
-                            value1
-                            <Icon
-                              className="tags-icon icon-default"
-                              onClick={[Function]}
+                            <span
+                              className="tags-item"
                             >
-                              <Span
+                              value1
+                              <Icon
                                 className="tags-icon icon-default"
                                 onClick={[Function]}
                               >
-                                <span
+                                <Span
                                   className="tags-icon icon-default"
                                   onClick={[Function]}
-                                />
-                              </Span>
-                            </Icon>
-                          </span>
-                        </Span>
-                      </Wrapper>
-                    </Tag>
-                  </TagItem>
-                </div>
-              </Div>
-            </TagsContainer>
+                                >
+                                  <span
+                                    className="tags-icon icon-default"
+                                    onClick={[Function]}
+                                  />
+                                </Span>
+                              </Icon>
+                            </span>
+                          </Span>
+                        </Wrapper>
+                      </Tag>
+                    </TagItem>
+                  </div>
+                </Div>
+              </TagsContainer>
+            </TagsContainerCustomization>
             <Input
               aria-invalid={false}
               className="multiselect-input"
@@ -4323,7 +4394,7 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 1`] = `
             className="multiselect-input-wrapper"
             onMouseDown={[Function]}
           >
-            <TagsContainer
+            <TagsContainerCustomization
               onClearIconClick={[Function]}
               onMouseDown={[Function]}
               onTagClick={[Function]}
@@ -4358,8 +4429,8 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 1`] = `
                 ]
               }
             >
-              <Div
-                className="multiselect-tags-container"
+              <TagsContainer
+                onClearIconClick={[Function]}
                 onMouseDown={[Function]}
                 onTagClick={[Function]}
                 theme={
@@ -4393,49 +4464,54 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 1`] = `
                   ]
                 }
               >
-                <div
+                <Div
                   className="multiselect-tags-container"
                   onMouseDown={[Function]}
                 >
-                  <TagItem
-                    key="0"
-                    onIconClick={[Function]}
+                  <div
+                    className="multiselect-tags-container"
+                    onMouseDown={[Function]}
                   >
-                    <Tag
+                    <TagItem
+                      key="0"
                       onIconClick={[Function]}
                     >
-                      <Wrapper
-                        className="tags-item"
+                      <Tag
+                        onIconClick={[Function]}
                       >
-                        <Span
+                        <Wrapper
                           className="tags-item"
                         >
-                          <span
+                          <Span
                             className="tags-item"
                           >
-                            1
-                            <Icon
-                              className="tags-icon icon-default"
-                              onClick={[Function]}
+                            <span
+                              className="tags-item"
                             >
-                              <Span
+                              1
+                              <Icon
                                 className="tags-icon icon-default"
                                 onClick={[Function]}
                               >
-                                <span
+                                <Span
                                   className="tags-icon icon-default"
                                   onClick={[Function]}
-                                />
-                              </Span>
-                            </Icon>
-                          </span>
-                        </Span>
-                      </Wrapper>
-                    </Tag>
-                  </TagItem>
-                </div>
-              </Div>
-            </TagsContainer>
+                                >
+                                  <span
+                                    className="tags-icon icon-default"
+                                    onClick={[Function]}
+                                  />
+                                </Span>
+                              </Icon>
+                            </span>
+                          </Span>
+                        </Wrapper>
+                      </Tag>
+                    </TagItem>
+                  </div>
+                </Div>
+              </TagsContainer>
+            </TagsContainerCustomization>
             <Input
               aria-invalid={false}
               className="multiselect-input"
@@ -4555,7 +4631,7 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 2`] = `
             className="multiselect-input-wrapper"
             onMouseDown={[Function]}
           >
-            <TagsContainer
+            <TagsContainerCustomization
               onClearIconClick={[Function]}
               onMouseDown={[Function]}
               onTagClick={[Function]}
@@ -4590,8 +4666,8 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 2`] = `
                 ]
               }
             >
-              <Div
-                className="multiselect-tags-container"
+              <TagsContainer
+                onClearIconClick={[Function]}
                 onMouseDown={[Function]}
                 onTagClick={[Function]}
                 theme={
@@ -4625,49 +4701,54 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 2`] = `
                   ]
                 }
               >
-                <div
+                <Div
                   className="multiselect-tags-container"
                   onMouseDown={[Function]}
                 >
-                  <TagItem
-                    key="0"
-                    onIconClick={[Function]}
+                  <div
+                    className="multiselect-tags-container"
+                    onMouseDown={[Function]}
                   >
-                    <Tag
+                    <TagItem
+                      key="0"
                       onIconClick={[Function]}
                     >
-                      <Wrapper
-                        className="tags-item"
+                      <Tag
+                        onIconClick={[Function]}
                       >
-                        <Span
+                        <Wrapper
                           className="tags-item"
                         >
-                          <span
+                          <Span
                             className="tags-item"
                           >
-                            2
-                            <Icon
-                              className="tags-icon icon-default"
-                              onClick={[Function]}
+                            <span
+                              className="tags-item"
                             >
-                              <Span
+                              2
+                              <Icon
                                 className="tags-icon icon-default"
                                 onClick={[Function]}
                               >
-                                <span
+                                <Span
                                   className="tags-icon icon-default"
                                   onClick={[Function]}
-                                />
-                              </Span>
-                            </Icon>
-                          </span>
-                        </Span>
-                      </Wrapper>
-                    </Tag>
-                  </TagItem>
-                </div>
-              </Div>
-            </TagsContainer>
+                                >
+                                  <span
+                                    className="tags-icon icon-default"
+                                    onClick={[Function]}
+                                  />
+                                </Span>
+                              </Icon>
+                            </span>
+                          </Span>
+                        </Wrapper>
+                      </Tag>
+                    </TagItem>
+                  </div>
+                </Div>
+              </TagsContainer>
+            </TagsContainerCustomization>
             <Input
               aria-invalid={false}
               className="multiselect-input"

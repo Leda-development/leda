@@ -6,6 +6,7 @@ import {
 import { BlurEvent, FocusEvent, ChangeEvent } from '../../src/MaskedInputBase/types';
 import { CustomEventHandler, SetState } from '../../commonTypes';
 import { getValueToValidate } from './helpers';
+import { maskValue } from '../../src/MaskedInputBase/helpers';
 
 export const createChangeHandler = (
   props: MaskedInputProps,
@@ -126,6 +127,7 @@ export const createResetHandler = ({
       component: {
         name: props.name,
         value,
+        inputValue: maskValue(value, props.mask, props.placeholderChar),
       },
     };
     props.onChange(customEvent);

@@ -14,6 +14,7 @@ export {
 
 export interface ResetEvent {
   component: {
+    inputValue: string,
     name?: string,
     value: string,
   },

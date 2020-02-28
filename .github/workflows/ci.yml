@@ -9,8 +9,8 @@ jobs:
         id: cache
         with:
           path: ~/.npm
-          key: package-lock=${{ hashFiles('package-lock.json') }}
-          restore-keys: package-lock=
+          key: rjsghskjdfg=${{ hashFiles('package-lock.json') }}
+          restore-keys: rjsghskjdfg=
       - run: npm ci
   cypress:
     runs-on: ubuntu-16.04
@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/cache@v1
         with:
-          key: package-lock=${{ hashFiles('package-lock.json') }}
+          key: rjsghskjdfg=${{ hashFiles('package-lock.json') }}
           path: node_modules
       - uses: cypress-io/github-action@v1
         with:
@@ -27,6 +27,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
       - uses: actions/upload-artifact@v1
+        if: failure()
         with:
-          name: cypress
-          path: cypress
+          name: cypress-screenshots
+          path: cypress/screenshots
+      - uses: actions/upload-artifact@v1
+        with:
+          name: cypress-videos
+          path: cypress/videos

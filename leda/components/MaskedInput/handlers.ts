@@ -3,7 +3,9 @@ import { isFunction } from 'lodash';
 import {
   BlurData, ChangeData, FocusData, MaskedInputProps, MaskedInputState,
 } from './types';
-import { BlurEvent, FocusEvent, ChangeEvent } from '../../src/MaskedInputBase/types';
+import {
+  BlurEvent, FocusEvent, ChangeEvent, EnterPressEvent,
+} from '../../src/MaskedInputBase/types';
 import { CustomEventHandler, SetState } from '../../commonTypes';
 import { getValueToValidate } from './helpers';
 import { maskValue } from '../../src/MaskedInputBase/helpers';
@@ -96,7 +98,7 @@ export const createFocusHandler = (
 
 export const createKeyDownHandler = (
   props: MaskedInputProps,
-): React.KeyboardEventHandler<HTMLInputElement> => (ev) => {
+) => (ev: EnterPressEvent) => {
   const { name, onEnterPress } = props;
 
   if (ev.key === 'Enter' && isFunction(onEnterPress)) {
@@ -104,7 +106,7 @@ export const createKeyDownHandler = (
       ...ev,
       component: {
         name,
-        value: ev.currentTarget.value,
+        value: ev.component.value,
         inputValue: ev.currentTarget.value,
       },
     };

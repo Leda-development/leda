@@ -13,7 +13,9 @@ export const BasicUsage = (props: any): React.ReactElement => {
         // defaultValue={'9992024059'}
         placeholder="+7 (___)-___-__-__"
         onEnterPress={({ component }) => {
-          console.log(component.name, component.value, component.inputValue);
+          console.log(component.name, component.name);
+          console.log('component.value', component.value);
+          console.log('component.inputValue', component.inputValue);
         }}
         onChange={(ev) => {
           console.log('ev.component', ev.component);

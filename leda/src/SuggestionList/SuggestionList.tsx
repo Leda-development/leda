@@ -10,6 +10,7 @@ import { getSuggestionItemProps, scrollToSuggestion } from './helpers';
 import { SuggestionItem } from './SuggestionItem';
 import { SuggestionListProps, GroupedSomeObject, Value } from './types';
 import { NoSuggestions } from './NoSuggestions';
+import { SomeObject } from '../../commonTypes';
 
 export const SuggestionList = (props: SuggestionListProps): React.ReactElement | null => {
   const {
@@ -92,21 +93,25 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
   // group suggestion list items if required
   React.useEffect((): void => {
     // used to keep links
-    const dataItemsMap = new Map<string, Value[]>();
-    const newResultedData = data?.reduce<(Value | GroupedSomeObject)[]>((accumulator, dataValue) => {
-      const key = groupBy?.(dataValue);
+    const indexByKey = new Map<string, number>();
+    let currentResultIndex = 0;
+    const newResultedData = data?.reduce<(Value | GroupedSomeObject)[]>((accumulator, dataItem) => {
+      const key = groupBy ? groupBy(dataItem) : undefined;
       if (key) {
-        const dataItems = dataItemsMap.get(key) || [];
-        if (dataItems.length) {
-          dataItems.push(dataValue);
-        } else {
-          dataItemsMap.set(key, dataItems);
+        if (indexByKey.get(key) === undefined) {
+          indexByKey.set(key, currentResultIndex);
           accumulator.push({
-            key, dataItems,
+            key,
+            dataItems: [],
           });
+          currentResultIndex += 1;
+        }
+        const item = (accumulator as GroupedSomeObject[]).findIndex((elem) => elem.key === key);
+        if (item !== -1) {
+          (accumulator[item] as GroupedSomeObject).dataItems.push(dataItem as SomeObject);
         }
       } else {
-        accumulator.push(dataValue);
+        (accumulator as Value[]).push(dataItem);
       }
       return accumulator;
     }, []) ?? [];

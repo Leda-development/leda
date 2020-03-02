@@ -5,7 +5,7 @@ import { LiProps } from '../../components/Li';
 import { UlProps } from '../../components/Ul';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTheme';
-import { MultiSelectValue } from '../../components/MultiSelect/types';
+import { GlobalRenderField } from '../../components/LedaProvider/globalDefaultRenders';
 
 export type Value = SomeObject | string | number | null;
 
@@ -37,6 +37,41 @@ export interface SuggestionListProps {
   shouldAllowEmpty: boolean,
   textField?: string,
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.suggestionList],
+  value: string | number | SomeObject | null | (string[] | number[] | SomeObject[] | GroupedSomeObject[]),
+}
+
+export interface SelectAllProps {
+  canSelectAll?: boolean,
+  compareObjectsBy?: ((suggestionListItem: SomeObject) => any) | string,
+  data?: Value[],
+  hasCheckBoxes?: boolean,
+  highlightedSuggestion?: Value,
+  selectedSuggestion?: Value,
+  itemRender?: CustomRender<SuggestionItemProps, {}, LiProps>,
+  onClick?: CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget>,
+  placeholder?: string,
+  suggestionRef: React.MutableRefObject<HTMLElement | null>,
+  suggestions: (Value | GroupedSomeObject)[],
+  textField?: string,
+  theme: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.suggestionList],
+  value: string | number | SomeObject | null | (string[] | number[] | SomeObject[] | GroupedSomeObject[]),
+}
+
+export interface GroupLabelProps {
+  canSelectGroup?: boolean,
+  compareObjectsBy?: ((suggestionListItem: SomeObject) => any) | string,
+  groupLabelRender?: CustomRender<{}, {}, LiProps>,
+  hasCheckBoxes?: boolean,
+  highlightedSuggestion?: Value,
+  selectedSuggestion?: Value,
+  itemRender?: CustomRender<SuggestionItemProps, {}, LiProps>,
+  onClick?: CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget>,
+  placeholder?: string,
+  suggestionRef: React.MutableRefObject<HTMLElement | null>,
+  suggestionRenders: GlobalRenderField,
+  suggestion: Value | GroupedSomeObject,
+  textField?: string,
+  theme: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.suggestionList],
   value: string | number | SomeObject | null | (string[] | number[] | SomeObject[] | GroupedSomeObject[]),
 }
 

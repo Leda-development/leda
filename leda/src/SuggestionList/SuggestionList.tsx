@@ -8,12 +8,13 @@ import {
   useAdaptivePosition,
   useElement,
   useTheme,
-  checkIsTheSameObject,
 } from '../../utils';
 import { scrollToSuggestion, getSuggestionItemProps } from './helpers';
 import { SuggestionItem } from './SuggestionItem';
+import { SelectAll } from './SelectAll';
 import { SuggestionListProps, GroupedSomeObject, Value } from './types';
 import { NoSuggestions } from './NoSuggestions';
+import { GroupLabel } from './GroupLabel';
 
 export const SuggestionList = (props: SuggestionListProps): React.ReactElement | null => {
   const {
@@ -49,13 +50,6 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
     'List',
     Ul,
     listRender || suggestionRenders.listRender,
-    props,
-  );
-
-  const GroupLabel = useElement(
-    'GroupLabel',
-    Div,
-    groupLabelRender || suggestionRenders.groupLabelRender,
     props,
   );
 
@@ -124,101 +118,44 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
           containerRef.current = component && component.wrapper;
         }}
       >
-        {canSelectAll && (() => {
-          const text = 'Выбрать все';
-          const suggestionsCount = suggestions.reduce((accumulator: number, suggestion) => (
-            (suggestion as GroupedSomeObject)?.dataItems
-              ? (accumulator + (suggestion as GroupedSomeObject)?.dataItems?.length)
-              : (accumulator + 1)), 0);
-
-          const isSemi = (() => {
-            if ((value as Value[]).length === 0) return false;
-
-            // all nested checkboxes are checked
-            return (value as Value[]).every((elem) => data?.includes(elem));
-          })();
-
-          const isHighlighted = checkIsTheSameObject({
-            compareObjectsBy,
-            obj1: text,
-            obj2: highlightedSuggestion,
-          });
-          const isSelected = checkIsTheSameObject({
-            compareObjectsBy,
-            obj1: text,
-            obj2: selectedSuggestion,
-          });
-
-          // является ли текущий элемент целью scrollToSuggestion
-          const isScrollTarget = highlightedSuggestion ? isHighlighted : isSelected;
-
-          const isSelectAllChosen = (value as Value[]).length === suggestionsCount;
-          return (
-            <SuggestionItem
-              hasCheckBoxes={hasCheckBoxes}
-              isChosen={isSemi}
-              isSemi={!isSelectAllChosen && isSemi}
-              isHighlighted={isHighlighted}
-              isPlaceholder={false}
-              isScrollTarget={isScrollTarget}
-              item={text === placeholder ? null : text}
-              itemRender={itemRender}
-              key={text}
-              onClick={onClick}
-              suggestionRef={suggestionRef}
-              text={text}
-              textField={textField}
-              theme={theme}
-            />
-          );
-        })()}
+        <SelectAll
+          canSelectAll={canSelectAll}
+          compareObjectsBy={compareObjectsBy}
+          data={data}
+          hasCheckBoxes={hasCheckBoxes}
+          highlightedSuggestion={highlightedSuggestion}
+          selectedSuggestion={selectedSuggestion}
+          itemRender={itemRender}
+          onClick={onClick}
+          placeholder={placeholder}
+          suggestionRef={suggestionRef}
+          suggestions={suggestions}
+          textField={textField}
+          theme={theme}
+          value={value}
+        />
 
         {suggestions?.map((suggestion: GroupedSomeObject | Value, index: number) => {
           if ((suggestion as GroupedSomeObject)?.key) {
-            const suggestionGroupLabelComputedProps = getSuggestionItemProps({
-              compareObjectsBy,
-              highlightedSuggestion,
-              placeholder,
-              selectedSuggestion,
-              suggestion,
-              textField,
-              isGroupLabel: true,
-            });
-            const isGroupChosen = canSelectGroup && (suggestion as GroupedSomeObject)?.dataItems?.every((elem) => (value as Value[])?.includes(elem));
-            const isSemi = (() => {
-              if (!canSelectGroup) return false;
-
-              // all nested checkboxes are checked
-              return (suggestion as GroupedSomeObject)?.dataItems?.some((elem) => (value as Value[])?.includes(elem));
-            })();
-
             return (
               <GroupWrapper className={theme.group} key={index}>
-                <GroupLabel className={theme.groupLabel}>
-                  {canSelectGroup
-                    ? (
-                      <SuggestionItem
-                        isChosen={isSemi}
-                        isSemi={!isGroupChosen && isSemi}
-                        itemRender={itemRender}
-                        onClick={onClick}
-                        suggestionRef={suggestionRef}
-                        textField={textField}
-                        theme={theme}
-                        hasCheckBoxes={hasCheckBoxes}
-                        {...suggestionGroupLabelComputedProps}
-                      />
-                    ) : (
-                      <SuggestionItem
-                        itemRender={itemRender}
-                        suggestionRef={suggestionRef}
-                        textField={textField}
-                        theme={theme}
-                        hasCheckBoxes={false}
-                        {...suggestionGroupLabelComputedProps}
-                      />
-                    )}
-                </GroupLabel>
+                <GroupLabel
+                  canSelectGroup={canSelectGroup}
+                  compareObjectsBy={compareObjectsBy}
+                  groupLabelRender={groupLabelRender}
+                  hasCheckBoxes={hasCheckBoxes}
+                  highlightedSuggestion={highlightedSuggestion}
+                  selectedSuggestion={selectedSuggestion}
+                  itemRender={itemRender}
+                  onClick={onClick}
+                  placeholder={placeholder}
+                  suggestionRef={suggestionRef}
+                  suggestionRenders={suggestionRenders}
+                  suggestion={suggestion}
+                  textField={textField}
+                  theme={theme}
+                  value={value}
+                />
 
                 {(suggestion as GroupedSomeObject)?.dataItems?.map((dataItem: Value) => {
                   const suggestionItemComputedProps = getSuggestionItemProps({

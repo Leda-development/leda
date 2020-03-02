@@ -238,6 +238,57 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
                   <ul
                     className="suggestion-list"
                   >
+                    <SelectAll
+                      data={
+                        Array [
+                          "2",
+                          "3",
+                        ]
+                      }
+                      highlightedSuggestion={null}
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      suggestions={
+                        Array [
+                          "2",
+                          "3",
+                        ]
+                      }
+                      theme={
+                        Object {
+                          "checkBox": "suggestion-checkBox",
+                          "clearIcon": "multiselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "containerTop": "pos-top",
+                          "containerVisible": "visible",
+                          "group": "suggestion-group",
+                          "groupLabel": "suggestion-group-label",
+                          "input": "multiselect-input",
+                          "inputFocused": "focused",
+                          "inputWrapper": "multiselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "tagsContainer": "multiselect-tags-container",
+                          "wrapper": "multiselect-wrapper",
+                        }
+                      }
+                      value={
+                        Array [
+                          "1",
+                        ]
+                      }
+                    />
                     <SuggestionItem
                       isHighlighted={false}
                       isPlaceholder={false}
@@ -889,6 +940,57 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
                   <ul
                     className="suggestion-list"
                   >
+                    <SelectAll
+                      data={
+                        Array [
+                          "2",
+                          "3",
+                        ]
+                      }
+                      highlightedSuggestion={null}
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      suggestions={
+                        Array [
+                          "2",
+                          "3",
+                        ]
+                      }
+                      theme={
+                        Object {
+                          "checkBox": "suggestion-checkBox",
+                          "clearIcon": "multiselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "containerTop": "pos-top",
+                          "containerVisible": "visible",
+                          "group": "suggestion-group",
+                          "groupLabel": "suggestion-group-label",
+                          "input": "multiselect-input",
+                          "inputFocused": "focused",
+                          "inputWrapper": "multiselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "tagsContainer": "multiselect-tags-container",
+                          "wrapper": "multiselect-wrapper",
+                        }
+                      }
+                      value={
+                        Array [
+                          "1",
+                        ]
+                      }
+                    />
                     <SuggestionItem
                       isHighlighted={false}
                       isPlaceholder={false}
@@ -2064,6 +2166,56 @@ exports[`MultiSelect HANDLERS should test onChange 1`] = `
                   <ul
                     className="suggestion-list"
                   >
+                    <SelectAll
+                      data={
+                        Array [
+                          "3",
+                        ]
+                      }
+                      highlightedSuggestion={null}
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      suggestions={
+                        Array [
+                          "3",
+                        ]
+                      }
+                      theme={
+                        Object {
+                          "checkBox": "suggestion-checkBox",
+                          "clearIcon": "multiselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "containerTop": "pos-top",
+                          "containerVisible": "visible",
+                          "group": "suggestion-group",
+                          "groupLabel": "suggestion-group-label",
+                          "input": "multiselect-input",
+                          "inputFocused": "focused",
+                          "inputWrapper": "multiselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "tagsContainer": "multiselect-tags-container",
+                          "wrapper": "multiselect-wrapper",
+                        }
+                      }
+                      value={
+                        Array [
+                          "2",
+                          "1",
+                        ]
+                      }
+                    />
                     <SuggestionItem
                       isHighlighted={false}
                       isPlaceholder={false}
@@ -2723,6 +2875,57 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
                   <ul
                     className="suggestion-list"
                   >
+                    <SelectAll
+                      data={
+                        Array [
+                          "1",
+                          "3",
+                        ]
+                      }
+                      highlightedSuggestion={null}
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      suggestions={
+                        Array [
+                          "1",
+                          "3",
+                        ]
+                      }
+                      theme={
+                        Object {
+                          "checkBox": "suggestion-checkBox",
+                          "clearIcon": "multiselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "containerTop": "pos-top",
+                          "containerVisible": "visible",
+                          "group": "suggestion-group",
+                          "groupLabel": "suggestion-group-label",
+                          "input": "multiselect-input",
+                          "inputFocused": "focused",
+                          "inputWrapper": "multiselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "tagsContainer": "multiselect-tags-container",
+                          "wrapper": "multiselect-wrapper",
+                        }
+                      }
+                      value={
+                        Array [
+                          "2",
+                        ]
+                      }
+                    />
                     <SuggestionItem
                       isHighlighted={false}
                       isPlaceholder={false}
@@ -3151,6 +3354,56 @@ exports[`MultiSelect HANDLERS should test onDeselect by clear button 1`] = `
                   <ul
                     className="suggestion-list"
                   >
+                    <SelectAll
+                      data={
+                        Array [
+                          "3",
+                        ]
+                      }
+                      highlightedSuggestion={null}
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      suggestions={
+                        Array [
+                          "3",
+                        ]
+                      }
+                      theme={
+                        Object {
+                          "checkBox": "suggestion-checkBox",
+                          "clearIcon": "multiselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "containerTop": "pos-top",
+                          "containerVisible": "visible",
+                          "group": "suggestion-group",
+                          "groupLabel": "suggestion-group-label",
+                          "input": "multiselect-input",
+                          "inputFocused": "focused",
+                          "inputWrapper": "multiselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "tagsContainer": "multiselect-tags-container",
+                          "wrapper": "multiselect-wrapper",
+                        }
+                      }
+                      value={
+                        Array [
+                          "1",
+                          "2",
+                        ]
+                      }
+                    />
                     <SuggestionItem
                       isHighlighted={false}
                       isPlaceholder={false}
@@ -3494,6 +3747,57 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
                   <ul
                     className="suggestion-list"
                   >
+                    <SelectAll
+                      data={
+                        Array [
+                          "2",
+                          "3",
+                        ]
+                      }
+                      highlightedSuggestion={null}
+                      onClick={[Function]}
+                      suggestionRef={
+                        Object {
+                          "current": null,
+                        }
+                      }
+                      suggestions={
+                        Array [
+                          "2",
+                          "3",
+                        ]
+                      }
+                      theme={
+                        Object {
+                          "checkBox": "suggestion-checkBox",
+                          "clearIcon": "multiselect-clear-icon",
+                          "container": "suggestion-wrapper",
+                          "containerTop": "pos-top",
+                          "containerVisible": "visible",
+                          "group": "suggestion-group",
+                          "groupLabel": "suggestion-group-label",
+                          "input": "multiselect-input",
+                          "inputFocused": "focused",
+                          "inputWrapper": "multiselect-input-wrapper",
+                          "inputWrapperDisabled": "disabled",
+                          "inputWrapperFocused": "focused",
+                          "inputWrapperInvalid": "danger",
+                          "item": "suggestion-item",
+                          "itemHighlighted": "highlighted",
+                          "itemPlaceholder": "placeholder",
+                          "itemSelected": "selected",
+                          "list": "suggestion-list",
+                          "noSuggestions": "nodata",
+                          "tagsContainer": "multiselect-tags-container",
+                          "wrapper": "multiselect-wrapper",
+                        }
+                      }
+                      value={
+                        Array [
+                          "1",
+                        ]
+                      }
+                    />
                     <SuggestionItem
                       isHighlighted={false}
                       isPlaceholder={false}

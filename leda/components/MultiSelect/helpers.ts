@@ -29,6 +29,14 @@ export const filterData = ({
 
 export const groupData = (data: Value[] | undefined, groupBy: ((option: Value) => string | undefined) | undefined): Value[] | GroupedSomeObject[] => {
   // used to keep track of key and indexes in the result array
+  const findIndexOfItem = (groupedList: GroupedSomeObject[], dataItem: Value, key?: string): GroupedSomeObject[] => {
+    const item = groupedList.findIndex((elem) => elem.key === key);
+    if (item !== -1) {
+      (groupedList[item] as GroupedSomeObject).dataItems.push(dataItem as SomeObject);
+    }
+    return groupedList;
+  };
+
   const indexByKey = new Map();
   let currentResultIndex = 0;
   return data?.reduce((accumulator: Value[] | GroupedSomeObject[], dataItem: Value) => {
@@ -42,13 +50,11 @@ export const groupData = (data: Value[] | undefined, groupBy: ((option: Value) =
         });
         currentResultIndex += 1;
       }
-      const item = (accumulator as GroupedSomeObject[]).findIndex((elem) => elem.key === key);
-      if (item !== -1) {
-        (accumulator[item] as GroupedSomeObject).dataItems.push(dataItem as SomeObject);
-      }
-    } else {
-      (accumulator as Value[]).push(dataItem);
+
+      return findIndexOfItem(accumulator as GroupedSomeObject[], dataItem, key);
     }
+
+    (accumulator as Value[]).push(dataItem);
     return accumulator;
   }, []) ?? [];
 };

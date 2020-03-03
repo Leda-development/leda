@@ -108,6 +108,7 @@ describe('DateRange', () => {
         .name('MinMaxDatePickerOpened-to')
         .should('have.attr', 'placeholder', 'Type your date...')
     })
+    
     it('Values', () => {
       cy.name('openedCalendar-to')
       .should('have.attr', 'value', '11-е число  22-го месяца  33__-го года')

@@ -75,7 +75,7 @@ describe('DateRange', () => {
         .should('have.attr', 'disabled')
     })
 
-    it('should be is open when isOpen', () => {
+    it('should be open when isOpen', () => {
       cy.name('MinMaxDatePicker-to')
         .parents()
         .children('.calendar-wrapper')

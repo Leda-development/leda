@@ -85,7 +85,7 @@ describe('DateRange', () => {
         .should('be.visible')
     })
 
-    it('should be is open when isRequired', () => {
+    it('should be required when isRequired', () => {
       cy.name('ThirdDateRange-to')
       .should('have.attr', 'aria-required', 'true')
         .name('ThirdDateRange-from')

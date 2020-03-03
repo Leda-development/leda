@@ -98,7 +98,8 @@ describe('DateRange', () => {
         .should('have.class', 'danger')
       })
   })
-    describe('Display', () => {
+  
+  describe('Display', () => {
     it('Placeholders', () => {
       cy.name('firstDatePicker')
         .should('have.attr', 'placeholder', 'Type your date...')

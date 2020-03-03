@@ -30,25 +30,22 @@ export const filterData = ({
 export const groupData = (data: Value[] | undefined, groupBy: ((option: Value) => string | undefined) | undefined): Value[] | GroupedSomeObject[] => {
   // used to keep track of key and indexes in the result array
   const findIndexOfItem = (groupedList: GroupedSomeObject[], dataItem: Value, key?: string): GroupedSomeObject[] => {
-    const item = groupedList.findIndex((elem) => elem.key === key);
-    if (item !== -1) {
-      (groupedList[item] as GroupedSomeObject).dataItems.push(dataItem as SomeObject);
+    const itemIndex = groupedList.findIndex((elem) => elem.key === key);
+    if (itemIndex !== -1) {
+      (groupedList[itemIndex] as GroupedSomeObject).dataItems.push(dataItem as SomeObject);
     }
     return groupedList;
   };
 
-  const indexByKey = new Map();
-  let currentResultIndex = 0;
-  return data?.reduce((accumulator: Value[] | GroupedSomeObject[], dataItem: Value) => {
+  return data?.reduce<(Value | GroupedSomeObject)[]>((accumulator, dataItem) => {
     const key = groupBy ? groupBy(dataItem) : undefined;
     if (key) {
-      if (indexByKey.get(key) === undefined) {
-        indexByKey.set(key, currentResultIndex);
+      const isGroupExists = (accumulator as GroupedSomeObject[]).find((item) => item.key === key);
+      if (!isGroupExists) {
         accumulator.push({
           key,
           dataItems: [],
         });
-        currentResultIndex += 1;
       }
 
       return findIndexOfItem(accumulator as GroupedSomeObject[], dataItem, key);

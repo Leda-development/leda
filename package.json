@@ -1,6 +1,6 @@
 {
   "name": "leda",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "UI components library for React applications",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -34,7 +34,6 @@
     "webpack:analyze": "webpack --mode production --config webpack.analyze.js",
     "clean": "rimraf dist/*",
     "clean:assets": "rimraf public/assets && mkdirp public/assets",
-    "postversion": "git push origin --tags",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {

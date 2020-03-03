@@ -8,8 +8,8 @@ jobs:
       - uses: actions/cache@v1
         id: cache
         with:
-          key: package-lock=${{ hashFiles('package-lock.json') }}
           path: node_modules
+          key: package-lock=${{ hashFiles('package-lock.json') }}
           restore-keys: package-lock=
       - run: npm ci
         if: steps.cache.outputs.cache-hit != 'true'
@@ -20,8 +20,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/cache@v1
         with:
-          key: package-lock=${{ hashFiles('package-lock.json') }}
           path: node_modules
+          key: package-lock=${{ hashFiles('package-lock.json') }}
       - run: npm run lint
   test:
     runs-on: ubuntu-latest
@@ -30,8 +30,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/cache@v1
         with:
-          key: package-lock=${{ hashFiles('package-lock.json') }}
           path: node_modules
+          key: package-lock=${{ hashFiles('package-lock.json') }}
       - run: npm run test
   tsc:
     runs-on: ubuntu-latest
@@ -40,8 +40,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/cache@v1
         with:
-          key: package-lock=${{ hashFiles('package-lock.json') }}
           path: node_modules
+          key: package-lock=${{ hashFiles('package-lock.json') }}
       - run: npm run tsc
   cypress:
     runs-on: ubuntu-16.04
@@ -50,12 +50,18 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/cache@v1
         with:
-          key: package-lock=${{ hashFiles('package-lock.json') }}
           path: node_modules
+          key: package-lock=${{ hashFiles('package-lock.json') }}
       - uses: cypress-io/github-action@v1
         with:
           start: npm start
-          record: true
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+      - uses: actions/upload-artifact@v1
+        if: ${{ job.status == 'failure' }}
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      - uses: actions/upload-artifact@v1
+        if: ${{ job.status == 'failure' }}
+        with:
+          name: cypress-videos
+          path: cypress/videos

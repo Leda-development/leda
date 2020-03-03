@@ -3,85 +3,49 @@ import { hideTooltip, showTooltip } from './helpers';
 import { UseTooltipEffects } from './types';
 
 export const useTooltipEffects: UseTooltipEffects = ({
-  invisibleElementRef, tooltipRef, isOpen, position, setPosition, setHidden, positionProp, children,
+  isOpen, positionProp, children, invisibleElementRef, tooltipRef, position, setPosition, mergeStyle,
 }) => {
-  // hide on mount and unmount
-  React.useEffect(() => {
-    const hide = (): void => hideTooltip({
-      isOpen, tooltipRef, positionProp, setPosition,
-    });
+  const sibling = invisibleElementRef.current?.nextElementSibling;
 
+  const hide = React.useCallback(() => {
+    hideTooltip({
+      isOpen, positionProp, setPosition, mergeStyle,
+    });
+  }, [isOpen, positionProp, setPosition, mergeStyle]);
+
+  const show = React.useCallback(() => {
+    showTooltip({
+      invisibleElementRef, tooltipRef, position, setPosition, mergeStyle,
+    });
+  }, [invisibleElementRef, tooltipRef, position, setPosition, mergeStyle]);
+
+  React.useEffect(() => {
     hide();
 
-    return () => hide();
+    return hide;
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [children]);
 
-  React.useEffect((): (() => void) | void => {
-    const element = invisibleElementRef.current;
+  React.useEffect(() => {
+    if (sibling) {
+      const element = sibling as HTMLElement;
 
-    const hide = (): void => hideTooltip({
-      isOpen, tooltipRef, positionProp, setPosition,
-    });
-
-    const show = (): void => showTooltip({
-      invisibleElementRef,
-      position,
-      setPosition,
-      tooltipRef,
-    });
-
-    if (element && element.nextElementSibling) {
-      // Проверка на видимость элемента в доме. При W и H === 0 eventListener не срабатывает.
-      // Проверка нужна для CheckBox и других невидимых элементов
-      if ((element.nextElementSibling as HTMLElement).offsetWidth === 0 && (element.nextElementSibling as HTMLElement).offsetHeight === 0) {
-        setHidden(true);
-        element.nextElementSibling.addEventListener('pointerenter', show);
-        element.nextElementSibling.addEventListener('touchstart', show);
-        element.nextElementSibling.addEventListener('pointerleave', hide);
-        element.nextElementSibling.addEventListener('touchend', hide);
-      } else {
-        element.nextElementSibling.addEventListener('pointerenter', show);
-        element.nextElementSibling.addEventListener('touchstart', show);
-        element.nextElementSibling.addEventListener('pointerleave', hide);
-        element.nextElementSibling.addEventListener('touchend', hide);
-      }
+      element.addEventListener('pointerenter', show);
+      element.addEventListener('pointerleave', hide);
+      element.addEventListener('touchstart', show);
+      element.addEventListener('touchend', hide);
 
       return () => {
-        if (element && element.nextElementSibling) {
-          element.nextElementSibling.removeEventListener('pointerenter', show);
-          element.nextElementSibling.removeEventListener('touchstart', show);
-          element.nextElementSibling.removeEventListener('pointerleave', hide);
-          element.nextElementSibling.removeEventListener('touchend', hide);
+        if (element) {
+          element.removeEventListener('pointerenter', show);
+          element.removeEventListener('pointerleave', hide);
+          element.removeEventListener('touchstart', show);
+          element.removeEventListener('touchend', hide);
         }
       };
     }
 
     return undefined;
-  }, [invisibleElementRef, isOpen, position, positionProp, setHidden, setPosition, tooltipRef]);
-
-  React.useEffect((): void => {
-    if (isOpen) {
-      setTimeout(() => showTooltip({
-        invisibleElementRef,
-        position,
-        setPosition,
-        tooltipRef,
-      }), 500);
-    }
-  }, [invisibleElementRef, isOpen, position, positionProp, setPosition, tooltipRef]);
-
-  // hide if child unmounts
-  React.useEffect(() => {
-    const element = invisibleElementRef.current;
-
-    if (element && !element.nextElementSibling) {
-      hideTooltip({
-        setPosition,
-        positionProp,
-        tooltipRef,
-        isOpen,
-      });
-    }
-  }, [children, invisibleElementRef, isOpen, positionProp, setPosition, tooltipRef]);
+  }, [sibling, hide, show]);
 };

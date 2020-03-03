@@ -2,4 +2,7 @@
 /types/
 
 /jest.setup.ts
-/webpack.*.js
+/package-scripts.js
+/webpack.analyze.js
+/webpack.config.js
+/webpack.docs.js

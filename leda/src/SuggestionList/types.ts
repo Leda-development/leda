@@ -15,64 +15,47 @@ export interface SuggestionTarget {
   },
 }
 
-export interface SuggestionListProps {
+interface GeneralSuggestionProps {
+  compareObjectsBy?: ((suggestionListItem: SomeObject) => any) | string,
+  hasCheckBoxes?: boolean,
+  highlightedSuggestion?: Value,
+  selectedSuggestion?: Value,
+  itemRender?: CustomRender<SuggestionItemProps, {}, LiProps>,
+  onClick?: CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget>,
+  placeholder?: string,
+  textField?: string,
+  theme: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.suggestionList],
+  value: string | number | SomeObject | null | (string[] | number[] | SomeObject[] | GroupedSomeObject[]),
+}
+
+export interface SuggestionListProps extends GeneralSuggestionProps {
   boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement | null }>,
   canSelectAll?: boolean,
   canSelectGroup?: boolean,
-  compareObjectsBy?: ((suggestionListItem: SomeObject) => any) | string,
   data?: Value[],
   groupLabelRender?: CustomRender<{}, {}, LiProps>,
   groupWrapperRender?: CustomRender<{}, {}, DivProps>,
-  hasCheckBoxes?: boolean,
-  highlightedSuggestion?: Value,
-  selectedSuggestion?: Value,
   isLoading?: boolean,
   isOpen: boolean,
-  itemRender?: CustomRender<SuggestionItemProps, {}, LiProps>,
   listRender?: CustomRender<SuggestionListProps, {}, UlProps>,
   noSuggestionsRender?: CustomRender<SuggestionListProps, {}, NoSuggestionsProps>,
-  onClick?: CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget>,
-  placeholder?: string,
   resultedData: Value[] | GroupedSomeObject[],
   shouldAllowEmpty: boolean,
-  textField?: string,
-  theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.suggestionList],
-  value: string | number | SomeObject | null | (string[] | number[] | SomeObject[] | GroupedSomeObject[]),
 }
 
-export interface SelectAllProps {
+export interface SelectAllProps extends GeneralSuggestionProps {
   canSelectAll?: boolean,
-  compareObjectsBy?: ((suggestionListItem: SomeObject) => any) | string,
   data?: Value[],
-  hasCheckBoxes?: boolean,
-  highlightedSuggestion?: Value,
-  selectedSuggestion?: Value,
-  itemRender?: CustomRender<SuggestionItemProps, {}, LiProps>,
-  onClick?: CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget>,
-  placeholder?: string,
   suggestionRef: React.MutableRefObject<HTMLElement | null>,
   suggestions: (Value | GroupedSomeObject)[],
-  textField?: string,
-  theme: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.suggestionList],
-  value: string | number | SomeObject | null | (string[] | number[] | SomeObject[] | GroupedSomeObject[]),
 }
 
-export interface GroupLabelProps {
+export interface GroupLabelProps extends GeneralSuggestionProps {
   canSelectGroup?: boolean,
-  compareObjectsBy?: ((suggestionListItem: SomeObject) => any) | string,
   groupLabelRender?: CustomRender<{}, {}, LiProps>,
-  hasCheckBoxes?: boolean,
-  highlightedSuggestion?: Value,
-  selectedSuggestion?: Value,
-  itemRender?: CustomRender<SuggestionItemProps, {}, LiProps>,
-  onClick?: CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget>,
-  placeholder?: string,
   suggestionRef: React.MutableRefObject<HTMLElement | null>,
   suggestionRenders: GlobalRenderField,
   suggestion: Value | GroupedSomeObject,
-  textField?: string,
-  theme: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.suggestionList],
-  value: string | number | SomeObject | null | (string[] | number[] | SomeObject[] | GroupedSomeObject[]),
 }
 
 export interface SuggestionItemProps {

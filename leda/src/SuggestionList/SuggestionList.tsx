@@ -93,26 +93,29 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
   // group suggestion list items if required
   React.useEffect((): void => {
     // used to keep links
-    const indexByKey = new Map<string, number>();
-    let currentResultIndex = 0;
+    const findIndexOfItem = (groupedList: GroupedSomeObject[], dataItem: Value, key?: string): GroupedSomeObject[] => {
+      const itemIndex = groupedList.findIndex((elem) => elem.key === key);
+      if (itemIndex !== -1) {
+        (groupedList[itemIndex] as GroupedSomeObject).dataItems.push(dataItem as SomeObject);
+      }
+      return groupedList;
+    };
+
     const newResultedData = data?.reduce<(Value | GroupedSomeObject)[]>((accumulator, dataItem) => {
       const key = groupBy ? groupBy(dataItem) : undefined;
       if (key) {
-        if (indexByKey.get(key) === undefined) {
-          indexByKey.set(key, currentResultIndex);
+        const isGroupExists = (accumulator as GroupedSomeObject[]).find((item) => item.key === key);
+        if (!isGroupExists) {
           accumulator.push({
             key,
             dataItems: [],
           });
-          currentResultIndex += 1;
         }
-        const item = (accumulator as GroupedSomeObject[]).findIndex((elem) => elem.key === key);
-        if (item !== -1) {
-          (accumulator[item] as GroupedSomeObject).dataItems.push(dataItem as SomeObject);
-        }
-      } else {
-        (accumulator as Value[]).push(dataItem);
+
+        return findIndexOfItem(accumulator as GroupedSomeObject[], dataItem, key);
       }
+
+      (accumulator as Value[]).push(dataItem);
       return accumulator;
     }, []) ?? [];
 

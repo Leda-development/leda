@@ -87,7 +87,7 @@ describe('DateRange', () => {
 
     it('should be required when isRequired', () => {
       cy.name('ThirdDateRange-to')
-      .should('have.attr', 'aria-required', 'true')
+        .should('have.attr', 'aria-required', 'true')
         .name('ThirdDateRange-from')
         .should('have.attr', 'aria-required', 'true')
         .name('secondDatePicker')

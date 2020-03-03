@@ -34,7 +34,6 @@
     "webpack:analyze": "webpack --mode production --config webpack.analyze.js",
     "clean": "rimraf dist/*",
     "clean:assets": "rimraf public/assets && mkdirp public/assets",
-    "postversion": "git push origin --tags",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {

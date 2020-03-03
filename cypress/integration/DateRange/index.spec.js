@@ -39,7 +39,7 @@ describe('DateRange', () => {
       .parents('.calendar-wrapper.visible')
       .find('div.calendar-date-cell.disabled-date')
       .contains('11')
-      .should('be.exist')
+      .should('exist')
       .parents('.calendar-wrapper.visible')
       .find('div.calendar-date-cell.disabled-date')
       .should('have.length', 19)

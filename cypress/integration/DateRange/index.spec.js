@@ -14,6 +14,7 @@ describe('DateRange', () => {
       .find('.daterange-delimiter')
       .should('have.length', 6)
   })
+  
   it('MinMaxTest', () => {
     cy.name('MinMaxDatePicker-from')
       .parent()

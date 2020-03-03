@@ -4,34 +4,34 @@ import { COMPONENTS_NAMESPACES } from '../../constants';
 import { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTheme';
 
 export interface TooltipProps {
-  /** Дочерние элементы */
-  children?: React.ReactNode,
+  ref?: React.Ref<TooltipRefCurrent>,
   /** Показан ли тултип (удобно для отладки) */
   isOpen?: boolean,
   /** Расположение тултипа, одно из: top, right, bottom, left. По-умолчанию - top */
   position?: TooltipPosition,
+  /** Дочерние элементы */
+  children?: React.ReactNode,
   /** Тема компонента */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.tooltip],
-  ref?: React.Ref<TooltipRefCurrent>,
   /** Заголовок принимается в виде строки, html, JSX */
   title: React.ReactNode,
 }
 
 export interface TooltipStyles extends React.CSSProperties {
-  top?: string,
-  left?: string,
-  opacity: 1 | 0,
-  height: 'auto' | '0',
-  whiteSpace: 'nowrap',
+  top?: number,
+  left?: number,
+  height?: 0 | 'auto',
+  opacity?: 0 | 1,
 }
 
 export type TooltipPosition = 'top' | 'right' | 'bottom' | 'left';
 
 export interface TooltipBodyProps {
-  position: TooltipPosition,
-  title: React.ReactNode,
   ref?: React.Ref<HTMLDivElement>,
+  position: TooltipPosition,
+  style: React.CSSProperties,
   theme: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.tooltip],
+  title: React.ReactNode,
 }
 
 export interface TooltipRefCurrent {
@@ -41,30 +41,31 @@ export interface TooltipRefCurrent {
 export interface ShowTooltip {
   (data: {
     invisibleElementRef: React.MutableRefObject<HTMLDivElement | null>,
+    tooltipRef: React.MutableRefObject<HTMLDivElement | null>,
     position: TooltipPosition,
     setPosition: SetState<TooltipPosition>,
-    tooltipRef: React.MutableRefObject<HTMLDivElement | null>,
+    mergeStyle: React.Dispatch<TooltipStyles>,
   }): void,
 }
 
 export interface HideTooltip {
   (data: {
     isOpen: boolean | undefined,
-    tooltipRef: React.MutableRefObject<HTMLDivElement | null>,
-    setPosition: SetState<TooltipPosition>,
     positionProp: TooltipPosition,
+    setPosition: SetState<TooltipPosition>,
+    mergeStyle: React.Dispatch<TooltipStyles>,
   }): void,
 }
 
 export interface UseTooltipEffects {
   (data: {
+    isOpen: boolean | undefined,
+    positionProp: TooltipPosition,
+    children?: React.ReactNode,
     invisibleElementRef: React.MutableRefObject<HTMLDivElement | null>,
     tooltipRef: React.MutableRefObject<HTMLDivElement | null>,
-    isOpen: boolean | undefined,
     position: TooltipPosition,
-    positionProp: TooltipPosition,
     setPosition: SetState<TooltipPosition>,
-    setHidden: SetState<boolean>,
-    children: React.ReactNode,
+    mergeStyle: React.Dispatch<TooltipStyles>,
   }): void,
 }

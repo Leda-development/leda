@@ -2,6 +2,7 @@ import * as React from 'react';
 import {
   every, isArray, isFunction, isObject, isString,
 } from 'lodash';
+
 import {
   AutoCompleteProps,
   CHANGE_METHOD,

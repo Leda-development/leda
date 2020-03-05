@@ -11,7 +11,7 @@ import {
   Value,
 } from './types';
 import { CustomEventHandler, SetState, SomeObject } from '../../commonTypes';
-import { SuggestionTarget, GroupedSomeObject } from '../../src/SuggestionList/types';
+import { SuggestionTarget } from '../../src/SuggestionList/types';
 import { filterData } from './helpers';
 
 export const createFocusHandler = (
@@ -69,7 +69,7 @@ export const createSelectHandler = (
   props: MultiSelectProps, extraData: SelectData,
 ): CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget> => (ev) => {
   const {
-    onChange, name, value: valueProp, isDisabled, maxSelected, data,
+    onChange, name, value: valueProp, isDisabled, maxSelected,
   } = props;
 
   if (isDisabled) return;
@@ -79,35 +79,16 @@ export const createSelectHandler = (
   } = extraData;
 
   const shouldRemoveValue = (value as (string | number | SomeObject)[]).includes(ev.target.value);
-  const groupItems: SomeObject[] = (data as SomeObject[]).filter((item) => (item?.groupName && item?.groupName === (ev.target.value as GroupedSomeObject).key));
-  const shouldRemoveGroupValues = groupItems?.some((item) => (value as SomeObject[]).includes(item));
-  const shouldRemoveAllValues = data?.length === value.length;
 
   const newValue = (() => {
     if (shouldRemoveValue) {
       return (value as (string | number | SomeObject)[]).filter((item) => (item !== ev.target.value));
     }
 
-    if (shouldRemoveGroupValues) {
-      return (value as (string | number | SomeObject)[]).filter((item) => (!groupItems.includes(item as SomeObject)));
-    }
-
-    if (shouldRemoveAllValues) {
-      return [];
-    }
-
-    if ((ev.target.value as GroupedSomeObject)?.dataItems) {
-      return [...value, ...(ev.target.value as GroupedSomeObject).dataItems];
-    }
-
-    if (!data?.includes(ev.target.value)) {
-      return data;
-    }
-
     return [...value, ev.target.value];
   })() as (string[] | number[] | SomeObject[]);
 
-  if (!isNil(maxSelected) && newValue.length >= maxSelected) {
+  if (!isNil(maxSelected) && newValue.length === maxSelected) {
     setFilterValue('');
   }
 
@@ -173,15 +154,7 @@ export const createKeyDownHandler = (
   } = props;
 
   const {
-    filterValue,
-    highlightedSuggestion,
-    setHighlightedSuggestion,
-    handleSelect,
-    value,
-    setFocused,
-    resultedData,
-    canSelectAll,
-    hasCheckBoxes,
+    filterValue, highlightedSuggestion, setHighlightedSuggestion, handleSelect, value, setFocused,
   } = extraData;
 
   if (!data) return;
@@ -195,31 +168,17 @@ export const createKeyDownHandler = (
     compareObjectsBy,
   }) || [];
 
-  const dataForHighlight: Value[] | GroupedSomeObject[] = hasCheckBoxes ? (resultedData as (Value | GroupedSomeObject)[])
-    .reduce((acc: Value[] | GroupedSomeObject[], val: Value | GroupedSomeObject) => {
-      const groupedSomeObjectValue = val as GroupedSomeObject;
-
-      if (groupedSomeObjectValue.key) {
-        acc.push(groupedSomeObjectValue);
-        groupedSomeObjectValue.dataItems.forEach((item: Value) => (acc as Value[]).push(item));
-        return acc;
-      }
-
-      (acc as Value[]).push(val);
-      return acc;
-    }, canSelectAll ? ['Выбрать все'] : []) : filteredData;
-
-  const highlightedItem = (dataForHighlight as (string | number | SomeObject)[]).find((item) => item === highlightedSuggestion);
+  const highlightedItem = (filteredData as (string | number | SomeObject)[]).find((item) => item === highlightedSuggestion);
   // текущий индекс
-  const currentIndex = (dataForHighlight as (string | number | SomeObject)[]).indexOf(highlightedItem || '');
+  const currentIndex = (filteredData as (string | number | SomeObject)[]).indexOf(highlightedItem || '');
 
   if (ev.key === 'ArrowDown' || ev.key === 'Down') {
     // предотвращаем скролл страницы
     ev.preventDefault();
     // новый индекс, механизм работает как барабан
-    const nextIndex = (currentIndex + 1) % dataForHighlight.length;
+    const nextIndex = (currentIndex + 1) % filteredData.length;
 
-    const newHighlightedSuggestion = dataForHighlight[nextIndex];
+    const newHighlightedSuggestion = filteredData[nextIndex];
 
     setHighlightedSuggestion(newHighlightedSuggestion);
 
@@ -231,12 +190,12 @@ export const createKeyDownHandler = (
     ev.preventDefault();
     // новый индекс, механизм работает как барабан
     const nextIndex = (() => {
-      if (currentIndex <= 0) return dataForHighlight.length - 1;
+      if (currentIndex <= 0) return filteredData.length - 1;
 
       return currentIndex - 1;
     })();
 
-    const newHighlightedSuggestion = dataForHighlight[nextIndex];
+    const newHighlightedSuggestion = filteredData[nextIndex];
 
     setHighlightedSuggestion(newHighlightedSuggestion);
 

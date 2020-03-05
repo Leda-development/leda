@@ -7,6 +7,7 @@ describe('DateRange', () => {
   before(() => {
     cy.visit('http://localhost:9000/cypress/daterange')
   })
+  
   it('Delimiter', () => {
     cy.name('firstDatePicker')
       .parents('div.demo-story')

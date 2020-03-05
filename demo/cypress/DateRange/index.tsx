@@ -48,11 +48,9 @@ export const DateRange = (): React.ReactElement => {
   const testFunction = (ev) => { console.log(ev) }
 
   const DateRangeStyles = () => (<link rel="stylesheet">
-    {`
     .daterange-wrapper {
       justify-content: space-between;
     }
-    `}
   </link>)
   return (
     <L.Div>

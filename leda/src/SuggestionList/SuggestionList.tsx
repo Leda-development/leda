@@ -2,23 +2,31 @@ import * as React from 'react';
 import { LedaContext } from '../../components/LedaProvider';
 import { Loader } from '../../components/Loader';
 import { Div, DivRefCurrent } from '../../components/Div';
-import { Li } from '../../components/Li';
 import { Ul } from '../../components/Ul';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import { useAdaptivePosition, useElement, useTheme } from '../../utils';
-import { getSuggestionItemProps, scrollToSuggestion } from './helpers';
+import {
+  useAdaptivePosition,
+  useElement,
+  useTheme,
+} from '../../utils';
+import { scrollToSuggestion, getSuggestionItemProps } from './helpers';
 import { SuggestionItem } from './SuggestionItem';
+import { SelectAll } from './SelectAll';
 import { SuggestionListProps, GroupedSomeObject, Value } from './types';
 import { NoSuggestions } from './NoSuggestions';
+import { GroupLabel } from './GroupLabel';
 
 export const SuggestionList = (props: SuggestionListProps): React.ReactElement | null => {
   const {
+    resultedData,
     boundingContainerRef,
+    canSelectAll,
+    canSelectGroup,
     compareObjectsBy,
     data,
-    groupBy,
     groupLabelRender,
     groupWrapperRender,
+    hasCheckBoxes,
     highlightedSuggestion,
     selectedSuggestion,
     isLoading,
@@ -45,16 +53,9 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
     props,
   );
 
-  const GroupLabel = useElement(
-    'GroupLabel',
-    Li,
-    groupLabelRender || suggestionRenders.groupLabelRender,
-    props,
-  );
-
   const GroupWrapper = useElement(
     'GroupWrapper',
-    Div,
+    Ul,
     groupWrapperRender || suggestionRenders.groupWrapperRender,
     props,
   );
@@ -69,8 +70,6 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
   const wrapperRef = React.useRef<DivRefCurrent | null>(null);
   const containerRef = React.useRef<HTMLElement | null>(null);
   const suggestionRef = React.useRef<HTMLElement | null>(null);
-
-  const [resultedData, setResultedData] = React.useState<Value[] | GroupedSomeObject[]>([]);
 
   const classMap = React.useMemo(() => ({
     top: theme.containerTop,
@@ -88,53 +87,6 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
     // скроллим эффективно
     scrollToSuggestion(containerRef, suggestionRef);
   }, [isOpen, value, selectedSuggestion, highlightedSuggestion]);
-
-  // group suggestion list items if required
-  React.useEffect((): void => {
-    // used to keep links
-    const dataItemsMap = new Map<string, Value[]>();
-    const newResultedData = data?.reduce<(Value | GroupedSomeObject)[]>((accumulator, dataValue) => {
-      const key = groupBy?.(dataValue);
-      if (key) {
-        const dataItems = dataItemsMap.get(key) || [];
-        if (dataItems.length) {
-          dataItems.push(dataValue);
-        } else {
-          dataItemsMap.set(key, dataItems);
-          accumulator.push({
-            key, dataItems,
-          });
-        }
-      } else {
-        accumulator.push(dataValue);
-      }
-      return accumulator;
-    }, []) ?? [];
-
-    setResultedData(newResultedData);
-  }, [data, groupBy, value]);
-
-  const renderSuggestion = React.useCallback((suggestionProp: Value | GroupedSomeObject) => {
-    const suggestionItemComputedProps = getSuggestionItemProps({
-      compareObjectsBy,
-      highlightedSuggestion,
-      placeholder,
-      selectedSuggestion,
-      suggestion: suggestionProp,
-      textField,
-    });
-
-    return (
-      <SuggestionItem
-        itemRender={itemRender}
-        onClick={onClick}
-        suggestionRef={suggestionRef}
-        textField={textField}
-        theme={theme}
-        {...suggestionItemComputedProps}
-      />
-    );
-  }, [compareObjectsBy, highlightedSuggestion, itemRender, onClick, placeholder, selectedSuggestion, textField, theme]);
 
   if (!isOpen) return null;
 
@@ -166,20 +118,95 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
           containerRef.current = component && component.wrapper;
         }}
       >
-        {suggestions?.map((suggestion, index) => {
+        <SelectAll
+          canSelectAll={canSelectAll}
+          compareObjectsBy={compareObjectsBy}
+          data={data}
+          hasCheckBoxes={hasCheckBoxes}
+          highlightedSuggestion={highlightedSuggestion}
+          selectedSuggestion={selectedSuggestion}
+          itemRender={itemRender}
+          onClick={onClick}
+          placeholder={placeholder}
+          suggestionRef={suggestionRef}
+          suggestions={suggestions}
+          textField={textField}
+          theme={theme}
+          value={value}
+        />
+
+        {suggestions?.map((suggestion: GroupedSomeObject | Value, index: number) => {
           if ((suggestion as GroupedSomeObject)?.key) {
-            const groupedSomeObject = suggestion as GroupedSomeObject;
             return (
               <GroupWrapper className={theme.group} key={index}>
-                <GroupLabel className={theme.groupLabel}>
-                  {groupedSomeObject.key}
-                </GroupLabel>
-                {groupedSomeObject.dataItems.map(renderSuggestion)}
+                <GroupLabel
+                  canSelectGroup={canSelectGroup}
+                  compareObjectsBy={compareObjectsBy}
+                  groupLabelRender={groupLabelRender}
+                  hasCheckBoxes={hasCheckBoxes}
+                  highlightedSuggestion={highlightedSuggestion}
+                  selectedSuggestion={selectedSuggestion}
+                  itemRender={itemRender}
+                  onClick={onClick}
+                  placeholder={placeholder}
+                  suggestionRef={suggestionRef}
+                  suggestionRenders={suggestionRenders}
+                  suggestion={suggestion}
+                  textField={textField}
+                  theme={theme}
+                  value={value}
+                />
+
+                {(suggestion as GroupedSomeObject)?.dataItems?.map((dataItem: Value) => {
+                  const suggestionItemComputedProps = getSuggestionItemProps({
+                    compareObjectsBy,
+                    highlightedSuggestion,
+                    placeholder,
+                    selectedSuggestion,
+                    suggestion: dataItem,
+                    textField,
+                  });
+
+                  const isChosen: boolean | undefined = (value as Value[])?.includes(dataItem);
+                  return (
+                    <SuggestionItem
+                      isChosen={isChosen}
+                      itemRender={itemRender}
+                      onClick={onClick}
+                      suggestionRef={suggestionRef}
+                      textField={textField}
+                      theme={theme}
+                      hasCheckBoxes={hasCheckBoxes}
+                      {...suggestionItemComputedProps}
+                    />
+                  );
+                })}
               </GroupWrapper>
             );
           }
 
-          return renderSuggestion(suggestion);
+          const suggestionItemComputedProps = getSuggestionItemProps({
+            compareObjectsBy,
+            highlightedSuggestion,
+            placeholder,
+            selectedSuggestion,
+            suggestion,
+            textField,
+          });
+
+          const isItemChosen: boolean | undefined = hasCheckBoxes && (value as Value[])?.includes(suggestion);
+          return (
+            <SuggestionItem
+              isChosen={isItemChosen}
+              itemRender={itemRender}
+              onClick={onClick}
+              suggestionRef={suggestionRef}
+              textField={textField}
+              theme={theme}
+              hasCheckBoxes={hasCheckBoxes}
+              {...suggestionItemComputedProps}
+            />
+          );
         })}
       </List>
     </Div>

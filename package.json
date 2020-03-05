@@ -21,7 +21,7 @@
     "test": "npm run jest",
     "tsc": "tsc",
     "jest": "jest --color",
-    "cypress": "start-test wds 9000 cypress:test",
+    "cypress": "start-test wds 9000 cypress:open",
     "cypress:open": "cypress open",
     "cypress:test": "cypress run",
     "copyFonts": "mkdirp public/assets/css/webfonts && ncp ./styles/webfonts ./public/assets/css/webfonts",

@@ -45,20 +45,21 @@ export const DateRange = (): React.ReactElement => {
     console.log(date);
     setValue6(value);
   };
-  const handleEnterPress = (ev) => console.log(ev)
-
+ 
   const DateRangeStyles = () => (<link rel="stylesheet">
-    .daterange-wrapper {
-      justify-content: space-between;
-    }
-  </link>)
+  {`
+  .daterange-wrapper {
+    justify-content: space-between;
+  }
+  `}
+</link>)
   return (
     <L.Div>
       <L.Div _demoStory _flexRow _justifyContentBetween _grow1>
         <L.DateRange
           _grow1
           onChange={handleChange1}
-          onEnterPress={(ev) => testFunction(ev)}
+          onEnterPress={console.log}
           value={value1}
           name={['firstDatePicker', "secondDatePicker"]}
           placeholder={["Type your date...", "Type something...",]}
@@ -72,7 +73,7 @@ export const DateRange = (): React.ReactElement => {
           max={new Date('05.04.2012')}
           min={new Date('04.03.2012')}
           onChange={handleChange2}
-          onEnterPress={(ev) => testFunction(ev)}
+          onEnterPress={console.log}
           name='MinMaxDatePicker'
           placeholder="Type your date..."
           isOpen={[true, true]}
@@ -88,7 +89,7 @@ export const DateRange = (): React.ReactElement => {
           _grow1
           onChange={handleChange3}
           format='dd.MM.yyyy'
-          onBlur={(ev) => testFunction(ev)}
+          onBlur={console.log}
           name='ThirdDateRange'
           isRequired
           form="112"
@@ -100,7 +101,7 @@ export const DateRange = (): React.ReactElement => {
           name='openedCalendar'
           onChange={handleChange4}
           value={[value4[0], "11.22.33"]}
-          onFocus={(ev) => testFunction(ev)}
+          onFocus={console.log}
           isOpen
           isDisabled={[true, false]}
         />
@@ -127,7 +128,7 @@ export const DateRange = (): React.ReactElement => {
           max={new Date('05.04.2012')}
           min={new Date('05.03.2012')}
           onChange={handleChange6}
-          onEnterPress={(ev) => testFunction(ev)}
+          onEnterPress={console.log}
           value={value6}
           name='MinMaxDatePickerOpened'
           placeholder="Type your date..."

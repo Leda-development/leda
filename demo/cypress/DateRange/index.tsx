@@ -45,7 +45,7 @@ export const DateRange = (): React.ReactElement => {
     console.log(date);
     setValue6(value);
   };
-  const testFunction = (ev) => { console.log(ev) }
+  const handleEnterPress = (ev) => console.log(ev)
 
   const DateRangeStyles = () => (<link rel="stylesheet">
     .daterange-wrapper {

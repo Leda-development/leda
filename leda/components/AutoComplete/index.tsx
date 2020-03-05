@@ -30,9 +30,6 @@ import {
   AutoCompleteProps, AutoCompleteRefCurrent, Suggestion,
 } from './types';
 import { useValidation } from '../Validation';
-import { Value } from '../DropDownSelect/types';
-import { groupData } from '../MultiSelect/helpers';
-import { GroupedSomeObject } from '../../src/SuggestionList/types';
 
 export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: React.Ref<AutoCompleteRefCurrent>): React.ReactElement | null => {
   const {
@@ -85,7 +82,6 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
   const [selectedSuggestion, setSelectedSuggestion] = React.useState<Suggestion>(null);
   const [highlightedSuggestion, setHighlightedSuggestion] = React.useState<Suggestion>(null);
   const [lastCorrectValue, setLastCorrectValue] = React.useState('');
-  const [resultedData, setResultedData] = React.useState<Value[] | GroupedSomeObject[]>([]);
 
   const {
     isValid, validateCurrent, InvalidMessage,
@@ -168,21 +164,6 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     { [theme.inputWrapperFocused]: isFocused },
   );
 
-  // group suggestion list items if required
-  React.useEffect((): void => {
-    // grouping data
-    setResultedData(groupData(getSuggestions({
-      data,
-      textField,
-      value: isValueControlled ? propValue : stateValue,
-      filterRule,
-      isOpen,
-      minSearchLength,
-      shouldShowAllSuggestions,
-      searchFields,
-    }), groupBy));
-  }, [data, filterRule, groupBy, isOpen, isValueControlled, minSearchLength, propValue, searchFields, shouldShowAllSuggestions, stateValue, textField]);
-
   return (
     <Div
       className={wrapperClassNames}
@@ -218,7 +199,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
       <SuggestionList
         compareObjectsBy={compareObjectsBy}
         data={suggestions}
-        resultedData={resultedData}
+        groupBy={groupBy}
         highlightedSuggestion={highlightedSuggestion}
         selectedSuggestion={selectedSuggestion}
         isLoading={isLoading}

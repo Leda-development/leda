@@ -122,28 +122,11 @@ exports[`LEDA THEME PROVIDER should be isOpen 1`] = `
             isLoading={false}
             isOpen={true}
             onClick={[Function]}
-            resultedData={
-              Array [
-                Object {
-                  "txt": "text1",
-                  "val": "value1",
-                },
-                Object {
-                  "txt": "text2",
-                  "val": "value2",
-                },
-                Object {
-                  "txt": "text3",
-                  "val": "value3",
-                },
-              ]
-            }
             selectedSuggestion={null}
             shouldAllowEmpty={false}
             textField="txt"
             theme={
               Object {
-                "checkBox": "suggestion-checkBox",
                 "clearIcon": "dropdownselect-clear-icon",
                 "container": "suggestion-wrapper",
                 "containerTop": "pos-top",
@@ -186,76 +169,6 @@ exports[`LEDA THEME PROVIDER should be isOpen 1`] = `
                     <ul
                       className="suggestion-list"
                     >
-                      <SelectAll
-                        data={
-                          Array [
-                            Object {
-                              "txt": "text1",
-                              "val": "value1",
-                            },
-                            Object {
-                              "txt": "text2",
-                              "val": "value2",
-                            },
-                            Object {
-                              "txt": "text3",
-                              "val": "value3",
-                            },
-                          ]
-                        }
-                        highlightedSuggestion={null}
-                        onClick={[Function]}
-                        selectedSuggestion={null}
-                        suggestionRef={
-                          Object {
-                            "current": null,
-                          }
-                        }
-                        suggestions={
-                          Array [
-                            Object {
-                              "txt": "text1",
-                              "val": "value1",
-                            },
-                            Object {
-                              "txt": "text2",
-                              "val": "value2",
-                            },
-                            Object {
-                              "txt": "text3",
-                              "val": "value3",
-                            },
-                          ]
-                        }
-                        textField="txt"
-                        theme={
-                          Object {
-                            "checkBox": "suggestion-checkBox",
-                            "clearIcon": "dropdownselect-clear-icon",
-                            "container": "suggestion-wrapper",
-                            "containerTop": "pos-top",
-                            "containerVisible": "visible",
-                            "group": "suggestion-group",
-                            "groupLabel": "suggestion-group-label",
-                            "input": "custom-input-class",
-                            "inputWrapper": "dropdownselect-input-wrapper",
-                            "inputWrapperDisabled": "disabled",
-                            "inputWrapperFocused": "focused",
-                            "inputWrapperInvalid": "danger",
-                            "item": "suggestion-item",
-                            "itemHighlighted": "highlighted",
-                            "itemPlaceholder": "placeholder",
-                            "itemSelected": "selected",
-                            "list": "suggestion-list",
-                            "noSuggestions": "nodata",
-                            "selectIcon": "dropdownselect-select-icon",
-                            "selectIconClosed": "closed",
-                            "selectIconOpened": "opened",
-                            "wrapper": "dropdownselect-wrapper",
-                          }
-                        }
-                        value={null}
-                      />
                       <SuggestionItem
                         isHighlighted={false}
                         isPlaceholder={false}
@@ -278,7 +191,6 @@ exports[`LEDA THEME PROVIDER should be isOpen 1`] = `
                         textField="txt"
                         theme={
                           Object {
-                            "checkBox": "suggestion-checkBox",
                             "clearIcon": "dropdownselect-clear-icon",
                             "container": "suggestion-wrapper",
                             "containerTop": "pos-top",
@@ -342,7 +254,6 @@ exports[`LEDA THEME PROVIDER should be isOpen 1`] = `
                         textField="txt"
                         theme={
                           Object {
-                            "checkBox": "suggestion-checkBox",
                             "clearIcon": "dropdownselect-clear-icon",
                             "container": "suggestion-wrapper",
                             "containerTop": "pos-top",
@@ -406,7 +317,6 @@ exports[`LEDA THEME PROVIDER should be isOpen 1`] = `
                         textField="txt"
                         theme={
                           Object {
-                            "checkBox": "suggestion-checkBox",
                             "clearIcon": "dropdownselect-clear-icon",
                             "container": "suggestion-wrapper",
                             "containerTop": "pos-top",

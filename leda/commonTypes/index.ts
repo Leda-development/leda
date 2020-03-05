@@ -66,10 +66,3 @@ export interface Action<T, P = {}> {
 }
 
 export type ArrayElement<A> = A extends readonly (infer T)[] ? T : A;
-
-export interface GetPluralFormParams {
-  count: number,
-  one: string,
-  two: string,
-  five: string,
-}

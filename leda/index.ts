@@ -2,7 +2,7 @@ import 'element-scroll-polyfill';
 
 import { formatDateTime, stringToDate } from './src/DateTimeInput/helpers';
 import {
-  scrollIntoView, bytesSizeToUnitsSize, getSizeInBytes, generateId, useValue, useInterval, getPluralForm,
+  scrollIntoView, bytesSizeToUnitsSize, getSizeInBytes, generateId, useValue, useInterval,
 } from './utils';
 
 import { A } from './components/A';
@@ -126,7 +126,6 @@ const utils = {
   stringToDate,
   useInterval,
   useValue,
-  getPluralForm,
 };
 
 export {

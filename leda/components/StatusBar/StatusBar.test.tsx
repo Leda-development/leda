@@ -2,7 +2,7 @@ import React from 'react';
 import toJson from 'enzyme-to-json';
 import { mount } from 'enzyme';
 import {
-  getNodeText, render, screen,
+  render,
 } from '@testing-library/react';
 import * as L from '../../index';
 
@@ -108,15 +108,16 @@ describe('L.StatusBar ATTRIBUTES', () => {
       <L.StatusBar
         data={customData as L.StatusBarTypes.StatusItem[]}
         textField="txt"
-        typeField="type"
+        typeField="status"
       />,
     );
     debug();
 
-    expect(container.querySelector('span.progress')).toHaveLength(1);
-    //
-    // expect(container.querySelector('div.statusbar-status-item span.statusbar-icon').first().hasClass('success')).toBeTruthy();
-    //
-    // expect(container.querySelector('div.statusbar-status-item span.statusbar-icon').at(1).hasClass('progress')).toBeTruthy();
+    expect(container.querySelectorAll('.first .success')).toHaveLength(1);
+    expect(container.querySelectorAll('.danger')).toHaveLength(1);
+    expect(container.querySelectorAll('.progress')).toHaveLength(1);
+    expect(container.querySelector('.last .statusbar-icon')).not.toHaveClass('progress');
+    expect(container.querySelector('.last .statusbar-icon')).not.toHaveClass('danger');
+    expect(container.querySelector('.last .statusbar-icon')).not.toHaveClass('success');
   });
 });

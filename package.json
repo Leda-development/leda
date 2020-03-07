@@ -22,9 +22,11 @@
     "sass:build": "node-sass --output dist/styles styles",
     "jest": "jest --color",
     "cy:open": "cypress open",
-    "cy:test": "cypress run",
-    "cypress-local": "start-test :9000 cy:open",
-    "cypress-ci": "start-test :9000 cy:test"
+    "cy:test": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kksng/leda"
   },
   "license": "MIT",
   "dependencies": {

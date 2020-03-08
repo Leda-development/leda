@@ -83,59 +83,13 @@
       line-height: 14px;
 
       &::before {
-        font-family: "novicon", sans-serif;
-        content: "\e96b";
-        font-size: 20px;
-        background: none;
-        color: unset;
-        width: auto;
-        height: auto;
-      }
-    }
-  }
-
-  &-top {
-    right: 28px;
-    top: 84px;
-    bottom: auto;
-    left: auto;
-    transform: none;
-    width: 400px;
-    margin-bottom: 8px;
-
-    .notifications-item {
-      background-color: $black-02;
-      color: $white;
-      padding: 12px 8px 12px 12px;
-      align-items: unset;
-      box-shadow: none;
-      margin-bottom: 8px;
-    }
-
-    .notifications-icon {
-      padding: 0 8px 0 0;
-    }
-
-    .notifications-content {
-      border-left: none;
-      width: auto;
-      padding: 0 12px 0 0;
-      min-width: 334px;
-    }
-
-    .notifications-icon-close {
-      margin: 0;
-      height: 20px;
-      line-height: 14px;
-
-      &::before {
-        font-family: "novicon", sans-serif;
-        content: "\e96b";
-        font-size: 20px;
-        background: none;
-        color: unset;
-        width: auto;
-        height: auto;
+        font-size: 30px;
+        color: $black-03;
+        content: " ";
+        background: url("data:image/svg+xml,%3Csvg width='36' height='35' viewBox='0 0 36 35' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.94444 1.94444L33.2396 33.2396' stroke='%23949494' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M34.0556 1.94444L2.76036 33.2396' stroke='%23949494' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") center / 40% no-repeat;
+        width: 30px;
+        display: block;
+        height: 30px;
       }
     }
   }

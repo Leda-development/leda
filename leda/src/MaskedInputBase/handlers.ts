@@ -207,11 +207,14 @@ export const createFocusHandler = (
     isFocused,
   });
 
+  if (ev.target) {
+    ev.target.value = maskValue(valueProp, mask, placeholderChar);
+  }
+
   const placeholderCharIndex = (value || getEmptyValue(mask, placeholderChar)).indexOf(placeholderChar);
+  const newSelection: [number, number] = [placeholderCharIndex, placeholderCharIndex + 1];
 
-  const newSelection: [number, number] = [placeholderCharIndex, placeholderCharIndex];
-
-  delay(() => setSelection(input, newSelection), 100);
+  setSelection(input, newSelection);
 
   if (isFunction(onFocus)) {
     const customEvent = {

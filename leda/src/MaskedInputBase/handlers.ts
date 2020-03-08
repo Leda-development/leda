@@ -197,7 +197,9 @@ export const createFocusHandler = (
 
   setFocused(true);
 
-  setInputValue(maskValue(valueProp, mask, placeholderChar));
+  const newInputValue = maskValue(valueProp, mask, placeholderChar);
+
+  setInputValue(newInputValue);
 
   const value = getValue({
     valueProp,
@@ -208,7 +210,7 @@ export const createFocusHandler = (
   });
 
   if (ev.target) {
-    ev.target.value = maskValue(valueProp, mask, placeholderChar);
+    ev.target.value = newInputValue;
   }
 
   const placeholderCharIndex = (value || getEmptyValue(mask, placeholderChar)).indexOf(placeholderChar);

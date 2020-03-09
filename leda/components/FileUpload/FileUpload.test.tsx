@@ -242,6 +242,7 @@ describe('FileUpload ATTRIBUTES', () => {
       wrapper.find('div').props().onDrop({ dataTransfer: { files: [firstFile] }, preventDefault: () => {} });
     });
 
+
     expect(onFileLoad).toHaveBeenCalledWith({
       target: {
         acceptedFiles: [],

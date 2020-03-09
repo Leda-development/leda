@@ -29,7 +29,7 @@ describe('CheckBox SNAPSHOTS', () => {
         setValue(!value);
       };
       return (
-        <CheckBox onChange={handleChange} name="checker" value={value} />
+        <CheckBox onChange={handleChange} id="test" name="checker" value={value} />
       );
     };
     const { container } = render(<Wrapper />);
@@ -63,7 +63,7 @@ describe('CheckBox HANDLERS', () => {
         name: 'chegevara',
       }),
     });
-    const { container } = render(<CheckBox onChange={onChange} name="chegevara" />);
+    const { container } = render(<CheckBox onChange={onChange} id="test" name="chegevara" />);
 
     const input = container.querySelector('input');
 

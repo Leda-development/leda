@@ -22,13 +22,13 @@ exports[`CheckBox SNAPSHOTS should render controllable mode 1`] = `
     <input
       checked=""
       class="checkbox-input"
-      id="checkbox-9gz8gh"
+      id="test"
       name="checker"
       type="checkbox"
     />
     <label
       class="checkbox-label"
-      for="checkbox-9gz8gh"
+      for="test"
     />
   </span>
 </div>
@@ -40,13 +40,13 @@ exports[`CheckBox SNAPSHOTS should render controllable mode 2`] = `
     <input
       checked=""
       class="checkbox-input"
-      id="checkbox-xps9nn"
+      id="test"
       name="checker"
       type="checkbox"
     />
     <label
       class="checkbox-label"
-      for="checkbox-xps9nn"
+      for="test"
     />
   </span>
 </div>

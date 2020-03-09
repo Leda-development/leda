@@ -10,12 +10,12 @@ export const isSymbolAllowed = (value: string, allowedSymbols?: keyof typeof pre
 
     if (!predefinedRegExp) throw new Error(`L.Input: no such predefined allowedSymbols - "${allowedSymbols}"!`);
 
-    return [...value].every(symbol => predefinedRegExp.test(symbol));
+    return [...value].every((symbol) => predefinedRegExp.test(symbol));
   }
 
   if (allowedSymbols instanceof RegExp) {
     const regExp: RegExp = allowedSymbols;
-    return [...value].every(symbol => regExp.test(symbol));
+    return [...value].every((symbol) => regExp.test(symbol));
   }
 
   throw new Error('L.Input: allowedSymbols prop accepts only predefined string or RegExp!');
@@ -30,12 +30,12 @@ export const isSymbolForbidden = (value: string, forbiddenSymbols?: keyof typeof
 
     if (!predefinedRegExp) throw new Error(`L.Input: no such predefined forbiddenSymbols - "${forbiddenSymbols}"!`);
 
-    return [...value].some(symbol => predefinedRegExp.test(symbol));
+    return [...value].some((symbol) => predefinedRegExp.test(symbol));
   }
 
   if (forbiddenSymbols instanceof RegExp) {
     const regExp: RegExp = forbiddenSymbols;
-    return [...value].some(symbol => regExp.test(symbol));
+    return [...value].some((symbol) => regExp.test(symbol));
   }
 
   throw new Error('L.Input: forbiddenSymbols prop accepts only predefined string or RegExp!');

@@ -6,6 +6,7 @@ describe('DateRange', () => {
   let stub
   before(() => {
     cy.visit('http://localhost:9000/cypress/daterange')
+    cy.viewport(1600, 900)
   })
   
   it('Delimiter', () => {

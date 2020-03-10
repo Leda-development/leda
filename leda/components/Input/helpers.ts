@@ -49,12 +49,10 @@ export const transformToCase = (letter: string, letterCase: InputProps['letterCa
   throw new Error('L.Input: letterCase prop must be \'lower\' or \'upper\'!');
 };
 
-export const getValue = (valueProp: string | undefined, valueState: string): string => {
+export const getValue = (valueProp: string | null | undefined, valueState: string): string => {
   if (valueProp === undefined) return valueState;
 
   if (valueProp === null) {
-    console.warn('L.Input: consider using an empty string instead of "null"');
-
     return '';
   }
 

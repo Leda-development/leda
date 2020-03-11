@@ -8,7 +8,7 @@ describe('DateRange', () => {
     cy.visit('http://localhost:9000/cypress/daterange')
     cy.viewport(1600, 900)
   })
-  
+
   it('Delimiter', () => {
     cy.name('firstDatePicker')
       .parents('div.demo-story')
@@ -16,7 +16,18 @@ describe('DateRange', () => {
       .find('.daterange-delimiter')
       .should('have.length', 6)
   })
-  
+
+  it.only('EnterPress', () => {
+    cy.name('ThirdDateRange-from')
+      .parent()
+      .find('span.datepicker-calendar-icon')
+      .click()
+      .parents('.datepicker-input-wrapper')
+      .type('{enter}')
+      .type('{enter}')
+      .focused().should('have.attr', 'name', 'ThirdDateRange-to')
+  })
+
   it('MinMaxTest', () => {
     cy.name('MinMaxDatePicker-from')
       .parent()
@@ -99,9 +110,9 @@ describe('DateRange', () => {
         .blur()
         .parent()
         .should('have.class', 'danger')
-      })
+    })
   })
-  
+
   describe('Display', () => {
     it('Placeholders', () => {
       cy.name('firstDatePicker')
@@ -111,10 +122,10 @@ describe('DateRange', () => {
         .name('MinMaxDatePickerOpened-to')
         .should('have.attr', 'placeholder', 'Type your date...')
     })
-    
+
     it('Values', () => {
       cy.name('openedCalendar-to')
-      .should('have.attr', 'value', '11-е число  22-го месяца  33__-го года')
+        .should('have.attr', 'value', '11-е число  22-го месяца  33__-го года')
     })
   })
 

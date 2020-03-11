@@ -13,6 +13,9 @@ const validate = (
         invalidMessage: field.requiredMessage,
       }];
     }
+    if (field.value == null || field.value.length === 0) {
+      return [];
+    }
     if (!validatorWrappers) {
       return field.validators;
     }

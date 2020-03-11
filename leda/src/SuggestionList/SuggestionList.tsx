@@ -167,7 +167,7 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
                     textField,
                   });
 
-                  const isChosen: boolean | undefined = (value as Value[])?.includes(dataItem);
+                  const isChosen: boolean | undefined = hasCheckBoxes && Array.isArray(value) && (value as Value[])?.includes(dataItem);
                   return (
                     <SuggestionItem
                       isChosen={isChosen}

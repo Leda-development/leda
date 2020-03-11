@@ -17,7 +17,7 @@ describe('DateRange', () => {
       .should('have.length', 6)
   })
 
-  it.only('EnterPress', () => {
+  it('EnterPress', () => {
     cy.name('ThirdDateRange-from')
       .parent()
       .find('span.datepicker-calendar-icon')

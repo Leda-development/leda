@@ -1,4 +1,5 @@
 const path = require('path');
+const os = require('os');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');

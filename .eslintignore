@@ -1,5 +1,5 @@
 /dist/
 /types/
 
-/webpack.analyze.js
-/webpack.config.js
+/jest.setup.ts
+/webpack.*.js

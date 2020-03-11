@@ -16,7 +16,7 @@ const validate = (
     if (field.value == null || field.value.length === 0) {
       return [];
     }
-    if (!validatorWrappers) {
+    if (validatorWrappers == null) {
       return field.validators;
     }
     if (!Array.isArray(validatorWrappers)) {
@@ -57,7 +57,7 @@ const getFormFieldHelpers = (formName: string, fieldName: string): Types.FormFie
     },
     validate: (wrappedValidator) => {
       const field = getField();
-      if (!field) {
+      if (field == null) {
         return undefined;
       }
       return validate(field, wrappedValidator);

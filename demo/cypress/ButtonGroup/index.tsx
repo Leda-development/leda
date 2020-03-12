@@ -12,7 +12,7 @@ export const ButtonGroup = (): React.ReactElement => {
     <L.Div _demoStory>
       <L.ButtonGroup
         data={['one', 'two', 'three', 'four']}
-        defaultValue={'three'}
+        defaultValue="three"
         onChange={(event) => setValue(event.component.value)}
         textField="data"
         data-test="FourButtonGroup"

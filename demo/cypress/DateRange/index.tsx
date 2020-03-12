@@ -46,13 +46,16 @@ export const DateRange = (): React.ReactElement => {
     setValue6(value);
   };
  
-  const DateRangeStyles = () => (<link rel="stylesheet">
-  {`
-  .daterange-wrapper {
-    justify-content: space-between;
-  }
-  `}
-</link>)
+  const DateRangeStyles = () => (
+    <link rel="stylesheet">
+      {`
+      .daterange-wrapper {
+        justify-content: space-between;
+      }
+      `}
+    </link>
+  );
+
   return (
     <L.Div>
       <L.Div _demoStory _flexRow _justifyContentBetween _grow1>

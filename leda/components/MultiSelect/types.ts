@@ -185,6 +185,8 @@ export interface SelectData {
   setFocused: SetState<boolean>,
   setValue: SetState<MultiSelectValue>,
   value: MultiSelectValue,
+  highlightedSuggestion: Value,
+  setHighlightedSuggestion: SetState<Value>,
 }
 
 export interface ClearData {

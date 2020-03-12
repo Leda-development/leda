@@ -75,7 +75,7 @@ export const createSelectHandler = (
   if (isDisabled) return;
 
   const {
-    setValue, value, setFilterValue,
+    setValue, value, setFilterValue, highlightedSuggestion, setHighlightedSuggestion,
   } = extraData;
 
   const shouldRemoveValue = (value as (string | number | SomeObject)[]).includes(ev.target.value);
@@ -126,6 +126,7 @@ export const createSelectHandler = (
 
     onChange(customEvent);
   }
+  setHighlightedSuggestion(highlightedSuggestion);
 };
 
 export const createClearHandler = (

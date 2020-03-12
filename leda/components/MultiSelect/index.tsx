@@ -111,6 +111,8 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     setValue,
     setFocused,
     setFilterValue,
+    highlightedSuggestion,
+    setHighlightedSuggestion,
   });
 
   // group suggestion list items if required

@@ -142,8 +142,18 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
   // group suggestion list items if required
   React.useEffect((): void => {
     // grouping data
-    setResultedData(groupData(suggestionListData, groupBy));
-  }, [groupBy, suggestionListData]);
+    setResultedData(groupData(shouldFilterValues
+      ? filterData(
+        data,
+        isNil(filterValueProp)
+          ? state.filterValue
+          : filterValueProp,
+        textField,
+        filterRule,
+      )
+      : data, groupBy));
+  }, [data, filterRule, filterValueProp, groupBy, shouldFilterValues, state.filterValue, textField]);
+
   const handleInputClick = () => {
     mergeState({
       isOpen: true,

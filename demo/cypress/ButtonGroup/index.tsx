@@ -7,7 +7,6 @@ export const ButtonGroup = (): React.ReactElement => {
   const [value, setValue] = React.useState<string | undefined>();
   const [value1, setValue1] = React.useState<string[] | undefined>(null);
   const [value2, setValue2] = React.useState<DataObject | undefined>(null);
-  // const [value3, setValue3] = React.useState<number | undefined>(null);
 
   return (
     <L.Div _demoStory>
@@ -21,6 +20,7 @@ export const ButtonGroup = (): React.ReactElement => {
       />
       <br />
       <br />
+      
       <L.ButtonGroup
         data={[2, 3]}
         isDisabled
@@ -30,6 +30,7 @@ export const ButtonGroup = (): React.ReactElement => {
       />
       <br />
       <br />
+
       <L.ButtonGroup
         data={[
           { data: 'one' },
@@ -46,6 +47,7 @@ export const ButtonGroup = (): React.ReactElement => {
       />
       <br />
       <br />
+
       <L.ButtonGroup
         data={['one']}
         data-test="OneButtonGroup"
@@ -59,7 +61,6 @@ export const ButtonGroup = (): React.ReactElement => {
         data={[1, 2, 3]}
         data-test="NumberButtonGroup"
         type='checkbox'
-        
       />
       <br />
       <br />
@@ -78,7 +79,6 @@ export const ButtonGroup = (): React.ReactElement => {
       />
       <br />
       <br />
-      {/* <L.Switcher value={isDisabled} onChange={(event) => setIsDisabled(event.component.value)}>isDisabled</L.Switcher> */}
     </L.Div>
   );
 };

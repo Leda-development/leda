@@ -10,7 +10,6 @@ import { Styles } from './components/Styles';
 export const CypressLayout = () => (
   <>
     <L.Div _wrapper>
-      <Styles theme="Nova" />
       <Switch>
         <Route path="/cypress/autocomplete">
           <AutoComplete />

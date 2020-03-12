@@ -149,4 +149,3 @@ export const DateRange = (): React.ReactElement => {
   )
 };
 
-(<DateRange />);

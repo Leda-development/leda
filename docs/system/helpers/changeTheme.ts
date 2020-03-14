@@ -1,6 +1,5 @@
 import { Themes } from '../../constants';
 
-
 const themesSrc = {
   [Themes.Light]: '',
 };

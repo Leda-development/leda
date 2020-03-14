@@ -51,7 +51,9 @@ export const getField = (formName?: string, fieldName?: string): Field | undefin
 
 export const requiredValidator: Validator = (value) => value !== null
   && value !== undefined
-  && value.length !== 0;
+  && (!value.length || value.length !== 0)
+  && (!value.acceptedFiles || value.acceptedFiles.length !== 0) // DropZone value form
+  && !value.errorCode; // FileDrop rejected file
 
 export const validate = (formName: string | undefined, fieldName?: string, externalValue?: unknown): boolean => {
   const forms: Form[] = getForms();
@@ -73,6 +75,7 @@ export const validate = (formName: string | undefined, fieldName?: string, exter
   let isValid = true;
 
   const value = externalValue === undefined ? currentField.value : externalValue;
+
   // не проверяем валидаторы если поле обязательное и пустое
   if (currentField.isRequired && !requiredValidator(value)) {
     isValid = false;

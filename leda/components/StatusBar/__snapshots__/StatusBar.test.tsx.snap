@@ -100,9 +100,23 @@ exports[`StatusBar SNAPSHOTS should render 1`] = `
             </div>
           </Div>
         </Item>
-        <div
+        <Div
           className="statusbar-line"
-        />
+          style={
+            Object {
+              "background": undefined,
+            }
+          }
+        >
+          <div
+            className="statusbar-line"
+            style={
+              Object {
+                "background": undefined,
+              }
+            }
+          />
+        </Div>
       </Component>
       <Component
         index={1}
@@ -172,9 +186,23 @@ exports[`StatusBar SNAPSHOTS should render 1`] = `
             </div>
           </Div>
         </Item>
-        <div
+        <Div
           className="statusbar-line"
-        />
+          style={
+            Object {
+              "background": undefined,
+            }
+          }
+        >
+          <div
+            className="statusbar-line"
+            style={
+              Object {
+                "background": undefined,
+              }
+            }
+          />
+        </Div>
       </Component>
       <Component
         index={2}
@@ -244,9 +272,23 @@ exports[`StatusBar SNAPSHOTS should render 1`] = `
             </div>
           </Div>
         </Item>
-        <div
+        <Div
           className="statusbar-line"
-        />
+          style={
+            Object {
+              "background": undefined,
+            }
+          }
+        >
+          <div
+            className="statusbar-line"
+            style={
+              Object {
+                "background": undefined,
+              }
+            }
+          />
+        </Div>
       </Component>
     </div>
   </Div>

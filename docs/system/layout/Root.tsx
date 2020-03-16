@@ -12,8 +12,8 @@ export interface RootProps {
 export const Root = (props: RootProps): React.ReactElement => {
   const { children } = props;
   const [storiesContext, setStoriesContext] = React.useState<MainContextContent['stories']>({});
-  const [currentLang, setCurrentLang] = React.useState<CurrentLanguage>(restoreLang());
-  const [currentTheme, setCurrentTheme] = React.useState<Themes>(restoreTheme());
+  const [currentLang, setCurrentLang] = React.useState<CurrentLanguage>(restoreLang);
+  const [currentTheme, setCurrentTheme] = React.useState<Themes>(restoreTheme);
 
   const setStoryContext = React.useCallback((url: string, groupNames: string[]) => {
     setStoriesContext((prevStories) => ({

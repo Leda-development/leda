@@ -1,11 +1,7 @@
 import { Themes } from '../../constants';
 
-const themesSrc = {
-  [Themes.Light]: '',
-};
-
 export const restoreTheme = (): Themes => {
-  const theme = localStorage.getItem('theme') as unknown as Themes || Themes.Light;
+  const theme = localStorage.getItem('theme') as Themes || Themes.Light;
 
   const ledaLink = document.getElementById('leda-css') as HTMLLinkElement | null;
 
@@ -30,7 +26,7 @@ export const restoreTheme = (): Themes => {
 };
 
 export const setTheme = (theme: Themes): Themes => {
-  localStorage.setItem('theme', theme as unknown as string);
+  localStorage.setItem('theme', theme);
 
   const ledaLink = document.getElementById('leda-css') as HTMLLinkElement | null;
 

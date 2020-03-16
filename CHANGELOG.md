@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.0.7] - 2020-03-12
+
+### Fixed
+- DropDownSelect: onFilterChange incorrect value on suggestion click
+- DateTimePicker: date parsing errors
+- Validation: validating by validator when empty and not required
+
 ## [0.0.6] - 2020-03-05
 
 ### Fixed

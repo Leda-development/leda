@@ -26,12 +26,14 @@ export interface ValidatorWrapper {
 
 export interface FormFieldHelpers {
   get: () => Field | undefined,
+  remove: () => void,
   reset: () => boolean,
   validate: (warpedValidator?: ValidatorWrapper | ValidatorWrapper[]) => Field | undefined,
 }
 
 export interface FormFieldsHelpers {
   get: () => Field[],
+  remove: () => void,
   reset: () => boolean,
   validate: () => Field[],
 }

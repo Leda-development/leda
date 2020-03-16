@@ -42,8 +42,10 @@ const validate = (
 
 const getFormFieldHelpers = (formName: string, fieldName: string): Types.FormFieldHelpers => {
   const getField = () => helpers.getField(formName, fieldName);
+  const removeField = () => helpers.removeField(formName, fieldName);
   return {
     get: getField,
+    remove: removeField,
     reset: () => {
       const field = getField();
       try {
@@ -67,8 +69,10 @@ const getFormFieldHelpers = (formName: string, fieldName: string): Types.FormFie
 
 const getFormFieldsHelpers = (formName: string, fieldNames?: string[]): Types.FormFieldsHelpers => {
   const getFields = () => helpers.getFields(formName, fieldNames);
+  const removeFields = () => helpers.removeFields(formName, fieldNames);
   return {
     get: getFields,
+    remove: removeFields,
     reset: () => {
       const fields = getFields();
       try {

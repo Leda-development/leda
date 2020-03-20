@@ -23,7 +23,7 @@
       cursor: default;
     }
 
-    &:not(.active):hover {
+    &:not(.active):not(.disabled):hover {
       color: $accent-02;
     }
 

@@ -47,7 +47,7 @@ export interface EnterSelectEvent<T> extends React.KeyboardEvent {
 export interface ResetEvent<T> {
   component: {
     name?: string,
-    value: T[],
+    value: T,
   },
 }
 
@@ -109,7 +109,7 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   /** Обработчик события потери фокуса */
   onBlur?: (event: FocusEvent) => void,
   /** Обработчик изменения данных в инпуте */
-  onChange?: (event: ChangeEvent) => void,
+  onChange?: (event: ChangeEvent<T>) => void,
   /** Обработчик нажатия Enter */
   onEnterPress?: (event: EnterPressEvent) => void,
   /** Обработчик фокуса элемента */

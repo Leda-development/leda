@@ -55,7 +55,7 @@ export const formatValue = (value?: number | null, format = '#', thousandSeparat
 
   const precision = getNumberPrecision(format, numberStartIndex);
 
-  const separator = getSeparator(format);
+  const separator = getSeparator(format) || '';
 
   const integerPart = Math.floor(number);
 
@@ -203,9 +203,11 @@ export const getRestProps = (props: NumericTextBoxProps): WrapperProps => {
 // форматирует inputValue (значение при фокусе)
 // "1 200.05 Руб." -> "1200.05" (Отличается от числа)
 export const formatInputValue = (formattedValue: string, format: string): string => {
-  const fractionSeparator = getSeparator(format);
+  const fractionSeparator = getSeparator(format) || '';
 
-  const isStartingWithFractionSeparator = new RegExp(`^-?\\${fractionSeparator}\\d$`).test(formattedValue);
+  const separator = fractionSeparator.length ? `\\${fractionSeparator}` : '';
+
+  const isStartingWithFractionSeparator = new RegExp(`^-?${separator}\\d$`).test(formattedValue);
 
   if (isStartingWithFractionSeparator) {
     return formattedValue[0] === '-'
@@ -215,13 +217,13 @@ export const formatInputValue = (formattedValue: string, format: string): string
   // значение без лишних символов "1 200.05 Руб." -> "1200.05"
   const cleanValue = formattedValue
     .replace(/^[^\d]*(?=\d)/, '')
-    .replace(new RegExp(`[^\\d\\${fractionSeparator}]`, 'g'), '');
+    .replace(new RegExp(`[^\\d${separator}]`, 'g'), '');
 
   const value = formattedValue[0] === '-'
     ? `-${cleanValue}`
     : cleanValue;
 
-  const hasMoreThanOneFractionSeparator = (formattedValue.match(new RegExp(`\\${fractionSeparator}`, 'g')) || []).length > 1;
+  const hasMoreThanOneFractionSeparator = (formattedValue.match(new RegExp(separator, 'g')) || []).length > 1;
   // в случае, если разделителей разряда больше 1 - нужно убрать лишние
   if (fractionSeparator && hasMoreThanOneFractionSeparator) {
     return value

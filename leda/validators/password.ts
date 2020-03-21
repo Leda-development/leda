@@ -1,5 +1,5 @@
 export const validatePassword = (password: string): boolean => {
-  if (!password.match(/[a-z]/)?.length) {
+  if (!password.match(/[A-z]/)?.length) {
     return false;
   }
 
@@ -7,5 +7,5 @@ export const validatePassword = (password: string): boolean => {
     return false;
   }
 
-  return true;
+  return password.length >= 8;
 };

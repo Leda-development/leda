@@ -65,7 +65,7 @@ export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<P
 
   const handleBlur = handlers.useBlurHandler(props, setFocused, validateCurrent);
 
-  const handleChange = handlers.useChangeHandler(props, minPasswordEvaluationLength, setEvaluationMessage, setValue);
+  const handleChange = handlers.useChangeHandler(props, setEvaluationMessage, setValue);
 
   const handleFocus = handlers.useFocusHandler(props, isValid, setFocused);
 

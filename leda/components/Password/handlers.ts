@@ -28,7 +28,6 @@ export const useBlurHandler = (
 
 export const useChangeHandler = (
   props: PasswordProps,
-  minPasswordEvaluationLength: number,
   setEvaluationMessage: SetState<string | undefined>,
   setValue: SetState<string>,
 ): React.ChangeEventHandler<HTMLInputElement> => React.useCallback((event) => {

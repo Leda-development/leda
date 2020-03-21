@@ -6,7 +6,7 @@ const defaultEvaluators: PasswordEvaluator[] = [
     message: 'Слабый пароль.',
   },
   {
-    evaluator: (value) => !!value.match(/[a-z]/)?.length && !!value.match(/\d/)?.length,
+    evaluator: (value) => 8 <= value.length && !!value.match(/[A-z]/)?.length && !!value.match(/\d/)?.length,
     message: 'Надёжный пароль.',
   },
   {

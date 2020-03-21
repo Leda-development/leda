@@ -3,6 +3,10 @@
     background-color: transparent;
     border: 1px dashed $black-05;
     padding: 10px 9px;
+
+    &.danger {
+      border-color: $brand-danger;
+    }
   }
 
   &-content {

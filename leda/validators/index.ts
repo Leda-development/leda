@@ -3,6 +3,7 @@ import { validateEmail as email } from './email';
 import { validateUrl as url } from './url';
 import { validatePostalCode as postalCode } from './postalCode';
 import { validateSnils as snils } from './snils';
+import { validatePassword as password } from './password';
 import {
   validateOgrn as ogrn,
   validateOgrnIp as ogrnIp,
@@ -27,6 +28,7 @@ export const validate = {
   ogrn,
   ogrnIp,
   okpo,
+  password,
   postalCode,
   snils,
   bankCardNumber,

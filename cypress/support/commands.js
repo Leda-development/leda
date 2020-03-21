@@ -36,6 +36,8 @@ Cypress.Commands.add('focusMasked', { prevSubject: 'element' }, (subject) => cy
 
 Cypress.Commands.add('name', (searchName) => cy.get(`[name="${searchName}"]`));
 
+Cypress.Commands.add('datatest', (searchName) => cy.get(`[data-test="${searchName}"]`));
+
 Cypress.Commands.add('isNotInViewport', { prevSubject: 'element' }, (element) => {
   cy.get(element).should((it) => {
     const bottom = Cypress.$(cy.state('window')).height();

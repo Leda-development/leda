@@ -8,103 +8,81 @@ describe('ButtonGroup', () => {
 
   describe('Display', () => {
     it('should render all the buttons in the group', () => {
-      cy.get(`.${theme.wrapper}`)
-        .eq(0)
-        .find(`.${theme.button}`)
-        .should('have.length', 3);
+      cy.datatest('FourButtonGroup')
+        .find('button')
+        .should('have.length', 4)
+        .datatest('TwoButtonGroup')
+        .find('button')
+        .should('have.length', 2)
+        .datatest('ThreeButtonGroup')
+        .find('button')
+        .should('have.length', 3)
+        .datatest('OneButtonGroup')
+        .find('button')
+        .should('have.length', 1)
     });
 
     it('should render selected button with active class', () => {
-      cy.get(`.${theme.wrapper} .${theme.button}`)
-        .eq(9)
-        .should('have.class', 'active')
-        .get(`.${theme.wrapper} .${theme.button}`)
-        .eq(7)
-        .should('have.class', 'active');
+      cy.datatest('FourButtonGroup')
+        .find('.button-wrapper.button-group-item.active')
+        .should('have.text', 'three')
+        .should('have.length', 1)
+    });
+
+    it('Disabled group should be disabled', () => {
+      cy.datatest('TwoButtonGroup')
+        .find('.button-group-buttons-wrapper.disabled')
+        .should('have.length', 1)
     });
   });
 
   describe('Interaction', () => {
-    it.skip('should ignore clicks when isDisabled', () => {
-      cy.contains('isDisabled')
+    it('should ignore clicks when isDisabled', () => {
+      cy.datatest('TwoButtonGroup')
+        .find('.button-wrapper.button-group-item.last')
+        .should('have.not.class', 'active')
         .click()
-        .get(`.${theme.buttonsWrapper}`)
-        .eq(0)
-        .should('have.class', 'disabled')
-        .get(`.${theme.wrapper}`)
-        .eq(0)
-        .find(`.${theme.button}`)
-        .eq(1)
         .should('not.have.class', 'active')
-        .click()
-        .should('not.have.class', 'active');
     });
 
-    it.skip('should select button on click', () => {
-      cy.get(`.${theme.wrapper}`)
-        .eq(0)
-        .find(`.${theme.button}`)
-        .eq(1)
-        .should('not.have.class', 'active')
+    it('should select button on click', () => {
+      cy.datatest('NumberButtonGroup')
+        .find('.button-wrapper.button-group-item.last')
+        .should('have.not.class', 'active')
         .click()
         .should('have.class', 'active')
-        .get(`.${theme.wrapper}`)
-        .eq(1)
-        .find(`.${theme.button}`)
-        .eq(2)
-        .should('not.have.class', 'active')
+        .parent()
+        .find('.button-wrapper.button-group-item.first')
+        .should('have.not.class', 'active')
         .click()
         .should('have.class', 'active')
-        .get(`.${theme.wrapper}`)
-        .eq(2)
-        .find(`.${theme.button}`)
-        .eq(0)
-        .should('not.have.class', 'active')
-        .click()
-        .should('have.class', 'active');
+        .parent()
+        .find('.button-wrapper.button-group-item.last')
+        .should('have.class', 'active')
     });
 
+  
     it('should allow only one pressed button in Radio mode', () => {
-      cy.get(`.${theme.wrapper}`)
-        .eq(1)
-        .find(`.${theme.button}`)
-        .eq(0)
-        .should('not.have.class', 'active')
+      cy.datatest('RadioButtonGroup')
+        .find('.button-wrapper.button-group-item.last')
+        .should('have.not.class', 'active')
         .click()
         .should('have.class', 'active')
-        .next()
-        .should('not.have.class', 'active')
+        .parent()
+        .find('.button-wrapper.button-group-item.first')
+        .should('have.not.class', 'active')
         .click()
         .should('have.class', 'active')
-        .prev()
-        .should('not.have.class', 'active');
+        .parent()
+        .find('.button-wrapper.button-group-item.last')
+        .should('not.have.class', 'active')
     });
 
-    it('should allow multiple pressed buttons in Checkbox mode', () => {
-      cy.get(`.${theme.wrapper}`)
-        .eq(2)
-        .find(`.${theme.button}`)
-        .eq(0)
-        .should('not.have.class', 'active')
-        .click()
-        .should('have.class', 'active')
-        .next()
-        .next()
-        .should('not.have.class', 'active')
-        .click()
-        .should('have.class', 'active')
-        .prev()
-        .should('have.class', 'active')
-        .prev()
-        .should('have.class', 'active')
-        .click()
-        .should('not.have.class', 'active')
-        .next()
-        .click()
-        .should('not.have.class', 'active')
-        .next()
-        .click()
-        .should('not.have.class', 'active');
+    xit('Names', () => {
+      cy.name('FourButtonGroup')
+        .find('.button-wrapper.button-group-item.active')
+        .should('have.text', 'three')
+        .should('have.length', 1)
     });
   });
 });

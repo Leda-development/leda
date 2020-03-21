@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { MainContext } from '../../../../system/components/MainContext';
+import { MainContext } from '../../../../system/components';
 import { Langs } from '../../../../lang/types';
 import { Ru } from './Ru';
 import { En } from './En';

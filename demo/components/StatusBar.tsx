@@ -2,6 +2,7 @@
 import * as React from 'react';
 import * as L from '../../leda';
 import { SetState } from '../../leda/commonTypes';
+import { useInterval } from '../../leda/utils';
 
 const data = [
   { labelText: 'Согласование' },
@@ -56,10 +57,21 @@ const handleClick = (newIndex: number, setValue: SetState<{ labelText: string }>
 export const StatusBar = () => {
   const [index, setIndex] = React.useState(2);
   const [value, setValue] = React.useState(data[index]);
+  const [progress, setProgress] = React.useState(0);
+
+  useInterval(() => {
+    setProgress(progress + 10);
+  }, progress < 100 ? 500 : null);
 
   return (
     <L.Div _demoStory>
       <L.H4 _title>StatusBar & StatusBarCustom</L.H4>
+      <L.StatusBar
+        data={data}
+        value={data[2]}
+        textField="labelText"
+        currentStepProgress={progress}
+      />
       <br />
       <L.StatusBar
         data={data}
@@ -84,6 +96,13 @@ export const StatusBar = () => {
         onClick={() => handleClick(index + 1, setValue, setIndex)}
       >
         Следующий Шаг
+      </L.Button>
+      {' '}
+      <L.Button
+        _warning
+        onClick={() => setProgress(0)}
+      >
+        Начать анимацию
       </L.Button>
       <br />
       <br />

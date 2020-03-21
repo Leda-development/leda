@@ -193,22 +193,28 @@
 }
 
 .txt {
-  &-success {
-    color: $brand-primary;
+  &-bold {
+    font-weight: bold;
+  }
+  &-bolder {
+    font-weight: bolder;
   }
   &-warning {
     color: $brand-warning;
   }
+  &-success {
+    color: $brand-primary;
+  }
   &-danger {
     color: $brand-danger;
   }
-  &-white {
-    color: white;
+  &-gray {
+    color: $black-04;
   }
   &-black {
-    color: black;
+    color: $black-01;
   }
-  &-gary {
-    color: $black-04;
+  &-white {
+    color: white;
   }
 }

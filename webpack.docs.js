@@ -15,13 +15,13 @@ module.exports = merge.strategy({
   },
   plugins: [
     new HtmlWebpackPlugin({
+      title: 'Leda Documentation',
       template: 'public/index.html',
       inject: 'head',
       hash: true,
-      title: 'Leda Documentation',
     }),
     new HtmlWebpackTagsPlugin({
-    links: [
+      links: [
         {
           path: 'favicon.jpg',
           attributes: {
@@ -35,12 +35,13 @@ module.exports = merge.strategy({
         'assets/css/lists.css',
         'assets/css/docs.css',
         'assets/css/scrollbar.css',
-        'assets/css/fontawesome/brands.css',
-        'assets/css/fontawesome/fontawesome.css',
-        'assets/css/fontawesome/regular.css',
-        'assets/css/fontawesome/solid.css',
-        'assets/css/fontawesome/v4-shims.css',
-        'assets/css/themes/leda/styles.css',
+        {
+          path: 'assets/css/leda.light.css',
+          type: 'css',
+          attributes: {
+            id: 'leda-css',
+          }
+        },
       ],
     }),
     new ScriptExtHtmlWebpackPlugin({

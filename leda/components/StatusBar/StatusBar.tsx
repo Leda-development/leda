@@ -25,6 +25,7 @@ export const StatusBar = React.forwardRef((props: StatusBarProps, ref?: React.Re
     iconRender,
     labelRender,
     onClick,
+    currentStepProgress,
     ...restProps
   } = mergeClassNames<StatusBarProps>(props);
 
@@ -66,6 +67,7 @@ export const StatusBar = React.forwardRef((props: StatusBarProps, ref?: React.Re
             iconRender={iconRender}
             labelRender={labelRender}
             onClick={onClick}
+            currentStepProgress={currentStepProgress}
           />
         );
       })}

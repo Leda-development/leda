@@ -11,3 +11,9 @@ export enum Urls {
   ValidationDifferences = '/validation/differences',
   StatusBarApi = '/layout/statusbar/api',
 }
+
+export enum Themes {
+  Light = 'light',
+  Dark = 'dark',
+  // more themes todo
+}

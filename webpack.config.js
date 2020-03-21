@@ -6,7 +6,7 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
-  devtool: 'cheap-module-source-map',
+  devtool: 'source-map',
   entry: {
     main: './demo/index.tsx',
   },
@@ -62,10 +62,10 @@ module.exports = {
       cwd: process.cwd(),
     }),
     new HtmlWebpackPlugin({
+      title: 'Leda Demo',
       template: 'public/index.html',
       inject: 'head',
       hash: true,
-      title: 'Leda Demo',
     }),
     new HtmlWebpackTagsPlugin({
       links: [
@@ -82,12 +82,13 @@ module.exports = {
         'assets/css/lists.css',
         'assets/css/demo.css',
         'assets/css/scrollbar.css',
-        'assets/css/fontawesome/brands.css',
-        'assets/css/fontawesome/fontawesome.css',
-        'assets/css/fontawesome/regular.css',
-        'assets/css/fontawesome/solid.css',
-        'assets/css/fontawesome/v4-shims.css',
-        'assets/css/themes/leda/styles.css',
+        {
+          path: 'assets/css/leda.light.css',
+          type: 'css',
+          attributes: {
+            id: 'leda-css',
+          }
+        },
       ],
     }),
     new ScriptExtHtmlWebpackPlugin({

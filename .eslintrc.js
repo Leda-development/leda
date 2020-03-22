@@ -1,135 +1,57 @@
-module.exports = {
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  },
-  "rules": {
-    // Максимальная длина строки с учетом пробелов, в стандарте 100
-    "max-len": ["error", 250],
-    // Точка с запятой нужна всегда
-    "babel/semi": "error",
+exports.root = true;
 
-    // Дефолтные пропсы нам не нужны
-    "react/require-default-props": 0,
+exports.reportUnusedDisableDirectives = true;
 
-    // Отключаем соответствие defaulProps и propTypes (propTypes не используются)
-    "react/default-props-match-prop-types": 0,
+exports.extends = [
+  'airbnb',
+  'airbnb/hooks',
+  'plugin:@typescript-eslint/recommended',
+  'plugin:import/typescript',
+];
 
-    // В js файлах мы используем jsx синтаксис
-    "react/jsx-filename-extension": 0,
+exports.rules = {
+  /* possible-errors */
+  'no-console': ['error', {
+    allow: ['error', 'warn'],
+  }],
 
-    "react/jsx-one-expression-per-line": "off",
+  /* best-practices */
+  'no-unused-expressions': 'off',
+  'no-param-reassign': ['error', {
+    props: false,
+  }],
 
-    // Отредактируем организацию для порядка методов при создании React компонента
-    // Добавим в начало определение типов (type-annotations)
-    "react/sort-comp": [2, {
-      "order": [
-        "type-annotations",
-        "static-methods",
-        "lifecycle",
-        "everything-else",
-        "render"
-      ]
-    }],
+  /* stylistic-issues */
+  'max-len': ['error', 160],
 
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+  /* ecmascript-6 */
+  'prefer-template': 'off',
 
-    // Не используем дефолтный экспорт
-    "import/prefer-default-export": "off",
-    // один файл может содержать несколько экспортов
-    "import/no-cycle": "warn",
+  '@typescript-eslint/ban-ts-ignore': 'warn',
+  '@typescript-eslint/explicit-function-return-type': 'off',
+  '@typescript-eslint/no-empty-function': 'off',
+  '@typescript-eslint/no-unused-expressions': 'error',
+  '@typescript-eslint/no-var-requires': 'off',
+  '@typescript-eslint/member-delimiter-style': ['error', {
+    multiline: {
+      delimiter: 'comma',
+    },
+    singleline: {
+      delimiter: 'comma',
+    },
+  }],
 
-    // По умолчанию рекомендуется проверять как вложенность, так и идентификатор на сопоставление лейбла с элементом управления
-    // Сделаем так, чтобы одной проверки было достаточно
-    "jsx-a11y/label-has-for": "off",
+  'import/extensions': 'off',
+  'import/prefer-default-export': 'off',
+  'import/no-extraneous-dependencies': ['error', {
+    devDependencies: true,
+  }],
 
-    // Правила для accessibility:
-
-    // Элемент с обработчиком кликов должен иметь обработчик клавиатуры
-    "jsx-a11y/click-events-have-key-events": "off",
-
-    // Принудительное срабатывание onfocus/onblur при onmouseover/onmouseout
-    "jsx-a11y/mouse-events-have-key-events": "off",
-
-    // HTML элемент с обработчиком должен иметь роль
-    "jsx-a11y/no-static-element-interactions": "off",
-
-    "jsx-a11y/anchor-is-valid": "off",
-    // не всегда используется
-    // todo: обновить правило, когда появится опция minAttributes
-    "react/destructuring-assignment": "off",
-    // у нас лейбл не всегда имеет htmlFor
-    "jsx-a11y/label-has-associated-control": "off",
-    // поле current у ref является мутируемым
-    "no-param-reassign": ["error", { "ignorePropertyModificationsFor": ["ref"]}],
-
-    "@typescript-eslint/member-delimiter-style": ["error", {
-      "multiline": {
-          "delimiter": "comma",
-          "requireLast": true
-      },
-      "singleline": {
-          "delimiter": "comma",
-          "requireLast": false
-      }
-    }],
-
-    "no-use-before-define": ["error", { "functions":  false }],
-    // spread разрешен
-    "react/jsx-props-no-spreading": "off",
-
-    "react/static-property-placement": "warn",
-
-    "react/state-in-constructor": "warn",
-
-    "no-console": ["error", { "allow": ["warn", "error"] }],
-
-    "@typescript-eslint/no-use-before-define": ["error", { "functions":  false }],
-
-    "@typescript-eslint/ban-ts-ignore": "warn",
-
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/explicit-member-accessibility": "warn",
-
-    "import/no-duplicates": "warn",
-
-    "no-unused-expressions": "off",
-    "@typescript-eslint/no-unused-expressions": "error",
-    // TODO: удалить и починить ошибки
-    "@typescript-eslint/no-empty-function": "warn"
-  },
-
-  "plugins": [
-    "jest",
-    "babel",
-    "@typescript-eslint",
-    "react-hooks",
-    "cypress"
-  ],
-
-  "extends": [
-    "airbnb",
-    "airbnb-typescript",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:jest/recommended",
-    "plugin:cypress/recommended"
-  ],
-
-  "env": {
-    "browser": true,
-    "jest/globals": true,
-    "cypress/globals": true
-  },
-
-  "overrides": [
-    {
-      "files": [
-        "demo/**"
-      ],
-      "rules": {
-        "no-console": "off"
-      }
-    }
-  ]
+  'react/destructuring-assignment': 'off',
+  'react/jsx-first-prop-new-line': 'off',
+  'react/jsx-one-expression-per-line': 'off',
+  'react/jsx-props-no-spreading': 'off',
+  'react/jsx-filename-extension': ['error', {
+    extensions: ['.jsx', '.tsx'],
+  }],
 };

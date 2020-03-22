@@ -1,0 +1,3 @@
+exports.env = {
+  browser: true,
+};

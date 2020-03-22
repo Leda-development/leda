@@ -40,7 +40,7 @@ module.exports = merge.strategy({
           type: 'css',
           attributes: {
             id: 'leda-css',
-          }
+          },
         },
       ],
     }),

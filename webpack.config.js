@@ -87,7 +87,7 @@ module.exports = {
           type: 'css',
           attributes: {
             id: 'leda-css',
-          }
+          },
         },
       ],
     }),

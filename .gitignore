@@ -1,10 +1,9 @@
-/node_modules/
-
-/dist/
-/public/assets/
-
 /.idea/
 /.vscode/
 
-/cypress/videos/
+/dist/
+/node_modules/
+
 /cypress/screenshots/
+/cypress/videos/
+/public/assets/

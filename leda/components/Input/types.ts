@@ -53,6 +53,7 @@ export interface FocusEvent extends React.FocusEvent<HTMLInputElement> {
   component: {
     value: string,
     name?: string,
+    isValid: boolean,
   },
 }
 
@@ -100,6 +101,7 @@ export interface InputState {
   isValid: boolean,
   value: string,
 }
+
 export interface InputRefCurrent {
   wrapper: HTMLDivElement | null,
   input: HTMLInputElement | null,

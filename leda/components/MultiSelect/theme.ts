@@ -1,6 +1,6 @@
-/* eslint-disable key-spacing */
 import { defaultSuggestionListTheme } from '../../src/SuggestionList/theme';
 
+/* eslint-disable key-spacing */
 export const defaultMultiSelectTheme = {
   clearIcon:                 'multiselect-clear-icon',
   input:                     'multiselect-input',
@@ -11,6 +11,6 @@ export const defaultMultiSelectTheme = {
   inputWrapperInvalid:       'danger',
   wrapper:                   'multiselect-wrapper',
   tagsContainer:             'multiselect-tags-container',
-  /** SuggestionList theme */
   ...defaultSuggestionListTheme,
 };
+/* eslint-enable key-spacing */

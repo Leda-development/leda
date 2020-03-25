@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { isFunction, isNil } from 'lodash';
 import {
   BlurData,
   ClearData,
@@ -10,224 +9,176 @@ import {
   SelectData,
   Value,
 } from './types';
-import { CustomEventHandler, SetState, SomeObject } from '../../commonTypes';
+import { CustomEventHandler, SetState } from '../../commonTypes';
 import { SuggestionTarget } from '../../src/SuggestionList/types';
 import { filterData } from './helpers';
 
 export const createFocusHandler = (
   props: MultiSelectProps, extraData: FocusData,
-): React.FocusEventHandler<HTMLInputElement> => (ev) => {
-  const { onFocus, name } = props;
+): React.FocusEventHandler<HTMLInputElement> => (event) => {
+  extraData.setFocused(true);
 
-  const { value, setFocused } = extraData;
-
-  if (isFunction(onFocus)) {
-    const customEvent = {
-      ...ev,
-      component: {
-        name,
-        value,
-      },
-    };
-
-    onFocus(customEvent);
-  }
-
-  setFocused(true);
+  props.onFocus?.({
+    ...event,
+    component: {
+      name: props.name,
+      value: extraData.value,
+    },
+  });
 };
 
 export const createBlurHandler = (
   props: MultiSelectProps, extraData: BlurData,
-): React.FocusEventHandler<HTMLInputElement> => (ev) => {
-  const { onBlur, name } = props;
+): React.FocusEventHandler<HTMLInputElement> => (event) => {
+  const isValid = extraData.validateCurrent();
 
-  const {
-    setFocused, value, validateCurrent, setFilterValue,
-  } = extraData;
+  extraData.setFocused(false);
 
-  const isValid = validateCurrent();
+  extraData.setFilterValue('');
 
-  if (isFunction(onBlur)) {
-    const customEvent = {
-      ...ev,
-      component: {
-        value,
-        name,
-        isValid,
-      },
-    };
-
-    onBlur(customEvent);
-  }
-
-  setFocused(false);
-
-  setFilterValue('');
+  props.onBlur?.({
+    ...event,
+    component: {
+      name: props.name,
+      value: extraData.value,
+      isValid,
+    },
+  });
 };
 
 export const createSelectHandler = (
   props: MultiSelectProps, extraData: SelectData,
-): CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget> => (ev) => {
-  const {
-    onChange, name, value: valueProp, isDisabled, maxSelected,
-  } = props;
-
-  if (isDisabled) return;
+): CustomEventHandler<React.KeyboardEvent<HTMLElement> & SuggestionTarget | React.MouseEvent<HTMLElement> & SuggestionTarget> => (event) => {
+  if (props.isDisabled) return;
 
   const {
     setValue, value, setFilterValue,
   } = extraData;
 
-  const shouldRemoveValue = (value as (string | number | SomeObject)[]).includes(ev.target.value);
+  const shouldRemoveValue = value.includes(event.target.value);
 
   const newValue = (() => {
     if (shouldRemoveValue) {
-      return (value as (string | number | SomeObject)[]).filter((item) => (item !== ev.target.value));
+      return value.filter((item) => item !== event.target.value);
     }
 
-    return [...value, ev.target.value];
-  })() as (string[] | number[] | SomeObject[]);
+    return [...value, event.target.value];
+  })();
 
-  if (!isNil(maxSelected) && newValue.length === maxSelected) {
+  if (props.maxSelected != null && newValue.length === props.maxSelected) {
     setFilterValue('');
   }
 
-  if (valueProp === undefined) setValue(newValue);
+  if (props.value === undefined) setValue(newValue);
 
-  if (isFunction(onChange)) {
-    const customEvent = {
-      ...ev,
-      component: {
-        value: newValue,
-        name,
-        selectedValue: shouldRemoveValue ? undefined : ev.target.value,
-        deselectedValues: shouldRemoveValue ? [ev.target.value] as string[] | number[] | SomeObject[] : undefined,
-      },
-    };
-
-    onChange(customEvent);
-  }
+  props.onChange?.({
+    ...event,
+    component: {
+      value: newValue,
+      name: props.name,
+      selectedValue: shouldRemoveValue ? undefined : event.target.value,
+      deselectedValues: shouldRemoveValue ? [event.target.value] : undefined,
+    },
+  });
 };
 
 export const createClearHandler = (
   props: MultiSelectProps, extraData: ClearData,
-): React.MouseEventHandler<HTMLElement> => (ev) => {
-  const {
-    onChange, name, value: valueProp, isDisabled,
-  } = props;
-
-  if (isDisabled) return;
+): React.MouseEventHandler<HTMLElement> => (event) => {
+  if (props.isDisabled) return;
 
   const { setValue, value } = extraData;
 
-  if (valueProp === undefined) setValue([]);
+  if (props.value === undefined) setValue([]);
 
-  if (isFunction(onChange)) {
-    const customEvent = {
-      ...ev,
-      component: {
-        value: [] as string[] | number[] | SomeObject[],
-        name,
-        deselectedValues: value,
-      },
-    };
-
-    onChange(customEvent);
-  }
+  props.onChange?.({
+    ...event,
+    component: {
+      value: [],
+      name: props.name,
+      deselectedValues: value,
+    },
+  });
 };
 
 export const createMouseDownHandler = (
   props: MultiSelectProps, extraData: MouseDownData,
-): React.MouseEventHandler<HTMLElement> => (ev) => {
-  ev.preventDefault();
+): React.MouseEventHandler<HTMLElement> => (event) => {
+  event.preventDefault();
 
-  const { inputRef: { current: input } } = extraData;
-
-  if (input) input.focus();
+  if (extraData.inputRef.current) {
+    extraData.inputRef.current.focus();
+  }
 };
 
 export const createKeyDownHandler = (
   props: MultiSelectProps, extraData: KeyDownData,
-): React.KeyboardEventHandler<HTMLInputElement> => (ev) => {
-  const {
-    data, textField, filterRule, compareObjectsBy,
-  } = props;
-
-  const {
-    filterValue, highlightedSuggestion, setHighlightedSuggestion, handleSelect, value, setFocused,
-  } = extraData;
-
-  if (!data) return;
+): React.KeyboardEventHandler<HTMLInputElement> => (event) => {
+  if (!props.data) return;
 
   const filteredData = filterData({
-    data,
-    filterValue,
-    textField,
-    filterRule,
-    value,
-    compareObjectsBy,
+    data: props.data,
+    filterValue: extraData.filterValue,
+    textField: props.textField,
+    filterRule: props.filterRule,
+    value: extraData.value,
+    compareObjectsBy: props.compareObjectsBy,
   }) || [];
 
-  const highlightedItem = (filteredData as (string | number | SomeObject)[]).find((item) => item === highlightedSuggestion);
-  // текущий индекс
-  const currentIndex = (filteredData as (string | number | SomeObject)[]).indexOf(highlightedItem || '');
+  const highlightedItem = filteredData.find((item) => item === extraData.highlightedSuggestion);
 
-  if (ev.key === 'ArrowDown' || ev.key === 'Down') {
-    // предотвращаем скролл страницы
-    ev.preventDefault();
-    // новый индекс, механизм работает как барабан
+  const currentIndex = filteredData.indexOf(highlightedItem || '');
+
+  if (event.key === 'ArrowDown' || event.key === 'Down') {
+    event.preventDefault();
+
     const nextIndex = (currentIndex + 1) % filteredData.length;
 
     const newHighlightedSuggestion = filteredData[nextIndex];
 
-    setHighlightedSuggestion(newHighlightedSuggestion);
+    extraData.setHighlightedSuggestion(newHighlightedSuggestion);
 
     return;
   }
 
-  if (ev.key === 'ArrowUp' || ev.key === 'Up') {
-    // предотвращаем скроллинг страницы
-    ev.preventDefault();
-    // новый индекс, механизм работает как барабан
-    const nextIndex = (() => {
-      if (currentIndex <= 0) return filteredData.length - 1;
+  if (event.key === 'ArrowUp' || event.key === 'Up') {
+    event.preventDefault();
 
-      return currentIndex - 1;
-    })();
+    const nextIndex = (currentIndex > 0 ? currentIndex : filteredData.length) - 1;
 
     const newHighlightedSuggestion = filteredData[nextIndex];
 
-    setHighlightedSuggestion(newHighlightedSuggestion);
+    extraData.setHighlightedSuggestion(newHighlightedSuggestion);
 
     return;
   }
 
-  if (ev.key === 'Enter') {
-    if (!highlightedSuggestion) return;
+  if (event.key === 'Enter') {
+    if (!extraData.highlightedSuggestion) return;
 
-    setHighlightedSuggestion(null);
+    extraData.setHighlightedSuggestion(undefined);
 
-    // вызываем обработчик
-    handleSelect({
-      ...ev,
+    extraData.handleSelect({
+      ...event,
       target: {
-        ...ev.target,
-        value: highlightedSuggestion,
+        ...event.target,
+        value: extraData.highlightedSuggestion,
       },
-    } as unknown as React.MouseEvent<HTMLElement> & SuggestionTarget);
+    });
 
     return;
   }
 
-  if (ev.key === 'Backspace' && !filterValue && value.length !== 0) {
-    // вызываем обработчик
-    handleSelect({
-      ...ev,
+  if (event.key === 'Backspace') {
+    if (extraData.filterValue || extraData.value.length === 0) return;
+
+    extraData.handleSelect({
+      ...event,
       target: {
-        ...ev.target,
-        value: value[value.length - 1],
+        ...event.target,
+        value: extraData.value[extraData.value.length - 1],
       },
-    } as unknown as React.MouseEvent<HTMLElement> & SuggestionTarget);
+    });
   }
 };
 
@@ -241,13 +192,13 @@ export const createResetHandler = ({
   value: Value[],
 }) => () => {
   setValue(value);
-  if (isFunction(props.onChange)) {
-    const customEvent = {
-      component: {
-        name: props.name,
-        value,
-      },
-    };
-    props.onChange(customEvent);
-  }
+
+  props.onChange?.({
+    component: {
+      name: props.name,
+      value,
+      deselectedValues: undefined,
+      selectedValue: undefined,
+    },
+  });
 };

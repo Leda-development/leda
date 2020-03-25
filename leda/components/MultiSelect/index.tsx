@@ -65,7 +65,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
 
   const [filterValue, setFilterValue] = React.useState<string>('');
 
-  const [highlightedSuggestion, setHighlightedSuggestion] = React.useState<Value>(null);
+  const [highlightedSuggestion, setHighlightedSuggestion] = React.useState<Value>();
 
   const value = getValue(valueProp, valueState);
 

@@ -10,7 +10,7 @@ import { SuggestionListProps, SuggestionTarget } from '../../src/SuggestionList/
 import { DivProps } from '../Div';
 import { TagProps } from '../Tags/types';
 
-export type Value = SomeObject | string | number | null;
+export type Value = SomeObject | string | number;
 
 export type MultiSelectValue = Value[];
 
@@ -19,32 +19,34 @@ export interface MultiSelectComponent {
   displayName?: string,
 }
 
-export interface ClearEvent<T> extends React.MouseEvent {
+export interface ClearEvent<T = Value> extends React.MouseEvent {
   component: {
-    deselectedValues: T[],
     name?: string,
     value: T,
-  },
-}
-
-export interface MouseSelectEvent<T> extends React.MouseEvent {
-  component: {
     deselectedValues?: T[],
-    name?: string,
-    selectedValue?: T,
-    value: T[],
+    selectedValue: undefined,
   },
 }
 
-export interface EnterSelectEvent<T> extends React.KeyboardEvent {
+export interface MouseSelectEvent<T = Value> extends React.MouseEvent {
   component: {
     name?: string,
-    selectedValue: T,
     value: T[],
+    deselectedValues?: T[],
+    selectedValue?: T,
   },
 }
 
-export interface ResetEvent<T> {
+export interface EnterSelectEvent<T = Value> extends React.KeyboardEvent {
+  component: {
+    name?: string,
+    value: T[],
+    deselectedValue: undefined,
+    selectedValue?: T,
+  },
+}
+
+export interface ResetEvent<T = Value> {
   component: {
     name?: string,
     value: T,
@@ -53,9 +55,9 @@ export interface ResetEvent<T> {
 
 export interface BlurEvent<T = Value> extends React.FocusEvent<HTMLInputElement> {
   component: {
-    isValid?: boolean,
     name?: string,
     value: T[],
+    isValid: boolean,
   },
 }
 
@@ -73,21 +75,19 @@ export interface FocusEvent<T = Value> extends React.FocusEvent<HTMLInputElement
   },
 }
 
-export type ChangeEvent<T = Value> = MouseSelectEvent<T> | EnterSelectEvent<T> | ClearEvent<T> | ResetEvent<T>;
+export type ChangeEvent<T> = ClearEvent<T> | MouseSelectEvent<T> | EnterSelectEvent<T> | ResetEvent<T>;
 
-export interface MultiSelectProps<T extends MultiSelectValue | null | undefined = MultiSelectValue | null | undefined> extends ValidationProps {
+export interface MultiSelectProps<T = Value> extends ValidationProps {
   /** Сравнение объектов по произвольному полю, а не по ссылке */
   compareObjectsBy?: T extends object ? ((suggestionListItems: SomeObject) => any) | string : never,
-  /** Данные для отображения в списке.
-   * Если передаётся массив обьектов, нужно указать textField - поле обьекта, которое содержит данные для вывода в списке
-  */
+  /** Данные для отображения в списке. Если передаётся массив обьектов, нужно указать textField - поле обьекта, которое содержит данные для вывода в списке */
   data?: MultiSelectValue,
   /** Значение по-умолчанию */
-  defaultValue?: T,
+  defaultValue?: T[],
   /** Фильтр данных по правилу. smart (дефолтное значение) - "умный" поиск, startsWith - поиск по первым символам, includes - поиск по вхождению. При больших обьемах данных(больше 1-2 тысяч значений) не желательно использовать "умный поиск". */
   filterRule?: FilterRules,
   /** Ключ для группировки */
-  groupBy?: (option: Value) => string | undefined,
+  groupBy?: (option: Value | null) => string | undefined,
   /** Кнопка очистки данных в инпуте. Появляется только в непустом инпуте. */
   hasClearButton?: boolean,
   /** Выключенное состояние инпута */
@@ -107,13 +107,13 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   /** Атрибут рендера выпадающего списка, если в data нет значений, равных содержимому инпута. Принимает JSX */
   noSuggestionsRender?: any,
   /** Обработчик события потери фокуса */
-  onBlur?: (event: FocusEvent) => void,
+  onBlur?: (event: BlurEvent<T>) => void,
   /** Обработчик изменения данных в инпуте */
   onChange?: (event: ChangeEvent<T>) => void,
   /** Обработчик нажатия Enter */
-  onEnterPress?: (event: EnterPressEvent) => void,
+  onEnterPress?: (event: EnterPressEvent<T>) => void,
   /** Обработчик фокуса элемента */
-  onFocus?: (event: FocusEvent) => void,
+  onFocus?: (event: FocusEvent<T>) => void,
   /** Плейсхолдер инпута */
   placeholder?: string,
   /** Имя поля объекта, данные из которого будут рендериться в качестве элементов списка */
@@ -123,7 +123,7 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   /** Тема */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.multiSelect],
   /** Устанавливает значение в инпуте (будет отображенио в виде выбранных тегов) */
-  value?: T,
+  value?: T[],
   /** Кастомный рендер тегов */
   tagRender?: CustomRender<MultiSelectProps, MultiSelectState, TagProps>,
   /** Кастомный рендер враппера */
@@ -195,9 +195,9 @@ export interface FilterDataParams {
 
 export interface KeyDownData {
   filterValue: string,
-  handleSelect: CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget>,
-  highlightedSuggestion: Value,
+  handleSelect: CustomEventHandler<React.KeyboardEvent<HTMLElement> & SuggestionTarget | React.MouseEvent<HTMLElement> & SuggestionTarget>,
+  highlightedSuggestion?: Value,
   setFocused: SetState<boolean>,
-  setHighlightedSuggestion: SetState<Value>,
+  setHighlightedSuggestion: SetState<Value | undefined>,
   value: MultiSelectValue,
 }

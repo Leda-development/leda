@@ -12,6 +12,10 @@ import {
 } from './types';
 import { getForms as getRawForms, setForms } from '../../form/helpers';
 
+export {
+  setForms,
+};
+
 export const getForms = (formName?: string | string[]): Form[] => {
   const forms = getRawForms();
 

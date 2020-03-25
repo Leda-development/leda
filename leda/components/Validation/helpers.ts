@@ -10,10 +10,10 @@ import {
   Validator,
   ValidatorObject,
 } from './types';
+import * as helpers from '../../form/helpers';
 
 export const getForms = (formName?: string | string[]): Form[] => {
-  // @ts-ignore
-  const forms: Form[] = window[Symbol.for('leda/validation-forms')] || [];
+  const forms = helpers.getForms();
 
   if (isString(formName)) {
     const form = forms.find((currentForm: Form) => currentForm.name === formName);

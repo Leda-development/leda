@@ -3,16 +3,15 @@ import {
 } from 'lodash';
 import { PREDEFINED_VALIDATORS } from '../components/Validation/predefinedValidators';
 import * as Types from './types';
+import * as constants from './constants';
 
 // eslint-disable-next-line arrow-body-style
-const getForms = (): Types.Form[] => {
-  // @ts-ignore
-  return window[Symbol.for('leda/validation-forms')] ?? [];
+export const getForms = (): Types.Form[] => {
+  return window[constants.formsIdentifier as never] as never ?? [];
 };
 
-const setForms = (forms: Types.Form[]): void => {
-  // @ts-ignore
-  window[Symbol.for('leda/validation-forms')] = forms;
+export const setForms = (forms: Types.Form[]): void => {
+  window[constants.formsIdentifier as never] = forms as never;
 };
 
 const getForm = (name: string): Types.Form | undefined => {

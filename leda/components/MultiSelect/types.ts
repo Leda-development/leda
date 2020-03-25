@@ -14,11 +14,6 @@ export type Value = SomeObject | string | number;
 
 export type MultiSelectValue = Value[];
 
-export interface MultiSelectComponent {
-  <T extends MultiSelectValue | null | undefined>(props: MultiSelectProps<T>): React.ReactElement,
-  displayName?: string,
-}
-
 export interface ClearEvent<T = Value> extends React.MouseEvent {
   component: {
     name?: string,

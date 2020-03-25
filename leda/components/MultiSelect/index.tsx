@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { isNil } from 'lodash';
 import {
-  MultiSelectComponent, MultiSelectProps, MultiSelectRefCurrent, Value,
+  MultiSelectProps, MultiSelectRefCurrent, Value,
 } from './types';
 import {
   bindFunctionalRef, getClassNames, mergeClassNames, useElement, useTheme,
@@ -61,7 +61,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     ...restProps
   } = mergeClassNames(props);
 
-  const [valueState, setValue] = React.useState<Value[]>(defaultValue || []);
+  const [valueState, setValue] = React.useState<Value[]>(defaultValue ?? []);
 
   const [filterValue, setFilterValue] = React.useState<string>('');
 
@@ -77,7 +77,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     value: valueState,
   }, {
     reset: createResetHandler({
-      props, setValue, value: defaultValue || [],
+      props, setValue, value: defaultValue ?? [],
     }),
   });
 
@@ -141,7 +141,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
   const Wrapper = useElement(
     'Wrapper',
     Div,
-    wrapperRender || multiSelectRenders.wrapperRender,
+    wrapperRender ?? multiSelectRenders.wrapperRender,
     props,
     state,
   );
@@ -149,7 +149,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
   const Input = useElement(
     'Input',
     'input' as unknown as React.FC<React.InputHTMLAttributes<HTMLInputElement>>,
-    inputRender || multiSelectRenders.inputRender,
+    inputRender ?? multiSelectRenders.inputRender,
     props,
     state,
   );
@@ -157,7 +157,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
   const TagItem = useElement(
     'TagItem',
     Tag,
-    tagRender || multiSelectRenders.tagRender,
+    tagRender ?? multiSelectRenders.tagRender,
     props,
     state,
   );
@@ -244,6 +244,6 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
       {!isFocused && !isDisabled && <InvalidMessage />}
     </Wrapper>
   );
-}) as MultiSelectComponent;
+}) as React.FC<MultiSelectProps>;
 
 MultiSelect.displayName = 'MultiSelect';

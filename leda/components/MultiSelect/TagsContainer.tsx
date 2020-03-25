@@ -3,7 +3,6 @@ import { TagsContainerProps } from './types';
 import { Span } from '../Span';
 import { Div } from '../Div';
 import { getText } from '../../src/SuggestionList/helpers';
-import { SomeObject } from '../../commonTypes';
 
 export const TagsContainer = (props: TagsContainerProps): React.ReactElement | null => {
   const {
@@ -12,22 +11,24 @@ export const TagsContainer = (props: TagsContainerProps): React.ReactElement | n
 
   if (value.length === 0) return null;
 
+  const tags = value.map((item, index) => React.cloneElement(children, {
+    key: index.toString(),
+    onIconClick: (event: React.MouseEvent<HTMLElement>) => onTagClick({
+      ...event,
+      target: {
+        ...event.target,
+        value: item,
+      },
+    }),
+    children: getText(item, textField),
+  }));
+
   return (
     <Div
       className={theme.tagsContainer}
       onMouseDown={onMouseDown}
     >
-      {(value as (string | number | SomeObject)[]).map((item, index) => React.cloneElement(children, {
-        key: index.toString(),
-        onIconClick: (ev: React.MouseEvent<HTMLElement>) => onTagClick({
-          ...ev,
-          target: {
-            ...ev.target,
-            value: item,
-          },
-        }),
-        children: getText(item, textField),
-      }))}
+      {tags}
       {hasClearButton && (
         <Span
           className={theme.clearIcon}

@@ -1,270 +1,211 @@
-// @ts-nocheck
 import React from 'react';
-import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
+import userEvent from '@testing-library/user-event';
+import {
+  render, screen,
+} from '@testing-library/react';
 import { MultiSelect } from './index';
 
 describe('MultiSelect SNAPSHOTS', () => {
   it('should render basic usage', () => {
-    const wrapper = mount(
-      <MultiSelect data={['1', '2', '3']} onChange={jest.fn()} value={['1']} />,
-    );
+    const wrapper = render((
+      <MultiSelect data={['value0', 'value1']} value={['value1']} />
+    ));
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.container).toMatchSnapshot();
   });
 
   it('should render value in controllable mode', () => {
-    const wrapper = mount(
-      <MultiSelect data={['1', '2', '3']} value={['1']} onChange={jest.fn()} />,
-    );
+    const wrapper = render((
+      <MultiSelect data={['value0', 'value1']} value={['value0']} />
+    ));
 
-    expect(wrapper.props().value).toEqual(['1']);
+    expect(document.querySelector('span.tags-item')).toHaveTextContent('value0');
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.container).toMatchSnapshot();
 
-    wrapper.setProps({ value: ['2'] });
+    wrapper.rerender((
+      <MultiSelect data={['value0', 'value1']} value={['value1']} />
+    ));
 
-    expect(wrapper.props().value).toEqual(['2']);
+    expect(document.querySelector('span.tags-item')).toHaveTextContent('1');
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.container).toMatchSnapshot();
   });
 
   it('should render data in controllable mode', () => {
-    const dataString = ['value1', 'value2', 'value3'];
-    const dataObject = [
-      { text: 'text1', value: 'value1' },
-      { text: 'text2', value: 'value2' },
-      { text: 'text3', value: 'value3' },
-    ];
+    const wrapper = render((
+      <MultiSelect data={['value0', 'value1']} value={['value0']} />
+    ));
 
-    const wrapper = mount(
-      <MultiSelect data={dataString} onChange={jest.fn()} value={['value1']} />,
-    );
+    expect(wrapper.container).toMatchSnapshot();
 
-    expect(wrapper.props().data).toHaveLength(3);
+    wrapper.rerender((
+      <MultiSelect
+        data={[
+          { id: 0, value: 'value0' },
+          { id: 1, value: 'value1' },
+        ]}
+        value={['value1']}
+      />
+    ));
 
-    wrapper.props().data.forEach((el, index) => {
-      expect(el).toEqual(dataString[index]);
-    });
-
-    expect(wrapper).toMatchSnapshot();
-
-    wrapper.setProps({ data: dataObject });
-
-    wrapper.props().data.forEach((el, index) => {
-      expect(el.text).toEqual(dataObject[index].text);
-
-      expect(el.value).toEqual(dataObject[index].value);
-    });
-
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.container).toMatchSnapshot();
   });
 });
 
 describe('MultiSelect ATTRIBUTES', () => {
   it('should list isOpen', () => {
-    const wrapper = mount(
-      <MultiSelect data={['1', '2', '3']} isOpen onChange={jest.fn()} value={['1']} />,
-    );
+    const wrapper = render((
+      <MultiSelect data={['value0', 'value1']} value={['value0']} isOpen />
+    ));
 
-    expect(wrapper.find('SuggestionItem')).toHaveLength(2);
+    expect(document.querySelectorAll('li.suggestion-item')).toHaveLength(1);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.container).toMatchSnapshot();
   });
 
   it('should list loading', () => {
-    const wrapper = mount(
-      <MultiSelect data={['1', '2', '3']} isLoading isOpen onChange={jest.fn()} value={['1']} />,
-    );
+    const wrapper = render((
+      <MultiSelect data={['value0', 'value1']} value={['value0']} isOpen isLoading />
+    ));
 
-    expect(wrapper.find('SuggestionList Loader')).toHaveLength(1);
+    expect(document.querySelectorAll('span.loader-element')).toHaveLength(1);
 
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it.skip('should render templates', () => {
-    const wrapper = mount(
-      <MultiSelect
-        data={['1', '2', '3']}
-        isOpen
-        onChange={jest.fn()}
-        value={['1']}
-        suggestionsFooterRender={() => <span className="footer">Footer</span>}
-        suggestionsHeaderRender={() => <span className="header">Header</span>}
-      />,
-    );
-
-    expect(wrapper.find('.footer')).toHaveLength(1);
-
-    expect(wrapper.find('.header')).toHaveLength(1);
-
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.container).toMatchSnapshot();
   });
 
   it('should render noData template', () => {
-    const wrapper = mount(
-      <MultiSelect
-        data={['1', '2', '3']}
-        isOpen
-        onChange={jest.fn()}
-        value={['1']}
-      />,
-    );
+    const wrapper = render((
+      <MultiSelect data={['value0', 'value1']} value={['value0']} isOpen />
+    ));
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.container).toMatchSnapshot();
 
-    act(() => {
-      wrapper.find('Input').props().onChange({ target: { value: 'test' } });
-    });
+    userEvent.type(screen.getByRole('textbox'), 'clear');
 
-    wrapper.update();
+    expect(document.querySelector('div.nodata')).toHaveTextContent('Ничего не найдено');
 
-    expect(wrapper.find('NoSuggestions div.nodata').text()).toEqual('Ничего не найдено');
-
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.container).toMatchSnapshot();
   });
 });
 
 describe('MultiSelect HANDLERS', () => {
   it('should test onFocus', () => {
-    const onFocusHandler = jest.fn();
+    const handleFocus = jest.fn();
 
-    const wrapper = mount(
-      <MultiSelect
-        data={['1', '2', '3']}
-        isOpen
-        onChange={jest.fn()}
-        value={['1']}
-        name="auto"
-        onFocus={onFocusHandler}
-      />,
-    );
+    const wrapper = render((
+      <MultiSelect data={['value0', 'value1']} value={['value0']} isOpen name="name" onFocus={handleFocus} />
+    ));
 
-    act(() => {
-      wrapper.find('Input').props().onFocus();
-    });
+    screen.getByRole('textbox').focus();
 
-    const [[event]] = onFocusHandler.mock.calls;
+    expect(handleFocus).toHaveBeenCalledTimes(1);
 
-    expect(onFocusHandler).toHaveBeenCalled();
+    const [[event]] = handleFocus.mock.calls;
 
-    expect(event.component.name).toEqual('auto');
+    expect(event.component.name).toEqual('name');
 
-    expect(wrapper.find('TagsContainer')).toHaveLength(1);
+    expect(event.component.value).toEqual(['value0']);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(document.querySelectorAll('span.tags-item')).toHaveLength(1);
+
+    expect(wrapper.container).toMatchSnapshot();
   });
 
   it('should test onBlur', () => {
-    const onBlurHandler = jest.fn();
+    const handleBlur = jest.fn();
 
-    const wrapper = mount(
-      <MultiSelect data={['1', '2', '3']} value={['1']} onChange={jest.fn()} name="auto" onBlur={onBlurHandler} />,
-    );
+    const wrapper = render((
+      <MultiSelect data={['value0', 'value1']} value={['value0']} name="name" onBlur={handleBlur} />
+    ));
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.container).toMatchSnapshot();
 
-    wrapper.find('Input').props().onBlur();
+    screen.getByRole('textbox').focus();
+    screen.getByRole('textbox').blur();
 
-    const [[event]] = onBlurHandler.mock.calls;
+    expect(handleBlur).toHaveBeenCalledTimes(1);
 
-    expect(onBlurHandler).toHaveBeenCalled();
+    const [[event]] = handleBlur.mock.calls;
 
-    expect(event.component.name).toEqual('auto');
+    expect(event.component.value).toEqual(['value0']);
 
-    expect(wrapper.find('TagsContainer')).toHaveLength(1);
+    expect(event.component.name).toEqual('name');
 
-    expect(wrapper).toMatchSnapshot();
+    expect(event.component.isValid).toBeTruthy();
+
+    expect(document.querySelectorAll('span.tags-item')).toHaveLength(1);
+
+    expect(wrapper.container).toMatchSnapshot();
   });
 
   it('should test onChange', () => {
-    let val = ['2'];
+    const handleChange = jest.fn();
 
-    const onChangeHandler = (ev) => {
-      const { target } = ev;
-      val = [...val, target.value];
-      return val;
-    };
+    const wrapper = render((
+      <MultiSelect data={['value0', 'value1']} value={['value0']} isOpen name="name" onChange={handleChange} />
+    ));
 
-    const wrapper = mount(
-      <MultiSelect
-        isOpen
-        data={['1', '2', '3']}
-        value={val}
-        name="auto"
-        onChange={(ev) => wrapper.setProps({ value: onChangeHandler(ev) })}
-      />,
-    );
+    userEvent.click(document.querySelectorAll('li.suggestion-item')[0]);
 
-    wrapper.find('Suggestion').first().simulate('click');
+    expect(handleChange).toHaveBeenCalledTimes(1);
 
-    expect(wrapper.find('Tag')).toHaveLength(2);
+    const [[event]] = handleChange.mock.calls;
 
-    expect(wrapper).toMatchSnapshot();
+    expect(event.component.value).toEqual(['value0', 'value1']);
+
+    expect(event.component.name).toEqual('name');
+
+    expect(event.component.selectedValue).toEqual('value1');
+
+    expect(event.component.deselectedValues).toBeUndefined();
+
+    expect(wrapper.container).toMatchSnapshot();
   });
 
   it('should test onDeselect', () => {
-    let val = ['1', '2'];
+    const handleChange = jest.fn();
 
-    const onChangeHandler = (ev) => {
-      val = ev.component.value;
-      return val;
-    };
+    const wrapper = render((
+      <MultiSelect data={['value0', 'value1']} value={['value0']} isOpen name="name" onChange={handleChange} />
+    ));
 
-    const wrapper = mount(
-      <MultiSelect
-        isOpen
-        data={['1', '2', '3']}
-        value={val}
-        name="auto"
-        onChange={(ev) => wrapper.setProps({
-          value: onChangeHandler(ev),
-        })}
-      />,
-    );
+    userEvent.click(document.querySelectorAll('span.tags-icon')[0]);
 
-    wrapper.find('Suggestion').last().simulate('click');
+    expect(handleChange).toHaveBeenCalledTimes(1);
 
-    expect(wrapper.find('Tag')).toHaveLength(3);
+    const [[event]] = handleChange.mock.calls;
 
-    expect(wrapper).toMatchSnapshot();
+    expect(event.component.value).toEqual([]);
 
-    wrapper.find('Tag Icon').first().simulate('click');
+    expect(event.component.name).toEqual('name');
 
-    wrapper.find('Tag Icon').last().simulate('click');
+    expect(event.component.selectedValue).toBeUndefined();
 
-    expect(wrapper.find('Tag')).toHaveLength(1);
+    expect(event.component.deselectedValues).toEqual(['value0']);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.container).toMatchSnapshot();
   });
 
   it('should test onDeselect by clear button', () => {
-    let val = ['1', '2', '3'];
+    const handleChange = jest.fn();
 
-    const onChangeHandler = (ev) => {
-      val = ev.component.value;
-      return val;
-    };
+    const wrapper = render((
+      <MultiSelect data={['value0', 'value1']} value={['value0']} isOpen name="name" onChange={handleChange} hasClearButton />
+    ));
 
-    const wrapper = mount(
-      <MultiSelect
-        isOpen
-        data={['1', '2', '3']}
-        value={val}
-        name="auto"
-        hasClearButton
-        onChange={(ev) => wrapper.setProps({
-          value: onChangeHandler(ev),
-        })}
-      />,
-    );
+    userEvent.click(document.querySelectorAll('span.multiselect-clear-icon')[0]);
 
-    expect(wrapper.find('Icon')).toHaveLength(3);
+    expect(handleChange).toHaveBeenCalledTimes(1);
 
-    wrapper.find('Tag Icon span').last().simulate('click');
+    const [[event]] = handleChange.mock.calls;
 
-    expect(wrapper.find('Tag')).toHaveLength(2);
+    expect(event.component.value).toEqual([]);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(event.component.name).toEqual('name');
+
+    expect(event.component.deselectedValues).toEqual(['value0']);
+
+    expect(wrapper.container).toMatchSnapshot();
   });
 });

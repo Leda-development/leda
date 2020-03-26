@@ -1,6 +1,5 @@
 import 'element-closest/browser';
 import * as React from 'react';
-import { isFunction } from 'lodash';
 import { bindFunctionalRef, useProps } from '../../utils';
 import { DEFAULT_TRANSITION } from './contants';
 import { generateTransitionProperty } from './helpers';
@@ -19,17 +18,14 @@ export const Collapsible = React.forwardRef((props: CollapsibleProps, ref: React
     transition = DEFAULT_TRANSITION,
   } = useProps(props);
 
-  const onRest = (): void => {
-    if (isOpen && isFunction(onOpen)) {
-      onOpen();
+  const onRest = React.useCallback((): void => {
+    if (isOpen) {
+      onOpen?.();
+    } else {
+      onClose?.();
     }
-    if (!isOpen && isFunction(onClose)) {
-      onClose();
-    }
-    if (isFunction(onToggle)) {
-      onToggle();
-    }
-  };
+    onToggle?.();
+  }, [isOpen, onClose, onOpen, onToggle]);
 
   const transitionProperty = typeof transition === 'string' ? transition : generateTransitionProperty(transition);
 

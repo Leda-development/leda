@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DropEvent, DropzoneRef, useDropzone } from 'react-dropzone';
+import { DropzoneRef, useDropzone } from 'react-dropzone';
 import { bindFunctionalRef, useProps } from '../../utils';
 import { MAX_FILE_SIZE, MIN_FILE_SIZE } from '../../constants';
 import { Div } from '../Div';
@@ -37,7 +37,7 @@ export const FileUpload = React.forwardRef((props: FileUploadProps, ref: React.R
 
   const handleLoad = createLoadHandler(props);
 
-  const state = React.useMemo(() => ({ }), []);
+  const state = React.useMemo(() => ({}), []);
 
   const extra = React.useMemo(() => ({ reset: () => handleLoad([], []) }), [handleLoad]);
 

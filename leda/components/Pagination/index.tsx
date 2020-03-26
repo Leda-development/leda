@@ -29,8 +29,6 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.pagination);
 
-  const wrapperRef = React.useRef<HTMLDivElement | null>(null);
-
   const [currentPageState, setCurrentPageState] = React.useState<number>(1);
 
   const [pageSizeState, setPageSizeState] = React.useState<number>(defaultPageSize || (pageSizeOptions && pageSizeOptions[0]) || 10);
@@ -49,8 +47,10 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
   const isFirstPage = currentPage === 1;
 
   const isLastPage = currentPage === pages;
+
   // расчет номера страницы для перехода влево
   const previousBlock = normalizePageNumber(currentPage - 5, totalItems, pageSize);
+
   // расчет номера страницы для перехода вправо
   const nextBlock = normalizePageNumber(currentPage + 5, totalItems, pageSize);
 

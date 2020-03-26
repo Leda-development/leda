@@ -30,7 +30,6 @@ export const DropZone = React.forwardRef((props: DropZoneProps, ref: React.Ref<D
     value: valueProps,
   } = useProps(props);
 
-
   const dropZoneRef = React.useRef<DropzoneRef | null>(null);
 
   const theme = useTheme(props.theme, 'dropZone');

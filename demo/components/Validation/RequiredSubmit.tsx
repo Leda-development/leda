@@ -1,8 +1,9 @@
-/* eslint-disable react/prop-types */
 import * as React from 'react';
 import * as L from '../../../leda';
 
-const Label = ({ children }) => (
+const Label = ({
+  children,
+}: any) => (
   <L.Span
     _width15
     style={{ display: 'inline-block', marginRight: '10px' }}
@@ -24,7 +25,9 @@ export const RequiredSubmit = () => {
           </Label>
           <L.AutoComplete
             data={['Berlin', 'Paris']}
-            onChange={ev => setTextValue(ev.component.value)}
+            onChange={(event) => {
+              setTextValue(event.component.value);
+            }}
             value={textValue}
             isRequired
             requiredMessage="Required field"
@@ -152,7 +155,9 @@ export const RequiredSubmit = () => {
           </Label>
           <L.DropDownSelect
             value={textValue}
-            onChange={ev => setTextValue(ev.component.value)}
+            onChange={(event) => {
+              setTextValue(event.component.value);
+            }}
             isRequired
             requiredMessage="Required field"
             validator={() => false}
@@ -276,7 +281,6 @@ export const RequiredSubmit = () => {
             value={textValue}
           />
         </L.Div>
-
         <L.Div>
           <L.Button
             onClick={() => {
@@ -294,7 +298,6 @@ export const RequiredSubmit = () => {
           </L.Button>
         </L.Div>
       </L.Div>
-
     </L.Div>
   );
 };

@@ -15,7 +15,7 @@ export const BasicUsage = (args: SomeObject): React.ReactElement => {
         data={[
           {
             text: 'Default',
-            props: { },
+            props: {},
           },
           {
             text: 'isDisabled',

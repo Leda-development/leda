@@ -31,9 +31,9 @@ export const DataTypes = (args: SomeObject): React.ReactElement => {
         defaultValue={['London']}
         _width40
         maxSelected={3}
-        onChange={ev => update('Change', ev)}
-        onBlur={ev => update('Blur', ev)}
-        onFocus={ev => update('Focus', ev)}
+        onChange={(event) => update('Change', event)}
+        onBlur={(event) => update('Blur', event)}
+        onFocus={(event) => update('Focus', event)}
         placeholder="Choose cities you would like to visit!"
         isOpen={isOpen}
         isLoading={isLoading}

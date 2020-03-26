@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as L from '../../../leda';
 
+// eslint-disable-next-line arrow-body-style
 export const Basic = (componentProps: any) => {
   return (
     <L.Div _box _inner _demoBg>

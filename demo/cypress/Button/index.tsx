@@ -1,9 +1,5 @@
-/* eslint-disable no-alert */
-/* eslint-disable no-console */
-
 import * as React from 'react';
 import * as L from '../../../leda';
-
 
 export const Button = (): React.ReactElement => (
   <L.Div _demoStory>

@@ -28,7 +28,6 @@ const DDSData = [
   { city: 'Budapest', id: 11, attr: 'value11' },
 ];
 
-// eslint-disable-next-line
 export const GroupedObjectsData = (args: SomeObject): React.ReactElement => {
   const [isOpen, setIsOpen] = React.useState<boolean | undefined>();
   const [isDisabled, setIsDisabled] = React.useState<boolean>(false);
@@ -50,12 +49,10 @@ export const GroupedObjectsData = (args: SomeObject): React.ReactElement => {
         textField="city"
         defaultValue={{ txt: 'London', val: 1 }}
         onChange={(ev) => {
-          // eslint-disable-next-line no-console
           console.log('ev.component', ev.component);
           setValue(ev.component.value);
         }}
         onBlur={(ev) => {
-          // eslint-disable-next-line no-console
           console.log('ev.component.value', ev.component.value);
         }}
       >

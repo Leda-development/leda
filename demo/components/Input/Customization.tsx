@@ -11,6 +11,16 @@ export const Customization = (attrs: any) => {
 
   const { update, EventInfo } = useEventSpy();
 
+  const data0 = [
+    { text: 'Icon left', props: { ...props, inputRender: ({ Element, elementProps }: any) => (<><L.I _icon20 _iSearch /><Element {...elementProps} /></>) } },
+    { text: 'Text left', props: { ...props, inputRender: ({ Element, elementProps }: any) => <>от <Element {...elementProps} /></> } },
+  ];
+
+  const data1 = [
+    { text: 'Icon right', props: { ...props, inputRender: ({ Element, elementProps }: any) => (<><Element {...elementProps} /><L.I _icon20 _iSearch /></>) } },
+    { text: 'Text right', props: { ...props, inputRender: ({ Element, elementProps }: any) => <><Element {...elementProps} /> RUB</> } },
+  ];
+
   return (
     <L.Div _box _inner _demoBg>
       <L.Input
@@ -23,7 +33,7 @@ export const Customization = (attrs: any) => {
           setValue(event.component.value);
           console.log(event.currentTarget?.value);
         }}
-        validator={(val) => val.length < count}
+        validator={(currentValue) => currentValue.length < count}
         form="form1"
         invalidMessage={`Length must be less than ${count}`}
         name="pattern-case"
@@ -38,18 +48,12 @@ export const Customization = (attrs: any) => {
       <br />
       <br />
       <StateButtonGroup
-        data={[
-          { text: 'Icon left', props: { ...props, inputRender: ({ Element, elementProps }: any) => (<><L.I _icon20 _iSearch /><Element {...elementProps} /></>) } },
-          { text: 'Text left', props: { ...props, inputRender: ({ Element, elementProps }: any) => <>от <Element {...elementProps} /></> } },
-        ]}
+        data={data0}
         setProps={setProps}
       />
       {'  '}
       <StateButtonGroup
-        data={[
-          { text: 'Icon right', props: { ...props, inputRender: ({ Element, elementProps }: any) => (<><Element {...elementProps} /><L.I _icon20 _iSearch /></>) } },
-          { text: 'Text right', props: { ...props, inputRender: ({ Element, elementProps }: any) => <><Element {...elementProps} /> RUB</> } },
-        ]}
+        data={data1}
         setProps={setProps}
       />
       <br />

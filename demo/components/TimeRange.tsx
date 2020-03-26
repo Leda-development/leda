@@ -14,16 +14,18 @@ export const TimeRange = () => {
           min={new Date(2019, 9, 5, 12, 30)}
           max={new Date(2019, 9, 7, 17, 0)}
           value={value}
-          onChange={ev => setValue(ev.component.value)}
+          onChange={(event) => {
+            setValue(event.component.value);
+          }}
           isRequired={[true, false]}
           _width50
           {...props}
         />
         <L.Div style={{ marginLeft: '50px' }}>
-          <L.Switcher onChange={() => setProps(prevProps => ({ ...prevProps, isOpen: !prevProps.isOpen }))}>isOpen</L.Switcher>
+          <L.Switcher onChange={() => setProps((prevProps) => ({ ...prevProps, isOpen: !prevProps.isOpen }))}>isOpen</L.Switcher>
           <br />
           <br />
-          <L.Switcher onChange={() => setProps(prevProps => ({ ...prevProps, isDisabled: !prevProps.isDisabled }))}>isDisabled</L.Switcher>
+          <L.Switcher onChange={() => setProps((prevProps) => ({ ...prevProps, isDisabled: !prevProps.isDisabled }))}>isDisabled</L.Switcher>
         </L.Div>
       </L.Div>
     </L.Div>

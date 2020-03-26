@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import * as React from 'react';
 import * as L from '../../leda';
 
@@ -18,7 +17,7 @@ export const DateTimeRange = (): React.ReactElement => {
           max={new Date(2019, 5, 20, 17, 0)}
           value={DTRValue}
           name="DateTimeRange"
-          onChange={ev => {
+          onChange={(ev) => {
             const { component: { date, value, name } } = ev;
             console.log('date', date);
             console.log('value', value);
@@ -30,10 +29,10 @@ export const DateTimeRange = (): React.ReactElement => {
           {...props}
         />
         <L.Div style={{ marginLeft: '50px' }}>
-          <L.Switcher onChange={() => setProps(prevProps => ({ ...prevProps, isOpen: props.isOpen ? undefined : true }))}>isOpen</L.Switcher>
+          <L.Switcher onChange={() => setProps((prevProps) => ({ ...prevProps, isOpen: props?.isOpen ? undefined : true }))}>isOpen</L.Switcher>
           <br />
           <br />
-          <L.Switcher onChange={() => setProps(prevProps => ({ ...prevProps, isDisabled: props.isDisabled ? undefined : true }))}>isDisabled</L.Switcher>
+          <L.Switcher onChange={() => setProps((prevProps) => ({ ...prevProps, isDisabled: props?.isDisabled ? undefined : true }))}>isDisabled</L.Switcher>
         </L.Div>
       </L.Div>
     </L.Div>

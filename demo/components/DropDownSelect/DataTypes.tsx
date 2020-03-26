@@ -3,7 +3,6 @@ import * as L from '../../../leda';
 import { SomeObject } from '../../../leda/commonTypes';
 import { StateButtonGroup } from '../StateButtonGroup';
 
-// eslint-disable-next-line
 export const DataTypes = (args: SomeObject): React.ReactElement => {
   const [props, setProps] = React.useState({});
   const [isOpen, setIsOpen] = React.useState<boolean | undefined>();

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types, no-console */
 import * as React from 'react';
 import * as L from '../../../leda';
 import { StateButtonGroup } from '../StateButtonGroup';
@@ -20,20 +19,20 @@ export const BasicUsage = (args: any) => {
         step={1}
         invalidMessage="Число не должно быть отрицательным!"
         requiredMessage="Обязательное поле!"
-        onClick={ev => {
-          update('Click', ev);
-          console.log('Click ev.target', ev.target);
+        onClick={(event) => {
+          update('Click', event);
+          console.log('Click event.target', event.target);
         }}
-        onChange={ev => {
-          update('Change', ev);
-          console.log('Change ev.component.value', ev.component.value);
+        onChange={(event) => {
+          update('Change', event);
+          console.log('Change event.component.value', event.component.value);
         }}
-        onBlur={ev => {
-          update('Blur', ev);
+        onBlur={(event) => {
+          update('Blur', event);
         }}
-        onFocus={ev => {
-          console.log('focus ev', ev);
-          update('Focus', ev);
+        onFocus={(event) => {
+          console.log('focus event', event);
+          update('Focus', event);
         }}
         form="foobar"
         isRequired
@@ -53,7 +52,7 @@ export const BasicUsage = (args: any) => {
       <br />
       <L.Button onClick={() => { setProps({}); }}>Defaults</L.Button>
       {'  '}
-      <L.Button onClick={() => { setProps({ ...props, isDisabled: !props.isDisabled }); }} _warning={props.isDisabled}>Toggle isDisabled</L.Button>
+      <L.Button onClick={() => { setProps({ ...props, isDisabled: !props?.isDisabled }); }} _warning={props?.isDisabled}>Toggle isDisabled</L.Button>
       <br />
       <br />
       <StateButtonGroup

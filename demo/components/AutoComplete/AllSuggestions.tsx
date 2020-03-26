@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as L from '../../../leda';
 
-// eslint-disable-next-line
 export const AllSuggestions = (componentProps: any) => {
   const [value, setValue] = React.useState('');
 

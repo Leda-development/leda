@@ -1,7 +1,5 @@
-/* eslint-disable no-alert */
 import * as React from 'react';
 import * as L from '../../../leda';
-
 
 export const Input = (): React.ReactElement => (
   <L.Div>

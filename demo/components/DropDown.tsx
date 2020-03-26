@@ -7,8 +7,11 @@ export const DropDown = () => {
   return (
     <L.Div _demoStory>
       <L.H4 _title>DropDown</L.H4>
-      <br/>
-      <L.DropDown _more wrapperRender={({elementProps}: any) => <L.Button {...elementProps} />}>
+      <br />
+      <L.DropDown
+        _more
+        wrapperRender={({ elementProps }: any) => <L.Button {...elementProps} />}
+      >
         <L.Span>Hello</L.Span>
         <L.Ul _txtLeft>
           <L.Li _level2>
@@ -45,7 +48,7 @@ export const DropDown = () => {
       >
         <L.DropDown
           _more
-          wrapperRender={({elementProps}: any) => <L.Button {...elementProps} />}
+          wrapperRender={({ elementProps }: any) => <L.Button {...elementProps} />}
           boundingContainerRef={containerRef}
           style={{ float: 'right' }}
         >

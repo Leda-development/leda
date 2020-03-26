@@ -11,7 +11,6 @@ const data = [
   { id: 5, attr: 'value5', city: 'Madrid' },
 ];
 
-// eslint-disable-next-line
 export const CompareObjectsBy = (anyProps: any): React.ReactElement => {
   const [value, setValue] = React.useState<string | null>();
 

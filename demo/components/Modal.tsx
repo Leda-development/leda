@@ -1,6 +1,7 @@
-/* eslint-disable no-alert, no-console */
 import * as React from 'react';
 import * as L from '../../leda';
+
+const onValidationFail = () => alert('Заполните все поля, пожалуйста!');
 
 export const Modal = () => {
   const [isOpen, setOpen] = React.useState(false);
@@ -67,7 +68,7 @@ export const Modal = () => {
         <L.ModalFooter>
           <L.Button onClick={() => setOpen(false)}>Отмена</L.Button>
           {' '}
-          <L.Button _warning form="modal-form" onClick={() => setOpen(false)} onValidationFail={() => alert('Заполните все поля, пожалуйста!')}>Добавить</L.Button>
+          <L.Button _warning form="modal-form" onClick={() => setOpen(false)} onValidationFail={onValidationFail}>Добавить</L.Button>
         </L.ModalFooter>
       </L.Modal>
       <br />

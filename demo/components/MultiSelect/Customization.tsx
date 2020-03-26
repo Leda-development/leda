@@ -24,7 +24,7 @@ export const Customization = (args: SomeObject): React.ReactElement => {
         ]}
         defaultValue={['London']}
         _width40
-        onBlur={ev => console.log('ev.component.value', ev.component.value)}
+        onBlur={(event) => console.log('ev.component.value', event.component.value)}
         wrapperRender={({ Element, elementProps }) => <Element {...elementProps} style={{ border: '2px solid aqua' }} />}
         inputRender={({ Element, elementProps }) => <Element {...elementProps} style={{ border: '2px solid forestGreen' }} />}
         itemRender={({ Element, elementProps }) => <Element {...elementProps} style={{ border: '2px solid hotPink' }} />}

@@ -1,4 +1,3 @@
-/* eslint-disable no-alert, no-console */
 import * as React from 'react';
 import * as L from '../../leda';
 
@@ -12,13 +11,19 @@ export const Slider = () => {
       <L.Slider
         max={20}
         value={firstSliderValue}
-        onChange={ev => { console.log('Slider onChange', ev); setFirstSliderValue(ev.component.value); }}
+        onChange={(event) => {
+          console.log('Slider onChange', event);
+          setFirstSliderValue(event.component.value);
+        }}
         _width50
         labelType="current"
         unitsRender={() => 'млн.руб.'}
         name="Slider 1"
         hasTooltip
-        onMove={ev => { console.log('Slider onMove', ev); setFirstSliderValue(ev.component.value); }}
+        onMove={(event) => {
+          console.log('Slider onMove', event);
+          setFirstSliderValue(event.component.value);
+        }}
       />
       <br />
       <br />
@@ -39,18 +44,23 @@ export const Slider = () => {
       <br />
       <br />
       <br />
-      {/* eslint-disable-next-line react/no-unescaped-entities */}
-      <L.P>Слайдер с несколькими ползунками. labelType="current" в этом случае не отображается</L.P>
+      <L.P>Слайдер с несколькими ползунками. labelType=&quot;current&quot; в этом случае не отображается</L.P>
       <L.Slider
         max={20}
         value={secondSliderValue}
-        onChange={ev => { console.log('Slider onChange', ev); setSecondSliderValue(ev.component.value); }}
+        onChange={(event) => {
+          console.log('Slider onChange', event);
+          setSecondSliderValue(event.component.value);
+        }}
         _width50
         labelType="minmax"
         unitsRender={() => 'млн.руб.'}
         name="Slider 1"
         hasTooltip
-        onMove={ev => { console.log('Slider onMove', ev); setSecondSliderValue(ev.component.value); }}
+        onMove={(event) => {
+          console.log('Slider onMove', event);
+          setSecondSliderValue(event.component.value);
+        }}
       />
     </L.Div>
   );

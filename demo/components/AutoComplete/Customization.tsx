@@ -2,8 +2,7 @@ import * as React from 'react';
 import * as L from '../../../leda';
 import { StateButtonGroup } from '../StateButtonGroup';
 
-// eslint-disable-next-line
-export const Customization = (componentProps: any) => {
+export const Customization = (anyProps: any) => {
   const [props, setProps] = React.useState({});
   const [value, setValue] = React.useState('');
 
@@ -29,7 +28,9 @@ export const Customization = (componentProps: any) => {
         onChange={(ev) => setValue(ev.component.value)}
         placeholder="Type your city..."
         hasClearButton
-        listRender={({ elementProps }: any) => <L.Div {...elementProps} />}
+        listRender={({ elementProps }: any) => (
+          <L.Div {...elementProps} />
+        )}
         itemRender={({ elementProps, componentProps }: any) => {
           console.log('elementProps', elementProps);
           console.log('componentProps', componentProps);

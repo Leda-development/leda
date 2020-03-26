@@ -9,52 +9,42 @@ export const DateRange = (): React.ReactElement => {
   const [value5, setValue5] = React.useState<[string, string]>(['', '']);
   const [value6, setValue6] = React.useState<[string, string]>(['', '']);
 
-  const handleChange1 = (ev) => {
-    const { value, date } = ev.component;
+  const handleChange1 = (event: L.DateTimeInputRangeTypes.CustomRangeEvent) => {
+    const { value, date } = event.component;
     console.log(value);
     console.log(date);
     setValue1(value);
   };
-  const handleChange2 = (ev) => {
-    const { value, date } = ev.component;
+  const handleChange2 = (event: L.DateTimeInputRangeTypes.CustomRangeEvent) => {
+    const { value, date } = event.component;
     console.log(value);
     console.log(date);
     setValue2(value);
   };
-  const handleChange3 = (ev) => {
-    const { value, date } = ev.component;
+  const handleChange3 = (event: L.DateTimeInputRangeTypes.CustomRangeEvent) => {
+    const { value, date } = event.component;
     console.log(value);
     console.log(date);
     setValue3(value);
   };
-  const handleChange4 = (ev) => {
-    const { value, date } = ev.component;
+  const handleChange4 = (event: L.DateTimeInputRangeTypes.CustomRangeEvent) => {
+    const { value, date } = event.component;
     console.log(value);
     console.log(date);
     setValue4(value);
   };
-  const handleChange5 = (ev) => {
-    const { value, date } = ev.component;
+  const handleChange5 = (event: L.DateTimeInputRangeTypes.CustomRangeEvent) => {
+    const { value, date } = event.component;
     console.log(value);
     console.log(date);
     setValue5(value);
   };
-  const handleChange6 = (ev) => {
-    const { value, date } = ev.component;
+  const handleChange6 = (event: L.DateTimeInputRangeTypes.CustomRangeEvent) => {
+    const { value, date } = event.component;
     console.log(value);
     console.log(date);
     setValue6(value);
   };
-
-  const DateRangeStyles = () => (
-    <link rel="stylesheet">
-      {`
-      .daterange-wrapper {
-        justify-content: space-between;
-      }
-      `}
-    </link>
-  );
 
   return (
     <L.Div>
@@ -64,8 +54,8 @@ export const DateRange = (): React.ReactElement => {
           onChange={handleChange1}
           onEnterPress={console.log}
           value={value1}
-          name={['firstDatePicker', "secondDatePicker"]}
-          placeholder={["Type your date...", "Type something...",]}
+          name={['firstDatePicker', 'secondDatePicker']}
+          placeholder={['Type your date...', 'Type something...']}
           isRequired={[false, true]}
           isDisabled={[true, false]}
           form="111"
@@ -77,49 +67,52 @@ export const DateRange = (): React.ReactElement => {
           min={new Date('04.03.2012')}
           onChange={handleChange2}
           onEnterPress={console.log}
-          name='MinMaxDatePicker'
+          name="MinMaxDatePicker"
           placeholder="Type your date..."
           isOpen={[true, true]}
         />
       </L.Div>
 
-      <div style={{
-        height: '190px',
-      }} />
+      <div
+        style={{
+          height: '190px',
+        }}
+      />
 
       <L.Div _demoStory _flexRow _justifyContentBetween _grow1>
         <L.DateRange
           _grow1
           onChange={handleChange3}
-          format='dd.MM.yyyy'
+          format="dd.MM.yyyy"
           onBlur={console.log}
-          name='ThirdDateRange'
+          name="ThirdDateRange"
           isRequired
           form="112"
         />
 
         <L.DateRange
           _grow1
-          format="dd-е число  MM-го месяца  yyyy-го года"
-          name='openedCalendar'
+          format="dd-е число MM-го месяца yyyy-го года"
+          name="openedCalendar"
           onChange={handleChange4}
-          value={[value4[0], "11.22.33"]}
+          value={[value4[0], '11.22.33']}
           onFocus={console.log}
           isOpen
           isDisabled={[true, false]}
         />
       </L.Div>
 
-      <div style={{
-        height: '190px',
-      }} />
-
+      <div
+        style={{
+          height: '190px',
+        }}
+      />
 
       <L.Div _demoStory _flexRow _justifyContentBetween _grow1>
         <L.DateRange
           _grow1
           format="dd-е число  MM-го месяца  yyyy-го года"
-          name='disabledCalendar'
+          name="disabledCalendar"
           onChange={handleChange5}
           value={value5}
           isDisabled
@@ -133,19 +126,22 @@ export const DateRange = (): React.ReactElement => {
           onChange={handleChange6}
           onEnterPress={console.log}
           value={value6}
-          name='MinMaxDatePickerOpened'
+          name="MinMaxDatePickerOpened"
           placeholder="Type your date..."
           isDisabled={[false, true]}
         />
         <L.Button _success
           form="111"
-        >success!</L.Button>
+        >
+          success!
+        </L.Button>
       </L.Div>
-      <div style={{
-        height: '190px',
-      }} />
+      <div
+        style={{
+          height: '190px',
+        }}
+      />
 
     </L.Div>
-  )
+  );
 };
-

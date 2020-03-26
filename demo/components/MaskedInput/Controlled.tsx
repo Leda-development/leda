@@ -1,12 +1,12 @@
-/* eslint-disable react/prop-types, no-console */
 import * as React from 'react';
 import * as L from '../../../leda';
 import { StateButtonGroup } from '../StateButtonGroup';
 import { useEventSpy } from '../../useEventSpy';
 
 export const Controlled = (some: any): React.ReactElement => {
-  const [props, setProps] = React.useState<any>({});
   const ref = React.useRef(null);
+
+  const [props, setProps] = React.useState<any>({});
 
   const [value, setValue] = React.useState<string>('8002000600');
 
@@ -21,7 +21,7 @@ export const Controlled = (some: any): React.ReactElement => {
         isRequired
         data-test="maskedinput"
         requiredMessage="Обязательное поле!"
-        onChange={ev => {
+        onChange={(ev) => {
           setValue(ev.component.value);
           update('Change', ev);
         }}
@@ -30,11 +30,11 @@ export const Controlled = (some: any): React.ReactElement => {
         _width30
         ref={ref}
         value={value}
-        onFocus={ev => {
+        onFocus={(ev) => {
           update('Focus', ev);
           console.log(ref.current);
         }}
-        onBlur={ev => {
+        onBlur={(ev) => {
           update('Blur', ev);
         }}
         {...props}
@@ -64,7 +64,7 @@ export const Controlled = (some: any): React.ReactElement => {
       {'  '}
       <L.Button onClick={() => { setValue('9818862798'); }}>Set Value</L.Button>
       {'  '}
-      <L.Button onClick={() => { setProps({ ...props, isDisabled: !props.isDisabled }); }} _warning={props.isDisabled}>Toggle isDisabled</L.Button>
+      <L.Button onClick={() => { setProps({ ...props, isDisabled: !props?.isDisabled }); }} _warning={props?.isDisabled}>Toggle isDisabled</L.Button>
       {'  '}
       <L.Button form="masked" _warning>Validate</L.Button>
       <br />

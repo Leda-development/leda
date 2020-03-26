@@ -1,72 +1,6 @@
-/* eslint-disable react/prop-types */
 import * as React from 'react';
 import * as L from '../../../leda';
 import { Form } from '../../../leda/components/Validation/types';
-
-const exampleCode = `
-export const BlockElements = () => (
-  <L.Div>
-    <L.Tabs
-      activeTabKey={selected}
-      onSelect={ev => setSelected(ev.component.value)}
-    >
-      <L.Tab title="Tab 1" tabKey={0}>
-        <L.Div _inner>
-          <L.Div _inner>
-            <L.Input
-              value={value1}
-              onChange={ev => setValue1(ev.component.value)}
-              validator="email"
-              form="unmountedForm"
-              name="Input1"
-              isRequired
-              placeholder="unmounted 1"
-              shouldValidateUnmounted
-            />
-          </L.Div>
-        </L.Div>
-      </L.Tab>
-      <L.Tab title="Tab 2" tabKey={1}>
-        <L.Div _inner>
-          <L.Div _inner>
-            <L.Input
-              value={value2}
-              onChange={ev => setValue2(ev.component.value)}
-              validator="email"
-              form="unmountedForm"
-              name="Input2"
-              isRequired
-              placeholder="unmounted 2"
-              shouldValidateUnmounted
-            />
-          </L.Div>
-        </L.Div>
-      </L.Tab>
-    </L.Tabs>
-  
-    <L.Div>
-      <L.Div _inner>
-        <L.Button
-          form="unmountedForm"
-          onClick={() => {
-            setInvalidFormData(null);
-          }}
-          onValidationFail={ev => {
-            setInvalidFormData(ev.invalidForms);
-          }}
-          _warning
-        >
-          Validate unmounted components
-        </L.Button>
-      </L.Div>
-    </L.Div>
-  
-    <L.Div _inner _txtSuccess={isValid} _txtDanger={!isValid}>
-      {invalidFormInfo}
-    </L.Div>
-  </L.Div>
-);
-`;
 
 export const ShouldValidateUnmounted = () => {
   const [selected, setSelected] = React.useState(0);
@@ -94,14 +28,18 @@ export const ShouldValidateUnmounted = () => {
       <L.Div>
         <L.Tabs
           activeTabKey={selected}
-          onSelect={ev => setSelected(ev.component.value)}
+          onSelect={(event: any) => {
+            setSelected(event.component.value);
+          }}
         >
           <L.Tab title="Tab 1" tabKey={0}>
             <L.Div _inner>
               <L.Div _inner>
                 <L.Input
                   value={value1}
-                  onChange={ev => setValue1(ev.component.value)}
+                  onChange={(event) => {
+                    setValue1(event.component.value);
+                  }}
                   validator="email"
                   form="unmountedForm"
                   name="Input1"
@@ -117,7 +55,9 @@ export const ShouldValidateUnmounted = () => {
               <L.Div _inner>
                 <L.Input
                   value={value2}
-                  onChange={ev => setValue2(ev.component.value)}
+                  onChange={(event) => {
+                    setValue2(event.component.value);
+                  }}
                   validator="email"
                   form="unmountedForm"
                   name="Input2"
@@ -137,10 +77,9 @@ export const ShouldValidateUnmounted = () => {
               onClick={() => {
                 setInvalidFormData(null);
               }}
-              onValidationFail={ev => {
-                setInvalidFormData(ev.invalidForms);
-                // eslint-disable-next-line no-console
-                console.info(ev.invalidForms);
+              onValidationFail={(event) => {
+                setInvalidFormData(event.invalidForms);
+                console.info(event.invalidForms);
               }}
               _warning
             >

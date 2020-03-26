@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies,jsx-a11y/label-has-for */
 import { hot } from 'react-hot-loader/root';
 import * as React from 'react';
 import * as L from '../leda';

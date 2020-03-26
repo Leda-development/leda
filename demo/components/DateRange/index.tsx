@@ -10,7 +10,7 @@ import { Positioned } from './Positioned';
 export const DateRange = () => (
   <Story title="DateRange">
     <BasicUsage title="Простейшее использование" />
-    <NameArray title="Name as [string, string]"/>
+    <NameArray title="Name as [string, string]" />
     <ControlledDate title="Контролирование только date" />
     <MinMax title="Ограничение даты min-max" />
     <Validation title="Валидация" />

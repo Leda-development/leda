@@ -10,17 +10,24 @@ export const Switcher = () => {
     <L.Div _demoStory>
       <L.H4 _title>Switcher</L.H4>
       <br />
-        Uncontrolled<br />
+      Uncontrolled
+      <br />
       <L.Switcher {...props}>Switcher</L.Switcher>
       <br />
       <br />
-        Controlled ({value.toString()})<br />
+      Controlled ({value.toString()})
+      <br />
       <L.Switcher
         {...props}
         value={value}
         name="controlled switcher"
-        onChange={ev => setValue(ev.component.value)}
-      >Switcher <br /> с многострочным описанием
+        onChange={(event) => {
+          setValue(event.component.value);
+        }}
+      >
+        Switcher
+        <br />
+        с многострочным описанием
       </L.Switcher>
       <br />
       <br />

@@ -15,14 +15,14 @@ export const BasicUsage = (args: SomeObject): React.ReactElement => {
       <L.DateRange
         name="DateRange"
         placeholder={['c', 'до']}
-        onChange={ev => {
+        onChange={(ev) => {
           update('Change', ev);
           setValue(ev.component.value);
         }}
-        onBlur={ev => {
+        onBlur={(ev) => {
           update('Blur', ev);
         }}
-        onFocus={ev => {
+        onFocus={(ev) => {
           update('Focus', ev);
         }}
         value={value}
@@ -34,7 +34,7 @@ export const BasicUsage = (args: SomeObject): React.ReactElement => {
         data={[
           {
             text: 'Default',
-            props: { },
+            props: {},
           },
           {
             text: 'isDisabled',

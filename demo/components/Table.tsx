@@ -35,13 +35,15 @@ export const Table = () => {
                 <L.Td>
                   <L.Div _inner>
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                    <br />euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                    <br />
+                    euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
                   </L.Div>
                 </L.Td>
                 <L.Td>
                   <L.Div _inner>
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                    <br />euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                    <br />
+                    euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
                   </L.Div>
                 </L.Td>
               </L.Collapse.Body>
@@ -64,13 +66,15 @@ export const Table = () => {
                 <L.Td>
                   <L.Div _inner>
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                    <br />euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                    <br />
+                    euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
                   </L.Div>
                 </L.Td>
                 <L.Td>
                   <L.Div _inner>
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                    <br />euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                    <br />
+                    euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
                   </L.Div>
                 </L.Td>
               </L.Collapse.Body>

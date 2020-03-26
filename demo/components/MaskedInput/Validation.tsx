@@ -12,21 +12,20 @@ export const Validation = (): React.ReactElement => {
         name="mamamamamasked"
         form="valid-masked"
         value={MIValue}
-        onChange={ev => {
-          const { target: { value, inputValue } } = ev;
-          console.log('value', value);
-          console.log('inputValue', inputValue);
-          setMIValue(value);
+        onChange={(event) => {
+          console.log('value', event.component.value);
+          console.log('inputValue', event.component.inputValue);
+          setMIValue(event.component.value);
         }}
       />
 
       <L.Div _inner>
         <L.Button
           form="valid-masked"
-          onClick={ev => {
+          onClick={(event) => {
             console.log('Submitted');
           }}
-          onValidationFail={ev => {
+          onValidationFail={(event) => {
             console.log('Failed');
           }}
         >
@@ -35,7 +34,7 @@ export const Validation = (): React.ReactElement => {
         {' '}
         <L.Button
           _success
-          onClick={ev => {
+          onClick={(event) => {
             setMIValue('1234567890');
           }}
         >
@@ -44,7 +43,7 @@ export const Validation = (): React.ReactElement => {
         {' '}
         <L.Button
           _danger
-          onClick={ev => {
+          onClick={(event) => {
             setMIValue('123456789');
           }}
         >
@@ -53,7 +52,7 @@ export const Validation = (): React.ReactElement => {
         {' '}
         <L.Button
           _success
-          onClick={ev => {
+          onClick={(event) => {
             setMIValue('71234567890');
           }}
         >
@@ -62,7 +61,7 @@ export const Validation = (): React.ReactElement => {
         {' '}
         <L.Button
           _success
-          onClick={ev => {
+          onClick={(event) => {
             setMIValue('+7 (123)-456-78-90');
           }}
         >
@@ -71,7 +70,7 @@ export const Validation = (): React.ReactElement => {
         {' '}
         <L.Button
           _danger
-          onClick={ev => {
+          onClick={(event) => {
             setMIValue('+7 (123)-456-78-9');
           }}
         >
@@ -80,7 +79,7 @@ export const Validation = (): React.ReactElement => {
         {' '}
         <L.Button
           _danger
-          onClick={ev => {
+          onClick={(event) => {
             setMIValue('+7 (123)-456-78');
           }}
         >

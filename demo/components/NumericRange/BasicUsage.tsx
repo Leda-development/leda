@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/accessible-emoji,react/prop-types,no-console */
 import * as React from 'react';
 import * as L from '../../../leda';
 import { StateButtonGroup } from '../StateButtonGroup';
@@ -17,18 +16,18 @@ export const BasicUsage = (args: any) => {
         format="#.## %"
         _width70
         name="numer-range"
-        onBlur={ev => {
-          update('Blur', ev);
-          console.log('ev.component.name', ev.component.name);
+        onBlur={(event) => {
+          update('Blur', event);
+          console.log('ev.component.name', event.component.name);
         }}
-        onFocus={ev => {
-          update('Focus', ev);
+        onFocus={(event) => {
+          update('Focus', event);
         }}
-        onChange={ev => {
-          console.log('value', ev.component.value);
-          console.log('name', ev.component.name);
-          update('Change', ev);
-          setValue(ev.component.value);
+        onChange={(event) => {
+          console.log('value', event.component.value);
+          console.log('name', event.component.name);
+          update('Change', event);
+          setValue(event.component.value);
         }}
         form="foobar"
         value={value}
@@ -38,14 +37,14 @@ export const BasicUsage = (args: any) => {
             <>
               <L.Span _numericTextBoxPrefix style={{ color: 'steelblue' }}>Цена от</L.Span>
               <Element {...elementProps} />
-              <L.Span _numericTextBoxSuffix>млн. 💲</L.Span>
+              <L.Span _numericTextBoxSuffix>млн. $</L.Span>
             </>
           ),
           ({ Element, elementProps }) => (
             <>
               <L.Span _numericTextBoxPrefix style={{ color: 'steelblue' }}>Цена до</L.Span>
               <Element {...elementProps} />
-              <L.Span _numericTextBoxSuffix>млн. 💲</L.Span>
+              <L.Span _numericTextBoxSuffix>млн. $</L.Span>
             </>
           ),
         ]}

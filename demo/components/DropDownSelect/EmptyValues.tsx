@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as L from '../../../leda';
 import { SomeObject } from '../../../leda/commonTypes';
 
-// eslint-disable-next-line
 export const EmptyValues = (args: SomeObject): React.ReactElement => (
   <L.Div _box _inner _demoBg>
     <L.DropDownSelect

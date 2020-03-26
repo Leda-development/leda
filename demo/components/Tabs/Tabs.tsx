@@ -8,7 +8,7 @@ export const Tabs = (props: any) => {
     <L.Div _inner>
       <L.Tabs
         activeTabKey={selected}
-        onChange={(ev) => setSelected(ev.component.value)}
+        onChange={(event) => setSelected(event.component.value)}
       >
         <L.Tab title="Tab 1" tabKey={0}>
           <L.Div _inner>

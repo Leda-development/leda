@@ -1,10 +1,16 @@
-/* eslint-disable no-alert,react/prop-types, no-console */
 import * as React from 'react';
 import * as L from '../../leda';
 import { StateButtonGroup } from './StateButtonGroup';
 
+const data = [
+  { text: 'Default', props: {} },
+  { text: 'Spinner', props: { iconRender: ({ elementProps }: any) => <L.Div _loaderSpinner {...elementProps} /> } },
+  { text: 'Custom', props: { iconRender: ({ elementProps }: any) => <><L.Div _loaderHourglass {...elementProps} /><L.Span>БЛАБЛАБЛАБЛАБЛА</L.Span></> } },
+  { text: 'Disabled', props: { isLoading: false } },
+];
+
 export const Loader = () => {
-  const [props, setProps] = React.useState({ });
+  const [props, setProps] = React.useState({});
 
   return (
     <L.Div _demoStory>
@@ -12,7 +18,9 @@ export const Loader = () => {
       <p>Лоадер как обертка:</p>
       <L.Loader
         isLoading
-        onClick={ev => console.log('ev', ev)}
+        onClick={(event) => {
+          console.log('event', event);
+        }}
         {...props}
       >
         <p>Content</p>
@@ -22,20 +30,20 @@ export const Loader = () => {
         <p>Content</p>
       </L.Loader>
       <StateButtonGroup
-        data={[
-          { text: 'Default', props: { } },
-          { text: 'Spinner', props: { iconRender: ({ elementProps }) => <L.Div _loaderSpinner {...elementProps} /> } },
-          { text: 'Custom', props: { iconRender: ({ elementProps }) => <><L.Div _loaderHourglass {...elementProps}></L.Div><L.Span>БЛАБЛАБЛАБЛАБЛА</L.Span></> } },
-          { text: 'Disabled', props: { isLoading: false } },
-        ]}
+        data={data}
         setProps={setProps}
-        theme={{ activeButton: 'warning' }}
       />
       <L.Button
         _warning
         onClick={() => {
-          setProps(prevProps => ({ ...prevProps, isGlobal: true }));
-          setTimeout(() => { setProps(prevProps => ({ ...prevProps, isGlobal: false })); alert('Полноэкранный лоадер отключен'); }, 6000);
+          setProps((prevProps) => ({ ...prevProps, isGlobal: true }));
+          setTimeout(() => {
+            setProps((prevProps) => ({
+              ...prevProps, isGlobal: false,
+            }));
+
+            alert('Полноэкранный лоадер отключен');
+          }, 6000);
         }}
         style={{ marginLeft: '20px' }}
       >

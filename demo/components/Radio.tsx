@@ -1,4 +1,3 @@
-/* eslint-disable no-alert, no-console */
 import * as React from 'react';
 import * as L from '../../leda';
 
@@ -13,10 +12,10 @@ export const Radio = (): React.ReactElement => {
           name="radio"
           wrapperRender={({ elementProps }) => <L.Div {...elementProps} />}
           value={value}
-          onChange={ev => {
-            console.log('ev.component.value', ev.component.value);
-            console.log('ev.component.name', ev.component.name);
-            setValue(ev.component.value);
+          onChange={(event) => {
+            console.log('event.component.value', event.component.value);
+            console.log('event.component.name', event.component.name);
+            setValue(event.component.value);
           }}
         >
           <L.RadioButton value={0} wrapperRender={({ elementProps }) => <L.Span {...elementProps} style={{ color: 'green' }} />}>One</L.RadioButton>
@@ -26,7 +25,7 @@ export const Radio = (): React.ReactElement => {
         <L.Div _width20 />
         <L.RadioGroup isDisabled value="disabled-1">
           <L.RadioButton value="disabled-1">Checked & Disabled</L.RadioButton>
-          <L.RadioButton value="disabled-2">Disabled with <br />second label line</L.RadioButton>
+          <L.RadioButton value="disabled-2">Disabled with<br />second label line</L.RadioButton>
         </L.RadioGroup>
       </L.Div>
     </L.Div>

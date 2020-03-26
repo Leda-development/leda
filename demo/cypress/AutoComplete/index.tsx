@@ -1,6 +1,3 @@
-/* eslint-disable no-alert */
-/* eslint-disable no-console */
-
 import * as React from 'react';
 import * as L from '../../../leda';
 

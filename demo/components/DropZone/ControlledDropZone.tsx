@@ -46,7 +46,9 @@ export const ControlledDropZone = (props: ControlledDropZoneProps) => {
           Element,
           elementProps,
           componentProps: { maxFilesNumber },
-        }: any) => <Element {...elementProps}>Контролируемая <L.Span _txtWarning>Dropzone</L.Span>. Не более {maxFilesNumber} файлов.</Element>}
+        }: any) => (
+          <Element {...elementProps}>Контролируемая <L.Span _txtWarning>Dropzone</L.Span>. Не более {maxFilesNumber} файлов.</Element>
+        )}
         maxFileSize={1000000}
         maxFileNameLength={25}
         onChange={(ev) => {

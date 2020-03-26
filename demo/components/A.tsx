@@ -1,4 +1,3 @@
-/* eslint-disable no-alert, no-console */
 import * as React from 'react';
 import * as L from '../../leda';
 import { StateButtonGroup } from './StateButtonGroup';
@@ -11,7 +10,7 @@ export const A = () => {
       <L.H4 _title>A</L.H4>
       <br />
       <L.A
-        onClick={ev => {
+        onClick={(ev) => {
           ev.preventDefault();
           alert('Clicked!');
         }}

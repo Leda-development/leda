@@ -1,4 +1,3 @@
-/* eslint-disable no-alert, no-console */
 import * as React from 'react';
 import * as L from '../../leda';
 
@@ -13,7 +12,7 @@ export const CheckBox = () => {
             _semi
             name="CheBoxAry"
             value={value}
-            onChange={ev => {
+            onChange={(ev) => {
               console.log(ev.component.name);
               setValue(ev.component.value);
             }}
@@ -23,14 +22,14 @@ export const CheckBox = () => {
           <br />
           <L.CheckBox
             defaultValue
-            onChange={ev => {
+            onChange={(ev) => {
               console.log(ev.component.value);
             }}
           >
             Checked Checkbox
           </L.CheckBox>
           <br />
-          <L.CheckBox onChange={ev => {
+          <L.CheckBox onChange={(ev) => {
             console.log(ev);
           }}
           >
@@ -44,7 +43,7 @@ export const CheckBox = () => {
             _semi
             isDisabled
             defaultValue
-            onChange={ev => {
+            onChange={(ev) => {
               console.log(ev);
             }}
           >
@@ -54,7 +53,7 @@ export const CheckBox = () => {
           <L.CheckBox
             isDisabled
             defaultValue
-            onChange={ev => {
+            onChange={(ev) => {
               console.log(ev);
             }}
           >
@@ -63,7 +62,7 @@ export const CheckBox = () => {
           <br />
           <L.CheckBox
             isDisabled
-            onChange={ev => {
+            onChange={(ev) => {
               console.log(ev);
             }}
           >

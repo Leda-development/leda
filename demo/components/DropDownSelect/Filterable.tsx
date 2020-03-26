@@ -3,7 +3,6 @@ import * as L from '../../../leda';
 import { SomeObject } from '../../../leda/commonTypes';
 import { StateButtonGroup } from '../StateButtonGroup';
 
-// eslint-disable-next-line
 export const Filterable = (args: SomeObject): React.ReactElement => {
   const [props, setProps] = React.useState({});
   const [value, setValue] = React.useState('Berlin');

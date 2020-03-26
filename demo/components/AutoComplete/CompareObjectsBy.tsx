@@ -12,7 +12,6 @@ const data = [
   { id: 6, attr: 'value6', city: 'Madrid' },
 ];
 
-// eslint-disable-next-line
 export const CompareObjectsBy = (anyProps: any): React.ReactElement => {
   const [value, setValue] = React.useState<string | null>();
 
@@ -30,7 +29,7 @@ export const CompareObjectsBy = (anyProps: any): React.ReactElement => {
           compareObjectsBy="id"
           minSearchLength={0}
           onChange={(event) => {
-            console.log('event.component.value', event.component.value, event.component.suggestion)
+            console.log('event.component.value', event.component.value, event.component.suggestion);
             setValue(event.component.value);
           }}
         />

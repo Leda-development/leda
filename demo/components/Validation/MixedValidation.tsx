@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types, no-console */
 import * as React from 'react';
 import * as L from '../../../leda';
 import { MaskedInputRefCurrent } from '../../../leda/components/MaskedInput/types';

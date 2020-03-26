@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as L from '../../../leda';
 import { SomeObject } from '../../../leda/commonTypes';
 
-// eslint-disable-next-line
 export const CompareObjectsBy = (args: SomeObject): React.ReactElement => {
   const [value, setValue] = React.useState<SomeObject>({ id: 1, attr: 'value1', city: 'London' });
 

@@ -55,7 +55,7 @@ export const DataTypes = (args: SomeObject): React.ReactElement => {
       <br />
       <StateButtonGroup
         data={[
-          { text: 'Default', props: { } },
+          { text: 'Default', props: {} },
           { text: 'Primary', props: { _primary: true } },
           { text: 'Secondary', props: { _secondary: true } },
           { text: 'Success', props: { _success: true } },

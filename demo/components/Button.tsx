@@ -1,12 +1,11 @@
-/* eslint-disable no-alert, no-console */
 import * as React from 'react';
 import * as L from '../../leda';
 import { StateButtonGroup } from './StateButtonGroup';
 
 export const Button = () => {
-  const [statusProps, setStatusProps] = React.useState({ });
-  const [stateProps, setStateProps] = React.useState({ });
-  const [sizeProps, setSizeProps] = React.useState({ });
+  const [statusProps, setStatusProps] = React.useState({});
+  const [stateProps, setStateProps] = React.useState({});
+  const [sizeProps, setSizeProps] = React.useState({});
 
   return (
     <L.Div _demoStory>
@@ -27,7 +26,7 @@ export const Button = () => {
       <br />
       <StateButtonGroup
         data={[
-          { text: 'Default', props: { } },
+          { text: 'Default', props: {} },
           { text: 'Primary', props: { _primary: true } },
           { text: 'Secondary', props: { _secondary: true } },
           { text: 'Success', props: { _success: true } },
@@ -40,7 +39,7 @@ export const Button = () => {
       <br />
       <StateButtonGroup
         data={[
-          { text: 'Default', props: { } },
+          { text: 'Default', props: {} },
           { text: 'Loading', props: { isLoading: true } },
           { text: 'Disabled', props: { isDisabled: true } },
           { text: 'Active', props: { _active: true } },
@@ -53,7 +52,7 @@ export const Button = () => {
       <br />
       <StateButtonGroup
         data={[
-          { text: 'Middle', props: { } },
+          { text: 'Middle', props: {} },
           { text: 'Small', props: { _small: true } },
           { text: 'Large', props: { _large: true } },
           { text: 'Block', props: { _block: true } },

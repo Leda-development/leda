@@ -1,4 +1,3 @@
-/* eslint-disable no-alert, no-console */
 import * as React from 'react';
 import * as L from '../../leda';
 import { StateButtonGroup } from './StateButtonGroup';
@@ -19,10 +18,10 @@ export const DateTimePicker = () => {
         form="date-form"
         format="dd.MM.yy hh:mm:ss"
         name="datetimepipicker"
-        onEnterPress={ev => console.log('enter', ev)}
-        onFocus={ev => console.log('focus', ev)}
-        onBlur={ev => console.log('blur', ev)}
-        onChange={ev => {
+        onEnterPress={(ev) => console.log('enter', ev)}
+        onFocus={(ev) => console.log('focus', ev)}
+        onBlur={(ev) => console.log('blur', ev)}
+        onChange={(ev) => {
           console.log('change', ev);
           setValue(ev.component.value);
         }}

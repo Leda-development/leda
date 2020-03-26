@@ -1,7 +1,5 @@
-/* eslint-disable react/prop-types, no-console */
 import * as React from 'react';
 import * as L from '../../../leda';
-import { StateButtonGroup } from '../StateButtonGroup';
 import { useEventSpy } from '../../useEventSpy';
 
 export const CommaSeparator = (args: any) => {
@@ -19,15 +17,15 @@ export const CommaSeparator = (args: any) => {
         step={1}
         invalidMessage="Число не должно быть отрицательным!"
         requiredMessage="Обязательное поле!"
-        onChange={ev => {
-          update('Change', ev);
-          console.log('ev.component.value', ev.component.value);
+        onChange={(event) => {
+          update('Change', event);
+          console.log('event.component.value', event.component.value);
         }}
-        onBlur={ev => {
-          update('Blur', ev);
+        onBlur={(event) => {
+          update('Blur', event);
         }}
-        onFocus={ev => {
-          update('Focus', ev);
+        onFocus={(event) => {
+          update('Focus', event);
         }}
         form="foobar"
         isRequired
@@ -47,7 +45,7 @@ export const CommaSeparator = (args: any) => {
       <br />
       <L.Button onClick={() => { setProps({}); }}>Defaults</L.Button>
       {'  '}
-      <L.Button onClick={() => { setProps({ ...props, isDisabled: !props.isDisabled }); }} _warning={props.isDisabled}>Toggle isDisabled</L.Button>
+      <L.Button onClick={() => { setProps({ ...props, isDisabled: !props?.isDisabled }); }} _warning={props?.isDisabled}>Toggle isDisabled</L.Button>
       <EventInfo />
     </L.Div>
   );

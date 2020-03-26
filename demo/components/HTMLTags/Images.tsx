@@ -1,14 +1,5 @@
-/* eslint-disable react/prop-types */
 import * as React from 'react';
 import * as L from '../../../leda';
-
-const exampleCode = `
-export const BlockElements = () => (
-  <L.Div _box _inner>
-    <L.Img _box alt="Кот" height={200} width={250} src="http://memesmix.net/media/created/rpi0j5.jpg" />
-  </L.Div>
-);
-`;
 
 export const Images = () => (
   <L.Div _box _inner>

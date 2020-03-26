@@ -27,12 +27,12 @@ export const Controlled = (args: SomeObject): React.ReactElement => {
         _width40
         isOpen={isOpen}
         isLoading={isLoading}
-        onChange={ev => {
-          console.log('ev.component.selectedValue', ev.component.selectedValue);
-          console.log('ev.component.value', ev.component.value);
-          setValue(ev.component.value as string[]);
+        onChange={(event) => {
+          console.log('ev.component.selectedValue', event.component.selectedValue);
+          console.log('ev.component.value', event.component.value);
+          setValue(event.component.value as string[]);
         }}
-        onEnterPress={event => {
+        onEnterPress={(event) => {
           console.log(event);
         }}
         isDisabled={isDisabled}

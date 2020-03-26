@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-
 import 'core-js';
 import React from 'react';
 import ReactDOM from 'react-dom';

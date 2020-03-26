@@ -13,7 +13,6 @@ const data = [
   { id: 6, city: 'Madrid' },
 ];
 
-// eslint-disable-next-line
 export const CompareObjectsBy = (args: SomeObject): React.ReactElement => {
   const [value, setValue] = React.useState<SomeObject>({ id: 1, city: 'London' });
 

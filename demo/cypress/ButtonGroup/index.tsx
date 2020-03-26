@@ -1,12 +1,11 @@
-/* eslint-disable no-alert */
 import * as React from 'react';
 import * as L from '../../../leda';
 import { DataObject } from '../../../leda/commonTypes';
 
 export const ButtonGroup = (): React.ReactElement => {
   const [value, setValue] = React.useState<string | undefined>();
-  const [value1, setValue1] = React.useState<string[] | undefined>(null);
-  const [value2, setValue2] = React.useState<DataObject | undefined>(null);
+  const [value1, setValue1] = React.useState<string[] | undefined | null>(null);
+  const [value2, setValue2] = React.useState<DataObject | undefined | null>(null);
 
   return (
     <L.Div _demoStory>
@@ -20,7 +19,7 @@ export const ButtonGroup = (): React.ReactElement => {
       />
       <br />
       <br />
-      
+
       <L.ButtonGroup
         data={[2, 3]}
         isDisabled
@@ -60,7 +59,7 @@ export const ButtonGroup = (): React.ReactElement => {
       <L.ButtonGroup
         data={[1, 2, 3]}
         data-test="NumberButtonGroup"
-        type='checkbox'
+        type="checkbox"
       />
       <br />
       <br />

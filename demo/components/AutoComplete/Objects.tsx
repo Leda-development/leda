@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as L from '../../../leda';
 import { StateButtonGroup } from '../StateButtonGroup';
 
-// eslint-disable-next-line
 export const Objects = (componentProps: any) => {
   const [props, setProps] = React.useState({});
   const [value, setValue] = React.useState('');

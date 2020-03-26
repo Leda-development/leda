@@ -2,53 +2,6 @@ import * as React from 'react';
 import * as L from '../../../leda';
 import { stepContent } from './constants';
 
-const exampleCode = `
-export const DynamicItems = (props: { title: string }) => {
-  const [value, setValue] = React.useState<Data | null>(data[0]);
-  const [openKeys, setOpenKeys] = React.useState([0]);
-
-  const handleNextClick = (index: number): void => {
-    if (index === 3) {
-      setOpenKeys(openKeys.filter(key => key !== index));
-      setValue(null);
-    } else if (value) {
-      setOpenKeys([...openKeys.filter(key => key !== index), index + 1]);
-      setValue(data[data.indexOf(value) + 1]);
-    }
-  };
-
-  const handleHeadingClick = (index: number): void => {
-    if (openKeys.includes(index)) setOpenKeys(openKeys.filter(key => key !== index));
-    else {
-      setOpenKeys([...openKeys, index]);
-    }
-  };
-
-  return (
-    <L.Div _box _inner _demoBg>
-      <L.VStepper value={value}>
-        {data.map((item, index) => (
-          <L.VStepper.Item
-            isOpen={openKeys.includes(index)}
-            onClick={() => handleHeadingClick(index)}
-            item={item}
-            titleTextField="header"
-            statusTextField="statusProgress"
-            statusRender={({ Element, elementProps, componentProps: { type } }) => <Element {...elementProps}>{type === 'success' ? item.statusSuccess : item.statusProgress}</Element>}
-            key={index.toString()}
-            hasSignIcon={index === 0 || index === 1}
-          >
-            {stepContent[index]}
-            <br />
-            <L.Button _success onClick={() => handleNextClick(index)}>Далее</L.Button>
-          </L.VStepper.Item>
-        ))}
-      </L.VStepper>
-    </L.Div>
-  );
-};
-`;
-
 const data = [
   {
     header: 'Счет об оплате',
@@ -85,16 +38,16 @@ export const DynamicItems = (props: { title: string }) => {
 
   const handleNextClick = (index: number): void => {
     if (index === 3) {
-      setOpenKeys(openKeys.filter(key => key !== index));
+      setOpenKeys(openKeys.filter((key) => key !== index));
       setValue(null);
     } else if (value) {
-      setOpenKeys([...openKeys.filter(key => key !== index), index + 1]);
+      setOpenKeys([...openKeys.filter((key) => key !== index), index + 1]);
       setValue(data[data.indexOf(value) + 1]);
     }
   };
 
   const handleHeadingClick = (index: number): void => {
-    if (openKeys.includes(index)) setOpenKeys(openKeys.filter(key => key !== index));
+    if (openKeys.includes(index)) setOpenKeys(openKeys.filter((key) => key !== index));
     else {
       setOpenKeys([...openKeys, index]);
     }
@@ -110,7 +63,9 @@ export const DynamicItems = (props: { title: string }) => {
             item={item}
             titleTextField="header"
             statusTextField="statusProgress"
-            statusRender={({ Element, elementProps, componentProps: { type } }) => <Element {...elementProps}>{type === 'success' ? item.statusSuccess : item.statusProgress}</Element>}
+            statusRender={({
+              Element, elementProps, componentProps,
+            }) => <Element {...elementProps}>{componentProps.type === 'success' ? item.statusSuccess : item.statusProgress}</Element>}
             key={index.toString()}
             hasSignIcon={index === 0 || index === 1}
             isDisabled={item.isDisabled}

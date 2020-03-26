@@ -1,6 +1,3 @@
-/* eslint-disable jest/no-standalone-expect */
-/* eslint-disable jest/valid-expect */
-
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -27,12 +24,17 @@
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('focusMasked', { prevSubject: 'element' }, (subject) => cy
-  .wrap(subject)
-  .focus()
-  .wait(20)
-  .type('{uparrow}')
-  .clear());
+Cypress.Commands.add('focusMasked', { prevSubject: 'element' }, (subject) => {
+  const text = '{uparrow}';
+
+  // eslint-disable-next-line cypress/no-unnecessary-waiting
+  return cy
+    .wrap(subject)
+    .focus()
+    .wait(20)
+    .type(text)
+    .clear();
+});
 
 Cypress.Commands.add('name', (searchName) => cy.get(`[name="${searchName}"]`));
 

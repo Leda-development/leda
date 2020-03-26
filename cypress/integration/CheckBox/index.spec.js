@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions,jest/valid-expect */
 describe('CheckBox', () => {
   before(() => {
     cy.visit('http://localhost:9000/cypress/checkbox');
@@ -10,19 +9,19 @@ describe('CheckBox', () => {
         .should('exist')
         .parent()
         .find('button')
-        .should('be.visible')
+        .should('be.visible');
     });
 
     it('should render semi', () => {
       cy.contains('isSemi')
         .should('be.visible')
-        .should('have.class', 'semi')
+        .should('have.class', 'semi');
     });
 
     it('should render disabled checkbox', () => {
       cy.name('checkBoxDisabled')
         .should('exist')
-        .should('be.disabled')
+        .should('be.disabled');
     });
   });
 
@@ -30,8 +29,7 @@ describe('CheckBox', () => {
     it('should call onChange', () => {
       const stub = cy.stub();
       cy.on('window:alert', stub);
-      // eslint-disable-next-line jest/valid-expect-in-promise
-      cy.contains("Main")
+      cy.contains('Main')
         .click()
         .then(() => {
           expect(stub.getCall(0)).to.be.calledWith('Alert!');
@@ -41,12 +39,11 @@ describe('CheckBox', () => {
     it('should not call onClick when isDisabled', () => {
       const stub = cy.stub();
       cy.on('window:alert', stub);
-      // eslint-disable-next-line jest/valid-expect-in-promise
       cy.contains('isDisabled')
         .click({ force: true })
         .then(() => {
           expect(stub).not.to.be.called;
-        })
+        });
     });
 
     it('Can change value', () => {
@@ -61,8 +58,9 @@ describe('CheckBox', () => {
         .contains('isSemi')
         .click()
         .name('checkBoxSemi')
-        .should('be.checked')
-    })
+        .should('be.checked');
+    });
   });
-  xit('Validation tests', () => {})
+
+  it.skip('Validation tests', () => {});
 });

@@ -1,9 +1,9 @@
-/* eslint-disable no-unused-expressions,jest/valid-expect */
 import { defaultAutoCompleteTheme as theme } from '../../../leda/components/AutoComplete/theme';
 
 describe('AutoComplete', () => {
   let lastConsole;
   let stub;
+
   before(() => {
     cy.visit('http://localhost:9000/cypress/autocomplete');
   });
@@ -217,10 +217,13 @@ describe('AutoComplete', () => {
     beforeEach(() => {
       cy.visit('http://localhost:9000/cypress/autocomplete', {
         onBeforeLoad(win) {
-          stub = cy.stub(win.console, 'log', (ev) => { lastConsole = ev; });
+          stub = cy.stub(win.console, 'log', (event) => {
+            lastConsole = event;
+          });
         },
       });
     });
+
     it('onBlur', () => {
       cy.get('[name=AutoComplete3]')
         .clear()

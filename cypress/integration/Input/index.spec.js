@@ -6,7 +6,6 @@ describe('Input', () => {
   beforeEach(() => {
     cy.visit('http://localhost:9000/cypress/input');
   });
-
   describe('Display', () => {
     it('Input should be displayed', () => {
       cy.get('input#only-numbers')

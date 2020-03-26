@@ -11,12 +11,15 @@
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 const webpack = require('@cypress/webpack-preprocessor');
 
+const webpackOptions = require('../../webpack.config.js');
+
 const options = {
-  // eslint-disable-next-line global-require
-  webpackOptions: { ...require('../../webpack.config.js'), devtool: '(none)' },
+  webpackOptions: {
+    ...webpackOptions,
+    devtool: '(none)',
+  },
   watchOptions: {},
 };
 

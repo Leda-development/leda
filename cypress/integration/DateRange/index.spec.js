@@ -1,21 +1,16 @@
-/* eslint-disable no-unused-expressions,jest/valid-expect */
-import { defaultAutoCompleteTheme as theme } from '../../../leda/components/AutoComplete/theme';
-
 describe('DateRange', () => {
-  let lastConsole
-  let stub
   before(() => {
-    cy.visit('http://localhost:9000/cypress/daterange')
-    cy.viewport(1600, 900)
-  })
+    cy.visit('http://localhost:9000/cypress/daterange');
+    cy.viewport(1600, 900);
+  });
 
   it('Delimiter', () => {
     cy.name('firstDatePicker')
       .parents('div.demo-story')
       .parent()
       .find('.daterange-delimiter')
-      .should('have.length', 6)
-  })
+      .should('have.length', 6);
+  });
 
   it('EnterPress', () => {
     cy.name('ThirdDateRange-from')
@@ -25,8 +20,9 @@ describe('DateRange', () => {
       .parents('.datepicker-input-wrapper')
       .type('{enter}')
       .type('{enter}')
-      .focused().should('have.attr', 'name', 'ThirdDateRange-to')
-  })
+      .focused()
+      .should('have.attr', 'name', 'ThirdDateRange-to');
+  });
 
   it('MinMaxTest', () => {
     cy.name('MinMaxDatePicker-from')
@@ -72,8 +68,8 @@ describe('DateRange', () => {
       .should('be.exist')
       .parents('.calendar-wrapper.visible')
       .find('div.calendar-date-cell.disabled-date')
-      .should('have.length', 18)
-  })
+      .should('have.length', 18);
+  });
 
   describe('States', () => {
     it('should be disabled when isDisabled', () => {
@@ -85,8 +81,8 @@ describe('DateRange', () => {
         .should('have.attr', 'disabled')
         .name('disabledCalendar-to')
         .should('be.disabled')
-        .should('have.attr', 'disabled')
-    })
+        .should('have.attr', 'disabled');
+    });
 
     it('should be open when isOpen', () => {
       cy.name('MinMaxDatePicker-to')
@@ -96,8 +92,8 @@ describe('DateRange', () => {
         .name('MinMaxDatePicker-from')
         .parents()
         .children('.calendar-wrapper')
-        .should('be.visible')
-    })
+        .should('be.visible');
+    });
 
     it('should be required when isRequired', () => {
       cy.name('ThirdDateRange-to')
@@ -109,9 +105,9 @@ describe('DateRange', () => {
         .focus()
         .blur()
         .parent()
-        .should('have.class', 'danger')
-    })
-  })
+        .should('have.class', 'danger');
+    });
+  });
 
   describe('Display', () => {
     it('Placeholders', () => {
@@ -120,12 +116,12 @@ describe('DateRange', () => {
         .name('secondDatePicker')
         .should('have.attr', 'placeholder', 'Type something...')
         .name('MinMaxDatePickerOpened-to')
-        .should('have.attr', 'placeholder', 'Type your date...')
-    })
+        .should('have.attr', 'placeholder', 'Type your date...');
+    });
 
     it('Values', () => {
       cy.name('openedCalendar-to')
-        .should('have.attr', 'value', '11-е число  22-го месяца  33__-го года')
-    })
-  })
-})
+        .should('have.attr', 'value', '11-е число 22-го месяца 33__-го года');
+    });
+  });
+});

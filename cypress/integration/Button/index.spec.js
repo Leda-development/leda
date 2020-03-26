@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions,jest/valid-expect */
 describe('Button', () => {
   before(() => {
     cy.visit('http://localhost:9000/cypress/button');
@@ -11,27 +10,27 @@ describe('Button', () => {
     });
   });
 
-  describe('Styles', () =>{
-    it('_danger', ()=> {
+  describe('Styles', () => {
+    it('_danger', () => {
       cy.contains('danger!')
-        .should('have.class', 'danger')
-    })
-    it('_warning', ()=> {
+        .should('have.class', 'danger');
+    });
+    it('_warning', () => {
       cy.contains('warning!')
-        .should('have.class', 'warning')
-    })
-    it('_success', ()=> {
+        .should('have.class', 'warning');
+    });
+    it('_success', () => {
       cy.contains('success!')
-        .should('have.class', 'success')
-    })
-  })
+        .should('have.class', 'success');
+    });
+  });
+
   describe('Interaction', () => {
     it('should call onClick', () => {
       const stub = cy.stub();
 
       cy.on('window:alert', stub);
 
-      // eslint-disable-next-line jest/valid-expect-in-promise
       cy.contains('Клик!')
         .click()
         .then(() => {
@@ -42,7 +41,6 @@ describe('Button', () => {
     it('on Validation Fail', () => {
       const stub = cy.stub();
       cy.on('window:alert', stub);
-      // eslint-disable-next-line jest/valid-expect-in-promise
       cy.contains('Validate!')
         .click()
         .name('Input1')
@@ -51,7 +49,7 @@ describe('Button', () => {
         .should('have.attr', 'aria-invalid', 'true')
         .then(() => {
           expect(stub.getCall(0)).to.be.calledWith('Alert!');
-        })
+        });
     });
 
     it('should Scroll To Invalid Fields', () => {
@@ -65,7 +63,7 @@ describe('Button', () => {
         .contains('Validate!')
         .click()
         .name('Input1')
-        .isInViewport()
+        .isInViewport();
     });
 
     it('should not call onClick when isLoading', () => {
@@ -73,7 +71,6 @@ describe('Button', () => {
 
       cy.on('window:alert', stub);
 
-      // eslint-disable-next-line jest/valid-expect-in-promise
       cy.contains('isLoading')
         .click()
         .then(() => {
@@ -88,7 +85,6 @@ describe('Button', () => {
 
       cy.on('window:alert', stub);
 
-      // eslint-disable-next-line jest/valid-expect-in-promise
       cy.contains('isDisabled')
         .click()
         .then(() => {

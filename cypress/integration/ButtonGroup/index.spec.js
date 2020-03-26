@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-expressions,jest/valid-expect */
-import { defaultButtonGroupTheme as theme } from '../../../leda/components/ButtonGroup/theme';
-
 describe('ButtonGroup', () => {
   beforeEach(() => {
     cy.visit('http://localhost:9000/cypress/button-group');
@@ -19,20 +16,20 @@ describe('ButtonGroup', () => {
         .should('have.length', 3)
         .datatest('OneButtonGroup')
         .find('button')
-        .should('have.length', 1)
+        .should('have.length', 1);
     });
 
     it('should render selected button with active class', () => {
       cy.datatest('FourButtonGroup')
         .find('.button-wrapper.button-group-item.active')
         .should('have.text', 'three')
-        .should('have.length', 1)
+        .should('have.length', 1);
     });
 
     it('Disabled group should be disabled', () => {
       cy.datatest('TwoButtonGroup')
         .find('.button-group-buttons-wrapper.disabled')
-        .should('have.length', 1)
+        .should('have.length', 1);
     });
   });
 
@@ -42,7 +39,7 @@ describe('ButtonGroup', () => {
         .find('.button-wrapper.button-group-item.last')
         .should('have.not.class', 'active')
         .click()
-        .should('not.have.class', 'active')
+        .should('not.have.class', 'active');
     });
 
     it('should select button on click', () => {
@@ -58,10 +55,9 @@ describe('ButtonGroup', () => {
         .should('have.class', 'active')
         .parent()
         .find('.button-wrapper.button-group-item.last')
-        .should('have.class', 'active')
+        .should('have.class', 'active');
     });
 
-  
     it('should allow only one pressed button in Radio mode', () => {
       cy.datatest('RadioButtonGroup')
         .find('.button-wrapper.button-group-item.last')
@@ -75,14 +71,14 @@ describe('ButtonGroup', () => {
         .should('have.class', 'active')
         .parent()
         .find('.button-wrapper.button-group-item.last')
-        .should('not.have.class', 'active')
+        .should('not.have.class', 'active');
     });
 
-    xit('Names', () => {
+    it.skip('Names', () => {
       cy.name('FourButtonGroup')
         .find('.button-wrapper.button-group-item.active')
         .should('have.text', 'three')
-        .should('have.length', 1)
+        .should('have.length', 1);
     });
   });
 });

@@ -27,7 +27,7 @@ export const getPlaceholder = (placeholder?: [string | undefined, string | undef
   return [undefined, undefined];
 };
 
-export const getRequired = (isRequired?: [boolean | undefined, boolean| undefined] | boolean): [boolean | undefined, boolean| undefined] => {
+export const getRequired = (isRequired?: [boolean | undefined, boolean | undefined] | boolean): [boolean | undefined, boolean | undefined] => {
   if (isBoolean(isRequired)) return [isRequired, isRequired];
 
   if (Array.isArray(isRequired)) return isRequired;
@@ -35,7 +35,7 @@ export const getRequired = (isRequired?: [boolean | undefined, boolean| undefine
   return [undefined, undefined];
 };
 
-export const getDisabled = (isDisabled?: [boolean | undefined, boolean| undefined] | boolean): [boolean | undefined, boolean| undefined] => {
+export const getDisabled = (isDisabled?: [boolean | undefined, boolean | undefined] | boolean): [boolean | undefined, boolean | undefined] => {
   if (isBoolean(isDisabled)) return [isDisabled, isDisabled];
 
   if (Array.isArray(isDisabled)) return isDisabled;
@@ -43,7 +43,7 @@ export const getDisabled = (isDisabled?: [boolean | undefined, boolean| undefine
   return [undefined, undefined];
 };
 
-export const getOpen = (isOpen?: [boolean | undefined, boolean| undefined] | boolean): [boolean | undefined, boolean| undefined] => {
+export const getOpen = (isOpen?: [boolean | undefined, boolean | undefined] | boolean): [boolean | undefined, boolean | undefined] => {
   if (isBoolean(isOpen)) return [isOpen, isOpen];
 
   if (Array.isArray(isOpen)) return isOpen;

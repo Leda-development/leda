@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 import { isString, isBoolean } from 'lodash';
 import { NumericRangeProps } from './types';
 

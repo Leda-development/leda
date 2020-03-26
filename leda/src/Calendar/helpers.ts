@@ -115,7 +115,6 @@ export const getMonthDays = (month: number, year: number): number[][] => {
   return monthDays;
 };
 
-
 export const getMonthName = (month: number): string => {
   const months = [
     'Январь',

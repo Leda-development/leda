@@ -1,5 +1,4 @@
 
-// eslint-disable-next-line max-len
 const urlRegExp = new RegExp([
   '^',
   // protocol identifier - optional

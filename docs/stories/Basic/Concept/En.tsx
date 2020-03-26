@@ -3,6 +3,24 @@ import { NavLink } from 'react-router-dom';
 import * as L from '../../../../leda';
 import { Urls } from '../../../constants';
 
+const code = `
+  <L.Div _wrapper >
+    <L.Input
+      onChange={(ev) => //...}
+      validator="email"
+      isRequired
+      form="myForm"
+      name="myInput"
+    />
+    <L.Button
+      form="myForm"
+      onClick={submitForm}
+    >
+      Click me
+    </L.Button>
+  </L.Div>
+`;
+
 export const En = (): React.ReactElement => (
   <L.Div _article>
     <L.H1 _header>
@@ -90,23 +108,7 @@ export const En = (): React.ReactElement => (
       </L.P>
       <L.Div _block>
         <pre>
-          {`
-  <L.Div _wrapper >
-    <L.Input
-      onChange={ev => //...}
-      validator="email"
-      isRequired
-      form="myForm"
-      name="myInput"
-    />
-    <L.Button
-      form="myForm"
-      onClick={submitForm}
-    >
-      Click me
-    </L.Button>
-  </L.Div>
-          `}
+          {code}
         </pre>
       </L.Div>
       <br />

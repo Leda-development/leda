@@ -16,6 +16,6 @@ const element = (
 
 const container = document.createElement('div');
 
-ReactDOM.render(element, container);
+document.body.appendChild(container);
 
-document.querySelector('body')?.appendChild(container);
+ReactDOM.render(element, container);

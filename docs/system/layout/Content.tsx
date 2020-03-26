@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 import * as L from '../../../leda';
 import { Group, Story } from '../components';
 import { StoryProps } from '../components/Story';
-import { Main } from '../../../leda';
 import { MainContext } from '../components/MainContext';
 
 export interface ContentProps {

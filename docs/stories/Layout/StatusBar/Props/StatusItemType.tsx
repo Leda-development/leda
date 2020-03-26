@@ -7,7 +7,6 @@ const code = `
   }
 `;
 
-
 export const StatusItemType = (): React.ReactElement => (
   <L.Tooltip
     title={(

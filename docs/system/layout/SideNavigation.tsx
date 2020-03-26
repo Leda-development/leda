@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as L from '../../../leda';
 import { MainContext } from '../components/MainContext';
-import { Langs } from '../../lang/types';
 import { getIsSidebarOpen, setIsSidebarOpen } from '../helpers';
 import { LangSwitcher, ThemeSwitcher } from '../components';
 
@@ -13,7 +12,7 @@ export const SideNavigation = (props: SideNavigationProps): React.ReactElement =
   const { children } = props;
   const [isOpen, setIsOpen] = React.useState(getIsSidebarOpen());
 
-  const { lang, setCurrentLanguage } = React.useContext(MainContext);
+  const { lang } = React.useContext(MainContext);
 
   return (
     <L.Div _bsidePanel _opened={isOpen}>

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-export const En = (): React.ReactElement => {
-  return <div></div>;
-};
+export const En = (): React.ReactElement => (
+  <div />
+);
 
 En.displayName = 'En';

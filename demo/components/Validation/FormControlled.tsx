@@ -253,15 +253,6 @@ export const FormControlled = () => {
               L.form(formName).reset();
             }}
           >
-            Remove
-          </L.Button>
-          {' '}
-          <L.Button _warning
-            onClick={(event) => {
-              console.log(event);
-              L.form(formName, 'textarea').remove();
-            }}
-          >
             Reset
           </L.Button>
           {' '}

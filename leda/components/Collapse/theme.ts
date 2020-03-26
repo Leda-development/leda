@@ -7,3 +7,4 @@ export const defaultCollapseTheme = {
   bodyWrapper:          'collapse-body-wrapper',
   bodyOpened:           'opened',
 };
+/* eslint-enable key-spacing */

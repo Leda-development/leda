@@ -4,3 +4,4 @@ export const defaultRatingTheme = {
   item:         'rating-item',
   itemFilled:   'filled',
 };
+/* eslint-enable key-spacing */

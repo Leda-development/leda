@@ -8,3 +8,4 @@ export const defaultMaskedInputTheme = {
   input:                    'masked-input-element',
   wrapper:                  'masked-wrapper',
 };
+/* eslint-enable key-spacing */

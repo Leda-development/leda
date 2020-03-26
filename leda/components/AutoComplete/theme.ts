@@ -1,6 +1,6 @@
-/* eslint-disable key-spacing */
 import { defaultSuggestionListTheme } from '../../src/SuggestionList/theme';
 
+/* eslint-disable key-spacing */
 export const defaultAutoCompleteTheme = {
   ...defaultSuggestionListTheme,
   closeIcon:                  'autocomplete-clear-icon',
@@ -22,3 +22,4 @@ export const defaultAutoCompleteTheme = {
   wrapper:                    'autocomplete-wrapper',
   wrapperOpened:              'opened',
 };
+/* eslint-enable key-spacing */

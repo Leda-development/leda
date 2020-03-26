@@ -77,7 +77,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     value: valueState,
   }, {
     reset: createResetHandler({
-      props, setValue, value: defaultValue ?? [],
+      props, setValue, deselectedValues: value, resetValue: defaultValue ?? [],
     }),
   });
 

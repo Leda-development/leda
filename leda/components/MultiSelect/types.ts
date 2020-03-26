@@ -16,10 +16,10 @@ export type MultiSelectValue = Value[];
 
 export interface ClearEvent<T = Value> extends React.MouseEvent {
   component: {
-    name?: string,
-    value: T,
     deselectedValues?: T[],
+    name?: string,
     selectedValue: undefined,
+    value: T,
   },
 }
 
@@ -36,7 +36,7 @@ export interface EnterSelectEvent<T = Value> extends React.KeyboardEvent {
   component: {
     name?: string,
     value: T[],
-    deselectedValue: undefined,
+    deselectedValues: undefined,
     selectedValue?: T,
   },
 }
@@ -45,6 +45,8 @@ export interface ResetEvent<T = Value> {
   component: {
     name?: string,
     value: T,
+    deselectedValues?: T[],
+    selectedValue?: T,
   },
 }
 
@@ -105,8 +107,6 @@ export interface MultiSelectProps<T = Value> extends ValidationProps {
   onBlur?: (event: BlurEvent<T>) => void,
   /** Обработчик изменения данных в инпуте */
   onChange?: (event: ChangeEvent<T>) => void,
-  /** Обработчик нажатия Enter */
-  onEnterPress?: (event: EnterPressEvent<T>) => void,
   /** Обработчик фокуса элемента */
   onFocus?: (event: FocusEvent<T>) => void,
   /** Плейсхолдер инпута */

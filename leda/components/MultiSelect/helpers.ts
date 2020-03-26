@@ -14,10 +14,13 @@ export const filterData = ({
 }: FilterDataParams): MultiSelectProps['data'] => {
   if (!data) return undefined;
 
-  // убираем все значения, которые уже выбраны и фильтруем по filterValue
-  const filteredData = data.filter((item) => !values.find((value) => checkIsTheSameObject({
-    obj1: item, obj2: value, compareObjectsBy,
-  }))).filter((item) => filterSuggestionByRule(getText(item, textField), filterValue || '', filterRule));
+  const filteredData = data
+    // убираем все значения, которые уже выбраны
+    .filter((item) => !values.find((value) => checkIsTheSameObject({
+      obj1: item, obj2: value, compareObjectsBy,
+    })))
+    // и фильтруем по filterValue
+    .filter((item) => filterSuggestionByRule(getText(item, textField), filterValue || '', filterRule));
 
   if (filteredData.length === 0) return undefined;
 

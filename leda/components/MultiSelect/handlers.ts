@@ -76,8 +76,8 @@ export const createSelectHandler = (
     component: {
       value: newValue,
       name: props.name,
-      selectedValue: shouldRemoveValue ? undefined : event.target.value,
       deselectedValues: shouldRemoveValue ? [event.target.value] : undefined,
+      selectedValue: shouldRemoveValue ? undefined : event.target.value,
     },
   });
 };
@@ -104,6 +104,7 @@ export const createClearHandler = (
 export const createMouseDownHandler = (
   props: MultiSelectProps, extraData: MouseDownData,
 ): React.MouseEventHandler<HTMLElement> => (event) => {
+  // предотвращаем скролл страницы
   event.preventDefault();
 
   if (extraData.inputRef.current) {
@@ -130,6 +131,7 @@ export const createKeyDownHandler = (
   const currentIndex = filteredData.indexOf(highlightedItem || '');
 
   if (event.key === 'ArrowDown' || event.key === 'Down') {
+    // предотвращаем скролл страницы
     event.preventDefault();
 
     const nextIndex = (currentIndex + 1) % filteredData.length;
@@ -142,6 +144,7 @@ export const createKeyDownHandler = (
   }
 
   if (event.key === 'ArrowUp' || event.key === 'Up') {
+    // предотвращаем скролл страницы
     event.preventDefault();
 
     const nextIndex = (currentIndex > 0 ? currentIndex : filteredData.length) - 1;
@@ -185,19 +188,21 @@ export const createKeyDownHandler = (
 export const createResetHandler = ({
   props,
   setValue,
-  value,
+  deselectedValues,
+  resetValue,
 }: {
   props: MultiSelectProps,
   setValue: SetState<Value[]>,
-  value: Value[],
+  deselectedValues: Value[],
+  resetValue: Value[],
 }) => () => {
-  setValue(value);
+  setValue(resetValue);
 
   props.onChange?.({
     component: {
       name: props.name,
-      value,
-      deselectedValues: undefined,
+      value: resetValue,
+      deselectedValues,
       selectedValue: undefined,
     },
   });

@@ -45,7 +45,8 @@ describe('MultiSelect SNAPSHOTS', () => {
           { id: 0, value: 'value0' },
           { id: 1, value: 'value1' },
         ]}
-        value={['value1']}
+        textField="value"
+        value={[{ id: 1, value: 'value1' }]}
       />
     ));
 

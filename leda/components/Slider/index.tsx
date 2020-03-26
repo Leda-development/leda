@@ -5,7 +5,7 @@ import { Span } from '../Span';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { SliderSrc } from '../../src/ReactSlider';
 import {
-  mergeClassNames, getClassNames, useTheme, bindFunctionalRef, useElement,
+  getClassNames, useTheme, bindFunctionalRef, useElement, useProps,
 } from '../../utils';
 import { LABELS } from './constants';
 import { createAfterChangeHandler, createChangeHandler } from './handlers';
@@ -42,7 +42,7 @@ export const Slider = React.forwardRef((props: SliderProps, ref?: React.Ref<Slid
     step,
     theme: themeProp,
     value: valueProp,
-  } = mergeClassNames<SliderProps>(props);
+  } = useProps(props);
 
   const [valueState, setValueState] = React.useState<SliderValue>(defaultValue || 0);
 

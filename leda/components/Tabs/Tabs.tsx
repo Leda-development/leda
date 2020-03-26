@@ -6,7 +6,7 @@ import { useCustomElements } from './hooks';
 import { TabContent } from './TabContent';
 import { Tab } from './Tab';
 import {
-  bindFunctionalRef, getClassNames, mergeClassNames, useTheme,
+  bindFunctionalRef, getClassNames, useProps, useTheme,
 } from '../../utils';
 import { TabsContext } from './TabsContext';
 import { TabsProps, TabsRefCurrent } from './types';
@@ -19,7 +19,7 @@ export const Tabs = React.forwardRef((props: TabsProps, ref?: React.Ref<TabsRefC
     className,
     style,
     tabRender,
-  } = mergeClassNames<TabsProps>(props);
+  } = useProps(props);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.tabs);
 

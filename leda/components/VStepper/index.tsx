@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Div } from '../Div';
 import {
-  useTheme, bindFunctionalRef, getClassNames, mergeClassNames,
+  useTheme, bindFunctionalRef, getClassNames, useProps,
 } from '../../utils';
 import { VStepperItem } from './VStepperItem';
 import { VStepperContext } from './VStepperContext';
@@ -12,7 +12,7 @@ import { VStepperItemProps, VStepperProps, VStepperRefCurrent } from './types';
 export const VStepper = React.forwardRef((props: VStepperProps, ref?: React.Ref<VStepperRefCurrent>): React.ReactElement => {
   const {
     className, theme: themeProp, children, value, ...restProps
-  } = mergeClassNames<VStepperProps>(props);
+  } = useProps(props);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.vstepper);
 

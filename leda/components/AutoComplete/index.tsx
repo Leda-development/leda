@@ -5,10 +5,10 @@ import {
 } from 'lodash';
 import { SuggestionList } from '../../src/SuggestionList';
 import {
-  getClassNames,
-  mergeClassNames,
-  useTheme,
   bindFunctionalRef,
+  getClassNames,
+  useProps,
+  useTheme,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { Div } from '../Div';
@@ -69,7 +69,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     validator,
     value: propValue,
     ...restProps
-  } = mergeClassNames<AutoCompleteProps>(props);
+  } = useProps(props);
 
   // todo handle props format errors
 

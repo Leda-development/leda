@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  bindFunctionalRef, mergeClassNames, getClassNames, useElement,
+  bindFunctionalRef, getClassNames, useElement, useProps,
 } from '../../utils';
 import { generateId } from '../../utils/generateId';
 import { Div } from '../Div';
@@ -20,7 +20,7 @@ export const RadioButton = React.forwardRef((props: RadioButtonProps, ref?: Reac
     value,
     name,
     ...restProps
-  } = mergeClassNames<RadioButtonProps & PropsFromParent>(props as RadioButtonProps & PropsFromParent);
+  } = useProps(props as RadioButtonProps & PropsFromParent);
 
   const Wrapper = useElement(
     'Wrapper',

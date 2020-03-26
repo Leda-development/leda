@@ -4,7 +4,6 @@ import { isString } from 'lodash';
 import {
   COMPONENTS_NAMESPACES, ERROR_MESSAGES, MAX_FILE_SIZE, MIN_FILE_SIZE,
 } from '../../constants';
-import { mergeClassNames } from '../../utils';
 import { Div } from '../Div';
 import {
   FileDropError, FileType, FileDropProps,
@@ -119,46 +118,12 @@ export const checkFiles = (
   return acceptedFile;
 };
 
-export const getRestProps = (props: FileDropProps): {} => {
-  const {
-    acceptedFilesRender,
-    allowedFiles,
-    className,
-    dropZoneFilesNode, // не должно попасть в restProps
-    loadingData,
-    forbiddenFiles,
-    infoRender,
-    maxFileNameLength, // не должно попасть в restProps
-    maxFileSize, // не должно попасть в restProps
-    maxFilesNumber,
-    minFileSize, // не должно попасть в restProps
-    onDrop, // не должно попасть в restProps
-    onRemove, // не должно попасть в restProps
-    onChange,
-    rejectedFilesRender,
-    theme: themeProp,
-    uploadButtonRender,
-    value,
-    isDisabled,
-    invalidMessageRender,
-    invalidMessage,
-    isRequired,
-    isValid,
-    requiredMessage,
-    validator,
-    shouldValidateUnmounted,
-    ...restProps
-  } = mergeClassNames(props);
-
-  return restProps;
-};
-
 export const DescriptionMessage = (props: { children: string }): React.ReactElement => {
   const { children: message } = props;
 
   const shouldWrapMessage = isString(message) && message.length;
 
-  return (shouldWrapMessage ? <Div _blockInline _txtGray _txtSmall>{message}</Div> : message) as React.ReactElement;
+  return (shouldWrapMessage ? <Div _block-inline _txt-gray _txt-small>{message}</Div> : message) as React.ReactElement;
 };
 
 export const createDownloadLink = (blob: Blob, fileName: string | undefined, theme: typeof globalDefaultTheme[typeof COMPONENTS_NAMESPACES.fileDrop]): React.ReactElement | null => {

@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { bindFunctionalRef, mergeClassNames } from '../../utils';
+import { bindFunctionalRef, useProps } from '../../utils';
 
 export const htmlTagFactory = (tagName: string): React.ForwardRefExoticComponent<React.RefAttributes<unknown>> => {
   const tagComponent = React.forwardRef(<P, R>(props: P, ref: React.Ref<R>): React.ReactElement => {
-    const newProps = mergeClassNames(props);
+    const newProps = useProps<P>(props);
 
     const ElementName = tagName.toLowerCase() as React.ElementType;
 

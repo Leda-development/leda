@@ -1,7 +1,7 @@
 import React from 'react';
 import { Div } from '../Div';
 import {
-  bindFunctionalRef, getClassNames, mergeClassNames, useTheme,
+  bindFunctionalRef, getClassNames, useProps, useTheme,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { ProgressBarProps, ProgressBarRefCurrent } from './types';
@@ -12,7 +12,7 @@ export const ProgressBar = React.forwardRef((props: ProgressBarProps, ref?: Reac
     className,
     theme: themeProp,
     ...restProps
-  } = mergeClassNames<ProgressBarProps>(props);
+  } = useProps(props);
 
   const width = `${value}%`;
 

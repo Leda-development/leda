@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
-  bindFunctionalRef, getClassNames, mergeClassNames, useTheme, useValue,
+  bindFunctionalRef, getClassNames, useProps, useTheme, useValue,
 } from '../../utils';
 import { Div } from '../Div';
 import { Span } from '../Span';
@@ -42,7 +42,7 @@ export const NumericTextBox = React.forwardRef((props: NumericTextBoxProps, ref:
     theme: themeProp,
     thousandsSeparator = ' ',
     value: valueProp,
-  } = mergeClassNames<NumericTextBoxProps>(props);
+  } = useProps(props);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.numericTextBox);
 
@@ -112,7 +112,7 @@ export const NumericTextBox = React.forwardRef((props: NumericTextBoxProps, ref:
         onClick={() => (inputRef.current ? inputRef.current.focus() : null)}
       >
         <Input
-          {...getRestProps(mergeClassNames(props))}
+          {...getRestProps(useProps(props))}
           aria-invalid={!isValid}
           aria-required={isRequired}
           className={theme.input}

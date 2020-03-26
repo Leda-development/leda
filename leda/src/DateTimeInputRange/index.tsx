@@ -3,7 +3,7 @@ import { isNil } from 'lodash';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { DateTimeInput } from '../DateTimeInput';
 import {
-  bindFunctionalRef, getClassNames, mergeClassNames, useTheme,
+  bindFunctionalRef, getClassNames, useProps, useTheme,
 } from '../../utils';
 import { DateTimeInputRefCurrent } from '../DateTimeInput/types';
 import {
@@ -49,7 +49,7 @@ export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangePro
     yearViewRender,
     calendarWrapperRender,
     ...restProps
-  } = mergeClassNames(props);
+  } = useProps(props);
 
   handleErrors(props);
 

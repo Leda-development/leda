@@ -1,6 +1,6 @@
 import React from 'react';
 import { isFunction } from 'lodash';
-import { bindFunctionalRef, mergeClassNames } from '../../utils';
+import { bindFunctionalRef, useProps } from '../../utils';
 import { CustomEventHandler } from '../../commonTypes';
 import { AProps, ARefCurrent } from './types';
 
@@ -10,7 +10,7 @@ export const A = React.forwardRef((props: AProps, ref?: React.Ref<ARefCurrent>):
     href,
     onClick,
     ...restProps
-  } = mergeClassNames<AProps>(props);
+  } = useProps(props);
 
   const handleClick: CustomEventHandler<React.MouseEvent<HTMLAnchorElement>> = (ev) => {
     // если href не передали, то нужен preventDefault, иначе - нет

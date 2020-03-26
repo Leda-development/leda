@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  bindFunctionalRef, mergeClassNames, getClassNames, useElement,
+  bindFunctionalRef, getClassNames, useElement, useProps,
 } from '../../utils';
 import { Li, LiProps } from '../Li';
 import { TabsContext } from './TabsContext';
@@ -13,7 +13,7 @@ export const Tab = React.forwardRef((props: TabProps, ref: React.Ref<TabRefCurre
 
   const {
     isDisabled, tabKey, title, className, style, theme: themeProp, tabRender: childTabRender,
-  } = mergeClassNames<TabProps>(props);
+  } = useProps(props);
 
   const tabRender = childTabRender ?? parentTabRender;
 

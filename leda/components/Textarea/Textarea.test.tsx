@@ -69,13 +69,11 @@ describe('Textarea ATTRIBUTES', () => {
 
     expect(wrapper.find('.textarea-wrapper').first().hasClass('box')).toBeTruthy();
 
-
     wrapper.setProps({ _active: true, _box: false });
 
     expect(wrapper.find('.textarea-wrapper').first().hasClass('box')).toBeFalsy();
 
     expect(wrapper.find('.textarea-wrapper').first().hasClass('active')).toBeTruthy();
-
 
     wrapper.setProps({ className: 'testClass' });
 

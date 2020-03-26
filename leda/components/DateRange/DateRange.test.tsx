@@ -131,7 +131,7 @@ describe('DateRange ATTRIBUTES', () => {
     expect(wrapper.find('DatePicker').at(2).props().max).toEqual(new Date('1998-03-16T20:00:00.000Z'));
   });
 
-  it('should show requiredMessage when isRequired and invalid', () => {
+  it('should show requiredMessage when isRequired and invalid', async () => {
     const { container, findAllByText } = render(
       <DateRange
         form="form"
@@ -157,7 +157,7 @@ describe('DateRange ATTRIBUTES', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('should show different requiredMessage when isRequired and invalid', () => {
+  it('should show different requiredMessage when isRequired and invalid', async () => {
     const { container, findByText } = render(
       <DateRange
         form="form"

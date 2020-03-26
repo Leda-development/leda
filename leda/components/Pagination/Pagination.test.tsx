@@ -23,7 +23,6 @@ describe('Pagination SNAPSHOTS', () => {
       <Pagination pageSize={2} totalItems={10} />
     );
 
-
     it('should render currentPage', () => {
       const wrapper = mount(pagination);
 
@@ -75,7 +74,6 @@ describe('Pagination SNAPSHOTS', () => {
       expect(toJson(wrapper)).toMatchSnapshot();
     });
   });
-
 
   it('should render single page pagination with disabled controls', () => {
     const onChange = jest.fn();

@@ -166,28 +166,26 @@ describe.skip('DateTimePicker ATTRIBUTES', () => {
     });
   });
 
-  /** todo: невозможно протестировать, реакт видит только пустой input, протестировать другим тестинговым фреймворком
-  it('should disable dates in calendar', () => {
-  });
+  // todo: невозможно протестировать, реакт видит только пустой input, протестировать другим тестинговым фреймворком
 
-  it('should display time with intervals in timer', () => {
-  });
+  // it('should disable dates in calendar', () => {
+  // });
 
-  it('should have min value in calendar', () => {
-  });
+  // it('should display time with intervals in timer', () => {
+  // });
 
-  it('should have max value in calendar', () => {
-  });
+  // it('should have min value in calendar', () => {
+  // });
 
-  it('should accept start prop in calendar', () => {
-  });
+  // it('should have max value in calendar', () => {
+  // });
 
-  it('should display weekNumber in calendar', () => {
+  // it('should accept start prop in calendar', () => {
+  // });
 
-  });
-*/
+  // it('should display weekNumber in calendar', () => {
+  // });
 });
-
 
 describe.skip('DateTimePicker VALIDATION', () => {
   it('should be invalid if isRequired and empty', async () => {

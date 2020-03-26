@@ -64,7 +64,7 @@ describe('AutoComplete SNAPSHOTS', () => {
           readOnly
         />
       ));
-      expect(document.querySelector('input')?.readOnly).toBeTruthy();
+      expect(document.querySelector('input')).toHaveAttribute('readonly');
       expect(wrapper.container).toMatchSnapshot();
     });
     test('opened', () => {
@@ -126,7 +126,7 @@ describe('AutoComplete SNAPSHOTS', () => {
       screen.getByRole('textbox').focus();
       userEvent.type(screen.getByRole('textbox'), 'value');
       screen.getByRole('textbox').blur();
-      expect(validator).toBeCalledTimes(1);
+      expect(validator).toHaveBeenCalledTimes(1);
       expect(screen.getByRole('textbox')).toBeInvalid();
       expect(document.querySelector('span.invalid-message-list span.invalid-message-item')).toHaveTextContent(message);
       expect(wrapper.container).toMatchSnapshot();
@@ -147,7 +147,7 @@ describe('AutoComplete SNAPSHOTS', () => {
       screen.getByRole('textbox').focus();
       userEvent.type(screen.getByRole('textbox'), '');
       // todo check event call condition
-      expect(onChangeHandler).toBeCalledTimes(0);
+      expect(onChangeHandler).toHaveBeenCalledTimes(0);
       screen.getByRole('textbox').blur();
       expect(screen.getByRole('textbox')).toBeInvalid();
       expect(screen.getByRole('textbox')).toBeRequired();
@@ -184,10 +184,10 @@ describe('AutoComplete HANDLERS', () => {
     expect(screen.getByRole('textbox')).toHaveFocus();
     screen.getByRole('textbox').blur();
     expect(screen.getByRole('textbox')).not.toHaveFocus();
-    expect(onFocusHandler).toBeCalledTimes(1);
-    expect(onFocusHandler).lastCalledWith(eventMatcher);
-    expect(onBlurHandler).toBeCalledTimes(1);
-    expect(onBlurHandler).lastCalledWith(eventMatcher);
+    expect(onFocusHandler).toHaveBeenCalledTimes(1);
+    expect(onFocusHandler).toHaveBeenLastCalledWith(eventMatcher);
+    expect(onBlurHandler).toHaveBeenCalledTimes(1);
+    expect(onBlurHandler).toHaveBeenLastCalledWith(eventMatcher);
   });
   test('change', () => {
     const onChangeHandler = jest.fn();
@@ -212,8 +212,8 @@ describe('AutoComplete HANDLERS', () => {
       />
     ));
     userEvent.type(screen.getByRole('textbox'), newValue);
-    expect(onChangeHandler).toBeCalledTimes(newValue.length);
-    expect(onChangeHandler).lastCalledWith(eventMatcher);
+    expect(onChangeHandler).toHaveBeenCalledTimes(newValue.length);
+    expect(onChangeHandler).toHaveBeenLastCalledWith(eventMatcher);
   });
 });
 
@@ -301,8 +301,8 @@ describe('AutoComplete ATTRIBUTES', () => {
     ));
     screen.getByRole('textbox').focus();
     userEvent.type(screen.getByRole('textbox'), newValue);
-    expect(onChangeHandler).toBeCalledTimes(newValue.length);
-    expect(onChangeHandler).lastCalledWith(eventMatcher);
+    expect(onChangeHandler).toHaveBeenCalledTimes(newValue.length);
+    expect(onChangeHandler).toHaveBeenLastCalledWith(eventMatcher);
     screen.getByRole('textbox').blur();
     expect(screen.getByRole('textbox')).toHaveValue('');
   });
@@ -329,8 +329,8 @@ describe('AutoComplete ATTRIBUTES', () => {
     ));
     screen.getByRole('textbox').focus();
     userEvent.type(screen.getByRole('textbox'), newValue);
-    expect(onChangeHandler).toBeCalledTimes(newValue.length);
-    expect(onChangeHandler).lastCalledWith(eventMatcher);
+    expect(onChangeHandler).toHaveBeenCalledTimes(newValue.length);
+    expect(onChangeHandler).toHaveBeenLastCalledWith(eventMatcher);
     screen.getByRole('textbox').blur();
     expect(screen.getByRole('textbox')).toHaveValue(newValue);
   });
@@ -347,10 +347,10 @@ describe('AutoComplete ATTRIBUTES', () => {
     ));
     expect(screen.getAllByRole('listitem')).toHaveLength(3);
     userEvent.type(screen.getByRole('textbox'), 'va');
-    expect(onChangeHandler).toBeCalledTimes(2);
+    expect(onChangeHandler).toHaveBeenCalledTimes(2);
     expect(screen.getAllByRole('listitem')).toHaveLength(2);
     userEvent.type(screen.getByRole('textbox'), 'val');
-    expect(onChangeHandler).toBeCalledTimes(5);
+    expect(onChangeHandler).toHaveBeenCalledTimes(5);
     expect(screen.getAllByRole('listitem')).toHaveLength(1);
     expect(screen.getByRole('listitem')).toHaveTextContent(value);
   });
@@ -373,7 +373,7 @@ describe('AutoComplete ATTRIBUTES', () => {
     ));
     screen.getByRole('textbox').focus();
     userEvent.type(screen.getByRole('textbox'), newValue);
-    expect(onChangeHandler).toBeCalledTimes(newValue.length);
+    expect(onChangeHandler).toHaveBeenCalledTimes(newValue.length);
     expect(document.querySelectorAll('.selected')).toHaveLength(2);
   });
 });

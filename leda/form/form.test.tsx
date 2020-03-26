@@ -57,7 +57,7 @@ describe('reset controlled form', () => {
       />
     ));
     const result = form(formName, fieldName).reset();
-    expect(handleChange).toBeCalledTimes(1);
+    expect(handleChange).toHaveBeenCalledTimes(1);
     expect(result).toBeTruthy();
   });
   test('reset all', () => {
@@ -73,7 +73,7 @@ describe('reset controlled form', () => {
       />
     ));
     const result = form(formName).reset();
-    expect(handleChange).toBeCalledTimes(1);
+    expect(handleChange).toHaveBeenCalledTimes(1);
     expect(result).toBeTruthy();
   });
 });
@@ -138,7 +138,7 @@ describe('validate controlled form', () => {
       const validation = form(formName, fieldName).validate();
       expect(validation).toMatchObject(validationReference);
     });
-    expect(handleChange).toBeCalledTimes(0);
+    expect(handleChange).toHaveBeenCalledTimes(0);
   });
   test('validate all', () => {
     render(component);
@@ -146,7 +146,7 @@ describe('validate controlled form', () => {
       const validation = form(formName).validate();
       expect(validation).toMatchObject([validationReference]);
     });
-    expect(handleChange).toBeCalledTimes(0);
+    expect(handleChange).toHaveBeenCalledTimes(0);
   });
 });
 
@@ -176,7 +176,7 @@ describe('validate controlled form with empty field', () => {
       const validation = form(formName, fieldName).validate();
       expect(validation).toMatchObject(validationReference);
     });
-    expect(handleChange).toBeCalledTimes(0);
+    expect(handleChange).toHaveBeenCalledTimes(0);
   });
   test('validate all', () => {
     render(component);
@@ -184,7 +184,7 @@ describe('validate controlled form with empty field', () => {
       const validation = form(formName).validate();
       expect(validation).toMatchObject([validationReference]);
     });
-    expect(handleChange).toBeCalledTimes(0);
+    expect(handleChange).toHaveBeenCalledTimes(0);
   });
 });
 
@@ -218,7 +218,7 @@ describe('validate controlled form with field validator', () => {
       const validation = form(formName, fieldName).validate();
       expect(validation).toMatchObject(validationReference);
     });
-    expect(handleChange).toBeCalledTimes(0);
+    expect(handleChange).toHaveBeenCalledTimes(0);
   });
   test('validate all', () => {
     render(component);
@@ -226,7 +226,7 @@ describe('validate controlled form with field validator', () => {
       const validation = form(formName).validate();
       expect(validation).toMatchObject([validationReference]);
     });
-    expect(handleChange).toBeCalledTimes(0);
+    expect(handleChange).toHaveBeenCalledTimes(0);
   });
 });
 
@@ -265,7 +265,7 @@ describe('validate controlled form with validators', () => {
       const validation = form(formName, fieldName).validate(validators);
       expect(validation).toMatchObject(validationReference);
     });
-    expect(handleChange).toBeCalledTimes(0);
+    expect(handleChange).toHaveBeenCalledTimes(0);
   });
 });
 

@@ -40,13 +40,11 @@ describe('A ATTRIBUTES', () => {
 
     expect(wrapper.find('a').hasClass('box')).toBeTruthy();
 
-
     wrapper.setProps({ _active: true, _box: false });
 
     expect(wrapper.find('a').hasClass('box')).toBeFalsy();
 
     expect(wrapper.find('a').hasClass('active')).toBeTruthy();
-
 
     wrapper.setProps({ className: 'testClass' });
 

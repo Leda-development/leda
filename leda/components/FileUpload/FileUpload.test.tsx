@@ -131,7 +131,6 @@ describe('FileUpload ATTRIBUTES', () => {
 
     wrapper.setProps({ _active: true, _box: false });
 
-
     expect(wrapper.find('Wrapper').first().hasClass('box')).toBeFalsy();
 
     expect(wrapper.find('Wrapper').first().hasClass('active')).toBeTruthy();
@@ -241,7 +240,6 @@ describe('FileUpload ATTRIBUTES', () => {
     act(() => {
       wrapper.find('div').props().onDrop({ dataTransfer: { files: [firstFile] }, preventDefault: () => {} });
     });
-
 
     expect(onFileLoad).toHaveBeenCalledWith({
       target: {

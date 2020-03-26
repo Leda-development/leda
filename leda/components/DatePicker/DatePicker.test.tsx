@@ -252,7 +252,7 @@ describe.skip('DatePicker VALIDATION', () => {
 
     expect(wrapper.state().isValid).toBeTruthy();
 
-    wrapper.find('DatePicker').last().props().onBlur({ target: { } });
+    wrapper.find('DatePicker').last().props().onBlur({ target: {} });
     // так как onBlur в валидации работает ассинхронно, нужно подождать
     await new Promise((resolve) => setTimeout(resolve, 0));
 

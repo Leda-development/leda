@@ -29,13 +29,11 @@ describe('Paragraph ATTRIBUTES', () => {
 
     expect(wrapper.find('p').hasClass('box')).toBeTruthy();
 
-
     wrapper.setProps({ _active: true, _box: false });
 
     expect(wrapper.find('p').hasClass('box')).toBeFalsy();
 
     expect(wrapper.find('p').hasClass('active')).toBeTruthy();
-
 
     wrapper.setProps({ className: 'testClass' });
 

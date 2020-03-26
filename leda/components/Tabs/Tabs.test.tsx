@@ -37,19 +37,28 @@ describe('Tabs SNAPSHOTS', () => {
   it('should change tabs', () => {
     // грязные хаки для симуляции стейта
     let wrapper;
-    const onChange = jest.fn((ev) => wrapper.setProps({ selected: ev.component.value }));
+
+    const onChange = jest.fn((event) => {
+      wrapper.setProps({
+        selected: event.component.value,
+      });
+    });
+
     const tabs = (
       <Tabs onChange={onChange}>
         <Tab title="Tab1" tabKey={0}>Tab1</Tab>
         <Tab title="Tab2" tabKey={1}>Tab2</Tab>
       </Tabs>
     );
+
     wrapper = mount(tabs);
 
     expect(wrapper.find('.tabs-content').last().text()).toEqual('Tab1');
 
     act(() => {
-      wrapper.find('li.tabs-item').last().props().onClick({ target: { } });
+      wrapper.find('li.tabs-item').last().props().onClick({
+        target: {},
+      });
 
       wrapper.update();
     });
@@ -73,7 +82,11 @@ describe('Tabs HANDLERS', () => {
 
     act(() => wrapper.find('li').first().props().onClick());
 
-    expect(onChange).toHaveBeenCalledWith({ component: { value: 0 } });
+    expect(onChange).toHaveBeenCalledWith({
+      component: {
+        value: 0,
+      },
+    });
   });
 });
 

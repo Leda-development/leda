@@ -122,13 +122,11 @@ describe('Modal ATTRIBUTES', () => {
 
     expect(wrapper.find('div.modal-wrapper').hasClass('box')).toBeTruthy();
 
-
     wrapper.setProps({ _active: true, _box: false });
 
     expect(wrapper.find('div.modal-wrapper').hasClass('box')).toBeFalsy();
 
     expect(wrapper.find('div.modal-wrapper').hasClass('active')).toBeTruthy();
-
 
     wrapper.setProps({ className: 'testClass' });
 

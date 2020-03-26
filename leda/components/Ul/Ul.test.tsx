@@ -131,13 +131,11 @@ describe('Ul ATTRIBUTES', () => {
 
     expect(wrapper.find('ul').hasClass('box')).toBeTruthy();
 
-
     wrapper.setProps({ _active: true, _box: false });
 
     expect(wrapper.find('ul').hasClass('box')).toBeFalsy();
 
     expect(wrapper.find('ul').hasClass('active')).toBeTruthy();
-
 
     wrapper.setProps({ className: 'testClass' });
 

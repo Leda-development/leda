@@ -36,7 +36,6 @@ describe('Svg HANDLERS', () => {
   });
 });
 
-
 describe('Svg ATTRIBUTES', () => {
   describe('className', () => {
     const wrapper = mount(<Svg _box />);

@@ -32,8 +32,7 @@ describe('Button SNAPSHOTS', () => {
       </div>,
     );
 
-    wrapper.find('button').props().onClick({ preventDefault() { } });
-
+    wrapper.find('button').props().onClick({ preventDefault() {} });
 
     expect(toJson(wrapper)).toMatchSnapshot();
 
@@ -59,13 +58,11 @@ describe('Button ATTRIBUTES', () => {
 
     expect(wrapper.find('button').hasClass('button-wrapper')).toBeTruthy();
 
-
     wrapper.setProps({ _success: true });
 
     wrapper.update();
 
     expect(wrapper.find('button').hasClass('success')).toBeTruthy();
-
 
     wrapper.setProps({ download: true });
 
@@ -77,7 +74,7 @@ describe('Button ATTRIBUTES', () => {
   it('should have isDisabled prop', () => {
     const wrapper = mount(<Button onClick={jest.fn()} isDisabled>test</Button>);
 
-    wrapper.find('button').props().onClick({ preventDefault() { } });
+    wrapper.find('button').props().onClick({ preventDefault() {} });
 
     expect(wrapper.find('Button').props().onClick).not.toHaveBeenCalled();
 
@@ -87,7 +84,7 @@ describe('Button ATTRIBUTES', () => {
   it('should have isLoading prop', () => {
     const wrapper = mount(<Button onClick={jest.fn()} isLoading>test</Button>);
 
-    wrapper.find('button').props().onClick({ preventDefault() { } });
+    wrapper.find('button').props().onClick({ preventDefault() {} });
 
     expect(wrapper.find('Button').props().onClick).not.toHaveBeenCalled();
 

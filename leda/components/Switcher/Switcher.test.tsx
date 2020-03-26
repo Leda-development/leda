@@ -65,7 +65,7 @@ describe('Switcher HANDLERS', () => {
 
     act(() => {
       // @ts-ignore
-      wrapper.find('div.switcher-wrapper').props().onClick({ component: { } });
+      wrapper.find('div.switcher-wrapper').props().onClick({ component: {} });
     });
 
     expect(onClick).toHaveBeenCalled();
@@ -85,7 +85,7 @@ describe('Switcher HANDLERS', () => {
 
     act(() => {
       // @ts-ignore
-      wrapper.find('div.switcher-wrapper').props().onClick({ component: { } });
+      wrapper.find('div.switcher-wrapper').props().onClick({ component: {} });
     });
 
     expect(onClick).toHaveBeenCalled();

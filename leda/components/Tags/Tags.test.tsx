@@ -71,13 +71,11 @@ describe('Tags ATTRIBUTES', () => {
 
     expect(wrapper.find('div').hasClass('box')).toBeTruthy();
 
-
     wrapper.setProps({ _active: true, _box: false });
 
     expect(wrapper.find('div').hasClass('box')).toBeFalsy();
 
     expect(wrapper.find('div').hasClass('active')).toBeTruthy();
-
 
     wrapper.setProps({ className: 'testClass' });
 

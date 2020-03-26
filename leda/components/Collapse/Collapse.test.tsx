@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Collapse } from './index';
@@ -54,9 +53,7 @@ describe('Collapse SNAPSHOTS', () => {
 
     const wrapper = render(component);
 
-    const body = document.getElementById('test')?.parentElement;
-
-    expect(body?.getAttribute('aria-expanded')).toEqual('false');
+    expect(document.getElementById('test')?.parentElement).toHaveAttribute('aria-expanded', 'false');
 
     expect(wrapper.container).toMatchSnapshot();
   });

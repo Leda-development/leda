@@ -51,7 +51,7 @@ describe('StatusBar HANDLERS', () => {
 
     userEvent.click(document.querySelectorAll('span.statusbar-icon')[0]);
 
-    expect(handleClick).toBeCalledTimes(1);
+    expect(handleClick).toHaveBeenCalledTimes(1);
   });
 });
 

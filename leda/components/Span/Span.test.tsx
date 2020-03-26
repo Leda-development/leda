@@ -30,13 +30,11 @@ describe('Span ATTRIBUTES', () => {
 
     expect(wrapper.find('span').hasClass('box')).toBeTruthy();
 
-
     wrapper.setProps({ _active: true, _box: false });
 
     expect(wrapper.find('span').hasClass('box')).toBeFalsy();
 
     expect(wrapper.find('span').hasClass('active')).toBeTruthy();
-
 
     wrapper.setProps({ className: 'testClass' });
 

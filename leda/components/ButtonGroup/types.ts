@@ -2,7 +2,7 @@ import * as React from 'react';
 import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
-  ArrayElement, CustomEventHandler, CustomRender, SetState, SomeObject,
+  ArrayElement, CustomRender, SetState, SomeObject,
 } from '../../commonTypes';
 import { ButtonProps } from '../Button/types';
 import { ValidationProps } from '../Validation/types';

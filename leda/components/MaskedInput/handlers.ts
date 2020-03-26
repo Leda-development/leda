@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { isFunction } from 'lodash';
 import {
   BlurData, ChangeData, FocusData, MaskedInputProps, MaskedInputState,

@@ -3,7 +3,7 @@ import { isFunction } from 'lodash';
 import { DropzoneRef } from 'react-dropzone';
 import { getErrorCode } from './helpers';
 import { CustomEventHandler } from '../../commonTypes';
-import { FileUploadProps, RejectedFileType } from './types';
+import { FileUploadProps } from './types';
 
 export const createClickHandler = (props: FileUploadProps & { fileUploadRef: React.MutableRefObject<DropzoneRef | undefined>}): CustomEventHandler<React.MouseEvent<HTMLDivElement>> => (ev) => {
   const { isLoading, onClick, fileUploadRef } = props;
@@ -39,6 +39,7 @@ export const createLoadHandler = (props: FileUploadProps): LoadHandler => (accep
   // Перенос файлов с ошибкой в rejected
   const acceptedFiles: File[] = accepted.filter((file) => {
     const errorCode = getErrorCode(file, props);
+
     // Если ошибки обнаружены (0 - отсутствие ошибок)
     if (errorCode !== 0) {
       rejectedWithErrors.push({
@@ -47,8 +48,9 @@ export const createLoadHandler = (props: FileUploadProps): LoadHandler => (accep
       });
 
       return false;
-      // Если файла еще нет то добавляем в acceptedFiles
     }
+
+    // Если файла еще нет то добавляем в acceptedFiles
     return true;
   });
 

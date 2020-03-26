@@ -41,7 +41,7 @@ export const createClickHandler = (props: ButtonProps) => (ev: React.MouseEvent<
 
           if (invalidElement) {
             const invalidElementRect = invalidElement.getBoundingClientRect();
-            const isIE = !!(document as any).documentMode || /Edge/.test(navigator.userAgent);
+            const isIE = !!(document as any).documentMode || navigator.userAgent.includes('Edge');
             const offset = invalidElementRect.top - (scrollOffset ?? 0);
             if (isIE) {
               window.scrollBy(0, offset);

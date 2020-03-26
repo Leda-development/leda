@@ -170,12 +170,14 @@ export const createKeyDownHandler = (
   }) || [];
 
   const highlightedItem = (filteredData as (string | number | SomeObject)[]).find((item) => item === highlightedSuggestion);
+
   // текущий индекс
   const currentIndex = (filteredData as (string | number | SomeObject)[]).indexOf(highlightedItem || '');
 
   if (ev.key === 'ArrowDown' || ev.key === 'Down') {
     // предотвращаем скролл страницы
     ev.preventDefault();
+
     // новый индекс, механизм работает как барабан
     const nextIndex = (currentIndex + 1) % filteredData.length;
 
@@ -189,6 +191,7 @@ export const createKeyDownHandler = (
   if (ev.key === 'ArrowUp' || ev.key === 'Up') {
     // предотвращаем скроллинг страницы
     ev.preventDefault();
+
     // новый индекс, механизм работает как барабан
     const nextIndex = (() => {
       if (currentIndex <= 0) return filteredData.length - 1;

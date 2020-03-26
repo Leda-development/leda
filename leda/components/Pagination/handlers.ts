@@ -29,7 +29,7 @@ export const createPageSizeChangeHandler = (
 ): CustomEventHandler<PageSizeChangeEvent> => (event) => {
   const { value } = event.component;
 
-  const newPageSize = parseInt(value as string, 10);
+  const newPageSize = parseInt(value, 10);
 
   if (!value) {
     setPageSizeState(totalItems);

@@ -3,7 +3,7 @@ import { DropzoneRef } from 'react-dropzone';
 import { isFunction } from 'lodash';
 import { checkFiles } from './helpers';
 import {
-  ChangeEventHandler, DropZoneFileType, DropZoneProps, DropZoneState, FileType,
+  ChangeEventHandler, DropZoneProps, DropZoneState, FileType,
 } from './types';
 
 export const createClickHandler = (
@@ -15,7 +15,6 @@ export const createClickHandler = (
 
   if (isFunction(onClick)) onClick(ev);
 };
-
 
 export const createChangeHandler = (
   props: DropZoneProps,
@@ -53,6 +52,7 @@ export const createChangeHandler = (
       removedFile,
     },
   };
+
   // контролируемый режим
   if (isFunction(onChange)) {
     onChange(customEvent);

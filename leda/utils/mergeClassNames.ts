@@ -13,14 +13,14 @@ export const mergeClassNames = <Props>(props: Props, { underscoreClassesTransfor
   Object.keys(componentProps)
     .forEach((prop: string): void => {
       // Если атрибут начинается со специального символа _ и он = true
-      if (componentProps[prop] && prop[0] === '_' && componentProps[prop] === true) {
+      if (componentProps[prop] && prop.startsWith('_') && componentProps[prop] === true) {
         const transformedClassName = underscorePropToClassName(prop, underscoreClassesTransform);
 
         // добавить в classNames
         classNames.add(transformedClassName);
 
         // если атрибут = false, но начинается с _, то ничего не делаем или если это className
-      } else if ((componentProps[prop] === false && prop[0] === '_')) {
+      } else if ((componentProps[prop] === false && prop.startsWith('_'))) {
 
         // остальные атрибуты передаём без изменений
       } else {

@@ -13,7 +13,9 @@ export interface UseElementHook {
   ): React.FC<E>,
 }
 
-export const useElement: UseElementHook = <P, S, E>(displayName: string, DefaultElement: React.ComponentType<any>, customRender: CustomRender<P, S, E> | undefined, componentProps: P, componentState?: S) => {
+export const useElement: UseElementHook = <P, S, E>(
+  displayName: string, DefaultElement: React.ComponentType<any>, customRender: CustomRender<P, S, E> | undefined, componentProps: P, componentState?: S,
+) => {
   const propsRef = React.useRef(componentProps);
 
   const stateRef = React.useRef(componentState);

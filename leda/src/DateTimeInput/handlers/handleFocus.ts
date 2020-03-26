@@ -5,7 +5,6 @@ import {
 } from '../types';
 import { FocusEvent } from '../../MaskedInputBase/types';
 
-
 export const createFocusHandler = ({ props, state, dispatch }: HandlersData) => (ev: FocusEvent): void => {
   const { onFocus, name } = props;
   const { date } = state;

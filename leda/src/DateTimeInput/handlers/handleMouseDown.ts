@@ -30,7 +30,6 @@ export const createCalendarIconMouseDownHandler = ({
   }, 0);
 };
 
-
 export const createCalendarMouseDownHandler = ({ maskedInputRef }: HandlersData) => (ev: React.MouseEvent<HTMLDivElement>): void => {
   ev.preventDefault();
 

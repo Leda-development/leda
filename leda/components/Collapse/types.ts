@@ -15,7 +15,6 @@ export interface BodyClickCustomEvent {
   },
 }
 
-
 export interface CollapseProps {
   /** Признак активной панели. Сюда передается значение panelKey активной панели. Когда панель(панели) закрыта, значение равно null */
   activePanelKey?: string | string[] | null,
@@ -33,13 +32,13 @@ export interface HeadingProps {
   /** Дочерние элементы */
   children: React.ReactNode,
   /** Иконка возле заголовка */
-  iconRender?: CustomRender<HeadingProps, { }, IconProps>,
+  iconRender?: CustomRender<HeadingProps, {}, IconProps>,
   /** Обработчик клика */
   onClick?: React.MouseEventHandler<HTMLDivElement>,
   /** Реф */
   ref?: React.Ref<HeadingRefCurrent>,
   /** Компонент-обертка в который будет помещен Collapse.Heading. Передавать в виде <Wrapper props />. По умолчанию - <Div /> */
-  wrapperRender?: CustomRender<HeadingProps, { }, HeadingWrapperProps>,
+  wrapperRender?: CustomRender<HeadingProps, {}, HeadingWrapperProps>,
   /** Классы переданные через _ */
   [x: string]: unknown,
 }
@@ -60,7 +59,7 @@ export interface BodyProps {
   /** Описание открытия/закрытия коллапса. Описывается как CSS Transition. См. https://developer.mozilla.org/ru/docs/Web/CSS/transition. По умолчанию height 250ms cubic-bezier(.4, 0, .2, 1) */
   transition?: string,
   /** Компонент-обертка в который будет помещен Collapse.Body. Передавать в виде <Wrapper props />. По умолчанию - <Div /> */
-  wrapperRender?: CustomRender<BodyProps, { }, BodyWrapperProps>,
+  wrapperRender?: CustomRender<BodyProps, {}, BodyWrapperProps>,
   /** Классы переданные через _ */
   [x: string]: unknown,
 }

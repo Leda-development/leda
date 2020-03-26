@@ -161,8 +161,8 @@ describe('DropDownSelect HANDLERS', () => {
 
     screen.getAllByRole('listitem')[1].click();
 
-    expect(onChangeHandler).toBeCalledTimes(1);
-    expect(onChangeHandler).lastCalledWith(eventMatcher);
+    expect(onChangeHandler).toHaveBeenCalledTimes(1);
+    expect(onChangeHandler).toHaveBeenLastCalledWith(eventMatcher);
   });
 
   test('should trigger onFilterChange by typing', () => {
@@ -189,8 +189,8 @@ describe('DropDownSelect HANDLERS', () => {
 
     userEvent.type(screen.getByRole('textbox'), value);
 
-    expect(onFilterChangeHandler).toBeCalledTimes(value.length);
-    expect(onFilterChangeHandler).lastCalledWith(eventMatcher);
+    expect(onFilterChangeHandler).toHaveBeenCalledTimes(value.length);
+    expect(onFilterChangeHandler).toHaveBeenLastCalledWith(eventMatcher);
   });
 
   test('should trigger onFilterChange by suggestion click', () => {
@@ -219,8 +219,8 @@ describe('DropDownSelect HANDLERS', () => {
     expect(listItem).toBeDefined();
     userEvent.click(listItem as HTMLElement);
 
-    expect(onFilterChangeHandler).toBeCalledTimes(1);
-    expect(onFilterChangeHandler).lastCalledWith(eventMatcher);
+    expect(onFilterChangeHandler).toHaveBeenCalledTimes(1);
+    expect(onFilterChangeHandler).toHaveBeenLastCalledWith(eventMatcher);
   });
 });
 
@@ -440,7 +440,7 @@ describe('DropDownSelect ATTRIBUTES', () => {
 });
 
 describe('DropDownSelect VALIDATION', () => {
-  it('should be invalid if component is isRequired, value is empty and onBlur was called', async () => {
+  it('should be invalid if component is isRequired, value is empty and onBlur was called', () => {
     render((
       <DropDownSelect placeholder="placeholder" form="form" name="name" isRequired />
     ));

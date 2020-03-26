@@ -44,7 +44,7 @@ describe('CheckBox SNAPSHOTS', () => {
 
     const label = document.querySelector('label');
 
-    expect(label).not.toEqual(null);
+    expect(label).not.toBeNull();
 
     userEvent.click(label as HTMLElement);
 

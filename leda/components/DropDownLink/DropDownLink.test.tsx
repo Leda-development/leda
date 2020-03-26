@@ -93,7 +93,6 @@ describe('DropDownLink SNAPSHOTS', () => {
   });
 });
 
-
 describe('DropDownLink ATTRIBUTES', () => {
   it('should customize render items', () => {
     const data = [
@@ -170,7 +169,7 @@ describe('DropDownLink HANDLERS', () => {
     );
 
     act(() => {
-      wrapper.find('DropDownLinkItem').last().props().onClick({ preventDefault: () => { } });
+      wrapper.find('DropDownLinkItem').last().props().onClick({ preventDefault: () => {} });
     });
 
     expect(handleClick).toHaveBeenCalled();
@@ -204,7 +203,7 @@ describe('DropDownLink HANDLERS', () => {
     expect(wrapper).toMatchSnapshot();
 
     act(() => {
-      wrapper.find('DropDownLinkItem').last().props().onClick({ target: { value: data[1] }, preventDefault: () => { } });
+      wrapper.find('DropDownLinkItem').last().props().onClick({ target: { value: data[1] }, preventDefault: () => {} });
     });
 
     wrapper.setProps({ value: valueControll });
@@ -233,7 +232,7 @@ describe('ButtonGroup forward ref', () => {
       valueControll = val.target.value;
     };
 
-    mount(
+    mount((
       <>
         <DropDownLink
           ref={myRef}
@@ -242,9 +241,9 @@ describe('ButtonGroup forward ref', () => {
           value={valueControll}
           titleRender={({ elementProps: { children } }) => <span>{`$$${children}$$`}</span>}
           name="Eltsen"
-        />,
-      </>,
-    );
+        />
+      </>
+    ));
 
     expect(myRef.current).toBeDefined();
 

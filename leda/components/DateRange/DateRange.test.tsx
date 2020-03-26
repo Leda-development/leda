@@ -131,7 +131,7 @@ describe('DateRange ATTRIBUTES', () => {
     expect(wrapper.find('DatePicker').at(2).props().max).toEqual(new Date('1998-03-16T20:00:00.000Z'));
   });
 
-  it('should show requiredMessage when isRequired and invalid', async () => {
+  it('should show requiredMessage when isRequired and invalid', () => {
     const { container, findAllByText } = render(
       <DateRange
         form="form"
@@ -146,9 +146,9 @@ describe('DateRange ATTRIBUTES', () => {
     expect(inputFrom).toBeDefined();
     expect(inputTo).toBeDefined();
 
-    await inputFrom.focus();
-    await inputTo.focus();
-    await inputTo.blur();
+    inputFrom.focus();
+    inputTo.focus();
+    inputTo.blur();
 
     const query = await findAllByText('REQUIRED');
 
@@ -157,7 +157,7 @@ describe('DateRange ATTRIBUTES', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('should show different requiredMessage when isRequired and invalid', async () => {
+  it('should show different requiredMessage when isRequired and invalid', () => {
     const { container, findByText } = render(
       <DateRange
         form="form"
@@ -172,9 +172,9 @@ describe('DateRange ATTRIBUTES', () => {
     expect(inputFrom).toBeDefined();
     expect(inputTo).toBeDefined();
 
-    await inputFrom.focus();
-    await inputTo.focus();
-    await inputTo.blur();
+    inputFrom.focus();
+    inputTo.focus();
+    inputTo.blur();
 
     await findByText('one');
     await findByText('two');

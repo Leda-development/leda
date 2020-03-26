@@ -1,5 +1,5 @@
 // @ts-nocheck
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
+
 import React from 'react';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
@@ -59,13 +59,11 @@ describe('DropZone ATTRIBUTES', () => {
 
     expect(wrapper.find('Div').first().hasClass('box')).toBeTruthy();
 
-
     wrapper.setProps({ _active: true, _box: false });
 
     expect(wrapper.find('Div').first().hasClass('box')).toBeFalsy();
 
     expect(wrapper.find('Div').first().hasClass('active')).toBeTruthy();
-
 
     wrapper.setProps({ className: 'testClass' });
 
@@ -98,18 +96,18 @@ describe('DropZone ATTRIBUTES', () => {
     const wrapper = mount(<DropZone maxFilesNumber={1} onDrop={jest.fn()} onRemove={jest.fn()} />);
 
     act(() => {
-      (wrapper.find('div.dropzone-content').props()).onDrop({ dataTransfer: { files: [firstFile] }, preventDefault: () => { } });
+      wrapper.find('div.dropzone-content'.props()).onDrop({ dataTransfer: { files: [firstFile] }, preventDefault: () => {} });
     });
 
     act(() => {
-      (wrapper.find('div.dropzone-content').props()).onDrop({ dataTransfer: { files: [secondFile] }, preventDefault: () => { } });
+      wrapper.find('div.dropzone-content'.props()).onDrop({ dataTransfer: { files: [secondFile] }, preventDefault: () => {} });
     });
   });
 
   it.skip('should reject file if its size is bigger than maxSize', () => {
     const wrapper = mount(<DropZone maxFileSize={20971520} fileSizeUnit="byte" onChange={jest.fn()} />);
 
-    (wrapper.find('div.dropzone-content').props()).onChange();
+    wrapper.find('div.dropzone-content'.props()).onChange();
 
     expect(toJson(wrapper)).toMatchSnapshot();
   });
@@ -117,11 +115,25 @@ describe('DropZone ATTRIBUTES', () => {
   it.skip('should reject file if its size is smaller than minSize', () => {
     const wrapper = mount(<DropZone minFileSize={20000000} onDrop={jest.fn()} onRemove={jest.fn()} />);
 
-    (wrapper.find('div.dropzone-content').props()).onChange();
+    wrapper.find('div.dropzone-content'.props()).onChange();
   });
 
   it.skip('should render dropped files', () => {
-    const wrapper = mount(<DropZone files={files} acceptedFilesRender={({ elementProps: { files: accepted } }) => accepted.map((item) => <Li>{item.name}</Li>)} onDrop={jest.fn()} onRemove={jest.fn()} />);
+    const wrapper = mount((
+      <DropZone
+        files={files}
+        acceptedFilesRender={({
+          elementProps: {
+            files: accepted,
+          },
+        }) => accepted.map((item, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <Li key={index}>{item.name}</Li>
+        ))}
+        onDrop={jest.fn()}
+        onRemove={jest.fn()}
+      />
+    ));
 
     expect(wrapper.find('Li')).toHaveLength(2);
 
@@ -139,7 +151,7 @@ describe('DropZone ATTRIBUTES', () => {
 
     wrapper.setProps({ minFileSize: 20000000 });
 
-    (wrapper.find('div.dropzone-content').props()).onDrop({ dataTransfer: { files: [firstFile] }, preventDefault: () => { } });
+    wrapper.find('div.dropzone-content'.props()).onDrop({ dataTransfer: { files: [firstFile] }, preventDefault: () => {} });
 
     wrapper.update();
 
@@ -147,7 +159,7 @@ describe('DropZone ATTRIBUTES', () => {
 
     wrapper.setProps({ minFileSize: undefined, maxFileSize: 20000000 });
 
-    (wrapper.find('div.dropzone-content').props()).onDrop({ dataTransfer: { files: [secondFile] }, preventDefault: () => { } });
+    wrapper.find('div.dropzone-content'.props()).onDrop({ dataTransfer: { files: [secondFile] }, preventDefault: () => {} });
 
     wrapper.update();
 
@@ -155,7 +167,7 @@ describe('DropZone ATTRIBUTES', () => {
 
     wrapper.setProps({ maxFileSize: undefined, allowedFiles: 'image/*' });
 
-    (wrapper.find('div.dropzone-content').props()).onDrop({ dataTransfer: { files: [firstFile] }, preventDefault: () => { } });
+    wrapper.find('div.dropzone-content'.props()).onDrop({ dataTransfer: { files: [firstFile] }, preventDefault: () => {} });
 
     wrapper.update();
 
@@ -165,7 +177,7 @@ describe('DropZone ATTRIBUTES', () => {
 
     wrapper.setProps({ files: [firstFile] });
 
-    (wrapper.find('div.dropzone-content').props()).onDrop({ dataTransfer: { files: [firstFile] }, preventDefault: () => { } });
+    wrapper.find('div.dropzone-content'.props()).onDrop({ dataTransfer: { files: [firstFile] }, preventDefault: () => {} });
 
     wrapper.update();
 
@@ -173,7 +185,7 @@ describe('DropZone ATTRIBUTES', () => {
 
     wrapper.setProps({ maxFilesNumber: 1 });
 
-    (wrapper.find('div.dropzone-content').props()).onDrop({ dataTransfer: { files: [secondFile] }, preventDefault: () => { } });
+    wrapper.find('div.dropzone-content'.props()).onDrop({ dataTransfer: { files: [secondFile] }, preventDefault: () => {} });
 
     wrapper.update();
 

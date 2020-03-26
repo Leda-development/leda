@@ -2,8 +2,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { ButtonGroup } from './index';
-import { Button } from '../Button';
-
 
 describe('ButtonGroup SNAPSHOTS', () => {
   it('should render', () => {
@@ -38,7 +36,6 @@ describe('ButtonGroup ATTRIBUTES', () => {
     expect(wrapper.find('button').last().hasClass('success')).toBeTruthy();
   });
 });
-
 
 describe('ButtonGroup HANDLERS', () => {
   it('should call onChange', () => {
@@ -147,7 +144,6 @@ describe('ButtonGroup HANDLERS', () => {
     expect(event.component.value).toEqual('Oleg');
   });
 });
-
 
 describe('ButtonGroup forward ref', () => {
   it('should return ref', () => {

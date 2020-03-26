@@ -6,7 +6,6 @@ import { Currency } from './index';
 // mock Intl object
 global.Intl = require('intl');
 
-
 describe('Rubles SNAPSHOTS', () => {
   it('should render', () => {
     const wrapper = shallow(<Currency currencyCode="EUR" />);
@@ -93,7 +92,22 @@ describe('Rubles SNAPSHOTS', () => {
   });
 
   it('should render with units', () => {
-    const wrapper = mount(<Currency value={100500} currencySymbolRender={({ elementProps: { children } }) => <> млн. {children}</>} currencyCode="RUB" />);
+    const wrapper = mount((
+      <Currency
+        value={100500}
+        currencySymbolRender={({
+          elementProps: {
+            children,
+          },
+        }) => (
+          <>
+            {' млн. '}
+            {children}
+          </>
+        )}
+        currencyCode="RUB"
+      />
+    ));
 
     expect(wrapper.text()).toEqual('100 500 млн. ₽');
 

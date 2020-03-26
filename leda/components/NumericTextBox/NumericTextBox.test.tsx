@@ -481,7 +481,7 @@ describe('NumericTextBox VALIDATION', () => {
     expect(document.querySelector('span.invalid-message-item')).toBeNull();
   });
 
-  it('should be invalid if component is isRequired, value is empty and onBlur was called', async () => {
+  it('should be invalid if component is isRequired, value is empty and onBlur was called', () => {
     const handleBlur = jest.fn();
 
     render((

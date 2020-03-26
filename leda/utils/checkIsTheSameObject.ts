@@ -7,7 +7,6 @@ interface CompareObjectsParams {
   obj2: any,
 }
 
-
 export const checkIsTheSameObject = ({
   obj1,
   obj2,

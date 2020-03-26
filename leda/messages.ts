@@ -1,7 +1,6 @@
 import { getFileWordEnding } from './utils';
 import { FILE_SIZE_RUS_UNITS } from './constants';
 
-
 // Текст о запрещенном типе файлов берется из props.forbiddenFiles
 // Например: "Запрещенный тип файлов: .jpg, .gif"
 export const getForbiddenFormatsDescription = (forbiddenFiles?: string): string => (forbiddenFiles ? `Запрещенный тип файлов: ${forbiddenFiles}.` : '');

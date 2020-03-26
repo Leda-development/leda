@@ -35,7 +35,6 @@ export const bindFunctionalRef = <V, T, C>(component: V, ref: React.Ref<T> | Rea
   }
 };
 
-
 export const getComputedTheme = <D, T>(defaultTheme: D, theme: T): D & T => ({ ...defaultTheme, ...theme });
 
 // привязка рефа к классовому компоненту

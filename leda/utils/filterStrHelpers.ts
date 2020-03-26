@@ -5,7 +5,6 @@ export const FILTER_RULES = {
   includes: 'includes' as const,
 };
 
-
 /* value: 'Paris is the capital of France'
    suggestion: 'paris'
    => true
@@ -15,7 +14,6 @@ export const FILTER_RULES = {
    => true
 */
 export const filterByIncludes = (suggestion: string, value: string): boolean => suggestion.toLowerCase().includes(value.toLowerCase());
-
 
 /* value: 'Paris is the capital of France'
    suggestion: 'paris'

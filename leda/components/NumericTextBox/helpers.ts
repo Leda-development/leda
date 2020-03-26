@@ -1,4 +1,3 @@
-import { isNil } from 'lodash';
 import { NumericTextBoxProps, WrapperProps, NormalizeParameters } from './types';
 import { DEFAULT_VALUES } from './constants';
 

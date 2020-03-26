@@ -132,7 +132,7 @@ export const maskValue = (value: string, mask: string, placeholderChar = '_'): s
 
   return mask.split('').map((item, index) => {
     if (editableCharsIndex.includes(index) && currentValue) {
-      if (currentValue[0] === placeholderChar) {
+      if (currentValue.startsWith(placeholderChar)) {
         currentValue = currentValue.slice(1);
 
         return placeholderChar;

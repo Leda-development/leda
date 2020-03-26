@@ -7,7 +7,6 @@ import {
   KeyDownData,
   MouseDownData,
   MultiSelectProps,
-  ResetEvent,
   SelectData,
   Value,
 } from './types';

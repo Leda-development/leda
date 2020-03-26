@@ -361,7 +361,7 @@ const getArrayValidator = (
     // { regexp, message? }
     if (isRegExp(validatorItem.validator)) {
       return {
-        validator: (value: string) => !!(value).match(validatorItem.validator as RegExp),
+        validator: (value: string) => !!value.match(validatorItem.validator as RegExp),
         invalidMessage: validatorItem.invalidMessage,
       };
     }
@@ -377,7 +377,7 @@ export const getValidators = (
 
   if (isFunction(validator)) return [{ validator, invalidMessage }];
 
-  if (isString(validator)) return [getPredefinedValidator(validator as PredefinedValidator, invalidMessage)];
+  if (isString(validator)) return [getPredefinedValidator(validator, invalidMessage)];
 
   if (isRegExp(validator)) return [getRegExpValidator(validator, invalidMessage)];
 

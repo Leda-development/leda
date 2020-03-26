@@ -4,7 +4,6 @@ import {
   FilterDataParams, MultiSelectProps, Value,
 } from './types';
 
-
 export const filterData = ({
   compareObjectsBy,
   data,

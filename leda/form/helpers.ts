@@ -64,7 +64,11 @@ export const removeField = (formName: string, fieldName: string): Types.Field[] 
   }, []);
   const removedFields: Types.Field[] = [];
   fieldKeys.forEach((key, index) => {
-    removedFields.push(...fields.splice(key - index, 1));
+    const removedField = fields[index];
+    removedField?.setIsValid(true);
+    removedField?.setMessages(undefined);
+    removedFields.push(removedField);
+    fields.splice(key - index, 1);
   });
   return removedFields;
 };

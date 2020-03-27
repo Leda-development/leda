@@ -51,8 +51,7 @@ const getFormFieldHelpers = (formName: string, fieldName: string): Types.FormFie
       try {
         field?.reset();
       } catch (error) {
-        // eslint-disable-next-line no-console
-        console.log(error);
+        console.error(error);
         return false;
       }
       return true;
@@ -80,8 +79,7 @@ const getFormFieldsHelpers = (formName: string, fieldNames?: string[]): Types.Fo
           field?.reset();
         });
       } catch (error) {
-        // eslint-disable-next-line no-console
-        console.log(error);
+        console.error(error);
         return false;
       }
       return true;

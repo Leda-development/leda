@@ -185,20 +185,30 @@ export const FormUncontrolled = () => {
           <L.Button _warning
             onClick={(event) => {
               console.log(event);
-              L.form(formName).reset();
-            }}
-          >
-            Reset
-          </L.Button>
-          {' '}
-          <L.Button _warning
-            onClick={(event) => {
-              console.log(event);
               const value = L.form(formName).get();
               console.log(value);
             }}
           >
             Get
+          </L.Button>
+          {' '}
+          <L.Button _warning
+            onClick={(event) => {
+              console.log(event);
+              const value = L.form(formName).remove();
+              console.log(value);
+            }}
+          >
+            Remove
+          </L.Button>
+          {' '}
+          <L.Button _warning
+            onClick={(event) => {
+              console.log(event);
+              L.form(formName).reset();
+            }}
+          >
+            Reset
           </L.Button>
           {' '}
           <L.Button _warning

@@ -42,6 +42,7 @@ import { I } from './components/I';
 import { Img } from './components/Img';
 import { Input } from './components/Input';
 import { Li } from './components/Li';
+import { Link } from './components/Link';
 import { Loader } from './components/Loader';
 import { Main } from './components/Main';
 import { Mark } from './components/Mark';
@@ -97,9 +98,11 @@ import * as FileDropTypes from './components/FileDrop/types';
 import * as DivTypes from './components/Div';
 import * as FileUploadTypes from './components/FileUpload/types';
 import * as InputTypes from './components/Input/types';
+import * as LinkTypes from './components/Link/types';
 import * as MaskedInputTypes from './components/MaskedInput/types';
 import * as MultiSelectTypes from './components/MultiSelect/types';
 import * as NotificationsTypes from './components/Notifications/types';
+import * as NavLinkTypes from './components/NavLink/types';
 import * as NumericRangeTypes from './components/NumericRange/types';
 import * as NumericTextBoxTypes from './components/NumericTextBox/types';
 import * as PaginationTypes from './components/Pagination/types';
@@ -142,8 +145,10 @@ export {
   DivTypes,
   FileUploadTypes,
   InputTypes,
+  LinkTypes,
   MaskedInputTypes,
   MultiSelectTypes,
+  NavLinkTypes,
   NotificationsTypes,
   NumericRangeTypes,
   NumericTextBoxTypes,
@@ -198,6 +203,7 @@ export {
   Img,
   Input,
   Li,
+  Link,
   Loader,
   Main,
   Mark,

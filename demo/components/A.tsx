@@ -19,6 +19,9 @@ export const A = () => {
       >
         Кликни меня!
       </L.A>
+      <L.Link href="/cypress" _class-name>
+        TEXT
+      </L.Link>
       <br />
       <br />
       <StateButtonGroup

@@ -20,6 +20,7 @@ export interface TypeEvent extends React.ChangeEvent<HTMLInputElement> {
 }
 
 export interface ResetEvent {
+  target?: undefined,
   component: {
     value: string,
     name?: string,
@@ -29,13 +30,6 @@ export interface ResetEvent {
 export interface PasswordEvaluation {
   length?: number,
   message?: string,
-}
-
-export interface PasswordEvaluationRender {
-  elementProps?: {
-    value: string,
-    length: number,
-  },
 }
 
 export interface EnterPressEvent extends React.KeyboardEvent<HTMLInputElement> {
@@ -67,6 +61,20 @@ export interface PasswordEvaluator {
   message: string,
 }
 
+export interface PasswordState {
+  evaluationMessage?: string,
+  isFocused: boolean,
+  isValid: boolean,
+  isVisible: boolean,
+  value: string,
+}
+
+export interface PasswordRefCurrent {
+  wrapper: HTMLDivElement | null,
+  input: HTMLInputElement | null,
+}
+
+
 export interface PasswordProps extends ValidationProps {
   /** Значение по умолчанию */
   defaultValue?: string,
@@ -97,25 +105,14 @@ export interface PasswordProps extends ValidationProps {
   /** Тема компонента */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.password],
   /** Значение для инпута */
-  value?: string,
+  value?: string | null,
   /** Рендер враппера */
   wrapperRender?: CustomRender<PasswordProps, PasswordState, DivProps>,
   /** Классы переданные через _ */
-  passwordEvaluationRender?: (elementProps: any) => any,
-  passwordRulesRender?: CustomRender<PasswordProps, PasswordState, React.InputHTMLAttributes<HTMLInputElement>>,
+  passwordEvaluationRender?: CustomRender<PasswordProps, PasswordState, React.HTMLAttributes<HTMLElement>>,
+  passwordRulesRender?: CustomRender<PasswordProps, PasswordState, React.HTMLAttributes<HTMLElement>>,
   passwordVisibilityRender?: CustomRender<PasswordProps, PasswordState, React.HTMLAttributes<HTMLElement>>,
   passwordEvaluator?: PasswordEvaluator[],
   minPasswordEvaluationLength?: number,
   [x: string]: unknown,
-}
-
-export interface PasswordState {
-  isFocused: boolean,
-  isValid: boolean,
-  value: string,
-}
-
-export interface PasswordRefCurrent {
-  wrapper: HTMLDivElement | null,
-  input: HTMLInputElement | null,
 }

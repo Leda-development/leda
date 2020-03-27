@@ -4,10 +4,11 @@ import {
   mergeClassNames, getClassNames, bindFunctionalRef, useTheme, useElement,
 } from '../../utils';
 import { useValidation } from '../Validation';
-import { PasswordProps, PasswordRefCurrent } from './types';
+import { PasswordProps, PasswordRefCurrent, PasswordState } from './types';
 import { Div } from '../Div';
-import { Span } from '../Span';
+import { I } from '../I';
 import * as handlers from './handlers';
+import * as helpers from './helpers';
 import * as hooks from './hooks';
 
 export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<PasswordRefCurrent>): React.ReactElement => {
@@ -53,7 +54,7 @@ export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<P
 
   const [value, setValue] = React.useState<string>(defaultValue || '');
 
-  const currentValue = valueProp ?? value;
+  const currentValue = helpers.getValue(valueProp, value);
 
   const {
     isValid, validateCurrent, InvalidMessage,
@@ -73,14 +74,14 @@ export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<P
 
   const handleKeyDown = handlers.useKeyDownHandler(props);
 
-  const handleMaskClick = () => {
+  const handleVisibleIconClick = () => {
     setIsVisible((isVisibleState) => !isVisibleState);
   };
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.password);
 
-  const state = {
-    isFocused, isVisible, evaluationMessage, value: currentValue, isValid,
+  const state: PasswordState = {
+    evaluationMessage, isFocused, isVisible, isValid, value: currentValue,
   };
 
   const Wrapper = useElement(
@@ -113,7 +114,7 @@ export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<P
 
   const PasswordRules = useElement(
     'PasswordRules',
-    Span,
+    Div,
     passwordRulesRender ?? (() => (
       <div>
         Не меньше 5 символов и со знаком препинания &mdash; нам важна ваша безопасность.
@@ -125,11 +126,11 @@ export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<P
 
   const VisibleIcon = useElement(
     'VisibleIcon',
-    'i' as unknown as React.FC<React.HTMLAttributes<HTMLElement>>,
+    I,
     passwordVisibilityRender ?? (() => (
       <i
         className={isVisible ? theme.maskIcon : theme.unmaskIcon}
-        onClick={handleMaskClick}
+        onClick={handleVisibleIconClick}
       />
     )),
     props,

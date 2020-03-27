@@ -41,3 +41,13 @@ export const evaluatePassword = (
 
   return message;
 };
+
+export const getValue = (valueProp: string | null | undefined, valueState: string): string => {
+  if (valueProp === undefined) return valueState;
+
+  if (valueProp === null) {
+    return '';
+  }
+
+  return valueProp;
+};

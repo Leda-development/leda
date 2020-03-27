@@ -32,7 +32,7 @@ const removeForm = (name: string): Types.Form | undefined => {
   return oldForm;
 };
 
-const removeFormFields = (formName: string, fieldName: string): Types.Field[] => {
+const removeFormField = (formName: string, fieldName: string): Types.Field[] => {
   const fields = getFormFields(formName);
   const fieldKeys = fields.reduce<number[]>((accumulator, field, index) => {
     if (field.name === fieldName) {
@@ -75,7 +75,7 @@ export const getFields = (formName: string, fieldNames?: string[]): Types.Field[
 };
 
 export const removeField = (formName: string, fieldName: string): Types.Field[] => {
-  const formFields = removeFormFields(formName, fieldName);
+  const formFields = removeFormField(formName, fieldName);
   formFields.forEach((field) => {
     validateField(field);
   });

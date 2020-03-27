@@ -1,3 +1,5 @@
+/* eslint-disable arrow-body-style */
+
 import {
   isFunction, isString, isRegExp,
 } from 'lodash';
@@ -5,7 +7,6 @@ import { PREDEFINED_VALIDATORS } from '../components/Validation/predefinedValida
 import * as Types from './types';
 import * as constants from './constants';
 
-// eslint-disable-next-line arrow-body-style
 export const getForms = (): Types.Form[] => {
   return window[constants.formsIdentifier as never] as never ?? [];
 };
@@ -21,6 +22,8 @@ const getForm = (name: string): Types.Form | undefined => {
   }) => name === formName);
 };
 
+const getFormFields = (name: string): Types.Field[] => getForm(name)?.fields ?? [];
+
 const removeForm = (name: string): Types.Form | undefined => {
   const oldForm = getForm(name);
   const oldForms = getForms();
@@ -29,11 +32,28 @@ const removeForm = (name: string): Types.Form | undefined => {
   return oldForm;
 };
 
-const getFormFields = (formName: string): Types.Field[] => getForm(formName)?.fields ?? [];
+const removeFormFields = (formName: string, fieldName: string): Types.Field[] => {
+  const fields = getFormFields(formName);
+  const fieldKeys = fields.reduce<number[]>((accumulator, field, index) => {
+    if (field.name === fieldName) {
+      accumulator.push(index);
+    }
+    return accumulator;
+  }, []);
+  return fieldKeys.reduce<Types.Field[]>((accumulator, key, index) => {
+    accumulator.push(...fields.splice(key - index, 1));
+    return accumulator;
+  }, []);
+};
 
-const pickField = (
-  fields: Types.Field[], fieldName: string,
-): Types.Field | undefined => fields.find((formField: Types.Field) => fieldName === formField.name);
+const validateField = (field: Types.Field) => {
+  field.setIsValid(true);
+  field.setMessages(undefined);
+};
+
+const pickField = (fields: Types.Field[], fieldName: string): Types.Field | undefined => {
+  return fields.find((formField: Types.Field) => fieldName === formField.name);
+};
 
 export const getField = (formName: string, fieldName: string): Types.Field | undefined => {
   const fields = getFormFields(formName);
@@ -55,34 +75,23 @@ export const getFields = (formName: string, fieldNames?: string[]): Types.Field[
 };
 
 export const removeField = (formName: string, fieldName: string): Types.Field[] => {
-  const fields = getFormFields(formName);
-  const fieldKeys = fields.reduce<number[]>((accumulator, field, index) => {
-    if (field.name === fieldName) {
-      accumulator.push(index);
-    }
-    return accumulator;
-  }, []);
-  const removedFields: Types.Field[] = [];
-  fieldKeys.forEach((key, index) => {
-    const removedField = fields[index];
-    removedField?.setIsValid(true);
-    removedField?.setMessages(undefined);
-    removedFields.push(removedField);
-    fields.splice(key - index, 1);
+  const formFields = removeFormFields(formName, fieldName);
+  formFields.forEach((field) => {
+    validateField(field);
   });
-  return removedFields;
+  return formFields;
 };
 
 export const removeFields = (formName: string, fieldNames?: string[]): Types.Field[] => {
-  const removedFields: Types.Field[] = [];
   if (fieldNames == null) {
-    removedFields.push(...removeForm(formName)?.fields ?? []);
-  } else {
-    fieldNames.forEach((fieldName: string) => {
-      removedFields.push(...removeField(formName, fieldName));
-    });
+    const fields = removeForm(formName)?.fields ?? [];
+    fields.forEach(validateField);
+    return fields;
   }
-  return removedFields;
+  return fieldNames.reduce<Types.Field[]>((accumulator, fieldName: string) => {
+    accumulator.push(...removeField(formName, fieldName));
+    return accumulator;
+  }, []);
 };
 
 export const unifyValidatorWrapper = (validatorWrapper: Types.ValidatorWrapper): Types.UnifiedValidatorWrapper => {

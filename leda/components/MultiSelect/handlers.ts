@@ -7,6 +7,7 @@ import {
   KeyDownData,
   MouseDownData,
   MultiSelectProps,
+  ResetEvent,
   SelectData,
   Value,
 } from './types';
@@ -246,6 +247,8 @@ export const createResetHandler = ({
       component: {
         name: props.name,
         value,
+        deselectedValues: undefined,
+        selectedValue: undefined,
       },
     };
     props.onChange(customEvent);

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  getClassNames, bindFunctionalRef, mergeClassNames, useTheme,
+  getClassNames, bindFunctionalRef, useTheme, useProps,
 } from '../../utils';
 import { createCloseButtonClickHandler, createEscapePressHandler, createOverlayClickHandler } from './handlers';
 import { useCustomElements } from './hooks';
@@ -24,7 +24,7 @@ export const ModalWindow = (props: ModalWindowProps): React.ReactElement => {
     wrapperRender,
     iconRender,
     ...restProp
-  } = mergeClassNames(props);
+  } = useProps(props);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.modal);
 
@@ -75,7 +75,7 @@ export const ModalWindow = (props: ModalWindowProps): React.ReactElement => {
           wrapper: component,
         }))}
         className={wrapperClassname}
-        onMouseDown={handleOverlayClick}
+        onClick={handleOverlayClick}
         {...restProp}
       >
         <div

@@ -1,6 +1,8 @@
 {
   "parser": "@typescript-eslint/parser",
-
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
   "rules": {
     // Максимальная длина строки с учетом пробелов, в стандарте 100
     "max-len": ["error", 250],

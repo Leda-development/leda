@@ -1,11 +1,33 @@
 /* eslint-disable arrow-body-style */
 
 import {
-  isFunction, isString, isRegExp,
+  isArray, isFunction, isRegExp, isString,
 } from 'lodash';
 import { PREDEFINED_VALIDATORS } from '../components/Validation/predefinedValidators';
 import { FORMS_IDENTIFIER } from './constants';
 import * as Types from './types';
+
+export const checkIsFilled = (value: any): boolean => {
+  if (value == null) {
+    return false;
+  }
+
+  if (isArray(value) || isString(value)) {
+    return value.length !== 0;
+  }
+
+  // DropZone
+  if (value.acceptedFiles) {
+    return value.acceptedFiles.length === 0;
+  }
+
+  // FileDrop
+  if (value.errorCode) {
+    return false;
+  }
+
+  return true;
+};
 
 export const getForms = (): Types.Form[] => {
   return window[FORMS_IDENTIFIER as never] as never ?? [];

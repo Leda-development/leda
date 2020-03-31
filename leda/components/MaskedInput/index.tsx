@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {
-  mergeClassNames, getClassNames, useTheme, bindFunctionalRef, toStringOrEmpty,
+  getClassNames, useTheme, bindFunctionalRef, toStringOrEmpty, useProps,
 } from '../../utils';
 import { Div } from '../Div';
 import { MaskedInputProps, MaskedInputRefCurrent } from './types';
@@ -39,7 +39,7 @@ export const MaskedInput = React.forwardRef((props: MaskedInputProps, ref: React
     validator,
     value: valueProp,
     ...restProps
-  } = mergeClassNames(props);
+  } = useProps(props);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.maskedInput);
 

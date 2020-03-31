@@ -5,7 +5,7 @@ import { COMPONENTS_NAMESPACES } from '../../constants';
 import { getCalendarConditions } from '../Calendar/helpers';
 import { Div } from '../../components/Div';
 import {
-  bindFunctionalRef, getClassNames, mergeClassNames, useTheme,
+  bindFunctionalRef, getClassNames, useProps, useTheme,
 } from '../../utils';
 import { Calendar } from '../Calendar';
 import { COMPONENT_TYPES } from './constants';
@@ -63,7 +63,7 @@ export const DateTimeInput = React.forwardRef((props: DateTimeInputProps, ref: R
     wrapperRender,
     yearViewRender,
     ...restProps
-  } = mergeClassNames<DateTimeInputProps>(props);
+  } = useProps(props);
 
   handleErrors(props);
 

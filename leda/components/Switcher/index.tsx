@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { isNil } from 'lodash';
 import {
-  mergeClassNames, bindFunctionalRef, getClassNames, useTheme,
+  bindFunctionalRef, getClassNames, useTheme, useProps,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { createClickHandler } from './handlers';
@@ -20,7 +20,7 @@ export const Switcher = React.forwardRef((props: SwitcherProps, ref: React.Ref<S
     theme: themeProp,
     wrapperRender,
     ...restProps
-  } = mergeClassNames<SwitcherProps>(props);
+  } = useProps(props);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.switcher);
 

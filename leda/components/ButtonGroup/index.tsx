@@ -3,7 +3,7 @@ import { isObject } from 'lodash';
 import { Div } from '../Div';
 import { Button as DefaultButton } from '../Button';
 import {
-  mergeClassNames, bindFunctionalRef, getClassNames, useTheme, useValue, useElement,
+  bindFunctionalRef, getClassNames, useTheme, useValue, useElement, useProps,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { createChangeHandler, createResetHandler } from './handlers';
@@ -38,7 +38,7 @@ export const ButtonGroup = React.forwardRef((props: ButtonGroupProps, ref?: Reac
     form,
     validator,
     ...restProps
-  } = mergeClassNames<ButtonGroupProps>(props);
+  } = useProps(props);
 
   const [value, setUncontrolledValue] = useValue(valueProp, defaultValue);
 

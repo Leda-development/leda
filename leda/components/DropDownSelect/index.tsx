@@ -3,7 +3,7 @@ import { isNil } from 'lodash';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { SuggestionList } from '../../src/SuggestionList';
 import {
-  bindFunctionalRef, mergeClassNames, useTheme,
+  bindFunctionalRef, useProps, useTheme,
 } from '../../utils';
 import { Div } from '../Div';
 import { useValidation } from '../Validation';
@@ -64,7 +64,7 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
     value: valueProp,
     wrapperRender,
     ...restProps
-  } = mergeClassNames<DropDownSelectProps>(props);
+  } = useProps(props);
 
   const [state, mergeState] = React.useReducer((oldState: DropDownSelectState, newState: Partial<DropDownSelectState>) => ({
     ...oldState, ...newState,
@@ -199,7 +199,9 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
         theme={theme}
         value={value}
       />
-      {!isDisabled && !isLoading && !isOpen && !isFocused && <InvalidMessage />}
+      {!isDisabled && !isLoading && !isOpen && !isFocused && (
+        <InvalidMessage />
+      )}
     </Wrapper>
   );
 }) as <T extends Value>(props: DropDownSelectProps<T>, ref?: React.Ref<DropDownSelectRefCurrent>) => React.ReactElement;

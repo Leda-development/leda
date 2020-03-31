@@ -79,7 +79,7 @@ import { TimePicker } from './components/TimePicker';
 import { TimeRange } from './components/TimeRange';
 import { Tooltip } from './components/Tooltip';
 import { Ul } from './components/Ul';
-import { Leda, LedaContext } from './components/LedaProvider';
+import { Leda, LedaContext, UnderscoreClasses } from './components/LedaProvider';
 import { validate } from './validators';
 import { VStepper } from './components/VStepper';
 
@@ -109,6 +109,7 @@ import * as StickyPanelTypes from './components/StickyPanel/types';
 import * as SwitcherTypes from './components/Switcher/types';
 import * as TabsTypes from './components/Tabs/types';
 import * as TagsTypes from './components/Tags/types';
+import * as TableTypes from './components/Table/types';
 import * as TextareaTypes from './components/Textarea/types';
 import * as TooltipTypes from './components/Tooltip/types';
 import * as ValidationTypes from './components/Validation/types';
@@ -153,6 +154,7 @@ export {
   StickyPanelTypes,
   SwitcherTypes,
   TabsTypes,
+  TableTypes,
   TagsTypes,
   TextareaTypes,
   TooltipTypes,
@@ -231,7 +233,7 @@ export {
   TimeRange,
   Tooltip,
   Ul,
-  Leda, LedaContext,
+  Leda, LedaContext, UnderscoreClasses,
   validate,
   VStepper,
   form,

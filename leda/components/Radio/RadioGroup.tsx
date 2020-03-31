@@ -2,7 +2,7 @@ import React from 'react';
 import { isFunction, isBoolean } from 'lodash';
 import { RadioButton } from './RadioButton';
 import {
-  bindFunctionalRef, mergeClassNames, getClassNames, useTheme, useElement,
+  bindFunctionalRef, getClassNames, useTheme, useElement, useProps,
 } from '../../utils';
 import { Div } from '../Div';
 import { COMPONENTS_NAMESPACES } from '../../constants';
@@ -19,7 +19,7 @@ export const RadioGroup = React.forwardRef((props: RadioGroupProps, ref?: React.
     value: valueProp,
     wrapperRender,
     isDisabled,
-  } = mergeClassNames(props);
+  } = useProps(props);
 
   const theme = useTheme(props.theme, COMPONENTS_NAMESPACES.radio);
 

@@ -18,7 +18,12 @@
       cursor: default;
     }
 
-    &:not(.active):hover {
+    &.disabled {
+      color: $black-04;
+      cursor: default;
+    }
+
+    &:not(.active):not(.disabled):hover {
       color: $accent-02;
     }
 

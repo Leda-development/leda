@@ -2,7 +2,7 @@ import React from 'react';
 import { NotificationItem } from './NotificationItem';
 import { Div } from '../Div';
 import {
-  mergeClassNames, useTheme, bindFunctionalRef, getClassNames,
+  useTheme, bindFunctionalRef, getClassNames, useProps,
 } from '../../utils';
 import { Item, NotificationRefCurrent, NotificationsProps } from './types';
 import { COMPONENTS_NAMESPACES } from '../../constants';
@@ -20,7 +20,7 @@ export const Notifications = React.forwardRef((
     iconRender,
     theme: themeProp,
     actionButtonRender,
-  } = mergeClassNames(props);
+  } = useProps(props);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.notifications);
 

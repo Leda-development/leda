@@ -4,7 +4,7 @@ import {
   MultiSelectComponent, MultiSelectProps, MultiSelectRefCurrent, Value,
 } from './types';
 import {
-  bindFunctionalRef, getClassNames, mergeClassNames, useElement, useTheme,
+  bindFunctionalRef, getClassNames, useElement, useProps, useTheme,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { useValidation } from '../Validation';
@@ -59,7 +59,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     value: valueProp,
     wrapperRender,
     ...restProps
-  } = mergeClassNames(props);
+  } = useProps(props);
 
   const [valueState, setValue] = React.useState<Value[]>(defaultValue || []);
 
@@ -241,7 +241,9 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
           value={value}
         />
       )}
-      {!isFocused && !isDisabled && <InvalidMessage />}
+      {!isFocused && !isDisabled && (
+        <InvalidMessage />
+      )}
     </Wrapper>
   );
 }) as MultiSelectComponent;

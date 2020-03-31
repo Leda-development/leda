@@ -10,7 +10,7 @@ import {
   Validator,
   ValidatorObject,
 } from './types';
-import { getForms as getAllForms, setForms } from '../../form/helpers';
+import { checkIsFilled, getForms as getAllForms, setForms } from '../../form/helpers';
 
 export {
   setForms,
@@ -48,10 +48,6 @@ export const getField = (formName?: string, fieldName?: string): Field | undefin
   return currentField;
 };
 
-export const requiredValidator: Validator = (value) => value !== null
-  && value !== undefined
-  && value.length !== 0;
-
 export const validate = (formName: string | undefined, fieldName?: string, externalValue?: unknown): boolean => {
   const forms: Form[] = getForms();
 
@@ -72,12 +68,15 @@ export const validate = (formName: string | undefined, fieldName?: string, exter
   let isValid = true;
 
   const value = externalValue === undefined ? currentField.value : externalValue;
-  // не проверяем валидаторы если поле обязательное и пустое
-  if (currentField.isRequired && !requiredValidator(value)) {
+
+  const isFilled = checkIsFilled(value);
+
+  // не проверяем валидаторы, если поле обязательное и не заполнено
+  if (currentField.isRequired && !isFilled) {
     isValid = false;
 
     if (currentField.requiredMessage) invalidMessages.push(currentField.requiredMessage);
-  } else if (requiredValidator(value)) {
+  } else if (isFilled) {
     currentField.validators.forEach((validator) => {
       // если валидатор имеет вид { validator, invalidMessage } - извлекаем сообщение об ошибке
       if (isObject(validator) && 'validator' in validator) {

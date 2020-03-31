@@ -45,7 +45,7 @@ export const DateRange = (): React.ReactElement => {
     console.log(date);
     setValue6(value);
   };
- 
+
   const DateRangeStyles = () => (
     <link rel="stylesheet">
       {`

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { createPanelHandlers } from './handlers';
 import { usePanelWrapper } from './helpers';
 import { CollapseContext, CollapsePanelContext } from './CollapseContext';
-import { mergeClassNames } from '../../utils';
+import { useProps } from '../../utils';
 import { PanelProps } from './types';
 
 export const Panel: React.FC<PanelProps> = (props: PanelProps): React.ReactElement => {
@@ -12,7 +12,7 @@ export const Panel: React.FC<PanelProps> = (props: PanelProps): React.ReactEleme
     className,
     name,
     isDisabled,
-  } = mergeClassNames<PanelProps>(props);
+  } = useProps(props);
 
   const [isClicked, setClicked] = React.useState(false);
 

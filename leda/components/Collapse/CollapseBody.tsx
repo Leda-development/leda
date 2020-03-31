@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  bindFunctionalRef, mergeClassNames,
+  bindFunctionalRef, useProps,
 } from '../../utils';
 import { Loader } from '../Loader';
 import { CollapsePanelContext } from './CollapseContext';
@@ -11,7 +11,7 @@ import { useCollapse } from './useCollapse';
 export const Body = React.forwardRef((props: BodyProps, ref?: React.Ref<BodyRefCurrent>): React.ReactElement => {
   const {
     onOpen, onCloseByClick, onClose, isLoading, transition, children, className,
-  } = mergeClassNames<BodyProps>(props);
+  } = useProps(props);
 
   const {
     isExpanded, isClicked, onBodyRest, panelKey,

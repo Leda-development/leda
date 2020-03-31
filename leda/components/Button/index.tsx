@@ -1,7 +1,7 @@
 import React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
-  mergeClassNames, getClassNames, bindFunctionalRef, useTheme,
+  getClassNames, bindFunctionalRef, useTheme, useProps,
 } from '../../utils';
 import { createClickHandler } from './handlers';
 import { ButtonProps, ButtonRefCurrent } from './types';
@@ -19,7 +19,7 @@ export const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<Butto
     shouldValidateUnmounted,
     theme: themeProp,
     ...restProps
-  } = mergeClassNames(props);
+  } = useProps(props);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.button);
 

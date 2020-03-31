@@ -2,8 +2,8 @@ import React from 'react';
 import 'svgxuse'; // svg support for IE
 import {
   bindFunctionalRef,
-  mergeClassNames,
   getClassNames,
+  useProps,
 } from '../../utils';
 import { extractIdAndNamespace } from './helpers';
 import { SvgProps, SvgRefCurrent } from './types';
@@ -13,7 +13,7 @@ export const Svg = React.forwardRef((props: SvgProps, ref?: React.Ref<SvgRefCurr
     className,
     noIconClass,
     ...restProps
-  } = mergeClassNames<SvgProps>(props);
+  } = useProps(props);
 
   const { id, namespace, ...wrapperProps } = extractIdAndNamespace(restProps);
 

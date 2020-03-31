@@ -1,7 +1,7 @@
 import React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
-  mergeClassNames, getClassNames, bindFunctionalRef, useTheme, useElement,
+  getClassNames, bindFunctionalRef, useTheme, useElement, useProps,
 } from '../../utils';
 import { useValidation } from '../Validation';
 import { InputProps, InputRefCurrent } from './types';
@@ -16,64 +16,60 @@ import {
 } from './handlers';
 import { getValue } from './helpers';
 
-// как валидировать инпуты: ../Validation/validation.md
-
 export const Input = React.forwardRef((props: InputProps, ref: React.Ref<InputRefCurrent>): React.ReactElement => {
   const {
-    allowedSymbols,
     className,
     defaultValue,
-    forbiddenSymbols,
     form,
     hasClearButton,
     inputRender,
-    invalidMessage,
     isDisabled,
     isRequired,
+    name,
     isValid: isValidProp,
+    theme: themeProp,
+    value: valueProp,
+    allowedSymbols,
+    forbiddenSymbols,
+    invalidMessage,
     letterCase,
     maxLength,
-    name,
-    onBlur, // exclude from restProps
+    onBlur,
     onChange,
     onEnterPress,
     onFocus,
     requiredMessage,
     shouldValidateUnmounted,
-    theme: themeProp,
     validationMessageRender,
     validator,
-    value: valueProp,
     wrapperRender,
     invalidMessageRender,
     ...restProps
-  } = mergeClassNames<InputProps>(props);
+  } = useProps(props);
 
-  const [value, setValue] = React.useState<string>(defaultValue || '');
+  const [isFocused, setFocused] = React.useState(false);
+
+  const [valueState, setValue] = React.useState(defaultValue || '');
+
+  const value = getValue(valueProp, valueState);
 
   const {
     isValid, validateCurrent, InvalidMessage,
   } = useValidation(props, {
     value,
   }, {
-    reset: createResetHandler({
-      props, setValue, value: defaultValue || '',
-    }),
+    reset: createResetHandler(props, setValue),
   });
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.input);
 
-  const [isFocused, setFocused] = React.useState(false);
+  const handleBlur = createBlurHandler(props, setFocused, validateCurrent);
 
-  const state = { value, isFocused, isValid };
+  const handleChange = createChangeHandler(props, setValue);
 
-  const handleBlur = createBlurHandler(props, state, setFocused, validateCurrent);
+  const handleFocus = createFocusHandler(props, isValid, setFocused);
 
-  const handleChange = createChangeHandler(props, state, setValue);
-
-  const handleFocus = createFocusHandler(props, state, setFocused);
-
-  const handleClearValue = createClearHandler(props, state, setValue);
+  const handleClearValue = createClearHandler(props, setValue);
 
   const handleKeyDown = createKeyDownHandler(props);
 
@@ -91,8 +87,11 @@ export const Input = React.forwardRef((props: InputProps, ref: React.Ref<InputRe
     },
   );
 
-  // todo: fix hasClearButton in controlled mode
-  const shouldRenderClearButton = value && value.length > 0 && hasClearButton;
+  const shouldRenderClearButton = hasClearButton && value.length > 0;
+
+  const state = {
+    value, isFocused, isValid,
+  };
 
   const Wrapper = useElement(
     'Wrapper',
@@ -133,7 +132,7 @@ export const Input = React.forwardRef((props: InputProps, ref: React.Ref<InputRe
           onChange={handleChange}
           onFocus={handleFocus}
           onKeyDown={handleKeyDown}
-          value={getValue(valueProp, value)}
+          value={value}
         />
         {
           shouldRenderClearButton && (
@@ -144,7 +143,9 @@ export const Input = React.forwardRef((props: InputProps, ref: React.Ref<InputRe
           )
         }
       </Div>
-      {!isFocused && !isDisabled && <InvalidMessage />}
+      {!isFocused && !isDisabled && (
+        <InvalidMessage />
+      )}
     </Wrapper>
   );
 }) as React.FC<InputProps>;

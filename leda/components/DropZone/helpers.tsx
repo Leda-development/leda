@@ -2,7 +2,6 @@ import * as React from 'react';
 import accept from 'attr-accept';
 import { isString } from 'lodash';
 import { ERROR_MESSAGES, MAX_FILE_SIZE, MIN_FILE_SIZE } from '../../constants';
-import { mergeClassNames } from '../../utils';
 import { Div } from '../Div';
 import {
   DropZoneError, DropZoneFileType, DropZoneProps, DropZoneState, FileType, ExternalFile,
@@ -119,38 +118,12 @@ export const checkFiles = (
   return [acceptedFiles, rejectedFiles];
 };
 
-export const getRestProps = (props: DropZoneProps): {} => {
-  const {
-    acceptedFilesRender,
-    allowedFiles,
-    className,
-    dropZoneFilesNode, // не должно попасть в restProps
-    forbiddenFiles,
-    infoRender,
-    maxFileNameLength, // не должно попасть в restProps
-    maxFileSize, // не должно попасть в restProps
-    maxFilesNumber,
-    minFileSize, // не должно попасть в restProps
-    onDrop, // не должно попасть в restProps
-    onRemove, // не должно попасть в restProps
-    onChange,
-    rejectedFilesRender,
-    theme: themeProp,
-    uploadButtonRender,
-    value,
-    isDisabled,
-    ...restProps
-  } = mergeClassNames(props);
-
-  return restProps;
-};
-
 export const DescriptionMessage = (props: { children: string }): React.ReactElement => {
   const { children: message } = props;
 
   const shouldWrapMessage = isString(message) && message.length;
 
-  return (shouldWrapMessage ? <Div _blockInline>{message}</Div> : message) as React.ReactElement;
+  return (shouldWrapMessage ? <Div _block-inline>{message}</Div> : message) as React.ReactElement;
 };
 
 const getError = (file: DropZoneFileType | ExternalFile): DropZoneError => (ERROR_MESSAGES.find(

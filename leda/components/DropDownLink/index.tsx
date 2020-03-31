@@ -1,7 +1,7 @@
 import React from 'react';
 import { isEqual, isFunction, isObject } from 'lodash';
 import {
-  mergeClassNames, bindFunctionalRef, useTheme, useElement, useAdaptivePosition,
+  bindFunctionalRef, useTheme, useElement, useAdaptivePosition, useProps,
 } from '../../utils';
 import { A } from '../A';
 import { DropDown } from '../DropDown';
@@ -26,7 +26,7 @@ export const DropDownLink = React.forwardRef((props: DropDownLinkProps, ref?: Re
     value = '',
     isOpen: isOpenProp,
     ...restProps
-  } = mergeClassNames(props);
+  } = useProps(props);
 
   const Title = useElement<DropDownLinkProps, {}, TitleProps>(
     'Title',

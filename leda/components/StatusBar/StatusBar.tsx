@@ -5,7 +5,7 @@ import {
   getStepPosition, getDataType,
 } from './helpers';
 import {
-  bindFunctionalRef, getClassNames, mergeClassNames, useTheme,
+  bindFunctionalRef, getClassNames, useProps, useTheme,
 } from '../../utils';
 import { StatusBarProps, StatusBarRefCurrent, StatusItem } from './types';
 import { COMPONENTS_NAMESPACES } from '../../constants';
@@ -27,7 +27,7 @@ export const StatusBar = React.forwardRef((props: StatusBarProps, ref?: React.Re
     onClick,
     currentStepProgress,
     ...restProps
-  } = mergeClassNames<StatusBarProps>(props);
+  } = useProps(props);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.statusBar);
 

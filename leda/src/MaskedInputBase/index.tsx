@@ -1,7 +1,7 @@
 import React from 'react';
 import { isFunction, isObject } from 'lodash';
 import { MaskedInputBaseProps } from './types';
-import { mergeClassNames } from '../../utils';
+import { useProps } from '../../utils';
 import {
   createBlurHandler,
   createChangeHandler,
@@ -28,7 +28,7 @@ export const MaskedInputBase = React.forwardRef((props: MaskedInputBaseProps, re
     onKeyDown,
     onMouseDown,
     ...restProps
-  } = mergeClassNames(props);
+  } = useProps(props);
 
   const [isFocused, setFocused] = React.useState<boolean>(false);
 
@@ -52,6 +52,9 @@ export const MaskedInputBase = React.forwardRef((props: MaskedInputBaseProps, re
   });
 
   const handleBlur = createBlurHandler(props, {
+    inputValue,
+    mask,
+    placeholderChar,
     setFocused,
     setInputValue,
   });

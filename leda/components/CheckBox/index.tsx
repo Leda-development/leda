@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {
-  bindFunctionalRef, mergeClassNames, getClassNames, useTheme, useElement, generateId, useValue,
+  bindFunctionalRef, getClassNames, useTheme, useElement, generateId, useValue, useProps,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { Span } from '../Span';
@@ -22,7 +22,7 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
     value: valueProp,
     wrapperRender,
     ...restProps
-  } = mergeClassNames<CheckBoxProps>(props);
+  } = useProps(props);
 
   const theme = useTheme(props.theme, COMPONENTS_NAMESPACES.checkBox);
 

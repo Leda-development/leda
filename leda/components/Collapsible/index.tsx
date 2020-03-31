@@ -1,7 +1,7 @@
 import 'element-closest/browser';
 import * as React from 'react';
 import { isFunction } from 'lodash';
-import { bindFunctionalRef, mergeClassNames } from '../../utils';
+import { bindFunctionalRef, useProps } from '../../utils';
 import { DEFAULT_TRANSITION } from './contants';
 import { generateTransitionProperty } from './helpers';
 import { CollapsibleProps, CollapsibleRefCurrent } from './types';
@@ -17,7 +17,7 @@ export const Collapsible = React.forwardRef((props: CollapsibleProps, ref: React
     onOpen,
     onToggle,
     transition = DEFAULT_TRANSITION,
-  } = mergeClassNames<CollapsibleProps>(props);
+  } = useProps(props);
 
   const onRest = (): void => {
     if (isOpen && isFunction(onOpen)) {

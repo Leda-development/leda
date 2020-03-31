@@ -5,7 +5,7 @@ import {
 import { A as LedaLink } from '../A';
 import { Li } from '../Li';
 import {
-  bindFunctionalRef, mergeClassNames, getClassNames, useElement,
+  bindFunctionalRef, getClassNames, useElement, useProps,
 } from '../../utils';
 import { getLocationPath } from './helpers';
 import { NavLinkProps, NavLinkRefCurrent } from './types';
@@ -25,7 +25,7 @@ export const NavLink = React.forwardRef((props: NavLinkProps, ref?: React.Ref<Na
     location = getLocationPath(),
     target,
     href,
-  } = mergeClassNames(props);
+  } = useProps(props);
 
   // Regex taken from: https://github.com/pillarjs/path-to-regexp/blob/master/index.js#L202
   const path = href && href.replace(/([.+*?=^!:${}()[\]|/\\])/g, '\\$1');
@@ -66,7 +66,7 @@ export const NavLink = React.forwardRef((props: NavLinkProps, ref?: React.Ref<Na
 
         return (
           <Li
-            _level1
+            _level-1
             _dropdown={!!dropDownRender}
             className={listItemClassNames}
             ref={ref && ((component) => bindFunctionalRef(component, ref, component && {

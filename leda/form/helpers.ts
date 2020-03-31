@@ -4,15 +4,15 @@ import {
   isFunction, isString, isRegExp,
 } from 'lodash';
 import { PREDEFINED_VALIDATORS } from '../components/Validation/predefinedValidators';
+import { FORMS_IDENTIFIER } from './constants';
 import * as Types from './types';
-import * as constants from './constants';
 
 export const getForms = (): Types.Form[] => {
-  return window[constants.formsIdentifier as never] as never ?? [];
+  return window[FORMS_IDENTIFIER as never] as never ?? [];
 };
 
 export const setForms = (forms: Types.Form[]): void => {
-  window[constants.formsIdentifier as never] = forms as never;
+  window[FORMS_IDENTIFIER as never] = forms as never;
 };
 
 const getForm = (name: string): Types.Form | undefined => {

@@ -10,14 +10,14 @@ import {
   Validator,
   ValidatorObject,
 } from './types';
-import { getForms as getRawForms, setForms } from '../../form/helpers';
+import { getForms as getAllForms, setForms } from '../../form/helpers';
 
 export {
   setForms,
 };
 
 export const getForms = (formName?: string | string[]): Form[] => {
-  const forms = getRawForms();
+  const forms = getAllForms();
 
   if (isString(formName)) {
     const form = forms.find((currentForm: Form) => currentForm.name === formName);

@@ -4,11 +4,9 @@ import { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTh
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { ValidationProps } from '../Validation/types';
 
+export { FileErrorCodes } from '../../constants';
+
 export interface FileType extends File {
-  /** Код ошибки, подробнее можно посмотреть в leda/constants.ts */
-  errorCode?: number,
-  /** Сообщение об ошибке */
-  errorMessage?: string,
   /** Дата последнего изменения */
   lastModified: number,
   /** Ссылка на скачивание файла. При наличии, файл будет отображен в списке, как скачиваемый */
@@ -23,16 +21,21 @@ export interface FileType extends File {
   type: string,
 }
 
-export interface ChangeEvent {
-  component: {
-    value: FileType | null,
-  },
+export interface FileDropInnerError {
+  /** Код ошибки, подробнее можно посмотреть в leda/constants.ts */
+  errorCode: number,
+  /** Сообщение об ошибке */
+  errorMessage: string,
 }
 
-export interface LoadingData {
-  error?: Error | null,
-  loaded: number,
-  total: number,
+export type FileDropExternalError = Error | string | null;
+
+export interface ChangeEvent {
+  component: {
+    error?: FileDropInnerError | null,
+    name?: string,
+    value: FileType | null,
+  },
 }
 
 export interface FileDropProps extends ValidationProps {
@@ -40,16 +43,18 @@ export interface FileDropProps extends ValidationProps {
   allowedFiles?: string,
   /** Классы, применяемые к компоненту */
   className?: string,
-  /** Список загруженных файлов */
-  value: FileType | null,
+  /** Ошибка загрузки файла */
+  error: FileDropExternalError | FileDropInnerError,
   /** Запрещенные типы файлов. см. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#Attributes. Передача нескольких типов файлов происходит через запятую (.png, image/jpeg). allowedFiles и forbiddenFiles вместе не могут находиться. */
   forbiddenFiles?: string,
   /** Кастомизация описания компонента */
   infoRender?: CustomRender<FileDropProps, {}, InfoProps>,
   /** Признак отключения дропзоны */
   isDisabled?: boolean,
-  /** Данные о загрузке, используется для отображения прогресса, чтобы получить эти данные используйте XMLHTTPRequest */
-  loadingData?: LoadingData | null,
+  /** Состояние загрузки */
+  isLoading?: boolean,
+  /** Прогресс загрузки, число от 1 до 100 */
+  loadingProgress?: number,
   /* Максимальная длина имени файла, по-умолчанию 255 символов */
   maxFileNameLength?: number,
   /** Максимальный размер файла, в байтах */
@@ -66,6 +71,8 @@ export interface FileDropProps extends ValidationProps {
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.fileDrop],
   /** Текст кнопки загрузки файла, может принимать JSX */
   uploadButtonRender?: CustomRender<FileDropProps, {}, UploadButtonProps>,
+  /** Загруженный файл */
+  value: FileType | null,
   /** Кастомизация враппера */
   wrapperRender?: CustomRender<FileDropProps, {}, WrapperProps>,
   /** Классы переданные через _ */
@@ -96,11 +103,6 @@ export interface CustomElements {
   Wrapper: React.FC<WrapperProps>,
 }
 
-export interface FileDropError {
-  message: string,
-  errorCode: number,
-}
-
 export interface ChangeEventHandler {
   (
     accepted: FileType[],
@@ -116,14 +118,13 @@ export interface FileDropRefCurrent {
 }
 
 export interface ProgressLoaderProps {
-  loadingData?: LoadingData | null,
-  isLoading: boolean,
+  loadingProgress?: number,
+  isLoading?: boolean,
   theme: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.fileDrop],
 }
 
 export interface SingleFileViewProps extends FileDropProps {
   theme: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.fileDrop],
-  value: FileDropProps['value'],
   UploadButton: React.FC<UploadButtonProps>,
   Info: React.FC<InfoProps>,
   handleRetry: CustomEventHandler<React.MouseEvent<HTMLElement>>,

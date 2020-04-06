@@ -14,6 +14,12 @@ export const Basic = (anyProps: any) => {
         form="form1"
         name="pattern-case"
         placeholder="type password"
+        hasClearButton
+        passwordRulesRender={({
+          Element, elementProps,
+        }) =>  (
+          <Element {...elementProps} _txtDanger />
+        )}
         value={value}
         onChange={(event) => {
           setValue(event.component.value);

@@ -7,6 +7,7 @@ import { SuggestionList } from '../../src/SuggestionList';
 import {
   bindFunctionalRef,
   getClassNames,
+  useElement,
   useProps,
   useTheme,
 } from '../../utils';
@@ -30,6 +31,7 @@ import {
   AutoCompleteProps, AutoCompleteRefCurrent, Suggestion,
 } from './types';
 import { useValidation } from '../Validation';
+import { LedaContext } from '../LedaProvider';
 
 export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: React.Ref<AutoCompleteRefCurrent>): React.ReactElement | null => {
   const {
@@ -42,6 +44,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     groupBy,
     hasClearButton,
     headerRender,
+    inputRender,
     invalidMessage,
     invalidMessageRender,
     isDisabled,
@@ -82,6 +85,15 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
   const [selectedSuggestion, setSelectedSuggestion] = React.useState<Suggestion>(null);
   const [highlightedSuggestion, setHighlightedSuggestion] = React.useState<Suggestion>(null);
   const [lastCorrectValue, setLastCorrectValue] = React.useState('');
+
+  const autoCompleteState = React.useMemo(() => ({
+    highlightedSuggestion,
+    isFocused,
+    lastCorrectValue,
+    selectedSuggestion,
+    stateValue,
+  }), [highlightedSuggestion, isFocused, lastCorrectValue, selectedSuggestion, stateValue]);
+
 
   const {
     isValid, validateCurrent, InvalidMessage,
@@ -166,6 +178,16 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     },
   );
 
+  const { renders: { [COMPONENTS_NAMESPACES.autoComplete]: autoCompleteRenders } } = React.useContext(LedaContext);
+
+  const InputElement = useElement(
+    'Input',
+    'input' as unknown as React.FC<React.InputHTMLAttributes<HTMLInputElement>>,
+    inputRender ?? autoCompleteRenders.inputRender,
+    props,
+    autoCompleteState,
+  );
+
   return (
     <Div
       className={wrapperClassNames}
@@ -175,7 +197,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
       }))}
     >
       <Div className={inputWrapperClassNames}>
-        <input
+        <InputElement
           {...restProps}
           aria-invalid={!isValid}
           aria-required={isRequired}

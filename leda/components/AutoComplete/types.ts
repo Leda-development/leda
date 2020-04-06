@@ -118,6 +118,8 @@ export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends Va
   isOpen?: boolean,
   /** Кастомизация внешнего вида элемента выпадающего списка. */
   itemRender?: CustomRender<SuggestionItemProps, {}, LiProps>,
+  /** Кастомизация внешнего вида выпадающего списка. */
+  inputRender?: CustomRender<AutoCompleteProps, AutoCompleteState, InputElementProps>,
   /** Обязательное поле или нет */
   isRequired?: boolean,
   /** Кастомизация внешнего вида выпадающего списка. */
@@ -154,6 +156,14 @@ export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends Va
   [x: string]: unknown,
 }
 
+export interface AutoCompleteState {
+  highlightedSuggestion: Suggestion,
+  isFocused: boolean,
+  lastCorrectValue: string,
+  selectedSuggestion: Suggestion,
+  stateValue: string,
+}
+
 export interface SuggestionsVal {
   data: Suggestion[],
   textField?: string,
@@ -168,4 +178,8 @@ export interface SuggestionsVal {
 export interface AutoCompleteRefCurrent {
   wrapper: HTMLElement | null,
   input: HTMLInputElement | null,
+}
+
+export interface InputElementProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  ref: React.Ref<HTMLInputElement | null>,
 }

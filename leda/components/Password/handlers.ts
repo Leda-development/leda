@@ -12,18 +12,14 @@ export const useBlurHandler = (
 
   const isValid = validate();
 
-  if (props.onBlur) {
-    const newEvent = {
-      ...event,
-      component: {
-        name: props.name,
-        value: event.target.value,
-        isValid,
-      },
-    };
-
-    props.onBlur(newEvent);
-  }
+  props.onBlur?.({
+    ...event,
+    component: {
+      name: props.name,
+      value: event.target.value,
+      isValid,
+    },
+  });
 }, [props, setFocused, validate]);
 
 export const useChangeHandler = (
@@ -43,17 +39,13 @@ export const useChangeHandler = (
     setValue(event.target.value);
   }
 
-  if (props.onChange) {
-    const newEvent = {
-      ...event,
-      component: {
-        name: props.name,
-        value: event.target.value,
-      },
-    };
-
-    props.onChange(newEvent);
-  }
+  props.onChange?.({
+    ...event,
+    component: {
+      name: props.name,
+      value: event.target.value,
+    },
+  });
 }, [props, setEvaluationMessage, setValue]);
 
 export const useFocusHandler = (
@@ -63,33 +55,27 @@ export const useFocusHandler = (
 ): React.FocusEventHandler<HTMLInputElement> => React.useCallback((event) => {
   setFocused(true);
 
-  if (props.onFocus) {
-    const newEvent = {
-      ...event,
-      component: {
-        name: props.name,
-        value: event.target.value,
-        isValid,
-      },
-    };
-
-    props.onFocus(newEvent);
-  }
+  props.onFocus?.({
+    ...event,
+    component: {
+      name: props.name,
+      value: event.target.value,
+      isValid,
+    },
+  });
 }, [props, setFocused, isValid]);
 
 export const useKeyDownHandler = (
   props: PasswordProps,
 ): React.KeyboardEventHandler<HTMLInputElement> => React.useCallback((event) => {
-  if (props.onEnterPress && event.key === 'Enter') {
-    const newEvent = {
+  if (event.key === 'Enter') {
+    props.onEnterPress?.({
       ...event,
       component: {
         name: props.name,
         value: event.currentTarget.value,
       },
-    };
-
-    props.onEnterPress(newEvent);
+    });
   }
 }, [props]);
 
@@ -103,15 +89,11 @@ export const useMouseDownHandler = (
     setValue('');
   }
 
-  if (props.onChange) {
-    const newEvent = {
-      ...event,
-      component: {
-        name: props.name,
-        value: '',
-      },
-    };
-
-    props.onChange(newEvent);
-  }
+  props.onChange?.({
+    ...event,
+    component: {
+      name: props.name,
+      value: '',
+    },
+  });
 }, [props, setValue]);

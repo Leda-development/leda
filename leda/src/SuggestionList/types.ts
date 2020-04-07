@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { CustomRender, CustomEventHandler, SomeObject } from '../../commonTypes';
+import {
+  CustomRender, CustomEventHandler, SomeObject, CommonRefCurrent,
+} from '../../commonTypes';
 import { DivProps } from '../../components/Div';
 import { LiProps } from '../../components/Li';
 import { UlProps } from '../../components/Ul';
@@ -22,10 +24,10 @@ export interface SuggestionListProps {
   groupLabelRender?: CustomRender<{}, {}, LiProps>,
   groupWrapperRender?: CustomRender<{}, {}, DivProps>,
   highlightedSuggestion?: Value,
-  selectedSuggestion?: Value,
+  selectedSuggestion?: Value | Value[],
   isLoading?: boolean,
   isOpen: boolean,
-  itemRender?: CustomRender<SuggestionItemProps, {}, LiProps>,
+  itemRender?: CustomRender<SuggestionItemProps, {}, SuggestionElementProps>,
   listRender?: CustomRender<SuggestionListProps, {}, UlProps>,
   noSuggestionsRender?: CustomRender<SuggestionListProps, {}, NoSuggestionsProps>,
   onClick?: CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget>,
@@ -36,13 +38,19 @@ export interface SuggestionListProps {
   value: string | number | SomeObject | null | (string[] | number[] | SomeObject[]),
 }
 
+export interface SuggestionElementProps {
+  className?: string,
+  onClick?: CustomEventHandler<any>,
+  ref?: React.Ref<any>,
+}
+
 export interface SuggestionItemProps {
   isScrollTarget: boolean,
   isPlaceholder: boolean,
   isHighlighted?: boolean,
   isSelected?: boolean,
   item: string | number | SomeObject | null,
-  itemRender?: CustomRender<SuggestionItemProps, {}, LiProps>,
+  itemRender?: CustomRender<SuggestionItemProps, {}, SuggestionElementProps>,
   onClick?: CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget>,
   suggestionRef: React.MutableRefObject<HTMLElement | null>,
   text: string | number,
@@ -63,7 +71,7 @@ export interface GetSuggestionItemProps {
   compareObjectsBy?: ((suggestionListItem: SomeObject) => any) | string,
   highlightedSuggestion?: Value,
   placeholder?: string,
-  selectedSuggestion?: Value,
+  selectedSuggestion?: Value | Value[],
   suggestion: Value,
   textField?: string,
 }

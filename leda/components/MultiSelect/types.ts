@@ -9,7 +9,6 @@ import { FilterRules } from '../DropDownSelect/types';
 import { SuggestionItemComputedProps, SuggestionListProps, SuggestionTarget } from '../../src/SuggestionList/types';
 import { DivProps } from '../Div';
 import { TagProps } from '../Tags/types';
-import { defaultMultiSelectTheme } from './theme';
 
 export type Value = SomeObject | string | number | null;
 
@@ -95,6 +94,8 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   groupBy?: (option: Value) => string | undefined,
   /** Кнопка очистки данных в инпуте. Появляется только в непустом инпуте. */
   hasClearButton?: boolean,
+  /** Кастомный рендер инпута */
+  inputRender?: CustomRender<MultiSelectProps, MultiSelectState, React.InputHTMLAttributes<HTMLInputElement> & { ref?: React.Ref<HTMLInputElement | null>}>,
   /** Выключенное состояние инпута */
   isDisabled?: boolean,
   /** Состояние загрузки лоадера - вместо списка в момент загрузки будет отображаться лоадер */
@@ -129,20 +130,18 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   shouldSelectedGoFirst?: boolean,
   /** Сортировка выпадающего списка */
   sortSuggestions?: (a: SuggestionItemComputedProps, b: SuggestionItemComputedProps) => number,
+  /** Кастомный рендер тегов */
+  tagRender?: CustomRender<MultiSelectProps, MultiSelectState, TagProps>,
+  /** Кастомное сообщение об объединённых тегах */
+  tagsUnionRender?: CustomRender<MultiSelectProps, MultiSelectState, DivProps>,
   /** Имя поля объекта, данные из которого будут рендериться в качестве элементов списка */
   textField?: T extends object ? string : never,
   /** Тема */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.multiSelect],
   /** Устанавливает значение в инпуте (будет отображенио в виде выбранных тегов) */
   value?: T,
-  /** Кастомный рендер тегов */
-  tagRender?: CustomRender<MultiSelectProps, MultiSelectState, TagProps>,
-  /** Кастомное сообщение об объединённых тегах */
-  tagsUnionRender?: CustomRender<MultiSelectProps, MultiSelectState, DivProps>,
   /** Кастомный рендер враппера */
   wrapperRender?: CustomRender<MultiSelectProps, MultiSelectState, DivProps>,
-  /** Кастомный рендер инпута */
-  inputRender?: CustomRender<MultiSelectProps, MultiSelectState, React.InputHTMLAttributes<HTMLInputElement> & { ref?: React.Ref<HTMLInputElement | null>}>,
   /** Классы переданные через _ */
   [x: string]: unknown,
 }

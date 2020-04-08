@@ -9,6 +9,7 @@ import { FilterRules } from '../DropDownSelect/types';
 import { SuggestionItemComputedProps, SuggestionListProps, SuggestionTarget } from '../../src/SuggestionList/types';
 import { DivProps } from '../Div';
 import { TagProps } from '../Tags/types';
+import { defaultMultiSelectTheme } from './theme';
 
 export type Value = SomeObject | string | number | null;
 
@@ -106,6 +107,8 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   listRender?: SuggestionListProps['listRender'],
   /** Ограничение на количество выбранных элементов. После достижения лимита выпадающее окно перестает появляться */
   maxSelected?: number,
+  /** Количество тегов, после которого они будут объединены в один "выбрано n значений" */
+  maxTags?: number,
   /** Имя компонента */
   name?: string,
   /** Атрибут рендера выпадающего списка, если в data нет значений, равных содержимому инпута. Принимает JSX */
@@ -136,6 +139,8 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   value?: T,
   /** Кастомный рендер тегов */
   tagRender?: CustomRender<MultiSelectProps, MultiSelectState, TagProps>,
+  /** Кастомное сообщение об объединённых тегах */
+  tagsUnionRender?: CustomRender<MultiSelectProps, MultiSelectState, DivProps>,
   /** Кастомный рендер враппера */
   wrapperRender?: CustomRender<MultiSelectProps, MultiSelectState, DivProps>,
   /** Кастомный рендер инпута */

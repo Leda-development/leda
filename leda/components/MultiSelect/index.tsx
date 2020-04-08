@@ -21,7 +21,7 @@ import { TagsContainer } from './TagsContainer';
 import { Div } from '../Div';
 import { LedaContext } from '../LedaProvider';
 import { Tag } from '../Tags';
-import { filterData, getValue } from './helpers';
+import { filterData, getShouldUniteTags, getValue } from './helpers';
 
 export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React.Ref<MultiSelectRefCurrent>): React.ReactElement => {
   const {
@@ -56,8 +56,10 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     shouldSelectedGoFirst,
     sortSuggestions,
     tagRender,
+    tagsUnionRender,
     textField,
     theme: themeProp,
+    maxTags,
     validator,
     value: valueProp,
     wrapperRender,
@@ -165,6 +167,14 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     state,
   );
 
+  const TagsUnionElement = useElement(
+    'TagUnion',
+    Div,
+    tagsUnionRender || multiSelectRenders.tagsUnionRender,
+    props,
+    state,
+  );
+
   const filteredData = filterData({
     compareObjectsBy,
     data,
@@ -179,6 +189,8 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
 
   const selectedSuggestions = shouldKeepSuggestions ? value : undefined;
 
+  const shouldUniteTags = getShouldUniteTags({ maxTags, value });
+
   return (
     <Wrapper
       className={wrapperClassNames}
@@ -191,17 +203,24 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
         className={inputWrapperClassNames}
         onMouseDown={handleMouseDown}
       >
-        <TagsContainer
-          value={value}
-          theme={theme}
-          onTagClick={handleSelect}
-          onClearIconClick={handleClear}
-          onMouseDown={handleMouseDown}
-          textField={textField}
-          hasClearButton={hasClearButton}
-        >
-          <TagItem />
-        </TagsContainer>
+        {shouldUniteTags && (
+          <TagsUnionElement className={theme.tagsUnion}>
+            Выбрано {value.length}
+          </TagsUnionElement>
+        )}
+        {!shouldUniteTags && (
+          <TagsContainer
+            value={value}
+            theme={theme}
+            onTagClick={handleSelect}
+            onClearIconClick={handleClear}
+            onMouseDown={handleMouseDown}
+            textField={textField}
+            hasClearButton={hasClearButton}
+          >
+            <TagItem />
+          </TagsContainer>
+        )}
         <Input
           {...restProps}
           className={theme.input}

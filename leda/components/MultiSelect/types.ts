@@ -117,8 +117,6 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   onBlur?: (event: FocusEvent) => void,
   /** Обработчик изменения данных в инпуте */
   onChange?: (event: ChangeEvent) => void,
-  /** Обработчик нажатия Enter */
-  onEnterPress?: (event: EnterPressEvent) => void,
   /** Обработчик фокуса элемента */
   onFocus?: (event: FocusEvent) => void,
   /** Плейсхолдер инпута */

@@ -53,6 +53,8 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     requiredMessage,
     shouldValidateUnmounted,
     shouldKeepSuggestions,
+    shouldSelectedGoFirst,
+    sortSuggestions,
     tagRender,
     textField,
     theme: themeProp,
@@ -235,12 +237,14 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
           highlightedSuggestion={highlightedSuggestion}
           isLoading={isLoading}
           isOpen={isNil(isOpen) ? isFocused : isOpen}
-          onClick={handleSelect}
           itemRender={itemRender}
           listRender={listRender}
           noSuggestionsRender={noSuggestionsRender}
+          onClick={handleSelect}
           selectedSuggestion={selectedSuggestions}
           shouldAllowEmpty={false}
+          shouldSelectedGoFirst={shouldSelectedGoFirst}
+          sortSuggestions={sortSuggestions}
           textField={textField}
           theme={theme}
           value={value}

@@ -29,15 +29,22 @@ export const BasicUsage = (props: { title: string }) => {
       <L.H6>Валидация при blur и по кнопке</L.H6>
       <L.Input
         form="personal-data"
+        name="name1"
+        isRequired
+        onChange={(ev) => setValue(ev.component.value)}
+      />
+      <br />
+      <br />
+      <L.Input
+        form="personal-data"
         name="name"
         isRequired
         onChange={(ev) => setValue(ev.component.value)}
-        value={value}
       />
       <br />
       <br />
       <L.Button
-        form="personal-data"
+        form={['personal-data', 'personal-data1']}
         scrollOffset={64}
         shouldScrollToInvalidFields
         _warning

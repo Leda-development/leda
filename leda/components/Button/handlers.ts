@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { isFunction } from 'lodash';
+import { isFunction, intersection } from 'lodash';
 import { getForms, validate } from '../Validation';
 import { ButtonProps } from './types';
 import { fromFormArraytoFormObject } from './helpers';
@@ -15,14 +15,16 @@ export const createClickHandler = (props: ButtonProps) => (ev: React.MouseEvent<
   // если кнопка участвует в валидации форм
   if (formProp) {
     const buttonFormNames = Array.isArray(formProp) ? formProp : [formProp];
+    const formNames = getForms().map((form) => form.name);
+    const validButtonFormNames = intersection(formNames, buttonFormNames);
 
-    const isEachFormValid = buttonFormNames
+    const isEachFormValid = validButtonFormNames
       .map((currentForm) => validate(currentForm)) // validate all forms
       .every((item) => item); // tell me if all of them are valid
 
     if (!isEachFormValid) {
       const invalidForms = getForms()
-        .filter((currentForm) => buttonFormNames.includes(currentForm.name))
+        .filter((currentForm) => validButtonFormNames.includes(currentForm.name))
         .filter((currentForm) => currentForm.fields.some((field) => !field.isValid));
 
       if (isFunction(onValidationFail)) {

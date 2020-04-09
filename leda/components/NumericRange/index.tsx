@@ -112,7 +112,7 @@ export const NumericRange = React.forwardRef((props: NumericRangeProps, ref?: Re
       />
       <Span className={theme.delimiter}>&mdash;</Span>
       <NumericTextBox
-        inputRender={Array.isArray(inputsRender) ? inputsRender[0] : undefined}
+        inputRender={Array.isArray(inputsRender) ? inputsRender[1] : undefined}
         isDisabled={disabled[1]}
         isRequired={required[1]}
         max={max}

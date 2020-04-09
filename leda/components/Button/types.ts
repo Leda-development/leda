@@ -22,12 +22,14 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement>, Va
   /** Применяется к кнопке. Обработчик, который срабатывает, если есть невалидные поля,
    * если срабатывает onValidationFail, то onClick на кнопке не сработает */
   onValidationFail?: (ev: ValidationFailEvent) => void,
+  /** Реф */
+  ref?: React.Ref<ButtonRefCurrent>,
+  /** Если передано false, компонент не будет рендериться */
+  shouldRender?: boolean,
   /** Прокрутка к невалидным полям при нажатии на кнопку */
   shouldScrollToInvalidFields?: boolean,
   /** Дополнительный сдвиг в px при скролинге к кнопке */
   scrollOffset?: number,
-  /** Реф */
-  ref?: React.Ref<ButtonRefCurrent>,
   /** Тема компонета */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.button],
   /** Тип кнопки */

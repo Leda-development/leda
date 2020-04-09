@@ -7,7 +7,7 @@ import { createClickHandler } from './handlers';
 import { ButtonProps, ButtonRefCurrent } from './types';
 
 // как настраивать кнопку для валидации ввода: ../Validation/validation.md
-export const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<ButtonRefCurrent>): React.ReactElement => {
+export const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<ButtonRefCurrent>): React.ReactElement | null => {
   const {
     children,
     className,
@@ -16,6 +16,7 @@ export const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<Butto
     form,
     onValidationFail,
     scrollOffset,
+    shouldRender,
     shouldScrollToInvalidFields,
     shouldValidateUnmounted,
     theme: themeProp,
@@ -23,6 +24,8 @@ export const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<Butto
   } = useProps(props);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.button);
+
+  if (shouldRender === false) return null;
 
   const { disabled, loading, wrapper } = theme;
 

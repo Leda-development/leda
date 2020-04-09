@@ -41,6 +41,7 @@ import {
 import { I } from './components/I';
 import { Img } from './components/Img';
 import { Input } from './components/Input';
+import { Label } from './components/Label';
 import { Li } from './components/Li';
 import { Loader } from './components/Loader';
 import { Main } from './components/Main';
@@ -203,6 +204,7 @@ export {
   I,
   Img,
   Input,
+  Label,
   Li,
   Loader,
   Main,

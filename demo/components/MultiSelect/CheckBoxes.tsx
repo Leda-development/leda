@@ -25,7 +25,6 @@ export const CheckBoxes = (args): React.ReactElement => {
         sortSuggestions={(a, b) => a.text > b.text ? 1 : -1}
         shouldSelectedGoFirst
         _width40
-        isOpen={true}
         onChange={ev => {
           console.log('ev.component.selectedValue', ev.component.selectedValue);
           console.log('ev.component.value', ev.component.value);
@@ -35,8 +34,13 @@ export const CheckBoxes = (args): React.ReactElement => {
           const { onClick } = elementProps;
           const { isSelected } = componentProps;
           return (
-            <L.Div _flex-row>
-              <L.CheckBox value={!!isSelected} onClick={onClick} _margin-left/>
+            <L.Div _flex-row onClick={onClick}>
+              <L.CheckBox
+                _margin-left
+                value={!!isSelected}
+                // заменить label на div, чтобы при клике на чекбокс фокус не переходил из мультиселекта и не закрывался список
+                labelRender={({ elementProps }) => <div {...elementProps} />}
+              />
               <Element {...elementProps} _width-100/>
             </L.Div>
           )

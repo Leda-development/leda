@@ -7,6 +7,7 @@ import { Span } from '../Span';
 import { createChangeHandler } from './handlers';
 import { CheckBoxProps, CheckBoxRefCurrent } from './types';
 import { LedaContext } from '../LedaProvider';
+import { Label } from '../../index';
 
 export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<CheckBoxRefCurrent>): React.ReactElement => {
   const {
@@ -16,6 +17,7 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
     id,
     inputRender,
     isDisabled,
+    labelRender,
     name,
     onChange,
     theme: themeProp,
@@ -34,6 +36,13 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
     'Wrapper',
     Span,
     wrapperRender || checkBoxRenders.wrapperRender,
+    props,
+  );
+
+  const LabelElement = useElement(
+    'Label',
+    Label,
+    labelRender || checkBoxRenders.labelRender,
     props,
   );
 
@@ -72,12 +81,12 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
         disabled={isDisabled}
         checked={value}
       />
-      <label
+      <LabelElement
         htmlFor={checkBoxId}
         className={labelClassNames}
       >
         {children}
-      </label>
+      </LabelElement>
     </Wrapper>
   );
 }) as React.FC<CheckBoxProps>;

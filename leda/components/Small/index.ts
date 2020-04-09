@@ -3,6 +3,7 @@ import { htmlTagFactory } from '../../src/HTMLTagsFactory';
 
 export interface SmallProps extends React.HTMLAttributes<HTMLElement> {
   ref?: React.Ref<SmallRefCurrent>,
+  shouldRender?: boolean,
   [x: string]: unknown,
 }
 

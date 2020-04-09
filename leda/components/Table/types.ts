@@ -2,6 +2,7 @@ import * as React from 'react';
 
 export interface TrProps extends React.HTMLAttributes<HTMLTableRowElement> {
   ref?: React.Ref<TrRefCurrent>,
+  shouldRender?: boolean,
   children?: React.ReactNode,
   [x: string]: unknown,
 }
@@ -12,6 +13,7 @@ export interface TrRefCurrent {
 
 export interface THeadProps extends React.HTMLAttributes<HTMLTableSectionElement> {
   ref?: React.Ref<THeadRefCurrent>,
+  shouldRender?: boolean,
   children?: React.ReactNode,
   [x: string]: unknown,
 }
@@ -22,6 +24,7 @@ export interface THeadRefCurrent {
 
 export interface ThProps extends React.HTMLAttributes<HTMLTableHeaderCellElement> {
   ref?: React.Ref<ThRefCurrent>,
+  shouldRender?: boolean,
   children?: React.ReactNode,
   [x: string]: unknown,
 }
@@ -32,6 +35,7 @@ export interface ThRefCurrent {
 
 export interface TFootProps extends React.HTMLAttributes<HTMLTableSectionElement> {
   ref?: React.Ref<TFootRefCurrent>,
+  shouldRender?: boolean,
   children?: React.ReactNode,
   [x: string]: unknown,
 }
@@ -42,6 +46,7 @@ export interface TFootRefCurrent {
 
 export interface TdProps extends React.HTMLAttributes<HTMLTableDataCellElement> {
   ref?: React.Ref<TdRefCurrent>,
+  shouldRender?: boolean,
   children?: React.ReactNode,
   [x: string]: unknown,
 }
@@ -52,6 +57,7 @@ export interface TdRefCurrent {
 
 export interface TBodyProps extends React.HTMLAttributes<HTMLTableSectionElement> {
   ref?: React.Ref<TBodyRefCurrent>,
+  shouldRender?: boolean,
   children?: React.ReactNode,
   [x: string]: unknown,
 }
@@ -62,6 +68,7 @@ export interface TBodyRefCurrent {
 
 export interface TableProps extends React.HTMLAttributes<HTMLTableElement> {
   ref?: React.Ref<TableRefCurrent>,
+  shouldRender?: boolean,
   children?: React.ReactNode,
   [x: string]: unknown,
 }
@@ -72,6 +79,7 @@ export interface TableRefCurrent {
 
 export interface ColGroupProps extends React.HTMLAttributes<HTMLTableColElement> {
   ref?: React.Ref<ColGroupRefCurrent>,
+  shouldRender?: boolean,
   children?: React.ReactNode,
   [x: string]: unknown,
 }
@@ -82,6 +90,7 @@ export interface ColGroupRefCurrent {
 
 export interface ColProps extends React.HTMLAttributes<HTMLTableColElement> {
   ref?: React.Ref<ColRefCurrent>,
+  shouldRender?: boolean,
   children?: React.ReactNode,
   [x: string]: unknown,
 }

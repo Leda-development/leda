@@ -3,6 +3,7 @@ import { htmlTagFactory } from '../../src/HTMLTagsFactory';
 
 export interface LiProps extends React.HTMLAttributes<HTMLLIElement> {
   ref?: React.Ref<LiRefCurrent>,
+  shouldRender?: boolean,
   [x: string]: unknown,
 }
 

@@ -29,7 +29,7 @@ export const createClickHandler = (props: ButtonProps) => (ev: React.MouseEvent<
         onValidationFail({ ...ev, invalidForms });
       }
 
-      if (shouldScrollToInvalidFields) {
+      if (shouldScrollToInvalidFields && invalidForms.length > 0) {
         const firstInvalidFormName = invalidForms[0].name;
         // data-form для buttonGroup, использовать просто [from=""] нельзя, т.к. захватит кнопки тоже
         const formElements = document.querySelectorAll(`input[form="${firstInvalidFormName}"], [data-form="${firstInvalidFormName}"`);

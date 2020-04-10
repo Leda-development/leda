@@ -8,6 +8,8 @@ export interface SubmitEvent extends React.MouseEvent<HTMLButtonElement> {
   forms?: Form[],
 }
 
+export type ValidationFailEvent = React.MouseEvent<HTMLButtonElement> & { invalidForms: Form[] };
+
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement>, ValidationButtonProps {
   /** Название формы */
   form?: string | string[],
@@ -19,7 +21,7 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement>, Va
   onClick?: (event: SubmitEvent) => void,
   /** Применяется к кнопке. Обработчик, который срабатывает, если есть невалидные поля,
    * если срабатывает onValidationFail, то onClick на кнопке не сработает */
-  onValidationFail?: (ev: React.MouseEvent<HTMLButtonElement> & { invalidForms: Form[] }) => void,
+  onValidationFail?: (ev: ValidationFailEvent) => void,
   /** Прокрутка к невалидным полям при нажатии на кнопку */
   shouldScrollToInvalidFields?: boolean,
   /** Дополнительный сдвиг в px при скролинге к кнопке */

@@ -18,12 +18,8 @@ export interface PageSizeChangeEvent {
 export interface PaginationProps {
   /** Номер текущей страницы */
   currentPage?: number,
-  /** Обработчик изменения страницы */
-  onChange?: (event: ChangeEvent) => void,
-  /** Обработчик изменения количества отображаемых элементов */
-  onPageSizeChange?: (event: PageSizeChangeEvent) => void,
-  /** Количество элементов на странице */
-  pageSize?: number,
+  /** Начальное количество элементов на странице при передаче pageSizeOptions. По умолчанию - первый элемент массива */
+  defaultPageSize?: number,
   /** Состояние загрузки, на это время блокируются все клики */
   isLoading?: boolean,
   /** Кастомизация информации о пагинации */
@@ -32,16 +28,20 @@ export interface PaginationProps {
   itemsRangeInfoRender?: CustomRender<PaginationProps, PaginationState, PaginationRangeInfoProps>,
   /** Кастомизация текста "Отображено записей 124" */
   itemsTotalInfoRender?: CustomRender<PaginationProps, PaginationState, PaginationTotalInfoProps>,
-  /** Кастомизация выпадающего списка с выбором количесттва записей на странице */
+  /** Обработчик изменения страницы */
+  onChange?: (event: ChangeEvent) => void,
+  /** Обработчик изменения количества отображаемых элементов */
+  onPageSizeChange?: (event: PageSizeChangeEvent) => void,
+  /** Кастомизация выпадающего списка с выбором количества записей на странице */
   pagesDropDownRender?: CustomRender<PaginationProps, PaginationState, PagesDropDownProps>,
+  /** Количество элементов на странице */
+  pageSize?: number,
   /** Выбор вариантов количества элементов на странице, если передан, то появляется выпадающий список */
   pageSizeOptions?: number[],
-  /** Начальное количество элементов на странице при передаче pageSizeOptions. По умолчанию - первый элемент массива */
-  defaultPageSize?: number,
-  /** Тема компонента */
-  theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.pagination],
   /** Reference */
   ref?: React.Ref<PaginationRefCurrent>,
+  /** Тема компонента */
+  theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.pagination],
   /** Общее количество записей */
   totalItems: number,
   /** Классы переданные через _ */

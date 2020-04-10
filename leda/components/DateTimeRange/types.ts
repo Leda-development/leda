@@ -34,6 +34,10 @@ export interface DateTimeRangeProps extends DateTimeInputRangeProps {
   placeholder?: string | [string | undefined, string | undefined],
   /** Реф */
   ref?: React.Ref<DateTimeInputRangeRefCurrent>,
+  /** Минимальное время */
+  timeMin?: [number, number],
+  /** Максимальное время */
+  timeMax?: [number, number],
   /** Значение полей "от" и "до" */
   value?: [string, string] | [Date | null, Date | null],
   /** Классы переданные через _ */

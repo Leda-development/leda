@@ -24,12 +24,12 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement>, Va
   onValidationFail?: (ev: ValidationFailEvent) => void,
   /** Реф */
   ref?: React.Ref<ButtonRefCurrent>,
+  /** Дополнительный сдвиг в px при скролинге к кнопке */
+  scrollOffset?: number,
   /** Если передано false, компонент не будет рендериться */
   shouldRender?: boolean,
   /** Прокрутка к невалидным полям при нажатии на кнопку */
   shouldScrollToInvalidFields?: boolean,
-  /** Дополнительный сдвиг в px при скролинге к кнопке */
-  scrollOffset?: number,
   /** Тема компонета */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.button],
   /** Тип кнопки */

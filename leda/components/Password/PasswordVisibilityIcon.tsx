@@ -8,7 +8,7 @@ export const PasswordVisibilityIcon = (props: PasswordVisibilityIconProps) => {
   return (
     <I
       className={isVisible ? theme.isVisibleIcon : theme.isHiddenIcon}
-      onClick={(ev) => {
+      onClick={() => {
         onIconClick();
       }}
     />

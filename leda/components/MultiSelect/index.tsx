@@ -206,7 +206,8 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
       >
         {shouldUniteTags && (
           <TagsUnionElement className={theme.tagsUnion}>
-            Выбрано {value.length}
+            Выбрано
+            {value.length}
           </TagsUnionElement>
         )}
         {!shouldUniteTags && (

@@ -3,6 +3,7 @@ import { htmlTagFactory } from '../../src/HTMLTagsFactory';
 
 export interface FigureProps extends React.HTMLAttributes<HTMLElement> {
   ref?: React.Ref<FigureRefCurrent>,
+  shouldRender?: boolean,
   [x: string]: unknown,
 }
 

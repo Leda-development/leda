@@ -3,6 +3,7 @@ import { htmlTagFactory } from '../../src/HTMLTagsFactory';
 
 export interface AsideProps extends React.HTMLAttributes<HTMLElement> {
   ref?: React.Ref<AsideRefCurrent>,
+  shouldRender?: boolean,
   [x: string]: unknown,
 }
 

@@ -4,13 +4,16 @@ import { bindFunctionalRef, useProps } from '../../utils';
 import { CustomEventHandler } from '../../commonTypes';
 import { AProps, ARefCurrent } from './types';
 
-export const A = React.forwardRef((props: AProps, ref?: React.Ref<ARefCurrent>): React.ReactElement => {
+export const A = React.forwardRef((props: AProps, ref?: React.Ref<ARefCurrent>): React.ReactElement | null => {
   const {
     children,
     href,
     onClick,
+    shouldRender,
     ...restProps
   } = useProps(props);
+
+  if (shouldRender === false) return null;
 
   const handleClick: CustomEventHandler<React.MouseEvent<HTMLAnchorElement>> = (ev) => {
     // если href не передали, то нужен preventDefault, иначе - нет

@@ -3,6 +3,7 @@ import { htmlTagFactory } from '../../src/HTMLTagsFactory';
 
 export interface MarkProps extends React.HTMLAttributes<HTMLElement> {
   ref?: React.Ref<MarkRefCurrent>,
+  shouldRender?: boolean,
   [x: string]: unknown,
 }
 

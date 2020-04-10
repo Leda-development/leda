@@ -3,6 +3,7 @@ import { htmlTagFactory } from '../../src/HTMLTagsFactory';
 
 export interface FigcaptionProps extends React.HTMLAttributes<HTMLElement> {
   ref?: React.Ref<FigcaptionRefCurrent>,
+  shouldRender?: boolean,
   [x: string]: unknown,
 }
 

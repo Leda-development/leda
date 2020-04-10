@@ -3,6 +3,7 @@ import { htmlTagFactory } from '../../src/HTMLTagsFactory';
 
 export interface BProps extends React.HTMLAttributes<HTMLElement> {
   ref?: React.Ref<BRefCurrent>,
+  shouldRender?: boolean,
   [x: string]: unknown,
 }
 

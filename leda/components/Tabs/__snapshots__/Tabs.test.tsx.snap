@@ -72,20 +72,24 @@ exports[`Tabs SNAPSHOTS should render 1`] = `
         <Content
           className="tabs-content"
         >
-          <Div
+          <Component
             className="tabs-content"
           >
-            <div
+            <Div
               className="tabs-content"
             >
-              <Component
-                activeTabKey={0}
-                key="0"
+              <div
+                className="tabs-content"
               >
-                Tab1
-              </Component>
-            </div>
-          </Div>
+                <Component
+                  activeTabKey={0}
+                  key="0"
+                >
+                  Tab1
+                </Component>
+              </div>
+            </Div>
+          </Component>
         </Content>
       </div>
     </Div>

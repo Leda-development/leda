@@ -7,6 +7,8 @@ import { LiProps } from '../Li';
 export interface TabsProps {
   /** Устанавливает номер выбранного таба */
   activeTabKey?: string | number,
+  /** DOM-узел, в который будет помещено содержимое вкладки */
+  tabContentNode?: Element | null,
   /** Обработчик выбора таба */
   onChange?: (event: ChangeEvent) => void,
   /** Тема компонента */
@@ -90,6 +92,7 @@ export interface WrapperProps {
 export interface ContentProps {
   className?: string,
   children?: React.ReactNode,
+  tabContentNode?: Element | null,
 }
 
 export interface HeadingProps {

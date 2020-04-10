@@ -18,6 +18,7 @@ export const Tabs = React.forwardRef((props: TabsProps, ref?: React.Ref<TabsRefC
     children,
     className,
     style,
+    tabContentNode,
     tabRender,
   } = useProps(props);
 
@@ -66,7 +67,7 @@ export const Tabs = React.forwardRef((props: TabsProps, ref?: React.Ref<TabsRefC
           })}
         </TabsContext.Provider>
       </Heading>
-      <Content className={theme.content}>
+      <Content className={theme.content} tabContentNode={tabContentNode}>
         <TabContent activeTabKey={activeTabKey} key={activeTabKey}>
           {children}
         </TabContent>

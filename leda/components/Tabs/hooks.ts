@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { useElement } from '../../utils';
 import { Div } from '../Div';

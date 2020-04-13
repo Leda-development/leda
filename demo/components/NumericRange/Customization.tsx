@@ -1,9 +1,9 @@
-/* eslint-disable jsx-a11y/accessible-emoji,react/prop-types,no-console */
+/* eslint-disable jsx-a11y/accessible-emoji */
+
 import * as React from 'react';
 import * as L from '../../../leda';
 
 export const Customization = (args: any) => {
-
   const [value, setValue] = React.useState<[number | null, number | null] | null>([5, 13]);
 
   return (
@@ -12,7 +12,7 @@ export const Customization = (args: any) => {
         format="#.## %"
         _width70
         name="numer-range"
-        onChange={ev => {
+        onChange={(ev) => {
           console.log('value', ev.component.value);
           console.log('name', ev.component.name);
           setValue(ev.component.value);

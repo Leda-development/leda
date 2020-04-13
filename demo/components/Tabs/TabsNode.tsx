@@ -47,7 +47,7 @@ export const TabsNode = (props: any) => {
         </L.Tab>
       </L.Tabs>
 
-      <L.Div _inner _txt-success >
+      <L.Div _inner _txt-success>
         Here goes some content which does not change
       </L.Div>
 

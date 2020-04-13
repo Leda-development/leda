@@ -18,7 +18,7 @@ export interface TabsProps {
   /** Reference */
   ref?: React.Ref<TabsRefCurrent>,
   /** DOM-узел, в который будет помещено содержимое вкладки */
-  tabContentNode?: Element | null,
+  tabContentNode?: HTMLElement | null,
   /** Кастомный tab */
   tabRender?: CustomRender<TabProps, {}, LiProps>,
   /** Тема компонента */

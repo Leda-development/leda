@@ -14,7 +14,6 @@ import {
 
 export const Demo = hot(() => (
   <L.Div style={{ color: 'black' }} _wrapper>
-    {/*<Navigation />*/}
     <L.Div _container>
       <L.Div _row _demoMainTitle _noGutters>
         <L.H1 _colMd12>Demo sandbox</L.H1>

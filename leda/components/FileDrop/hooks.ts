@@ -4,14 +4,18 @@ import {
 } from './types';
 import { useElement, useProps } from '../../utils';
 import { Div } from '../Div';
-import { Span } from '../Span';
 import { Button } from '../Button';
 import { LedaContext } from '../LedaProvider';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 
 export const useCustomElements = (props: FileDropProps): CustomElements => {
   const {
-    infoRender, uploadButtonRender, wrapperRender,
+    errorViewRender,
+    loadingViewRender,
+    startViewRender,
+    successViewRender,
+    uploadButtonRender,
+    wrapperRender,
   } = props;
 
   const context = React.useContext(LedaContext);
@@ -23,10 +27,31 @@ export const useCustomElements = (props: FileDropProps): CustomElements => {
     props,
   );
 
-  const Info = useElement(
-    'Info',
-    Span,
-    infoRender || context.renders[COMPONENTS_NAMESPACES.dropZone].infoRender,
+  const ErrorItem = useElement(
+    'ErrorItem',
+    Div,
+    errorViewRender || context.renders[COMPONENTS_NAMESPACES.dropZone].errorViewRender,
+    props,
+  );
+
+  const LoadingItem = useElement(
+    'LoadingItem',
+    Div,
+    loadingViewRender || context.renders[COMPONENTS_NAMESPACES.dropZone].loadingViewRender,
+    props,
+  );
+
+  const SuccessItem = useElement(
+    'SuccessItem',
+    Div,
+    successViewRender || context.renders[COMPONENTS_NAMESPACES.dropZone].successViewRender,
+    props,
+  );
+
+  const DefaultItem = useElement(
+    'DefaultItem',
+    Div,
+    startViewRender || context.renders[COMPONENTS_NAMESPACES.dropZone].startViewRender,
     props,
   );
 
@@ -38,8 +63,11 @@ export const useCustomElements = (props: FileDropProps): CustomElements => {
   );
 
   return {
+    DefaultItem,
+    ErrorItem,
+    LoadingItem,
+    SuccessItem,
     UploadButton,
-    Info,
     Wrapper,
   };
 };
@@ -51,8 +79,8 @@ export const useFileDropRestProps = (props: FileDropProps): {} => {
     allowedFiles,
     className,
     dropZoneFilesNode,
+    errorViewRender,
     forbiddenFiles,
-    infoRender,
     invalidMessage,
     invalidMessageRender,
     isDisabled,
@@ -61,6 +89,7 @@ export const useFileDropRestProps = (props: FileDropProps): {} => {
     isValid,
     loadingData,
     loadingProgress,
+    loadingViewRender,
     maxFileNameLength,
     maxFileSize,
     maxFilesNumber,
@@ -71,6 +100,8 @@ export const useFileDropRestProps = (props: FileDropProps): {} => {
     rejectedFilesRender,
     requiredMessage,
     shouldValidateUnmounted,
+    startViewRender,
+    successViewRender,
     theme,
     uploadButtonRender,
     validator,

@@ -64,7 +64,7 @@ export const FileDrop = React.forwardRef((props: FileDropProps, ref: React.Ref<F
   fileDropRef.current = { open };
 
   const {
-    Info, UploadButton, Wrapper,
+    ErrorItem, SuccessItem, DefaultItem, LoadingItem, UploadButton, Wrapper,
   } = useCustomElements(props);
 
   const rootProps = getRootProps();
@@ -100,7 +100,10 @@ export const FileDrop = React.forwardRef((props: FileDropProps, ref: React.Ref<F
             value={value}
             handleRetry={handleRetry}
             UploadButton={UploadButton}
-            Info={Info}
+            ErrorItem={ErrorItem}
+            LoadingItem={LoadingItem}
+            SuccessItem={SuccessItem}
+            DefaultItem={DefaultItem}
           />
         </Div>
       </Wrapper>

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Story } from '../Story';
 
+import { BasicUsage } from './BasicUsage';
 import { Required } from './Required';
 import { Form } from './Form';
 import { InvalidMessage } from './InvalidMessage';
@@ -19,9 +20,12 @@ import { MixedValidation } from './MixedValidation';
 
 export const Validation = () => (
   <>
+    <Story title="Validation various">
+      <BasicUsage title="Playground" />
+    </Story>
     <Story title="Валидация">
-      <FormControlled title="reset controlled" />
       <FormUncontrolled title="reset uncontrolled" />
+      <FormControlled title="reset controlled" />
       <Required title="isRequired" />
       <Form title="form" />
       <Validator title="validator" />

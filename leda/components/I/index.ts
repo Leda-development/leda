@@ -3,6 +3,7 @@ import { htmlTagFactory } from '../../src/HTMLTagsFactory';
 
 export interface TagIProps extends React.HTMLAttributes<HTMLElement> {
   ref?: React.Ref<TagIRefCurrent>,
+  shouldRender?: boolean,
   [x: string]: unknown,
 }
 

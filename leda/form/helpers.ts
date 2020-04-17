@@ -1,8 +1,26 @@
 import {
-  isFunction, isString, isRegExp,
+  isArray, isFunction, isRegExp, isString,
 } from 'lodash';
 import { PREDEFINED_VALIDATORS } from '../components/Validation/predefinedValidators';
 import * as Types from './types';
+
+// todo: types for value
+export const checkIsFilled = (value: any): boolean => {
+  if (value == null) {
+    return false;
+  }
+
+  if (isArray(value) || isString(value)) {
+    return value.length !== 0;
+  }
+
+  // DropZone
+  if (value.acceptedFiles) {
+    return value.acceptedFiles.length === 0;
+  }
+
+  return true;
+};
 
 export const getForm = (name: string): Types.Form | undefined => {
   // @ts-ignore
@@ -54,15 +72,15 @@ export const unifyValidatorWrapper = (validatorWrapper: Types.ValidatorWrapper):
   } else if (isFunction(validator)) {
     unifiedValidatorWrapper.validate = validator;
   } else if (isRegExp(validator)) {
-    unifiedValidatorWrapper.validate = (value: string) => !!value.match(validator);
+    unifiedValidatorWrapper.validate = (value: string) => value.match(validator) != null;
   } else if (isString(validator)) {
     const predefinedValidator = PREDEFINED_VALIDATORS[validator];
     unifiedValidatorWrapper.validate = predefinedValidator.validator;
-    if (!validatorWrapper.invalidMessage && predefinedValidator.invalidMessage) {
+    if (validatorWrapper.invalidMessage == null && predefinedValidator.invalidMessage) {
       unifiedValidatorWrapper.invalidMessage = predefinedValidator.invalidMessage;
     }
   }
-  if (!unifiedValidatorWrapper.invalidMessage && validatorWrapper.invalidMessage) {
+  if (unifiedValidatorWrapper.invalidMessage == null && validatorWrapper.invalidMessage) {
     unifiedValidatorWrapper.invalidMessage = validatorWrapper.invalidMessage;
   }
   return unifiedValidatorWrapper;

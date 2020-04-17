@@ -2,7 +2,7 @@ import * as React from 'react';
 import { isNil } from 'lodash';
 import { Div } from '../Div';
 import { VStepperContext } from './VStepperContext';
-import { mergeClassNames } from '../../utils';
+import { useProps } from '../../utils';
 import { Collapsible } from '../Collapsible';
 import {
   getItemClassNames,
@@ -21,7 +21,7 @@ export const VStepperItem: React.FC<VStepperItemProps> = (props: VStepperItemPro
     item,
     isDisabled,
     typeField,
-  } = mergeClassNames<VStepperItemProps>(props);
+  } = useProps(props);
 
   const [isOpenState, setIsOpenState] = React.useState(false);
 

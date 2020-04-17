@@ -3,6 +3,9 @@ import { CustomRender, CustomEventHandler } from '../../commonTypes';
 import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { globalDefaultTheme } from '../LedaProvider';
+import { ValidationProps } from '../Validation/types';
+
+export { FileErrorCodes } from '../../constants';
 
 export interface ExternalFile {
   /** Имя файла. Необходимо для отображения в списке и удаления */
@@ -38,7 +41,7 @@ export interface ChangeEvent {
   },
 }
 
-export interface DropZoneProps {
+export interface DropZoneProps extends ValidationProps {
   /** Отображение добавленных файлов */
   acceptedFilesRender?: CustomRender<DropZoneProps, DropZoneState, AcceptedFilesProps>,
   /** Разрешенные типы файлов, см. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#Attributes. Передача нескольких типов файлов происходит через запятую (.png, image/jpeg). allowedFiles и forbiddenFiles вместе не могут находиться. */
@@ -47,11 +50,6 @@ export interface DropZoneProps {
   className?: string,
   /** DOM-нода в которой будет отрендерен список файлов */
   dropZoneFilesNode?: Element,
-  /** Список загруженных файлов */
-  value?: {
-    acceptedFiles: ExternalFile[],
-    rejectedFiles: ExternalFile[],
-  },
   /** Запрещенные типы файлов. см. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#Attributes. Передача нескольких типов файлов происходит через запятую (.png, image/jpeg). allowedFiles и forbiddenFiles вместе не могут находиться. */
   forbiddenFiles?: string,
   /** Кастомизация описания компонента */
@@ -70,11 +68,17 @@ export interface DropZoneProps {
   onChange?: (event: ChangeEvent) => void,
   /** Отображение отклоненных файлов */
   rejectedFilesRender?: CustomRender<DropZoneProps, DropZoneState, RejectedFilesProps>,
+  /** Реф */
   ref?: React.Ref<DropZoneRefCurrent>,
   /* Тема для компонента */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.dropZone],
   /** Текст кнопки загрузки файла, может принимать JSX */
   uploadButtonRender?: CustomRender<DropZoneProps, DropZoneState, UploadButtonProps>,
+  /** Список загруженных файлов */
+  value?: {
+    acceptedFiles: ExternalFile[],
+    rejectedFiles: ExternalFile[],
+  },
   /** Кастомизация враппера */
   wrapperRender?: CustomRender<DropZoneProps, DropZoneState, WrapperProps>,
   /** Классы переданные через _ */
@@ -158,8 +162,8 @@ export interface ChangeEventHandler {
   (
     accepted: FileType[],
     rejected: FileType[],
-    ev: React.DragEvent<HTMLDivElement> | React.MouseEvent<HTMLAnchorElement>,
-    removedFile: FileType
+    ev?: React.DragEvent<HTMLElement> | React.MouseEvent<HTMLElement>,
+    removedFile?: FileType
   ): void,
 }
 

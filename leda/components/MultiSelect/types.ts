@@ -6,7 +6,7 @@ import {
 } from '../../commonTypes';
 import { ValidationProps } from '../Validation/types';
 import { FilterRules } from '../DropDownSelect/types';
-import { SuggestionListProps, SuggestionTarget } from '../../src/SuggestionList/types';
+import { SuggestionItemComputedProps, SuggestionListProps, SuggestionTarget } from '../../src/SuggestionList/types';
 import { DivProps } from '../Div';
 import { TagProps } from '../Tags/types';
 
@@ -22,6 +22,7 @@ export interface MultiSelectComponent {
 export interface ClearEvent<T> extends React.MouseEvent {
   component: {
     deselectedValues: T[],
+    selectedValue: undefined,
     name?: string,
     value: T,
   },
@@ -39,6 +40,7 @@ export interface MouseSelectEvent<T> extends React.MouseEvent {
 export interface EnterSelectEvent<T> extends React.KeyboardEvent {
   component: {
     name?: string,
+    deselectedValues: undefined,
     selectedValue: T,
     value: T[],
   },
@@ -46,6 +48,8 @@ export interface EnterSelectEvent<T> extends React.KeyboardEvent {
 
 export interface ResetEvent<T> {
   component: {
+    deselectedValues: undefined,
+    selectedValue: undefined,
     name?: string,
     value: T[],
   },
@@ -90,6 +94,8 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   groupBy?: (option: Value) => string | undefined,
   /** Кнопка очистки данных в инпуте. Появляется только в непустом инпуте. */
   hasClearButton?: boolean,
+  /** Кастомный рендер инпута */
+  inputRender?: CustomRender<MultiSelectProps, MultiSelectState, React.InputHTMLAttributes<HTMLInputElement> & { ref?: React.Ref<HTMLInputElement | null>}>,
   /** Выключенное состояние инпута */
   isDisabled?: boolean,
   /** Состояние загрузки лоадера - вместо списка в момент загрузки будет отображаться лоадер */
@@ -102,6 +108,8 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   listRender?: SuggestionListProps['listRender'],
   /** Ограничение на количество выбранных элементов. После достижения лимита выпадающее окно перестает появляться */
   maxSelected?: number,
+  /** Количество тегов, после которого они будут объединены в один "выбрано n значений" */
+  maxTags?: number,
   /** Имя компонента */
   name?: string,
   /** Атрибут рендера выпадающего списка, если в data нет значений, равных содержимому инпута. Принимает JSX */
@@ -110,26 +118,30 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   onBlur?: (event: FocusEvent) => void,
   /** Обработчик изменения данных в инпуте */
   onChange?: (event: ChangeEvent) => void,
-  /** Обработчик нажатия Enter */
-  onEnterPress?: (event: EnterPressEvent) => void,
   /** Обработчик фокуса элемента */
   onFocus?: (event: FocusEvent) => void,
   /** Плейсхолдер инпута */
   placeholder?: string,
-  /** Имя поля объекта, данные из которого будут рендериться в качестве элементов списка */
-  textField?: T extends object ? string : never,
   /** Реф */
   ref?: React.Ref<MultiSelectRefCurrent>,
+  /** Постоянный список, элементы не исчезают при клике */
+  shouldKeepSuggestions?: boolean,
+  /** Выводить сначала выбранные значения в списке */
+  shouldSelectedGoFirst?: boolean,
+  /** Сортировка выпадающего списка */
+  sortSuggestions?: (a: SuggestionItemComputedProps, b: SuggestionItemComputedProps) => number,
+  /** Кастомный рендер тегов */
+  tagRender?: CustomRender<MultiSelectProps, MultiSelectState, TagProps>,
+  /** Кастомное сообщение об объединённых тегах */
+  tagsUnionRender?: CustomRender<MultiSelectProps, MultiSelectState, DivProps>,
+  /** Имя поля объекта, данные из которого будут рендериться в качестве элементов списка */
+  textField?: T extends object ? string : never,
   /** Тема */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.multiSelect],
   /** Устанавливает значение в инпуте (будет отображенио в виде выбранных тегов) */
   value?: T,
-  /** Кастомный рендер тегов */
-  tagRender?: CustomRender<MultiSelectProps, MultiSelectState, TagProps>,
   /** Кастомный рендер враппера */
   wrapperRender?: CustomRender<MultiSelectProps, MultiSelectState, DivProps>,
-  /** Кастомный рендер инпута */
-  inputRender?: CustomRender<MultiSelectProps, MultiSelectState, React.InputHTMLAttributes<HTMLInputElement> & { ref?: React.Ref<HTMLInputElement | null>}>,
   /** Классы переданные через _ */
   [x: string]: unknown,
 }
@@ -189,6 +201,7 @@ export interface FilterDataParams {
   data: MultiSelectProps['data'],
   filterRule?: FilterRules,
   filterValue: string,
+  shouldKeepSuggestions?: boolean,
   textField?: string,
   value: MultiSelectValue,
 }

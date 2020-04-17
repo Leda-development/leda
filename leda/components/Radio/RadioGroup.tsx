@@ -2,9 +2,9 @@ import React from 'react';
 import { isFunction, isBoolean } from 'lodash';
 import { RadioButton } from './RadioButton';
 import {
-  bindFunctionalRef, mergeClassNames, getClassNames, useTheme, useElement,
+  bindFunctionalRef, getClassNames, useTheme, useElement, useProps,
 } from '../../utils';
-import { Div } from '../Div';
+import { Div, DivProps } from '../Div';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
   ChangeEvent, RadioGroupProps, RadioGroupRefCurrent, WrapperProps,
@@ -19,7 +19,7 @@ export const RadioGroup = React.forwardRef((props: RadioGroupProps, ref?: React.
     value: valueProp,
     wrapperRender,
     isDisabled,
-  } = mergeClassNames(props);
+  } = useProps(props);
 
   const theme = useTheme(props.theme, COMPONENTS_NAMESPACES.radio);
 
@@ -49,7 +49,7 @@ export const RadioGroup = React.forwardRef((props: RadioGroupProps, ref?: React.
   return (
     <Wrapper
       className={combinedClassNames}
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
+      ref={ref && ((component: RadioGroupRefCurrent) => bindFunctionalRef(component, ref, component && {
         wrapper: component.wrapper ? component.wrapper : component,
       }))}
     >

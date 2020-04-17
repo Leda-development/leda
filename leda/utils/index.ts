@@ -28,6 +28,8 @@ export { useTheme } from './useTheme';
 
 export { useElement } from './useElement';
 
+export { useProps } from './usePops';
+
 export { useValue } from './useValue';
 
 export { dispatchEvent } from './dispatchEvent';
@@ -45,3 +47,9 @@ export { useAdaptivePosition } from './useAdaptivePosition';
 export { useInterval } from './useInterval';
 
 export { checkIsTheSameObject } from './checkIsTheSameObject';
+
+export { getWordEnding } from './getWordEnding';
+
+export { getIsEmptyAndRequired } from './getIsEmptyAndRequired';
+
+export { useElementRef } from './useElementRef';

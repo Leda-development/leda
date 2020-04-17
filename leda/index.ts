@@ -2,7 +2,18 @@ import 'element-scroll-polyfill';
 
 import { formatDateTime, stringToDate } from './src/DateTimeInput/helpers';
 import {
-  scrollIntoView, bytesSizeToUnitsSize, getSizeInBytes, generateId, useValue, useInterval,
+  bindFunctionalRef,
+  bytesSizeToUnitsSize,
+  generateId,
+  getClassNames,
+  getSizeInBytes,
+  getWordEnding,
+  scrollIntoView,
+  useElement,
+  useElementRef,
+  useInterval,
+  useProps,
+  useValue,
 } from './utils';
 
 import { A } from './components/A';
@@ -41,6 +52,7 @@ import {
 import { I } from './components/I';
 import { Img } from './components/Img';
 import { Input } from './components/Input';
+import { Label } from './components/Label';
 import { Li } from './components/Li';
 import { Loader } from './components/Loader';
 import { Main } from './components/Main';
@@ -51,13 +63,13 @@ import {
 } from './components/Modal';
 import { MultiSelect } from './components/MultiSelect';
 import { Nav } from './components/Nav';
-import { NavLink } from './components/NavLink';
 import { Notifications } from './components/Notifications';
 import { NumericRange } from './components/NumericRange';
 import { NumericTextBox } from './components/NumericTextBox';
 import { Ol } from './components/Ol';
 import { P } from './components/Paragraph';
 import { Pagination } from './components/Pagination';
+import { Password } from './components/Password';
 import { ProgressBar } from './components/ProgressBar';
 import { RadioGroup, RadioButton } from './components/Radio';
 import { Rating } from './components/Rating';
@@ -79,7 +91,7 @@ import { TimePicker } from './components/TimePicker';
 import { TimeRange } from './components/TimeRange';
 import { Tooltip } from './components/Tooltip';
 import { Ul } from './components/Ul';
-import { Leda, LedaContext } from './components/LedaProvider';
+import { Leda, LedaContext, UnderscoreClasses } from './components/LedaProvider';
 import { validate } from './validators';
 import { VStepper } from './components/VStepper';
 
@@ -103,12 +115,14 @@ import * as NotificationsTypes from './components/Notifications/types';
 import * as NumericRangeTypes from './components/NumericRange/types';
 import * as NumericTextBoxTypes from './components/NumericTextBox/types';
 import * as PaginationTypes from './components/Pagination/types';
+import * as PasswordTypes from './components/Password/types';
 import * as RadioTypes from './components/Radio/types';
 import * as StatusBarTypes from './components/StatusBar/types';
 import * as StickyPanelTypes from './components/StickyPanel/types';
 import * as SwitcherTypes from './components/Switcher/types';
 import * as TabsTypes from './components/Tabs/types';
 import * as TagsTypes from './components/Tags/types';
+import * as TableTypes from './components/Table/types';
 import * as TextareaTypes from './components/Textarea/types';
 import * as TooltipTypes from './components/Tooltip/types';
 import * as ValidationTypes from './components/Validation/types';
@@ -118,13 +132,19 @@ import * as commonTypes from './commonTypes';
 import { form } from './form';
 
 const utils = {
+  bindFunctionalRef,
   bytesSizeToUnitsSize,
   formatDateTime,
   generateId,
+  getClassNames,
   getSizeInBytes,
+  getWordEnding,
   scrollIntoView,
   stringToDate,
+  useElement,
+  useElementRef,
   useInterval,
+  useProps,
   useValue,
 };
 
@@ -148,11 +168,13 @@ export {
   NumericRangeTypes,
   NumericTextBoxTypes,
   PaginationTypes,
+  PasswordTypes,
   RadioTypes,
   StatusBarTypes,
   StickyPanelTypes,
   SwitcherTypes,
   TabsTypes,
+  TableTypes,
   TagsTypes,
   TextareaTypes,
   TooltipTypes,
@@ -197,6 +219,7 @@ export {
   I,
   Img,
   Input,
+  Label,
   Li,
   Loader,
   Main,
@@ -205,13 +228,13 @@ export {
   Modal, ModalHeader, ModalBody, ModalFooter,
   MultiSelect,
   Nav,
-  NavLink,
   Notifications,
   NumericRange,
   NumericTextBox,
   Ol,
   P,
   Pagination,
+  Password,
   ProgressBar,
   RadioGroup, RadioButton,
   Rating,
@@ -231,7 +254,7 @@ export {
   TimeRange,
   Tooltip,
   Ul,
-  Leda, LedaContext,
+  Leda, LedaContext, UnderscoreClasses,
   validate,
   VStepper,
   form,

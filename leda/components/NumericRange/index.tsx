@@ -2,7 +2,7 @@ import * as React from 'react';
 import { isNil } from 'lodash';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
-  bindFunctionalRef, getClassNames, mergeClassNames, useElement, useTheme, useValue,
+  bindFunctionalRef, getClassNames, useElement, useProps, useTheme, useValue,
 } from '../../utils';
 import { Div } from '../Div';
 import { NumericTextBox } from '../NumericTextBox';
@@ -37,7 +37,7 @@ export const NumericRange = React.forwardRef((props: NumericRangeProps, ref?: Re
     value: valueProp,
     wrapperRender,
     ...restProps
-  } = mergeClassNames<NumericRangeProps>(props);
+  } = useProps(props);
   // вернет value из props или value из state, функция setUncontrolledState сработает только в неконтролируемом режиме
   const [value, setUncontrolledValue] = useValue<NumericRangeState['value']>(getControlledValue(valueProp), [null, null]);
 
@@ -112,7 +112,7 @@ export const NumericRange = React.forwardRef((props: NumericRangeProps, ref?: Re
       />
       <Span className={theme.delimiter}>&mdash;</Span>
       <NumericTextBox
-        inputRender={Array.isArray(inputsRender) ? inputsRender[0] : undefined}
+        inputRender={Array.isArray(inputsRender) ? inputsRender[1] : undefined}
         isDisabled={disabled[1]}
         isRequired={required[1]}
         max={max}

@@ -1,5 +1,8 @@
 import * as React from 'react';
 import { RenderEvent } from '../../commonTypes';
+import { ValidationProps } from '../Validation/types';
+
+export { FileErrorCodes } from '../../constants';
 
 export interface RejectedFileType extends File {
   errorCode?: number,
@@ -14,17 +17,17 @@ export interface FileLoadEvent {
   },
 }
 
-export interface FileUploadProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface FileUploadProps extends React.HTMLAttributes<HTMLDivElement>, ValidationProps {
   /** Разрешенные типы файлов, см. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#Attributes. Передача нескольких типов файлов происходит через запятую (.png, image/jpeg). allowedFiles и forbiddenFiles нельзя использовать вместе */
   allowedFiles?: string, // comma separated list of valid mime types: "image/*, application/pdf"
   /** Классы, применяемые к первому диву */
   className?: string,
   /** Описание компонента */
   infoRender?: (props: RenderEvent<FileUploadProps>) => React.ReactElement | React.FC,
-  /** Запрещенные типы файлов. см. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#Attributes. Передача нескольких типов файлов происходит через запятую (.png, image/jpeg). allowedFiles и forbiddenFiles нельзя использовать вместе */
-  forbiddenFiles?: string,
   /** Состояние загрузки */
   isLoading?: boolean,
+  /** Запрещенные типы файлов. см. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#Attributes. Передача нескольких типов файлов происходит через запятую (.png, image/jpeg). allowedFiles и forbiddenFiles нельзя использовать вместе */
+  forbiddenFiles?: string,
   /** Максимальный размер файла в Мбайтах */
   maxFileSize?: number,
   /** Минимальный размер файла в байтах */
@@ -33,6 +36,7 @@ export interface FileUploadProps extends React.HTMLAttributes<HTMLDivElement> {
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void,
   /** Функция обратного вызова. Получает в качстве аргументов принятые файлы и отклоненные файлы с кодом ошибки (1 - файл меньше минимального размера, 2 - больше максимального, 3 - не удовлетворяет типу, 0 - неизвестная ошибка) */
   onFileLoad?: (event: FileLoadEvent) => void,
+  /** Реф */
   ref?: React.Ref<FileUploadRefCurrent>,
   /** Обертка компонента */
   wrapperRender?: (props: RenderEvent<FileUploadProps, FileUploadProps>) => React.ReactElement | React.FC,

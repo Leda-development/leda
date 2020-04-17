@@ -1,8 +1,9 @@
 import * as React from 'react';
 import accept from 'attr-accept';
 import { isString } from 'lodash';
-import { ERROR_MESSAGES, MAX_FILE_SIZE, MIN_FILE_SIZE } from '../../constants';
-import { mergeClassNames } from '../../utils';
+import {
+  ERROR_MESSAGES, FileErrorCodes, MAX_FILE_SIZE, MIN_FILE_SIZE,
+} from '../../constants';
 import { Div } from '../Div';
 import {
   DropZoneError, DropZoneFileType, DropZoneProps, DropZoneState, FileType, ExternalFile,
@@ -51,10 +52,10 @@ export const getErrorCode = (props: DropZoneProps, state: DropZoneState, file: F
   const hasMaxFilesError = maxFilesNumber && allFilesCount > maxFilesNumber;
 
   // Ошибка - превышено максимальное количество файлов
-  if (hasMaxFilesError) return 5;
+  if (hasMaxFilesError) return FileErrorCodes.TooManyFiles;
 
   // Ошибка - файл уже существует
-  if (checkForAddedFile(props, state, file)) return 4;
+  if (checkForAddedFile(props, state, file)) return FileErrorCodes.AlreadyLoaded;
 
   // Ошибка типа
   if (allowedFiles) {
@@ -62,7 +63,7 @@ export const getErrorCode = (props: DropZoneProps, state: DropZoneState, file: F
       name: file.name,
       type: file.type,
     }, allowedFiles);
-    if (!isAccepted) return 3;
+    if (!isAccepted) return FileErrorCodes.WrongFileFormat;
   }
 
   // Ошибка типа. Запрещенные файлы
@@ -72,20 +73,20 @@ export const getErrorCode = (props: DropZoneProps, state: DropZoneState, file: F
       type: file.type,
     }, forbiddenFiles);
 
-    if (isAcceptedForbidden) return 3;
+    if (isAcceptedForbidden) return FileErrorCodes.WrongFileFormat;
   }
 
   // Ошибка по минимальному размеру
-  if ((file as DropZoneFileType).size < minFileSize) return 1;
+  if ((file as DropZoneFileType).size < minFileSize) return FileErrorCodes.FileIsTooSmall;
 
   // Ошибка по максимальному размеру
-  if ((file as DropZoneFileType).size > maxFileSize) return 2;
+  if ((file as DropZoneFileType).size > maxFileSize) return FileErrorCodes.FileIsTooBig;
 
   // Ошибка по максимальной длине имени файла
-  if (file.name.length > maxFileNameLength) return 6;
+  if (file.name.length > maxFileNameLength) return FileErrorCodes.NameIsTooLong;
 
   // Ошибка не найдена
-  return 0;
+  return FileErrorCodes.None;
 };
 
 // Проверка на количество файлов и уже добавленные файлы
@@ -119,38 +120,12 @@ export const checkFiles = (
   return [acceptedFiles, rejectedFiles];
 };
 
-export const getRestProps = (props: DropZoneProps): {} => {
-  const {
-    acceptedFilesRender,
-    allowedFiles,
-    className,
-    dropZoneFilesNode, // не должно попасть в restProps
-    forbiddenFiles,
-    infoRender,
-    maxFileNameLength, // не должно попасть в restProps
-    maxFileSize, // не должно попасть в restProps
-    maxFilesNumber,
-    minFileSize, // не должно попасть в restProps
-    onDrop, // не должно попасть в restProps
-    onRemove, // не должно попасть в restProps
-    onChange,
-    rejectedFilesRender,
-    theme: themeProp,
-    uploadButtonRender,
-    value,
-    isDisabled,
-    ...restProps
-  } = mergeClassNames(props);
-
-  return restProps;
-};
-
 export const DescriptionMessage = (props: { children: string }): React.ReactElement => {
   const { children: message } = props;
 
   const shouldWrapMessage = isString(message) && message.length;
 
-  return (shouldWrapMessage ? <Div _blockInline>{message}</Div> : message) as React.ReactElement;
+  return (shouldWrapMessage ? <Div _block-inline>{message}</Div> : message) as React.ReactElement;
 };
 
 const getError = (file: DropZoneFileType | ExternalFile): DropZoneError => (ERROR_MESSAGES.find(

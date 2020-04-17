@@ -1,13 +1,12 @@
 import * as React from 'react';
 import accept from 'attr-accept';
-import { isString } from 'lodash';
+import { isString, isNumber } from 'lodash';
 import {
-  COMPONENTS_NAMESPACES, ERROR_MESSAGES, MAX_FILE_SIZE, MIN_FILE_SIZE,
+  COMPONENTS_NAMESPACES, ERROR_MESSAGES, FileErrorCodes, MAX_FILE_SIZE, MIN_FILE_SIZE,
 } from '../../constants';
-import { mergeClassNames } from '../../utils';
 import { Div } from '../Div';
 import {
-  FileDropError, FileType, FileDropProps,
+  FileType, FileDropProps, FileDropInnerError,
 } from './types';
 import { A } from '../A';
 import { globalDefaultTheme } from '../LedaProvider';
@@ -39,7 +38,7 @@ export const getErrorCode = (props: FileDropProps, file: FileType): number => {
   } = props;
 
   // Ошибка - файл уже существует
-  if (checkForAddedFile(props, file)) return 4;
+  if (checkForAddedFile(props, file)) return FileErrorCodes.AlreadyLoaded;
 
   // Ошибка типа
   if (allowedFiles) {
@@ -47,7 +46,7 @@ export const getErrorCode = (props: FileDropProps, file: FileType): number => {
       name: file.name,
       type: file.type,
     }, allowedFiles);
-    if (!isAccepted) return 3;
+    if (!isAccepted) return FileErrorCodes.WrongFileFormat;
   }
 
   // Ошибка типа. Запрещенные файлы
@@ -57,93 +56,84 @@ export const getErrorCode = (props: FileDropProps, file: FileType): number => {
       type: file.type,
     }, forbiddenFiles);
 
-    if (isAcceptedForbidden) return 3;
+    if (isAcceptedForbidden) return FileErrorCodes.WrongFileFormat;
   }
 
   // Ошибка по минимальному размеру
-  if (file.size < minFileSize) return 1;
+  if (file.size < minFileSize) return FileErrorCodes.FileIsTooSmall;
 
   // Ошибка по максимальному размеру
-  if (file.size > maxFileSize) return 2;
+  if (file.size > maxFileSize) return FileErrorCodes.FileIsTooBig;
 
   // Ошибка по максимальной длине имени файла
-  if (file.name.length > maxFileNameLength) return 6;
+  if (file.name.length > maxFileNameLength) return FileErrorCodes.NameIsTooLong;
 
   // Ошибка не найдена
-  return 0;
+  return FileErrorCodes.None;
 };
 
-export const getError = (file: FileType): FileDropError => ERROR_MESSAGES.find(
-  (error: FileDropError): boolean => file.errorCode === error.errorCode,
-) as FileDropError;
+export const errorCodeToMessage = (errorCode: number): string => {
+  const err = ERROR_MESSAGES.find((errorMessage): boolean => errorCode === errorMessage.errorCode);
+  if (err === undefined) throw new Error('FileDrop errorCodeToMessage error: wrong error code');
+  return err.message;
+};
 
-export const getErrorDescription = (file: FileType): string => getError(file)?.message ?? 'Неизвестная ошибка';
+export const getErrorMessage = (error: FileDropInnerError | Error | string): string => {
+  if (isString(error)) return error;
+  if (error instanceof Error) return error.message;
+  if (isNumber(error.errorCode)) return errorCodeToMessage(error.errorCode);
+  return 'FileDrop getErrorMessage error: unknown error';
+};
 
 // Проверка на количество файлов и уже добавленные файлы
 export const checkFiles = (
   props: FileDropProps,
   accepted: FileType[],
   rejected: FileType[],
-): FileType => {
+): { file: FileType, error: FileDropInnerError | null } => {
   const rejectedFile = rejected[0];
 
   if (rejected.length > 1) {
     // превышено максимальное количество файлов
     return {
-      ...rejectedFile,
-      errorCode: 5,
-      errorMessage: ERROR_MESSAGES.find((error) => error.errorCode === 5)?.message,
+      file: rejectedFile,
+      error: {
+        errorCode: FileErrorCodes.TooManyFiles,
+        errorMessage: errorCodeToMessage(FileErrorCodes.TooManyFiles),
+      },
     };
   }
 
   if (rejectedFile) {
+    const errorCode = getErrorCode(props, rejectedFile);
     return {
-      ...rejectedFile,
-      errorCode: getErrorCode(props, rejectedFile),
-      errorMessage: getErrorDescription(rejectedFile),
+      file: rejectedFile,
+      error: {
+        errorCode,
+        errorMessage: errorCodeToMessage(errorCode),
+      },
     };
   }
 
   const acceptedFile = accepted[0];
 
-  const errorCode = getErrorCode(props, acceptedFile);
+  const errorCode = acceptedFile && getErrorCode(props, acceptedFile);
+
   // если ошибок нет errorCode равен 0
-  if (errorCode !== 0) {
+  if (errorCode && errorCode !== 0) {
     return {
-      ...acceptedFile,
-      errorCode: getErrorCode(props, acceptedFile),
-      errorMessage: getErrorDescription(acceptedFile),
+      file: acceptedFile,
+      error: {
+        errorCode,
+        errorMessage: errorCodeToMessage(errorCode),
+      },
     };
   }
 
-  return acceptedFile;
-};
-
-export const getRestProps = (props: FileDropProps): {} => {
-  const {
-    acceptedFilesRender,
-    allowedFiles,
-    className,
-    dropZoneFilesNode, // не должно попасть в restProps
-    loadingData,
-    forbiddenFiles,
-    infoRender,
-    maxFileNameLength, // не должно попасть в restProps
-    maxFileSize, // не должно попасть в restProps
-    maxFilesNumber,
-    minFileSize, // не должно попасть в restProps
-    onDrop, // не должно попасть в restProps
-    onRemove, // не должно попасть в restProps
-    onChange,
-    rejectedFilesRender,
-    theme: themeProp,
-    uploadButtonRender,
-    value,
-    isDisabled,
-    ...restProps
-  } = mergeClassNames(props);
-
-  return restProps;
+  return {
+    file: acceptedFile,
+    error: null,
+  };
 };
 
 export const DescriptionMessage = (props: { children: string }): React.ReactElement => {
@@ -151,7 +141,7 @@ export const DescriptionMessage = (props: { children: string }): React.ReactElem
 
   const shouldWrapMessage = isString(message) && message.length;
 
-  return (shouldWrapMessage ? <Div _blockInline _txtGray _txtSmall>{message}</Div> : message) as React.ReactElement;
+  return (shouldWrapMessage ? <Div _block-inline _txt-gray _txt-small>{message}</Div> : message) as React.ReactElement;
 };
 
 export const createDownloadLink = (blob: Blob, fileName: string | undefined, theme: typeof globalDefaultTheme[typeof COMPONENTS_NAMESPACES.fileDrop]): React.ReactElement | null => {

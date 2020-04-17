@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {
-  CustomEventHandler, CustomRender, SetState, SomeObject,
+  CustomEventHandler, CustomRender, SomeObject,
 } from '../../commonTypes';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import { SuggestionListProps } from '../../src/SuggestionList/types';
+import { SuggestionItemComputedProps, SuggestionListProps } from '../../src/SuggestionList/types';
 import { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { DivProps } from '../Div';
 import { SpanProps } from '../Span';
@@ -75,12 +75,16 @@ export interface DropDownSelectProps<T extends Value = Value> extends Validation
   noSuggestionsRender?: SuggestionListProps['noSuggestionsRender'],
   onBlur?: CustomEventHandler<BlurEvent<T>>,
   onChange?: CustomEventHandler<ChangeEvent<T>>,
-  onFilterChange?: CustomEventHandler<ChangeEvent<T>>,
+  onFilterChange?: CustomEventHandler<ChangeEvent<string>>,
   onFocus?: CustomEventHandler<FocusEvent<T>>,
   placeholder?: string,
   ref?: React.Ref<DropDownSelectRefCurrent>,
+  /** Поля, в которых содержатся данные для поиска */
+  searchFields?: string[],
   shouldAllowEmpty?: boolean,
   shouldFilterValues?: boolean,
+  /** Сортировка выпадающего списка */
+  sortSuggestions?: (a: SuggestionItemComputedProps, b: SuggestionItemComputedProps) => number,
   textField?: T extends object ? string : never,
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.dropDownSelect],
   value?: T,
@@ -109,7 +113,9 @@ export interface GetComponentClassNames {
     isDisabled?: boolean,
     isFocused?: boolean,
     isOpen?: boolean,
+    isRequired?: boolean,
     isValid?: boolean,
+    value: string | number | SomeObject | null,
   }): {
     inputWrapperClassNames?: string,
     selectIconClassNames?: string,
@@ -120,7 +126,7 @@ export interface GetComponentClassNames {
 export interface HandlerCreatorData {
   props: DropDownSelectProps,
   state: DropDownSelectState,
-  setState: SetState<DropDownSelectState>,
+  mergeState: (state: Partial<DropDownSelectState>) => void,
   value: DropDownSelectState['value'],
   inputRef: React.MutableRefObject<HTMLInputElement | null>,
   validate: (value?: string | number | SomeObject | null) => boolean,

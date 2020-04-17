@@ -2,7 +2,7 @@ import * as React from 'react';
 import { isNil } from 'lodash';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
-  bindFunctionalRef, getClassNames, mergeClassNames, useTheme,
+  bindFunctionalRef, getClassNames, useProps, useTheme,
 } from '../../utils';
 import { Div } from '../Div';
 import { Span } from '../Span';
@@ -25,7 +25,7 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
     isLoading = false,
     onChange,
     onPageSizeChange,
-  } = mergeClassNames<PaginationProps>(props);
+  } = useProps(props);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.pagination);
 

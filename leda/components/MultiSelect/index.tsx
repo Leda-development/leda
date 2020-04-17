@@ -4,7 +4,7 @@ import {
   MultiSelectComponent, MultiSelectProps, MultiSelectRefCurrent, Value,
 } from './types';
 import {
-  bindFunctionalRef, getClassNames, mergeClassNames, useElement, useTheme,
+  bindFunctionalRef, getClassNames, getIsEmptyAndRequired, useElement, useProps, useTheme,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { useValidation } from '../Validation';
@@ -21,7 +21,7 @@ import { TagsContainer } from './TagsContainer';
 import { Div } from '../Div';
 import { LedaContext } from '../LedaProvider';
 import { Tag } from '../Tags';
-import { filterData, getValue } from './helpers';
+import { filterData, getShouldUniteTags, getValue } from './helpers';
 
 export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React.Ref<MultiSelectRefCurrent>): React.ReactElement => {
   const {
@@ -52,14 +52,19 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     placeholder,
     requiredMessage,
     shouldValidateUnmounted,
+    shouldKeepSuggestions,
+    shouldSelectedGoFirst,
+    sortSuggestions,
     tagRender,
+    tagsUnionRender,
     textField,
     theme: themeProp,
+    maxTags,
     validator,
     value: valueProp,
     wrapperRender,
     ...restProps
-  } = mergeClassNames(props);
+  } = useProps(props);
 
   const [valueState, setValue] = React.useState<Value[]>(defaultValue || []);
 
@@ -128,6 +133,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     [theme.inputFocused]: isFocused,
     [theme.inputWrapperDisabled]: isDisabled,
     [theme.inputWrapperInvalid]: !isValid,
+    [theme.inputWrapperRequired]: getIsEmptyAndRequired(value, isRequired),
   });
 
   const { renders: { [COMPONENTS_NAMESPACES.multiSelect]: multiSelectRenders } } = React.useContext(LedaContext);
@@ -162,16 +168,29 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     state,
   );
 
+  const TagsUnionElement = useElement(
+    'TagUnion',
+    Div,
+    tagsUnionRender || multiSelectRenders.tagsUnionRender,
+    props,
+    state,
+  );
+
   const filteredData = filterData({
     compareObjectsBy,
     data,
     filterRule,
     filterValue,
+    shouldKeepSuggestions,
     textField,
     value,
   });
 
   const isMaxItemsSelected = !isNil(maxSelected) && value.length === maxSelected;
+
+  const selectedSuggestions = shouldKeepSuggestions ? value : undefined;
+
+  const shouldUniteTags = getShouldUniteTags({ maxTags, value });
 
   return (
     <Wrapper
@@ -185,17 +204,24 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
         className={inputWrapperClassNames}
         onMouseDown={handleMouseDown}
       >
-        <TagsContainer
-          value={value}
-          theme={theme}
-          onTagClick={handleSelect}
-          onClearIconClick={handleClear}
-          onMouseDown={handleMouseDown}
-          textField={textField}
-          hasClearButton={hasClearButton}
-        >
-          <TagItem />
-        </TagsContainer>
+        {shouldUniteTags && (
+          <TagsUnionElement className={theme.tagsUnion}>
+            Выбрано {value.length}
+          </TagsUnionElement>
+        )}
+        {!shouldUniteTags && (
+          <TagsContainer
+            value={value}
+            theme={theme}
+            onTagClick={handleSelect}
+            onClearIconClick={handleClear}
+            onMouseDown={handleMouseDown}
+            textField={textField}
+            hasClearButton={hasClearButton}
+          >
+            <TagItem />
+          </TagsContainer>
+        )}
         <Input
           {...restProps}
           className={theme.input}
@@ -231,17 +257,22 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
           highlightedSuggestion={highlightedSuggestion}
           isLoading={isLoading}
           isOpen={isNil(isOpen) ? isFocused : isOpen}
-          onClick={handleSelect}
           itemRender={itemRender}
           listRender={listRender}
           noSuggestionsRender={noSuggestionsRender}
+          onClick={handleSelect}
+          selectedSuggestion={selectedSuggestions}
           shouldAllowEmpty={false}
+          shouldSelectedGoFirst={shouldSelectedGoFirst}
+          sortSuggestions={sortSuggestions}
           textField={textField}
           theme={theme}
           value={value}
         />
       )}
-      {!isFocused && !isDisabled && <InvalidMessage />}
+      {!isFocused && !isDisabled && (
+        <InvalidMessage />
+      )}
     </Wrapper>
   );
 }) as MultiSelectComponent;

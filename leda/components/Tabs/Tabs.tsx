@@ -6,7 +6,7 @@ import { useCustomElements } from './hooks';
 import { TabContent } from './TabContent';
 import { Tab } from './Tab';
 import {
-  bindFunctionalRef, getClassNames, mergeClassNames, useTheme,
+  bindFunctionalRef, getClassNames, useProps, useTheme,
 } from '../../utils';
 import { TabsContext } from './TabsContext';
 import { TabsProps, TabsRefCurrent } from './types';
@@ -18,8 +18,9 @@ export const Tabs = React.forwardRef((props: TabsProps, ref?: React.Ref<TabsRefC
     children,
     className,
     style,
+    tabContentNode,
     tabRender,
-  } = mergeClassNames<TabsProps>(props);
+  } = useProps(props);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.tabs);
 
@@ -66,7 +67,7 @@ export const Tabs = React.forwardRef((props: TabsProps, ref?: React.Ref<TabsRefC
           })}
         </TabsContext.Provider>
       </Heading>
-      <Content className={theme.content}>
+      <Content className={theme.content} tabContentNode={tabContentNode}>
         <TabContent activeTabKey={activeTabKey} key={activeTabKey}>
           {children}
         </TabContent>

@@ -3,7 +3,7 @@ import { isObject } from 'lodash';
 import { Div } from '../Div';
 import { Button as DefaultButton } from '../Button';
 import {
-  mergeClassNames, bindFunctionalRef, getClassNames, useTheme, useValue, useElement,
+  bindFunctionalRef, getClassNames, useTheme, useValue, useElement, useProps, getIsEmptyAndRequired,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { createChangeHandler, createResetHandler } from './handlers';
@@ -14,7 +14,7 @@ import {
 import { useValidation } from '../Validation';
 import { SomeObject } from '../../commonTypes';
 
-export const ButtonGroup = React.forwardRef((props: ButtonGroupProps, ref?: React.Ref<ButtonGroupRefCurrent>): React.ReactElement => {
+export const ButtonGroup = React.forwardRef((props: ButtonGroupProps, ref?: React.Ref<ButtonGroupRefCurrent>): React.ReactElement | null => {
   const {
     activeIndex,
     buttonRender,
@@ -38,9 +38,7 @@ export const ButtonGroup = React.forwardRef((props: ButtonGroupProps, ref?: Reac
     form,
     validator,
     ...restProps
-  } = mergeClassNames<ButtonGroupProps>(props);
-
-  if (!data) return null as unknown as React.ReactElement;
+  } = useProps(props);
 
   const [value, setUncontrolledValue] = useValue(valueProp, defaultValue);
 
@@ -58,11 +56,13 @@ export const ButtonGroup = React.forwardRef((props: ButtonGroupProps, ref?: Reac
     validateCurrent,
   });
 
+  const isEmptyAndRequired = getIsEmptyAndRequired(value, isRequired);
+
   const theme = useTheme(props.theme, COMPONENTS_NAMESPACES.buttonGroup);
 
   const wrapperClassNames = getClassNames(className, theme.wrapper);
 
-  const buttonsWrapperClassNames = getClassNames(theme.buttonsWrapper, { [theme.wrapperDisabled]: isDisabled });
+  const buttonsWrapperClassNames = getClassNames(theme.buttonsWrapper, { [theme.wrapperDisabled]: isDisabled, [theme.wrapperRequired]: isEmptyAndRequired });
 
   const Wrapper = useElement(
     'Wrapper',
@@ -77,6 +77,8 @@ export const ButtonGroup = React.forwardRef((props: ButtonGroupProps, ref?: Reac
     buttonRender,
     props,
   );
+
+  if (!data) return null;
 
   return (
     <Wrapper

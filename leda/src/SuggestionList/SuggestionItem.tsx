@@ -5,6 +5,8 @@ import { COMPONENTS_NAMESPACES } from '../../constants';
 import { getClassNames, useElement } from '../../utils';
 import { createClickHandler } from './handlers';
 import { SuggestionItemProps } from './types';
+import { getWrapperRef } from '../../utils/getWrapperRef';
+import { CommonRefCurrent } from '../../commonTypes';
 
 export const SuggestionItem = (props: SuggestionItemProps): React.ReactElement => {
   const {
@@ -46,7 +48,7 @@ export const SuggestionItem = (props: SuggestionItemProps): React.ReactElement =
       onClick={handleClick}
       ref={(component) => {
         if (isScrollTarget) {
-          suggestionRef.current = (component?.wrapper || component) as HTMLElement;
+          suggestionRef.current = getWrapperRef<CommonRefCurrent>(component);
         }
       }}
     >

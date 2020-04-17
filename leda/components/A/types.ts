@@ -10,6 +10,8 @@ export interface AProps extends React.HTMLAttributes<HTMLAnchorElement> {
   onClick?: CustomEventHandler<React.MouseEvent<HTMLAnchorElement>>,
   /** Реф */
   ref?: React.Ref<ARefCurrent>,
+  /** Если передано false, компонент не будет рендериться */
+  shouldRender?: boolean,
   /** Классы переданные через _ */
   [x: string]: unknown,
 }

@@ -9,11 +9,14 @@ const validate = (
   const unifiedValidatorWrappers = ((): Types.ValidatorWrapper[] => {
     if (field.isRequired) {
       return [{
-        validator: (value: any): boolean => value != null && value.length,
+        validator: helpers.checkIsFilled,
         invalidMessage: field.requiredMessage,
       }];
     }
-    if (!validatorWrappers) {
+    if (field.value == null || field.value.length === 0) {
+      return [];
+    }
+    if (validatorWrappers == null) {
       return field.validators;
     }
     if (!Array.isArray(validatorWrappers)) {
@@ -54,7 +57,7 @@ const getFormFieldHelpers = (formName: string, fieldName: string): Types.FormFie
     },
     validate: (wrappedValidator) => {
       const field = getField();
-      if (!field) {
+      if (field == null) {
         return undefined;
       }
       return validate(field, wrappedValidator);

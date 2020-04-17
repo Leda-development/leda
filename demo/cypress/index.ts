@@ -8,3 +8,4 @@ export { MaskedInput } from './MaskedInput';
 export { VStepper } from './VStepper';
 export { DatePicker } from './DatePicker';
 export { DateRange } from './DateRange';
+export { DropDownSelect } from './DropDownSelect';

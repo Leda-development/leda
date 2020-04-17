@@ -3,8 +3,7 @@ import { isNil } from 'lodash';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { SuggestionList } from '../../src/SuggestionList';
 import {
-  bindFunctionalRef,
-  mergeClassNames, mergeState, useTheme,
+  bindFunctionalRef, useProps, useTheme,
 } from '../../utils';
 import { Div } from '../Div';
 import { useValidation } from '../Validation';
@@ -56,18 +55,22 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
     onFocus,
     placeholder,
     requiredMessage,
+    searchFields,
     shouldAllowEmpty = false,
     shouldFilterValues = false,
     shouldValidateUnmounted,
+    sortSuggestions,
     textField,
     theme: themeProp,
     validator,
     value: valueProp,
     wrapperRender,
     ...restProps
-  } = mergeClassNames<DropDownSelectProps>(props);
+  } = useProps(props);
 
-  const [state, setState] = React.useState<DropDownSelectState>({
+  const [state, mergeState] = React.useReducer((oldState: DropDownSelectState, newState: Partial<DropDownSelectState>) => ({
+    ...oldState, ...newState,
+  }), {
     filterValue: null,
     highlightedSuggestion: defaultValue ?? null,
     selectedSuggestion: defaultValue ?? null,
@@ -75,7 +78,8 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
     isOpen: false,
     value: defaultValue,
   });
-  // выибраем между контролируемым режимом и неконтролируемым
+
+  // выбираем между контролируемым режимом и неконтролируемым
   const { isFocused, highlightedSuggestion, selectedSuggestion } = state;
   const isOpen = isNil(isOpenProp) ? state.isOpen : isOpenProp;
   const value = valueProp === undefined ? state.value : valueProp;
@@ -87,7 +91,7 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
     isValid, validateCurrent, InvalidMessage,
   } = useValidation(props, state, {
     reset: createResetHandler({
-      props, setState, value: defaultValue,
+      props, mergeState, value: defaultValue,
     }),
   });
 
@@ -98,11 +102,11 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
     selectIconClassNames,
     wrapperClassNames,
   } = getComponentClassNames({
-    theme, className, isDisabled, isFocused, isOpen, isValid,
+    theme, className, isDisabled, isFocused, isOpen, isValid, isRequired, value,
   });
 
   const handlerData = {
-    props, state, setState, inputRef, validate: validateCurrent, value,
+    props, state, mergeState, inputRef, validate: validateCurrent, value,
   };
 
   const handleChange = createChangeHandler(handlerData);
@@ -114,10 +118,12 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
   const handleClearIconClick = createClearIconClickHandler(handlerData);
 
   useSyncedHighlightedValue({
-    filterValue, shouldFilterValues, setState, data,
+    filterValue, shouldFilterValues, mergeState, data,
   });
 
-  useCorrectSuggestionsInControlledMode({ setState, valueProp });
+  useCorrectSuggestionsInControlledMode({
+    mergeState, valueProp,
+  });
 
   const {
     Wrapper,
@@ -128,8 +134,18 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
   const shouldRenderClearIcon = !isDisabled && hasClearButton && (value !== null || filterValue !== null);
 
   const suggestionListData = shouldFilterValues
-    ? filterData(data, filterValue, textField, filterRule)
+    ? filterData(data, filterValue, textField, filterRule, searchFields)
     : data;
+
+  const handleInputClick = () => {
+    mergeState({
+      isOpen: true,
+    });
+  };
+
+  const handleIconMouseDown: React.MouseEventHandler = (event) => {
+    event.preventDefault();
+  };
 
   return (
     <Wrapper
@@ -150,7 +166,7 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
           name={name}
           onBlur={handleBlur}
           onChange={handleFilterChange}
-          onClick={() => setState(mergeState({ isOpen: true }))}
+          onClick={handleInputClick}
           onFocus={handleFocus}
           onKeyDown={handleKeyDown}
           placeholder={isNil(value) ? placeholder : ''}
@@ -164,7 +180,7 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
             onClick={handleClearIconClick}
           />
         )}
-        <Icon className={selectIconClassNames} onMouseDown={(ev) => ev.preventDefault()} onClick={handleIconClick} />
+        <Icon className={selectIconClassNames} onMouseDown={handleIconMouseDown} onClick={handleIconClick} />
       </Div>
       <SuggestionList
         boundingContainerRef={boundingContainerRef}
@@ -181,11 +197,14 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
         placeholder={placeholder}
         selectedSuggestion={selectedSuggestion}
         shouldAllowEmpty={shouldAllowEmpty}
+        sortSuggestions={sortSuggestions}
         textField={textField}
         theme={theme}
         value={value}
       />
-      {!isDisabled && !isLoading && !isOpen && !isFocused && <InvalidMessage />}
+      {!isDisabled && !isLoading && !isOpen && !isFocused && (
+        <InvalidMessage />
+      )}
     </Wrapper>
   );
 }) as <T extends Value>(props: DropDownSelectProps<T>, ref?: React.Ref<DropDownSelectRefCurrent>) => React.ReactElement;

@@ -13,22 +13,24 @@ export interface ChangeEvent extends React.ChangeEvent<HTMLInputElement> {
 export interface CheckBoxProps {
   /** Всё, что обёрнуто в L.Checkbox, попадает в label */
   children?: React.ReactNode,
-  /** Отключение чекбокса */
-  isDisabled?: boolean,
   /** Значение по-умолчанию, если не передано - false */
   defaultValue?: boolean,
   /** Id для чекбокса */
   id?: string,
   /** Кастомизация инпута, непосредственно инпут - невидим, но данный рендер позволяет добавить атрибуты в тег <input> */
   inputRender?: CustomRender<CheckBoxProps, {}, React.InputHTMLAttributes<HTMLInputElement>>,
-  /** Обработчик изменения состояния элементов */
-  onChange?: (event: ChangeEvent) => void,
-  /** Тема компонента */
-  theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.checkBox],
-  /** Реф */
-  ref?: React.Ref<CheckBoxRefCurrent>,
+  /** Отключение чекбокса */
+  isDisabled?: boolean,
+  /** Кастомизация элемента label */
+  labelRender?: CustomRender<CheckBoxProps, {}, React.LabelHTMLAttributes<any>>,
   /** Имя компонента */
   name?: string,
+  /** Обработчик изменения состояния элементов */
+  onChange?: (event: ChangeEvent) => void,
+  /** Реф */
+  ref?: React.Ref<CheckBoxRefCurrent>,
+  /** Тема компонента */
+  theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.checkBox],
   /** Значение чекбокса */
   value?: boolean,
   /** Кастомизация враппера */

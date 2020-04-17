@@ -7,22 +7,24 @@ import { LiProps } from '../Li';
 export interface TabsProps {
   /** Устанавливает номер выбранного таба */
   activeTabKey?: string | number,
-  /** Обработчик выбора таба */
-  onChange?: (event: ChangeEvent) => void,
-  /** Тема компонента */
-  theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.tabs],
-  /** Кастомный wrapper */
-  wrapperRender?: CustomRender<TabsProps, TabsState, WrapperProps>,
+  /** Вложенные элементы */
+  children?: React.ReactNode,
   /** Кастомный content */
   contentRender?: CustomRender<TabsProps, TabsState, ContentProps>,
   /** Кастомный heading */
   headingRender?: CustomRender<TabsProps, TabsState, HeadingProps>,
-  /** Кастомный tab */
-  tabRender?: CustomRender<TabProps, {}, LiProps>,
+  /** Обработчик выбора таба */
+  onChange?: (event: ChangeEvent) => void,
   /** Reference */
   ref?: React.Ref<TabsRefCurrent>,
-  /** Вложенные элементы */
-  children?: React.ReactNode,
+  /** DOM-узел, в который будет помещено содержимое вкладки */
+  tabContentNode?: HTMLElement | null,
+  /** Кастомный tab */
+  tabRender?: CustomRender<TabProps, {}, LiProps>,
+  /** Тема компонента */
+  theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.tabs],
+  /** Кастомный wrapper */
+  wrapperRender?: CustomRender<TabsProps, TabsState, WrapperProps>,
   /** Классы переданные через _ */
   [x: string]: unknown,
 }
@@ -32,16 +34,18 @@ export interface TabsState {
 }
 
 export type TabProps = React.HTMLAttributes<HTMLDivElement> & {
+  /** Вложенные элементы */
+  children?: React.ReactNode,
+  /** Делает вкладку неактивной */
+  isDisabled?: boolean,
   /** Номер вкладки. Нумерация от 0, т.к. обработчик onSelect комопнента Tabs возвращает номер вкладки начиная с 0. */
   tabKey: string | number,
+  /** Кастомный tab */
+  tabRender?: CustomRender<TabProps, {}, LiProps>,
   /** Тема копмонента */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.tabs],
   /** Название таба. Может принимать название в виде строки или ReactNode */
   title: React.ReactNode,
-  /** Вложенные элементы */
-  children?: React.ReactNode,
-  /** Кастомный tab */
-  tabRender?: CustomRender<TabProps, {}, LiProps>,
   /** Классы переданные через _ */
   [x: string]: unknown,
 };
@@ -49,8 +53,8 @@ export type TabProps = React.HTMLAttributes<HTMLDivElement> & {
 export interface TabsContextType {
   activeTabKey: string | number,
   onTabSelect: SelectHandler,
-  theme: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.tabs],
   tabRender?: CustomRender<TabProps, {}, LiProps>,
+  theme: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.tabs],
 }
 
 export interface SelectHandler {
@@ -88,6 +92,7 @@ export interface WrapperProps {
 export interface ContentProps {
   className?: string,
   children?: React.ReactNode,
+  tabContentNode?: Element | null,
 }
 
 export interface HeadingProps {

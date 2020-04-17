@@ -52,6 +52,7 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
                   "inputWrapperDisabled": "disabled",
                   "inputWrapperFocused": "focused",
                   "inputWrapperInvalid": "danger",
+                  "inputWrapperRequired": "required",
                   "item": "suggestion-item",
                   "itemHighlighted": "highlighted",
                   "itemPlaceholder": "placeholder",
@@ -59,6 +60,7 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
                   "tagsContainer": "multiselect-tags-container",
+                  "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
                 }
               }
@@ -161,6 +163,7 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
               "inputWrapperDisabled": "disabled",
               "inputWrapperFocused": "focused",
               "inputWrapperInvalid": "danger",
+              "inputWrapperRequired": "required",
               "item": "suggestion-item",
               "itemHighlighted": "highlighted",
               "itemPlaceholder": "placeholder",
@@ -168,6 +171,7 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
               "list": "suggestion-list",
               "noSuggestions": "nodata",
               "tagsContainer": "multiselect-tags-container",
+              "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
             }
           }
@@ -222,6 +226,7 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
                           "inputWrapperDisabled": "disabled",
                           "inputWrapperFocused": "focused",
                           "inputWrapperInvalid": "danger",
+                          "inputWrapperRequired": "required",
                           "item": "suggestion-item",
                           "itemHighlighted": "highlighted",
                           "itemPlaceholder": "placeholder",
@@ -229,6 +234,7 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
                           "list": "suggestion-list",
                           "noSuggestions": "nodata",
                           "tagsContainer": "multiselect-tags-container",
+                          "tagsUnion": "multiselect-tags-union",
                           "wrapper": "multiselect-wrapper",
                         }
                       }
@@ -278,6 +284,7 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
                           "inputWrapperDisabled": "disabled",
                           "inputWrapperFocused": "focused",
                           "inputWrapperInvalid": "danger",
+                          "inputWrapperRequired": "required",
                           "item": "suggestion-item",
                           "itemHighlighted": "highlighted",
                           "itemPlaceholder": "placeholder",
@@ -285,6 +292,7 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
                           "list": "suggestion-list",
                           "noSuggestions": "nodata",
                           "tagsContainer": "multiselect-tags-container",
+                          "tagsUnion": "multiselect-tags-union",
                           "wrapper": "multiselect-wrapper",
                         }
                       }
@@ -382,6 +390,7 @@ exports[`MultiSelect ATTRIBUTES should list loading 1`] = `
                   "inputWrapperDisabled": "disabled",
                   "inputWrapperFocused": "focused",
                   "inputWrapperInvalid": "danger",
+                  "inputWrapperRequired": "required",
                   "item": "suggestion-item",
                   "itemHighlighted": "highlighted",
                   "itemPlaceholder": "placeholder",
@@ -389,6 +398,7 @@ exports[`MultiSelect ATTRIBUTES should list loading 1`] = `
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
                   "tagsContainer": "multiselect-tags-container",
+                  "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
                 }
               }
@@ -492,6 +502,7 @@ exports[`MultiSelect ATTRIBUTES should list loading 1`] = `
               "inputWrapperDisabled": "disabled",
               "inputWrapperFocused": "focused",
               "inputWrapperInvalid": "danger",
+              "inputWrapperRequired": "required",
               "item": "suggestion-item",
               "itemHighlighted": "highlighted",
               "itemPlaceholder": "placeholder",
@@ -499,6 +510,7 @@ exports[`MultiSelect ATTRIBUTES should list loading 1`] = `
               "list": "suggestion-list",
               "noSuggestions": "nodata",
               "tagsContainer": "multiselect-tags-container",
+              "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
             }
           }
@@ -613,6 +625,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
                   "inputWrapperDisabled": "disabled",
                   "inputWrapperFocused": "focused",
                   "inputWrapperInvalid": "danger",
+                  "inputWrapperRequired": "required",
                   "item": "suggestion-item",
                   "itemHighlighted": "highlighted",
                   "itemPlaceholder": "placeholder",
@@ -620,6 +633,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
                   "tagsContainer": "multiselect-tags-container",
+                  "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
                 }
               }
@@ -722,6 +736,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
               "inputWrapperDisabled": "disabled",
               "inputWrapperFocused": "focused",
               "inputWrapperInvalid": "danger",
+              "inputWrapperRequired": "required",
               "item": "suggestion-item",
               "itemHighlighted": "highlighted",
               "itemPlaceholder": "placeholder",
@@ -729,6 +744,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
               "list": "suggestion-list",
               "noSuggestions": "nodata",
               "tagsContainer": "multiselect-tags-container",
+              "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
             }
           }
@@ -783,6 +799,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
                           "inputWrapperDisabled": "disabled",
                           "inputWrapperFocused": "focused",
                           "inputWrapperInvalid": "danger",
+                          "inputWrapperRequired": "required",
                           "item": "suggestion-item",
                           "itemHighlighted": "highlighted",
                           "itemPlaceholder": "placeholder",
@@ -790,6 +807,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
                           "list": "suggestion-list",
                           "noSuggestions": "nodata",
                           "tagsContainer": "multiselect-tags-container",
+                          "tagsUnion": "multiselect-tags-union",
                           "wrapper": "multiselect-wrapper",
                         }
                       }
@@ -839,6 +857,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
                           "inputWrapperDisabled": "disabled",
                           "inputWrapperFocused": "focused",
                           "inputWrapperInvalid": "danger",
+                          "inputWrapperRequired": "required",
                           "item": "suggestion-item",
                           "itemHighlighted": "highlighted",
                           "itemPlaceholder": "placeholder",
@@ -846,6 +865,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
                           "list": "suggestion-list",
                           "noSuggestions": "nodata",
                           "tagsContainer": "multiselect-tags-container",
+                          "tagsUnion": "multiselect-tags-union",
                           "wrapper": "multiselect-wrapper",
                         }
                       }
@@ -942,6 +962,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 2`] = `
                   "inputWrapperDisabled": "disabled",
                   "inputWrapperFocused": "focused",
                   "inputWrapperInvalid": "danger",
+                  "inputWrapperRequired": "required",
                   "item": "suggestion-item",
                   "itemHighlighted": "highlighted",
                   "itemPlaceholder": "placeholder",
@@ -949,6 +970,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 2`] = `
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
                   "tagsContainer": "multiselect-tags-container",
+                  "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
                 }
               }
@@ -1045,6 +1067,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 2`] = `
               "inputWrapperDisabled": "disabled",
               "inputWrapperFocused": "focused",
               "inputWrapperInvalid": "danger",
+              "inputWrapperRequired": "required",
               "item": "suggestion-item",
               "itemHighlighted": "highlighted",
               "itemPlaceholder": "placeholder",
@@ -1052,6 +1075,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 2`] = `
               "list": "suggestion-list",
               "noSuggestions": "nodata",
               "tagsContainer": "multiselect-tags-container",
+              "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
             }
           }
@@ -1159,6 +1183,7 @@ exports[`MultiSelect HANDLERS should test onBlur 1`] = `
                   "inputWrapperDisabled": "disabled",
                   "inputWrapperFocused": "focused",
                   "inputWrapperInvalid": "danger",
+                  "inputWrapperRequired": "required",
                   "item": "suggestion-item",
                   "itemHighlighted": "highlighted",
                   "itemPlaceholder": "placeholder",
@@ -1166,6 +1191,7 @@ exports[`MultiSelect HANDLERS should test onBlur 1`] = `
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
                   "tagsContainer": "multiselect-tags-container",
+                  "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
                 }
               }
@@ -1270,6 +1296,7 @@ exports[`MultiSelect HANDLERS should test onBlur 1`] = `
               "inputWrapperDisabled": "disabled",
               "inputWrapperFocused": "focused",
               "inputWrapperInvalid": "danger",
+              "inputWrapperRequired": "required",
               "item": "suggestion-item",
               "itemHighlighted": "highlighted",
               "itemPlaceholder": "placeholder",
@@ -1277,6 +1304,7 @@ exports[`MultiSelect HANDLERS should test onBlur 1`] = `
               "list": "suggestion-list",
               "noSuggestions": "nodata",
               "tagsContainer": "multiselect-tags-container",
+              "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
             }
           }
@@ -1378,6 +1406,7 @@ exports[`MultiSelect HANDLERS should test onBlur 2`] = `
                   "inputWrapperDisabled": "disabled",
                   "inputWrapperFocused": "focused",
                   "inputWrapperInvalid": "danger",
+                  "inputWrapperRequired": "required",
                   "item": "suggestion-item",
                   "itemHighlighted": "highlighted",
                   "itemPlaceholder": "placeholder",
@@ -1385,6 +1414,7 @@ exports[`MultiSelect HANDLERS should test onBlur 2`] = `
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
                   "tagsContainer": "multiselect-tags-container",
+                  "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
                 }
               }
@@ -1489,6 +1519,7 @@ exports[`MultiSelect HANDLERS should test onBlur 2`] = `
               "inputWrapperDisabled": "disabled",
               "inputWrapperFocused": "focused",
               "inputWrapperInvalid": "danger",
+              "inputWrapperRequired": "required",
               "item": "suggestion-item",
               "itemHighlighted": "highlighted",
               "itemPlaceholder": "placeholder",
@@ -1496,6 +1527,7 @@ exports[`MultiSelect HANDLERS should test onBlur 2`] = `
               "list": "suggestion-list",
               "noSuggestions": "nodata",
               "tagsContainer": "multiselect-tags-container",
+              "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
             }
           }
@@ -1576,6 +1608,7 @@ exports[`MultiSelect HANDLERS should test onChange 1`] = `
                   "inputWrapperDisabled": "disabled",
                   "inputWrapperFocused": "focused",
                   "inputWrapperInvalid": "danger",
+                  "inputWrapperRequired": "required",
                   "item": "suggestion-item",
                   "itemHighlighted": "highlighted",
                   "itemPlaceholder": "placeholder",
@@ -1583,6 +1616,7 @@ exports[`MultiSelect HANDLERS should test onChange 1`] = `
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
                   "tagsContainer": "multiselect-tags-container",
+                  "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
                 }
               }
@@ -1723,6 +1757,7 @@ exports[`MultiSelect HANDLERS should test onChange 1`] = `
               "inputWrapperDisabled": "disabled",
               "inputWrapperFocused": "focused",
               "inputWrapperInvalid": "danger",
+              "inputWrapperRequired": "required",
               "item": "suggestion-item",
               "itemHighlighted": "highlighted",
               "itemPlaceholder": "placeholder",
@@ -1730,6 +1765,7 @@ exports[`MultiSelect HANDLERS should test onChange 1`] = `
               "list": "suggestion-list",
               "noSuggestions": "nodata",
               "tagsContainer": "multiselect-tags-container",
+              "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
             }
           }
@@ -1785,6 +1821,7 @@ exports[`MultiSelect HANDLERS should test onChange 1`] = `
                           "inputWrapperDisabled": "disabled",
                           "inputWrapperFocused": "focused",
                           "inputWrapperInvalid": "danger",
+                          "inputWrapperRequired": "required",
                           "item": "suggestion-item",
                           "itemHighlighted": "highlighted",
                           "itemPlaceholder": "placeholder",
@@ -1792,6 +1829,7 @@ exports[`MultiSelect HANDLERS should test onChange 1`] = `
                           "list": "suggestion-list",
                           "noSuggestions": "nodata",
                           "tagsContainer": "multiselect-tags-container",
+                          "tagsUnion": "multiselect-tags-union",
                           "wrapper": "multiselect-wrapper",
                         }
                       }
@@ -1891,6 +1929,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 1`] = `
                   "inputWrapperDisabled": "disabled",
                   "inputWrapperFocused": "focused",
                   "inputWrapperInvalid": "danger",
+                  "inputWrapperRequired": "required",
                   "item": "suggestion-item",
                   "itemHighlighted": "highlighted",
                   "itemPlaceholder": "placeholder",
@@ -1898,6 +1937,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 1`] = `
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
                   "tagsContainer": "multiselect-tags-container",
+                  "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
                 }
               }
@@ -2070,6 +2110,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 1`] = `
               "inputWrapperDisabled": "disabled",
               "inputWrapperFocused": "focused",
               "inputWrapperInvalid": "danger",
+              "inputWrapperRequired": "required",
               "item": "suggestion-item",
               "itemHighlighted": "highlighted",
               "itemPlaceholder": "placeholder",
@@ -2077,6 +2118,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 1`] = `
               "list": "suggestion-list",
               "noSuggestions": "nodata",
               "tagsContainer": "multiselect-tags-container",
+              "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
             }
           }
@@ -2186,6 +2228,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
                   "inputWrapperDisabled": "disabled",
                   "inputWrapperFocused": "focused",
                   "inputWrapperInvalid": "danger",
+                  "inputWrapperRequired": "required",
                   "item": "suggestion-item",
                   "itemHighlighted": "highlighted",
                   "itemPlaceholder": "placeholder",
@@ -2193,6 +2236,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
                   "tagsContainer": "multiselect-tags-container",
+                  "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
                 }
               }
@@ -2297,6 +2341,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
               "inputWrapperDisabled": "disabled",
               "inputWrapperFocused": "focused",
               "inputWrapperInvalid": "danger",
+              "inputWrapperRequired": "required",
               "item": "suggestion-item",
               "itemHighlighted": "highlighted",
               "itemPlaceholder": "placeholder",
@@ -2304,6 +2349,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
               "list": "suggestion-list",
               "noSuggestions": "nodata",
               "tagsContainer": "multiselect-tags-container",
+              "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
             }
           }
@@ -2358,6 +2404,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
                           "inputWrapperDisabled": "disabled",
                           "inputWrapperFocused": "focused",
                           "inputWrapperInvalid": "danger",
+                          "inputWrapperRequired": "required",
                           "item": "suggestion-item",
                           "itemHighlighted": "highlighted",
                           "itemPlaceholder": "placeholder",
@@ -2365,6 +2412,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
                           "list": "suggestion-list",
                           "noSuggestions": "nodata",
                           "tagsContainer": "multiselect-tags-container",
+                          "tagsUnion": "multiselect-tags-union",
                           "wrapper": "multiselect-wrapper",
                         }
                       }
@@ -2414,6 +2462,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
                           "inputWrapperDisabled": "disabled",
                           "inputWrapperFocused": "focused",
                           "inputWrapperInvalid": "danger",
+                          "inputWrapperRequired": "required",
                           "item": "suggestion-item",
                           "itemHighlighted": "highlighted",
                           "itemPlaceholder": "placeholder",
@@ -2421,6 +2470,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
                           "list": "suggestion-list",
                           "noSuggestions": "nodata",
                           "tagsContainer": "multiselect-tags-container",
+                          "tagsUnion": "multiselect-tags-union",
                           "wrapper": "multiselect-wrapper",
                         }
                       }
@@ -2521,6 +2571,7 @@ exports[`MultiSelect HANDLERS should test onDeselect by clear button 1`] = `
                   "inputWrapperDisabled": "disabled",
                   "inputWrapperFocused": "focused",
                   "inputWrapperInvalid": "danger",
+                  "inputWrapperRequired": "required",
                   "item": "suggestion-item",
                   "itemHighlighted": "highlighted",
                   "itemPlaceholder": "placeholder",
@@ -2528,6 +2579,7 @@ exports[`MultiSelect HANDLERS should test onDeselect by clear button 1`] = `
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
                   "tagsContainer": "multiselect-tags-container",
+                  "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
                 }
               }
@@ -2677,6 +2729,7 @@ exports[`MultiSelect HANDLERS should test onDeselect by clear button 1`] = `
               "inputWrapperDisabled": "disabled",
               "inputWrapperFocused": "focused",
               "inputWrapperInvalid": "danger",
+              "inputWrapperRequired": "required",
               "item": "suggestion-item",
               "itemHighlighted": "highlighted",
               "itemPlaceholder": "placeholder",
@@ -2684,6 +2737,7 @@ exports[`MultiSelect HANDLERS should test onDeselect by clear button 1`] = `
               "list": "suggestion-list",
               "noSuggestions": "nodata",
               "tagsContainer": "multiselect-tags-container",
+              "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
             }
           }
@@ -2739,6 +2793,7 @@ exports[`MultiSelect HANDLERS should test onDeselect by clear button 1`] = `
                           "inputWrapperDisabled": "disabled",
                           "inputWrapperFocused": "focused",
                           "inputWrapperInvalid": "danger",
+                          "inputWrapperRequired": "required",
                           "item": "suggestion-item",
                           "itemHighlighted": "highlighted",
                           "itemPlaceholder": "placeholder",
@@ -2746,6 +2801,7 @@ exports[`MultiSelect HANDLERS should test onDeselect by clear button 1`] = `
                           "list": "suggestion-list",
                           "noSuggestions": "nodata",
                           "tagsContainer": "multiselect-tags-container",
+                          "tagsUnion": "multiselect-tags-union",
                           "wrapper": "multiselect-wrapper",
                         }
                       }
@@ -2865,6 +2921,7 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
                   "inputWrapperDisabled": "disabled",
                   "inputWrapperFocused": "focused",
                   "inputWrapperInvalid": "danger",
+                  "inputWrapperRequired": "required",
                   "item": "suggestion-item",
                   "itemHighlighted": "highlighted",
                   "itemPlaceholder": "placeholder",
@@ -2872,6 +2929,7 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
                   "tagsContainer": "multiselect-tags-container",
+                  "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
                 }
               }
@@ -2976,6 +3034,7 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
               "inputWrapperDisabled": "disabled",
               "inputWrapperFocused": "focused",
               "inputWrapperInvalid": "danger",
+              "inputWrapperRequired": "required",
               "item": "suggestion-item",
               "itemHighlighted": "highlighted",
               "itemPlaceholder": "placeholder",
@@ -2983,6 +3042,7 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
               "list": "suggestion-list",
               "noSuggestions": "nodata",
               "tagsContainer": "multiselect-tags-container",
+              "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
             }
           }
@@ -3037,6 +3097,7 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
                           "inputWrapperDisabled": "disabled",
                           "inputWrapperFocused": "focused",
                           "inputWrapperInvalid": "danger",
+                          "inputWrapperRequired": "required",
                           "item": "suggestion-item",
                           "itemHighlighted": "highlighted",
                           "itemPlaceholder": "placeholder",
@@ -3044,6 +3105,7 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
                           "list": "suggestion-list",
                           "noSuggestions": "nodata",
                           "tagsContainer": "multiselect-tags-container",
+                          "tagsUnion": "multiselect-tags-union",
                           "wrapper": "multiselect-wrapper",
                         }
                       }
@@ -3093,6 +3155,7 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
                           "inputWrapperDisabled": "disabled",
                           "inputWrapperFocused": "focused",
                           "inputWrapperInvalid": "danger",
+                          "inputWrapperRequired": "required",
                           "item": "suggestion-item",
                           "itemHighlighted": "highlighted",
                           "itemPlaceholder": "placeholder",
@@ -3100,6 +3163,7 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
                           "list": "suggestion-list",
                           "noSuggestions": "nodata",
                           "tagsContainer": "multiselect-tags-container",
+                          "tagsUnion": "multiselect-tags-union",
                           "wrapper": "multiselect-wrapper",
                         }
                       }
@@ -3195,6 +3259,7 @@ exports[`MultiSelect SNAPSHOTS should render basic usage 1`] = `
                   "inputWrapperDisabled": "disabled",
                   "inputWrapperFocused": "focused",
                   "inputWrapperInvalid": "danger",
+                  "inputWrapperRequired": "required",
                   "item": "suggestion-item",
                   "itemHighlighted": "highlighted",
                   "itemPlaceholder": "placeholder",
@@ -3202,6 +3267,7 @@ exports[`MultiSelect SNAPSHOTS should render basic usage 1`] = `
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
                   "tagsContainer": "multiselect-tags-container",
+                  "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
                 }
               }
@@ -3304,6 +3370,7 @@ exports[`MultiSelect SNAPSHOTS should render basic usage 1`] = `
               "inputWrapperDisabled": "disabled",
               "inputWrapperFocused": "focused",
               "inputWrapperInvalid": "danger",
+              "inputWrapperRequired": "required",
               "item": "suggestion-item",
               "itemHighlighted": "highlighted",
               "itemPlaceholder": "placeholder",
@@ -3311,6 +3378,7 @@ exports[`MultiSelect SNAPSHOTS should render basic usage 1`] = `
               "list": "suggestion-list",
               "noSuggestions": "nodata",
               "tagsContainer": "multiselect-tags-container",
+              "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
             }
           }
@@ -3388,6 +3456,7 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 1`] = `
                   "inputWrapperDisabled": "disabled",
                   "inputWrapperFocused": "focused",
                   "inputWrapperInvalid": "danger",
+                  "inputWrapperRequired": "required",
                   "item": "suggestion-item",
                   "itemHighlighted": "highlighted",
                   "itemPlaceholder": "placeholder",
@@ -3395,6 +3464,7 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 1`] = `
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
                   "tagsContainer": "multiselect-tags-container",
+                  "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
                 }
               }
@@ -3497,6 +3567,7 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 1`] = `
               "inputWrapperDisabled": "disabled",
               "inputWrapperFocused": "focused",
               "inputWrapperInvalid": "danger",
+              "inputWrapperRequired": "required",
               "item": "suggestion-item",
               "itemHighlighted": "highlighted",
               "itemPlaceholder": "placeholder",
@@ -3504,6 +3575,7 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 1`] = `
               "list": "suggestion-list",
               "noSuggestions": "nodata",
               "tagsContainer": "multiselect-tags-container",
+              "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
             }
           }
@@ -3590,6 +3662,7 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 2`] = `
                   "inputWrapperDisabled": "disabled",
                   "inputWrapperFocused": "focused",
                   "inputWrapperInvalid": "danger",
+                  "inputWrapperRequired": "required",
                   "item": "suggestion-item",
                   "itemHighlighted": "highlighted",
                   "itemPlaceholder": "placeholder",
@@ -3597,6 +3670,7 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 2`] = `
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
                   "tagsContainer": "multiselect-tags-container",
+                  "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
                 }
               }
@@ -3709,6 +3783,7 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 2`] = `
               "inputWrapperDisabled": "disabled",
               "inputWrapperFocused": "focused",
               "inputWrapperInvalid": "danger",
+              "inputWrapperRequired": "required",
               "item": "suggestion-item",
               "itemHighlighted": "highlighted",
               "itemPlaceholder": "placeholder",
@@ -3716,6 +3791,7 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 2`] = `
               "list": "suggestion-list",
               "noSuggestions": "nodata",
               "tagsContainer": "multiselect-tags-container",
+              "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
             }
           }
@@ -3793,6 +3869,7 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 1`] = `
                   "inputWrapperDisabled": "disabled",
                   "inputWrapperFocused": "focused",
                   "inputWrapperInvalid": "danger",
+                  "inputWrapperRequired": "required",
                   "item": "suggestion-item",
                   "itemHighlighted": "highlighted",
                   "itemPlaceholder": "placeholder",
@@ -3800,6 +3877,7 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 1`] = `
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
                   "tagsContainer": "multiselect-tags-container",
+                  "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
                 }
               }
@@ -3902,6 +3980,7 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 1`] = `
               "inputWrapperDisabled": "disabled",
               "inputWrapperFocused": "focused",
               "inputWrapperInvalid": "danger",
+              "inputWrapperRequired": "required",
               "item": "suggestion-item",
               "itemHighlighted": "highlighted",
               "itemPlaceholder": "placeholder",
@@ -3909,6 +3988,7 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 1`] = `
               "list": "suggestion-list",
               "noSuggestions": "nodata",
               "tagsContainer": "multiselect-tags-container",
+              "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
             }
           }
@@ -3986,6 +4066,7 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 2`] = `
                   "inputWrapperDisabled": "disabled",
                   "inputWrapperFocused": "focused",
                   "inputWrapperInvalid": "danger",
+                  "inputWrapperRequired": "required",
                   "item": "suggestion-item",
                   "itemHighlighted": "highlighted",
                   "itemPlaceholder": "placeholder",
@@ -3993,6 +4074,7 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 2`] = `
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
                   "tagsContainer": "multiselect-tags-container",
+                  "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
                 }
               }
@@ -4095,6 +4177,7 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 2`] = `
               "inputWrapperDisabled": "disabled",
               "inputWrapperFocused": "focused",
               "inputWrapperInvalid": "danger",
+              "inputWrapperRequired": "required",
               "item": "suggestion-item",
               "itemHighlighted": "highlighted",
               "itemPlaceholder": "placeholder",
@@ -4102,6 +4185,7 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 2`] = `
               "list": "suggestion-list",
               "noSuggestions": "nodata",
               "tagsContainer": "multiselect-tags-container",
+              "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
             }
           }

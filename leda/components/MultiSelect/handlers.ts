@@ -7,12 +7,13 @@ import {
   KeyDownData,
   MouseDownData,
   MultiSelectProps,
+  ResetEvent,
   SelectData,
   Value,
 } from './types';
 import { CustomEventHandler, SetState, SomeObject } from '../../commonTypes';
 import { SuggestionTarget } from '../../src/SuggestionList/types';
-import { filterData } from './helpers';
+import { filterData, getShouldUniteTags } from './helpers';
 
 export const createFocusHandler = (
   props: MultiSelectProps, extraData: FocusData,
@@ -150,11 +151,11 @@ export const createKeyDownHandler = (
   props: MultiSelectProps, extraData: KeyDownData,
 ): React.KeyboardEventHandler<HTMLInputElement> => (ev) => {
   const {
-    data, textField, filterRule, compareObjectsBy,
+    data, textField, filterRule, compareObjectsBy, maxTags,
   } = props;
 
   const {
-    filterValue, highlightedSuggestion, setHighlightedSuggestion, handleSelect, value, setFocused,
+    filterValue, highlightedSuggestion, setHighlightedSuggestion, handleSelect, value,
   } = extraData;
 
   if (!data) return;
@@ -220,6 +221,9 @@ export const createKeyDownHandler = (
   }
 
   if (ev.key === 'Backspace' && !filterValue && value.length !== 0) {
+    const shouldUniteTags = getShouldUniteTags({ maxTags, value });
+    if (shouldUniteTags) return;
+
     // вызываем обработчик
     handleSelect({
       ...ev,
@@ -246,6 +250,8 @@ export const createResetHandler = ({
       component: {
         name: props.name,
         value,
+        deselectedValues: undefined,
+        selectedValue: undefined,
       },
     };
     props.onChange(customEvent);

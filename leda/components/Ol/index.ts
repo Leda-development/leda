@@ -3,6 +3,7 @@ import { htmlTagFactory } from '../../src/HTMLTagsFactory';
 
 export interface OlProps extends React.HTMLAttributes<HTMLOListElement> {
   ref?: React.Ref<OlRefCurrent>,
+  shouldRender?: boolean,
   [x: string]: unknown,
 }
 

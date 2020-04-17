@@ -1,13 +1,13 @@
 import React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
-  mergeClassNames, getClassNames, bindFunctionalRef, useTheme,
+  getClassNames, bindFunctionalRef, useTheme, useProps,
 } from '../../utils';
 import { createClickHandler } from './handlers';
 import { ButtonProps, ButtonRefCurrent } from './types';
 
 // как настраивать кнопку для валидации ввода: ../Validation/validation.md
-export const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<ButtonRefCurrent>): React.ReactElement => {
+export const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<ButtonRefCurrent>): React.ReactElement | null => {
   const {
     children,
     className,
@@ -15,13 +15,17 @@ export const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<Butto
     isLoading,
     form,
     onValidationFail,
+    scrollOffset,
+    shouldRender,
     shouldScrollToInvalidFields,
     shouldValidateUnmounted,
     theme: themeProp,
     ...restProps
-  } = mergeClassNames(props);
+  } = useProps(props);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.button);
+
+  if (shouldRender === false) return null;
 
   const { disabled, loading, wrapper } = theme;
 

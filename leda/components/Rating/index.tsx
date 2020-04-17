@@ -1,7 +1,7 @@
 import React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
-  bindFunctionalRef, getClassNames, mergeClassNames, useElement, useTheme,
+  bindFunctionalRef, getClassNames, useElement, useProps, useTheme,
 } from '../../utils';
 import { RatingProps, RatingRefCurrent } from './types';
 import { createChangeHandler, createMouseOutHandler, createMouseOverHandler } from './handlers';
@@ -18,7 +18,7 @@ export const Rating = React.forwardRef((props: RatingProps, ref?: React.Ref<Rati
     onClick,
     theme: themeProp,
     ...restProps
-  } = mergeClassNames<RatingProps>(props);
+  } = useProps(props);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.rating);
 

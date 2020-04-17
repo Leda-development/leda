@@ -3,6 +3,7 @@ import { htmlTagFactory } from '../../src/HTMLTagsFactory';
 
 export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   ref?: React.Ref<SectionRefCurrent>,
+  shouldRender?: boolean,
   [x: string]: unknown,
 }
 

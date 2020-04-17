@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import {
-  bindFunctionalRef, mergeClassNames, getClassNames, useTheme, useElement,
+  bindFunctionalRef, getClassNames, useTheme, useElement, useProps,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { IconProps, LoaderProps, LoaderRefCurrent } from './types';
@@ -16,7 +16,7 @@ export const Loader = React.forwardRef((props: LoaderProps, ref?: React.Ref<Load
     isLoading = true,
     theme: themeProp,
     ...restProps
-  } = mergeClassNames<LoaderProps>(props);
+  } = useProps(props);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.loader);
 

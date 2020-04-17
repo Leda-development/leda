@@ -1,11 +1,12 @@
 import React from 'react';
 import {
-  bindFunctionalRef, mergeClassNames, getClassNames, useElement,
+  bindFunctionalRef, getClassNames, useElement, useProps,
 } from '../../utils';
 import { generateId } from '../../utils/generateId';
 import { Div } from '../Div';
 import { PropsFromParent, RadioButtonProps, RadioGroupRefCurrent } from './types';
 import { globalDefaultTheme } from '../LedaProvider';
+import { getWrapperRef } from '../../utils/getWrapperRef';
 
 export const RadioButton = React.forwardRef((props: RadioButtonProps, ref?: React.Ref<RadioGroupRefCurrent>): React.ReactElement => {
   const {
@@ -20,7 +21,7 @@ export const RadioButton = React.forwardRef((props: RadioButtonProps, ref?: Reac
     value,
     name,
     ...restProps
-  } = mergeClassNames<RadioButtonProps & PropsFromParent>(props as RadioButtonProps & PropsFromParent);
+  } = useProps(props as RadioButtonProps & PropsFromParent);
 
   const Wrapper = useElement(
     'Wrapper',
@@ -55,12 +56,12 @@ export const RadioButton = React.forwardRef((props: RadioButtonProps, ref?: Reac
     <Wrapper
       {...restProps}
       className={wrapperClassNames}
-      ref={ref && ((component) => {
-        const wrapperRef = component && component.wrapper ? component.wrapper : component as HTMLElement | null;
+      ref={ref && ((component: RadioGroupRefCurrent | HTMLElement | null) => {
+        const wrapperRef = getWrapperRef<RadioGroupRefCurrent>(component);
         bindFunctionalRef(component, ref, component && {
           wrapper: wrapperRef,
-          input: wrapperRef ? wrapperRef.firstElementChild as HTMLInputElement : null,
-          label: wrapperRef ? wrapperRef.lastElementChild as HTMLLabelElement : null,
+          input: wrapperRef ? wrapperRef.firstElementChild : null,
+          label: wrapperRef ? wrapperRef.lastElementChild : null,
         });
       })}
     >

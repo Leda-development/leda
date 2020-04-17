@@ -3,7 +3,7 @@ import { isNil } from 'lodash';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { DateTimeInput } from '../DateTimeInput';
 import {
-  bindFunctionalRef, getClassNames, mergeClassNames, useTheme,
+  bindFunctionalRef, getClassNames, useProps, useTheme,
 } from '../../utils';
 import { DateTimeInputRefCurrent } from '../DateTimeInput/types';
 import {
@@ -26,7 +26,7 @@ export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangePro
     format = 'dd.MM.yyyy',
     form,
     iconRender,
-    inputRender,
+    inputsRender,
     isDisabled: disabledProp,
     isOpen: openProp,
     isRequired: requiredProp,
@@ -49,7 +49,7 @@ export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangePro
     yearViewRender,
     calendarWrapperRender,
     ...restProps
-  } = mergeClassNames(props);
+  } = useProps(props);
 
   handleErrors(props);
 
@@ -118,7 +118,7 @@ export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangePro
         format={format}
         form={form}
         iconRender={iconRender}
-        inputRender={inputRender}
+        inputRender={inputsRender?.[0] ?? undefined}
         isDisabled={disabled[0]}
         isOpen={open[0]}
         isRequired={required[0]}
@@ -149,7 +149,7 @@ export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangePro
         format={format}
         form={form}
         iconRender={iconRender}
-        inputRender={inputRender}
+        inputRender={inputsRender?.[1] ?? undefined}
         isDisabled={disabled[1]}
         isOpen={open[1]}
         isRequired={required[1]}

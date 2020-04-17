@@ -5,7 +5,7 @@ import { DATA_TYPES, STEP_POSITION } from './constants';
 import { CustomRender, CustomEventHandler } from '../../commonTypes';
 
 export interface StatusItem {
-  [x: string]: string,
+  [x: string]: any,
 }
 
 export interface ItemProps {
@@ -26,23 +26,26 @@ export interface LabelProps {
 export type DataType = typeof DATA_TYPES[keyof typeof DATA_TYPES];
 
 export interface StatusBarProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onClick'> {
+  /** Процент завершенности текущего шага */
+  currentStepProgress?: number,
   /** Массив объектов или строк, которые представляют собой шаги */
   data: StatusItem[] | string[],
-  /** Обработчик клика */
-  onClick?: CustomEventHandler<StatusBarItemClickEvent>,
   /** Кастомизация иконки */
   iconRender?: CustomRender<StatusBarItemProps, {}, IconProps>,
   /** Кастомизация StatusBarItem целиком */
   itemRender?: CustomRender<StatusBarItemProps, {}, ItemProps>,
   /** Кастомизация лейбла, если не передано, то в качестве врапперов используется span */
   labelRender?: CustomRender<StatusBarItemProps, {}, LabelProps>,
-  /** Тема компонента */
-  theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.statusBar],
+  /** Обработчик клика */
+  onClick?: CustomEventHandler<StatusBarItemClickEvent>,
+  /** Реф */
+  ref?: React.Ref<StatusBarRefCurrent>,
   /** Поле из которого извлекается текст для лейбла, работает только если в data объекты */
   textField?: string,
+  /** Тема компонента */
+  theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.statusBar],
   /** Поле из которого извлекается тип шага, работает только если в data объекты */
   typeField?: string,
-  ref?: React.Ref<StatusBarRefCurrent>,
   /** Текущий шаг, игнорируется если StatusItem содержит тип type  */
   value?: StatusItem | string,
 }
@@ -69,6 +72,7 @@ export interface StatusBarItemProps {
   labelText: string,
   onClick?: CustomEventHandler<StatusBarItemClickEvent>,
   position: PositionType | null,
+  currentStepProgress?: number,
   theme: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.statusBar],
   type: string | null,
 }

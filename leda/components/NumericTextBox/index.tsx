@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
-  bindFunctionalRef, getClassNames, mergeClassNames, useTheme, useValue,
+  bindFunctionalRef, getClassNames, getIsEmptyAndRequired, useProps, useTheme, useValue,
 } from '../../utils';
 import { Div } from '../Div';
 import { Span } from '../Span';
@@ -42,11 +42,11 @@ export const NumericTextBox = React.forwardRef((props: NumericTextBoxProps, ref:
     theme: themeProp,
     thousandsSeparator = ' ',
     value: valueProp,
-  } = mergeClassNames<NumericTextBoxProps>(props);
+  } = useProps(props);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.numericTextBox);
 
-  const [isFocused, setFocused] = React.useState<boolean>(false);
+  const [isFocused, setFocused] = React.useState(false);
 
   const normalizeValueParams: NormalizeParameters = {
     value: defaultValue,
@@ -81,6 +81,7 @@ export const NumericTextBox = React.forwardRef((props: NumericTextBoxProps, ref:
       [theme.inputWrapperInvalid]: !isFocused && !isValid,
       [theme.inputWrapperFocused]: isFocused,
       [theme.inputWrapperDisabled]: isDisabled,
+      [theme.inputWrapperRequired]: getIsEmptyAndRequired(value, isRequired),
     },
   );
 
@@ -112,7 +113,7 @@ export const NumericTextBox = React.forwardRef((props: NumericTextBoxProps, ref:
         onClick={() => (inputRef.current ? inputRef.current.focus() : null)}
       >
         <Input
-          {...getRestProps(mergeClassNames(props))}
+          {...getRestProps(useProps(props))}
           aria-invalid={!isValid}
           aria-required={isRequired}
           className={theme.input}
@@ -128,7 +129,7 @@ export const NumericTextBox = React.forwardRef((props: NumericTextBoxProps, ref:
           ref={inputRef}
           value={getValue(value, inputValue, format, isFocused, thousandsSeparator)}
         />
-        <ArrowButtons className={theme.arrowButtons} onClick={(ev) => ev.stopPropagation()}>
+        <ArrowButtons className={theme.arrowButtons} onClick={(event) => event.stopPropagation()}>
           <Span
             className={theme.arrowUp}
             onClick={handleArrowButtonClick('increase')}
@@ -139,7 +140,11 @@ export const NumericTextBox = React.forwardRef((props: NumericTextBoxProps, ref:
           />
         </ArrowButtons>
       </Div>
-      {!isFocused && !isDisabled && <InvalidMessage />}
+      {
+        !isFocused && !isDisabled && (
+          <InvalidMessage />
+        )
+      }
     </Wrapper>
   );
 }) as React.FC<NumericTextBoxProps>;

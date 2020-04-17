@@ -3,6 +3,7 @@ import { htmlTagFactory } from '../../src/HTMLTagsFactory';
 
 export interface NavProps extends React.HTMLAttributes<HTMLElement> {
   ref?: React.Ref<NavRefCurrent>,
+  shouldRender?: boolean,
   [x: string]: unknown,
 }
 

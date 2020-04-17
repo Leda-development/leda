@@ -1,99 +1,73 @@
-/* eslint-disable no-console,@typescript-eslint/explicit-function-return-type */
 import * as React from 'react';
 import * as L from '../../../leda';
-import { useInterval } from '../../../leda/utils/useInterval';
+import { useInterval } from '../../../leda/utils';
+import { FileDropError } from '../../../leda/components/FileDrop/types';
+import { DescriptionMessage } from '../../../leda/components/FileDrop/helpers';
+import * as messages from '../../../leda/messages';
 
-const exampleCode = `
-interface ControlledFileDropProps {
-  title?: string,
-}
-
-export interface Files {
-  acceptedFiles: File[],
-  rejectedFiles: File[],
-}
-
-export const ControlledFileDrop = (props: ControlledFileDropProps) => {
-  const [files, setFiles] = React.useState<Files>({ acceptedFiles: [], rejectedFiles: [] });
-  const [loaded, setLoaded] = React.useState<number>(0);
-  const [shouldError, setShouldError] = React.useState<boolean>(false);
-  const [maxFiles, setMaxFiles] = React.useState<number | null>(1);
-
-  useInterval(() => setLoaded(loaded + 1), loaded < 50 && files.acceptedFiles.length > 0 ? 125 : null);
-
-  const uploadError = shouldError && loaded === 50 ? new Error('Failed to upload file') : null;
-
-  return (
-    <L.Div _box _inner>
-      <L.FileDrop
-        allowedFiles=".jpg, .gif, .png"
-        value={files}
-        maxFileSize={1000000}
-        loadingData={files.acceptedFiles.length > 0 ? {
-          loaded,
-          total: 50,
-          error: uploadError,
-        } : null}
-        maxFileNameLength={25}
-        onChange={ev => {
-          console.log('droped', ev);
-          setFiles(ev.component.value as Files);
-          if (ev.component.value.acceptedFiles.length === 0) {
-            setLoaded(0);
-          }
-        }}
-      />
-    </L.Div>
-  );
-};
-`;
-
-interface ControlledFileDropProps {
-  title?: string,
-}
-
-export interface Files {
-  acceptedFiles: File[],
-  rejectedFiles: File[],
-}
-
-export const ControlledFileDrop = (props: ControlledFileDropProps) => {
+export const ControlledFileDrop = (props: { title: string }) => {
   const [file, setFile] = React.useState<File | null>(null);
-  const [loaded, setLoaded] = React.useState<number>(0);
+  const [error, setError] = React.useState<FileDropError>(null);
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [shouldError, setShouldError] = React.useState<boolean>(false);
+  const [loaded, setLoaded] = React.useState<number>(0);
 
-  useInterval(() => setLoaded(loaded + 1), loaded < 50 && file ? 125 : null);
-
-  const uploadError = shouldError && loaded === 50 ? new Error('Сервер ответил со статусом 500.') : null;
+  useInterval(() => {
+    setLoaded(loaded + 5);
+  }, isLoading ? 100 : null);
 
   return (
     <L.Div _box _inner>
       <L.FileDrop
         allowedFiles=".jpg, .gif, .png"
         value={file}
+        form="fa-drop"
+        name="file"
+        isRequired
+        requiredMessage="Файл обязателен, сэр"
         maxFileSize={1000000}
-        loadingData={file ? {
-          loaded,
-          total: 50,
-          error: uploadError,
-        } : null}
-        maxFileNameLength={25}
-        // infoRender={({ Element, elementProps}) => (
-        //   <Element {...elementProps}>
-        //     Загрузите чтото-там <L.Button>тык</L.Button>
-        //   </Element>
-        // )}
-        onChange={ev => {
-          console.log('droped', ev);
+        isLoading={isLoading}
+        loadingProgress={loaded}
+        error={error}
+        maxFileNameLength={250}
+        onChange={(ev) => {
+          console.log('droped', ev.component);
           setFile(ev.component.value);
-          if (!ev.component.value) {
-            setLoaded(0);
+          setError(ev.component.error);
+          if (ev.component.value) {
+            setIsLoading(true);
+            setTimeout(() => {
+              setIsLoading(false);
+              setLoaded(0);
+              if (shouldError) {
+                setError('Server error');
+                setFile(null);
+              }
+            }, 2000);
           }
         }}
       />
       <br />
       <br />
       <L.Switcher value={shouldError} onChange={() => setShouldError(!shouldError)}>should fail</L.Switcher>
+      <br />
+      <br />
+      <L.Button
+        _warning
+        _marginTop
+        form="fa-drop"
+        onClick={(ev) => {
+          alert('success');
+          console.log(ev.form);
+        }}
+      >
+        Validate
+      </L.Button>
+      <br />
+      <br />
+      <L.Button onClick={() => L.form('fa-drop').reset()}>
+        Reset
+      </L.Button>
     </L.Div>
   );
 };

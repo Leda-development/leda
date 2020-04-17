@@ -197,7 +197,14 @@ export const createFocusHandler = (
 
   setFocused(true);
 
-  setInputValue(maskValue(valueProp, mask, placeholderChar));
+  const newInputValue = (() => {
+    if (!valueProp && inputValue) { // the input is neither completely filled nor empty
+      return inputValue;
+    }
+    return maskValue(valueProp, mask, placeholderChar);
+  })();
+
+  setInputValue(newInputValue);
 
   const value = getValue({
     valueProp,
@@ -207,11 +214,14 @@ export const createFocusHandler = (
     isFocused,
   });
 
+  if (ev.target) {
+    ev.target.value = newInputValue;
+  }
+
   const placeholderCharIndex = (value || getEmptyValue(mask, placeholderChar)).indexOf(placeholderChar);
+  const newSelection: [number, number] = [placeholderCharIndex, placeholderCharIndex + 1];
 
-  const newSelection: [number, number] = [placeholderCharIndex, placeholderCharIndex];
-
-  delay(() => setSelection(input, newSelection), 100);
+  setSelection(input, newSelection);
 
   if (isFunction(onFocus)) {
     const customEvent = {
@@ -232,11 +242,18 @@ export const createBlurHandler = (
     onBlur, value,
   } = props;
 
-  const { setFocused, setInputValue } = extraData;
+  const {
+    inputValue, setFocused, setInputValue, placeholderChar, mask,
+  } = extraData;
 
   setFocused(false);
 
-  setInputValue('');
+  const emptyValue = getEmptyValue(mask, placeholderChar);
+
+  // user didn't enter anything
+  if (emptyValue === inputValue) {
+    setInputValue('');
+  }
 
   if (isFunction(onBlur)) {
     const customEvent = {

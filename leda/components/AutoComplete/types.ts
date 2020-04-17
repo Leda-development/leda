@@ -2,8 +2,7 @@ import * as React from 'react';
 import { FILTER_RULES } from '../../utils';
 import { ValidationProps } from '../Validation/types';
 import { CustomRender, Values } from '../../commonTypes';
-import { LiProps } from '../Li';
-import { SuggestionItemProps, SuggestionListProps } from '../../src/SuggestionList/types';
+import { SuggestionItemComputedProps, SuggestionListProps } from '../../src/SuggestionList/types';
 import { UlProps } from '../Ul';
 import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { COMPONENTS_NAMESPACES } from '../../constants';
@@ -34,7 +33,7 @@ export enum CHANGE_METHOD {
   reset = 'reset', // сборс значения
 }
 
-export interface KeyboardChangeEvent<T extends Suggestion> extends React.KeyboardEvent<HTMLElement> {
+export interface KeyboardChangeEvent<T extends Suggestion> extends React.KeyboardEvent<HTMLInputElement> {
   component: {
     value: string,
     method: CHANGE_METHOD.enter | CHANGE_METHOD.down | CHANGE_METHOD.up,
@@ -117,7 +116,9 @@ export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends Va
   /** Рендерить компонент с открытым выпадающим списком */
   isOpen?: boolean,
   /** Кастомизация внешнего вида элемента выпадающего списка. */
-  itemRender?: CustomRender<SuggestionItemProps, {}, LiProps>,
+  itemRender?: SuggestionListProps['itemRender'],
+  /** Кастомизация внешнего вида выпадающего списка. */
+  inputRender?: CustomRender<AutoCompleteProps, AutoCompleteState, InputElementProps>,
   /** Обязательное поле или нет */
   isRequired?: boolean,
   /** Кастомизация внешнего вида выпадающего списка. */
@@ -142,6 +143,8 @@ export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends Va
   shouldShowAllSuggestions?: boolean,
   /** Поля, в которых содержатся данные для поиска */
   searchFields?: string[],
+  /** Сортировка выпадающего списка */
+  sortSuggestions?: (a: SuggestionItemComputedProps, b: SuggestionItemComputedProps) => number,
   /** Устанавливает поле из data, которое будет использоваться для отображения если передан объект. Значение в поле объекта также должно быть типом string. Если data - массив примитивов, не задавайте эту настройку */
   textField?: T extends object ? string : never,
   /** Реф */
@@ -152,6 +155,14 @@ export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends Va
   value?: string | null,
   /** Классы переданные через _ */
   [x: string]: unknown,
+}
+
+export interface AutoCompleteState {
+  highlightedSuggestion: Suggestion,
+  isFocused: boolean,
+  lastCorrectValue: string,
+  selectedSuggestion: Suggestion,
+  stateValue: string,
 }
 
 export interface SuggestionsVal {
@@ -168,4 +179,8 @@ export interface SuggestionsVal {
 export interface AutoCompleteRefCurrent {
   wrapper: HTMLElement | null,
   input: HTMLInputElement | null,
+}
+
+export interface InputElementProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  ref: React.Ref<HTMLInputElement | null>,
 }

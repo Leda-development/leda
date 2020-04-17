@@ -5,10 +5,12 @@ import {
 } from 'lodash';
 import { SuggestionList } from '../../src/SuggestionList';
 import {
-  getClassNames,
-  mergeClassNames,
-  useTheme,
   bindFunctionalRef,
+  getClassNames,
+  getIsEmptyAndRequired,
+  useElement,
+  useProps,
+  useTheme,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { Div } from '../Div';
@@ -30,6 +32,7 @@ import {
   AutoCompleteProps, AutoCompleteRefCurrent, Suggestion,
 } from './types';
 import { useValidation } from '../Validation';
+import { LedaContext } from '../LedaProvider';
 
 export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: React.Ref<AutoCompleteRefCurrent>): React.ReactElement | null => {
   const {
@@ -42,6 +45,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     groupBy,
     hasClearButton,
     headerRender,
+    inputRender,
     invalidMessage,
     invalidMessageRender,
     isDisabled,
@@ -64,12 +68,13 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     shouldCorrectValue,
     shouldShowAllSuggestions,
     shouldValidateUnmounted,
+    sortSuggestions,
     textField,
     theme: themeProp,
     validator,
     value: propValue,
     ...restProps
-  } = mergeClassNames<AutoCompleteProps>(props);
+  } = useProps(props);
 
   // todo handle props format errors
 
@@ -82,6 +87,15 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
   const [selectedSuggestion, setSelectedSuggestion] = React.useState<Suggestion>(null);
   const [highlightedSuggestion, setHighlightedSuggestion] = React.useState<Suggestion>(null);
   const [lastCorrectValue, setLastCorrectValue] = React.useState('');
+
+  const autoCompleteState = React.useMemo(() => ({
+    highlightedSuggestion,
+    isFocused,
+    lastCorrectValue,
+    selectedSuggestion,
+    stateValue,
+  }), [highlightedSuggestion, isFocused, lastCorrectValue, selectedSuggestion, stateValue]);
+
 
   const {
     isValid, validateCurrent, InvalidMessage,
@@ -157,11 +171,24 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     className,
   );
 
-  const inputClassNames = getClassNames(
-    theme.input,
-    { [theme.inputWrapperInvalid]: !isValid },
-    { [theme.inputWrapperDisabled]: isDisabled },
-    { [theme.inputWrapperFocused]: isFocused },
+  const inputWrapperClassNames = getClassNames(
+    theme.inputWrapper,
+    {
+      [theme.inputWrapperDisabled]: isDisabled,
+      [theme.inputWrapperFocused]: isFocused,
+      [theme.inputWrapperInvalid]: !isValid,
+      [theme.inputWrapperRequired]: getIsEmptyAndRequired(value, isRequired),
+    },
+  );
+
+  const { renders: { [COMPONENTS_NAMESPACES.autoComplete]: autoCompleteRenders } } = React.useContext(LedaContext);
+
+  const InputElement = useElement(
+    'Input',
+    'input' as unknown as React.FC<React.InputHTMLAttributes<HTMLInputElement>>,
+    inputRender ?? autoCompleteRenders.inputRender,
+    props,
+    autoCompleteState,
   );
 
   return (
@@ -172,36 +199,35 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
         input: inputRef.current,
       }))}
     >
-      <input
-        {...restProps}
-        aria-invalid={!isValid}
-        aria-required={isRequired}
-        className={inputClassNames}
-        disabled={isDisabled}
-        form={form}
-        name={name}
-        onBlur={inputBlurHandler}
-        onChange={inputChangeHandler}
-        onFocus={inputFocusHandler}
-        onKeyDown={inputKeyDownHandler}
-        placeholder={placeholder}
-        ref={inputRef}
-        value={inputValue}
-      />
-
-      {shouldShowClearButton && (
-        <i
-          className={theme.closeIcon}
-          onClick={clearButtonClickHandler}
+      <Div className={inputWrapperClassNames}>
+        <InputElement
+          {...restProps}
+          aria-invalid={!isValid}
+          aria-required={isRequired}
+          className={theme.input}
+          disabled={isDisabled}
+          form={form}
+          name={name}
+          onBlur={inputBlurHandler}
+          onChange={inputChangeHandler}
+          onFocus={inputFocusHandler}
+          onKeyDown={inputKeyDownHandler}
+          placeholder={placeholder}
+          ref={inputRef}
+          value={inputValue}
         />
-      )}
-
+        {shouldShowClearButton && (
+          <i
+            className={theme.closeIcon}
+            onClick={clearButtonClickHandler}
+          />
+        )}
+      </Div>
       <SuggestionList
         compareObjectsBy={compareObjectsBy}
         data={suggestions}
         groupBy={groupBy}
         highlightedSuggestion={highlightedSuggestion}
-        selectedSuggestion={selectedSuggestion}
         isLoading={isLoading}
         isOpen={isSuggestionsListOpen}
         itemRender={itemRender}
@@ -209,7 +235,9 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
         noSuggestionsRender={noSuggestionsRender}
         onClick={suggestionClickHandler}
         placeholder={placeholder}
+        selectedSuggestion={selectedSuggestion}
         shouldAllowEmpty={false}
+        sortSuggestions={sortSuggestions}
         textField={textField}
         theme={theme}
         value={suggestionListValue}

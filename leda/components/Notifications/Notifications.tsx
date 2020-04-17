@@ -2,10 +2,11 @@ import React from 'react';
 import { NotificationItem } from './NotificationItem';
 import { Div } from '../Div';
 import {
-  mergeClassNames, useTheme, bindFunctionalRef, getClassNames,
+  useTheme, bindFunctionalRef, getClassNames, useProps,
 } from '../../utils';
 import { Item, NotificationRefCurrent, NotificationsProps } from './types';
 import { COMPONENTS_NAMESPACES } from '../../constants';
+import { ChangeMethods } from './constants';
 
 export const Notifications = React.forwardRef((
   props: NotificationsProps, ref?: React.Ref<NotificationRefCurrent>,
@@ -18,7 +19,8 @@ export const Notifications = React.forwardRef((
     contentRender,
     iconRender,
     theme: themeProp,
-  } = mergeClassNames(props);
+    actionButtonRender,
+  } = useProps(props);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.notifications);
 
@@ -32,12 +34,13 @@ export const Notifications = React.forwardRef((
 
   const items = value.slice(-maxItems);
 
-  const handleChange = (item: Item): void => {
+  const handleChange = (item: Item, method: ChangeMethods): void => {
     const currentValue = valueRef.current;
 
     onChange({
       component: {
         value: currentValue.filter((val) => (item.id !== val.id)),
+        method,
       },
     });
   };
@@ -52,6 +55,7 @@ export const Notifications = React.forwardRef((
       {items.map((item) => (
         <NotificationItem
           contentRender={contentRender}
+          actionButtonRender={actionButtonRender}
           iconRender={iconRender}
           key={item.id}
           item={item}

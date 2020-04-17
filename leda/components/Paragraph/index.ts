@@ -3,6 +3,7 @@ import { htmlTagFactory } from '../../src/HTMLTagsFactory';
 
 export interface ParagraphProps extends React.HTMLAttributes<HTMLParagraphElement> {
   ref?: React.Ref<ParagraphRefCurrent>,
+  shouldRender?: boolean,
   [x: string]: unknown,
 }
 

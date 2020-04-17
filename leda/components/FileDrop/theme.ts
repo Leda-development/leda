@@ -14,6 +14,8 @@ export const defaultFileDropTheme = {
   description:          'filedrop-description',
   fileDownloadLink:     'dropzone-file-download internal',
   status:               'filedrop-status',
+  invalid:              'danger',
+  required:             'required',
   wrapper:              'filedrop-wrapper',
 };
 /* eslint-enable key-spacing */

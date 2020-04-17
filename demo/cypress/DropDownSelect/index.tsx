@@ -182,11 +182,9 @@ export const DropDownSelect = (args: SomeObject): React.ReactElement => {
       <br />
       <br />
       <br />
-      <L.Button _warning={isDisabled} onClick={() => setIsDisabled(!isDisabled)}>Toggle isDisabled</L.Button>
-      {' '}
-      <L.Button _warning={isLoading} onClick={() => setIsLoading(!isLoading)}>Toggle isLoading</L.Button>
-      {' '}
-      <L.Button _warning={isOpen} onClick={() => setIsOpen(isOpen ? undefined : true)}>Toggle isOpen</L.Button>
+      <br />
+      <br />
+      <br />
       <br />
       <L.P>Режим фильтрации</L.P>
       <StateButtonGroup
@@ -208,6 +206,15 @@ export const DropDownSelect = (args: SomeObject): React.ReactElement => {
         ]}
         setProps={setProps1}
       />
+      <L.Button _warning={isDisabled} onClick={() => setIsDisabled(!isDisabled)}>Toggle isDisabled</L.Button>
+      {' '}
+      <L.Button _warning={isLoading} onClick={() => setIsLoading(!isLoading)}>Toggle isLoading</L.Button>
+      {' '}
+      <L.Button _warning={isOpen} onClick={() => setIsOpen(isOpen ? undefined : true)}>Toggle isOpen</L.Button>
+      <br />
+      <br />
+      <br />
+      <br />
       <br />
       <br />
       <br />

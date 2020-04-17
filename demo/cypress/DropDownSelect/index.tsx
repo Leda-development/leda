@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { SomeObject } from '../../../leda/commonTypes';
 import * as L from '../../../leda';
-import { StateButtonGroup } from "/home/stepan/Documents/Korus/leda/leda/demo/components/StateButtonGroup";
+import { StateButtonGroup } from "../../../../leda/demo/components/StateButtonGroup";
 const data = [
     { id: 0, city: 'Moscow' },
     { id: 0, city: 'Minsk' },

@@ -28,7 +28,7 @@ export const createFocusHandler = (
     component: {
       name,
       value,
-      formattedValue: formatValue(value, format, thousandsSeparator),
+      formattedValue: formatValue({ value, format, thousandsSeparator }),
     },
   });
 
@@ -53,6 +53,7 @@ export const createBlurHandler = (
   min?: number,
   max?: number,
   name?: string,
+  shouldTrimTrailingZeros?: boolean,
 ): NumericHandlers['handleBlur'] => (event) => {
   const normalizeValueParams: NormalizeParameters = {
     value,
@@ -63,7 +64,14 @@ export const createBlurHandler = (
 
   const newValue = normalizeValue(normalizeValueParams);
 
-  const formattedValue = formatValue(newValue, format, thousandsSeparator);
+  const formattedValue = formatValue(
+    {
+      value: newValue,
+      format,
+      thousandsSeparator,
+      shouldTrimTrailingZeros,
+    },
+  );
 
   if (newValue !== value) {
     onChange?.({
@@ -120,7 +128,7 @@ export const createChangeHandler = (
       component: {
         name,
         value: newValue,
-        formattedValue: formatValue(newValue, format, thousandsSeparator),
+        formattedValue: formatValue({ value: newValue, format, thousandsSeparator }),
       },
     });
   }
@@ -161,7 +169,7 @@ export const createKeyDownHandler = (
 
   const newValue = value as number + step * sign;
 
-  const formattedValue = formatValue(newValue, format, thousandsSeparator);
+  const formattedValue = formatValue({ value: newValue, format, thousandsSeparator });
 
   const newInputValue = formatInputValue(formattedValue, format);
 
@@ -199,7 +207,7 @@ export const createPasteHandler = (
     component: {
       name,
       value: newValue,
-      formattedValue: formatValue(newValue, format),
+      formattedValue: formatValue({ value: newValue, thousandsSeparator, format }),
     },
   });
 
@@ -242,7 +250,7 @@ export const createArrowButtonClick = (
 
   const newValue = normalizeValue(normalizeValueParams);
 
-  const formattedValue = formatValue(newValue, format, thousandsSeparator);
+  const formattedValue = formatValue({ value: newValue, format, thousandsSeparator });
 
   const newInputValue = formatInputValue(formattedValue, format);
 
@@ -283,7 +291,7 @@ export const createResetHandler = ({
 
   props.onChange?.({
     component: {
-      formattedValue: formatValue(value, format, thousandsSeparator),
+      formattedValue: formatValue({ value, format, thousandsSeparator }),
       name: props.name,
       value,
     },

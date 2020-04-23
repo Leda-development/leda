@@ -31,6 +31,7 @@ export const NumericRange = React.forwardRef((props: NumericRangeProps, ref?: Re
     onChange,
     onFocus,
     placeholder: placeholderProp,
+    shouldTrimTrailingZeros,
     step,
     theme: themeProp,
     thousandsSeparator,
@@ -58,6 +59,7 @@ export const NumericRange = React.forwardRef((props: NumericRangeProps, ref?: Re
     onBlur,
     onFocus,
     isValid,
+    shouldTrimTrailingZeros,
     thousandsSeparator,
   };
 

@@ -271,6 +271,16 @@ describe('DropDownSelect', () => {
         });
     });
 
+     it.only('OnChange', () => {
+      cy.name('DDSCompareObjectsByObjects')
+        .focus()
+        .type('{downarrow}', { force: true })
+        .type('{enter}', { force: true })
+        .then(() => {
+          expect(stub).to.be.called;
+          expect(lastConsole).to.have.property('value', { id: 0, city: 'Moscow' });
+        });
+    });
    
   });
 
@@ -309,9 +319,6 @@ describe('DropDownSelect', () => {
         .eq(1)
         .should('contain', 'Minsk')
         });
-
-    xit('OnChange', () => {
-    });
 
     xit('OnFilterChange', () => {
     });

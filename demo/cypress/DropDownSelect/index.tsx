@@ -146,7 +146,7 @@ export const DropDownSelect = (args: SomeObject): React.ReactElement => {
         textField="city"
         compareObjectsBy={(item) => item.id}
         onChange={(ev) => {
-          console.log('ev.component.value', ev.component.value);
+          console.log(ev.component);
         }}
         _width40
       />

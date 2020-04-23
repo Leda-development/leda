@@ -271,17 +271,33 @@ describe('DropDownSelect', () => {
         });
     });
 
-     it.only('OnChange', () => {
+    it('OnChange', () => {
       cy.name('DDSCompareObjectsByObjects')
         .focus()
         .type('{downarrow}', { force: true })
         .type('{enter}', { force: true })
         .then(() => {
           expect(stub).to.be.called;
-          expect(lastConsole).to.have.property('value', { id: 0, city: 'Moscow' });
+          expect(lastConsole).to.have.property('type', 'keydown');
+          expect(lastConsole.component).to.have.property('name', 'DDSCompareObjectsByObjects');
+          expect(lastConsole.component.value).to.have.property('id', 0);
+          expect(lastConsole.component.value).to.have.property('city', 'Moscow');
         });
     });
-   
+    
+    it('onFilterChange', () => {
+      cy.name('DDSDisabled')
+        .focus()
+        .type('{downarrow}')
+        .type('{enter}')
+        .then(() => {
+          expect(stub).to.be.called;
+          expect(lastConsole).to.have.property('type', 'keydown');
+          expect(lastConsole.component).to.have.property('name', 'DDSDisabled');
+          expect(lastConsole.component).to.have.property('value','Washington');
+        });
+    });
+
   });
 
   describe('Interaction', () => {
@@ -297,7 +313,7 @@ describe('DropDownSelect', () => {
         .get('[name=DDSBoundingContainerRef]')
         .should('have.value', '');
     });
-}); 
+  }); 
     it('compareObjectsBy', () => {
       cy.name('DDSCompareObjectsBy')
         .click()
@@ -318,19 +334,26 @@ describe('DropDownSelect', () => {
         .find('.suggestion-item.highlighted.selected')
         .eq(1)
         .should('contain', 'Minsk')
-        });
-
-    xit('OnFilterChange', () => {
     });
 
-    xit('sortSuggestions', () => {
-    cy.name('DDSSortSuggestions')
+    it('sortSuggestions', () => {
+      cy.name('DDSSortSuggestions')
+        .click()
+        .parent()
+        .parent()
+        .children('.suggestion-wrapper.pos-top.visible')
+        .find('.suggestion-item')
+        .eq(0)
+        .parents('.suggestion-wrapper.visible')
+        .find('.suggestion-item')
+        .eq(13)
+        .should('contain', 'Tallin')
     });
-
+  
   describe('DataTypes', () => {
     xit('should render 0', () => {
       cy.get('[name=DDSShouldAllowEmpty]')
         .should('have.value', 0);
+    });
   });
-});
 });

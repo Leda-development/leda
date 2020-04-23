@@ -145,9 +145,7 @@ export const DropDownSelect = (args: SomeObject): React.ReactElement => {
         defaultValue={{ id: 2, city: 'Berlin' }}
         textField="city"
         compareObjectsBy={(item) => item.id}
-        onChange={(ev) => {
-          console.log(ev.component);
-        }}
+        onChange={testFunction}
         _width40
       />
 
@@ -264,9 +262,7 @@ export const DropDownSelect = (args: SomeObject): React.ReactElement => {
         onChange={(ev: L.DropDownSelectTypes.ChangeEvent<string>) => {
           setValue4(ev.component.value);
         }}
-        onFilterChange={ev => {
-          console.log('onFilterChange ev.component.value', ev.component.value);
-        }}
+        onFilterChange={testFunction}
         shouldFilterValues
         _width40
         {...props2}

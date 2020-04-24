@@ -11,9 +11,11 @@ import {
   Value,
 } from '../DropDownSelect/types';
 
-export type ChangeEvent<T extends Value = Value> = ChangeMouseEvent<T> | ChangeKeyboardEvent<T> | ExtendedChangeEvent<T> | ResetChangeEvent<T>;
+export type tabValue = string | number;
 
-export interface TabsProps<T extends Value = Value> {
+export type ChangeEvent<T extends tabValue = tabValue> = ChangeMouseEvent<T> | ChangeKeyboardEvent<T> | ExtendedChangeEvent<T> | ResetChangeEvent<T>;
+
+export interface TabsProps<T extends tabValue = tabValue> {
   /** Устанавливает номер выбранного таба */
   activeTabKey?: T,
   /** Вложенные элементы */

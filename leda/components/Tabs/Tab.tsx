@@ -45,7 +45,6 @@ export const Tab = React.forwardRef((props: TabProps, ref: React.Ref<TabRefCurre
   return (
     <TabItem
       className={combinedClassNames}
-      stye={style}
       onClick={handleClick}
       ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
         wrapper: component.wrapper,

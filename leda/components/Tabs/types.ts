@@ -1,12 +1,20 @@
 import React from 'react';
-import { CustomRender } from '../../commonTypes';
+import {CustomEventHandler, CustomRender} from '../../commonTypes';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { LiProps } from '../Li';
+import {
+  ChangeKeyboardEvent,
+  ChangeMouseEvent,
+  ExtendedChangeEvent, ResetChangeEvent,
+  Value
+} from "../DropDownSelect/types";
 
-export interface TabsProps {
+export type ChangeEvent<T extends Value = Value> = ChangeMouseEvent<T> | ChangeKeyboardEvent<T> | ExtendedChangeEvent<T> | ResetChangeEvent<T>;
+
+export interface TabsProps<T extends Value = Value> {
   /** Устанавливает номер выбранного таба */
-  activeTabKey?: string | number,
+  activeTabKey?: T,
   /** Вложенные элементы */
   children?: React.ReactNode,
   /** Кастомный content */
@@ -14,7 +22,7 @@ export interface TabsProps {
   /** Кастомный heading */
   headingRender?: CustomRender<TabsProps, TabsState, HeadingProps>,
   /** Обработчик выбора таба */
-  onChange?: (event: ChangeEvent) => void,
+  onChange?: CustomEventHandler<ChangeEvent<T>>,
   /** Reference */
   ref?: React.Ref<TabsRefCurrent>,
   /** DOM-узел, в который будет помещено содержимое вкладки */
@@ -74,12 +82,6 @@ export interface TabContentProps {
   activeTabKey: string | number,
   /** Вложенные элементы */
   children?: React.ReactNode,
-}
-
-export interface ChangeEvent extends React.MouseEvent {
-  component: {
-    value: string | number,
-  },
 }
 
 export interface WrapperProps {

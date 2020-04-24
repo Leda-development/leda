@@ -1,14 +1,17 @@
 import * as React from 'react';
 import * as L from '../../../leda';
+import {SomeObject} from "../../../leda/commonTypes";
 
 export const Tabs = (props: any) => {
-  const [selected, setSelected] = React.useState<string | number>(0);
+  const [selected, setSelected] = React.useState<SomeObject | string | number | null>(0);
+
+  const changeHandler = (ev: SomeObject | string | number | null) => setSelected(ev?.component.value);
 
   return (
     <L.Div _inner>
       <L.Tabs
         activeTabKey={selected}
-        onChange={(ev) => setSelected(ev.component.value)}
+        onChange={changeHandler}
       >
         <L.Tab title="Tab 1" tabKey={0}>
           <L.Div _inner>

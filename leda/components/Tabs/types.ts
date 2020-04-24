@@ -1,5 +1,5 @@
 import React from 'react';
-import {CustomEventHandler, CustomRender} from '../../commonTypes';
+import { CustomEventHandler, CustomRender } from '../../commonTypes';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { LiProps } from '../Li';

@@ -14,6 +14,7 @@ export const BasicUsage = (args: any) => {
   return (
     <L.Div _demoStory>
       <L.NumericRange
+        shouldTrimTrailingZeros={true}
         format="#.## %"
         _width70
         name="numer-range"

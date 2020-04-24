@@ -6,9 +6,10 @@ import { LiProps } from '../Li';
 import {
   ChangeKeyboardEvent,
   ChangeMouseEvent,
-  ExtendedChangeEvent, ResetChangeEvent,
-  Value
-} from "../DropDownSelect/types";
+  ExtendedChangeEvent,
+  ResetChangeEvent,
+  Value,
+} from '../DropDownSelect/types';
 
 export type ChangeEvent<T extends Value = Value> = ChangeMouseEvent<T> | ChangeKeyboardEvent<T> | ExtendedChangeEvent<T> | ResetChangeEvent<T>;
 

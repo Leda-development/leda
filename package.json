@@ -1,6 +1,6 @@
 {
   "name": "leda",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "description": "UI components library for React applications",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

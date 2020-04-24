@@ -5,13 +5,11 @@ import {SomeObject} from "../../../leda/commonTypes";
 export const Tabs = (props: any) => {
   const [selected, setSelected] = React.useState<SomeObject | string | number | null>(0);
 
-  const changeHandler = (ev: SomeObject | string | number | null) => setSelected(ev?.component.value);
-
   return (
     <L.Div _inner>
       <L.Tabs
         activeTabKey={selected}
-        onChange={changeHandler}
+        onChange={(ev) => setSelected(ev.component.value)}
       >
         <L.Tab title="Tab 1" tabKey={0}>
           <L.Div _inner>

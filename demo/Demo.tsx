@@ -66,11 +66,11 @@ export const Demo = hot(() => (
       <Table />
       <Tabs />
       <Tags />
-      <Tour />
       <Textarea />
       <TimePicker />
       <TimeRange />
       <Tooltip />
+      <Tour />
       <Validation />
       <VStepper />
     </L.Div>

@@ -78,7 +78,7 @@ export const Tour = (props: TourProps): React.ReactElement | null => {
         const currentIndex = data.findIndex((item) => item.stepKey === activeItem?.stepKey);
 
         if (currentIndex === data.length - 1) {
-          change(data[0]);
+          change();
           return;
         }
 
@@ -88,7 +88,7 @@ export const Tour = (props: TourProps): React.ReactElement | null => {
         const currentIndex = data.findIndex((item) => item.stepKey === activeItem?.stepKey);
 
         if (currentIndex === 0) {
-          change(data[data.length - 1]);
+          change();
           return;
         }
 

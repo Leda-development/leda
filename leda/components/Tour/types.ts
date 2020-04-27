@@ -8,18 +8,18 @@ export interface ContentProps {
 }
 
 export interface TourStepItem {
-  /** Идентификатор шага */
-  stepKey: string | number,
-  /** Элемент, который надо подсветить */
-  element: HTMLElement | null,
-  /** Контент */
-  content: (props: ContentProps) => React.ReactElement | null,
-  /** Отступ при скролле в px, по умолчанию 200px */
-  offsetTop?: number,
   /** Скругление у выделенных элементов в px, по-умолчанию 15px */
   borderRadius?: number,
+  /** Контент */
+  content: (props: ContentProps) => React.ReactElement | null,
+  /** Элемент, который надо подсветить */
+  element: HTMLElement | null,
+  /** Отступ при скролле в px, по умолчанию 200px */
+  offsetTop?: number,
   /** Положение модалки */
   position: 'top' | 'right' | 'bottom' | 'left',
+  /** Идентификатор шага */
+  stepKey: string | number,
 }
 
 export interface ChangeEvent {
@@ -30,10 +30,10 @@ export interface ChangeEvent {
 }
 
 export interface TourProps {
-  /** Шаги гайд-тура */
-  data: TourStepItem[],
   /** Идентификатор активного шага, если null - гайд-тур закрыт */
   activeStepKey?: number | string | null,
+  /** Шаги гайд-тура */
+  data: TourStepItem[],
   /** Обработчик изменения */
   onChange: (ev: ChangeEvent) => void,
 }

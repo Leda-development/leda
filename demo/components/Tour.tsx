@@ -16,11 +16,6 @@ const getData = (elements: (HTMLElement | null)[]): L.TourTypes.TourStepItem[] =
             </L.Button>
           </L.Li>
           <L.Li>
-            <L.Button _success onClick={props.prev}>
-              Назад
-            </L.Button>
-          </L.Li>
-          <L.Li>
             <L.Button _success onClick={props.next}>
               Далее
             </L.Button>
@@ -102,11 +97,6 @@ const getData = (elements: (HTMLElement | null)[]): L.TourTypes.TourStepItem[] =
           <L.Li>
             <L.Button _success onClick={props.prev}>
               Назад
-            </L.Button>
-          </L.Li>
-          <L.Li>
-            <L.Button _success onClick={props.next}>
-              Далее
             </L.Button>
           </L.Li>
         </L.Ul>

@@ -40,22 +40,25 @@ export const Tour = (props: TourProps): React.ReactElement | null => {
     if (activeItem?.element) {
       const top = activeItem.element.offsetTop - (activeItem.offsetTop ?? 200);
       window.scrollTo({ top, left: 0, behavior: 'smooth' });
-      setIsScrolling(true);
 
       document.body.style.overflow = 'hidden';
+      if (window.pageYOffset === top) { // прокрутки нет - отображаем тур сразу
+        setSvgPath(createOverlaySvgPath(activeItem?.element, borderRadius));
+      } else { // иначе отобразим тур после скролла
+        setIsScrolling(true);
+        setSvgPath(createOverlaySvgPath(null, borderRadius));
 
-      setSvgPath(createOverlaySvgPath(null, borderRadius));
+        const scrollHandler = () => {
+          // прокрутка закончилась
+          if (window.pageYOffset === top) {
+            setSvgPath(createOverlaySvgPath(activeItem?.element, borderRadius));
+            setIsScrolling(false);
+            window.removeEventListener('scroll', scrollHandler); // remove listener
+          }
+        };
 
-      const scrollHandler = () => {
-        // прокрутка закончилась
-        if (window.pageYOffset === top) {
-          setSvgPath(createOverlaySvgPath(activeItem?.element, borderRadius));
-          setIsScrolling(false);
-          window.removeEventListener('scroll', scrollHandler); // remove listener
-        }
-      };
-
-      window.addEventListener('scroll', scrollHandler);
+        window.addEventListener('scroll', scrollHandler);
+      }
     } else {
       setSvgPath(createOverlaySvgPath(null, borderRadius));
     }

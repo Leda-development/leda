@@ -14,7 +14,7 @@ export const Tour = (props: TourProps): React.ReactElement | null => {
 
   const borderRadius = activeItem?.borderRadius ?? 15;
 
-  const [path, setPath] = React.useState<string>(createOverlaySvgPath(activeItem?.element ?? null, borderRadius));
+  const [svgPath, setSvgPath] = React.useState<string>(createOverlaySvgPath(activeItem?.element ?? null, borderRadius));
   const [isScrolling, setIsScrolling] = React.useState<boolean>(false);
 
   React.useEffect((): (() => void) | void => {
@@ -22,14 +22,14 @@ export const Tour = (props: TourProps): React.ReactElement | null => {
       return undefined;
     }
 
-    const handler = debounce(() => {
-      setPath(createOverlaySvgPath(activeItem.element, borderRadius));
+    const resizeHandler = debounce(() => {
+      setSvgPath(createOverlaySvgPath(activeItem.element, borderRadius));
     }, 100);
 
-    window.addEventListener('resize', handler);
+    window.addEventListener('resize', resizeHandler);
 
     return () => {
-      window.removeEventListener('resize', handler);
+      window.removeEventListener('resize', resizeHandler);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeItem]);
@@ -44,12 +44,12 @@ export const Tour = (props: TourProps): React.ReactElement | null => {
 
       document.body.style.overflow = 'hidden';
 
-      setPath(createOverlaySvgPath(null, borderRadius));
+      setSvgPath(createOverlaySvgPath(null, borderRadius));
 
       const scrollHandler = () => {
         // прокрутка закончилась
         if (window.pageYOffset === top) {
-          setPath(createOverlaySvgPath(activeItem?.element, borderRadius));
+          setSvgPath(createOverlaySvgPath(activeItem?.element, borderRadius));
           setIsScrolling(false);
           window.removeEventListener('scroll', scrollHandler); // remove listener
         }
@@ -57,7 +57,7 @@ export const Tour = (props: TourProps): React.ReactElement | null => {
 
       window.addEventListener('scroll', scrollHandler);
     } else {
-      setPath(createOverlaySvgPath(null, borderRadius));
+      setSvgPath(createOverlaySvgPath(null, borderRadius));
     }
 
     return () => {
@@ -113,7 +113,7 @@ export const Tour = (props: TourProps): React.ReactElement | null => {
       <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" className="tour-overlay">
         <path
           fill="rgba(33, 33, 33, 0.7)"
-          d={path}
+          d={svgPath}
         />
       </svg>
       <Div className={`tour-modal ${activeItem.position}`} style={style}>

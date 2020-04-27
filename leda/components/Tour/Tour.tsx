@@ -35,6 +35,8 @@ export const Tour = (props: TourProps): React.ReactElement | null => {
   }, [activeItem]);
 
   React.useEffect((): () => void => {
+    const prevOverflow = document.body.style.overflow; // реализация как в Modal
+
     if (activeItem?.element) {
       const top = activeItem.element.offsetTop - (activeItem.offsetTop ?? 200);
       window.scrollTo({ top, left: 0, behavior: 'smooth' });
@@ -44,26 +46,28 @@ export const Tour = (props: TourProps): React.ReactElement | null => {
 
       setPath(createOverlaySvgPath(null, borderRadius));
 
-      window.onscroll = () => {
-        // Scroll reach the target
+      const scrollHandler = () => {
+        // прокрутка закончилась
         if (window.pageYOffset === top) {
           setPath(createOverlaySvgPath(activeItem?.element, borderRadius));
           setIsScrolling(false);
-          window.onscroll = null; // remove listener
+          window.removeEventListener('scroll', scrollHandler); // remove listener
         }
       };
+
+      window.addEventListener('scroll', scrollHandler);
     } else {
       setPath(createOverlaySvgPath(null, borderRadius));
     }
 
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = prevOverflow;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeItem]);
 
   const contentProps = React.useMemo(() => {
-    const change = (item?: TourStepItem) => {
+    const triggerOnChange = (item?: TourStepItem) => {
       onChange({
         component: {
           value: item?.stepKey ?? null,
@@ -73,28 +77,28 @@ export const Tour = (props: TourProps): React.ReactElement | null => {
     };
 
     return {
-      goTo: (stepKey: string | number) => change(data.find((item) => item.stepKey === stepKey)),
+      goTo: (stepKey: string | number) => triggerOnChange(data.find((item) => item.stepKey === stepKey)),
       next: () => {
         const currentIndex = data.findIndex((item) => item.stepKey === activeItem?.stepKey);
 
         if (currentIndex === data.length - 1) {
-          change();
+          triggerOnChange();
           return;
         }
 
-        change(data[currentIndex + 1]);
+        triggerOnChange(data[currentIndex + 1]);
       },
       prev: () => {
         const currentIndex = data.findIndex((item) => item.stepKey === activeItem?.stepKey);
 
         if (currentIndex === 0) {
-          change();
+          triggerOnChange();
           return;
         }
 
-        change(data[currentIndex - 1]);
+        triggerOnChange(data[currentIndex - 1]);
       },
-      stopTour: () => change(),
+      stopTour: () => triggerOnChange(),
     };
   }, [data, activeItem, onChange]);
 

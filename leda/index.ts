@@ -85,7 +85,7 @@ import {
   Table, ColGroup, Col, THead, TBody, Th, Tr, Td, TFoot,
 } from './components/Table';
 import { Tags, Tag } from './components/Tags';
-import { Tour } from './components/Tour/Tour';
+import { Tour } from './components/Tour';
 import { Textarea } from './components/Textarea';
 import { TimePicker } from './components/TimePicker';
 import { TimeRange } from './components/TimeRange';

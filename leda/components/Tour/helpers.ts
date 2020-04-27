@@ -2,7 +2,7 @@ const createPoint = (x: number, y: number) => ({
   x, y,
 });
 
-export const createOverlayPath = (element: HTMLElement | null, borderRadius: number): string => {
+export const createOverlaySvgPath = (element: HTMLElement | null, borderRadius: number): string => {
   const windowWidth = window.innerWidth;
   const windowHeight = window.innerHeight;
 

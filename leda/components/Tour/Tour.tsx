@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { debounce } from 'lodash';
 import ReactDOM from 'react-dom';
-import { createOverlayPath, getModalPosition } from './helpers';
+import { createOverlaySvgPath, getModalPosition } from './helpers';
 import { Div } from '../Div';
 import { TourProps, TourStepItem } from './types';
 
@@ -14,7 +14,7 @@ export const Tour = (props: TourProps): React.ReactElement | null => {
 
   const borderRadius = activeItem?.borderRadius ?? 15;
 
-  const [path, setPath] = React.useState<string>(createOverlayPath(activeItem?.element ?? null, borderRadius));
+  const [path, setPath] = React.useState<string>(createOverlaySvgPath(activeItem?.element ?? null, borderRadius));
   const [isScrolling, setIsScrolling] = React.useState<boolean>(false);
 
   React.useEffect((): (() => void) | void => {
@@ -23,7 +23,7 @@ export const Tour = (props: TourProps): React.ReactElement | null => {
     }
 
     const handler = debounce(() => {
-      setPath(createOverlayPath(activeItem.element, borderRadius));
+      setPath(createOverlaySvgPath(activeItem.element, borderRadius));
     }, 100);
 
     window.addEventListener('resize', handler);
@@ -42,18 +42,18 @@ export const Tour = (props: TourProps): React.ReactElement | null => {
 
       document.body.style.overflow = 'hidden';
 
-      setPath(createOverlayPath(null, borderRadius));
+      setPath(createOverlaySvgPath(null, borderRadius));
 
       window.onscroll = () => {
         // Scroll reach the target
         if (window.pageYOffset === top) {
-          setPath(createOverlayPath(activeItem?.element, borderRadius));
+          setPath(createOverlaySvgPath(activeItem?.element, borderRadius));
           setIsScrolling(false);
           window.onscroll = null; // remove listener
         }
       };
     } else {
-      setPath(createOverlayPath(null, borderRadius));
+      setPath(createOverlaySvgPath(null, borderRadius));
     }
 
     return () => {

@@ -85,6 +85,7 @@ import {
   Table, ColGroup, Col, THead, TBody, Th, Tr, Td, TFoot,
 } from './components/Table';
 import { Tags, Tag } from './components/Tags';
+import { Tour } from './components/Tour/Tour';
 import { Textarea } from './components/Textarea';
 import { TimePicker } from './components/TimePicker';
 import { TimeRange } from './components/TimeRange';
@@ -122,6 +123,7 @@ import * as SwitcherTypes from './components/Switcher/types';
 import * as TabsTypes from './components/Tabs/types';
 import * as TagsTypes from './components/Tags/types';
 import * as TableTypes from './components/Table/types';
+import * as TourTypes from './components/Tour/types';
 import * as TextareaTypes from './components/Textarea/types';
 import * as TooltipTypes from './components/Tooltip/types';
 import * as ValidationTypes from './components/Validation/types';
@@ -175,6 +177,7 @@ export {
   TabsTypes,
   TableTypes,
   TagsTypes,
+  TourTypes,
   TextareaTypes,
   TooltipTypes,
   ValidationTypes,
@@ -247,6 +250,7 @@ export {
   Tab, Tabs,
   Table, ColGroup, Col, THead, TBody, Th, Tr, Td, TFoot,
   Tags, Tag,
+  Tour,
   Textarea,
   TimePicker,
   TimeRange,

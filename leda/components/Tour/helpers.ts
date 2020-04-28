@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 const createPoint = (x: number, y: number) => ({
   x, y,
 });
@@ -43,7 +45,7 @@ export const createOverlaySvgPath = (element: HTMLElement | null, borderRadius: 
     Z`;
 };
 
-export const getModalPosition = (position: string, element: HTMLElement, isScrolling: boolean): React.CSSProperties => {
+export const getModalPositionStyles = (position: string, element: HTMLElement, isScrolling: boolean): React.CSSProperties => {
   if (isScrolling) {
     return {
       display: 'none',

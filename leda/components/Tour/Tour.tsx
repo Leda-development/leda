@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { debounce } from 'lodash';
 import ReactDOM from 'react-dom';
-import { createOverlaySvgPath, getModalPosition } from './helpers';
+import { createOverlaySvgPath, getModalPositionStyles } from './helpers';
 import { Div } from '../Div';
 import { TourProps, TourStepItem } from './types';
 
@@ -109,13 +109,13 @@ export const Tour = (props: TourProps): React.ReactElement | null => {
     return null;
   }
 
-  const style = getModalPosition(activeItem.position, activeItem.element, isScrolling);
+  const style = getModalPositionStyles(activeItem.position, activeItem.element, isScrolling);
 
   const content = (
     <>
       <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" className="tour-overlay">
         <path
-          fill="rgba(33, 33, 33, 0.7)"
+          fill={activeItem.overlayBackgroundColor ?? 'rgba(33, 33, 33, 0.7)'}
           d={svgPath}
         />
       </svg>

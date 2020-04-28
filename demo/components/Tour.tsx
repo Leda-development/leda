@@ -9,7 +9,7 @@ const getData = (elements: (HTMLElement | null)[]): L.TourTypes.TourStepItem[] =
       <L.Div _inner>
         <L.H1>Заголовок 1</L.H1>
         какой-то текст тут
-        <L.Ul _listH>
+        <L.Ul _list-h>
           <L.Li>
             <L.Button onClick={props.stopTour}>
               Закрыть
@@ -32,7 +32,7 @@ const getData = (elements: (HTMLElement | null)[]): L.TourTypes.TourStepItem[] =
       <L.Div _inner>
         <L.H1>Заголовок 2</L.H1>
         какой-то текст тут
-        <L.Ul _listH>
+        <L.Ul _list-h>
           <L.Li>
             <L.Button onClick={props.stopTour}>
               Закрыть
@@ -60,7 +60,7 @@ const getData = (elements: (HTMLElement | null)[]): L.TourTypes.TourStepItem[] =
       <L.Div _inner>
         <L.H1>Заголовок 3</L.H1>
         какой-то текст тут
-        <L.Ul _listH>
+        <L.Ul _list-h>
           <L.Li>
             <L.Button onClick={props.stopTour}>
               Закрыть
@@ -88,7 +88,7 @@ const getData = (elements: (HTMLElement | null)[]): L.TourTypes.TourStepItem[] =
       <L.Div _inner>
         <L.H1>Заголовок 4</L.H1>
         какой-то текст тут
-        <L.Ul _listH>
+        <L.Ul _list-h>
           <L.Li>
             <L.Button onClick={props.stopTour}>
               Закрыть
@@ -117,7 +117,7 @@ export const Tour = (): React.ReactElement => {
   const data = getData([element1, element2, element3, element4]);
 
   return (
-    <L.Div _demoStory>
+    <L.Div _demo-story>
       <L.H4 _title>Tour</L.H4>
       <L.Div _inner>
         <L.Button _warning onClick={() => setActiveStep('1')}>

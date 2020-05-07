@@ -23,6 +23,7 @@ import { LedaContext } from '../LedaProvider';
 import { Tag } from '../Tags';
 import { filterData, getShouldUniteTags, getValue } from './helpers';
 import { createCheckBoxesRender } from './renders';
+import { Span } from '../Span';
 
 export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React.Ref<MultiSelectRefCurrent>): React.ReactElement => {
   const {
@@ -68,6 +69,11 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     wrapperRender,
     ...restProps
   } = useProps(props);
+
+  React.useEffect(() => {
+    // Warn user about possible misused props
+    if (hasCheckBoxes && !shouldKeepSuggestions) console.warn('Leda MultiSelect: you probably forgot using shouldKeepSuggestions with hasCheckBoxes prop.');
+  }, [hasCheckBoxes, shouldKeepSuggestions]);
 
   const [valueState, setValue] = React.useState<Value[]>(defaultValue || []);
 
@@ -210,9 +216,17 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
         onMouseDown={handleMouseDown}
       >
         {shouldUniteTags && (
-          <TagsUnionElement className={theme.tagsUnion}>
-            Выбрано {value.length}
-          </TagsUnionElement>
+          <>
+            <TagsUnionElement className={theme.tagsUnion}>
+              Выбрано {value.length}
+            </TagsUnionElement>
+            {hasClearButton && (
+              <Span
+                className={theme.clearIcon}
+                onClick={handleClear}
+              />
+            )}
+          </>
         )}
         {!shouldUniteTags && (
           <TagsContainer

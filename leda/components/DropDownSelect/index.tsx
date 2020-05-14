@@ -27,6 +27,7 @@ import { getText } from '../../src/SuggestionList/helpers';
 
 export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref: React.Ref<DropDownSelectRefCurrent>): React.ReactElement | null => {
   const {
+    autoComplete = 'off',
     boundingContainerRef,
     className,
     compareObjectsBy,
@@ -165,6 +166,7 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
           {...restProps}
           aria-invalid={!isValid}
           aria-required={isRequired}
+          autoComplete={autoComplete}
           className={theme.input}
           disabled={isDisabled}
           form={form}

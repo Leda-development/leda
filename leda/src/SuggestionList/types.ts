@@ -7,6 +7,7 @@ import { LiProps } from '../../components/Li';
 import { UlProps } from '../../components/Ul';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTheme';
+import { SelectedState } from '../../components/MultiSelect/constants';
 
 export type Value = SomeObject | string | number | null;
 
@@ -32,11 +33,9 @@ export interface SuggestionListProps {
   noSuggestionsRender?: CustomRender<SuggestionListProps, {}, NoSuggestionsProps>,
   onClick?: CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget>,
   placeholder?: string,
+  selectAllItemRender?: CustomRender<{}, {}, {}>,
+  selectAllState?: SelectAllState,
   shouldAllowEmpty: boolean,
-  /** Выводить сначала выбранные значения в списке */
-  shouldSelectedGoFirst?: boolean,
-  /** Сортировка выпадающего списка */
-  sortSuggestions?: (a: SuggestionItemComputedProps, b: SuggestionItemComputedProps) => number,
   textField?: string,
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.suggestionList],
   value: string | number | SomeObject | null | (string[] | number[] | SomeObject[]),
@@ -54,6 +53,10 @@ export interface SuggestionItemProps {
   isPlaceholder: boolean,
   isHighlighted?: boolean,
   isSelected?: boolean,
+  isSelectAllItem?: boolean,
+  selectAllItemRender?: SuggestionListProps['selectAllItemRender'],
+  selectAllState?: SelectedState,
+  canSelectAll?: boolean,
   item: string | number | SomeObject | null,
   itemRender?: CustomRender<SuggestionItemProps, {}, SuggestionElementProps>,
   onClick?: CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget>,
@@ -76,17 +79,22 @@ export interface GetSuggestionItemProps {
   compareObjectsBy?: ((suggestionListItem: SomeObject) => any) | string,
   highlightedSuggestion?: Value,
   placeholder?: string,
+  selectAllState?: SelectedState,
   selectedSuggestion?: Value | Value[],
   suggestion: Value,
   textField?: string,
 }
 
 export interface SuggestionItemComputedProps {
-  isScrollTarget: boolean,
-  isPlaceholder: boolean,
   isHighlighted?: boolean,
+  isPlaceholder: boolean,
+  isScrollTarget: boolean,
+  isSelectAllItem?: boolean,
   isSelected?: boolean,
+  selectAllState?: SelectedState,
   item: string | number | SomeObject | null,
   key: string,
   text: string | number,
 }
+
+export type SelectAllState = SelectedState | undefined;

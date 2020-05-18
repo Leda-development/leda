@@ -12,22 +12,27 @@ import { SuggestionList } from '../../src/SuggestionList';
 import {
   createBlurHandler,
   createClearHandler,
-  createFocusHandler, createKeyDownHandler,
+  createFocusHandler,
+  createKeyDownHandler,
   createMouseDownHandler,
-  createSelectHandler,
   createResetHandler,
+  createSelectHandler,
 } from './handlers';
 import { TagsContainer } from './TagsContainer';
 import { Div } from '../Div';
 import { LedaContext } from '../LedaProvider';
 import { Tag } from '../Tags';
-import { filterData, getShouldUniteTags, getValue } from './helpers';
+import {
+  filterData, getShouldUniteTags, getSortedSuggestions, getValue,
+} from './helpers';
 import { createCheckBoxesRender } from './renders';
 import { Span } from '../Span';
+import { selectAllSuggestion, SelectedState } from './constants';
 
 export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React.Ref<MultiSelectRefCurrent>): React.ReactElement => {
   const {
     autoComplete = 'off',
+    canSelectAll,
     className,
     compareObjectsBy,
     data,
@@ -56,6 +61,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     onFocus,
     placeholder,
     requiredMessage,
+    selectAllItemRender,
     shouldHideInput,
     shouldKeepSuggestions,
     shouldSelectedGoFirst,
@@ -74,7 +80,8 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
   React.useEffect(() => {
     // Warn user about possible misused props
     if (hasCheckBoxes && !shouldKeepSuggestions) console.warn('Leda MultiSelect: you probably forgot using shouldKeepSuggestions with hasCheckBoxes prop.');
-  }, [hasCheckBoxes, shouldKeepSuggestions]);
+    if (canSelectAll && !shouldKeepSuggestions) console.warn('Leda MultiSelect: you probably forgot using shouldKeepSuggestions with canSelectAll prop.');
+  }, [canSelectAll, hasCheckBoxes, shouldKeepSuggestions]);
 
   const [valueState, setValue] = React.useState<Value[]>(defaultValue || []);
 
@@ -113,10 +120,11 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
   });
 
   const handleSelect = createSelectHandler(props, {
-    value,
-    setValue,
-    setFocused,
+    data,
     setFilterValue,
+    setFocused,
+    setValue,
+    value,
   });
 
   const handleKeyDown = createKeyDownHandler(props, {
@@ -204,6 +212,29 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
 
   const checkBoxesRender = createCheckBoxesRender({ theme });
 
+  const selectAllState = (() => {
+    if (canSelectAll == null) return undefined;
+    if (value.length === data?.length) return SelectedState.All;
+    if (value.length === 0) return SelectedState.Nothing;
+    return SelectedState.Some;
+  })();
+
+  const suggestionListData = (() => {
+    const allSuggestions = getSortedSuggestions({
+      shouldSelectedGoFirst,
+      selectedSuggestions,
+      filteredData,
+      sortSuggestions,
+    });
+
+    if (canSelectAll) {
+      // todo: canSelectAll
+      return [selectAllSuggestion, ...allSuggestions];
+    }
+
+    return allSuggestions;
+  })();
+
   return (
     <Wrapper
       className={wrapperClassNames}
@@ -276,7 +307,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
       {!isMaxItemsSelected && (
         <SuggestionList
           compareObjectsBy={compareObjectsBy}
-          data={filteredData}
+          data={suggestionListData}
           groupBy={groupBy}
           highlightedSuggestion={highlightedSuggestion}
           isLoading={isLoading}
@@ -285,10 +316,10 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
           listRender={listRender}
           noSuggestionsRender={noSuggestionsRender}
           onClick={handleSelect}
+          selectAllItemRender={selectAllItemRender}
+          selectAllState={selectAllState}
           selectedSuggestion={selectedSuggestions}
           shouldAllowEmpty={false}
-          shouldSelectedGoFirst={shouldSelectedGoFirst}
-          sortSuggestions={sortSuggestions}
           textField={textField}
           theme={theme}
           value={value}

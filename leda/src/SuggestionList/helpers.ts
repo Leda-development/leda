@@ -3,6 +3,7 @@ import { isArray, isObject } from 'lodash';
 import { SomeObject } from '../../commonTypes';
 import { GetSuggestionItemProps, SuggestionItemComputedProps } from './types';
 import { checkIsTheSameObject } from '../../utils';
+import { selectAllSuggestion, SelectedState } from '../../components/MultiSelect/constants';
 
 export const getText = (suggestion?: string | number | SomeObject | null, textField?: string): string => {
   if (!suggestion) return '';
@@ -44,8 +45,11 @@ export const getSuggestionItemProps = ({
   placeholder,
   highlightedSuggestion,
   selectedSuggestion,
+  selectAllState,
 }: GetSuggestionItemProps): SuggestionItemComputedProps => {
   const text = getText(suggestion, textField);
+
+  const isSelectAllItem = suggestion === selectAllSuggestion;
 
   const isPlaceholder = text === placeholder;
   const isHighlighted = checkIsTheSameObject({
@@ -54,6 +58,10 @@ export const getSuggestionItemProps = ({
     obj2: highlightedSuggestion,
   });
   const isSelected = (() => {
+    if (isSelectAllItem) {
+      return selectAllState === SelectedState.All || selectAllState === SelectedState.Some;
+    }
+
     if (isArray(selectedSuggestion)) {
       return selectedSuggestion.some((selected) => checkIsTheSameObject({
         compareObjectsBy,
@@ -61,6 +69,7 @@ export const getSuggestionItemProps = ({
         obj2: selected,
       }));
     }
+
     return checkIsTheSameObject({
       compareObjectsBy,
       obj1: suggestion,
@@ -80,11 +89,10 @@ export const getSuggestionItemProps = ({
     isHighlighted,
     isPlaceholder,
     isSelected,
+    selectAllState, // todo: remove
+    isSelectAllItem,
     isScrollTarget,
     key,
     item,
   };
 };
-
-// sort suggestions list so that selected suggestions go first
-export const sortSelectedFirst = (a: SuggestionItemComputedProps, b: SuggestionItemComputedProps) => (!!a.isSelected > !!b.isSelected ? -1 : 1);

@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as L from '../../../leda';
 import { getWordEnding } from '../../../leda/utils';
 
-export const CheckBoxes = (args): React.ReactElement => {
+export const CheckBoxes = (args: any): React.ReactElement => {
   const [value, setValue] = React.useState<string[]>(['London', 'Paris']);
 
   return (
@@ -22,12 +22,14 @@ export const CheckBoxes = (args): React.ReactElement => {
         ]}
         maxTags={3}
         shouldKeepSuggestions
-        sortSuggestions={(a, b) => a.text > b.text ? 1 : -1}
         shouldSelectedGoFirst
+        canSelectAll
+        selectAllItemRender={() => <L.Span _txt-success>Select all</L.Span>}
         _width-40
         hasClearButton
         onChange={ev => {
           console.log('ev.component.selectedValue', ev.component.selectedValue);
+          console.log('ev.component.deselectedValues', ev.component.deselectedValues);
           console.log('ev.component.value', ev.component.value);
           setValue(ev.component.value as string[]);
         }}

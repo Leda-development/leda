@@ -19,7 +19,7 @@ export const Input = (attrs: any) => {
                 onClick={console.log}
             >
                 from
-      </L.Span>
+            </L.Span>
             <Element {...elementProps} />
             <L.Span
                 style={{ display: 'inline-block', padding: '5px' }}
@@ -27,7 +27,7 @@ export const Input = (attrs: any) => {
                 onClick={console.log}
             >
                 €
-      </L.Span>
+            </L.Span>
         </>
     );
 

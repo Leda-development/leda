@@ -35,7 +35,7 @@ export const Basic = (componentProps: any) => {
         }}
         isRequired
         validator={[
-          {
+          { 
             validator: 'email',
           },
           {

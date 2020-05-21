@@ -23,9 +23,11 @@ import {
   DropDownSelectProps, DropDownSelectRefCurrent, DropDownSelectState, Value,
 } from './types';
 import { Span } from '../Span';
+import { getText } from '../../src/SuggestionList/helpers';
 
 export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref: React.Ref<DropDownSelectRefCurrent>): React.ReactElement | null => {
   const {
+    autoComplete = 'off',
     boundingContainerRef,
     className,
     compareObjectsBy,
@@ -79,11 +81,13 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
     value: defaultValue,
   });
 
-  // выбираем между контролируемым режимом и неконтролируемым
   const { isFocused, highlightedSuggestion, selectedSuggestion } = state;
   const isOpen = isNil(isOpenProp) ? state.isOpen : isOpenProp;
   const value = valueProp === undefined ? state.value : valueProp;
   const filterValue = isNil(filterValueProp) ? state.filterValue : filterValueProp;
+
+  const inputValue = getInputValue(value, filterValue, shouldFilterValues, textField);
+  const inputSuggestion = getText(value, textField) === inputValue ? value : null;
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.dropDownSelect);
 
@@ -129,13 +133,23 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
     Wrapper,
     Input,
     Icon,
-  } = useCustomElements(props, state);
+  } = useCustomElements(props, state, { inputSuggestion });
 
   const shouldRenderClearIcon = !isDisabled && hasClearButton && (value !== null || filterValue !== null);
 
-  const suggestionListData = shouldFilterValues
-    ? filterData(data, filterValue, textField, filterRule, searchFields)
-    : data;
+  const suggestionListData = (() => {
+    const filteredData = shouldFilterValues
+      ? filterData({
+        data, filterValue, textField, filterRule, searchFields,
+      })
+      : data;
+
+    if (sortSuggestions) {
+      return [...filteredData].sort(sortSuggestions);
+    }
+
+    return filteredData;
+  })();
 
   const handleInputClick = () => {
     mergeState({
@@ -160,6 +174,7 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
           {...restProps}
           aria-invalid={!isValid}
           aria-required={isRequired}
+          autoComplete={autoComplete}
           className={theme.input}
           disabled={isDisabled}
           form={form}
@@ -197,7 +212,6 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
         placeholder={placeholder}
         selectedSuggestion={selectedSuggestion}
         shouldAllowEmpty={shouldAllowEmpty}
-        sortSuggestions={sortSuggestions}
         textField={textField}
         theme={theme}
         value={value}

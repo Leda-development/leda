@@ -119,6 +119,8 @@ export interface NumericTextBoxProps extends ValidationProps {
   onFocus?: (event: FocusEvent) => void,
   /** Реф */
   ref?: React.Ref<NumericRefCurrent>,
+  /** Условие обрезки нулей в форматированной строке  */
+  shouldTrimTrailingZeros?: boolean,
   /** Шаговое значение */
   step?: number,
   /** Тема компонента */
@@ -182,4 +184,20 @@ export type NormalizeParameters = {
   format?: string,
   sign?: number,
   step?: number,
+};
+
+export type FormatValueProps = {
+  format: string,
+  shouldTrimTrailingZeros?: boolean,
+  thousandsSeparator: string,
+  value?: number | null,
+};
+
+export type GetValueProps = {
+  inputValue: string,
+  isFocused: boolean,
+  format: string,
+  shouldTrimTrailingZeros?: boolean,
+  thousandsSeparator: string,
+  value: number | null,
 };

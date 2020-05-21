@@ -3,7 +3,7 @@ import {
   CustomEventHandler, CustomRender, SomeObject,
 } from '../../commonTypes';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import { SuggestionItemComputedProps, SuggestionListProps } from '../../src/SuggestionList/types';
+import { SuggestionListProps } from '../../src/SuggestionList/types';
 import { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { DivProps } from '../Div';
 import { SpanProps } from '../Span';
@@ -57,6 +57,7 @@ export interface FocusEvent<T extends Value = Value> extends React.FocusEvent<HT
 }
 
 export interface DropDownSelectProps<T extends Value = Value> extends ValidationProps {
+  autoComplete?: string,
   boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement | null }>,
   compareObjectsBy?: T extends object ? ((suggestionListItem: T) => any) | string : never,
   data?: T[],
@@ -84,10 +85,10 @@ export interface DropDownSelectProps<T extends Value = Value> extends Validation
   shouldAllowEmpty?: boolean,
   shouldFilterValues?: boolean,
   /** Сортировка выпадающего списка */
-  sortSuggestions?: (a: SuggestionItemComputedProps, b: SuggestionItemComputedProps) => number,
+  sortSuggestions?: (a: T, b: T) => number,
   textField?: T extends object ? string : never,
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.dropDownSelect],
-  value?: T,
+  value?: T | null,
   wrapperRender?: CustomRender<DropDownSelectProps<T>, DropDownSelectState, DivProps>,
   [x: string]: unknown,
 }
@@ -153,3 +154,15 @@ export interface CustomElements {
 }
 
 export type FilterRules = 'smart' | 'startsWith' | 'includes';
+
+export interface FilterDataProps {
+  data: DropDownSelectProps['data'],
+  filterValue: string | null,
+  textField?: string,
+  filterRule?: FilterRules,
+  searchFields?: string[],
+}
+
+export interface UseCustomElementsExtra {
+  inputSuggestion?: Value,
+}

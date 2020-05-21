@@ -3,27 +3,13 @@ import { CustomRender, CustomEventHandler } from '../../commonTypes';
 import { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { ValidationProps } from '../Validation/types';
+import { FileErrorCodes } from '../../constants';
 
 export { FileErrorCodes } from '../../constants';
 
-export interface FileType extends File {
-  /** Дата последнего изменения */
-  lastModified: number,
-  /** Ссылка на скачивание файла. При наличии, файл будет отображен в списке, как скачиваемый */
-  link?: string,
-  /** Имя файла. Необходимо для отображения в списке и удаления */
-  name: string,
-  /** Синоним имени файла. Необходимо для отображения в списке и удаления */
-  path?: string,
-  /** Предварительный просмотр */
-  preview?: string,
-  /** Тип файла */
-  type: string,
-}
-
 export interface FileDropInnerError {
   /** Код ошибки, подробнее можно посмотреть в leda/constants.ts */
-  errorCode: number,
+  errorCode: FileErrorCodes,
   /** Сообщение об ошибке */
   errorMessage: string,
 }
@@ -36,7 +22,7 @@ export interface ChangeEvent {
   component: {
     error: FileDropInnerError | null,
     name?: string,
-    value: FileType | null,
+    value: File | null,
   },
 }
 
@@ -80,7 +66,7 @@ export interface FileDropProps extends ValidationProps {
   /** Текст кнопки загрузки файла, может принимать JSX */
   uploadButtonRender?: CustomRender<FileDropProps, {}, UploadButtonProps>,
   /** Загруженный файл */
-  value: FileType | null,
+  value: File | null,
   /** Кастомизация враппера */
   wrapperRender?: CustomRender<FileDropProps, {}, WrapperProps>,
   /** Классы переданные через _ */
@@ -121,10 +107,10 @@ export interface CustomElements {
 
 export interface ChangeEventHandler {
   (
-    accepted: FileType[],
-    rejected: FileType[],
+    accepted: File[],
+    rejected: File[],
     ev?: React.DragEvent<HTMLDivElement> | React.MouseEvent<HTMLAnchorElement>,
-    removedFile?: FileType
+    removedFile?: File
   ): void,
 }
 
@@ -151,8 +137,13 @@ export interface SingleFileViewProps extends FileDropProps {
 
 export interface ErrorComponentProps extends SingleFileViewProps {
   errorMessage: string,
+  combinedButtonClassNames: string | undefined,
 }
 
 export interface DefaultComponentProps extends SingleFileViewProps {
+  combinedButtonClassNames: string | undefined,
+}
+
+export interface SuccessComponentProps extends SingleFileViewProps {
   combinedButtonClassNames: string | undefined,
 }

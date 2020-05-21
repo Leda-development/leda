@@ -6,6 +6,7 @@ import {
   bytesSizeToUnitsSize,
   generateId,
   getClassNames,
+  getIsSentenceIncludingWords,
   getSizeInBytes,
   getWordEnding,
   scrollIntoView,
@@ -30,7 +31,6 @@ import { Collapsible } from './components/Collapsible';
 import {
   Currency, RUB, EUR, USD,
 } from './components/Currency';
-import { Donut } from './components/Donut';
 import { DatePicker } from './components/DatePicker';
 import { DateRange } from './components/DateRange';
 import { DateTimePicker } from './components/DateTimePicker';
@@ -86,6 +86,7 @@ import {
   Table, ColGroup, Col, THead, TBody, Th, Tr, Td, TFoot,
 } from './components/Table';
 import { Tags, Tag } from './components/Tags';
+import { Tour } from './components/Tour';
 import { Textarea } from './components/Textarea';
 import { TimePicker } from './components/TimePicker';
 import { TimeRange } from './components/TimeRange';
@@ -123,6 +124,7 @@ import * as SwitcherTypes from './components/Switcher/types';
 import * as TabsTypes from './components/Tabs/types';
 import * as TagsTypes from './components/Tags/types';
 import * as TableTypes from './components/Table/types';
+import * as TourTypes from './components/Tour/types';
 import * as TextareaTypes from './components/Textarea/types';
 import * as TooltipTypes from './components/Tooltip/types';
 import * as ValidationTypes from './components/Validation/types';
@@ -137,6 +139,7 @@ const utils = {
   formatDateTime,
   generateId,
   getClassNames,
+  getIsSentenceIncludingWords,
   getSizeInBytes,
   getWordEnding,
   scrollIntoView,
@@ -176,6 +179,7 @@ export {
   TabsTypes,
   TableTypes,
   TagsTypes,
+  TourTypes,
   TextareaTypes,
   TooltipTypes,
   ValidationTypes,
@@ -197,7 +201,6 @@ export {
   RUB,
   EUR,
   USD,
-  Donut,
   DatePicker,
   DateRange,
   DateTimePicker,
@@ -249,6 +252,7 @@ export {
   Tab, Tabs,
   Table, ColGroup, Col, THead, TBody, Th, Tr, Td, TFoot,
   Tags, Tag,
+  Tour,
   Textarea,
   TimePicker,
   TimeRange,

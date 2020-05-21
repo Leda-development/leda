@@ -42,6 +42,7 @@ export { Switcher } from './Switcher';
 export { Table } from './Table';
 export { Tabs } from './Tabs';
 export { Tags } from './Tags';
+export { Tour } from './Tour';
 export { Textarea } from './Textarea';
 export { TimePicker } from './TimePicker';
 export { TimeRange } from './TimeRange';

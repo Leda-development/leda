@@ -38,6 +38,7 @@ export const NumericTextBox = React.forwardRef((props: NumericTextBoxProps, ref:
     onBlur,
     onChange,
     onClick,
+    shouldTrimTrailingZeros,
     step = 1,
     theme: themeProp,
     thousandsSeparator = ' ',
@@ -56,7 +57,7 @@ export const NumericTextBox = React.forwardRef((props: NumericTextBoxProps, ref:
 
   const [value, setUncontrolledValue] = useValue<number | null>(valueProp, normalizeValue(normalizeValueParams));
 
-  const [inputValue, setInputValue] = React.useState<string>(formatInputValue(formatValue(value, format, thousandsSeparator), format));
+  const [inputValue, setInputValue] = React.useState<string>(formatInputValue(formatValue({ value, format, thousandsSeparator }), format));
 
   const inputRef = React.useRef<HTMLInputElement | null>(null);
 
@@ -86,7 +87,7 @@ export const NumericTextBox = React.forwardRef((props: NumericTextBoxProps, ref:
   );
 
   const handleFocus = createFocusHandler(value, inputValue, onFocus, setFocused, format, thousandsSeparator, inputRef, name);
-  const handleBlur = createBlurHandler(value, onBlur, onChange, setFocused, setUncontrolledValue, setInputValue, validateCurrent, format, thousandsSeparator, min, max, name);
+  const handleBlur = createBlurHandler(value, onBlur, onChange, setFocused, setUncontrolledValue, setInputValue, validateCurrent, format, thousandsSeparator, min, max, name, shouldTrimTrailingZeros);
   const handleChange = createChangeHandler(value, onChange, setUncontrolledValue, setInputValue, format, thousandsSeparator, name);
   const handleKeyDown = createKeyDownHandler(value, onChange, onEnterPress, setUncontrolledValue, setInputValue, step, thousandsSeparator, format, name);
   const handlePaste = createPasteHandler(onChange, setUncontrolledValue, format, thousandsSeparator, name);
@@ -99,6 +100,18 @@ export const NumericTextBox = React.forwardRef((props: NumericTextBoxProps, ref:
   } = useCustomElements(props, { value, isFocused });
 
   useSyncedValue(valueProp, isFocused, format, thousandsSeparator, setInputValue);
+
+  const getComponentValue = React.useMemo(
+    () => getValue({
+      value,
+      inputValue,
+      format,
+      isFocused,
+      thousandsSeparator,
+      shouldTrimTrailingZeros,
+    }),
+    [value, inputValue, format, isFocused, thousandsSeparator, shouldTrimTrailingZeros],
+  );
 
   return (
     <Wrapper
@@ -127,7 +140,7 @@ export const NumericTextBox = React.forwardRef((props: NumericTextBoxProps, ref:
           onKeyDown={handleKeyDown}
           onPaste={handlePaste}
           ref={inputRef}
-          value={getValue(value, inputValue, format, isFocused, thousandsSeparator)}
+          value={getComponentValue}
         />
         <ArrowButtons className={theme.arrowButtons} onClick={(event) => event.stopPropagation()}>
           <Span

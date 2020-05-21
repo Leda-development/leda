@@ -29,11 +29,11 @@ describe('DropDownSelect', () => {
         .parent()
         .parent()
         .find('.suggestion-item.placeholder')
-        .should('be.visible')      
+        .should('be.visible')
         .should('have.text', 'Choose a city...')
         .click()
     });
-    
+
     it('should render SuggestionList when isOpen', () => {
       cy.get('button')
         .contains('Toggle isOpen')
@@ -57,120 +57,121 @@ describe('DropDownSelect', () => {
         .contains('Toggle isOpen')
         .click()
     });
+  });
 
-    describe('noSuggestionsRender', () => {
-      it('defaultMessage', () => {
-        cy.name('DDSBoundingContainerRef')
-          .clear()
-          .type('Z')
-          .parent()
-          .parent()
-          .find('.suggestion-wrapper.pos-top.visible')
-          .children('.nodata')
-          .should('have.text', 'Ничего не найдено');
-      });
-
-      it('customMessage', () => {
-        cy.name('Opened')
-          .clear()
-          .type('Z')
-          .parent()
-          .parent()
-          .find('.suggestion-wrapper.visible')
-          .should('have.text', 'Ничего не скажу по этому поводу');
-      });
-      
-      it('nullMessage', () => {
-        cy.name('DDSonBlur')
-          .clear()
-          .type('Z')
-          .parent()
-          .parent()
-          .children('.suggestion-wrapper')
-          .children('.nodata')
-          .should('not.exist')
-      });
-    });
-
-    it('should render loader when isLoading', () => {
-      cy.get('button')
-        .contains('Toggle isLoading')
-        .click()
-        .name('DDSBoundingContainerRef')
+  describe('noSuggestionsRender', () => {
+    it('should have a default message', () => {
+      cy.name('DDSBoundingContainerRef')
         .clear()
-        .type('z')
+        .type('Z')
         .parent()
         .parent()
-        .find('.loader-container')
-        .should('be.visible')
-        .children('.loader-element')
-        .should('be.visible')
-        .get('button')
-        .contains('Toggle isLoading')
-        .click();
+        .find('.suggestion-wrapper.pos-top.visible')
+        .children('.nodata')
+        .should('have.text', 'Ничего не найдено');
     });
 
-    it('should be disabled when isDisabled', () => {
-      cy.get('button')
-        .contains('Toggle isDisabled')
-        .click()
-        .name('DDSDisabled')
-        .should('be.disabled')
-        .get('button')
-        .contains('Toggle isDisabled')
-        .click()
+    it('should allow custom messages', () => {
+      cy.name('Opened')
+        .clear()
+        .type('Z')
+        .parent()
+        .parent()
+        .find('.suggestion-wrapper.visible')
+        .should('have.text', 'Ничего не скажу по этому поводу');
     });
 
-    describe('itemRender', () => {
-      it('bold', () => {
-        cy.get('button')
-          .contains('Toggle isOpen')
-          .click()
-          .name('Opened')
-          .type('n')
-          .parent()
-          .parent()
-          .contains('Berlin')
-          .should('have.class', 'txt-bold')
-          .should('not.have.class', 'txt-success')
-          .get('button')
-          .contains('Toggle isOpen')
-          .click()
-      });
-
-      it('succes', () => {
-        cy.get('button')
-          .contains('Toggle isOpen')
-          .click()
-          .name('Opened')
-          .type('n')
-          .parent()
-          .parent()
-          .contains('Bangkok')
-          .should('not.have.class', 'txt-bold')
-          .should('have.class', 'txt-success')
-          .get('button')
-          .contains('Toggle isOpen')
-          .click()
-      });
-
-      it('none', () => {
-        cy.get('button')
-          .contains('Toggle isOpen')
-          .click()
-          .name('Opened')
-          .type('n')
-          .parent()
-          .parent()
-          .contains('New-York')
-          .should('not.have.class', 'txt-bold')
-          .should('not.have.class', 'txt-success')
-          .get('button')
-          .contains('Toggle isOpen')
-          .click()
-      });
+    it('should allow an empty message', () => {
+      cy.name('DDSonBlur')
+        .clear()
+        .type('Z')
+        .parent()
+        .parent()
+        .children('.suggestion-wrapper')
+        .children('.nodata')
+        .should('not.exist')
     });
   });
+
+  it('should render loader when isLoading', () => {
+    cy.get('button')
+      .contains('Toggle isLoading')
+      .click()
+      .name('DDSBoundingContainerRef')
+      .clear()
+      .type('z')
+      .parent()
+      .parent()
+      .find('.loader-container')
+      .should('be.visible')
+      .children('.loader-element')
+      .should('be.visible')
+      .get('button')
+      .contains('Toggle isLoading')
+      .click();
+  });
+
+  it('should be disabled when isDisabled', () => {
+    cy.get('button')
+      .contains('Toggle isDisabled')
+      .click()
+      .name('DDSDisabled')
+      .should('be.disabled')
+      .get('button')
+      .contains('Toggle isDisabled')
+      .click()
+  });
+
+  describe('itemRender', () => {
+    it('should customize a suggestion item', () => {
+      cy.get('button')
+        .contains('Toggle isOpen')
+        .click()
+        .name('Opened')
+        .type('n')
+        .parent()
+        .parent()
+        .contains('Berlin')
+        .should('have.class', 'txt-bold')
+        .should('not.have.class', 'txt-success')
+        .get('button')
+        .contains('Toggle isOpen')
+        .click()
+    });
+
+    it('should add a custom css-class to a suggestion item', () => {
+      cy.get('button')
+        .contains('Toggle isOpen')
+        .click()
+        .name('Opened')
+        .type('n')
+        .parent()
+        .parent()
+        .contains('Bangkok')
+        .should('not.have.class', 'txt-bold')
+        .should('have.class', 'txt-success')
+        .get('button')
+        .contains('Toggle isOpen')
+        .click()
+    });
+
+    it('customization on suggestion item should not exist', () => {
+      cy.get('button')
+        .contains('Toggle isOpen')
+        .click()
+        .name('Opened')
+        .type('n')
+        .parent()
+        .parent()
+        .contains('New-York')
+        .should('not.have.class', 'txt-bold')
+        .should('not.have.class', 'txt-success')
+        .get('button')
+        .contains('Toggle isOpen')
+        .click()
+    });
+  });
+
 
   describe('FilterRule', () => {
     it('smart', () => {
@@ -284,7 +285,6 @@ describe('DropDownSelect', () => {
           expect(lastConsole.component.value).to.have.property('city', 'Moscow');
         });
     });
-    
     it('onFilterChange', () => {
       cy.name('DDSDisabled')
         .focus()
@@ -294,7 +294,7 @@ describe('DropDownSelect', () => {
           expect(stub).to.be.called;
           expect(lastConsole).to.have.property('type', 'keydown');
           expect(lastConsole.component).to.have.property('name', 'DDSDisabled');
-          expect(lastConsole.component).to.have.property('value','Washington');
+          expect(lastConsole.component).to.have.property('value', 'Washington');
         });
     });
 
@@ -313,43 +313,43 @@ describe('DropDownSelect', () => {
         .get('[name=DDSBoundingContainerRef]')
         .should('have.value', '');
     });
-  }); 
-    it('compareObjectsBy', () => {
-      cy.name('DDSCompareObjectsBy')
-        .click()
-        .parent()
-        .parent()
-        .children('.suggestion-wrapper.visible')
-        .contains('Moscow')
-        .click()
-        .name('DDSCompareObjectsBy')
-        .click()
-        .parent()
-        .parent()
-        .children('.suggestion-wrapper.visible')
-        .find('.suggestion-item.highlighted.selected')
-        .eq(0)
-        .should('contain', 'Moscow')
-        .parents('.suggestion-wrapper.visible')
-        .find('.suggestion-item.highlighted.selected')
-        .eq(1)
-        .should('contain', 'Minsk')
-    });
+  });
+  it('compareObjectsBy', () => {
+    cy.name('DDSCompareObjectsBy')
+      .click()
+      .parent()
+      .parent()
+      .children('.suggestion-wrapper.visible')
+      .contains('Moscow')
+      .click()
+      .name('DDSCompareObjectsBy')
+      .click()
+      .parent()
+      .parent()
+      .children('.suggestion-wrapper.visible')
+      .find('.suggestion-item.highlighted.selected')
+      .eq(0)
+      .should('contain', 'Moscow')
+      .parents('.suggestion-wrapper.visible')
+      .find('.suggestion-item.highlighted.selected')
+      .eq(1)
+      .should('contain', 'Minsk')
+  });
 
-    it('sortSuggestions', () => {
-      cy.name('DDSSortSuggestions')
-        .click()
-        .parent()
-        .parent()
-        .children('.suggestion-wrapper.pos-top.visible')
-        .find('.suggestion-item')
-        .eq(0)
-        .parents('.suggestion-wrapper.visible')
-        .find('.suggestion-item')
-        .eq(13)
-        .should('contain', 'Tallin')
-    });
-  
+  it('sortSuggestions', () => {
+    cy.name('DDSSortSuggestions')
+      .click()
+      .parent()
+      .parent()
+      .children('.suggestion-wrapper.pos-top.visible')
+      .find('.suggestion-item')
+      .eq(0)
+      .parents('.suggestion-wrapper.visible')
+      .find('.suggestion-item')
+      .eq(13)
+      .should('contain', 'Tallin')
+  });
+
   describe('DataTypes', () => {
     xit('should render 0', () => {
       cy.get('[name=DDSShouldAllowEmpty]')

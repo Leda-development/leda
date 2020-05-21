@@ -1,4 +1,3 @@
-import 'element-closest/browser';
 import * as React from 'react';
 import {
   isString, isBoolean,
@@ -36,6 +35,7 @@ import { LedaContext } from '../LedaProvider';
 
 export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: React.Ref<AutoCompleteRefCurrent>): React.ReactElement | null => {
   const {
+    autoComplete = 'off',
     className,
     compareObjectsBy,
     data,
@@ -123,7 +123,12 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     if (isBoolean(isOpen)) return isOpen;
 
     // do not show dropdown list until minimal input length is reached
-    if (minSearchLength && minSearchLength > 0 && safeTrim(value).length < minSearchLength) return false;
+    if (
+      minSearchLength && minSearchLength > 0 && value != null
+      && value.length < minSearchLength
+    ) {
+      return false;
+    }
 
     return isFocused;
   })();
@@ -191,6 +196,8 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     autoCompleteState,
   );
 
+  const suggestionListData = sortSuggestions ? [...suggestions].sort(sortSuggestions) : suggestions;
+
   return (
     <Div
       className={wrapperClassNames}
@@ -204,6 +211,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
           {...restProps}
           aria-invalid={!isValid}
           aria-required={isRequired}
+          autoComplete={autoComplete}
           className={theme.input}
           disabled={isDisabled}
           form={form}
@@ -225,7 +233,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
       </Div>
       <SuggestionList
         compareObjectsBy={compareObjectsBy}
-        data={suggestions}
+        data={suggestionListData}
         groupBy={groupBy}
         highlightedSuggestion={highlightedSuggestion}
         isLoading={isLoading}
@@ -237,7 +245,6 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
         placeholder={placeholder}
         selectedSuggestion={selectedSuggestion}
         shouldAllowEmpty={false}
-        sortSuggestions={sortSuggestions}
         textField={textField}
         theme={theme}
         value={suggestionListValue}

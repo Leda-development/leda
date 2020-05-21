@@ -1,5 +1,10 @@
-import { isNil } from 'lodash';
-import { NumericTextBoxProps, WrapperProps, NormalizeParameters } from './types';
+import {
+  NumericTextBoxProps,
+  WrapperProps,
+  NormalizeParameters,
+  FormatValueProps,
+  GetValueProps,
+} from './types';
 import { DEFAULT_VALUES } from './constants';
 
 export const getNumberPrecision = (format: string, numberStartIndex: number): number => {
@@ -12,7 +17,7 @@ export const getNumberPrecision = (format: string, numberStartIndex: number): nu
   return (decimalPart.match(/#/g) || []).length;
 };
 
-const addThousandSeparator = (number: number, separator: string): string => {
+const addThousandsSeparator = (number: number, separator: string): string => {
   const value = number.toString();
 
   if (value.length < 3) return value;
@@ -44,7 +49,12 @@ export const getSeparator = (format: string): string | null => {
 
 // форматирует значение (значение при блюре)
 // "1200.05" -> "1 200.05 Руб."
-export const formatValue = (value?: number | null, format = '#', thousandSeparator = ' '): string => {
+export const formatValue = ({
+  value,
+  format = '#',
+  thousandsSeparator = ' ',
+  shouldTrimTrailingZeros,
+}: FormatValueProps): string => {
   if (value == null) return '';
 
   const isNegative = value < 0;
@@ -59,21 +69,31 @@ export const formatValue = (value?: number | null, format = '#', thousandSeparat
 
   const integerPart = Math.floor(number);
 
-  const decimalPart = Math.ceil(Math.floor((number % 1) * (10 ** (precision + 1))) / 10);
+  const decimalPart = (() => {
+    /* Округление и приведение к целочисленному значению дробной части числа */
+    const unformattedDecimalPart = Math.ceil(Math.floor((number % 1) * (10 ** (precision + 1))) / 10);
+    /* Форматирование дробной части числа в соответствии с маской */
+    const formattedDecimalPart = separator + unformattedDecimalPart.toString().padStart(precision, '0');
+    if (shouldTrimTrailingZeros) {
+      return unformattedDecimalPart === 0 ? '' : formattedDecimalPart.replace(/0*$/, '');
+    }
+    return formattedDecimalPart;
+  })();
 
   return format
-    .replace(/#/, `${isNegative ? '-' : ''}${addThousandSeparator(integerPart, thousandSeparator)}`)
-    .replace(/.#+/, precision === 0 ? '' : `${separator}${decimalPart.toString().padStart(precision, '0')}`);
+    .replace(/#/, `${isNegative ? '-' : ''}${addThousandsSeparator(integerPart, thousandsSeparator)}`)
+    .replace(/.#+/, precision === 0 ? '' : decimalPart);
 };
 
 // выбирает какое значение отобразить (formatted или inputValue)
-export const getValue = (
-  value: number | null,
-  inputValue: string,
-  format: string,
-  isFocused: boolean,
-  thousandsSeparator: string,
-): string => {
+export const getValue = ({
+  value,
+  inputValue,
+  format,
+  isFocused,
+  thousandsSeparator,
+  shouldTrimTrailingZeros,
+}: GetValueProps): string => {
   const separator = getSeparator(format);
 
   if (separator === thousandsSeparator) {
@@ -92,7 +112,14 @@ export const getValue = (
     return inputValue;
   }
 
-  return formatValue(value, format, thousandsSeparator);
+  return formatValue(
+    {
+      value,
+      format,
+      thousandsSeparator,
+      shouldTrimTrailingZeros,
+    },
+  );
 };
 
 // извлекает из строки число
@@ -186,6 +213,7 @@ export const getRestProps = (props: NumericTextBoxProps): WrapperProps => {
     isDisabled,
     isRequired,
     isValid: isValidProp,
+    shouldTrimTrailingZeros,
     shouldValidateUnmounted,
     thousandsSeparator,
     requiredMessage,

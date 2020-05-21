@@ -3,6 +3,7 @@ import { CustomRender } from '../../commonTypes';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { LiProps } from '../Li';
+import { defaultTabsTheme } from './theme';
 
 export interface TabsProps {
   /** Устанавливает номер выбранного таба */
@@ -17,6 +18,8 @@ export interface TabsProps {
   onChange?: (event: ChangeEvent) => void,
   /** Reference */
   ref?: React.Ref<TabsRefCurrent>,
+  /** Скролл для табов */
+  shouldScrollTabs?: boolean,
   /** DOM-узел, в который будет помещено содержимое вкладки */
   tabContentNode?: HTMLElement | null,
   /** Кастомный tab */
@@ -33,7 +36,7 @@ export interface TabsState {
   activeTabKey: string | number,
 }
 
-export type TabProps = React.HTMLAttributes<HTMLDivElement> & {
+export type TabProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> & {
   /** Вложенные элементы */
   children?: React.ReactNode,
   /** Делает вкладку неактивной */
@@ -113,4 +116,23 @@ export interface TabsRefCurrent {
 
 export interface TabRefCurrent {
   wrapper: HTMLLIElement | null,
+}
+
+export interface ArrowProps {
+  onClick: React.MouseEventHandler,
+  theme: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.tabs],
+}
+
+export interface TabsScroll {
+  containerRef: React.Ref<any>,
+  hasScroll: boolean,
+  hasLeftArrow: boolean,
+  hasRightArrow: boolean,
+  onRightClick: React.MouseEventHandler,
+  onLeftClick: React.MouseEventHandler,
+}
+
+export interface TabsScrollProps {
+  shouldScrollTabs?: boolean,
+  theme: typeof defaultTabsTheme,
 }

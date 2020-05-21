@@ -12,7 +12,7 @@ export const BasicUsage = (args: any) => {
   return (
     <L.Div _demoStory>
       <L.NumericTextBox
-        format="#.##"
+        format="#.####"
         name="numer"
         data-test="numerictextbox"
         max={20000000000000}
@@ -20,10 +20,6 @@ export const BasicUsage = (args: any) => {
         step={1}
         invalidMessage="Число не должно быть отрицательным!"
         requiredMessage="Обязательное поле!"
-        onClick={ev => {
-          update('Click', ev);
-          console.log('Click ev.target', ev.target);
-        }}
         onChange={ev => {
           update('Change', ev);
           console.log('Change ev.component.value', ev.component.value);

@@ -40,6 +40,8 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
               onTagClick={[Function]}
               theme={
                 Object {
+                  "checkBoxItem": "multiselect-check-box-item",
+                  "checkBoxSemi": "semi",
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
                   "containerTop": "pos-top",
@@ -59,6 +61,7 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
                   "itemSelected": "selected",
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
+                  "placeholder": "multiselect-placeholder",
                   "tagsContainer": "multiselect-tags-container",
                   "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
@@ -119,6 +122,7 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
             </TagsContainer>
             <Input
               aria-invalid={false}
+              autoComplete="off"
               className="multiselect-input"
               onBlur={[Function]}
               onChange={[Function]}
@@ -128,6 +132,7 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
             >
               <input
                 aria-invalid={false}
+                autoComplete="off"
                 className="multiselect-input"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -151,6 +156,8 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
           shouldAllowEmpty={false}
           theme={
             Object {
+              "checkBoxItem": "multiselect-check-box-item",
+              "checkBoxSemi": "semi",
               "clearIcon": "multiselect-clear-icon",
               "container": "suggestion-wrapper",
               "containerTop": "pos-top",
@@ -170,6 +177,7 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
               "itemSelected": "selected",
               "list": "suggestion-list",
               "noSuggestions": "nodata",
+              "placeholder": "multiselect-placeholder",
               "tagsContainer": "multiselect-tags-container",
               "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
@@ -202,6 +210,7 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
                       isHighlighted={false}
                       isPlaceholder={false}
                       isScrollTarget={false}
+                      isSelectAllItem={false}
                       isSelected={false}
                       item="2"
                       key="2"
@@ -214,6 +223,8 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
                       text="2"
                       theme={
                         Object {
+                          "checkBoxItem": "multiselect-check-box-item",
+                          "checkBoxSemi": "semi",
                           "clearIcon": "multiselect-clear-icon",
                           "container": "suggestion-wrapper",
                           "containerTop": "pos-top",
@@ -233,6 +244,7 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
                           "itemSelected": "selected",
                           "list": "suggestion-list",
                           "noSuggestions": "nodata",
+                          "placeholder": "multiselect-placeholder",
                           "tagsContainer": "multiselect-tags-container",
                           "tagsUnion": "multiselect-tags-union",
                           "wrapper": "multiselect-wrapper",
@@ -260,6 +272,7 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
                       isHighlighted={false}
                       isPlaceholder={false}
                       isScrollTarget={false}
+                      isSelectAllItem={false}
                       isSelected={false}
                       item="3"
                       key="3"
@@ -272,6 +285,8 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
                       text="3"
                       theme={
                         Object {
+                          "checkBoxItem": "multiselect-check-box-item",
+                          "checkBoxSemi": "semi",
                           "clearIcon": "multiselect-clear-icon",
                           "container": "suggestion-wrapper",
                           "containerTop": "pos-top",
@@ -291,6 +306,7 @@ exports[`MultiSelect ATTRIBUTES should list isOpen 1`] = `
                           "itemSelected": "selected",
                           "list": "suggestion-list",
                           "noSuggestions": "nodata",
+                          "placeholder": "multiselect-placeholder",
                           "tagsContainer": "multiselect-tags-container",
                           "tagsUnion": "multiselect-tags-union",
                           "wrapper": "multiselect-wrapper",
@@ -378,6 +394,8 @@ exports[`MultiSelect ATTRIBUTES should list loading 1`] = `
               onTagClick={[Function]}
               theme={
                 Object {
+                  "checkBoxItem": "multiselect-check-box-item",
+                  "checkBoxSemi": "semi",
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
                   "containerTop": "pos-top",
@@ -397,6 +415,7 @@ exports[`MultiSelect ATTRIBUTES should list loading 1`] = `
                   "itemSelected": "selected",
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
+                  "placeholder": "multiselect-placeholder",
                   "tagsContainer": "multiselect-tags-container",
                   "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
@@ -457,6 +476,7 @@ exports[`MultiSelect ATTRIBUTES should list loading 1`] = `
             </TagsContainer>
             <Input
               aria-invalid={false}
+              autoComplete="off"
               className="multiselect-input"
               onBlur={[Function]}
               onChange={[Function]}
@@ -466,6 +486,7 @@ exports[`MultiSelect ATTRIBUTES should list loading 1`] = `
             >
               <input
                 aria-invalid={false}
+                autoComplete="off"
                 className="multiselect-input"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -490,6 +511,8 @@ exports[`MultiSelect ATTRIBUTES should list loading 1`] = `
           shouldAllowEmpty={false}
           theme={
             Object {
+              "checkBoxItem": "multiselect-check-box-item",
+              "checkBoxSemi": "semi",
               "clearIcon": "multiselect-clear-icon",
               "container": "suggestion-wrapper",
               "containerTop": "pos-top",
@@ -509,6 +532,7 @@ exports[`MultiSelect ATTRIBUTES should list loading 1`] = `
               "itemSelected": "selected",
               "list": "suggestion-list",
               "noSuggestions": "nodata",
+              "placeholder": "multiselect-placeholder",
               "tagsContainer": "multiselect-tags-container",
               "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
@@ -613,6 +637,8 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
               onTagClick={[Function]}
               theme={
                 Object {
+                  "checkBoxItem": "multiselect-check-box-item",
+                  "checkBoxSemi": "semi",
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
                   "containerTop": "pos-top",
@@ -632,6 +658,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
                   "itemSelected": "selected",
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
+                  "placeholder": "multiselect-placeholder",
                   "tagsContainer": "multiselect-tags-container",
                   "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
@@ -692,6 +719,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
             </TagsContainer>
             <Input
               aria-invalid={false}
+              autoComplete="off"
               className="multiselect-input"
               onBlur={[Function]}
               onChange={[Function]}
@@ -701,6 +729,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
             >
               <input
                 aria-invalid={false}
+                autoComplete="off"
                 className="multiselect-input"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -724,6 +753,8 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
           shouldAllowEmpty={false}
           theme={
             Object {
+              "checkBoxItem": "multiselect-check-box-item",
+              "checkBoxSemi": "semi",
               "clearIcon": "multiselect-clear-icon",
               "container": "suggestion-wrapper",
               "containerTop": "pos-top",
@@ -743,6 +774,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
               "itemSelected": "selected",
               "list": "suggestion-list",
               "noSuggestions": "nodata",
+              "placeholder": "multiselect-placeholder",
               "tagsContainer": "multiselect-tags-container",
               "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
@@ -775,6 +807,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
                       isHighlighted={false}
                       isPlaceholder={false}
                       isScrollTarget={false}
+                      isSelectAllItem={false}
                       isSelected={false}
                       item="2"
                       key="2"
@@ -787,6 +820,8 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
                       text="2"
                       theme={
                         Object {
+                          "checkBoxItem": "multiselect-check-box-item",
+                          "checkBoxSemi": "semi",
                           "clearIcon": "multiselect-clear-icon",
                           "container": "suggestion-wrapper",
                           "containerTop": "pos-top",
@@ -806,6 +841,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
                           "itemSelected": "selected",
                           "list": "suggestion-list",
                           "noSuggestions": "nodata",
+                          "placeholder": "multiselect-placeholder",
                           "tagsContainer": "multiselect-tags-container",
                           "tagsUnion": "multiselect-tags-union",
                           "wrapper": "multiselect-wrapper",
@@ -833,6 +869,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
                       isHighlighted={false}
                       isPlaceholder={false}
                       isScrollTarget={false}
+                      isSelectAllItem={false}
                       isSelected={false}
                       item="3"
                       key="3"
@@ -845,6 +882,8 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
                       text="3"
                       theme={
                         Object {
+                          "checkBoxItem": "multiselect-check-box-item",
+                          "checkBoxSemi": "semi",
                           "clearIcon": "multiselect-clear-icon",
                           "container": "suggestion-wrapper",
                           "containerTop": "pos-top",
@@ -864,6 +903,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 1`] = `
                           "itemSelected": "selected",
                           "list": "suggestion-list",
                           "noSuggestions": "nodata",
+                          "placeholder": "multiselect-placeholder",
                           "tagsContainer": "multiselect-tags-container",
                           "tagsUnion": "multiselect-tags-union",
                           "wrapper": "multiselect-wrapper",
@@ -950,6 +990,8 @@ exports[`MultiSelect ATTRIBUTES should render noData template 2`] = `
               onTagClick={[Function]}
               theme={
                 Object {
+                  "checkBoxItem": "multiselect-check-box-item",
+                  "checkBoxSemi": "semi",
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
                   "containerTop": "pos-top",
@@ -969,6 +1011,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 2`] = `
                   "itemSelected": "selected",
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
+                  "placeholder": "multiselect-placeholder",
                   "tagsContainer": "multiselect-tags-container",
                   "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
@@ -1029,6 +1072,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 2`] = `
             </TagsContainer>
             <Input
               aria-invalid={false}
+              autoComplete="off"
               className="multiselect-input"
               onBlur={[Function]}
               onChange={[Function]}
@@ -1038,6 +1082,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 2`] = `
             >
               <input
                 aria-invalid={false}
+                autoComplete="off"
                 className="multiselect-input"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -1049,12 +1094,15 @@ exports[`MultiSelect ATTRIBUTES should render noData template 2`] = `
           </div>
         </Div>
         <SuggestionList
+          data={Array []}
           highlightedSuggestion={null}
           isOpen={true}
           onClick={[Function]}
           shouldAllowEmpty={false}
           theme={
             Object {
+              "checkBoxItem": "multiselect-check-box-item",
+              "checkBoxSemi": "semi",
               "clearIcon": "multiselect-clear-icon",
               "container": "suggestion-wrapper",
               "containerTop": "pos-top",
@@ -1074,6 +1122,7 @@ exports[`MultiSelect ATTRIBUTES should render noData template 2`] = `
               "itemSelected": "selected",
               "list": "suggestion-list",
               "noSuggestions": "nodata",
+              "placeholder": "multiselect-placeholder",
               "tagsContainer": "multiselect-tags-container",
               "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
@@ -1171,6 +1220,8 @@ exports[`MultiSelect HANDLERS should test onBlur 1`] = `
               onTagClick={[Function]}
               theme={
                 Object {
+                  "checkBoxItem": "multiselect-check-box-item",
+                  "checkBoxSemi": "semi",
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
                   "containerTop": "pos-top",
@@ -1190,6 +1241,7 @@ exports[`MultiSelect HANDLERS should test onBlur 1`] = `
                   "itemSelected": "selected",
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
+                  "placeholder": "multiselect-placeholder",
                   "tagsContainer": "multiselect-tags-container",
                   "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
@@ -1250,6 +1302,7 @@ exports[`MultiSelect HANDLERS should test onBlur 1`] = `
             </TagsContainer>
             <Input
               aria-invalid={false}
+              autoComplete="off"
               className="multiselect-input"
               name="auto"
               onBlur={[Function]}
@@ -1260,6 +1313,7 @@ exports[`MultiSelect HANDLERS should test onBlur 1`] = `
             >
               <input
                 aria-invalid={false}
+                autoComplete="off"
                 className="multiselect-input"
                 name="auto"
                 onBlur={[Function]}
@@ -1284,6 +1338,8 @@ exports[`MultiSelect HANDLERS should test onBlur 1`] = `
           shouldAllowEmpty={false}
           theme={
             Object {
+              "checkBoxItem": "multiselect-check-box-item",
+              "checkBoxSemi": "semi",
               "clearIcon": "multiselect-clear-icon",
               "container": "suggestion-wrapper",
               "containerTop": "pos-top",
@@ -1303,6 +1359,7 @@ exports[`MultiSelect HANDLERS should test onBlur 1`] = `
               "itemSelected": "selected",
               "list": "suggestion-list",
               "noSuggestions": "nodata",
+              "placeholder": "multiselect-placeholder",
               "tagsContainer": "multiselect-tags-container",
               "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
@@ -1394,6 +1451,8 @@ exports[`MultiSelect HANDLERS should test onBlur 2`] = `
               onTagClick={[Function]}
               theme={
                 Object {
+                  "checkBoxItem": "multiselect-check-box-item",
+                  "checkBoxSemi": "semi",
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
                   "containerTop": "pos-top",
@@ -1413,6 +1472,7 @@ exports[`MultiSelect HANDLERS should test onBlur 2`] = `
                   "itemSelected": "selected",
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
+                  "placeholder": "multiselect-placeholder",
                   "tagsContainer": "multiselect-tags-container",
                   "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
@@ -1473,6 +1533,7 @@ exports[`MultiSelect HANDLERS should test onBlur 2`] = `
             </TagsContainer>
             <Input
               aria-invalid={false}
+              autoComplete="off"
               className="multiselect-input"
               name="auto"
               onBlur={[Function]}
@@ -1483,6 +1544,7 @@ exports[`MultiSelect HANDLERS should test onBlur 2`] = `
             >
               <input
                 aria-invalid={false}
+                autoComplete="off"
                 className="multiselect-input"
                 name="auto"
                 onBlur={[Function]}
@@ -1507,6 +1569,8 @@ exports[`MultiSelect HANDLERS should test onBlur 2`] = `
           shouldAllowEmpty={false}
           theme={
             Object {
+              "checkBoxItem": "multiselect-check-box-item",
+              "checkBoxSemi": "semi",
               "clearIcon": "multiselect-clear-icon",
               "container": "suggestion-wrapper",
               "containerTop": "pos-top",
@@ -1526,6 +1590,7 @@ exports[`MultiSelect HANDLERS should test onBlur 2`] = `
               "itemSelected": "selected",
               "list": "suggestion-list",
               "noSuggestions": "nodata",
+              "placeholder": "multiselect-placeholder",
               "tagsContainer": "multiselect-tags-container",
               "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
@@ -1596,6 +1661,8 @@ exports[`MultiSelect HANDLERS should test onChange 1`] = `
               onTagClick={[Function]}
               theme={
                 Object {
+                  "checkBoxItem": "multiselect-check-box-item",
+                  "checkBoxSemi": "semi",
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
                   "containerTop": "pos-top",
@@ -1615,6 +1682,7 @@ exports[`MultiSelect HANDLERS should test onChange 1`] = `
                   "itemSelected": "selected",
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
+                  "placeholder": "multiselect-placeholder",
                   "tagsContainer": "multiselect-tags-container",
                   "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
@@ -1712,6 +1780,7 @@ exports[`MultiSelect HANDLERS should test onChange 1`] = `
             </TagsContainer>
             <Input
               aria-invalid={false}
+              autoComplete="off"
               className="multiselect-input"
               name="auto"
               onBlur={[Function]}
@@ -1722,6 +1791,7 @@ exports[`MultiSelect HANDLERS should test onChange 1`] = `
             >
               <input
                 aria-invalid={false}
+                autoComplete="off"
                 className="multiselect-input"
                 name="auto"
                 onBlur={[Function]}
@@ -1745,6 +1815,8 @@ exports[`MultiSelect HANDLERS should test onChange 1`] = `
           shouldAllowEmpty={false}
           theme={
             Object {
+              "checkBoxItem": "multiselect-check-box-item",
+              "checkBoxSemi": "semi",
               "clearIcon": "multiselect-clear-icon",
               "container": "suggestion-wrapper",
               "containerTop": "pos-top",
@@ -1764,6 +1836,7 @@ exports[`MultiSelect HANDLERS should test onChange 1`] = `
               "itemSelected": "selected",
               "list": "suggestion-list",
               "noSuggestions": "nodata",
+              "placeholder": "multiselect-placeholder",
               "tagsContainer": "multiselect-tags-container",
               "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
@@ -1797,6 +1870,7 @@ exports[`MultiSelect HANDLERS should test onChange 1`] = `
                       isHighlighted={false}
                       isPlaceholder={false}
                       isScrollTarget={false}
+                      isSelectAllItem={false}
                       isSelected={false}
                       item="3"
                       key="3"
@@ -1809,6 +1883,8 @@ exports[`MultiSelect HANDLERS should test onChange 1`] = `
                       text="3"
                       theme={
                         Object {
+                          "checkBoxItem": "multiselect-check-box-item",
+                          "checkBoxSemi": "semi",
                           "clearIcon": "multiselect-clear-icon",
                           "container": "suggestion-wrapper",
                           "containerTop": "pos-top",
@@ -1828,6 +1904,7 @@ exports[`MultiSelect HANDLERS should test onChange 1`] = `
                           "itemSelected": "selected",
                           "list": "suggestion-list",
                           "noSuggestions": "nodata",
+                          "placeholder": "multiselect-placeholder",
                           "tagsContainer": "multiselect-tags-container",
                           "tagsUnion": "multiselect-tags-union",
                           "wrapper": "multiselect-wrapper",
@@ -1917,6 +1994,8 @@ exports[`MultiSelect HANDLERS should test onDeselect 1`] = `
               onTagClick={[Function]}
               theme={
                 Object {
+                  "checkBoxItem": "multiselect-check-box-item",
+                  "checkBoxSemi": "semi",
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
                   "containerTop": "pos-top",
@@ -1936,6 +2015,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 1`] = `
                   "itemSelected": "selected",
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
+                  "placeholder": "multiselect-placeholder",
                   "tagsContainer": "multiselect-tags-container",
                   "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
@@ -2070,6 +2150,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 1`] = `
             </TagsContainer>
             <Input
               aria-invalid={false}
+              autoComplete="off"
               className="multiselect-input"
               name="auto"
               onBlur={[Function]}
@@ -2080,6 +2161,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 1`] = `
             >
               <input
                 aria-invalid={false}
+                autoComplete="off"
                 className="multiselect-input"
                 name="auto"
                 onBlur={[Function]}
@@ -2092,12 +2174,15 @@ exports[`MultiSelect HANDLERS should test onDeselect 1`] = `
           </div>
         </Div>
         <SuggestionList
+          data={Array []}
           highlightedSuggestion={null}
           isOpen={true}
           onClick={[Function]}
           shouldAllowEmpty={false}
           theme={
             Object {
+              "checkBoxItem": "multiselect-check-box-item",
+              "checkBoxSemi": "semi",
               "clearIcon": "multiselect-clear-icon",
               "container": "suggestion-wrapper",
               "containerTop": "pos-top",
@@ -2117,6 +2202,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 1`] = `
               "itemSelected": "selected",
               "list": "suggestion-list",
               "noSuggestions": "nodata",
+              "placeholder": "multiselect-placeholder",
               "tagsContainer": "multiselect-tags-container",
               "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
@@ -2216,6 +2302,8 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
               onTagClick={[Function]}
               theme={
                 Object {
+                  "checkBoxItem": "multiselect-check-box-item",
+                  "checkBoxSemi": "semi",
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
                   "containerTop": "pos-top",
@@ -2235,6 +2323,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
                   "itemSelected": "selected",
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
+                  "placeholder": "multiselect-placeholder",
                   "tagsContainer": "multiselect-tags-container",
                   "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
@@ -2295,6 +2384,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
             </TagsContainer>
             <Input
               aria-invalid={false}
+              autoComplete="off"
               className="multiselect-input"
               name="auto"
               onBlur={[Function]}
@@ -2305,6 +2395,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
             >
               <input
                 aria-invalid={false}
+                autoComplete="off"
                 className="multiselect-input"
                 name="auto"
                 onBlur={[Function]}
@@ -2329,6 +2420,8 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
           shouldAllowEmpty={false}
           theme={
             Object {
+              "checkBoxItem": "multiselect-check-box-item",
+              "checkBoxSemi": "semi",
               "clearIcon": "multiselect-clear-icon",
               "container": "suggestion-wrapper",
               "containerTop": "pos-top",
@@ -2348,6 +2441,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
               "itemSelected": "selected",
               "list": "suggestion-list",
               "noSuggestions": "nodata",
+              "placeholder": "multiselect-placeholder",
               "tagsContainer": "multiselect-tags-container",
               "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
@@ -2380,6 +2474,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
                       isHighlighted={false}
                       isPlaceholder={false}
                       isScrollTarget={false}
+                      isSelectAllItem={false}
                       isSelected={false}
                       item="1"
                       key="1"
@@ -2392,6 +2487,8 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
                       text="1"
                       theme={
                         Object {
+                          "checkBoxItem": "multiselect-check-box-item",
+                          "checkBoxSemi": "semi",
                           "clearIcon": "multiselect-clear-icon",
                           "container": "suggestion-wrapper",
                           "containerTop": "pos-top",
@@ -2411,6 +2508,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
                           "itemSelected": "selected",
                           "list": "suggestion-list",
                           "noSuggestions": "nodata",
+                          "placeholder": "multiselect-placeholder",
                           "tagsContainer": "multiselect-tags-container",
                           "tagsUnion": "multiselect-tags-union",
                           "wrapper": "multiselect-wrapper",
@@ -2438,6 +2536,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
                       isHighlighted={false}
                       isPlaceholder={false}
                       isScrollTarget={false}
+                      isSelectAllItem={false}
                       isSelected={false}
                       item="3"
                       key="3"
@@ -2450,6 +2549,8 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
                       text="3"
                       theme={
                         Object {
+                          "checkBoxItem": "multiselect-check-box-item",
+                          "checkBoxSemi": "semi",
                           "clearIcon": "multiselect-clear-icon",
                           "container": "suggestion-wrapper",
                           "containerTop": "pos-top",
@@ -2469,6 +2570,7 @@ exports[`MultiSelect HANDLERS should test onDeselect 2`] = `
                           "itemSelected": "selected",
                           "list": "suggestion-list",
                           "noSuggestions": "nodata",
+                          "placeholder": "multiselect-placeholder",
                           "tagsContainer": "multiselect-tags-container",
                           "tagsUnion": "multiselect-tags-union",
                           "wrapper": "multiselect-wrapper",
@@ -2559,6 +2661,8 @@ exports[`MultiSelect HANDLERS should test onDeselect by clear button 1`] = `
               onTagClick={[Function]}
               theme={
                 Object {
+                  "checkBoxItem": "multiselect-check-box-item",
+                  "checkBoxSemi": "semi",
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
                   "containerTop": "pos-top",
@@ -2578,6 +2682,7 @@ exports[`MultiSelect HANDLERS should test onDeselect by clear button 1`] = `
                   "itemSelected": "selected",
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
+                  "placeholder": "multiselect-placeholder",
                   "tagsContainer": "multiselect-tags-container",
                   "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
@@ -2684,6 +2789,7 @@ exports[`MultiSelect HANDLERS should test onDeselect by clear button 1`] = `
             </TagsContainer>
             <Input
               aria-invalid={false}
+              autoComplete="off"
               className="multiselect-input"
               name="auto"
               onBlur={[Function]}
@@ -2694,6 +2800,7 @@ exports[`MultiSelect HANDLERS should test onDeselect by clear button 1`] = `
             >
               <input
                 aria-invalid={false}
+                autoComplete="off"
                 className="multiselect-input"
                 name="auto"
                 onBlur={[Function]}
@@ -2717,6 +2824,8 @@ exports[`MultiSelect HANDLERS should test onDeselect by clear button 1`] = `
           shouldAllowEmpty={false}
           theme={
             Object {
+              "checkBoxItem": "multiselect-check-box-item",
+              "checkBoxSemi": "semi",
               "clearIcon": "multiselect-clear-icon",
               "container": "suggestion-wrapper",
               "containerTop": "pos-top",
@@ -2736,6 +2845,7 @@ exports[`MultiSelect HANDLERS should test onDeselect by clear button 1`] = `
               "itemSelected": "selected",
               "list": "suggestion-list",
               "noSuggestions": "nodata",
+              "placeholder": "multiselect-placeholder",
               "tagsContainer": "multiselect-tags-container",
               "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
@@ -2769,6 +2879,7 @@ exports[`MultiSelect HANDLERS should test onDeselect by clear button 1`] = `
                       isHighlighted={false}
                       isPlaceholder={false}
                       isScrollTarget={false}
+                      isSelectAllItem={false}
                       isSelected={false}
                       item="3"
                       key="3"
@@ -2781,6 +2892,8 @@ exports[`MultiSelect HANDLERS should test onDeselect by clear button 1`] = `
                       text="3"
                       theme={
                         Object {
+                          "checkBoxItem": "multiselect-check-box-item",
+                          "checkBoxSemi": "semi",
                           "clearIcon": "multiselect-clear-icon",
                           "container": "suggestion-wrapper",
                           "containerTop": "pos-top",
@@ -2800,6 +2913,7 @@ exports[`MultiSelect HANDLERS should test onDeselect by clear button 1`] = `
                           "itemSelected": "selected",
                           "list": "suggestion-list",
                           "noSuggestions": "nodata",
+                          "placeholder": "multiselect-placeholder",
                           "tagsContainer": "multiselect-tags-container",
                           "tagsUnion": "multiselect-tags-union",
                           "wrapper": "multiselect-wrapper",
@@ -2909,6 +3023,8 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
               onTagClick={[Function]}
               theme={
                 Object {
+                  "checkBoxItem": "multiselect-check-box-item",
+                  "checkBoxSemi": "semi",
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
                   "containerTop": "pos-top",
@@ -2928,6 +3044,7 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
                   "itemSelected": "selected",
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
+                  "placeholder": "multiselect-placeholder",
                   "tagsContainer": "multiselect-tags-container",
                   "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
@@ -2988,6 +3105,7 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
             </TagsContainer>
             <Input
               aria-invalid={false}
+              autoComplete="off"
               className="multiselect-input"
               name="auto"
               onBlur={[Function]}
@@ -2998,6 +3116,7 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
             >
               <input
                 aria-invalid={false}
+                autoComplete="off"
                 className="multiselect-input"
                 name="auto"
                 onBlur={[Function]}
@@ -3022,6 +3141,8 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
           shouldAllowEmpty={false}
           theme={
             Object {
+              "checkBoxItem": "multiselect-check-box-item",
+              "checkBoxSemi": "semi",
               "clearIcon": "multiselect-clear-icon",
               "container": "suggestion-wrapper",
               "containerTop": "pos-top",
@@ -3041,6 +3162,7 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
               "itemSelected": "selected",
               "list": "suggestion-list",
               "noSuggestions": "nodata",
+              "placeholder": "multiselect-placeholder",
               "tagsContainer": "multiselect-tags-container",
               "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
@@ -3073,6 +3195,7 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
                       isHighlighted={false}
                       isPlaceholder={false}
                       isScrollTarget={false}
+                      isSelectAllItem={false}
                       isSelected={false}
                       item="2"
                       key="2"
@@ -3085,6 +3208,8 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
                       text="2"
                       theme={
                         Object {
+                          "checkBoxItem": "multiselect-check-box-item",
+                          "checkBoxSemi": "semi",
                           "clearIcon": "multiselect-clear-icon",
                           "container": "suggestion-wrapper",
                           "containerTop": "pos-top",
@@ -3104,6 +3229,7 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
                           "itemSelected": "selected",
                           "list": "suggestion-list",
                           "noSuggestions": "nodata",
+                          "placeholder": "multiselect-placeholder",
                           "tagsContainer": "multiselect-tags-container",
                           "tagsUnion": "multiselect-tags-union",
                           "wrapper": "multiselect-wrapper",
@@ -3131,6 +3257,7 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
                       isHighlighted={false}
                       isPlaceholder={false}
                       isScrollTarget={false}
+                      isSelectAllItem={false}
                       isSelected={false}
                       item="3"
                       key="3"
@@ -3143,6 +3270,8 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
                       text="3"
                       theme={
                         Object {
+                          "checkBoxItem": "multiselect-check-box-item",
+                          "checkBoxSemi": "semi",
                           "clearIcon": "multiselect-clear-icon",
                           "container": "suggestion-wrapper",
                           "containerTop": "pos-top",
@@ -3162,6 +3291,7 @@ exports[`MultiSelect HANDLERS should test onFocus 1`] = `
                           "itemSelected": "selected",
                           "list": "suggestion-list",
                           "noSuggestions": "nodata",
+                          "placeholder": "multiselect-placeholder",
                           "tagsContainer": "multiselect-tags-container",
                           "tagsUnion": "multiselect-tags-union",
                           "wrapper": "multiselect-wrapper",
@@ -3247,6 +3377,8 @@ exports[`MultiSelect SNAPSHOTS should render basic usage 1`] = `
               onTagClick={[Function]}
               theme={
                 Object {
+                  "checkBoxItem": "multiselect-check-box-item",
+                  "checkBoxSemi": "semi",
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
                   "containerTop": "pos-top",
@@ -3266,6 +3398,7 @@ exports[`MultiSelect SNAPSHOTS should render basic usage 1`] = `
                   "itemSelected": "selected",
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
+                  "placeholder": "multiselect-placeholder",
                   "tagsContainer": "multiselect-tags-container",
                   "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
@@ -3326,6 +3459,7 @@ exports[`MultiSelect SNAPSHOTS should render basic usage 1`] = `
             </TagsContainer>
             <Input
               aria-invalid={false}
+              autoComplete="off"
               className="multiselect-input"
               onBlur={[Function]}
               onChange={[Function]}
@@ -3335,6 +3469,7 @@ exports[`MultiSelect SNAPSHOTS should render basic usage 1`] = `
             >
               <input
                 aria-invalid={false}
+                autoComplete="off"
                 className="multiselect-input"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -3358,6 +3493,8 @@ exports[`MultiSelect SNAPSHOTS should render basic usage 1`] = `
           shouldAllowEmpty={false}
           theme={
             Object {
+              "checkBoxItem": "multiselect-check-box-item",
+              "checkBoxSemi": "semi",
               "clearIcon": "multiselect-clear-icon",
               "container": "suggestion-wrapper",
               "containerTop": "pos-top",
@@ -3377,6 +3514,7 @@ exports[`MultiSelect SNAPSHOTS should render basic usage 1`] = `
               "itemSelected": "selected",
               "list": "suggestion-list",
               "noSuggestions": "nodata",
+              "placeholder": "multiselect-placeholder",
               "tagsContainer": "multiselect-tags-container",
               "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
@@ -3444,6 +3582,8 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 1`] = `
               onTagClick={[Function]}
               theme={
                 Object {
+                  "checkBoxItem": "multiselect-check-box-item",
+                  "checkBoxSemi": "semi",
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
                   "containerTop": "pos-top",
@@ -3463,6 +3603,7 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 1`] = `
                   "itemSelected": "selected",
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
+                  "placeholder": "multiselect-placeholder",
                   "tagsContainer": "multiselect-tags-container",
                   "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
@@ -3523,6 +3664,7 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 1`] = `
             </TagsContainer>
             <Input
               aria-invalid={false}
+              autoComplete="off"
               className="multiselect-input"
               onBlur={[Function]}
               onChange={[Function]}
@@ -3532,6 +3674,7 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 1`] = `
             >
               <input
                 aria-invalid={false}
+                autoComplete="off"
                 className="multiselect-input"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -3555,6 +3698,8 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 1`] = `
           shouldAllowEmpty={false}
           theme={
             Object {
+              "checkBoxItem": "multiselect-check-box-item",
+              "checkBoxSemi": "semi",
               "clearIcon": "multiselect-clear-icon",
               "container": "suggestion-wrapper",
               "containerTop": "pos-top",
@@ -3574,6 +3719,7 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 1`] = `
               "itemSelected": "selected",
               "list": "suggestion-list",
               "noSuggestions": "nodata",
+              "placeholder": "multiselect-placeholder",
               "tagsContainer": "multiselect-tags-container",
               "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
@@ -3650,6 +3796,8 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 2`] = `
               onTagClick={[Function]}
               theme={
                 Object {
+                  "checkBoxItem": "multiselect-check-box-item",
+                  "checkBoxSemi": "semi",
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
                   "containerTop": "pos-top",
@@ -3669,6 +3817,7 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 2`] = `
                   "itemSelected": "selected",
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
+                  "placeholder": "multiselect-placeholder",
                   "tagsContainer": "multiselect-tags-container",
                   "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
@@ -3729,6 +3878,7 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 2`] = `
             </TagsContainer>
             <Input
               aria-invalid={false}
+              autoComplete="off"
               className="multiselect-input"
               onBlur={[Function]}
               onChange={[Function]}
@@ -3738,6 +3888,7 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 2`] = `
             >
               <input
                 aria-invalid={false}
+                autoComplete="off"
                 className="multiselect-input"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -3771,6 +3922,8 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 2`] = `
           shouldAllowEmpty={false}
           theme={
             Object {
+              "checkBoxItem": "multiselect-check-box-item",
+              "checkBoxSemi": "semi",
               "clearIcon": "multiselect-clear-icon",
               "container": "suggestion-wrapper",
               "containerTop": "pos-top",
@@ -3790,6 +3943,7 @@ exports[`MultiSelect SNAPSHOTS should render data in controllable mode 2`] = `
               "itemSelected": "selected",
               "list": "suggestion-list",
               "noSuggestions": "nodata",
+              "placeholder": "multiselect-placeholder",
               "tagsContainer": "multiselect-tags-container",
               "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
@@ -3857,6 +4011,8 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 1`] = `
               onTagClick={[Function]}
               theme={
                 Object {
+                  "checkBoxItem": "multiselect-check-box-item",
+                  "checkBoxSemi": "semi",
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
                   "containerTop": "pos-top",
@@ -3876,6 +4032,7 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 1`] = `
                   "itemSelected": "selected",
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
+                  "placeholder": "multiselect-placeholder",
                   "tagsContainer": "multiselect-tags-container",
                   "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
@@ -3936,6 +4093,7 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 1`] = `
             </TagsContainer>
             <Input
               aria-invalid={false}
+              autoComplete="off"
               className="multiselect-input"
               onBlur={[Function]}
               onChange={[Function]}
@@ -3945,6 +4103,7 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 1`] = `
             >
               <input
                 aria-invalid={false}
+                autoComplete="off"
                 className="multiselect-input"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -3968,6 +4127,8 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 1`] = `
           shouldAllowEmpty={false}
           theme={
             Object {
+              "checkBoxItem": "multiselect-check-box-item",
+              "checkBoxSemi": "semi",
               "clearIcon": "multiselect-clear-icon",
               "container": "suggestion-wrapper",
               "containerTop": "pos-top",
@@ -3987,6 +4148,7 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 1`] = `
               "itemSelected": "selected",
               "list": "suggestion-list",
               "noSuggestions": "nodata",
+              "placeholder": "multiselect-placeholder",
               "tagsContainer": "multiselect-tags-container",
               "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",
@@ -4054,6 +4216,8 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 2`] = `
               onTagClick={[Function]}
               theme={
                 Object {
+                  "checkBoxItem": "multiselect-check-box-item",
+                  "checkBoxSemi": "semi",
                   "clearIcon": "multiselect-clear-icon",
                   "container": "suggestion-wrapper",
                   "containerTop": "pos-top",
@@ -4073,6 +4237,7 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 2`] = `
                   "itemSelected": "selected",
                   "list": "suggestion-list",
                   "noSuggestions": "nodata",
+                  "placeholder": "multiselect-placeholder",
                   "tagsContainer": "multiselect-tags-container",
                   "tagsUnion": "multiselect-tags-union",
                   "wrapper": "multiselect-wrapper",
@@ -4133,6 +4298,7 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 2`] = `
             </TagsContainer>
             <Input
               aria-invalid={false}
+              autoComplete="off"
               className="multiselect-input"
               onBlur={[Function]}
               onChange={[Function]}
@@ -4142,6 +4308,7 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 2`] = `
             >
               <input
                 aria-invalid={false}
+                autoComplete="off"
                 className="multiselect-input"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -4165,6 +4332,8 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 2`] = `
           shouldAllowEmpty={false}
           theme={
             Object {
+              "checkBoxItem": "multiselect-check-box-item",
+              "checkBoxSemi": "semi",
               "clearIcon": "multiselect-clear-icon",
               "container": "suggestion-wrapper",
               "containerTop": "pos-top",
@@ -4184,6 +4353,7 @@ exports[`MultiSelect SNAPSHOTS should render value in controllable mode 2`] = `
               "itemSelected": "selected",
               "list": "suggestion-list",
               "noSuggestions": "nodata",
+              "placeholder": "multiselect-placeholder",
               "tagsContainer": "multiselect-tags-container",
               "tagsUnion": "multiselect-tags-union",
               "wrapper": "multiselect-wrapper",

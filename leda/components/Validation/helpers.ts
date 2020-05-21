@@ -6,7 +6,7 @@ import {
   AddFieldData,
   Field,
   Form, NormalizedValidatorObject,
-  PredefinedValidator, UpdateFieldData,
+  PredefinedValidator, RemoveFieldOptions, UpdateFieldData,
   Validator,
   ValidatorObject,
 } from './types';
@@ -198,7 +198,9 @@ export const addField = ({
   }
 };
 
-export const removeField = (formName: string, fieldName: string): void => {
+export const removeField = (formName: string, fieldName: string, options: RemoveFieldOptions = {}): void => {
+  const { shouldRemoveUnmounted } = options;
+
   const forms: Form[] = getForms();
 
   const currentForm = forms.find((form) => form.name === formName);
@@ -213,7 +215,7 @@ export const removeField = (formName: string, fieldName: string): void => {
     return;
   }
 
-  if (currentField.shouldValidateUnmounted) {
+  if (currentField.shouldValidateUnmounted && shouldRemoveUnmounted !== true) {
     const newForms = [...forms.map((form: Form): Form => {
       if (form.name !== formName) return form;
 
@@ -240,6 +242,18 @@ export const removeField = (formName: string, fieldName: string): void => {
   })];
 
   setForms(newForms.filter((form) => form.fields.length !== 0));
+};
+
+export const removeForm = (formName: string): void => {
+  const forms: Form[] = getForms();
+
+  const currentForm = forms.find((form) => form.name === formName);
+
+  if (!currentForm) {
+    return;
+  }
+
+  setForms(forms.filter((form) => (form.name !== formName)));
 };
 
 export const updateField = ({
@@ -271,6 +285,8 @@ export const updateField = ({
     if (!isNil(isValidProp)) return isValidProp;
     // если значение поменялось - снять невалидность
     if (value !== currentField.value) return true;
+    // если изменилась обязательность поля - снять невалидность
+    if (isRequired !== currentField.isRequired) return true;
     // ничего не делать
     return currentField.isValid;
   })();

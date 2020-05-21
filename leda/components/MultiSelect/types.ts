@@ -80,6 +80,10 @@ export interface FocusEvent<T = Value> extends React.FocusEvent<HTMLInputElement
 export type ChangeEvent<T = Value> = MouseSelectEvent<T> | EnterSelectEvent<T> | ClearEvent<T> | ResetEvent<T>;
 
 export interface MultiSelectProps<T extends MultiSelectValue | null | undefined = MultiSelectValue | null | undefined> extends ValidationProps {
+  /** Браузерное автозаполнение поля ввода, по умолчанию "off" */
+  autoComplete?: string,
+  /** "Выбраать всё" в выпадающем списке */
+  canSelectAll?: boolean,
   /** Сравнение объектов по произвольному полю, а не по ссылке */
   compareObjectsBy?: T extends object ? ((suggestionListItems: SomeObject) => any) | string : never,
   /** Данные для отображения в списке.
@@ -92,6 +96,8 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   filterRule?: FilterRules,
   /** Ключ для группировки */
   groupBy?: (option: Value) => string | undefined,
+  /** Чекбоксы в выпадающем списке. */
+  hasCheckBoxes?: boolean,
   /** Кнопка очистки данных в инпуте. Появляется только в непустом инпуте. */
   hasClearButton?: boolean,
   /** Кастомный рендер инпута */
@@ -124,12 +130,16 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   placeholder?: string,
   /** Реф */
   ref?: React.Ref<MultiSelectRefCurrent>,
+  /** Отображать компонент без фильтра */
+  selectAllItemRender?: SuggestionListProps['selectAllItemRender'],
+  /** Отображать компонент без фильтра */
+  shouldHideInput?: boolean,
   /** Постоянный список, элементы не исчезают при клике */
   shouldKeepSuggestions?: boolean,
   /** Выводить сначала выбранные значения в списке */
   shouldSelectedGoFirst?: boolean,
   /** Сортировка выпадающего списка */
-  sortSuggestions?: (a: SuggestionItemComputedProps, b: SuggestionItemComputedProps) => number,
+  sortSuggestions?: (a: Value, b: Value) => number,
   /** Кастомный рендер тегов */
   tagRender?: CustomRender<MultiSelectProps, MultiSelectState, TagProps>,
   /** Кастомное сообщение об объединённых тегах */
@@ -158,6 +168,8 @@ export interface TagsContainerProps {
   onClearIconClick: React.MouseEventHandler<HTMLElement>,
   onMouseDown: React.MouseEventHandler<HTMLElement>,
   onTagClick: CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget>,
+  placeholder?: MultiSelectProps['placeholder'],
+  shouldHideInput?: MultiSelectProps['shouldHideInput'],
   textField?: string,
   theme: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.multiSelect],
   value: MultiSelectValue,
@@ -181,6 +193,7 @@ export interface BlurData {
 }
 
 export interface SelectData {
+  data: MultiSelectProps['data'],
   setFilterValue: SetState<string>,
   setFocused: SetState<boolean>,
   setValue: SetState<MultiSelectValue>,
@@ -213,4 +226,11 @@ export interface KeyDownData {
   setFocused: SetState<boolean>,
   setHighlightedSuggestion: SetState<Value>,
   value: MultiSelectValue,
+}
+
+export interface GetSortedSuggestionsProps {
+  shouldSelectedGoFirst?: boolean,
+  selectedSuggestions?: Value[],
+  filteredData?: Value[],
+  sortSuggestions: MultiSelectProps['sortSuggestions'],
 }

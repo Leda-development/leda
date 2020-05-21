@@ -2,7 +2,7 @@ import * as React from 'react';
 import { FILTER_RULES } from '../../utils';
 import { ValidationProps } from '../Validation/types';
 import { CustomRender, Values } from '../../commonTypes';
-import { SuggestionItemComputedProps, SuggestionListProps } from '../../src/SuggestionList/types';
+import { SuggestionListProps } from '../../src/SuggestionList/types';
 import { UlProps } from '../Ul';
 import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { COMPONENTS_NAMESPACES } from '../../constants';
@@ -96,6 +96,9 @@ export interface BlurEvent extends React.FocusEvent<HTMLInputElement> {
 }
 
 export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends ValidationProps {
+  /** Браузерное автозаполнение поля ввода, по умолчанию "off" */
+  autoComplete?: string,
+  /** Сравнение объектов по произвольному полю, а не по ссылке */
   compareObjectsBy?: T extends object ? ((suggestionListItem: T) => any) | string : never,
   /** Данные для отображения в выпадающем списке */
   data: T[],
@@ -144,7 +147,7 @@ export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends Va
   /** Поля, в которых содержатся данные для поиска */
   searchFields?: string[],
   /** Сортировка выпадающего списка */
-  sortSuggestions?: (a: SuggestionItemComputedProps, b: SuggestionItemComputedProps) => number,
+  sortSuggestions?: (a: T, b: T) => number,
   /** Устанавливает поле из data, которое будет использоваться для отображения если передан объект. Значение в поле объекта также должно быть типом string. Если data - массив примитивов, не задавайте эту настройку */
   textField?: T extends object ? string : never,
   /** Реф */

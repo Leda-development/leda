@@ -40,6 +40,7 @@ export const createChangeHandler = ({
       component: {
         value: getText(ev.target.value, textField),
         name,
+        suggestion: ev.target.value,
       },
     };
 
@@ -74,6 +75,7 @@ export const createBlurHandler = ({
       component: {
         name,
         value: getText(value, textField),
+        suggestion: value,
       },
     };
 
@@ -149,14 +151,15 @@ export const createKeyDownHandler = ({
 }: HandlerCreatorData): KeyDownHandler => (ev) => {
   const {
     data,
-    onChange,
+    filterRule,
     name,
-    placeholder,
-    shouldAllowEmpty,
+    onChange,
     onFilterChange,
+    placeholder,
+    searchFields,
+    shouldAllowEmpty,
     shouldFilterValues,
     textField,
-    filterRule,
   } = props;
 
   const {
@@ -167,7 +170,14 @@ export const createKeyDownHandler = ({
 
   const filterValue = isNil(props.filterValue) ? state.filterValue : props.filterValue;
 
-  const filteredData = shouldFilterValues ? filterData(data, filterValue, textField, filterRule) || [] : data;
+  const filteredData = (() => {
+    if (shouldFilterValues != null) {
+      return filterData({
+        data, filterValue, textField, filterRule, searchFields,
+      }) || [];
+    }
+    return data;
+  })();
 
   const fullData = placeholder && shouldAllowEmpty ? [placeholder, ...filteredData] : filteredData;
 
@@ -223,6 +233,7 @@ export const createKeyDownHandler = ({
         component: {
           name,
           value,
+          suggestion: highlightedSuggestion,
         },
       };
 
@@ -274,10 +285,10 @@ export const createKeyDownHandler = ({
 };
 
 export const createFilterChangeHandler = ({
-  props, mergeState,
+  props, mergeState, value,
 }: HandlerCreatorData): FilterChangeHandler => (ev) => {
   const {
-    onFilterChange, data, shouldFilterValues, name,
+    onFilterChange, data, shouldFilterValues, name, textField,
   } = props;
 
   if (isFunction(onFilterChange)) {
@@ -286,6 +297,7 @@ export const createFilterChangeHandler = ({
       component: {
         name,
         value: ev.target.value,
+        suggestion: getText(value, textField) === ev.target.value ? value : null,
       },
     };
 

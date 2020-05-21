@@ -10,8 +10,9 @@ import {
   Tabs, Tags, DropZone, Textarea, DateTimePicker, TimePicker,
   DateTimeRange, TimeRange, DropDownLink, Currency, Rating,
   Div, Table, Dl, FileUpload, HTMLTags, Validation,
-  Collapsible, Collapse, VStepper, Button, Tooltip, FileDrop,
+  Collapsible, Collapse, VStepper, Button, Tooltip, FileDrop, Tour,
 } from './components';
+import { useElementRef } from '../leda/utils';
 
 export const Demo = hot(() => (
   <L.Div style={{ color: 'black' }} _wrapper>
@@ -32,10 +33,10 @@ export const Demo = hot(() => (
       <Collapse />
       <Collapsible />
       <Currency />
-      <DatePicker />
-      <DateRange />
       <DateTimePicker />
       <DateTimeRange />
+      <DatePicker />
+      <DateRange />
       <Div />
       <Dl />
       <DropDown />
@@ -69,6 +70,7 @@ export const Demo = hot(() => (
       <TimePicker />
       <TimeRange />
       <Tooltip />
+      <Tour />
       <Validation />
       <VStepper />
     </L.Div>

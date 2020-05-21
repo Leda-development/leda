@@ -13,11 +13,11 @@ export { isElementInViewport } from './isElementInViewport';
 export { scrollIntoView } from './scrollIntoView';
 
 export {
-  fixJSON, bindFunctionalRef, getComputedTheme, getFileWordEnding, getClassNames,
+  fixJSON, bindFunctionalRef, getComputedTheme, getFileWordEnding, getClassNames, stringToMaxLength,
 } from './helpers';
 
 export {
-  filterByIncludes, hasAllWords, filterSuggestionByRule, filterByStartsWith, FILTER_RULES,
+  filterByIncludes, getIsSentenceIncludingWords, filterSuggestionByRule, filterByStartsWith, FILTER_RULES,
 } from './filterStrHelpers';
 
 export { bytesSizeToUnitsSize, getSizeInBytes } from './fileSizeTransformers';

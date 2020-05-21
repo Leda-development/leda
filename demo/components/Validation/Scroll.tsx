@@ -1,34 +1,10 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react';
 import * as L from '../../../leda';
+import { StoryProps } from '../../types';
 
-const exampleCode = `
-export const BlockElements = () => (
-  <L.Div>
-    <L.Div _inner>
-      <L.Input
-        isRequired
-        validator="email"
-        invalidMessage="Wrong email format"
-        form="scroll"
-        name="Input1"
-        placeholder="scroll"
-      />
-    </L.Div>
-    <L.Div _inner>
-      <L.Button
-        shouldScrollToInvalidFields
-        form="scroll"
-        _warning
-      >
-        Click me
-      </L.Button>
-    </L.Div>
-  </L.Div>
-);
-`;
 
-export const Scroll = () => (
+export const Scroll = (props: StoryProps) => (
   <L.Div _box _inner>
     <L.Div>
       <L.Div _inner>
@@ -86,6 +62,19 @@ export const Scroll = () => (
           _warning
         >
             Click me
+        </L.Button>
+      </L.Div>
+      <L.Div _inner>
+        <L.Button
+          shouldScrollToInvalidFields
+          scrollOffset={64}
+          scrollDelay={1000}
+          form={['scroll', 'scroll2', 'scroll3']}
+          onClick={() => console.log('submitted')}
+          onValidationFail={ev => console.log('failed', ev.invalidForms)}
+          _warning
+        >
+            Click me (delayed scroll)
         </L.Button>
       </L.Div>
     </L.Div>

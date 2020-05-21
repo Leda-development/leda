@@ -2,7 +2,7 @@ import React from 'react';
 import isNil from 'lodash/isNil';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { createSelectHandler } from './handlers';
-import { useCustomElements } from './hooks';
+import { useCustomElements, useTabsScroll } from './hooks';
 import { TabContent } from './TabContent';
 import { Tab } from './Tab';
 import {
@@ -10,6 +10,8 @@ import {
 } from '../../utils';
 import { TabsContext } from './TabsContext';
 import { TabsProps, TabsRefCurrent } from './types';
+import { ArrowLeft, ArrowRight } from './ScrollArrows';
+import { Div } from '../Div';
 
 export const Tabs = React.forwardRef((props: TabsProps, ref?: React.Ref<TabsRefCurrent>): React.ReactElement | null => {
   const {
@@ -17,6 +19,7 @@ export const Tabs = React.forwardRef((props: TabsProps, ref?: React.Ref<TabsRefC
     activeTabKey: activeTabKeyProp,
     children,
     className,
+    shouldScrollTabs,
     style,
     tabContentNode,
     tabRender,
@@ -45,6 +48,25 @@ export const Tabs = React.forwardRef((props: TabsProps, ref?: React.Ref<TabsRefC
     Heading,
   } = useCustomElements(props, { activeTabKey: activeTabKeyState });
 
+  const {
+    containerRef,
+    hasScroll,
+    hasLeftArrow,
+    hasRightArrow,
+    onRightClick,
+    onLeftClick,
+  } = useTabsScroll({ shouldScrollTabs, theme });
+
+  const containerClassNames = getClassNames(
+    theme.container,
+    hasScroll && theme.scroll,
+  );
+
+  const headingClassNames = getClassNames(
+    theme.tabsBar,
+    shouldScrollTabs && theme.scroll,
+  );
+
   if (!children) return null;
 
   return (
@@ -56,17 +78,36 @@ export const Tabs = React.forwardRef((props: TabsProps, ref?: React.Ref<TabsRefC
         content: component.wrapper && component.wrapper.querySelector(`.${theme.content}`),
       }))}
     >
-      <Heading className={theme.tabsBar}>
-        <TabsContext.Provider value={tabsContext}>
-          {React.Children.map(children, (child) => {
-            if (!React.isValidElement(child)) return null;
+      <Div
+        ref={containerRef}
+        className={containerClassNames}
+      >
+        {hasLeftArrow && (
+          <ArrowLeft
+            onClick={onLeftClick}
+            theme={theme}
+          />
+        )}
 
-            return (
-              <Tab {...child.props} />
-            );
-          })}
-        </TabsContext.Provider>
-      </Heading>
+        {hasRightArrow && (
+          <ArrowRight
+            onClick={onRightClick}
+            theme={theme}
+          />
+        )}
+
+        <Heading className={headingClassNames}>
+          <TabsContext.Provider value={tabsContext}>
+            {React.Children.map(children, (child) => {
+              if (!React.isValidElement(child)) return null;
+
+              return (
+                <Tab {...child.props} />
+              );
+            })}
+          </TabsContext.Provider>
+        </Heading>
+      </Div>
       <Content className={theme.content} tabContentNode={tabContentNode}>
         <TabContent activeTabKey={activeTabKey} key={activeTabKey}>
           {children}

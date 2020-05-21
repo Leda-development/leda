@@ -12,19 +12,27 @@ import { SuggestionList } from '../../src/SuggestionList';
 import {
   createBlurHandler,
   createClearHandler,
-  createFocusHandler, createKeyDownHandler,
+  createFocusHandler,
+  createKeyDownHandler,
   createMouseDownHandler,
-  createSelectHandler,
   createResetHandler,
+  createSelectHandler,
 } from './handlers';
 import { TagsContainer } from './TagsContainer';
 import { Div } from '../Div';
 import { LedaContext } from '../LedaProvider';
 import { Tag } from '../Tags';
-import { filterData, getShouldUniteTags, getValue } from './helpers';
+import {
+  filterData, getShouldUniteTags, getSortedSuggestions, getValue,
+} from './helpers';
+import { createCheckBoxesRender } from './renders';
+import { Span } from '../Span';
+import { selectAllSuggestion, SelectedState } from './constants';
 
 export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React.Ref<MultiSelectRefCurrent>): React.ReactElement => {
   const {
+    autoComplete = 'off',
+    canSelectAll,
     className,
     compareObjectsBy,
     data,
@@ -32,6 +40,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     filterRule,
     form,
     groupBy,
+    hasCheckBoxes,
     hasClearButton,
     inputRender,
     invalidMessage,
@@ -44,6 +53,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     itemRender,
     listRender,
     maxSelected,
+    maxTags,
     name,
     noSuggestionsRender,
     onBlur,
@@ -51,20 +61,27 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     onFocus,
     placeholder,
     requiredMessage,
-    shouldValidateUnmounted,
+    selectAllItemRender,
+    shouldHideInput,
     shouldKeepSuggestions,
     shouldSelectedGoFirst,
+    shouldValidateUnmounted,
     sortSuggestions,
     tagRender,
     tagsUnionRender,
     textField,
     theme: themeProp,
-    maxTags,
     validator,
     value: valueProp,
     wrapperRender,
     ...restProps
   } = useProps(props);
+
+  React.useEffect(() => {
+    // Warn user about possible misused props
+    if (hasCheckBoxes && !shouldKeepSuggestions) console.warn('Leda MultiSelect: you probably forgot using shouldKeepSuggestions with hasCheckBoxes prop.');
+    if (canSelectAll && !shouldKeepSuggestions) console.warn('Leda MultiSelect: you probably forgot using shouldKeepSuggestions with canSelectAll prop.');
+  }, [canSelectAll, hasCheckBoxes, shouldKeepSuggestions]);
 
   const [valueState, setValue] = React.useState<Value[]>(defaultValue || []);
 
@@ -103,16 +120,17 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
   });
 
   const handleSelect = createSelectHandler(props, {
-    value,
-    setValue,
-    setFocused,
+    data,
     setFilterValue,
+    setFocused,
+    setValue,
+    value,
   });
 
   const handleKeyDown = createKeyDownHandler(props, {
     filterValue,
-    highlightedSuggestion,
     handleSelect,
+    highlightedSuggestion,
     setFocused,
     setHighlightedSuggestion,
     value,
@@ -192,6 +210,31 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
 
   const shouldUniteTags = getShouldUniteTags({ maxTags, value });
 
+  const checkBoxesRender = createCheckBoxesRender({ theme });
+
+  const selectAllState = (() => {
+    if (canSelectAll == null) return undefined;
+    if (value.length === data?.length) return SelectedState.All;
+    if (value.length === 0) return SelectedState.Nothing;
+    return SelectedState.Some;
+  })();
+
+  const suggestionListData = (() => {
+    const allSuggestions = getSortedSuggestions({
+      shouldSelectedGoFirst,
+      selectedSuggestions,
+      filteredData,
+      sortSuggestions,
+    });
+
+    if (canSelectAll) {
+      // todo: canSelectAll
+      return [selectAllSuggestion, ...allSuggestions];
+    }
+
+    return allSuggestions;
+  })();
+
   return (
     <Wrapper
       className={wrapperClassNames}
@@ -205,41 +248,52 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
         onMouseDown={handleMouseDown}
       >
         {shouldUniteTags && (
-          <TagsUnionElement className={theme.tagsUnion}>
-            Выбрано {value.length}
-          </TagsUnionElement>
+          <>
+            <TagsUnionElement className={theme.tagsUnion}>
+              Выбрано {value.length}
+            </TagsUnionElement>
+            {hasClearButton && (
+              <Span
+                className={theme.clearIcon}
+                onClick={handleClear}
+              />
+            )}
+          </>
         )}
         {!shouldUniteTags && (
           <TagsContainer
-            value={value}
-            theme={theme}
-            onTagClick={handleSelect}
+            hasClearButton={hasClearButton}
             onClearIconClick={handleClear}
             onMouseDown={handleMouseDown}
+            onTagClick={handleSelect}
+            placeholder={placeholder}
+            shouldHideInput={shouldHideInput}
             textField={textField}
-            hasClearButton={hasClearButton}
+            theme={theme}
+            value={value}
           >
             <TagItem />
           </TagsContainer>
         )}
         <Input
           {...restProps}
-          className={theme.input}
-          aria-required={isRequired}
           aria-invalid={!isValid}
-          placeholder={placeholder}
+          aria-required={isRequired}
+          autoComplete={autoComplete}
+          className={theme.input}
           disabled={isDisabled}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          name={name}
-          ref={inputRef}
           form={form}
-          value={filterValue}
+          name={name}
+          onBlur={handleBlur}
           onChange={(ev: React.ChangeEvent<HTMLInputElement>) => {
+            if (shouldHideInput) return;
             setFilterValue(ev.target.value);
           }}
+          onFocus={handleFocus}
           onKeyDown={handleKeyDown}
-          style={isMaxItemsSelected
+          placeholder={placeholder}
+          ref={inputRef}
+          style={(isMaxItemsSelected || shouldHideInput)
             ? {
               position: 'absolute',
               opacity: 0,
@@ -247,24 +301,25 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
               width: 0,
             }
             : undefined}
+          value={filterValue}
         />
       </Div>
       {!isMaxItemsSelected && (
         <SuggestionList
           compareObjectsBy={compareObjectsBy}
-          data={filteredData}
+          data={suggestionListData}
           groupBy={groupBy}
           highlightedSuggestion={highlightedSuggestion}
           isLoading={isLoading}
           isOpen={isNil(isOpen) ? isFocused : isOpen}
-          itemRender={itemRender}
+          itemRender={hasCheckBoxes ? checkBoxesRender : itemRender}
           listRender={listRender}
           noSuggestionsRender={noSuggestionsRender}
           onClick={handleSelect}
+          selectAllItemRender={selectAllItemRender}
+          selectAllState={selectAllState}
           selectedSuggestion={selectedSuggestions}
           shouldAllowEmpty={false}
-          shouldSelectedGoFirst={shouldSelectedGoFirst}
-          sortSuggestions={sortSuggestions}
           textField={textField}
           theme={theme}
           value={value}

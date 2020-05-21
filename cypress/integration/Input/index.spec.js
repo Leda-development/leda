@@ -32,14 +32,19 @@ describe('Input', () => {
     });
 
     it('ClearButton should be rendered if hasClearButton and ClearButton should work', () => {
-      cy.name('UpperInput')
+      cy.get('button')
+        .eq(0)
+        .dblclick()
+        .dblclick()
+        .name('UpperInput')
         .type('falalala')
-        .should('have.value', 'FALALALA')
+        .should('have.value', 'FALA')
         .parent()
         .find('.input-clear-icon')
         .click()
       cy.name('UpperInput')
         .should('have.value', '')
+        .get('button')
     });
 
     it('InputRender should customize Input', () => {
@@ -83,7 +88,11 @@ describe('Input', () => {
     });
 
     it('Should not accept and not display numbers with ForbiddenSymbols="numbers', () => {
-      cy.name('UpperInput')
+      cy.get('button')
+        .eq(0)
+        .dblclick()
+        .dblclick()
+        .name('UpperInput')
         .type('H3LL0')
         .should('have.value', 'HLL')
         .clear()
@@ -99,9 +108,15 @@ describe('Input', () => {
 
 
     it('LetterCase should convert all letters into upper or lower case', () => {
-      cy.name('UpperInput')
-        .type('test text WOW')
-        .should('have.value', 'TEST TEXT WOW');
+      cy.get('button')
+        .eq(0)
+        .dblclick()
+        .dblclick()
+        .dblclick()
+        .dblclick()
+        .name('UpperInput')
+        .type('test WOW')
+        .should('have.value', 'TEST WOW')
       cy.name('LowerInput')
         .type('POP dog')
         .should('have.value', 'pop dog');
@@ -110,19 +125,13 @@ describe('Input', () => {
     it('MaxLength should limit the number of characters', () => {
       cy.get('button')
         .eq(0)
-        .click()
-        .click()
-        .click()
-        .click()
+        .dblclick()
+        .dblclick()
+        .dblclick()
+        .dblclick()
       cy.name('UpperInput')
         .type('test text')
-        .should('have.value', 'TEST')
-      cy.get('button')
-        .eq(1)
-        .click()
-        .click()
-        .click()
-        .click()
+        .should('have.value', 'TEST TEX')
     });
 
     it('Should display characters equivalent to those entered', () => {
@@ -222,7 +231,7 @@ describe('Input', () => {
         .should('not.have.class', 'input-element-wrapper danger');
     });
   });
-  
+
   describe('Events', () => {
     beforeEach(() => {
       cy.visit('http://localhost:9000/cypress/input', {
@@ -269,6 +278,9 @@ describe('Input', () => {
     });
 
     it('onChange', () => {
+      cy.get('button')
+        .eq(0)
+        .click()
       cy.name('UpperInput')
         .type('a')
         .then(() => {
@@ -280,8 +292,8 @@ describe('Input', () => {
     });
   });
 
-    xit('invalidMessageRender', () =>{})
-    xit('isValid', () => {})
-    xit('shouldValidateUnmounted', () => {})
-    xit('Validation by helper validate')
+  xit('invalidMessageRender', () => { })
+  xit('isValid', () => { })
+  xit('shouldValidateUnmounted', () => { })
+  xit('Validation by helper validate')
 });

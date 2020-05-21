@@ -104,7 +104,7 @@ describe('Check Button advanced condition set', () => {
   test('is Button with isDisabled attributes don`t run onClick?', () => {
     const onClickHandler = jest.fn();
     render((
-      <Button isDisabled  onClick={onClickHandler}>test</Button>
+      <Button isDisabled onClick={onClickHandler}>test</Button>
     ));
     expect(onClickHandler)
       .not

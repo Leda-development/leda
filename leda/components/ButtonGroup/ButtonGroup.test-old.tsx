@@ -2,7 +2,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { ButtonGroup } from './index';
-import { Button } from '../Button';
 
 
 describe('ButtonGroup SNAPSHOTS', () => {

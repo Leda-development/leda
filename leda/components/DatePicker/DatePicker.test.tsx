@@ -3,6 +3,7 @@ import {
   render,
   fireEvent,
 } from '@testing-library/react';
+
 import userEvent from '@testing-library/user-event';
 import { DatePicker } from './index';
 
@@ -74,7 +75,14 @@ describe('Check DatePicker attributes test collection', () => {
       .toHaveAttribute('placeholder');
   });
   test('is Datepicker minMax set attributes work right?', () => {
+    const min = new Date('01.02.2018');
+    const max = new Date('05.25.2020');// mm-dd-YYYY
+    const validValue = '25.05.2020';
+    const valueForCheck = '26';
+    const { getByText } = render(<DatePicker value={validValue} isOpen min={min} max={max} />);
 
+    expect(getByText(valueForCheck))
+      .toHaveClass('calendar-date-cell disabled-date');
   });
   test('is Datepicker isDisabled attributes work right?', () => {
     const onChange = jest.fn();
@@ -186,6 +194,30 @@ describe('Check Datepicker event listeners test collection', () => {
       }));
   });
   test('is Datepicker onPressEnter event listener work right?', () => {
+    const validValue = '10.10.2010';
+    const onEnterPress = jest.fn();
+    const { container } = render(<DatePicker value={validValue} onEnterPress={onEnterPress} />);
+    const input = container.querySelectorAll('input.datepicker-input')[0];
 
+    fireEvent.keyDown(input, {
+      charCode: 13,
+      code: 13,
+      key: 'Enter',
+      keyCode: 13,
+    });
+
+    expect(onEnterPress)
+      .toHaveBeenCalled();
+  });
+  test('is Datepicker onFocus event listener work right?', () => {
+    const validValue = '10.10.2010';
+    const onFocus = jest.fn();
+    const { container } = render(<DatePicker value={validValue} onFocus={onFocus} />);
+    const input = container.querySelectorAll('input.datepicker-input')[0];
+
+    fireEvent.focus(input);
+
+    expect(onFocus)
+      .toHaveBeenCalled();
   });
 });

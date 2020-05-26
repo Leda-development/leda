@@ -177,6 +177,7 @@ describe('Check Datepicker event listeners test collection', () => {
     const validFormat = 'dd.MM.yyyy';
     const validValue = '10.10.2010';
     const invalidValue = '11.10.2010';
+    const validValueWithotComma = '10102010';
     const validName = 'test';
     const onChange = jest.fn();
     const { container } = render(<DatePicker value={invalidValue} format={validFormat} name={validName} onChange={onChange} />);
@@ -191,14 +192,15 @@ describe('Check Datepicker event listeners test collection', () => {
       .lastCalledWith(expect.objectContaining({
         component: expect.objectContaining({
           name: validName,
-          value: validValue.split('.').join(''), // wtf? only this, without comma,
+          value: validValueWithotComma,
         }),
       }));
   });
   test('is Datepicker onPressEnter event listener work right?', () => {
+    const validName = 'test';
     const validValue = '10.10.2010';
     const onEnterPress = jest.fn();
-    const { container } = render(<DatePicker value={validValue} onEnterPress={onEnterPress} />);
+    const { container } = render(<DatePicker name={validName} value={validValue} onEnterPress={onEnterPress} />);
     const input = container.querySelectorAll('input.datepicker-input')[0];
 
     fireEvent.keyDown(input, {
@@ -210,16 +212,33 @@ describe('Check Datepicker event listeners test collection', () => {
 
     expect(onEnterPress)
       .toHaveBeenCalled();
+
+    expect(onEnterPress)
+      .lastCalledWith(expect.objectContaining({
+        component: expect.objectContaining({
+          name: validName,
+          value: '', // Ошибка! Как исправится, нужно будет добаивть
+        }),
+      }));
   });
   test('is Datepicker onFocus event listener work right?', () => {
+    const validName = 'test';
     const validValue = '10.10.2010';
     const onFocus = jest.fn();
-    const { container } = render(<DatePicker value={validValue} onFocus={onFocus} />);
+    const { container } = render(<DatePicker name={validName} value={validValue} onFocus={onFocus} />);
     const input = container.querySelectorAll('input.datepicker-input')[0];
 
     fireEvent.focus(input);
 
     expect(onFocus)
       .toHaveBeenCalled();
+
+    expect(onFocus)
+      .lastCalledWith(expect.objectContaining({
+        component: expect.objectContaining({
+          name: validName,
+          value: validValue,
+        }),
+      }));
   });
 });

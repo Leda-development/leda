@@ -224,4 +224,4 @@ describe('Check ButtongGroup correnct events handling', () => {
         }),
       }));
   });
-})
+});

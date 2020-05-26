@@ -262,9 +262,8 @@ describe('Check DateRange event listeners test collection', () => {
       .toBeCalled();
   });
   test('is DateRange onFocus event listener work right?', () => {
-    const validValue = '10.10.2010';
     const onFocus = jest.fn();
-    const { container } = render(<DateRange value={validValue} onFocus={onFocus} />);
+    const { container } = render(<DateRange value={['10.10.2010', '10.10.2020']} onFocus={onFocus} />);
     const input = container.querySelectorAll('input.datepicker-input')[0];
 
     fireEvent.focus(input);

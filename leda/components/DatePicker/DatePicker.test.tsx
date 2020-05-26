@@ -67,12 +67,14 @@ describe('Check DatePicker value set test collection', () => {
 });
 describe('Check DatePicker attributes test collection', () => {
   test('is Datepicker placeholder set right?', () => {
-    const {
-      getByRole,
-    } = render(<DatePicker placeholder="test" />);
+    const validPlaceholder = 'test';
+    const { getByRole } = render(<DatePicker placeholder={validPlaceholder} />);
 
     expect(getByRole('textbox'))
       .toHaveAttribute('placeholder');
+
+    expect(getByRole('textbox'))
+      .toHaveProperty('placeholder', validPlaceholder);
   });
   test('is Datepicker minMax set attributes work right?', () => {
     const min = new Date('01.02.2018');

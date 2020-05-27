@@ -32,7 +32,7 @@
       ]
     }],
 
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.tsx"]}],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.tsx", "**/*.test-old.tsx"]}],
     
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",

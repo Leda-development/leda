@@ -7,7 +7,7 @@ import { ButtonGroup } from './index';
 
 
 describe('Check ButtonGroup snapshots collection', () => {
-  test('is ButtonGroup changed?', () => {
+  test('is ButtonGroup render right?', () => {
     const { container, queryAllByRole } = render(<ButtonGroup name="buttonGroup" data={['Petya', 'Vasya', 'Oleg']} />);
 
     expect(queryAllByRole('button'))
@@ -148,32 +148,28 @@ describe('Check ButtonGroup defaultValue set', () => {
   });
 });
 describe('Check ButtonGroup attributes set collection', () => {
-  test('is ButtonGroup has Primary attributes?', () => {
-    const { container } = render(<ButtonGroup _primary data={['a', 'b', 'c']} />);
+  test('is ButtonGroup render right with different atributes?', () => {
+    const { container, rerender } = render(<ButtonGroup _primary data={['a', 'b', 'c']} />);
 
     expect(container.querySelectorAll('.primary'))
       .toHaveLength(1);
-  });
-  test('is ButtonGroup has Secondary attributes?', () => {
-    const { container } = render(<ButtonGroup _secondary data={['a', 'b', 'c']} />);
+
+    rerender(<ButtonGroup _secondary data={['a', 'b', 'c']} />);
 
     expect(container.querySelectorAll('.secondary'))
       .toHaveLength(1);
-  });
-  test('is ButtonGroup has Success attributes?', () => {
-    const { container } = render(<ButtonGroup _success data={['a', 'b', 'c']} />);
+
+    rerender(<ButtonGroup _success data={['a', 'b', 'c']} />);
 
     expect(container.querySelectorAll('.success'))
       .toHaveLength(1);
-  });
-  test('is ButtonGroup has Warning attributes?', () => {
-    const { container } = render(<ButtonGroup _warning data={['a', 'b', 'c']} />);
+
+    rerender(<ButtonGroup _warning data={['a', 'b', 'c']} />);
 
     expect(container.querySelectorAll('.warning'))
       .toHaveLength(1);
-  });
-  test('is ButtonGroup has Danger attributes?', () => {
-    const { container } = render(<ButtonGroup _danger data={['a', 'b', 'c']} />);
+
+    rerender(<ButtonGroup _danger data={['a', 'b', 'c']} />);
 
     expect(container.querySelectorAll('.danger'))
       .toHaveLength(1);
@@ -184,9 +180,8 @@ describe('Check ButtongGroup correnct events handling', () => {
     const onClick = jest.fn();
     const onChange = jest.fn();
     const { container } = render(<ButtonGroup data={['a', 'b', 'c']} onClick={onClick} onChange={onChange} />);
-    const button = container.querySelectorAll('.button-group-item.first')[0];
 
-    fireEvent.click(button);
+    fireEvent.click(container.querySelectorAll('.button-group-item.first')[0]);
 
     expect(onClick)
       .toHaveBeenCalledTimes(1);

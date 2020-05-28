@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Check ButtonGroup snapshots collection is ButtonGroup changed? 1`] = `
+exports[`Check ButtonGroup snapshots collection is ButtonGroup render right? 1`] = `
 <div
   class="button-group-wrapper"
 >

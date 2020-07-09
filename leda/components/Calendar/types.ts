@@ -11,6 +11,8 @@ export interface ChangeEvent extends React.ChangeEvent {
 }
 
 export interface CalendarProps {
+  /** Кнопка "Сегодня" */
+  hasTodayButton?: boolean,
   /** Максимальная доступная дата */
   max?: Date,
   /** Минимальная доступная дата */

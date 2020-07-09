@@ -21,6 +21,7 @@ export const defaultTheme = {
   nextIcon:               'calendar-next-icon',
   prevButton:             'calendar-prev-button',
   prevIcon:               'calendar-prev-icon',
+  standalone:             'standalone',
   title:                  'calendar-title',
   titleDisabled:          'disabled-title',
   weekDaysRow:            'calendar-week-days',

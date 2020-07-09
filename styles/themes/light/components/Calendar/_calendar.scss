@@ -8,6 +8,10 @@
     box-shadow: 0 1.6rem 2.4rem 0 rgba($black-01, 0.09);
     border-radius: $border-radius;
 
+    &.standalone {
+      position: static;
+    }
+
     &.visible {
       visibility: visible;
     }

@@ -25,6 +25,7 @@ import { B } from './components/B';
 import { Blockquote } from './components/Blockquote';
 import { Button } from './components/Button';
 import { ButtonGroup } from './components/ButtonGroup';
+import { Calendar } from './components/Calendar';
 import { CheckBox } from './components/CheckBox';
 import { Collapse } from './components/Collapse';
 import { Collapsible } from './components/Collapsible';
@@ -100,6 +101,7 @@ import * as Validation from './components/Validation';
 import * as AutoCompleteTypes from './components/AutoComplete/types';
 import * as ButtonTypes from './components/Button/types';
 import * as ButtonGroupTypes from './components/ButtonGroup/types';
+import * as CalendarTypes from './components/Calendar/types';
 import * as CheckBoxTypes from './components/CheckBox/types';
 import * as CollapseTypes from './components/Collapse/types';
 import * as DateTimeInputTypes from './src/DateTimeInput/types';
@@ -155,6 +157,7 @@ export {
   AutoCompleteTypes,
   ButtonTypes,
   ButtonGroupTypes,
+  CalendarTypes,
   CheckBoxTypes,
   CollapseTypes,
   DateTimeInputRangeTypes,
@@ -194,6 +197,7 @@ export {
   Blockquote,
   Button,
   ButtonGroup,
+  Calendar,
   CheckBox,
   Collapse,
   Collapsible,

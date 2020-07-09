@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { CALENDAR_CLICK_ACTION } from './constants';
 import { useCustomElements } from './hooks';
-import { CalendarProps } from './types';
+import { CalendarBaseProps } from './types';
 import { DivRefCurrent } from '../../components/Div';
 import {
   getCalendarConditions, getCalendarFormat,
@@ -9,7 +9,7 @@ import {
 import { TodayButton } from './TodayButton';
 import { useAdaptivePosition } from '../../utils';
 
-export const Calendar = (props: CalendarProps): React.ReactElement | null => {
+export const CalendarBase = (props: CalendarBaseProps): React.ReactElement | null => {
   const {
     boundingContainerRef,
     hasTodayButton,
@@ -27,7 +27,7 @@ export const Calendar = (props: CalendarProps): React.ReactElement | null => {
     weeksRowRender,
   } = props;
 
-  // следующие флаги используется для отключения кнопок в header в случае min-max
+  // следующие флаги используются для отключения кнопок в header в случае min-max
   const conditions = getCalendarConditions(props);
 
   const format = getCalendarFormat(props.format);

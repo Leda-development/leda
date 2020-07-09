@@ -1,11 +1,11 @@
 import { isFunction, isNil } from 'lodash';
-import { CALENDAR_CLICK_ACTION, VIEW_TYPES } from '../../Calendar/constants';
-import { CalendarClickHandler } from '../../Calendar/types';
+import { CALENDAR_CLICK_ACTION, VIEW_TYPES } from '../../CalendarBase/constants';
+import { CalendarClickHandler } from '../../CalendarBase/types';
 import {
   setDate, setOpen, setViewDate, setViewType,
 } from '../actions';
 import { COMPONENT_TYPES } from '../constants';
-import { formatDateTime, updateInputSelection } from '../helpers';
+import { formatDateTime, getDatesShorthand, updateInputSelection } from '../helpers';
 import {
   DatesNextClickPayload,
   DatesPrevClickPayload,
@@ -19,7 +19,7 @@ import {
   YearsSelectPayload,
 } from '../types';
 
-const handleDatesPrevClick = (payload: DatesPrevClickPayload): void => {
+export const handleDatesPrevClick = (payload: DatesPrevClickPayload): void => {
   const {
     viewDate, min, dispatch, dateShorthand, isPrevButtonDisabled,
   } = payload;
@@ -47,7 +47,7 @@ const handleDatesPrevClick = (payload: DatesPrevClickPayload): void => {
   ));
 };
 
-const handleDatesNextClick = (payload: DatesNextClickPayload): void => {
+export const handleDatesNextClick = (payload: DatesNextClickPayload): void => {
   const {
     viewDate, max, dispatch, dateShorthand, isNextButtonDisabled,
   } = payload;
@@ -76,7 +76,7 @@ const handleDatesNextClick = (payload: DatesNextClickPayload): void => {
   ));
 };
 
-const handleDatesSelect = (payload: DatesSelectPayload): void => {
+export const handleDatesSelect = (payload: DatesSelectPayload): void => {
   const {
     dateCell, monthCell, dateShorthand, updateDate, dispatch, type, format = 'dd.MM.yyyy', maskedInputRef,
   } = payload;
@@ -104,7 +104,7 @@ const handleDatesSelect = (payload: DatesSelectPayload): void => {
   }
 };
 
-const handleMonthsPrevClick = (payload: MonthsPrevClickPayload): void => {
+export const handleMonthsPrevClick = (payload: MonthsPrevClickPayload): void => {
   const {
     isDateOutOfMinYearRange, viewDate, min, dispatch, dateShorthand,
   } = payload;
@@ -131,7 +131,7 @@ const handleMonthsPrevClick = (payload: MonthsPrevClickPayload): void => {
   ));
 };
 
-const handleMonthsNextClick = (payload: MonthsNextClickPayload): void => {
+export const handleMonthsNextClick = (payload: MonthsNextClickPayload): void => {
   const {
     isDateOutOfMaxYearRange, viewDate, max, dispatch, dateShorthand,
   } = payload;
@@ -158,7 +158,7 @@ const handleMonthsNextClick = (payload: MonthsNextClickPayload): void => {
   ));
 };
 
-const handleMonthsSelect = (payload: MonthsSelectPayload): void => {
+export const handleMonthsSelect = (payload: MonthsSelectPayload): void => {
   const {
     viewDate, max, min, dispatch, dateShorthand, monthCell,
   } = payload;
@@ -200,7 +200,7 @@ const handleMonthsSelect = (payload: MonthsSelectPayload): void => {
   dispatch(setViewType(VIEW_TYPES.DATES));
 };
 
-const handleYearsPrevClick = (payload: YearsPrevClickPayload): void => {
+export const handleYearsPrevClick = (payload: YearsPrevClickPayload): void => {
   const {
     isDateOutOfMinDecadeRange, viewDate, min, dispatch, dateShorthand,
   } = payload;
@@ -228,7 +228,7 @@ const handleYearsPrevClick = (payload: YearsPrevClickPayload): void => {
   ));
 };
 
-const handleYearsNextClick = (payload: YearsNextClickPayload): void => {
+export const handleYearsNextClick = (payload: YearsNextClickPayload): void => {
   const {
     isDateOutOfMaxDecadeRange, viewDate, max, dispatch, dateShorthand,
   } = payload;
@@ -256,7 +256,7 @@ const handleYearsNextClick = (payload: YearsNextClickPayload): void => {
   ));
 };
 
-const handleYearsSelect = (payload: YearsSelectPayload): void => {
+export const handleYearsSelect = (payload: YearsSelectPayload): void => {
   const {
     viewDate, min, max, dateShorthand, dispatch, yearCell,
   } = payload;
@@ -296,7 +296,7 @@ const handleYearsSelect = (payload: YearsSelectPayload): void => {
   dispatch(setViewType(VIEW_TYPES.MONTHS));
 };
 
-const handleTitleClick = (payload: TitleClickPayload): void => {
+export const handleTitleClick = (payload: TitleClickPayload): void => {
   const {
     viewType, isOneMonthInRange, isOneYearInRange, dispatch,
   } = payload;
@@ -310,7 +310,7 @@ const handleTitleClick = (payload: TitleClickPayload): void => {
   }
 };
 
-const handleTodayButtonClick = (payload: TodayButtonClickPayload): void => {
+export const handleTodayButtonClick = (payload: TodayButtonClickPayload): void => {
   const {
     min, max, dispatch, updateDate,
   } = payload;
@@ -361,13 +361,7 @@ export const createCalendarClickHandler = ({
     }
   };
 
-  const dateShorthand = {
-    year: viewDate.getFullYear(),
-    month: viewDate.getMonth(),
-    dateVal: viewDate.getDate(),
-    hours: viewDate.getHours(),
-    minutes: viewDate.getMinutes(),
-  };
+  const dateShorthand = getDatesShorthand(viewDate);
 
   const {
     isOneMonthInRange,

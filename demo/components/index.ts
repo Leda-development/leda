@@ -2,6 +2,7 @@ export { A } from './A';
 export { AutoComplete } from './AutoComplete';
 export { Button } from './Button';
 export { ButtonGroup } from './ButtonGroup';
+export { Calendar } from './Calendar';
 export { CheckBox } from './CheckBox';
 export { Collapse } from './Collapse';
 export { Collapsible } from './Collapsible';

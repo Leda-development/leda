@@ -4,11 +4,11 @@ import { useElement } from '../../utils';
 import { CalendarHeader as DefaultCalendarHeader } from './CalendarHeader';
 import { DateView as DefaultDateView } from './DateView';
 import { MonthView as DefaultMonthView } from './MonthView';
-import { CalendarProps, CustomElements } from './types';
+import { CalendarBaseProps, CustomElements } from './types';
 import { YearView as DefaultYearView } from './YearView';
 import { Div } from '../../components/Div';
 
-export const useCustomElements = (props: CalendarProps): CustomElements => {
+export const useCustomElements = (props: CalendarBaseProps): CustomElements => {
   const {
     dateViewRender, monthViewRender, yearViewRender, calendarHeaderRender, calendarWrapperRender,
   } = props;

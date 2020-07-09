@@ -4,7 +4,7 @@ import { Div } from '../../components/Div';
 import { LedaContext } from '../../components/LedaProvider';
 import { Span } from '../../components/Span';
 import { useElement } from '../../utils';
-import { VIEW_TYPES } from '../Calendar/constants';
+import { VIEW_TYPES } from '../CalendarBase/constants';
 import { MaskedInputBase } from '../MaskedInputBase';
 import { setDate, setViewDate } from './actions';
 import {

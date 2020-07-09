@@ -1,8 +1,8 @@
-import { defaultTheme as calendarTheme } from '../Calendar/theme';
+import { defaultCalendarTheme } from '../CalendarBase/theme';
 
 /* eslint-disable key-spacing */
 export const defaultDateTimeInputTheme = {
-  calendar:             calendarTheme,
+  calendar:             defaultCalendarTheme,
   iconsWrapper:         'datepicker-icons-wrapper',
   input:                'datepicker-input',
   inputWrapper:         'datepicker-input-wrapper',

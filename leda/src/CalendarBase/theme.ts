@@ -1,5 +1,5 @@
 /* eslint-disable key-spacing */
-export const defaultTheme = {
+export const defaultCalendarTheme = {
   dateCell:               'calendar-date-cell',
   dateCellActive:         'active',
   dateCellDayOff:         'day-off',
@@ -21,6 +21,7 @@ export const defaultTheme = {
   nextIcon:               'calendar-next-icon',
   prevButton:             'calendar-prev-button',
   prevIcon:               'calendar-prev-icon',
+  standalone:             'standalone',
   title:                  'calendar-title',
   titleDisabled:          'disabled-title',
   weekDaysRow:            'calendar-week-days',

@@ -2,14 +2,14 @@ import * as React from 'react';
 import { CustomRender, Values } from '../../commonTypes';
 import { AllActions } from '../DateTimeInput/types';
 import { CALENDAR_CLICK_ACTION, VIEW_TYPES } from './constants';
-import { defaultTheme } from './theme';
+import { defaultCalendarTheme } from './theme';
 import { DivProps } from '../../components/Div';
 
 export interface CalendarClickHandler {
   (type: Values<typeof CALENDAR_CLICK_ACTION>, ev: React.MouseEvent<HTMLElement>, payload?: { dateCell?: number, monthCell?: number, yearCell?: number }): void,
 }
 
-export interface CalendarProps {
+export interface CalendarBaseProps {
   boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement }>,
   dispatch: React.Dispatch<AllActions>,
   format: string,
@@ -20,17 +20,17 @@ export interface CalendarProps {
   min?: Date,
   onClick: CalendarClickHandler,
   onMouseDown: React.MouseEventHandler<HTMLDivElement>,
-  theme: typeof defaultTheme,
+  theme: typeof defaultCalendarTheme,
   value: Date | null,
   viewDate: Date,
   viewType: Values<typeof VIEW_TYPES>,
   dateCellRender?: CustomRender<DateCellProps, {}, DateCellItemProps>,
   weeksRowRender?: CustomRender<DateViewProps, {}, WeekRowProps>,
-  dateViewRender?: CustomRender<CalendarProps, {}, DateViewProps>,
-  monthViewRender?: CustomRender<CalendarProps, {}, MonthViewProps>,
-  yearViewRender?: CustomRender<CalendarProps, {}, YearViewProps>,
-  calendarHeaderRender?: CustomRender<CalendarProps, {}, CalendarHeaderProps>,
-  calendarWrapperRender?: CustomRender<CalendarProps, {}, DivProps>,
+  dateViewRender?: CustomRender<CalendarBaseProps, {}, DateViewProps>,
+  monthViewRender?: CustomRender<CalendarBaseProps, {}, MonthViewProps>,
+  yearViewRender?: CustomRender<CalendarBaseProps, {}, YearViewProps>,
+  calendarHeaderRender?: CustomRender<CalendarBaseProps, {}, CalendarHeaderProps>,
+  calendarWrapperRender?: CustomRender<CalendarBaseProps, {}, DivProps>,
 }
 
 export interface DateCellProps {
@@ -44,16 +44,16 @@ export interface DateCellProps {
   viewDate: Date,
   value: Date | null,
   viewType: Values<typeof VIEW_TYPES>,
-  theme: typeof defaultTheme,
+  theme: typeof defaultCalendarTheme,
   weekIndex: number,
   children?: React.ReactNode,
 }
 
 export interface CalendarHeaderProps {
-  theme: CalendarProps['theme'],
+  theme: CalendarBaseProps['theme'],
   conditions: CalendarConditions,
-  viewType: CalendarProps['viewType'],
-  viewDate: CalendarProps['viewDate'],
+  viewType: CalendarBaseProps['viewType'],
+  viewDate: CalendarBaseProps['viewDate'],
   onClick: CalendarClickHandler,
   children?: React.ReactNode,
 }
@@ -67,14 +67,14 @@ export interface DateViewProps {
   value: Date | null,
   viewType: Values<typeof VIEW_TYPES>,
   onClick: CalendarClickHandler,
-  theme: typeof defaultTheme,
+  theme: typeof defaultCalendarTheme,
   children?: React.ReactNode,
 }
 
 export interface MonthViewProps {
   max?: Date,
   min?: Date,
-  theme: typeof defaultTheme,
+  theme: typeof defaultCalendarTheme,
   onClick: CalendarClickHandler,
   children?: React.ReactNode,
   viewDate: Date,
@@ -84,7 +84,7 @@ export interface MonthViewProps {
 export interface YearViewProps {
   max?: Date,
   min?: Date,
-  theme: typeof defaultTheme,
+  theme: typeof defaultCalendarTheme,
   onClick: CalendarClickHandler,
   children?: React.ReactNode,
   format: string,
@@ -130,7 +130,7 @@ export interface CalendarConditions {
 
 export interface TodayButtonProps {
   onClick?: (ev: React.MouseEvent<HTMLDivElement>) => void,
-  theme: typeof defaultTheme,
+  theme: typeof defaultCalendarTheme,
 }
 
 export interface DateCellConditions {

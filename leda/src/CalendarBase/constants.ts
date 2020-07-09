@@ -22,3 +22,5 @@ export const BUTTON_TYPE = {
   PREV: 'prev',
   NEXT: 'next',
 } as const;
+
+export const DEFAULT_DATE_FORMAT = 'dd.MM.yyyy';

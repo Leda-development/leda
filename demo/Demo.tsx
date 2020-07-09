@@ -3,7 +3,7 @@ import { hot } from 'react-hot-loader/root';
 import * as React from 'react';
 import * as L from '../leda';
 import {
-  AutoComplete, ButtonGroup, CheckBox, DatePicker, DateRange,
+  AutoComplete, ButtonGroup, Calendar, CheckBox, DatePicker, DateRange,
   DropDown, DropDownSelect, Input, A, LedaProvider, Loader, MaskedInput, Modal,
   MultiSelect, Notifications, NumericRange, NumericTextBox, Password,
   Pagination, Radio, ProgressBar, Slider, StatusBar, StickyPanel, Switcher,
@@ -29,6 +29,7 @@ export const Demo = hot(() => (
       <AutoComplete />
       <Button />
       <ButtonGroup />
+      <Calendar />
       <CheckBox />
       <Collapse />
       <Collapsible />

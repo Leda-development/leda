@@ -25,6 +25,7 @@ import { B } from './components/B';
 import { Blockquote } from './components/Blockquote';
 import { Button } from './components/Button';
 import { ButtonGroup } from './components/ButtonGroup';
+import { Calendar } from './components/Calendar';
 import { CheckBox } from './components/CheckBox';
 import { Collapse } from './components/Collapse';
 import { Collapsible } from './components/Collapsible';
@@ -194,6 +195,7 @@ export {
   Blockquote,
   Button,
   ButtonGroup,
+  Calendar,
   CheckBox,
   Collapse,
   Collapsible,

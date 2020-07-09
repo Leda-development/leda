@@ -25,6 +25,7 @@ export const COMPONENTS_NAMESPACES = {
   autoComplete: 'autoComplete',
   button: 'button',
   buttonGroup: 'buttonGroup',
+  calendar: 'calendar',
   checkBox: 'checkBox',
   collapse: 'collapse',
   collapseBody: 'collapseBody',

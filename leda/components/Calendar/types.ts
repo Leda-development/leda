@@ -3,7 +3,7 @@ import { CustomRender } from '../../commonTypes';
 import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 
-export interface ChangeEvent extends React.ChangeEvent<MouseEvent> {
+export interface ChangeEvent extends React.ChangeEvent {
   component: {
     value: Date,
     name?: string,
@@ -11,10 +11,14 @@ export interface ChangeEvent extends React.ChangeEvent<MouseEvent> {
 }
 
 export interface CalendarProps {
+  /** Максимальная доступная дата */
+  max?: Date,
+  /** Минимальная доступная дата */
+  min?: Date,
   /** Имя компонента */
   name?: string,
   /** Обработчик изменения состояния элементов */
-  onChange?: (event: any) => void,
+  onChange: (event: ChangeEvent) => void,
   /** Реф */
   ref?: React.Ref<CalendarRefCurrent>,
   /** Тема компонента */

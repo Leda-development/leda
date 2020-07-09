@@ -7,6 +7,10 @@ import { CalendarProps, CalendarRefCurrent } from './types';
 
 export const Calendar = React.forwardRef((props: CalendarProps, ref?: React.Ref<CalendarRefCurrent>): React.ReactElement => {
   const {
+    max,
+    min,
+    onChange,
+    theme,
     value,
     ...restProps
   } = useProps(props);

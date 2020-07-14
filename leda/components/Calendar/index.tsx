@@ -1,59 +1,78 @@
 import * as React from 'react';
-import { getClassNames, useProps, useTheme, useValue } from '../../utils';
+import { getClassNames, useProps, useTheme } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import { CalendarProps, CalendarRefCurrent } from './types';
+import { StandaloneCalendarProps, CalendarRefCurrent } from './types';
 import { DivRefCurrent } from '../Div';
-import { CALENDAR_CLICK_ACTION, VIEW_TYPES } from '../../src/Calendar/constants';
+import { CALENDAR_CLICK_ACTION, DEFAULT_DATE_FORMAT, VIEW_TYPES } from '../../src/Calendar/constants';
 import { TodayButton } from '../../src/Calendar/TodayButton';
 import { useCustomElements } from '../../src/Calendar/hooks';
 import { getCalendarConditions } from '../../src/Calendar/helpers';
+import { createClickHandler } from './handlers';
+import { stateReducer } from '../../src/DateTimeInput/reducer';
+import { CalendarProps } from '../../src/Calendar/types';
 
-export const Calendar = React.forwardRef((props: CalendarProps, ref?: React.Ref<CalendarRefCurrent>): React.ReactElement => {
+export const Calendar = React.forwardRef((props: StandaloneCalendarProps, ref?: React.Ref<CalendarRefCurrent>): React.ReactElement => {
   const {
     hasTodayButton,
     max,
     min,
-    onChange,
     theme: themeProp,
     value,
   } = useProps(props);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.calendar);
-  console.log('theme', theme);
 
   const calendarRef = React.useRef<DivRefCurrent | null>(null);
 
-  const mouseDownHandler = (ev) => {
-    console.log('mouseDownHandler', ev);
+  const initialViewDate = (() => {
+    const today = new Date();
+
+    if (min && today < min) return min;
+    if (max && today > max) return max;
+    if (value) return value;
+    return today;
+  })();
+
+  // todo: remove dummies
+  const initialState = {
+    date: null, // dummy
+    value: '', // dummy
+    isValid: true, // dummy
+    isFocused: false, // dummy
+    isOpen: false, // dummy
+    viewDate: initialViewDate,
+    viewType: VIEW_TYPES.DATES,
   };
 
-  const clickHandler = (ev) => {
-    console.log('click handler', ev);
-  };
+  const [state, dispatch] = React.useReducer(stateReducer, initialState);
 
-  const [viewDate, setViewDate] = React.useState(() => new Date());
-  const [viewType, setViewType] = React.useState(VIEW_TYPES.DATES);
+  const { viewDate, viewType } = state;
 
-  // следующие флаги используется для отключения кнопок в header в случае min-max
+  // следующие флаги используются для отключения кнопок в header в случае min-max
   const conditions = getCalendarConditions({
     ...props, viewDate, viewType,
   });
 
+  const clickHandler = createClickHandler({
+    conditions, props, state, dispatch,
+  });
 
+  // todo: remove as unknown as CalendarProps
   const {
     DateView,
     MonthView,
     YearView,
     CalendarHeader,
     CalendarWrapper,
-  } = useCustomElements(props);
+  } = useCustomElements({
+    ...props,
+  } as unknown as CalendarProps);
 
   const wrapperClassNames = getClassNames(theme.wrapper, theme.standalone);
 
   return (
     <CalendarWrapper
       className={wrapperClassNames}
-      onMouseDown={mouseDownHandler}
       ref={calendarRef}
     >
       <CalendarHeader
@@ -66,8 +85,6 @@ export const Calendar = React.forwardRef((props: CalendarProps, ref?: React.Ref<
       <DateView
         onClick={clickHandler}
         viewDate={viewDate}
-        // dateCellRender={dateCellRender}
-        // weeksRowRender={weeksRowRender}
         min={min}
         max={max}
         value={value}
@@ -83,7 +100,7 @@ export const Calendar = React.forwardRef((props: CalendarProps, ref?: React.Ref<
         max={max}
       />
       <YearView
-        format={'dd.MM.yyyy'}
+        format={DEFAULT_DATE_FORMAT}
         onClick={clickHandler}
         theme={theme}
         viewType={viewType}
@@ -99,6 +116,6 @@ export const Calendar = React.forwardRef((props: CalendarProps, ref?: React.Ref<
       )}
     </CalendarWrapper>
   );
-}) as React.FC<CalendarProps>;
+}) as React.FC<StandaloneCalendarProps>;
 
 Calendar.displayName = 'Calendar';

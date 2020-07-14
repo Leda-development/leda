@@ -2,6 +2,8 @@ import * as React from 'react';
 import { CustomRender } from '../../commonTypes';
 import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { COMPONENTS_NAMESPACES } from '../../constants';
+import { CalendarConditions } from '../../src/Calendar/types';
+import { AllActions, DateTimeInputState } from '../../src/DateTimeInput/types';
 
 export interface ChangeEvent extends React.ChangeEvent {
   component: {
@@ -10,7 +12,7 @@ export interface ChangeEvent extends React.ChangeEvent {
   },
 }
 
-export interface CalendarProps {
+export interface StandaloneCalendarProps {
   /** Кнопка "Сегодня" */
   hasTodayButton?: boolean,
   /** Максимальная доступная дата */
@@ -26,9 +28,9 @@ export interface CalendarProps {
   /** Тема компонента */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.calendar],
   /** Значение чекбокса */
-  value?: Date | null,
+  value: Date | null,
   /** Кастомизация враппера */
-  wrapperRender?: CustomRender<CalendarProps, {}, Partial<CalendarProps>>,
+  wrapperRender?: CustomRender<StandaloneCalendarProps, {}, Partial<StandaloneCalendarProps>>,
   /** Классы переданные через _ */
   [x: string]: unknown,
 }
@@ -37,4 +39,11 @@ export interface CalendarRefCurrent {
   wrapper: HTMLElement | null,
   // input: HTMLInputElement | null,
   // label: HTMLLabelElement | null,
+}
+
+export interface CreateChangeHandlerParams {
+  conditions: CalendarConditions,
+  props: StandaloneCalendarProps,
+  state: DateTimeInputState,
+  dispatch: React.Dispatch<AllActions>,
 }

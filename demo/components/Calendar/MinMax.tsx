@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as L from '../../../leda';
 
-export const BasicUsage = () => {
+export const MinMax = () => {
   const [value, setValue] = React.useState(new Date);
 
   return (
@@ -12,6 +12,8 @@ export const BasicUsage = () => {
           setValue(ev.component.value);
           console.log('ev.component', ev.component);
         }}
+        min={new Date('06.22.2020')}
+        max={new Date('07.12.2020')}
         hasTodayButton
       />
     </L.Div>

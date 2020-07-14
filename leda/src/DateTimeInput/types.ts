@@ -233,7 +233,7 @@ export interface DatesSelectPayload {
   dispatch: React.Dispatch<AllActions>,
   type: DateTimeInputProps['type'],
   format: DateTimeInputProps['format'],
-  maskedInputRef: React.MutableRefObject<HTMLInputElement | null>,
+  maskedInputRef: React.MutableRefObject<HTMLInputElement | null> | null,
 }
 
 export interface MonthsPrevClickPayload {
@@ -346,11 +346,4 @@ export interface NormalizeValueArgs {
   format: string,
   min?: Date,
   max?: Date,
-}
-
-export interface NormalizeDateArgs {
-  date: Date | null,
-  min?: Date,
-  max?: Date,
-  type?: Values<typeof COMPONENT_TYPES>,
 }

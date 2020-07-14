@@ -7,7 +7,7 @@ import { getClassNames, getIsEmptyAndRequired } from '../../utils';
 import { GlobalDefaultTheme } from '../../utils/useTheme';
 import { COMPONENT_TYPES } from './constants';
 import {
-  DateWithToDateMethod, DateTimeInputProps, DateTimeInputState, NormalizeValueArgs,
+  DateWithToDateMethod, DateTimeInputProps, DateTimeInputState,
 } from './types';
 
 // извлекает число по паттерну и формату. Пример: ("dd.MM.yy", "dd", "18.05.19") => 18
@@ -179,35 +179,14 @@ export const checkIsDateFormatIncorrect = (val?: DateWithToDateMethod): boolean 
   return !(isNil(val) || val instanceof Date || valDate instanceof Date);
 };
 
-export const updateInputSelection = (maskedInputRef: React.MutableRefObject<HTMLInputElement | null>, format: string): void => {
+export const updateInputSelection = (maskedInputRef: React.MutableRefObject<HTMLInputElement | null> | null, format: string): void => {
   const hoursPosition = format.indexOf('hh');
 
   setTimeout(() => {
-    if (maskedInputRef.current && maskedInputRef.current) {
+    if (maskedInputRef && maskedInputRef.current) {
       maskedInputRef.current.setSelectionRange(hoursPosition, hoursPosition + 2);
     }
   }, 50);
-};
-// normalizeValue({ value: '01.09.2019', format: 'dd.MM.yyyy', max: new Date('08.31.2019') }) // => '31.08.2019'
-export const normalizeValue = ({
-  value,
-  format,
-  min,
-  max,
-}: NormalizeValueArgs): string => {
-  const date = stringToDate(value, format);
-
-  if (date === null) return value;
-
-  if (min && date.getTime() < min.getTime()) {
-    return formatDateTime(min, format);
-  }
-
-  if (max && date.getTime() > max.getTime()) {
-    return formatDateTime(max, format);
-  }
-
-  return formatDateTime(date, format);
 };
 
 export const getValue = ({
@@ -229,3 +208,11 @@ export const getValue = ({
 
   return '';
 };
+
+export const getDatesShorthand = (viewDate: Date) => ({
+  year: viewDate.getFullYear(),
+  month: viewDate.getMonth(),
+  dateVal: viewDate.getDate(),
+  hours: viewDate.getHours(),
+  minutes: viewDate.getMinutes(),
+});

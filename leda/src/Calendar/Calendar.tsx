@@ -27,7 +27,7 @@ export const Calendar = (props: CalendarProps): React.ReactElement | null => {
     weeksRowRender,
   } = props;
 
-  // следующие флаги используется для отключения кнопок в header в случае min-max
+  // следующие флаги используются для отключения кнопок в header в случае min-max
   const conditions = getCalendarConditions(props);
 
   const format = getCalendarFormat(props.format);

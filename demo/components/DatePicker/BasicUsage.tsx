@@ -8,7 +8,7 @@ export const BasicUsage = (args: SomeObject): React.ReactElement => {
 
   return (
     <L.Div _box _inner _demoBg>
-      <L.DatePicker {...props} data-test="datepicker" />
+      <L.DatePicker {...props} data-test="datepicker" _width-20 />
       <br />
       <br />
       <StateButtonGroup

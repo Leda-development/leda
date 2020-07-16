@@ -2,12 +2,12 @@ import * as React from 'react';
 import { isNil, isDate } from 'lodash';
 import { useValidation } from '../../components/Validation';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import { getCalendarConditions } from '../Calendar/helpers';
+import { getCalendarConditions } from '../CalendarBase/helpers';
 import { Div } from '../../components/Div';
 import {
   bindFunctionalRef, getClassNames, useProps, useTheme,
 } from '../../utils';
-import { Calendar } from '../Calendar';
+import { CalendarBase } from '../CalendarBase';
 import { COMPONENT_TYPES } from './constants';
 import {
   createBlurHandler,
@@ -181,7 +181,7 @@ export const DateTimeInput = React.forwardRef((props: DateTimeInputProps, ref: R
       </Div>
       {!state.isFocused && !isDisabled && <InvalidMessage />}
       {type !== COMPONENT_TYPES.TIME_ONLY && (
-        <Calendar
+        <CalendarBase
           boundingContainerRef={boundingContainerRef}
           calendarHeaderRender={calendarHeaderRender}
           dateCellRender={dateCellRender}

@@ -2,14 +2,14 @@ import * as React from 'react';
 import { DivProps, DivRefCurrent } from '../../components/Div';
 import {
   CalendarHeaderProps,
-  CalendarProps,
+  CalendarBaseProps,
   DateCellItemProps,
   DateCellProps,
   DateViewProps,
   MonthViewProps,
   WeekRowProps,
   YearViewProps,
-} from '../Calendar/types';
+} from '../CalendarBase/types';
 import {
   BlurEvent, ChangeEvent, FocusEvent, DateTimeInputProps, DateTimeInputState, IconProps, WrapperProps,
 } from '../DateTimeInput/types';
@@ -61,7 +61,7 @@ export interface DateTimeInputRangeProps {
   /** Кастомный заголовок календаря */
   calendarHeaderRender?: CustomRender<DateViewProps, {}, CalendarHeaderProps>,
   /** Кастомный рендер враппера календаря */
-  calendarWrapperRender?: CustomRender<CalendarProps, {}, DivProps>,
+  calendarWrapperRender?: CustomRender<CalendarBaseProps, {}, DivProps>,
 }
 
 export interface DateTimeInputRangeState {

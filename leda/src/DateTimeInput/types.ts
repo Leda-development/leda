@@ -5,19 +5,19 @@ import {
 import { DivProps, DivRefCurrent } from '../../components/Div';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
-import { VIEW_TYPES } from '../Calendar/constants';
+import { VIEW_TYPES } from '../CalendarBase/constants';
 import {
   CalendarClickHandler,
   CalendarConditions,
   CalendarHeaderProps,
-  CalendarProps,
+  CalendarBaseProps,
   DateCellItemProps,
   DateCellProps,
   DateViewProps,
   MonthViewProps,
   WeekRowProps,
   YearViewProps,
-} from '../Calendar/types';
+} from '../CalendarBase/types';
 import { MaskedInputBaseProps } from '../MaskedInputBase/types';
 import { stateActionTypes } from './actions';
 import { COMPONENT_TYPES } from './constants';
@@ -105,7 +105,7 @@ export interface DateTimeInputProps extends ValidationProps {
   /** Кастомный заголовок календаря */
   calendarHeaderRender?: CustomRender<DateViewProps, {}, CalendarHeaderProps>,
   /** Кастомный рендер враппера календаря */
-  calendarWrapperRender?: CustomRender<CalendarProps, {}, DivProps>,
+  calendarWrapperRender?: CustomRender<CalendarBaseProps, {}, DivProps>,
 }
 
 export interface DateTimeInputState {

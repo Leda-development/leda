@@ -1,7 +1,7 @@
 import { isFunction } from 'lodash';
 import {
   isDateGreater, isDateLess, isTimeGreater, isTimeLess,
-} from '../../Calendar/helpers';
+} from '../../CalendarBase/helpers';
 import { setDate, setFocused, setOpen } from '../actions';
 import { COMPONENT_TYPES } from '../constants';
 import { formatDateTime } from '../helpers';

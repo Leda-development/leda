@@ -3,13 +3,13 @@ import { getClassNames, useProps, useTheme } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { StandaloneCalendarProps, CalendarRefCurrent } from './types';
 import { DivRefCurrent } from '../Div';
-import { CALENDAR_CLICK_ACTION, DEFAULT_DATE_FORMAT, VIEW_TYPES } from '../../src/Calendar/constants';
-import { TodayButton } from '../../src/Calendar/TodayButton';
-import { useCustomElements } from '../../src/Calendar/hooks';
-import { getCalendarConditions } from '../../src/Calendar/helpers';
+import { CALENDAR_CLICK_ACTION, DEFAULT_DATE_FORMAT, VIEW_TYPES } from '../../src/CalendarBase/constants';
+import { TodayButton } from '../../src/CalendarBase/TodayButton';
+import { useCustomElements } from '../../src/CalendarBase/hooks';
+import { getCalendarConditions } from '../../src/CalendarBase/helpers';
 import { createClickHandler } from './handlers';
 import { stateReducer } from '../../src/DateTimeInput/reducer';
-import { CalendarProps } from '../../src/Calendar/types';
+import { CalendarBaseProps } from '../../src/CalendarBase/types';
 
 export const Calendar = React.forwardRef((props: StandaloneCalendarProps, ref?: React.Ref<CalendarRefCurrent>): React.ReactElement => {
   const {
@@ -66,7 +66,7 @@ export const Calendar = React.forwardRef((props: StandaloneCalendarProps, ref?: 
     CalendarWrapper,
   } = useCustomElements({
     ...props,
-  } as unknown as CalendarProps);
+  } as unknown as CalendarBaseProps);
 
   const wrapperClassNames = getClassNames(theme.wrapper, theme.standalone);
 

@@ -1,9 +1,9 @@
 import { isFunction } from 'lodash';
 import { CreateChangeHandlerParams } from './types';
-import { CALENDAR_CLICK_ACTION } from '../../src/Calendar/constants';
+import { CALENDAR_CLICK_ACTION } from '../../src/CalendarBase/constants';
 import { setDate } from '../../src/DateTimeInput/actions';
 import { getDatesShorthand } from '../../src/DateTimeInput/helpers';
-import { CalendarClickHandler } from '../../src/Calendar/types';
+import { CalendarClickHandler } from '../../src/CalendarBase/types';
 import {
   handleDatesNextClick,
   handleDatesPrevClick,

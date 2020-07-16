@@ -2,7 +2,7 @@ import * as React from 'react';
 import { CustomRender } from '../../commonTypes';
 import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import { CalendarConditions } from '../../src/Calendar/types';
+import { CalendarConditions } from '../../src/CalendarBase/types';
 import { AllActions, DateTimeInputState } from '../../src/DateTimeInput/types';
 
 export interface ChangeEvent extends React.ChangeEvent {

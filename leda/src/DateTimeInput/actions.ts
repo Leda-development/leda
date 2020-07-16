@@ -1,5 +1,5 @@
 import { Action, Values } from '../../commonTypes';
-import { VIEW_TYPES } from '../Calendar/constants';
+import { VIEW_TYPES } from '../CalendarBase/constants';
 import { StateActionPayloads, StateActionTypes } from './types';
 
 export const stateActionTypes = {

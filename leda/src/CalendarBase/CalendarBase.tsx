@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { CALENDAR_CLICK_ACTION } from './constants';
 import { useCustomElements } from './hooks';
-import { CalendarProps } from './types';
+import { CalendarBaseProps } from './types';
 import { DivRefCurrent } from '../../components/Div';
 import {
   getCalendarConditions, getCalendarFormat,
@@ -9,7 +9,7 @@ import {
 import { TodayButton } from './TodayButton';
 import { useAdaptivePosition } from '../../utils';
 
-export const Calendar = (props: CalendarProps): React.ReactElement | null => {
+export const CalendarBase = (props: CalendarBaseProps): React.ReactElement | null => {
   const {
     boundingContainerRef,
     hasTodayButton,

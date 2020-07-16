@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { VIEW_TYPES } from '../../Calendar/constants';
+import { VIEW_TYPES } from '../../CalendarBase/constants';
 import { setOpen, setViewType } from '../actions';
 import { HandlersData } from '../types';
 

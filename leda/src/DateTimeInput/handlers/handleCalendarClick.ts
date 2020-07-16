@@ -1,6 +1,6 @@
 import { isFunction, isNil } from 'lodash';
-import { CALENDAR_CLICK_ACTION, VIEW_TYPES } from '../../Calendar/constants';
-import { CalendarClickHandler } from '../../Calendar/types';
+import { CALENDAR_CLICK_ACTION, VIEW_TYPES } from '../../CalendarBase/constants';
+import { CalendarClickHandler } from '../../CalendarBase/types';
 import {
   setDate, setOpen, setViewDate, setViewType,
 } from '../actions';

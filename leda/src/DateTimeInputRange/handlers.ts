@@ -7,7 +7,7 @@ import { DateTimeInputRangeProps, DateTimeInputRangeState } from './types';
 import { isDateValue } from './helpers';
 import { formatDateTime, stringToDate } from '../DateTimeInput/helpers';
 import { COMPONENT_TYPES } from '../DateTimeInput/constants';
-import { isDateGreater, isDateLess } from '../Calendar/helpers';
+import { isDateGreater, isDateLess } from '../CalendarBase/helpers';
 
 const isArrayOfTwoStrings = (item: [string | Date | null | undefined, string | Date | null | undefined]): boolean => Array.isArray(item)
   && item.length === 2

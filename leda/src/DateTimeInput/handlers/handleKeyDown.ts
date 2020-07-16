@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { isNil, isFunction } from 'lodash';
-import { VIEW_TYPES } from '../../Calendar/constants';
-import { isDateGreater, isDateLess } from '../../Calendar/helpers';
+import { VIEW_TYPES } from '../../CalendarBase/constants';
+import { isDateGreater, isDateLess } from '../../CalendarBase/helpers';
 import {
   setDate, setOpen, setViewDate, setViewType,
 } from '../actions';

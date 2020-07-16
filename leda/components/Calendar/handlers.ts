@@ -32,9 +32,8 @@ export const createClickHandler = ({
   } = state;
 
   const updateDate = (newDate: Date): void => {
-    // неконтролируемый режим
-    // dispatch(setDate(newDate));
-    // контролируемый режим
+    dispatch(setDate(newDate)); // неконтролируемый режим
+
     if (isFunction(onChange)) {
       onChange({
         ...ev,

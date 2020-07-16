@@ -37,6 +37,7 @@ export const Calendar = React.forwardRef((props: StandaloneCalendarProps, ref?: 
   })();
 
   const initialState = {
+    date: null,
     viewDate: initialViewDate,
     viewType: VIEW_TYPES.DATES,
   };
@@ -45,9 +46,17 @@ export const Calendar = React.forwardRef((props: StandaloneCalendarProps, ref?: 
 
   const { viewDate, viewType } = state;
 
+  const calendarValue = (() => {
+    if (value) return value; // controlled mode
+    return state.date; // uncontrolled mode
+  })();
+
   // следующие флаги используются для отключения кнопок в header в случае min-max
   const conditions = getCalendarConditions({
-    ...props, viewDate, viewType,
+    ...props,
+    viewDate,
+    viewType,
+    value: calendarValue,
   });
 
   const clickHandler = createClickHandler({
@@ -84,7 +93,7 @@ export const Calendar = React.forwardRef((props: StandaloneCalendarProps, ref?: 
         viewDate={viewDate}
         min={min}
         max={max}
-        value={value}
+        value={calendarValue}
         theme={theme}
         viewType={viewType}
       />

@@ -28,8 +28,8 @@ export interface StandaloneCalendarProps {
   ref?: React.Ref<CalendarRefCurrent>,
   /** Тема компонента */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.calendar],
-  /** Значение чекбокса */
-  value: Date | null,
+  /** Выбранная дата в календаре */
+  value?: Date,
   /** Кастомизация враппера */
   wrapperRender?: CustomRender<StandaloneCalendarProps, {}, Partial<StandaloneCalendarProps>>,
   /** Классы переданные через _ */
@@ -43,10 +43,12 @@ export interface CalendarRefCurrent {
 }
 
 export type StandaloneCalendarActionTypes = Action<typeof stateActionTypes.SET_VIEW_DATE, Date>
-| Action<typeof stateActionTypes.SET_VIEW_TYPE, Values<typeof VIEW_TYPES>>;
+| Action<typeof stateActionTypes.SET_VIEW_TYPE, Values<typeof VIEW_TYPES>>
+| Action<typeof stateActionTypes.SET_DATE, Date | null>;
 
 export interface StandaloneCalendarState {
-  viewDate: Date,
+  date: Date | null, // selected date
+  viewDate: Date, // highlighted date
   viewType: Values<typeof VIEW_TYPES>,
 }
 

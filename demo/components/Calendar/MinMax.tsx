@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as L from '../../../leda';
 
-export const MinMax = () => {
+export const MinMax = (props: any) => {
   const [value, setValue] = React.useState(new Date);
 
   return (

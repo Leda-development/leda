@@ -1,13 +1,12 @@
 import { isFunction } from 'lodash';
 import { CreateChangeHandlerParams } from './types';
 import { CALENDAR_CLICK_ACTION } from '../../src/CalendarBase/constants';
-import { setDate } from '../../src/DateTimeInput/actions';
+import { setDate, setViewDate } from '../../src/DateTimeInput/actions';
 import { getDatesShorthand } from '../../src/DateTimeInput/helpers';
 import { CalendarClickHandler } from '../../src/CalendarBase/types';
 import {
   handleDatesNextClick,
   handleDatesPrevClick,
-  handleDatesSelect,
   handleMonthsNextClick,
   handleMonthsPrevClick,
   handleMonthsSelect,
@@ -17,7 +16,6 @@ import {
   handleYearsPrevClick,
   handleYearsSelect,
 } from '../../src/DateTimeInput/handlers/handleCalendarClick';
-import { COMPONENT_TYPES } from '../../src/DateTimeInput/constants';
 
 export const createClickHandler = ({
   conditions, props, state, dispatch,
@@ -73,10 +71,23 @@ export const createClickHandler = ({
       break;
     }
     case CALENDAR_CLICK_ACTION.DATES_SELECT: {
-      handleDatesSelect({
-        dateCell: payload && payload.dateCell, updateDate, dispatch, dateShorthand,
-        type: COMPONENT_TYPES.DATE_ONLY, format: 'dd.MM.yyyy', maskedInputRef: null, monthCell: payload && payload.monthCell,
-      });
+      const {
+        year, month, hours, minutes,
+      } = dateShorthand;
+
+      if (payload) {
+        const newDate = new Date(
+          year,
+          payload.monthCell || month,
+          payload.dateCell,
+          hours,
+          minutes,
+        );
+
+        updateDate(newDate);
+        dispatch(setViewDate(newDate));
+      }
+
       break;
     }
     case CALENDAR_CLICK_ACTION.MONTHS_PREV: {

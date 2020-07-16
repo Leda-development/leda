@@ -22,6 +22,7 @@ import { MaskedInputBaseProps } from '../MaskedInputBase/types';
 import { stateActionTypes } from './actions';
 import { COMPONENT_TYPES } from './constants';
 import { ValidationProps } from '../../components/Validation/types';
+import { StandaloneCalendarActionTypes } from '../../components/Calendar/types';
 
 // todo: extend type
 export interface ChangeEvent {
@@ -213,7 +214,7 @@ export interface DatesPrevClickPayload {
   isPrevButtonDisabled: boolean,
   viewDate: DateTimeInputState['viewDate'],
   min?: Date,
-  dispatch: React.Dispatch<AllActions>,
+  dispatch: React.Dispatch<AllActions> | React.Dispatch<StandaloneCalendarActionTypes>,
   dateShorthand: DateShorthand,
 }
 
@@ -222,7 +223,7 @@ export interface DatesNextClickPayload {
   viewDate: DateTimeInputState['viewDate'],
   max?: Date,
   dateShorthand: DateShorthand,
-  dispatch: React.Dispatch<AllActions>,
+  dispatch: React.Dispatch<AllActions> | React.Dispatch<StandaloneCalendarActionTypes>,
 }
 
 export interface DatesSelectPayload {
@@ -241,7 +242,7 @@ export interface MonthsPrevClickPayload {
   viewDate: DateTimeInputState['viewDate'],
   min?: Date,
   dateShorthand: DateShorthand,
-  dispatch: React.Dispatch<AllActions>,
+  dispatch: React.Dispatch<AllActions> | React.Dispatch<StandaloneCalendarActionTypes>,
 }
 
 export interface MonthsNextClickPayload {
@@ -249,7 +250,7 @@ export interface MonthsNextClickPayload {
   viewDate: DateTimeInputState['viewDate'],
   max?: Date,
   dateShorthand: DateShorthand,
-  dispatch: React.Dispatch<AllActions>,
+  dispatch: React.Dispatch<AllActions> | React.Dispatch<StandaloneCalendarActionTypes>,
 }
 
 export interface MonthsSelectPayload {
@@ -259,7 +260,7 @@ export interface MonthsSelectPayload {
   max?: Date,
   dateShorthand: DateShorthand,
   isDateOutOfMinDecadeRange: boolean,
-  dispatch: React.Dispatch<AllActions>,
+  dispatch: React.Dispatch<AllActions> | React.Dispatch<StandaloneCalendarActionTypes>,
 }
 
 export interface YearsPrevClickPayload {
@@ -267,7 +268,7 @@ export interface YearsPrevClickPayload {
   min?: Date,
   dateShorthand: DateShorthand,
   isDateOutOfMinDecadeRange: boolean,
-  dispatch: React.Dispatch<AllActions>,
+  dispatch: React.Dispatch<AllActions> | React.Dispatch<StandaloneCalendarActionTypes>,
 }
 
 export interface YearsNextClickPayload {
@@ -275,7 +276,7 @@ export interface YearsNextClickPayload {
   max?: Date,
   dateShorthand: DateShorthand,
   isDateOutOfMaxDecadeRange: boolean,
-  dispatch: React.Dispatch<AllActions>,
+  dispatch: React.Dispatch<AllActions> | React.Dispatch<StandaloneCalendarActionTypes>,
 }
 
 export interface YearsSelectPayload {
@@ -284,20 +285,20 @@ export interface YearsSelectPayload {
   min?: Date,
   max?: Date,
   dateShorthand: DateShorthand,
-  dispatch: React.Dispatch<AllActions>,
+  dispatch: React.Dispatch<AllActions> | React.Dispatch<StandaloneCalendarActionTypes>,
 }
 
 export interface TitleClickPayload {
   viewType: DateTimeInputState['viewType'],
   isOneMonthInRange: boolean,
   isOneYearInRange: boolean,
-  dispatch: React.Dispatch<AllActions>,
+  dispatch: React.Dispatch<AllActions> | React.Dispatch<StandaloneCalendarActionTypes>,
 }
 
 export interface TodayButtonClickPayload {
   min?: Date,
   max?: Date,
-  dispatch: React.Dispatch<AllActions>,
+  dispatch: React.Dispatch<AllActions> | React.Dispatch<StandaloneCalendarActionTypes>,
   updateDate: (newDate: Date) => void,
 }
 

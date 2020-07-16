@@ -18,7 +18,10 @@ import {
 } from '../../src/DateTimeInput/handlers/handleCalendarClick';
 
 export const createClickHandler = ({
-  conditions, props, state, dispatch,
+  conditions,
+  props,
+  state,
+  dispatch,
 }: CreateChangeHandlerParams): CalendarClickHandler => (type, ev, payload) => {
   const {
     min, max, onChange, name,
@@ -30,7 +33,7 @@ export const createClickHandler = ({
 
   const updateDate = (newDate: Date): void => {
     // неконтролируемый режим
-    dispatch(setDate(newDate));
+    // dispatch(setDate(newDate));
     // контролируемый режим
     if (isFunction(onChange)) {
       onChange({

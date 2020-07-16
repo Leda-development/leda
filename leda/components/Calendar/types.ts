@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { CustomRender } from '../../commonTypes';
+import { Action, CustomRender, Values } from '../../commonTypes';
 import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { CalendarConditions } from '../../src/CalendarBase/types';
-import { AllActions, DateTimeInputState } from '../../src/DateTimeInput/types';
+import { VIEW_TYPES } from '../../src/CalendarBase/constants';
+import { stateActionTypes } from '../../src/DateTimeInput/actions';
 
 export interface ChangeEvent extends React.ChangeEvent {
   component: {
@@ -41,9 +42,17 @@ export interface CalendarRefCurrent {
   // label: HTMLLabelElement | null,
 }
 
+export type StandaloneCalendarActionTypes = Action<typeof stateActionTypes.SET_VIEW_DATE, Date>
+| Action<typeof stateActionTypes.SET_VIEW_TYPE, Values<typeof VIEW_TYPES>>;
+
+export interface StandaloneCalendarState {
+  viewDate: Date,
+  viewType: Values<typeof VIEW_TYPES>,
+}
+
 export interface CreateChangeHandlerParams {
   conditions: CalendarConditions,
   props: StandaloneCalendarProps,
-  state: DateTimeInputState,
-  dispatch: React.Dispatch<AllActions>,
+  state: StandaloneCalendarState,
+  dispatch: React.Dispatch<StandaloneCalendarActionTypes>,
 }

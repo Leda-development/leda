@@ -1,15 +1,18 @@
 import * as React from 'react';
 import { getClassNames, useProps, useTheme } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import { StandaloneCalendarProps, CalendarRefCurrent } from './types';
+import {
+  StandaloneCalendarProps, CalendarRefCurrent, StandaloneCalendarState, StandaloneCalendarActionTypes,
+} from './types';
 import { DivRefCurrent } from '../Div';
 import { CALENDAR_CLICK_ACTION, DEFAULT_DATE_FORMAT, VIEW_TYPES } from '../../src/CalendarBase/constants';
 import { TodayButton } from '../../src/CalendarBase/TodayButton';
 import { useCustomElements } from '../../src/CalendarBase/hooks';
 import { getCalendarConditions } from '../../src/CalendarBase/helpers';
 import { createClickHandler } from './handlers';
-import { stateReducer } from '../../src/DateTimeInput/reducer';
 import { CalendarBaseProps } from '../../src/CalendarBase/types';
+import { stateReducer } from './reducer';
+
 
 export const Calendar = React.forwardRef((props: StandaloneCalendarProps, ref?: React.Ref<CalendarRefCurrent>): React.ReactElement => {
   const {
@@ -33,18 +36,12 @@ export const Calendar = React.forwardRef((props: StandaloneCalendarProps, ref?: 
     return today;
   })();
 
-  // todo: remove dummies
   const initialState = {
-    date: null, // dummy
-    value: '', // dummy
-    isValid: true, // dummy
-    isFocused: false, // dummy
-    isOpen: false, // dummy
     viewDate: initialViewDate,
     viewType: VIEW_TYPES.DATES,
   };
 
-  const [state, dispatch] = React.useReducer(stateReducer, initialState);
+  const [state, dispatch] = React.useReducer<(state: StandaloneCalendarState, action: StandaloneCalendarActionTypes) => StandaloneCalendarState>(stateReducer, initialState);
 
   const { viewDate, viewType } = state;
 

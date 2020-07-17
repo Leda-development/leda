@@ -4,7 +4,6 @@ import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
   StandaloneCalendarProps, CalendarRefCurrent, StandaloneCalendarState, StandaloneCalendarActionTypes,
 } from './types';
-import { DivRefCurrent } from '../Div';
 import { CALENDAR_CLICK_ACTION, DEFAULT_DATE_FORMAT, VIEW_TYPES } from '../../src/CalendarBase/constants';
 import { TodayButton } from '../../src/CalendarBase/TodayButton';
 import { useCustomElements } from '../../src/CalendarBase/hooks';
@@ -24,8 +23,6 @@ export const Calendar = React.forwardRef((props: StandaloneCalendarProps, ref?: 
   } = useProps(props);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.calendar);
-
-  const calendarRef = React.useRef<DivRefCurrent | null>(null);
 
   const initialViewDate = (() => {
     const today = new Date();
@@ -79,7 +76,7 @@ export const Calendar = React.forwardRef((props: StandaloneCalendarProps, ref?: 
   return (
     <CalendarWrapper
       className={wrapperClassNames}
-      ref={calendarRef}
+      ref={ref}
     >
       <CalendarHeader
         conditions={conditions}

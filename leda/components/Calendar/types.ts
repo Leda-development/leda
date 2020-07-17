@@ -37,9 +37,7 @@ export interface StandaloneCalendarProps {
 }
 
 export interface CalendarRefCurrent {
-  wrapper: HTMLElement | null,
-  // input: HTMLInputElement | null,
-  // label: HTMLLabelElement | null,
+  wrapper: HTMLDivElement | null,
 }
 
 export type StandaloneCalendarActionTypes = Action<typeof stateActionTypes.SET_VIEW_DATE, Date>

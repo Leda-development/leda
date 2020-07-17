@@ -6,10 +6,9 @@ import {
 } from './types';
 import { CALENDAR_CLICK_ACTION, DEFAULT_DATE_FORMAT, VIEW_TYPES } from '../../src/CalendarBase/constants';
 import { TodayButton } from '../../src/CalendarBase/TodayButton';
-import { useCustomElements } from '../../src/CalendarBase/hooks';
+import { useCustomElements } from './hooks';
 import { getCalendarConditions } from '../../src/CalendarBase/helpers';
 import { createClickHandler } from './handlers';
-import { CalendarBaseProps } from '../../src/CalendarBase/types';
 import { stateReducer } from './reducer';
 
 
@@ -67,9 +66,7 @@ export const Calendar = React.forwardRef((props: StandaloneCalendarProps, ref?: 
     YearView,
     CalendarHeader,
     CalendarWrapper,
-  } = useCustomElements({
-    ...props,
-  } as unknown as CalendarBaseProps);
+  } = useCustomElements(props);
 
   const wrapperClassNames = getClassNames(theme.wrapper, theme.standalone);
 

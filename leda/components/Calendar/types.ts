@@ -2,9 +2,19 @@ import * as React from 'react';
 import { Action, CustomRender, Values } from '../../commonTypes';
 import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import { CalendarConditions } from '../../src/CalendarBase/types';
+import {
+  CalendarConditions,
+  CalendarHeaderProps,
+  DateCellItemProps,
+  DateCellProps,
+  DateViewProps,
+  MonthViewProps,
+  WeekRowProps,
+  YearViewProps,
+} from '../../src/CalendarBase/types';
 import { VIEW_TYPES } from '../../src/CalendarBase/constants';
 import { stateActionTypes } from '../../src/DateTimeInput/actions';
+import { DivProps } from '../Div';
 
 export interface ChangeEvent extends React.ChangeEvent {
   component: {
@@ -30,8 +40,12 @@ export interface StandaloneCalendarProps {
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.calendar],
   /** Выбранная дата в календаре */
   value?: Date,
-  /** Кастомизация враппера */
-  wrapperRender?: CustomRender<StandaloneCalendarProps, {}, Partial<StandaloneCalendarProps>>,
+  /** Кастомизация */
+  dateViewRender?: CustomRender<StandaloneCalendarProps, {}, DateViewProps>,
+  headerRender?: CustomRender<StandaloneCalendarProps, {}, CalendarHeaderProps>,
+  monthViewRender?: CustomRender<StandaloneCalendarProps, {}, MonthViewProps>,
+  wrapperRender?: CustomRender<StandaloneCalendarProps, {}, DivProps>,
+  yearViewRender?: CustomRender<StandaloneCalendarProps, {}, YearViewProps>,
   /** Классы переданные через _ */
   [x: string]: unknown,
 }

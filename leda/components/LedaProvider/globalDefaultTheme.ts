@@ -2,7 +2,7 @@ import { defaultSuggestionListTheme } from '../../src/SuggestionList/theme';
 import { defaultAutoCompleteTheme } from '../AutoComplete/theme';
 import { defaultButtonGroupTheme } from '../ButtonGroup/theme';
 import { defaultButtonTheme } from '../Button/theme';
-import { defaultTheme as defaultCalendarTheme } from '../../src/CalendarBase/theme';
+import { defaultCalendarTheme } from '../../src/CalendarBase/theme';
 import { defaultCheckBoxTheme } from '../CheckBox/theme';
 import { defaultDateTimeInputRangeTheme } from '../../src/DateTimeInputRange/theme';
 import { defaultDateTimeInputTheme } from '../../src/DateTimeInput/theme';

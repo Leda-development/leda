@@ -1,5 +1,5 @@
 /* eslint-disable key-spacing */
-export const defaultTheme = {
+export const defaultCalendarTheme = {
   dateCell:               'calendar-date-cell',
   dateCellActive:         'active',
   dateCellDayOff:         'day-off',

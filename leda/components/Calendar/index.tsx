@@ -59,7 +59,6 @@ export const Calendar = React.forwardRef((props: StandaloneCalendarProps, ref?: 
     conditions, props, state, dispatch,
   });
 
-  // todo: remove as unknown as CalendarProps
   const {
     DateView,
     MonthView,

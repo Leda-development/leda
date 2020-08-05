@@ -13,6 +13,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - DateTimePicker: date parsing errors
 - Validation: validating by validator when empty and not required
 
+## [0.23.0] - 2020-08-05
+
+### Added
+- Calendar: standalone version
+
+
 ## [0.0.6] - 2020-03-05
 
 ### Fixed

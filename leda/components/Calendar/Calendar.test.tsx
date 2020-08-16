@@ -3,7 +3,6 @@ import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Calendar } from './index';
 
-const months = [''];
 const weekdaysShortNames = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 
 describe('Calendar initial render', () => {
@@ -143,6 +142,30 @@ describe('Calendar interactions:', () => {
         expect(dateCells[0]).toHaveTextContent('28');
         expect(dateCells[34]).toHaveTextContent('1');
       });
+    });
+  });
+});
+
+describe('Calendar handlers', () => {
+  describe('onChange', () => {
+    test('should fire with correct event when a date is ckicked', () => {
+      const changeHandler = jest.fn();
+
+      const container = render((
+        <Calendar
+          value={new Date('09.14.2020')}
+          onChange={changeHandler}
+        />
+      ));
+
+      userEvent.click(container.getByText('15'));
+
+      expect(changeHandler).toBeCalledTimes(1);
+
+      const date = changeHandler.mock.calls[0][0].component.value;
+      expect(date.getDate()).toEqual(15);
+      expect(date.getMonth()).toEqual(8);
+      expect(date.getFullYear()).toEqual(2020);
     });
   });
 });

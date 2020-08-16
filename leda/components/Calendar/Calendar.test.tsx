@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Calendar } from './index';
 
 const months = [''];
@@ -81,6 +82,67 @@ describe('Calendar props', () => {
       const todayButton = container.queryByText(/^\d\d\s[а-я]+\s\d{4}$/);
 
       expect(todayButton).toBeNull();
+    });
+  });
+});
+
+describe('Calendar interactions:', () => {
+  describe('date view', () => {
+    describe('left arrow click', () => {
+      test('should switch to the previous month', () => {
+        const container = render((
+          <Calendar
+            value={new Date('09.14.2020')}
+            onChange={() => {}}
+          />
+        ));
+
+        const prevMonthButton = container.getByTitle('Предыдущий месяц');
+        let currentMonthName = container.queryByText('Сентябрь 2020');
+
+        expect(currentMonthName).not.toBeNull();
+
+        userEvent.click(prevMonthButton);
+
+        currentMonthName = container.queryByText('Сентябрь 2020');
+        expect(currentMonthName).toBeNull();
+
+        currentMonthName = container.queryByText('Август 2020');
+        expect(currentMonthName).not.toBeNull();
+
+        const dateCells = container.queryAllByText(/^\d{1,2}$/);
+        expect(dateCells).toHaveLength(42);
+        expect(dateCells[0]).toHaveTextContent('27');
+        expect(dateCells[41]).toHaveTextContent('6');
+      });
+    });
+    describe('right arrow ckick', () => {
+      test('should switch to the next month', () => {
+        const container = render((
+          <Calendar
+            value={new Date('09.14.2020')}
+            onChange={() => {}}
+          />
+        ));
+
+        const nextMonthButton = container.getByTitle('Следующий месяц');
+        let currentMonthName = container.queryByText('Сентябрь 2020');
+
+        expect(currentMonthName).not.toBeNull();
+
+        userEvent.click(nextMonthButton);
+
+        currentMonthName = container.queryByText('Сентябрь 2020');
+        expect(currentMonthName).toBeNull();
+
+        currentMonthName = container.queryByText('Октябрь 2020');
+        expect(currentMonthName).not.toBeNull();
+
+        const dateCells = container.queryAllByText(/^\d{1,2}$/);
+        expect(dateCells).toHaveLength(35);
+        expect(dateCells[0]).toHaveTextContent('28');
+        expect(dateCells[34]).toHaveTextContent('1');
+      });
     });
   });
 });

@@ -12,7 +12,6 @@
   "scripts": {
     "start": "npm run start:demo",
     "start:demo": "npm run clean:assets && npm run sass:build && npm run wds:hot",
-    "start:docs": "npm run clean:assets && npm run sass:build && npm run wds:hot:docs",
     "check": "npm run lint && npm run test && npm run tsc",
     "build": "npm run clean && npm run tsc && npm run sass",
     "lint": "eslint --color --ext .ts,.tsx leda",
@@ -24,7 +23,6 @@
     "sass:watch": "node-sass --output public/assets/css styles --watch",
     "wds": "webpack-dev-server",
     "wds:hot": "webpack-dev-server --hot",
-    "wds:hot:docs": "webpack-dev-server --hot --config webpack.docs.js",
     "webpack:analyze": "webpack --mode production --config webpack.analyze.js",
     "clean": "rimraf dist/*",
     "clean:assets": "rimraf public/assets && mkdirp public/assets",

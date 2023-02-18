@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {
-  every, isArray, isFunction, isObject, isString,
+  every, isArray, isFunction, isObject, isString, isNumber
 } from 'lodash';
 
 import {
@@ -122,7 +122,11 @@ export const getSuggestionValue = (suggestion: Suggestion, textField?: string): 
     return suggestion;
   }
 
-  if (isObject(suggestion) && textField) {
+  if (isNumber(suggestion)) {
+    return suggestion.toString();
+  }
+
+  if (typeof(textField) === 'string') {
     return suggestion[textField];
   }
 

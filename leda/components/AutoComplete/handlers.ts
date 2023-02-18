@@ -71,10 +71,9 @@ export const suggestionClickHandlerCreator = ({
   setIsFocused: SetState<boolean>,
   setHighlightedSuggestion: SetState<Suggestion>,
 }): CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget> => (event) => {
-  if (isObject(event.target.value) && textField === undefined) {
-    // todo handle error
-    return;
-  }
+  if (isObject(event.target.value)) return;
+
+  if (typeof(textField) === 'undefined') return; 
 
   const value = isObject(event.target.value)
     ? event.target.value[textField as string] as string

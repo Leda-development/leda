@@ -106,7 +106,13 @@ export const ButtonGroup = React.forwardRef((props: ButtonGroupProps, ref?: Reac
             { [theme.buttonLast]: index === data.length - 1 },
           );
 
-          const buttonText = textField && isObject(item) ? (item[textField] as React.ReactText) : item as React.ReactText;
+          const buttonText = (() => {
+            if (typeof(textField) === 'string') {
+              if (typeof(item) === 'object') return item[textField];
+            }
+
+            return item.toString();
+          })();    
 
           return (
             <Button

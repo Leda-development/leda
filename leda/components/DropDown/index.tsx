@@ -7,7 +7,7 @@ import { DropDownProps, DropDownRefCurrent, WrapperProps } from './types';
 import { Span } from '../Span';
 import { LedaContext } from '../LedaProvider';
 import { DivRefCurrent } from '../Div';
-import { Ul } from '../Ul';
+import { Ul, UlProps } from '../Ul';
 
 export const DropDown = React.forwardRef((props: DropDownProps, ref?: React.Ref<DropDownRefCurrent>): React.ReactElement => {
   const {
@@ -66,7 +66,8 @@ export const DropDown = React.forwardRef((props: DropDownProps, ref?: React.Ref<
     >
       {React.Children.map(children, (child) => {
         if (React.isValidElement(child) && child.type === Ul) {
-          return React.cloneElement(child, { ref: containerRef });
+          // todo remove ref or any
+          return React.cloneElement(child, { ref: containerRef } as any);
         }
 
         return child;

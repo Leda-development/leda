@@ -8,10 +8,10 @@ import { COMPONENTS_NAMESPACES } from '../../constants';
 import { DropZoneFilesProps } from './types';
 
 const createDownloadLink = (blob: Blob, fileName: string, theme: typeof globalDefaultTheme[typeof COMPONENTS_NAMESPACES.dropZone]): React.ReactElement => {
-  const isIE = window.navigator && window.navigator.msSaveOrOpenBlob;
+  const isIE = window.navigator && (window.navigator as Navigator & { msSaveOrOpenBlob?: any}).msSaveOrOpenBlob;
 
   const linkProps = isIE
-    ? { onClick: (): boolean => window.navigator.msSaveOrOpenBlob(blob, fileName) }
+    ? { onClick: (): boolean => (window.navigator as Navigator & { msSaveOrOpenBlob: any}).msSaveOrOpenBlob(blob, fileName) }
     : { href: URL.createObjectURL(blob), download: fileName };
 
   return (

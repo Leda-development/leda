@@ -73,6 +73,8 @@ export const useTabsScroll = ({ shouldScrollTabs, theme }: TabsScrollProps): Tab
   const onRightClick = () => {
     if (tabsContainer == null || mainElementRect == null) return;
 
+    if (tabs === undefined) return;
+
     const tabCrossingRightBorder = [...tabs].find((el) => el.getBoundingClientRect().right > mainElementRect.right);
     if (tabCrossingRightBorder == null) return;
 

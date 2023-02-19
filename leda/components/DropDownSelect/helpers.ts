@@ -64,8 +64,8 @@ export const filterData = ({
 
     if (isArray(searchFields) && textField && isObject(item)) {
       const isValueMatchingSearchFields = searchFields.some((searchField) => {
-        if (item[searchField] === undefined) return false;
-        return filterSuggestionByRule(item[searchField].toString(), filterValue ?? '', filterRule);
+        if ((item as SomeObject)[searchField] === undefined) return false;
+        return filterSuggestionByRule((item as SomeObject)[searchField].toString(), filterValue ?? '', filterRule);
       });
       return isValueMatchingTextField || isValueMatchingSearchFields;
     }

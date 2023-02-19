@@ -147,10 +147,10 @@ export const DescriptionMessage = (props: { children: string }): React.ReactElem
 export const createDownloadLink = (file: File, fileName: string | undefined, theme: typeof globalDefaultTheme[typeof COMPONENTS_NAMESPACES.fileDrop]): React.ReactElement | null => {
   if (!fileName) return null;
 
-  const isIE = !!window.navigator?.msSaveOrOpenBlob;
+  const isIE = !!(window.navigator as Navigator & { msSaveOrOpenBlob: any}).msSaveOrOpenBlob;
 
   const linkProps = isIE
-    ? { onClick: (): boolean => window.navigator.msSaveOrOpenBlob(file, fileName) }
+    ? { onClick: (): boolean => (window.navigator as Navigator & { msSaveOrOpenBlob: any}).msSaveOrOpenBlob(file, fileName) }
     : { href: URL.createObjectURL(file), download: fileName };
 
   return (

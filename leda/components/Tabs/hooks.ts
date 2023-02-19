@@ -91,6 +91,8 @@ export const useTabsScroll = ({ shouldScrollTabs, theme }: TabsScrollProps): Tab
   const onLeftClick = () => {
     if (tabsContainer == null || mainElementRect == null) return;
 
+    if (tabs === undefined) return;
+
     const tabCrossingLeftBorder = [...tabs].reverse().find((el) => el.getBoundingClientRect().left < mainElementRect.left);
     if (tabCrossingLeftBorder == null) return;
 

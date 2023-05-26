@@ -5,7 +5,7 @@ Leda is a React UI component library.
 
 ## Documentation
 
-[Click][1]
+[https://leda.codes][1]
 
 
 ## Credit

@@ -1,19 +1,16 @@
-# Reactive Leda
+# Leda
 
-Reactive Leda is a customizable UI component library with built-in forms handling and some other niceties.
+Leda is a React UI component library.
 
-Leda supports TypeScript and React@^16.8.0 (the one with hooks).
-
-![](https://github.com/kksng/leda/workflows/.github/workflows/ci.yml/badge.svg)
 
 ## Documentation
 
-All available features are documented in [Russian][1]. English version is on it's way.
+[Click][1]
 
 
 ## Credit
 
-Made by [Artem Povolskikh][2] and [Andrew Dimitrov][3] for their company with invaluable help of the company's frontend team:
+Made by [Artem Povolskikh][2] and [Andrew Dimitrov][3] with invaluable help of:
 
 - [Alexei Binetsky][6]
 - Andrey Shamin
@@ -27,6 +24,11 @@ Made by [Artem Povolskikh][2] and [Andrew Dimitrov][3] for their company with in
 - Maxim Fomin
 - [Oksana Kukushkina][5]
 - Vyacheslav Semyonov
+
+
+## License
+
+Leda is licensed under the MIT License
 
 
 [1]: https://leda.esphere.ru

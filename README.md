@@ -31,7 +31,7 @@ Made by [Artem Povolskikh][2] and [Andrew Dimitrov][3] with invaluable help of:
 Leda is licensed under the MIT License
 
 
-[1]: https://leda.esphere.ru
+[1]: https://leda.codes
 [2]: https://github.com/Apollo-11
 [3]: https://github.com/777PolarFox777
 [4]: https://github.com/roshal

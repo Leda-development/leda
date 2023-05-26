@@ -64,7 +64,8 @@ export const RadioGroup = React.forwardRef((props: RadioGroupProps, ref?: React.
             isDisabled: isBoolean(isDisabled) ? isDisabled : child.props.isDisabled,
             isChecked: child.props.value === value,
             theme: { ...theme, ...child.props.theme },
-          });
+          // todo find a better way to fix TS issue with the name property  
+          } as any);
         }
         return child;
       })}

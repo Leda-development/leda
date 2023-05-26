@@ -1,5 +1,3 @@
-import 'element-scroll-polyfill';
-
 import { formatDateTime, stringToDate } from './src/DateTimeInput/helpers';
 import {
   bindFunctionalRef,

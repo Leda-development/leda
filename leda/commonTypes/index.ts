@@ -21,7 +21,7 @@ export interface ValidatedBlurEvent<T = HTMLInputElement> extends React.FocusEve
 
 export interface DataObject { [x: string]: string | number }
 
-export interface RenderEvent<P extends {} = {}, S extends {} = {}, E extends {} = {}> {
+export interface RenderEvent<P = {}, S = {}, E = {}> {
   Element: React.ElementType,
   componentProps: P,
   componentState: S,

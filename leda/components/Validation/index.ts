@@ -3,7 +3,7 @@ const formsIdentifier: unique symbol = Symbol.for('leda/validation-forms');
 
 // attach forms to window
 // @ts-ignore
-if (!window[formsIdentifier as unknown as string]) {
+if (typeof window ==! 'undefined' && !window[formsIdentifier as unknown as string]) {
   // @ts-ignore
   window[formsIdentifier as unknown as string] = [];
 }

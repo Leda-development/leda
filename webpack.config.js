@@ -43,9 +43,10 @@ module.exports = {
     historyApiFallback: true,
     host: process.platform === 'linux' ? '0.0.0.0' : 'localhost',
     port: process.env.PORT || 9000,
-    contentBase: path.resolve('public'),
-    overlay: true,
-    watchContentBase: true,
+    static: {
+      directory: path.resolve('public'),
+    },
+    hot: true,
   },
   plugins: [
     new CircularDependencyPlugin({

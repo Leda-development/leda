@@ -85,6 +85,8 @@ export const createSelectHandler = (
 
   const newValue = (() => {
     if (isSelectAllClicked) {
+      // todo investigate if throwing an error is better
+      if (data === undefined) return [];
       if (data?.length === value.length) return [];
       return [...data];
     }

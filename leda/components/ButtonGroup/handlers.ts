@@ -51,7 +51,7 @@ export const createResetHandler = ({
   value,
 }: {
   props: ButtonGroupProps,
-  setUncontrolledValue: SetState<Value | Value[]>,
+  setUncontrolledValue: SetState<Value | Value[] | undefined>,
   value?: Value | Value[],
 }) => () => {
   setUncontrolledValue({

@@ -10,7 +10,7 @@ export const getText = (suggestion?: string | number | SomeObject | null, textFi
 
   if (!textField) return suggestion.toString();
 
-  return isObject(suggestion) ? (suggestion[textField] as string | number | undefined || '').toString() : suggestion.toString();
+  return isObject(suggestion) ? ((suggestion as SomeObject)[textField] as string | number | undefined || '').toString() : suggestion.toString();
 };
 
 export const scrollToSuggestion = (

@@ -12,7 +12,7 @@ export const recursiveReactChildrenMap = (children: React.ReactNode, fn: Recursi
   const nextChild = child.props.children
     ? React.cloneElement(child, {
       children: recursiveReactChildrenMap(child.props.children, fn),
-    })
+    } as any)
     : child;
 
   return fn(nextChild);

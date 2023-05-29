@@ -31,6 +31,7 @@
   "dependencies": {
     "attr-accept": "2.1.0",
     "classnames": "2.2.6",
+    "feather-icons-react": "0.6.2",
     "lodash": "4.17.15",
     "react-dropzone": "10.2.2",
     "react-slider": "1.0.1",

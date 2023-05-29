@@ -4,7 +4,7 @@ import * as React from 'react';
 import * as L from '../leda';
 import {
   AutoComplete, ButtonGroup, Calendar, CheckBox, DatePicker, DateRange,
-  DropDown, DropDownSelect, Input, A, LedaProvider, Loader, MaskedInput, Modal,
+  DropDown, DropDownSelect, Input, Icon, A, LedaProvider, Loader, MaskedInput, Modal,
   MultiSelect, Notifications, NumericRange, NumericTextBox, Password,
   Pagination, Radio, ProgressBar, Slider, StatusBar, StickyPanel, Switcher,
   Tabs, Tags, DropZone, Textarea, DateTimePicker, TimePicker,
@@ -47,6 +47,7 @@ export const Demo = hot(() => (
       <FileDrop />
       <FileUpload />
       <Input />
+      <Icon />
       <LedaProvider />
       <Loader />
       <MaskedInput />

@@ -49,6 +49,7 @@ import {
   Header, H1, H2, H3, H4, H5, H6,
 } from './components/Headers';
 import { I } from './components/I';
+import { Icon } from './components/Icon';
 import { Img } from './components/Img';
 import { Input } from './components/Input';
 import { Label } from './components/Label';
@@ -109,6 +110,7 @@ import * as DropZoneTypes from './components/DropZone/types';
 import * as FileDropTypes from './components/FileDrop/types';
 import * as DivTypes from './components/Div';
 import * as FileUploadTypes from './components/FileUpload/types';
+import * as IconTypes from './components/Icon/types';
 import * as InputTypes from './components/Input/types';
 import * as MaskedInputTypes from './components/MaskedInput/types';
 import * as MultiSelectTypes from './components/MultiSelect/types';
@@ -165,6 +167,7 @@ export {
   FileDropTypes,
   DivTypes,
   FileUploadTypes,
+  IconTypes,
   InputTypes,
   MaskedInputTypes,
   MultiSelectTypes,
@@ -222,6 +225,7 @@ export {
   FileUpload,
   Header, H1, H2, H3, H4, H5, H6,
   I,
+  Icon,
   Img,
   Input,
   Label,

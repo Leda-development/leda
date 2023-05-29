@@ -20,6 +20,7 @@ export { DropZone } from './DropZone';
 export { FileDrop } from './FileDrop';
 export { FileUpload } from './FileUpload';
 export { Input } from './Input';
+export { Icon } from './Icon';
 export { HTMLTags } from './HTMLTags';
 export { LedaProvider } from './LedaProvider';
 export { Loader } from './Loader';

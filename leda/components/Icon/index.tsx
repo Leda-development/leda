@@ -5,9 +5,9 @@ import { useProps } from '../../utils';
 
 export const Icon = (props: IconProps): React.ReactElement | null => {
   const {
-    size,
+    size = 24,
     shouldRender,
-    stroke,
+    stroke = 'currentColor',
     ...restProps
   } = useProps(props);
 
@@ -15,8 +15,8 @@ export const Icon = (props: IconProps): React.ReactElement | null => {
 
   return (
     <FeatherIcon
-      size={size || 24}
-      stroke={stroke || 'currentColor'}
+      size={size}
+      stroke={stroke}
       {...restProps}
     />
   );

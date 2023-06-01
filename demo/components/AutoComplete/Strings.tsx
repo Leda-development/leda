@@ -27,13 +27,12 @@ export const Strings = (componentProps: any) => {
           'Budapest',
           'Ottawa',
           'Moscow',
-          'kljljl'
         ]}
         value={value}
         invalidMessage="invalidMessage"
         requiredMessage="requiredMessage"
-        minSearchLength={1}
-        isOpen
+        shouldCorrectValue
+        minSearchLength={3}
         onChange={(ev) => {
           setValue(ev.component.value);
           update('Change', ev);
@@ -48,7 +47,16 @@ export const Strings = (componentProps: any) => {
           update('Blur', ev);
         }}
         isRequired
-        noSuggestionsNode='Nothing found'
+        noSuggestionsNode={<>
+          Nothing found
+          <L.Icon
+            icon={L.IconTypes.Icons.Frown}
+            size={18}
+            strokeWidth={1}
+            _margin-left
+          />
+        </>}
+        isOpen
         _width30
         {...props}
       />

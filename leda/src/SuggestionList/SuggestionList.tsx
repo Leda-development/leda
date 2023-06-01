@@ -24,6 +24,7 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
     isOpen,
     itemRender,
     listRender,
+    noSuggestionsNode,
     noSuggestionsRender,
     onClick,
     placeholder,
@@ -152,7 +153,7 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
   if (!data?.length) {
     return (
       <Div className={theme.container} onMouseDown={(ev) => ev.preventDefault()} ref={wrapperRef}>
-        <NoSuggestionsComponent className={theme.noSuggestions} />
+        <NoSuggestionsComponent className={theme.noSuggestions} noSuggestionsNode={noSuggestionsNode} />
       </Div>
     );
   }

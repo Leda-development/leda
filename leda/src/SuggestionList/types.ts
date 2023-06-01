@@ -30,6 +30,7 @@ export interface SuggestionListProps {
   isOpen: boolean,
   itemRender?: CustomRender<SuggestionItemProps, {}, SuggestionElementProps>,
   listRender?: CustomRender<SuggestionListProps, {}, UlProps>,
+  noSuggestionsNode?: React.ReactNode,
   noSuggestionsRender?: CustomRender<SuggestionListProps, {}, NoSuggestionsProps>,
   onClick?: CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget>,
   placeholder?: string,
@@ -67,6 +68,7 @@ export interface SuggestionItemProps {
 }
 
 export interface NoSuggestionsProps {
+  noSuggestionsNode?: React.ReactNode,
   className?: string,
 }
 

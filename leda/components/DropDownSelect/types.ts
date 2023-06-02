@@ -74,7 +74,7 @@ export interface DropDownSelectProps<T extends Value = Value> extends Validation
   itemRender?: SuggestionListProps['itemRender'],
   listRender?: SuggestionListProps['listRender'],
   /** This will be shown when no suggestions are found */
-  noSuggestionsNode?: React.ReactNode,
+  noSuggestionsText?: React.ReactNode,
   noSuggestionsRender?: SuggestionListProps['noSuggestionsRender'],
   onBlur?: CustomEventHandler<BlurEvent<T>>,
   onChange?: CustomEventHandler<ChangeEvent<T>>,

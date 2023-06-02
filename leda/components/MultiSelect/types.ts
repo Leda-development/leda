@@ -119,7 +119,7 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   /** Имя компонента */
   name?: string,
   /** This will be shown when no suggestions are found */
-  noSuggestionsNode?: React.ReactNode,
+  noSuggestionsText?: React.ReactNode,
   /** Атрибут рендера выпадающего списка, если в data нет значений, равных содержимому инпута. Принимает JSX */
   noSuggestionsRender?: any,
   /** Обработчик события потери фокуса */

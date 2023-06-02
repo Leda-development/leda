@@ -55,7 +55,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     maxSelected,
     maxTags,
     name,
-    noSuggestionsNode,
+    noSuggestionsText,
     noSuggestionsRender,
     onBlur,
     onChange,
@@ -315,7 +315,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
           isOpen={isNil(isOpen) ? isFocused : isOpen}
           itemRender={hasCheckBoxes ? checkBoxesRender : itemRender}
           listRender={listRender}
-          noSuggestionsNode={noSuggestionsNode}
+          noSuggestionsText={noSuggestionsText}
           noSuggestionsRender={noSuggestionsRender}
           onClick={handleSelect}
           selectAllItemRender={selectAllItemRender}

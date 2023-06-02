@@ -47,7 +47,7 @@ export const Strings = (componentProps: any) => {
           update('Blur', ev);
         }}
         isRequired
-        noSuggestionsNode={<>
+        noSuggestionsText={<>
           Nothing found
           <L.Icon
             icon={L.IconTypes.Icons.Frown}

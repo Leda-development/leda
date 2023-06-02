@@ -57,7 +57,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     listRender,
     minSearchLength,
     name,
-    noSuggestionsNode,
+    noSuggestionsText,
     noSuggestionsRender,
     onBlur,
     onChange,
@@ -241,7 +241,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
         isOpen={isSuggestionsListOpen}
         itemRender={itemRender}
         listRender={listRender}
-        noSuggestionsNode={noSuggestionsNode}
+        noSuggestionsText={noSuggestionsText}
         noSuggestionsRender={noSuggestionsRender}
         onClick={suggestionClickHandler}
         placeholder={placeholder}

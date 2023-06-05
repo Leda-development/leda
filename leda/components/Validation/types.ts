@@ -82,8 +82,8 @@ export interface InvalidMessageProps {
 }
 
 export type PredefinedValidator =
-  | 'creditCardNumber'
   | 'cadastralNumber'
+  | 'creditCardNumber'
   | 'email'
   | 'inn'
   | 'innCorp'

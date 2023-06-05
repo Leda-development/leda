@@ -10,7 +10,7 @@ import { COMPONENTS_NAMESPACES } from '../../constants';
 export const Currency = React.forwardRef((props: CurrencyProps, ref?: React.Ref<CurrencyRefCurrent>) => {
   const {
     children,
-    currencyCode = 'RUB',
+    currencyCode = 'USD',
     currencySymbolRender,
     placeholder: placeholderProp,
     shouldTrimFraction,

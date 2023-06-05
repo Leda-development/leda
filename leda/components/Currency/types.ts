@@ -2,25 +2,25 @@ import * as React from 'react';
 import { CustomRender } from '../../commonTypes';
 
 export interface CurrencyProps {
-  /** значение, как потомок */
+  /** You can pass the value as a child element */
   children?: number | string,
-  /** Валюта в формате ISO 4217 - EUR, USD, RUB etc, по-умолчанию RUB */
+  /** Currency code ISO 4217 - EUR, USD, etc, USD by default */
   currencyCode?: string,
-  /** Кастомный рендер знака валюты (для добавления единиц измерения, например) */
+  /** Currency code customizator */
   currencySymbolRender?: CustomRender<CurrencyProps, {}, CurrencySymbolProps>,
-  /** что отображать, если нет значения */
+  /** Show if no value is present */
   placeholder?: string,
-  /** кол-во знаков после запятой */
+  /** Number of digits in the fractional part */
   precision?: number,
-  /** Реф */
+  /** Ref */
   ref?: React.Ref<CurrencyRefCurrent>,
-  /** Убирает дробную часть для целых чисел, игнорируя precision */
+  /** Removes the fractional part regardless of the precision value */
   shouldTrimFraction?: boolean,
-  /** значение поля */
+  /** Value */
   value?: number | string,
-  /** Кастомизация враппера (по-умолчанию span) */
+  /** Wrapper customizator */
   wrapperRender?: CustomRender<CurrencyProps, {}, WrapperProps>,
-  /** Классы переданные через _ */
+  /** Underscore classes */
   [x: string]: unknown,
 }
 

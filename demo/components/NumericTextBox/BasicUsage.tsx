@@ -18,8 +18,8 @@ export const BasicUsage = (args: any) => {
         max={20000000000000}
         min={-100000000000}
         step={1}
-        invalidMessage="Число не должно быть отрицательным!"
-        requiredMessage="Обязательное поле!"
+        invalidMessage="No negative numbers plz"
+        requiredMessage="Required"
         onChange={ev => {
           update('Change', ev);
           console.log('Change ev.component.value', ev.component.value);
@@ -36,9 +36,9 @@ export const BasicUsage = (args: any) => {
         placeholder="Gimme ur number!"
         inputRender={({ Element, elementProps }) => (
           <>
-            <L.Span _numericTextBoxPrefix>от</L.Span>
+            <L.Span _numericTextBoxPrefix>from</L.Span>
             <Element {...elementProps} />
-            <L.Span _numericTextBoxSuffix>Рублей</L.Span>
+            <L.Span _numericTextBoxSuffix>Dollars</L.Span>
           </>
         )}
         _width30
@@ -63,7 +63,7 @@ export const BasicUsage = (args: any) => {
       <StateButtonGroup
         data={[
           { text: 'Icon right', props: { ...props, suffixRender: ({ elementProps }: any) => (<L.I {...elementProps} _iSearch />) } },
-          { text: 'Text right', props: { ...props, suffixRender: ({ elementProps }: any) => <L.Span {...elementProps}>RUB</L.Span> } },
+          { text: 'Text right', props: { ...props, suffixRender: ({ elementProps }: any) => <L.Span {...elementProps}>USD</L.Span> } },
         ]}
         setProps={setProps}
       />

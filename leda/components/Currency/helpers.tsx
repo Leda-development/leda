@@ -4,18 +4,19 @@ import { CurrencySymbolProps } from './types';
 
 export const formatNumber = (CurrencySymbol: React.FC<CurrencySymbolProps>, number: number | null, precision?: number, currencyCode?: string, sholudTrim?: boolean): React.ReactNode => {
   if (isNil(number)) return null;
-  // если нет поддержки Intl - вернем неотформатированное число
+
+  // If no Intl support the value returns unformatted
   if (!Intl && !Intl.NumberFormat) {
     return (
       <>
         `${number.toFixed(precision || 2)}`
-        <CurrencySymbol>₽</CurrencySymbol>
+        <CurrencySymbol>$</CurrencySymbol>
       </>
     );
   }
 
   const formattedString = new Intl.NumberFormat(
-    'ru-RU',
+    'us-US',
     {
       style: 'currency',
       currency: currencyCode,
@@ -41,7 +42,7 @@ export const getNumericValue = (val?: number | string | undefined): number | nul
   if (!isNil(val)) {
     if (isNumber(val)) return val;
 
-    const parsedValue = parseFloat(val.replace(/\s/g, '')); // убрать все пробелы из строки
+    const parsedValue = parseFloat(val.replace(/\s/g, '')); // remove all spaces from the string
 
     return Number.isNaN(parsedValue) ? null : parsedValue;
   }

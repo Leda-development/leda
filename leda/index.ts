@@ -28,7 +28,7 @@ import { CheckBox } from './components/CheckBox';
 import { Collapse } from './components/Collapse';
 import { Collapsible } from './components/Collapsible';
 import {
-  Currency, RUB, EUR, USD,
+  Currency, EUR, USD,
 } from './components/Currency';
 import { DatePicker } from './components/DatePicker';
 import { DateRange } from './components/DateRange';
@@ -203,7 +203,6 @@ export {
   Collapse,
   Collapsible,
   Currency,
-  RUB,
   EUR,
   USD,
   DatePicker,

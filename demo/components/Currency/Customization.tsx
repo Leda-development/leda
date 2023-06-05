@@ -9,9 +9,9 @@ export const Customization = (componentProps: any) => {
   return (
     <L.Div _box _inner _demoBg>
       <L.Currency
-        currencySymbolRender={({ elementProps: { children, style } }: any) => <L.Span style={style} _txtDanger>млн. {children}</L.Span>}
+        currencySymbolRender={({ elementProps: { children, style } }: any) => <L.Span style={style} _txtDanger>MM{children}</L.Span>}
         wrapperRender={({ elementProps }: any) => <L.A {...elementProps} />}
-        currencyCode="RUB"
+        currencyCode="USD"
         {...props}
       >
         12 550
@@ -20,10 +20,6 @@ export const Customization = (componentProps: any) => {
       <br />
       <StateButtonGroup
         data={[
-          {
-            text: 'Rubles',
-            props: {},
-          },
           {
             text: 'Dollars',
             props: { currencyCode: 'USD' },
@@ -46,9 +42,9 @@ export const Customization = (componentProps: any) => {
   return (
     <L.Div _box _inner _demoBg>
       <L.Currency
-        currencySymbolRender={({ elementProps: { children, style } }: any) => <L.Span style={style} _txtDanger>млн. {children}</L.Span>}
+        currencySymbolRender={({ elementProps: { children, style } }: any) => <L.Span style={style} _txtDanger>MM{children}</L.Span>}
         wrapperRender={({ elementProps }: any) => <L.A {...elementProps} />}
-        currencyCode="RUB"
+        currencyCode="USD"
         {...props}
       >
         12 550
@@ -57,10 +53,6 @@ export const Customization = (componentProps: any) => {
       <br />
       <StateButtonGroup
         data={[
-          {
-            text: 'Rubles',
-            props: {},
-          },
           {
             text: 'Dollars',
             props: { currencyCode: 'USD' },

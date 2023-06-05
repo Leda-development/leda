@@ -8,17 +8,13 @@ export const BasicUsage = (componentProps: any) => {
 
   return (
     <L.Div _box _inner _demoBg>
-      <L.Currency precision={2} currencyCode="RUB" {...props}>
+      <L.Currency precision={2} currencyCode="USD" {...props}>
         12 550
       </L.Currency>
       <br />
       <br />
       <StateButtonGroup
         data={[
-          {
-            text: 'Rubles',
-            props: {},
-          },
           {
             text: 'Dollars',
             props: { currencyCode: 'USD' },
@@ -45,7 +41,7 @@ export const BasicUsage = (componentProps: any) => {
       <L.Currency
         shouldTrimFraction={shouldTrim}
         precision={2}
-        currencyCode="RUB"
+        currencyCode="USD"
         {...props}
       >
         12 550
@@ -54,10 +50,6 @@ export const BasicUsage = (componentProps: any) => {
       <br />
       <StateButtonGroup
         data={[
-          {
-            text: 'Rubles',
-            props: {},
-          },
           {
             text: 'Dollars',
             props: { currencyCode: 'USD' },

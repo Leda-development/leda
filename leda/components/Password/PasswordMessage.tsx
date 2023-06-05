@@ -16,7 +16,7 @@ export const PasswordMessage = (props: PasswordMessageProps) => {
       <Div
         className={theme?.messageDefault}
       >
-        { passwordRules ?? 'Используйте строчные и прописные латинские буквы и цифры, не менее 8 символов' }
+        { passwordRules ?? 'Use at least 8 latin lower- and uppercase letters and numbers' }
       </Div>
     );
   }

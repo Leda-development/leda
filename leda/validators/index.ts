@@ -14,11 +14,12 @@ import {
 } from './inn';
 import { validateKpp as kpp } from './kpp';
 import { validateOkpo as okpo } from './okpo';
-import { validateBankCardNumber as bankCardNumber } from './bankCardNumber';
+import { validateCreditCardNumber as creditCardNumber } from './creditCardNumber';
 import { validatePassword as password } from './password';
 
 export const validate = {
   cadastralNumber,
+  creditCardNumber,
   email,
   url,
   inn,
@@ -31,5 +32,4 @@ export const validate = {
   password,
   postalCode,
   snils,
-  bankCardNumber,
 };

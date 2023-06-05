@@ -2,13 +2,28 @@ import { validate } from '../../validators';
 import { NormalizedValidatorObject, PredefinedValidator } from './types';
 
 export const PREDEFINED_VALIDATORS: Record<PredefinedValidator, NormalizedValidatorObject> = {
-  cadastralNumber: {
-    validator: validate.cadastralNumber,
-    invalidMessage: 'Введите кадастровый номер',
+  // Common validators
+  creditCardNumber: {
+    validator: validate.creditCardNumber,
+    invalidMessage: 'Card number is not valid'
   },
   email: {
     validator: validate.email,
-    invalidMessage: 'Введите e-mail',
+    invalidMessage: 'E-mail is not valid',
+  },
+  password: {
+    validator: validate.password,
+    invalidMessage: 'Use at least 8 latin lowercase and uppercase letters and numbers',
+  },
+  url: {
+    validator: validate.url,
+    invalidMessage: 'Url is not valid',
+  },
+
+  // Russia specific validators  
+  cadastralNumber: {
+    validator: validate.cadastralNumber,
+    invalidMessage: 'Введите кадастровый номер',
   },
   inn: {
     validator: validate.inn,
@@ -22,10 +37,6 @@ export const PREDEFINED_VALIDATORS: Record<PredefinedValidator, NormalizedValida
     validator: validate.innPrivate,
     invalidMessage: 'Введите ИНН физического лица',
   },
-  password: {
-    validator: validate.password,
-    invalidMessage: 'Use at least 8 latin lowercase and uppercase letters and numbers',
-  },
   postalCode: {
     validator: validate.postalCode,
     invalidMessage: 'Введите почтовый индекс',
@@ -33,10 +44,6 @@ export const PREDEFINED_VALIDATORS: Record<PredefinedValidator, NormalizedValida
   snils: {
     validator: validate.snils,
     invalidMessage: 'Введите СНИЛС',
-  },
-  url: {
-    validator: validate.url,
-    invalidMessage: 'Введите URL',
   },
   ogrn: {
     validator: validate.ogrn,

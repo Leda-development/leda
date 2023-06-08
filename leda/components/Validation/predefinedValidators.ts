@@ -24,7 +24,7 @@ export const PREDEFINED_VALIDATORS: Record<PredefinedValidator, NormalizedValida
   },
   password: {
     validator: validate.password,
-    invalidMessage: 'Пароль должен содержать не менее 8-и символов, латинские строчные, прописные буквы и цифры',
+    invalidMessage: 'Use at least 8 latin lowercase and uppercase letters and numbers',
   },
   postalCode: {
     validator: validate.postalCode,

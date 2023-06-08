@@ -63,49 +63,49 @@ export interface PasswordEvaluator {
 }
 
 export interface PasswordProps extends ValidationProps {
-  /** Позволяет вводить в поле ввода только символы, удовлеторвяющие RegExp или из списка предопределённых */
+  /** Allows typing either predefined symbols or what is defined in your RegExp */
   allowedSymbols?: PredefinedAllowedSymbols | RegExp,
-  /** Значение по умолчанию */
+  /** Default value */
   defaultValue?: string | null,
-  /** Запрещает вводить в инпут символы, удовлеторвяющие RegExp или из списка предопределённых */
+  /** Forbids typing either predefined symbols or what is defined in your RegExp */
   forbiddenSymbols?: PredefinedForbiddenSymbols | RegExp,
-  /** Отображение кнопки очистки в инпуте */
+  /** Whether or not to show a clear button inside the input element. Default is false */
   hasClearButton?: boolean,
-  /** Отключенное состояние инпута */
+  /** In case you need to disable it */
   isDisabled?: boolean,
-  /** Рендер инпута */
+  /** Input element customizator */
   inputRender?: CustomRender<PasswordProps, PasswordState, React.InputHTMLAttributes<HTMLInputElement>>,
-  /** Переводит все вводимые буквы в верхний или нижний регистр */
+  /** Bring all characters into the selected case */
   letterCase?: 'lower' | 'upper',
-  /** Максимальная длина введенного значения */
+  /** Max length */
   maxLength?: number,
-  /** Минимальное количество символов, с которого производится оценка сложности пароля */
+  /** Minimal number of symbols to start evaluating password complexity */
   minPasswordEvaluationLength?: number,
-  /** Имя компонента, используется в валидации и для сохранения данных из формы */
+  /** Component name when used in forms */
   name?: string,
-  /** Обработчик блюра */
+  /** Blur handler */
   onBlur?: (ev: BlurEvent) => void,
-  /** Обработчик изменения */
+  /** Change handler */
   onChange?: (ev: ChangeEvent) => void,
-  /** Обработчик нажатия Enter */
+  /** Enter press handler */
   onEnterPress?: (ev: EnterPressEvent) => void,
-  /** Обработчик фокуса */
+  /** Focus handler */
   onFocus?: (ev: FocusEvent) => void,
-  /** Правила для оценки сложности пароля */
+  /** Rules to evaluate the password */
   passwordEvaluators?: PasswordEvaluator[],
-  /** Правила для пароля */
+  /** Password rules description shown initially */
   passwordRules?: string,
-  /** Кастомизация иконки видимости пароля */
+  /** Visibility icon customizator */
   passwordVisibilityRender?: CustomRender<PasswordProps, PasswordState, PasswordVisibilityIconProps>,
-  /** Реф */
+  /** Ref */
   ref?: React.Ref<PasswordRefCurrent>,
-  /** Тема компонента */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.password],
-  /** Значение для инпута */
+  /** Value */
   value?: string | null,
-  /** Рендер враппера */
+  /** Wrapper customizator */
   wrapperRender?: CustomRender<PasswordProps, PasswordState, DivProps>,
-  /** Классы переданные через _ */
+  /** Underscore css classes */
   [x: string]: unknown,
 }
 

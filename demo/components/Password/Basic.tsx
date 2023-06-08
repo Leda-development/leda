@@ -14,34 +14,43 @@ export const Basic = (componentProps: any) => {
     <L.Div _box _inner _demoBg>
       <L.Password
         minPasswordEvaluationLength={5}
-        passwordRules="Задайте хороший пароль"
+        passwordRules="Set strong password"
         passwordEvaluators={[
           {
             strengthLevel: PasswordStrength.Low,
-            evaluator: () => true,
-            evaluationMessage: 'Пароль слабоват',
-          },
-          {
-            strengthLevel: PasswordStrength.Medium,
-            evaluator: (password) => {
-              if (L.validate.password(password)) return true;
-              return false;
-            },
-            evaluationMessage: 'Пароль норм',
-          },
-          {
-            strengthLevel: PasswordStrength.Strong,
             evaluator: (password) => {
               if (
-                L.validate.password(password)
-                && password.length > 12
-                && /[!@#$%*]/.test(password)
+              password.length > 12
               ) {
                 return true;
               }
               return false;
             },
-            evaluationMessage: 'Пароль огонь',
+            evaluationMessage: 'Weak password',
+          },
+          {
+            strengthLevel: PasswordStrength.Medium,
+            evaluator: (password) => {
+              if (
+                password.length > 12
+              ) {
+                return true;
+              }
+              return false;
+            },
+            evaluationMessage: 'Not so good password',
+          },
+          {
+            strengthLevel: PasswordStrength.Strong,
+            evaluator: (password) => {
+              if (
+                /[!@#$%*]/.test(password)
+              ) {
+                return true;
+              }
+              return false;
+            },
+            evaluationMessage: 'Strong password',
           },
         ]}
         name="Password"
@@ -65,7 +74,7 @@ export const Basic = (componentProps: any) => {
           update('Blur', ev);
         }}
         isRequired
-        requiredMessage="Пароль обязателен!"
+        requiredMessage="Required"
         validator="password"
         _width30
         {...props}

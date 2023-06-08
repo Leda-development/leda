@@ -20,7 +20,7 @@ export const Controlled = (some: any): React.ReactElement => {
         placeholderChar="*"
         isRequired
         data-test="maskedinput"
-        requiredMessage="Обязательное поле!"
+        requiredMessage="Required"
         onChange={ev => {
           setValue(ev.component.value);
           update('Change', ev);
@@ -72,7 +72,7 @@ export const Controlled = (some: any): React.ReactElement => {
       <StateButtonGroup
         data={[
           { text: 'Icon left', props: { ...props, prefixRender: () => (<L.I _icon20 _iSearch />) } },
-          { text: 'Text left', props: { ...props, prefixRender: () => 'от' } },
+          { text: 'Text left', props: { ...props, prefixRender: () => 'from' } },
         ]}
         setProps={setProps}
       />
@@ -80,7 +80,7 @@ export const Controlled = (some: any): React.ReactElement => {
       <StateButtonGroup
         data={[
           { text: 'Icon right', props: { ...props, suffixRender: () => (<L.I _icon20 _iSearch />) } },
-          { text: 'Text right', props: { ...props, suffixRender: () => 'RUB' } },
+          { text: 'Text right', props: { ...props, suffixRender: () => 'USD' } },
         ]}
         setProps={setProps}
       />

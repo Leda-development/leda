@@ -48,7 +48,7 @@ export const Customization = (attrs: any) => {
       <StateButtonGroup
         data={[
           { text: 'Icon right', props: { ...props, inputRender: ({ Element, elementProps }: any) => (<><Element {...elementProps} /><L.I _icon20 _iSearch /></>) } },
-          { text: 'Text right', props: { ...props, inputRender: ({ Element, elementProps }: any) => <><Element {...elementProps} /> RUB</> } },
+          { text: 'Text right', props: { ...props, inputRender: ({ Element, elementProps }: any) => <><Element {...elementProps} /> USD</> } },
         ]}
         setProps={setProps}
       />

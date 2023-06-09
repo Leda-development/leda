@@ -47,6 +47,16 @@ export const Strings = (componentProps: any) => {
           update('Blur', ev);
         }}
         isRequired
+        noSuggestionsText={<>
+          Nothing found
+          <L.Icon
+            icon={L.IconTypes.Icons.Frown}
+            size={18}
+            strokeWidth={1}
+            _margin-left
+          />
+        </>}
+        isOpen
         _width30
         {...props}
       />

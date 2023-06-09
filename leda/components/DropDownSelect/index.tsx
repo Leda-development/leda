@@ -50,6 +50,7 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
     itemRender,
     listRender,
     name,
+    noSuggestionsText,
     noSuggestionsRender,
     onBlur,
     onChange,
@@ -209,6 +210,7 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
         isOpen={isDisabled ? false : isOpen}
         itemRender={itemRender}
         listRender={listRender}
+        noSuggestionsText={noSuggestionsText}
         noSuggestionsRender={noSuggestionsRender}
         onClick={handleChange}
         placeholder={placeholder}

@@ -130,6 +130,8 @@ export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends Va
   minSearchLength?: number,
   /** Имя поля ввода */
   name?: string,
+  /** This will be shown when no suggestions are found */
+  noSuggestionsText?: React.ReactNode,
   /** Принимает JSX */
   noSuggestionsRender?: SuggestionListProps['noSuggestionsRender'],
   /** Обработчик события потери фокуса */

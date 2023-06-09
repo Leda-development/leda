@@ -23,6 +23,18 @@ export const PredefinedValidator = (props: StoryProps) => {
         <L.Div _inner>
           <L.Input
             form="form1"
+            name="creditCardNumber"
+            validator="creditCardNumber"
+            placeholder="creditCardNumber"
+          />
+          <br />
+          <L.Span _txtGray>
+            6250941006528599 (China union pay)
+          </L.Span>
+        </L.Div>
+        <L.Div _inner>
+          <L.Input
+            form="form1"
             name="email"
             validator="email"
             placeholder="email"

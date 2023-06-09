@@ -40,7 +40,7 @@ const checkIsCardNumberPassesLuhnAlgorithm = (cardNumWithoutSpaces: string): boo
   return getIsDividedByTen(total);
 };
 
-export const validateBankCardNumber = (cardNum: string): boolean => {
+export const validateCreditCardNumber = (cardNum: string): boolean => {
   const cardNumWithoutSpaces = cardNum.replace(/\s/g, '');
   if (containsCertainQuantityOfDigits.test(cardNumWithoutSpaces)) {
     return checkIsCardNumberPassesLuhnAlgorithm(cardNumWithoutSpaces);

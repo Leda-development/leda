@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - NoSuggestions: default text changed to english
 - Password: change default text to english
-- common validators: change defult text to english
+- common validators: change default text to english
 
 ### Removed
 - RUB as default currency (replaced to USD)

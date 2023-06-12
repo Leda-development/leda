@@ -5,6 +5,7 @@ import {
 } from '../../utils';
 import { createClickHandler } from './handlers';
 import { ButtonProps, ButtonRefCurrent } from './types';
+import { Icon, IconTypes } from '../../';
 
 // как настраивать кнопку для валидации ввода: ../Validation/validation.md
 export const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<ButtonRefCurrent>): React.ReactElement | null => {
@@ -28,7 +29,7 @@ export const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<Butto
 
   if (shouldRender === false) return null;
 
-  const { disabled, loading, wrapper } = theme;
+  const { disabled, loading, loadingIcon, wrapper } = theme;
 
   const handleClick = createClickHandler(props);
 
@@ -49,6 +50,12 @@ export const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<Butto
         wrapper: component,
       }))}
     >
+      {isLoading && (
+        <Icon
+          icon={IconTypes.Icons.Loader}
+          className={loadingIcon}
+        />
+      )}
       {children}
     </button>
   );

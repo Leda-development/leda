@@ -1,0 +1,44 @@
+// Theme
+// button:                     'ld__button-group-item',
+// buttonActive:               'active',
+// buttonFirst:                'first',
+// buttonLast:                 'last',
+// wrapperDisabled:            'disabled',
+// wrapperRequired:            'required',
+// buttonsWrapper:             'ld__button-group-buttons-wrapper',
+// wrapper:                    'ld__button-group-wrapper',
+
+.ld__button-group-buttons-wrapper {
+  &.disabled {
+    filter: opacity(50%);
+
+    .ld__button-group-item {
+      &:hover {
+        background-color: var(--btn-bg-color);
+        border-color: var(--btn-border-color);
+        cursor: not-allowed;
+      }
+      &.active:hover {
+        background-color: var(--btn-group-active-color);
+        border-color: var(--btn-group-active-color);
+      }
+    }
+  }
+}
+
+.ld__button-group-item {
+  border-radius: 0;
+
+  &.first {
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+  }
+
+  &.last {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  }
+
+  &.active {
+    background-color: var(--btn-group-active-color);
+    border-color: var(--btn-group-active-color);
+  }
+}

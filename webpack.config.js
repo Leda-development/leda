@@ -90,6 +90,7 @@ module.exports = {
             id: 'leda-css',
           }
         },
+        'assets/css/leda.base.css',
       ],
     }),
     new ScriptExtHtmlWebpackPlugin({

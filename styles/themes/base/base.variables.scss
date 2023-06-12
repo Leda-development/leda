@@ -1,0 +1,25 @@
+:root {
+  --main-color: hsl(352, 94%, 40%);
+  --main-color-dark: hsl(352, 94%, 30%);
+  --main-color-light: hsl(352, 94%, 50%);
+  --main-color-contrast: white;
+  --border-radius: 4px;
+  --font-size: 1.25rem;
+  --line-height: 2.5rem;
+  --font-weight: 800;
+
+
+  --btn-padding-block: .5rem;
+  --btn-padding-inline: 3rem; 
+  --btn-min-width: 10rem;
+  --btn-text-color: var(--main-color-contrast);
+  --btn-border-width: 2px;
+  --btn-border-color: var(--main-color);
+  --btn-bg-color: var(--main-color);
+  
+  --btn-text-color-hover: var(--main-color-contrast);
+  --btn-border-color-hover: var(--main-color-light);
+  --btn-bg-color-hover: var(--main-color-light);
+
+  --btn-group-active-color: var(--main-color-dark);
+}

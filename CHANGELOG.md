@@ -6,7 +6,26 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [0.26.0] - 2020-03-12
+## [0.27.0] - 2023-06-12
+
+### Added
+- validators: creditCardNumber
+- CSS base theme for Button and ButtonGroup
+- Icon: add types declaration
+- Autocomplete, DropDownSelect, Multiselect: new prop noSuggestionsText
+
+### Changed
+- NoSuggestions: default text changed to english
+- Password: change default text to english
+- common validators: change defult text to english
+
+### Removed
+- RUB as default currency (replaced to USD)
+
+
+
+## [0.26.0] - 2023-06-01
+
 ### Added
 - Icons: new component based on FeatherIcons
 
@@ -22,18 +41,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Calendar: standalone version
 
-
 ## [0.0.6] - 2020-03-05
 
 ### Fixed
 - StatusBar: typeField prop
 
-
 ## [0.0.5] - 2020-03-03
 
 ### Fixed
 - Tooltip: flickering on component mount
-
 
 ## [0.0.4] - 2020-02-28
 

@@ -4,7 +4,6 @@ export const defaultButtonTheme = {
   disabled:                 'disabled',
   loading:                  'loading',
   loadingIcon:              'loading-icon',
-  wrapper:                  'button-wrapper',
-  // wrapper:                  'ld__btn',
+  wrapper:                  'ld-btn',
 };
 /* eslint-enable key-spacing */

@@ -1,20 +1,20 @@
 // Theme
 // disabled:                 'disabled',
 // loading:                  'loading',
-// wrapper:                  'ld__button-wrapper',
+// wrapper:                  'ld-btn',
 
-.ld__btn {
+.ld-btn {
   display: inline-block;
-  color: var(--btn-text-color);
-  background-color: var(--btn-bg-color);
-  border-radius: var(--border-radius);
-  border: var(--btn-border-width) solid var(--btn-border-color);
-  font-size: var(--font-size);
-  font-weight: var(--font-weight);
-  padding-block: var(--btn-padding-block);
-  padding-inline: var(--btn-padding-inline);
-  line-height: var(--line-height);
-  min-width: var(--btn-min-width);
+  color: var(--ld-btn-text-color);
+  background-color: var(--ld-btn-bg-color);
+  border-radius: var(--ld-btn-border-radius);
+  border: var(--ld-btn-border-width) solid var(--ld-btn-border-color);
+  font-size: var(--ld-btn-font-size);
+  font-weight: var(--ld-btn-font-weight);
+  padding-block: var(--ld-btn-padding-block);
+  padding-inline: var(--ld-btn-padding-inline);
+  line-height: var(--ld-btn-line-height);
+  min-width: var(--ld-btn-min-width);
   cursor: pointer;
   transition: color .15s ease-in-out,
     background-color .15s ease-in-out,
@@ -22,16 +22,16 @@
   position: relative;
 
   &:hover {
-    background-color: var(--btn-bg-color-hover);
-    border-color: var(--btn-border-color-hover);
+    background-color: var(--ld-btn-bg-color-hover);
+    border-color: var(--ld-btn-border-color-hover);
   }
 
   &.disabled {
     filter: opacity(50%);
     cursor: not-allowed;
     &:hover {
-      background-color: var(--btn-bg-color);
-      border-color: var(--btn-border-color);
+      background-color: var(--ld-btn-bg-color);
+      border-color: var(--ld-btn-border-color);
     }
   }
 
@@ -39,8 +39,8 @@
     filter: opacity(90%);
     cursor: progress;
     &:hover {
-      background-color: var(--btn-bg-color);
-      border-color: var(--btn-bg-color);
+      background-color: var(--ld-btn-bg-color);
+      border-color: var(--ld-btn-bg-color);
     }
   }
 
@@ -48,10 +48,10 @@
     position: absolute;
     display: block;
     color: currentColor;
-    width: var(--font-size);
-    height: var(--font-size);
-    left: calc(var(--btn-padding-inline)/2 - var(--font-size)/2);
-    top: calc(var(--btn-padding-block) + var(--line-height)/2 - var(--font-size)/2);
+    width: var(--ld-btn-font-size);
+    height: var(--ld-btn-font-size);
+    left: calc(var(--ld-btn-padding-inline)/2 - var(--ld-font-size)/2);
+    top: calc(var(--ld-btn-padding-block) + var(--ld-btn-line-height)/2 - var(--ld-btn-font-size)/2);
     animation: cog 2s linear infinite;
   }
 }

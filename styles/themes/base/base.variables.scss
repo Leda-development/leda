@@ -1,25 +1,29 @@
 :root {
-  --main-color: hsl(352, 94%, 40%);
-  --main-color-dark: hsl(352, 94%, 30%);
-  --main-color-light: hsl(352, 94%, 50%);
-  --main-color-contrast: white;
-  --border-radius: 4px;
-  --font-size: 1.25rem;
-  --line-height: 2.5rem;
-  --font-weight: 800;
+  --ld-main-color: #365314; // tailwind lime
+  --ld-main-color-dark: #1a2e05; // tailwind lime
+  --ld-main-color-light: #3f6212; // tailwind lime
+  --ld-main-color-contrast: white;
+  --ld-border-radius: 4px;
+  --ld-font-size: 1rem;
+  --ld-line-height: 1.75rem;
+  --ld-font-weight: 800;
 
 
-  --btn-padding-block: .5rem;
-  --btn-padding-inline: 3rem; 
-  --btn-min-width: 10rem;
-  --btn-text-color: var(--main-color-contrast);
-  --btn-border-width: 2px;
-  --btn-border-color: var(--main-color);
-  --btn-bg-color: var(--main-color);
+  --ld-btn-font-size: var(--ld-font-size);
+  --ld-btn-font-weight: var(--ld-font-weight);
+  --ld-btn-border-radius: var(--ld-border-radius);
+  --ld-btn-padding-block: .5rem;
+  --ld-btn-padding-inline: 3rem; 
+  --ld-btn-min-width: 10rem;
+  --ld-btn-line-height: var(--ld-line-height);
+  --ld-btn-text-color: var(--ld-main-color-contrast);
+  --ld-btn-border-width: 2px;
+  --ld-btn-border-color: var(--ld-main-color);
+  --ld-btn-bg-color: var(--ld-main-color);
   
-  --btn-text-color-hover: var(--main-color-contrast);
-  --btn-border-color-hover: var(--main-color-light);
-  --btn-bg-color-hover: var(--main-color-light);
+  --ld-btn-text-color-hover: var(--ld-main-color-contrast);
+  --ld-btn-border-color-hover: var(--ld-main-color-light);
+  --ld-btn-bg-color-hover: var(--ld-main-color-light);
 
-  --btn-group-active-color: var(--main-color-dark);
+  --ld-btn-group-active-color: var(--ld-main-color-dark);
 }

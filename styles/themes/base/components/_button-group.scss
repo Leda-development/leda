@@ -1,44 +1,46 @@
 // Theme
-// button:                     'ld__button-group-item',
+// button:                     'ld-button-group-item',
 // buttonActive:               'active',
 // buttonFirst:                'first',
 // buttonLast:                 'last',
 // wrapperDisabled:            'disabled',
 // wrapperRequired:            'required',
-// buttonsWrapper:             'ld__button-group-buttons-wrapper',
-// wrapper:                    'ld__button-group-wrapper',
+// buttonsWrapper:             'ld-button-group-buttons-wrapper',
+// wrapper:                    'ld-button-group-wrapper',
 
-.ld__button-group-buttons-wrapper {
+.ld-button-group-buttons-wrapper {
+  display: flex;
+
   &.disabled {
     filter: opacity(50%);
 
-    .ld__button-group-item {
+    .ld-button-group-item {
       &:hover {
-        background-color: var(--btn-bg-color);
-        border-color: var(--btn-border-color);
+        background-color: var(--ld-btn-bg-color);
+        border-color: var(--ld-btn-border-color);
         cursor: not-allowed;
       }
       &.active:hover {
-        background-color: var(--btn-group-active-color);
-        border-color: var(--btn-group-active-color);
+        background-color: var(--ld-btn-group-active-color);
+        border-color: var(--ld-btn-group-active-color);
       }
     }
   }
 }
 
-.ld__button-group-item {
+.ld-button-group-item {
   border-radius: 0;
 
   &.first {
-    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    border-radius: var(--ld-btn-border-radius) 0 0 var(--ld-btn-border-radius);
   }
 
   &.last {
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    border-radius: 0 var(--ld-btn-border-radius) var(--ld-btn-border-radius) 0;
   }
 
   &.active {
-    background-color: var(--btn-group-active-color);
-    border-color: var(--btn-group-active-color);
+    background-color: var(--ld-btn-group-active-color);
+    border-color: var(--ld-btn-group-active-color);
   }
 }

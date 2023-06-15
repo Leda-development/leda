@@ -1,28 +1,28 @@
 :root {
-  --ld-main-color: #365314; // tailwind lime 900
-  --ld-main-color-dark: #1a2e05; // tailwind lime 950
-  --ld-main-color-light: #3f6212; // tailwind lime 800
+  --ld-main-color: #737373; // tailwind neutral 500
+  --ld-main-color-dark: #525252; // tailwind neutral 600
+  --ld-main-color-light: #a3a3a3; // tailwind neutral 400
   --ld-main-color-contrast: white;
   --ld-border-radius: 4px;
-  --ld-font-size: 1rem;
+  --ld-font-size: .875rem;
   --ld-line-height: 1.5rem;
   --ld-font-weight: 800;
   --ld-font-color: #09090b; // taiwind neutral 950
   --ld-border-color: #a3a3a3; // tailwind neutral 400
   --ld-border-color-hover: #09090b; // tailwind neutral 950
   --ld-bg-color-disabled: #e5e5e5; // tailwind neutral 200
-  --ld-padding-block: 1rem;
+  --ld-padding-block: .4rem;
   --ld-color-danger: #dc2626; // tailwind red 600
 
 
   --ld-btn-font-size: var(--ld-font-size);
   --ld-btn-font-weight: var(--ld-font-weight);
   --ld-btn-border-radius: var(--ld-border-radius);
-  --ld-btn-min-width: 10rem;
+  --ld-btn-min-width: 6rem;
   --ld-btn-line-height: var(--ld-line-height);
   --ld-btn-text-color: var(--ld-main-color-contrast);
   --ld-btn-border-width: 2px;
-  --ld-btn-padding-inline: 3rem; 
+  --ld-btn-padding-inline: 1rem; 
   --ld-btn-padding-block: calc(var(--ld-padding-block) - var(--ld-btn-border-width));
   --ld-btn-border-color: var(--ld-main-color);
   --ld-btn-bg-color: var(--ld-main-color);
@@ -42,8 +42,8 @@
   --ld-input-border-width: 1px;
   --ld-input-padding-block: calc(var(--ld-padding-block) - var(--ld-input-border-width));
   --ld-input-padding-inline: 1rem;
-  --ld-input-close-icon-size: 3rem; 
-  --ld-input-close-icon-padding: .7rem;
+  --ld-input-close-icon-size: 2.5rem; 
+  --ld-input-close-icon-padding: .5rem;
   --ld-input-bg-color-disabled: var(--ld-bg-color-disabled);
   --ld-input-border-color-focused: var(--ld-border-color-hover);
   --ld-input-border-color-danger: var(--ld-color-danger);

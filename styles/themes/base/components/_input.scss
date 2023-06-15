@@ -30,7 +30,7 @@
   }
 
   &.focused {
-    border-color: var(--ld-input-border-color);
+    border-color: var(--ld-input-border-color-hover);
   }
 
   &.danger {
@@ -51,6 +51,8 @@
   border-radius: var(--ld-input-border-radius);
   flex-grow: 2;
   cursor: inherit;
+  inline-size: 100%;
+  outline: none;
 }
 
 .ld-input-clear-icon {

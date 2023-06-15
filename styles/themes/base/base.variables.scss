@@ -5,25 +5,47 @@
   --ld-main-color-contrast: white;
   --ld-border-radius: 4px;
   --ld-font-size: 1rem;
-  --ld-line-height: 1.75rem;
+  --ld-line-height: 1.5rem;
   --ld-font-weight: 800;
+  --ld-font-color: #09090b; // taiwind neutral 950
+  --ld-border-color: #a3a3a3; // tailwind neutral 400
+  --ld-border-color-hover: #09090b; // tailwind neutral 950
+  --ld-bg-color-disabled: #e5e5e5; // tailwind neutral 200
+  --ld-padding-block: 1rem;
+  --ld-color-danger: #dc2626; // tailwind red 600
 
 
   --ld-btn-font-size: var(--ld-font-size);
   --ld-btn-font-weight: var(--ld-font-weight);
   --ld-btn-border-radius: var(--ld-border-radius);
-  --ld-btn-padding-block: .5rem;
-  --ld-btn-padding-inline: 3rem; 
   --ld-btn-min-width: 10rem;
   --ld-btn-line-height: var(--ld-line-height);
   --ld-btn-text-color: var(--ld-main-color-contrast);
   --ld-btn-border-width: 2px;
+  --ld-btn-padding-inline: 3rem; 
+  --ld-btn-padding-block: calc(var(--ld-padding-block) - var(--ld-btn-border-width));
   --ld-btn-border-color: var(--ld-main-color);
   --ld-btn-bg-color: var(--ld-main-color);
-  
   --ld-btn-text-color-hover: var(--ld-main-color-contrast);
   --ld-btn-border-color-hover: var(--ld-main-color-light);
   --ld-btn-bg-color-hover: var(--ld-main-color-light);
 
   --ld-btn-group-active-color: var(--ld-main-color-dark);
+
+  --ld-input-font-size: var(--ld-font-size);
+  --ld-input-line-height: var(--ld-line-height);
+  --ld-input-font-weight: var(--ld-font-weight);
+  --ld-input-text-color: var(--ld-font-color);
+  --ld-input-border-color: var(--ld-border-color);
+  --ld-input-border-hover-color: var(--ld-border-color-hover);
+  --ld-input-border-radius: var(--ld-border-radius);
+  --ld-input-border-width: 1px;
+  --ld-input-padding-block: calc(var(--ld-padding-block) - var(--ld-input-border-width));
+  --ld-input-padding-inline: 1rem;
+  --ld-input-close-icon-size: 3rem; 
+  --ld-input-close-icon-padding: .7rem;
+  --ld-input-bg-color-disabled: var(--ld-bg-color-disabled);
+  --ld-input-border-color-focused: var(--ld-border-color-hover);
+  --ld-input-border-color-danger: var(--ld-color-danger);
+  --ld-input-border-color-required: var(--ld-border-color);
 }

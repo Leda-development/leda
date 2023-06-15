@@ -10,7 +10,7 @@ export type PredefinedAllowedSymbols = keyof typeof predefinedAllowedSymbols;
 
 export type PredefinedForbiddenSymbols = keyof typeof predefinedForbiddenSymbols;
 
-export interface ClearEvent extends React.MouseEvent<HTMLInputElement> {
+export interface ClearEvent extends React.MouseEvent<SVGElement> {
   component: {
     value: string,
     name?: string,

@@ -6,6 +6,8 @@ import {
 import { useValidation } from '../Validation';
 import { InputProps, InputRefCurrent } from './types';
 import { Div } from '../Div';
+import { Icon } from '../Icon';
+import { Icons } from '../Icon/types';
 import {
   createBlurHandler,
   createChangeHandler,
@@ -137,7 +139,8 @@ export const Input = React.forwardRef((props: InputProps, ref: React.Ref<InputRe
         />
         {
           shouldRenderClearButton && (
-            <i
+            <Icon
+              icon={Icons.X}
               className={theme.closeIcon}
               onMouseDown={handleClearValue}
             />

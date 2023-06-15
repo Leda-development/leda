@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.28.0] - 2023-06-15
+
+### Changed
+- CSS base theme is default for Button, ButtonGroup & Input
+
+### Added
+- CSS base theme for Input
+
 ## [0.27.0] - 2023-06-12
 
 ### Added
@@ -21,8 +29,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Removed
 - RUB as default currency (replaced to USD)
-
-
 
 ## [0.26.0] - 2023-06-01
 

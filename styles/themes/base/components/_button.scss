@@ -14,7 +14,7 @@
   padding-block: var(--ld-btn-padding-block);
   padding-inline: var(--ld-btn-padding-inline);
   line-height: var(--ld-btn-line-height);
-  min-width: var(--ld-btn-min-width);
+  min-inline-size: var(--ld-btn-min-width);
   cursor: pointer;
   transition: color .15s ease-in-out,
     background-color .15s ease-in-out,

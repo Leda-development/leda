@@ -9,7 +9,7 @@ import { DivProps } from '../Div';
 import { PredefinedAllowedSymbols } from '../../utils/isSymbolAllowed';
 import { PredefinedForbiddenSymbols } from '../../utils/isSymbolForbidden';
 
-export interface ClearEvent extends React.MouseEvent<HTMLInputElement> {
+export interface ClearEvent extends React.MouseEvent<SVGElement> {
   component: {
     value: string,
     name?: string,

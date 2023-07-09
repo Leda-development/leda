@@ -19,6 +19,8 @@ import { PasswordMessage } from './PasswordMessage';
 import { PasswordVisibilityIcon } from './PasswordVisibilityIcon';
 import { DEFAULT_MIN_PASSWORD_EVALUATION_LENGTH } from './constants';
 import { LedaContext } from '../LedaProvider';
+import { Icon } from '../Icon';
+import { Icons } from '../Icon/types';
 
 export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<PasswordRefCurrent>): React.ReactElement => {
   const {
@@ -162,7 +164,8 @@ export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<P
         />
         {
           shouldRenderClearButton && (
-            <i
+            <Icon
+              icon={Icons.X}
               className={theme.closeIcon}
               onMouseDown={handleClearValue}
             />

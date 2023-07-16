@@ -79,13 +79,6 @@ export const getPasswordStrength = (value = '', passwordEvaluators?: PasswordEva
     };
   }
 
-  if (validate.password(value)) {
-    return {
-      strengthLevel: PasswordStrength.Medium,
-      message: 'Not so strong password',
-    };
-  }
-
   return {
     strengthLevel: PasswordStrength.Low,
     message: 'Weak password',

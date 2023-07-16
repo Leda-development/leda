@@ -13,6 +13,7 @@ export const defaultPasswordTheme = {
   messageStrong:            'ld-password-message-strong',
   isHiddenIcon:             'ld-password-is-hidden',
   isVisibleIcon:            'ld-password-is-visible',
+  ruleMessage:              'ld-rule-message',
   wrapper:                  'ld-password-wrapper',
 };
 /* eslint-enable key-spacing */

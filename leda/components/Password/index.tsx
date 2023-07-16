@@ -14,13 +14,14 @@ import {
   createKeyDownHandler,
   createResetHandler,
 } from './handlers';
-import { getValue } from './helpers';
-import { PasswordMessage } from './PasswordMessage';
+import { getValue, rulesToValidators } from './helpers';
+import { PasswordEvaluationMessage } from './PasswordEvaluationMessage';
 import { PasswordVisibilityIcon } from './PasswordVisibilityIcon';
 import { DEFAULT_MIN_PASSWORD_EVALUATION_LENGTH } from './constants';
 import { LedaContext } from '../LedaProvider';
 import { Icon } from '../Icon';
 import { Icons } from '../Icon/types';
+import { PasswordRulesMessage } from './PasswordRulesMessage';
 
 export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<PasswordRefCurrent>): React.ReactElement => {
   const {
@@ -67,7 +68,10 @@ export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<P
 
   const {
     isValid, validateCurrent, InvalidMessage,
-  } = useValidation(props, {
+  } = useValidation({
+    ...props,
+    validator: passwordRules ? rulesToValidators(passwordRules) : undefined,
+  }, {
     value,
   }, {
     reset: createResetHandler(props, setValue),
@@ -177,18 +181,25 @@ export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<P
           onIconClick={handlePasswordVisibilityClick}
         />
       </Div>
-      {isValid && (
-        <PasswordMessage
+
+      {passwordEvaluators && isValid && (
+        <PasswordEvaluationMessage
           value={value}
           theme={theme}
           minPasswordEvaluationLength={minPasswordEvaluationLength}
           passwordEvaluators={passwordEvaluators}
-          passwordRules={passwordRules}
         />
       )}
+
       {!isFocused && !isDisabled && (
         <InvalidMessage />
       )}
+
+      <PasswordRulesMessage
+        value={value}
+        theme={theme}
+        passwordRules={passwordRules}
+      />
     </Wrapper>
   );
 }) as React.FC<PasswordProps>;

@@ -1,24 +1,18 @@
 import React from 'react';
 import { Div } from '../Div';
-import { PasswordMessageProps } from './types';
+import { PasswordEvaluationMessageProps } from './types';
 import { getPasswordStrength, strengthLevelToCssClass } from './helpers';
 
-export const PasswordMessage = (props: PasswordMessageProps) => {
+export const PasswordEvaluationMessage = (props: PasswordEvaluationMessageProps) => {
   const {
-    value, theme, minPasswordEvaluationLength, passwordEvaluators, passwordRules,
+    value, theme, minPasswordEvaluationLength, passwordEvaluators,
   } = props;
 
   if (
     value === null
     || value.length < minPasswordEvaluationLength
   ) {
-    return (
-      <Div
-        className={theme?.messageDefault}
-      >
-        { passwordRules ?? 'Use at least 8 latin lower- and uppercase letters and numbers' }
-      </Div>
-    );
+    return null;
   }
 
   const { strengthLevel, message } = getPasswordStrength(value, passwordEvaluators);

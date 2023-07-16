@@ -13,8 +13,27 @@ export const Basic = (componentProps: any) => {
   return (
     <L.Div _box _inner _demoBg>
       <L.Password
+        name="Password"
+        form="AwesomePassword"
         minPasswordEvaluationLength={5}
-        passwordRules="Set strong password"
+        passwordRules={[
+          {
+            rule: /\d/,
+            ruleMessage: 'numbers'
+          },
+          {
+            rule: /[a-z]/,
+            ruleMessage: 'lowercase latin letters'
+          },
+          {
+            rule: /[A-Z]/,
+            ruleMessage: 'uppercase latin letters'
+          },
+          {
+            rule: (password) => password.length > 7,
+            ruleMessage: '8 symbols and more'
+          }
+        ]}
         passwordEvaluators={[
           {
             strengthLevel: PasswordStrength.Low,
@@ -53,12 +72,8 @@ export const Basic = (componentProps: any) => {
             evaluationMessage: 'Strong password',
           },
         ]}
-        name="Password"
-        form="AwesomePassword"
         data-test="password"
         value={value}
-        // invalidMessage="invalidMessage"
-        // requiredMessage="requiredMessage"
         onChange={(ev) => {
           setValue(ev.component.value);
           update('Change', ev);
@@ -75,7 +90,6 @@ export const Basic = (componentProps: any) => {
         }}
         isRequired
         requiredMessage="Required"
-        validator="password"
         _width30
         {...props}
       />
@@ -83,11 +97,11 @@ export const Basic = (componentProps: any) => {
       <br />
 
       <L.Button
-        form="AwesomeInput"
-        onClick={(ev) => console.log('awesome form submit ev', ev)}
-        onValidationFail={(ev) => console.log('awesome form fail ev', ev)}
+        form="AwesomePassword"
+        onClick={(ev) => console.log('form submit ev', ev)}
+        onValidationFail={({ invalidForms }) => console.log('form fail ev', invalidForms[0])}
       >
-        Validate an awesome input
+        Validate form
       </L.Button>
 
       <br />

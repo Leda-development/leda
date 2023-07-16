@@ -1,6 +1,8 @@
 import { PasswordStrength } from './constants';
-import { PasswordProps, PasswordEvaluator, StrengthLevelToCssClassProps } from './types';
+import { PasswordProps, PasswordEvaluator, StrengthLevelToCssClassProps, PasswordRule } from './types';
 import { validate } from '../../validators';
+import { ValidatorObject } from '../Validation/types';
+import { isNil } from 'lodash';
 
 export const transformToCase = (letter: string, letterCase: PasswordProps['letterCase']): string | never => {
   if (letterCase === 'lower') return letter.toLowerCase();
@@ -89,3 +91,21 @@ export const getPasswordStrength = (value = '', passwordEvaluators?: PasswordEva
     message: 'Weak password',
   };
 };
+
+export const rulesToValidators = (rules: PasswordRule[]): ValidatorObject[] => {
+  return rules.map(({ rule }) => {
+    return {
+      validator: rule,
+    }
+  });
+}; 
+
+export const isValuePassingRule = (value: string | null, rule: RegExp | ((password: string) => boolean)): boolean => {
+  if (isNil(value)) return false;
+
+  if (rule instanceof RegExp) {
+    return rule.test(value);
+  }
+
+  return rule(value);
+}

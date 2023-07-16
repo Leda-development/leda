@@ -62,6 +62,11 @@ export interface PasswordEvaluator {
   strengthLevel: PasswordStrength,
 }
 
+export interface PasswordRule {
+  rule: RegExp | ((password: string) => boolean),
+  ruleMessage: string,
+}
+
 export interface PasswordProps extends ValidationProps {
   /** Allows typing either predefined symbols or what is defined in your RegExp */
   allowedSymbols?: PredefinedAllowedSymbols | RegExp,
@@ -94,7 +99,7 @@ export interface PasswordProps extends ValidationProps {
   /** Rules to evaluate the password */
   passwordEvaluators?: PasswordEvaluator[],
   /** Password rules description shown initially */
-  passwordRules?: string,
+  passwordRules?: PasswordRule[],
   /** Visibility icon customizator */
   passwordVisibilityRender?: CustomRender<PasswordProps, PasswordState, PasswordVisibilityIconProps>,
   /** Ref */
@@ -121,12 +126,17 @@ export interface PasswordRefCurrent {
   input: HTMLInputElement | null,
 }
 
-export interface PasswordMessageProps {
+export interface PasswordRulesMessageProps {
+  value: string | null,
+  theme: typeof defaultPasswordTheme,
+  passwordRules?: PasswordRule[],
+}
+
+export interface PasswordEvaluationMessageProps {
   value: string | null,
   theme: typeof defaultPasswordTheme,
   minPasswordEvaluationLength: number,
   passwordEvaluators?: PasswordEvaluator[],
-  passwordRules?: string,
 }
 
 export interface PasswordVisibilityIconProps {

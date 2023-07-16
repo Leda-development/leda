@@ -24,18 +24,15 @@ export const useValidation = <P extends ValidationProps, S extends ValidationSta
     invalidMessageRender,
   } = props;
 
-  // значение берется из props или из state
   const value = props.value === undefined && state
     ? state.value
     : props.value;
 
-  // текущее состояние поля
   const [isValid, setIsValid] = React.useState<boolean>(true);
 
-  // массив сообщений об ошибке
   const [messages, setMessages] = React.useState<string[] | undefined>([]);
 
-  // добавление/удаление поля при mount/unmount
+  // add/remove the field using mount/unmount
   React.useEffect((): (() => void) | void => {
     if (isString(form) && name) {
       const validators = getValidators(validator, invalidMessage);
@@ -64,7 +61,8 @@ export const useValidation = <P extends ValidationProps, S extends ValidationSta
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [form, name]);
 
-  // каждый раз при смене props - записываем новые данные в forms, необходимо для корректной работы валидации
+  // update forms on every props change
+  // required for correct validation 
   React.useEffect(() => {
     if (form && name) {
       const validators = getValidators(validator, invalidMessage);
@@ -82,10 +80,10 @@ export const useValidation = <P extends ValidationProps, S extends ValidationSta
     }
   }, [form, isRequired, name, value, isValidProp, validator, invalidMessage, shouldValidateUnmounted, requiredMessage]);
 
-  // функция, которую получает пользователь для валидации текущего поля, её можно вызывать, например, в обработчике onBlur
+  // user gets this function to validate the current field
+  // it can be called in a handler, e.g. in onBlur
   const validateCurrent = React.useCallback((val?: unknown) => (isNil(isValidProp) ? validate(form, name, val) : isValidProp), [form, isValidProp, name]);
 
-  // сообщение о невалидном поле, автоматически отслеживает состояние поля и показывает сообщение, когда поле не валидно
   const InvalidMessage = useElement(
     'InvalidMessage',
     DefaultInvalidMessage,
@@ -101,7 +99,8 @@ export const useValidation = <P extends ValidationProps, S extends ValidationSta
     return message;
   }, [isValid, messages]);
 
-  // если формы нет - возвращаем заглушку, сделать это в самом начале нельзя из-за правила хуков
+  // return a dummy if there is no form
+  // this line cannot be moved higher in the file because of hooks rules
   if (!form) return { isValid: true, validateCurrent: () => true, InvalidMessage: invalidMessageComponent };
 
   return {

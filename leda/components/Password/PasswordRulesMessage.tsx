@@ -10,7 +10,7 @@ export const PasswordRulesMessage = (props: PasswordRulesMessageProps) => {
 
   return (
     <Div
-      className={theme?.messageDefault}
+      className={theme?.messageWrapper}
     >
       { passwordRules?.map(({ rule, ruleMessage }) => {
         if (isValuePassingRule(value, rule)) return null;

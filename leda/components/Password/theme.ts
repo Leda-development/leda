@@ -7,13 +7,10 @@ export const defaultPasswordTheme = {
   inputWrapperFocused:      'focused',
   inputWrapperInvalid:      'danger',
   inputWrapperRequired:     'required',
-  messageDefault:           'ld-password-message-default',
-  messageWeak:              'ld-password-message-weak',
-  messageMedium:            'ld-password-message-medium',
-  messageStrong:            'ld-password-message-strong',
   isHiddenIcon:             'ld-password-is-hidden',
   isVisibleIcon:            'ld-password-is-visible',
-  ruleMessage:              'ld-rule-message',
+  messageWrapper:           'ld-password-message-wrapper',
+  ruleMessage:              'ld-password-rule-message',
   wrapper:                  'ld-password-wrapper',
 };
 /* eslint-enable key-spacing */

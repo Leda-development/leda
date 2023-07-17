@@ -183,7 +183,7 @@ export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<P
         />
       </Div>
 
-      {value.length > minPasswordEvaluationLength && passwordStrength?.(value)}
+      {value.length >= minPasswordEvaluationLength && passwordStrength?.(value)}
 
       {!isFocused && !isDisabled && (
         <InvalidMessage />

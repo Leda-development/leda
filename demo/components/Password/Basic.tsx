@@ -1,4 +1,5 @@
 import * as React from 'react';
+import zxcvbn from 'zxcvbn';
 import * as L from '../../../leda';
 import { StateButtonGroup } from '../StateButtonGroup';
 import { useEventSpy } from '../../useEventSpy';
@@ -14,7 +15,7 @@ export const Basic = (componentProps: any) => {
       <L.Password
         name="Password"
         form="AwesomePassword"
-        minPasswordEvaluationLength={8}
+        minPasswordEvaluationLength={4}
         passwordRules={[
           {
             rule: /\d/,
@@ -34,9 +35,12 @@ export const Basic = (componentProps: any) => {
           }
         ]}
         passwordStrength={(password) => {
-          return password.length > 12
-            ? 'good'
-            : 'may be better'  
+          const crackTimeText = zxcvbn(password)?.crack_times_display?.online_no_throttling_10_per_second;
+          return crackTimeText && (
+            <div>
+              time to crack your password: {crackTimeText}
+            </div>
+          );
         }}
         data-test="password"
         value={value}

@@ -91,6 +91,8 @@ export interface PasswordProps extends ValidationProps {
   onFocus?: (ev: FocusEvent) => void,
   /** Password rules description shown initially */
   passwordRules?: PasswordRule[],
+  /** Password strength, evaluate it yourself and show the result */
+  passwordStrength?: (password: string) => React.ReactNode,
   /** Visibility icon customizator */
   passwordVisibilityRender?: CustomRender<PasswordProps, PasswordState, PasswordVisibilityIconProps>,
   /** Ref */

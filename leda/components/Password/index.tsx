@@ -47,6 +47,7 @@ export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<P
     onFocus,
     passwordEvaluators,
     passwordRules,
+    passwordStrength,
     passwordVisibilityRender,
     requiredMessage,
     shouldValidateUnmounted,
@@ -180,6 +181,8 @@ export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<P
           onIconClick={handlePasswordVisibilityClick}
         />
       </Div>
+
+      {value.length > minPasswordEvaluationLength && passwordStrength?.(value)}
 
       {!isFocused && !isDisabled && (
         <InvalidMessage />

@@ -2,7 +2,6 @@ import * as React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { ValidationProps } from '../Validation/types';
-import { PasswordStrength } from './constants';
 import { CustomRender } from '../../commonTypes';
 import { defaultPasswordTheme } from './theme';
 import { DivProps } from '../Div';
@@ -56,12 +55,6 @@ export interface FocusEvent extends React.FocusEvent<HTMLInputElement> {
   },
 }
 
-export interface PasswordEvaluator {
-  evaluator: RegExp | ((password: any) => boolean),
-  evaluationMessage: string,
-  strengthLevel: PasswordStrength,
-}
-
 export interface PasswordRule {
   rule: RegExp | ((password: string) => boolean),
   ruleMessage: string,
@@ -96,8 +89,6 @@ export interface PasswordProps extends ValidationProps {
   onEnterPress?: (ev: EnterPressEvent) => void,
   /** Focus handler */
   onFocus?: (ev: FocusEvent) => void,
-  /** Rules to evaluate the password */
-  passwordEvaluators?: PasswordEvaluator[],
   /** Password rules description shown initially */
   passwordRules?: PasswordRule[],
   /** Visibility icon customizator */
@@ -132,22 +123,8 @@ export interface PasswordRulesMessageProps {
   passwordRules?: PasswordRule[],
 }
 
-export interface PasswordEvaluationMessageProps {
-  value: string | null,
-  theme: typeof defaultPasswordTheme,
-  minPasswordEvaluationLength: number,
-  passwordEvaluators?: PasswordEvaluator[],
-}
-
 export interface PasswordVisibilityIconProps {
   isVisible: boolean,
   theme: typeof defaultPasswordTheme,
   onIconClick: () => void,
 }
-
-export interface StrengthLevelToCssClassProps {
-  strengthLevel: PasswordStrength,
-  theme: typeof defaultPasswordTheme,
-}
-
-export { PasswordStrength };

@@ -15,7 +15,6 @@ import {
   createResetHandler,
 } from './handlers';
 import { getValue, rulesToValidators } from './helpers';
-import { PasswordEvaluationMessage } from './PasswordEvaluationMessage';
 import { PasswordVisibilityIcon } from './PasswordVisibilityIcon';
 import { DEFAULT_MIN_PASSWORD_EVALUATION_LENGTH } from './constants';
 import { LedaContext } from '../LedaProvider';
@@ -181,15 +180,6 @@ export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<P
           onIconClick={handlePasswordVisibilityClick}
         />
       </Div>
-
-      {passwordEvaluators && isValid && (
-        <PasswordEvaluationMessage
-          value={value}
-          theme={theme}
-          minPasswordEvaluationLength={minPasswordEvaluationLength}
-          passwordEvaluators={passwordEvaluators}
-        />
-      )}
 
       {!isFocused && !isDisabled && (
         <InvalidMessage />

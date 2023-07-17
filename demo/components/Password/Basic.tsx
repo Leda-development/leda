@@ -34,44 +34,6 @@ export const Basic = (componentProps: any) => {
             ruleMessage: '8 symbols and more'
           }
         ]}
-        passwordEvaluators={[
-          {
-            strengthLevel: PasswordStrength.Low,
-            evaluator: (password) => {
-              if (
-              password.length > 12
-              ) {
-                return true;
-              }
-              return false;
-            },
-            evaluationMessage: 'Weak password',
-          },
-          {
-            strengthLevel: PasswordStrength.Medium,
-            evaluator: (password) => {
-              if (
-                password.length > 12
-              ) {
-                return true;
-              }
-              return false;
-            },
-            evaluationMessage: 'Not so good password',
-          },
-          {
-            strengthLevel: PasswordStrength.Strong,
-            evaluator: (password) => {
-              if (
-                /[!@#$%*]/.test(password)
-              ) {
-                return true;
-              }
-              return false;
-            },
-            evaluationMessage: 'Strong password',
-          },
-        ]}
         data-test="password"
         value={value}
         onChange={(ev) => {

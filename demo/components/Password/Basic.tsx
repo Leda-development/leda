@@ -61,6 +61,18 @@ export const Basic = (componentProps: any) => {
       />
 
       <br />
+      
+      <L.Password
+        name='Password2'
+        form='AwesomePassword'
+        validator={value => L.form('AwesomePassword', 'Password').get()?.value === value}
+        invalidMessage='Passwords do not match'
+        isRequired
+        placeholder='Repeat the password'
+        _width30
+      />
+
+      <br />
 
       <L.Button
         form="AwesomePassword"

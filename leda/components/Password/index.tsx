@@ -70,7 +70,8 @@ export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<P
     isValid, validateCurrent, InvalidMessage,
   } = useValidation({
     ...props,
-    validator: passwordRules ? rulesToValidators(passwordRules) : undefined,
+    validator: validator
+      || (passwordRules ? rulesToValidators(passwordRules) : undefined),
   }, {
     value,
   }, {

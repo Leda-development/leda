@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
@@ -14,11 +16,13 @@ import {
   createKeyDownHandler,
   createResetHandler,
 } from './handlers';
-import { getValue } from './helpers';
-import { PasswordMessage } from './PasswordMessage';
+import { getValue, rulesToValidators } from './helpers';
 import { PasswordVisibilityIcon } from './PasswordVisibilityIcon';
 import { DEFAULT_MIN_PASSWORD_EVALUATION_LENGTH } from './constants';
 import { LedaContext } from '../LedaProvider';
+import { Icon } from '../Icon';
+import { Icons } from '../Icon/types';
+import { PasswordRulesMessage } from './PasswordRulesMessage';
 
 export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<PasswordRefCurrent>): React.ReactElement => {
   const {
@@ -45,6 +49,7 @@ export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<P
     onFocus,
     passwordEvaluators,
     passwordRules,
+    passwordStrength,
     passwordVisibilityRender,
     requiredMessage,
     shouldValidateUnmounted,
@@ -65,7 +70,11 @@ export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<P
 
   const {
     isValid, validateCurrent, InvalidMessage,
-  } = useValidation(props, {
+  } = useValidation({
+    ...props,
+    validator: validator
+      || (passwordRules ? rulesToValidators(passwordRules) : undefined),
+  }, {
     value,
   }, {
     reset: createResetHandler(props, setValue),
@@ -162,7 +171,8 @@ export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<P
         />
         {
           shouldRenderClearButton && (
-            <i
+            <Icon
+              icon={Icons.X}
               className={theme.closeIcon}
               onMouseDown={handleClearValue}
             />
@@ -174,18 +184,18 @@ export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<P
           onIconClick={handlePasswordVisibilityClick}
         />
       </Div>
-      {isValid && (
-        <PasswordMessage
-          value={value}
-          theme={theme}
-          minPasswordEvaluationLength={minPasswordEvaluationLength}
-          passwordEvaluators={passwordEvaluators}
-          passwordRules={passwordRules}
-        />
-      )}
+
+      {value.length >= minPasswordEvaluationLength && passwordStrength?.(value)}
+
       {!isFocused && !isDisabled && (
         <InvalidMessage />
       )}
+
+      <PasswordRulesMessage
+        value={value}
+        theme={theme}
+        passwordRules={passwordRules}
+      />
     </Wrapper>
   );
 }) as React.FC<PasswordProps>;

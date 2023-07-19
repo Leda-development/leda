@@ -2,14 +2,13 @@ import * as React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { ValidationProps } from '../Validation/types';
-import { PasswordStrength } from './constants';
 import { CustomRender } from '../../commonTypes';
 import { defaultPasswordTheme } from './theme';
 import { DivProps } from '../Div';
 import { PredefinedAllowedSymbols } from '../../utils/isSymbolAllowed';
 import { PredefinedForbiddenSymbols } from '../../utils/isSymbolForbidden';
 
-export interface ClearEvent extends React.MouseEvent<HTMLInputElement> {
+export interface ClearEvent extends React.MouseEvent<SVGElement> {
   component: {
     value: string,
     name?: string,
@@ -56,10 +55,9 @@ export interface FocusEvent extends React.FocusEvent<HTMLInputElement> {
   },
 }
 
-export interface PasswordEvaluator {
-  evaluator: RegExp | ((password: any) => boolean),
-  evaluationMessage: string,
-  strengthLevel: PasswordStrength,
+export interface PasswordRule {
+  rule: RegExp | ((password: string) => boolean),
+  ruleMessage: string,
 }
 
 export interface PasswordProps extends ValidationProps {
@@ -91,10 +89,10 @@ export interface PasswordProps extends ValidationProps {
   onEnterPress?: (ev: EnterPressEvent) => void,
   /** Focus handler */
   onFocus?: (ev: FocusEvent) => void,
-  /** Rules to evaluate the password */
-  passwordEvaluators?: PasswordEvaluator[],
   /** Password rules description shown initially */
-  passwordRules?: string,
+  passwordRules?: PasswordRule[],
+  /** Password strength, evaluate it yourself and show the result */
+  passwordStrength?: (password: string) => React.ReactNode,
   /** Visibility icon customizator */
   passwordVisibilityRender?: CustomRender<PasswordProps, PasswordState, PasswordVisibilityIconProps>,
   /** Ref */
@@ -121,12 +119,10 @@ export interface PasswordRefCurrent {
   input: HTMLInputElement | null,
 }
 
-export interface PasswordMessageProps {
+export interface PasswordRulesMessageProps {
   value: string | null,
   theme: typeof defaultPasswordTheme,
-  minPasswordEvaluationLength: number,
-  passwordEvaluators?: PasswordEvaluator[],
-  passwordRules?: string,
+  passwordRules?: PasswordRule[],
 }
 
 export interface PasswordVisibilityIconProps {
@@ -134,10 +130,3 @@ export interface PasswordVisibilityIconProps {
   theme: typeof defaultPasswordTheme,
   onIconClick: () => void,
 }
-
-export interface StrengthLevelToCssClassProps {
-  strengthLevel: PasswordStrength,
-  theme: typeof defaultPasswordTheme,
-}
-
-export { PasswordStrength };

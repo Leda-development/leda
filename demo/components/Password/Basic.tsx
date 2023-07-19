@@ -1,8 +1,8 @@
 import * as React from 'react';
+import zxcvbn from 'zxcvbn';
 import * as L from '../../../leda';
 import { StateButtonGroup } from '../StateButtonGroup';
 import { useEventSpy } from '../../useEventSpy';
-import { PasswordStrength } from '../../../leda/components/Password/constants';
 
 export const Basic = (componentProps: any) => {
   const [props, setProps] = React.useState({});
@@ -13,52 +13,37 @@ export const Basic = (componentProps: any) => {
   return (
     <L.Div _box _inner _demoBg>
       <L.Password
-        minPasswordEvaluationLength={5}
-        passwordRules="Set strong password"
-        passwordEvaluators={[
-          {
-            strengthLevel: PasswordStrength.Low,
-            evaluator: (password) => {
-              if (
-              password.length > 12
-              ) {
-                return true;
-              }
-              return false;
-            },
-            evaluationMessage: 'Weak password',
-          },
-          {
-            strengthLevel: PasswordStrength.Medium,
-            evaluator: (password) => {
-              if (
-                password.length > 12
-              ) {
-                return true;
-              }
-              return false;
-            },
-            evaluationMessage: 'Not so good password',
-          },
-          {
-            strengthLevel: PasswordStrength.Strong,
-            evaluator: (password) => {
-              if (
-                /[!@#$%*]/.test(password)
-              ) {
-                return true;
-              }
-              return false;
-            },
-            evaluationMessage: 'Strong password',
-          },
-        ]}
         name="Password"
         form="AwesomePassword"
+        minPasswordEvaluationLength={4}
+        passwordRules={[
+          {
+            rule: /\d/,
+            ruleMessage: 'numbers'
+          },
+          {
+            rule: /[a-z]/,
+            ruleMessage: 'lowercase latin letters'
+          },
+          {
+            rule: /[A-Z]/,
+            ruleMessage: 'uppercase latin letters'
+          },
+          {
+            rule: (password) => password.length > 7,
+            ruleMessage: '8 symbols and more'
+          }
+        ]}
+        passwordStrength={(password) => {
+          const crackTimeText = zxcvbn(password)?.crack_times_display?.online_no_throttling_10_per_second;
+          return crackTimeText && (
+            <div>
+              time to crack your password: {crackTimeText}
+            </div>
+          );
+        }}
         data-test="password"
         value={value}
-        // invalidMessage="invalidMessage"
-        // requiredMessage="requiredMessage"
         onChange={(ev) => {
           setValue(ev.component.value);
           update('Change', ev);
@@ -75,19 +60,30 @@ export const Basic = (componentProps: any) => {
         }}
         isRequired
         requiredMessage="Required"
-        validator="password"
         _width30
         {...props}
       />
 
       <br />
+      
+      <L.Password
+        name='Password2'
+        form='AwesomePassword'
+        validator={value => L.form('AwesomePassword', 'Password').get()?.value === value}
+        invalidMessage='Passwords do not match'
+        isRequired
+        placeholder='Repeat the password'
+        _width30
+      />
+
+      <br />
 
       <L.Button
-        form="AwesomeInput"
-        onClick={(ev) => console.log('awesome form submit ev', ev)}
-        onValidationFail={(ev) => console.log('awesome form fail ev', ev)}
+        form="AwesomePassword"
+        onClick={(ev) => console.log('form submit ev', ev)}
+        onValidationFail={({ invalidForms }) => console.log('form fail ev', invalidForms[0])}
       >
-        Validate an awesome input
+        Validate form
       </L.Button>
 
       <br />

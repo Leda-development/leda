@@ -38,7 +38,7 @@ export const createChangeHandler = (
 export const createClearHandler = (
   props: PasswordProps,
   setValue: SetState<string>,
-): CustomEventHandler<React.MouseEvent<HTMLInputElement>> => (event) => {
+): CustomEventHandler<React.MouseEvent<SVGElement>> => (event) => {
   event.preventDefault();
 
   if (props.value === undefined) {

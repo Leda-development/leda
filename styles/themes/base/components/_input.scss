@@ -9,60 +9,13 @@
   // wrapper:                  'ld-input-wrapper',
 
 .ld-input-element-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: var(--ld-input-text-color);
-  border: var(--ld-input-border-width) solid var(--ld-input-border-color);
-  border-radius: var(--ld-input-border-radius);
-
-  &:hover {
-    border-color: var(--ld-input-border-color-hover);
-  }
-
-  &.disabled {
-    cursor: not-allowed;
-    background-color: var(--ld-input-bg-color-disabled);
-    
-    &:hover {
-      border-color: var(--ld-input-border-color);
-    }
-  }
-
-  &.focused {
-    border-color: var(--ld-input-border-color-hover);
-  }
-
-  &.danger {
-    border-color: var(--ld-input-border-color-danger);
-  }
-
-  &.required {
-    border-color: var(--ld-input-border-color-required);
-  }
+  @extend %input-element-wrapper;
 }
 
 .ld-input-element {
-  font-size: var(--ld-input-font-size);
-  line-height: var(--ld-input-line-height);
-  padding-block: var(--ld-input-padding-block);
-  padding-inline: var(--ld-input-padding-inline);
-  border: none;
-  border-radius: var(--ld-input-border-radius);
-  flex-grow: 2;
-  cursor: inherit;
-  inline-size: 100%;
-  outline: none;
+  @extend %input-element;
 }
 
 .ld-input-clear-icon {
-  color: var(--ld-input-border-color);
-  padding: var(--ld-input-close-icon-padding);
-  block-size: 100%;
-  inline-size: var(--ld-input-close-icon-size);
-  cursor: pointer;
-
-  &:hover {
-    color: var(--ld-input-border-hover-color);
-  }
+  @extend %input-clear-icon;
 }

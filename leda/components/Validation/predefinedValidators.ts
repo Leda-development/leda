@@ -11,10 +11,6 @@ export const PREDEFINED_VALIDATORS: Record<PredefinedValidator, NormalizedValida
     validator: validate.email,
     invalidMessage: 'E-mail is not valid',
   },
-  password: {
-    validator: validate.password,
-    invalidMessage: 'Use at least 8 latin lowercase and uppercase letters and numbers',
-  },
   url: {
     validator: validate.url,
     invalidMessage: 'Url is not valid',

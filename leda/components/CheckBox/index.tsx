@@ -3,14 +3,14 @@ import {
   bindFunctionalRef, getClassNames, useTheme, useElement, generateId, useValue, useProps,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import { Span } from '../Span';
 import { createChangeHandler } from './handlers';
 import { CheckBoxProps, CheckBoxRefCurrent } from './types';
 import { LedaContext } from '../LedaProvider';
-import { Label } from '../../index';
+import { Div, Icon, IconTypes, Label } from '../../index';
 
 export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<CheckBoxRefCurrent>): React.ReactElement => {
   const {
+    checkedIcon,
     children,
     className,
     defaultValue = false,
@@ -34,7 +34,7 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
 
   const Wrapper = useElement(
     'Wrapper',
-    Span,
+    Div, 
     wrapperRender || checkBoxRenders.wrapperRender,
     props,
   );
@@ -85,6 +85,16 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
         htmlFor={checkBoxId}
         className={labelClassNames}
       >
+        {value
+          ? <Icon
+              icon={checkedIcon || IconTypes.Icons.CheckSquare}
+              className={theme.icon}
+            />
+          : <Icon
+              icon={IconTypes.Icons.Square}
+              className={theme.icon}
+            />  
+        }
         {children}
       </LabelElement>
     </Wrapper>

@@ -10,17 +10,27 @@ export const CheckBox = () => {
       <L.Div style={{ display: 'flex' }}>
         <L.Div>
           <L.CheckBox
-            _semi
             name="CheBoxAry"
             value={value}
             onChange={ev => {
               console.log(ev.component.name);
               setValue(ev.component.value);
             }}
+            checkedIcon={L.IconTypes.Icons.MinusSquare}
           >
             Semi-checkbox
           </L.CheckBox>
-          <br />
+ 
+          <L.CheckBox
+            defaultValue
+            onChange={ev => {
+              console.log(ev.component.value);
+            }}
+            checkedIcon={L.IconTypes.Icons.PlusSquare}
+          >
+            Plus Checkbox
+          </L.CheckBox>
+
           <L.CheckBox
             defaultValue
             onChange={ev => {
@@ -29,28 +39,28 @@ export const CheckBox = () => {
           >
             Checked Checkbox
           </L.CheckBox>
-          <br />
+
           <L.CheckBox onChange={ev => {
             console.log(ev);
           }}
           >
             Not Checked checkbox
           </L.CheckBox>
-          <br />
+
           <L.CheckBox /> {/* Чекбокс без текста */}
         </L.Div>
         <L.Div style={{ marginLeft: '20px' }}>
           <L.CheckBox
-            _semi
             isDisabled
             defaultValue
             onChange={ev => {
               console.log(ev);
             }}
+            checkedIcon={L.IconTypes.Icons.MinusSquare}
           >
             Semi-checkbox
           </L.CheckBox>
-          <br />
+
           <L.CheckBox
             isDisabled
             defaultValue
@@ -60,7 +70,7 @@ export const CheckBox = () => {
           >
             Disabled Checked Checkbox
           </L.CheckBox>
-          <br />
+
           <L.CheckBox
             isDisabled
             onChange={ev => {

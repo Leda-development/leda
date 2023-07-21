@@ -2,6 +2,7 @@ import * as React from 'react';
 import { CustomRender } from '../../commonTypes';
 import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { COMPONENTS_NAMESPACES } from '../../constants';
+import { IconTypes } from '../..';
 
 export interface ChangeEvent extends React.ChangeEvent<HTMLInputElement> {
   component: {
@@ -10,32 +11,38 @@ export interface ChangeEvent extends React.ChangeEvent<HTMLInputElement> {
   },
 }
 
+export type CheckedIcon = IconTypes.Icons.CheckSquare
+  | IconTypes.Icons.MinusSquare
+  | IconTypes.Icons.PlusSquare;
+
 export interface CheckBoxProps {
-  /** Всё, что обёрнуто в L.Checkbox, попадает в label */
+  /** Checked icon, default is 'check-square' */
+  checkedIcon?: CheckedIcon,
+  /** All you wrap into CheckBox goes to the label */
   children?: React.ReactNode,
-  /** Значение по-умолчанию, если не передано - false */
+  /** Dfeault value, false if not set */
   defaultValue?: boolean,
-  /** Id для чекбокса */
+  /** Id */
   id?: string,
-  /** Кастомизация инпута, непосредственно инпут - невидим, но данный рендер позволяет добавить атрибуты в тег <input> */
+  /** Input customizator */
   inputRender?: CustomRender<CheckBoxProps, {}, React.InputHTMLAttributes<HTMLInputElement>>,
-  /** Отключение чекбокса */
+  /** In case you want to disable it */
   isDisabled?: boolean,
-  /** Кастомизация элемента label */
+  /** Label customization */
   labelRender?: CustomRender<CheckBoxProps, {}, React.LabelHTMLAttributes<any>>,
-  /** Имя компонента */
+  /** Component name */
   name?: string,
-  /** Обработчик изменения состояния элементов */
+  /** Change handler */
   onChange?: (event: ChangeEvent) => void,
-  /** Реф */
+  /** Ref */
   ref?: React.Ref<CheckBoxRefCurrent>,
-  /** Тема компонента */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.checkBox],
-  /** Значение чекбокса */
+  /** CheckBox value */
   value?: boolean,
-  /** Кастомизация враппера */
+  /** Wrapper customization */
   wrapperRender?: CustomRender<CheckBoxProps, {}, Partial<CheckBoxProps>>,
-  /** Классы переданные через _ */
+  /** _classNames */
   [x: string]: unknown,
 }
 

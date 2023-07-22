@@ -16,7 +16,6 @@ export const A = React.forwardRef((props: AProps, ref?: React.Ref<ARefCurrent>):
   if (shouldRender === false) return null;
 
   const handleClick: CustomEventHandler<React.MouseEvent<HTMLAnchorElement>> = (ev) => {
-    // если href не передали, то нужен preventDefault, иначе - нет
     if (!href) ev.preventDefault();
 
     if (isFunction(onClick)) onClick(ev);

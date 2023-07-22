@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react';
 import { Currency } from './Currency';
 import { CurrencyProps, CurrencyRefCurrent } from './types';

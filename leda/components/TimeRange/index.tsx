@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react';
 import { DateTimeInputRange } from '../../src/DateTimeInputRange';
 import { COMPONENT_TYPES } from '../../src/DateTimeInput/constants';

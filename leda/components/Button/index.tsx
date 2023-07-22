@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {

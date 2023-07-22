@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import { getClassNames, useElement, useProps } from '../../utils';
 import { Div } from '../Div';

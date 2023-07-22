@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import isNil from 'lodash/isNil';
 import { COMPONENTS_NAMESPACES } from '../../constants';

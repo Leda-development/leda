@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react';
 import { getClassNames, useProps, useTheme } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';

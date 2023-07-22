@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import { isFunction, isBoolean } from 'lodash';
 import { RadioButton } from './RadioButton';

@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react';
 import { isString, isNumber } from 'lodash';
 import { Span } from '../Span';

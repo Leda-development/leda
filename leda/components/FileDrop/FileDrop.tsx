@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import { DropzoneRef, useDropzone } from 'react-dropzone';
 import {

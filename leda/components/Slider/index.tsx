@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import { isNumber, isNil } from 'lodash';
 import { Div } from '../Div';

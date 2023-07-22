@@ -1,4 +1,5 @@
 import * as React from 'react';
+import classnames from 'classnames';
 import {
   bindFunctionalRef, getClassNames, useTheme, useElement, generateId, useValue, useProps,
 } from '../../utils';
@@ -10,7 +11,7 @@ import { Div, Icon, IconTypes, Label } from '../../index';
 
 export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<CheckBoxRefCurrent>): React.ReactElement => {
   const {
-    checkedIcon,
+    checkboxIcon,
     children,
     className,
     defaultValue = false,
@@ -59,6 +60,11 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
 
   const handleChange = createChangeHandler(props, setUncontrolledValue);
 
+  const classNames = classnames(
+    theme.icon,
+    value ? theme.iconChecked : theme.iconUnchecked,
+  );
+
   return (
     <Wrapper
       ref={ref && ((component) => {
@@ -85,16 +91,15 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
         htmlFor={checkBoxId}
         className={labelClassNames}
       >
-        {value
-          ? <Icon
-              icon={checkedIcon || IconTypes.Icons.CheckSquare}
-              className={theme.icon}
-            />
-          : <Icon
-              icon={IconTypes.Icons.Square}
-              className={theme.icon}
-            />  
-        }
+        <Icon
+          icon={(() => {
+            if (checkboxIcon) return checkboxIcon;
+            return value
+              ? IconTypes.Icons.CheckSquare
+              : IconTypes.Icons.Square;
+          })()}
+          className={classNames}
+        />
         {children}
       </LabelElement>
     </Wrapper>

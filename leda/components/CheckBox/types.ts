@@ -11,13 +11,9 @@ export interface ChangeEvent extends React.ChangeEvent<HTMLInputElement> {
   },
 }
 
-export type CheckedIcon = IconTypes.Icons.CheckSquare
-  | IconTypes.Icons.MinusSquare
-  | IconTypes.Icons.PlusSquare;
-
 export interface CheckBoxProps {
-  /** Checked icon, default is 'check-square' */
-  checkedIcon?: CheckedIcon,
+  /** Checkbox icon, is independent from value,  */
+  checkboxIcon?: IconTypes.Icons | false | null,
   /** All you wrap into CheckBox goes to the label */
   children?: React.ReactNode,
   /** Dfeault value, false if not set */

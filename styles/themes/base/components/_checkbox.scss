@@ -1,0 +1,23 @@
+.ld-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.ld-checkbox-input {
+  opacity: 0;
+  height: 0;
+  width: 0;
+  position: absolute;
+
+  &:disabled + .ld-checkbox-label {
+    cursor: not-allowed;
+    color: var(--ld-checkbox-color-disabled);
+  }
+}
+
+.ld-checkbox-icon {
+  width: var(--ld-checkbox-width);
+  margin-inline-end: var(--ld-checkbox-margin-inline-end);
+}

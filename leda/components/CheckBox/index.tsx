@@ -1,18 +1,19 @@
 'use client'
 
 import * as React from 'react';
+import classnames from 'classnames';
 import {
   bindFunctionalRef, getClassNames, useTheme, useElement, generateId, useValue, useProps,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import { Span } from '../Span';
 import { createChangeHandler } from './handlers';
 import { CheckBoxProps, CheckBoxRefCurrent } from './types';
 import { LedaContext } from '../LedaProvider';
-import { Label } from '../../index';
+import { Div, Icon, IconTypes, Label } from '../../index';
 
 export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<CheckBoxRefCurrent>): React.ReactElement => {
   const {
+    checkboxIcon,
     children,
     className,
     defaultValue = false,
@@ -36,7 +37,7 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
 
   const Wrapper = useElement(
     'Wrapper',
-    Span,
+    Div, 
     wrapperRender || checkBoxRenders.wrapperRender,
     props,
   );
@@ -60,6 +61,11 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
   const checkBoxId = id || `checkbox-${generateId()}`;
 
   const handleChange = createChangeHandler(props, setUncontrolledValue);
+
+  const classNames = classnames(
+    theme.icon,
+    value ? theme.iconChecked : theme.iconUnchecked,
+  );
 
   return (
     <Wrapper
@@ -87,6 +93,15 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
         htmlFor={checkBoxId}
         className={labelClassNames}
       >
+        <Icon
+          icon={(() => {
+            if (checkboxIcon) return checkboxIcon;
+            return value
+              ? IconTypes.Icons.CheckSquare
+              : IconTypes.Icons.Square;
+          })()}
+          className={classNames}
+        />
         {children}
       </LabelElement>
     </Wrapper>

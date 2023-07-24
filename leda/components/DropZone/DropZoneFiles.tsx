@@ -8,6 +8,8 @@ import { Tooltip } from '../Tooltip';
 import { globalDefaultTheme } from '../LedaProvider';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { DropZoneFilesProps } from './types';
+import { Icon } from '../Icon';
+import { IconTypes } from '../..';
 
 const createDownloadLink = (blob: Blob, fileName: string, theme: typeof globalDefaultTheme[typeof COMPONENTS_NAMESPACES.dropZone]): React.ReactElement => {
   const isIE = window.navigator && (window.navigator as Navigator & { msSaveOrOpenBlob?: any}).msSaveOrOpenBlob;
@@ -34,11 +36,13 @@ const renderFiles = (props: DropZoneFilesProps): React.ReactElement[] => {
     const downloadLink = file.link || createDownloadLink(blob, file.name, theme);
 
     return (
-      <Li key={`${file.name}-${index.toString()}`}>
+      <Li key={`${file.name}-${index.toString()}`} className={theme.fileListItem}>
         <Tooltip title="Удалить" position="top">
-          <A _pointer onClick={(ev: React.MouseEvent<HTMLAnchorElement>): void => onChange(value.acceptedFiles, value.rejectedFiles, ev, file)}>
-            <i className={theme.fileDeleteIcon} />
-          </A>
+          <Icon
+            icon={IconTypes.Icons.X}
+            className={theme.fileDeleteIcon}
+            onClick={(ev: React.MouseEvent<SVGElement>): void => onChange(value.acceptedFiles, value.rejectedFiles, ev, file)}
+          />
         </Tooltip>
         <Tooltip title="Скачать" position="top">
           {downloadLink}

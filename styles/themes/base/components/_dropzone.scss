@@ -1,0 +1,18 @@
+.ld-dropzone-wrapper {
+  border: var(--ld-dropzone-border);
+  border-radius: var(--ld-dropzone-border-radius);
+  padding: var(--ld-dropzone-padding);
+}
+
+.ld-dropzone-delete-icon {
+  width: var(--ld-dropzone-delete-icon-size);
+  height: var(--ld-dropzone-delete-icon-size);
+  margin-inline-end: var(--ld-dropzone-delete-icon-margin-inline-end);
+  cursor: pointer;
+}
+
+.ld-dropzone-file-list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

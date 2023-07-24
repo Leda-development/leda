@@ -137,7 +137,7 @@ export interface DropZoneFilesProps {
   onChange: (
     acceptedFiles: ExternalFile[] | DropZoneFileType[],
     rejectedFiles: ExternalFile[] | DropZoneFileType[],
-    ev: React.DragEvent<HTMLDivElement> | React.MouseEvent<HTMLAnchorElement>,
+    ev: React.DragEvent<HTMLDivElement> | React.MouseEvent<SVGElement>,
     removedFile: ExternalFile | DropZoneFileType
   ) => void,
   /** Флаг обозначающий нужно ли отображать файлы */
@@ -163,7 +163,7 @@ export interface ChangeEventHandler {
   (
     accepted: FileType[],
     rejected: FileType[],
-    ev?: React.DragEvent<HTMLElement> | React.MouseEvent<HTMLElement>,
+    ev?: React.DragEvent<HTMLElement> | React.MouseEvent<SVGElement>,
     removedFile?: FileType
   ): void,
 }

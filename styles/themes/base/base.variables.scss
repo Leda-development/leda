@@ -1,4 +1,7 @@
 :root {
+  // base variables
+  // base variables must not be used in CSS classes directly
+  // use base variables in component variables only
   --ld-main-color: #737373; // tailwind neutral 500
   --ld-main-color-dark: #525252; // tailwind neutral 600
   --ld-main-color-light: #a3a3a3; // tailwind neutral 400
@@ -8,14 +11,15 @@
   --ld-font-size: .875rem;
   --ld-line-height: 1.5rem;
   --ld-font-weight: 800;
-  --ld-font-color: #09090b; // taiwind neutral 950
+  --ld-font-color: #09090b; // tailwind neutral 950
   --ld-border-color: #a3a3a3; // tailwind neutral 400
   --ld-border-color-hover: #09090b; // tailwind neutral 950
   --ld-bg-color-disabled: #e5e5e5; // tailwind neutral 200
   --ld-padding-block: .4rem;
   --ld-color-danger: #dc2626; // tailwind red 600
 
-
+  // component variables
+  // do not use component variables in other component variables
   --ld-btn-font-size: var(--ld-font-size);
   --ld-btn-font-weight: var(--ld-font-weight);
   --ld-btn-border-radius: var(--ld-border-radius);
@@ -68,4 +72,11 @@
   --ld-checkbox-width: 1rem;
   --ld-checkbox-margin-inline-end: .5rem;
   --ld-checkbox-color-disabled: var(--ld-main-color-light);
+
+  --ld-dropzone-border: 1px dashed var(--ld-border-color);
+  --ld-dropzone-border-radius: var(--ld-border-radius);
+  --ld-dropzone-padding: 1rem;
+  --ld-dropzone-delete-icon-size: .75rem;
+  --ld-dropzone-delete-icon-margin-inline-end: .5rem;
+
 }

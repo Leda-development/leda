@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import { LedaContext } from './LedaContext';
 import { globalDefaultTheme } from './globalDefaultTheme';

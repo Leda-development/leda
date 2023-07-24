@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import { globalDefaultTheme } from './globalDefaultTheme';
 import { PartialGlobalDefaultTheme } from '../../utils/useTheme';

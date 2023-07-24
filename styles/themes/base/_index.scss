@@ -1,7 +1,7 @@
 @import 'base.variables';
 @import 'common/border-box';
 @import 'common/dropdown-list';
-@import 'common/input-extend';
+@import 'common/input';
 
 @import 'components/autocomplete';
 @import 'components/button';
@@ -9,7 +9,6 @@
 @import 'components/checkbox';
 @import 'components/dropdown-select';
 @import 'components/dropzone';
-@import 'components/input';
 @import 'components/password';
 
-@import 'common/common-styles';
+@import 'common/helpers';

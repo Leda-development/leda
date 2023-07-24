@@ -1,4 +1,4 @@
-%input-element {
+.ld-input-element {
   font-size: var(--ld-input-font-size);
   line-height: var(--ld-input-line-height);
   padding-block: var(--ld-input-padding-block);
@@ -11,7 +11,7 @@
   outline: none;
 }
 
-%input-element-wrapper {
+.ld-input-element-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,29 +24,9 @@
     border-color: var(--ld-input-border-color-hover);
   }
 
-  &.disabled {
-    cursor: not-allowed;
-    background-color: var(--ld-input-bg-color-disabled);
-    
-    &:hover {
-      border-color: var(--ld-input-border-color);
-    }
-  }
-
-  &.focused {
-    border-color: var(--ld-input-border-color-hover);
-  }
-
-  &.danger {
-    border-color: var(--ld-input-border-color-danger);
-  }
-
-  &.required {
-    border-color: var(--ld-input-border-color-required);
-  }
 }
 
-%input-clear-icon {
+.ld-input-icon {
   color: var(--ld-input-border-color);
   padding: var(--ld-input-close-icon-padding);
   block-size: 100%;

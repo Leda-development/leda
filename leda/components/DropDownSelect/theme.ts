@@ -3,14 +3,14 @@ import { defaultSuggestionListTheme } from '../../src/SuggestionList/theme';
 
 export const defaultDropDownSelectTheme = {
   ...defaultSuggestionListTheme,
-  input:                      'ld-dropdownselect-input',
-  inputWrapper:               'ld-dropdownselect-input-wrapper',
+  input:                      'ld-input-element',
+  inputWrapper:               'ld-input-element-wrapper',
   inputWrapperDisabled:       'ld-disabled',
   inputWrapperFocused:        'ld-focused',
   inputWrapperInvalid:        'ld-danger',
   inputWrapperRequired:       'ld-required',
-  clearIcon:                  'ld-dropdownselect-clear-icon',
-  selectIcon:                 'ld-dropdownselect-select-icon',
+  clearIcon:                  'ld-input-icon',
+  selectIcon:                 'ld-input-icon',
   selectIconClosed:           'ld-closed',
   selectIconOpened:           'ld-opened',
   wrapper:                    'ld-dropdownselect-wrapper',

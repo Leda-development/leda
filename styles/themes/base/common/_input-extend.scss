@@ -18,6 +18,7 @@
   color: var(--ld-input-text-color);
   border: var(--ld-input-border-width) solid var(--ld-input-border-color);
   border-radius: var(--ld-input-border-radius);
+  background-color: var(--ld-input-bg-color);
 
   &:hover {
     border-color: var(--ld-input-border-color-hover);

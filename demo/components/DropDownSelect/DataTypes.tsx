@@ -29,7 +29,7 @@ export const DataTypes = (args: SomeObject): React.ReactElement => {
         hasClearButton
         data-test="dropdownselect"
         defaultValue="London"
-        _width40
+        _width-40
         isOpen={isOpen}
         isLoading={isLoading}
         isDisabled={isDisabled}

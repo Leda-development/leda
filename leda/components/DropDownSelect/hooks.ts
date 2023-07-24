@@ -58,18 +58,9 @@ export const useCustomElements = (
     state,
   );
 
-  const Icon = useElement(
-    'Icon',
-    Span,
-    iconRender,
-    props,
-    state,
-  );
-
   return {
     Wrapper,
     Input,
-    Icon,
   };
 };
 

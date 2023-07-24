@@ -20,6 +20,7 @@ export const CompareObjectsBy = (args: SomeObject): React.ReactElement => {
         textField="city"
         value={value}
         placeholder="Choose a city"
+        _width-40
       />
       <br />
       <br />

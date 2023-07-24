@@ -24,8 +24,9 @@ import { useCorrectSuggestionsInControlledMode, useCustomElements, useSyncedHigh
 import {
   DropDownSelectProps, DropDownSelectRefCurrent, DropDownSelectState, Value,
 } from './types';
-import { Span } from '../Span';
 import { getText } from '../../src/SuggestionList/helpers';
+import { Icon } from '../Icon';
+import { IconTypes } from '../..';
 
 export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref: React.Ref<DropDownSelectRefCurrent>): React.ReactElement | null => {
   const {
@@ -135,7 +136,6 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
   const {
     Wrapper,
     Input,
-    Icon,
   } = useCustomElements(props, state, { inputSuggestion });
 
   const shouldRenderClearIcon = !isDisabled && hasClearButton && (value !== null || filterValue !== null);
@@ -195,12 +195,18 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
           value={getInputValue(value, filterValue, shouldFilterValues, textField)}
         />
         {shouldRenderClearIcon && (
-          <Span
+          <Icon
+            icon={IconTypes.Icons.X}
             className={theme.clearIcon}
             onClick={handleClearIconClick}
           />
         )}
-        <Icon className={selectIconClassNames} onMouseDown={handleIconMouseDown} onClick={handleIconClick} />
+        <Icon
+          icon={IconTypes.Icons.ChevronDown}
+          className={selectIconClassNames}
+          onMouseDown={handleIconMouseDown}
+          onClick={handleIconClick}
+        />
       </Div>
       <SuggestionList
         boundingContainerRef={boundingContainerRef}

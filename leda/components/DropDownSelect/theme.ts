@@ -3,16 +3,16 @@ import { defaultSuggestionListTheme } from '../../src/SuggestionList/theme';
 
 export const defaultDropDownSelectTheme = {
   ...defaultSuggestionListTheme,
-  input:                      'dropdownselect-input',
-  inputWrapper:               'dropdownselect-input-wrapper',
-  inputWrapperDisabled:       'disabled',
-  inputWrapperFocused:        'focused',
-  inputWrapperInvalid:        'danger',
-  inputWrapperRequired:       'required',
-  clearIcon:                  'dropdownselect-clear-icon',
-  selectIcon:                 'dropdownselect-select-icon',
-  selectIconClosed:           'closed',
-  selectIconOpened:           'opened',
-  wrapper:                    'dropdownselect-wrapper',
+  input:                      'ld-dropdownselect-input',
+  inputWrapper:               'ld-dropdownselect-input-wrapper',
+  inputWrapperDisabled:       'ld-disabled',
+  inputWrapperFocused:        'ld-focused',
+  inputWrapperInvalid:        'ld-danger',
+  inputWrapperRequired:       'ld-required',
+  clearIcon:                  'ld-dropdownselect-clear-icon',
+  selectIcon:                 'ld-dropdownselect-select-icon',
+  selectIconClosed:           'ld-closed',
+  selectIconOpened:           'ld-opened',
+  wrapper:                    'ld-dropdownselect-wrapper',
 };
 /* eslint-enable key-spacing */

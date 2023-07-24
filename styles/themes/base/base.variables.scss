@@ -51,6 +51,18 @@
 
   --ld-password-rule-text-color: var(--ld-main-color);
 
+  --ld-drop-down-suggestion-padding-inline: 1rem; 
+  --ld-drop-down-suggestion-padding-block: .5rem; 
+  --ld-drop-down-suggestion-border-radius: var(--ld-border-radius);
+  --ld-drop-down-suggestion-bg: var(--ld-main-color-contrast);
+  --ld-drop-down-suggestion-bg-hover: #e5e5e5; // tw neutral 200
+  --ld-drop-down-suggestion-bg-selected: #a3a3a3; // tw neutal 400
+  --ld-drop-down-suggestion-bg-highlighted: #d4d4d4; // tw neutal 300
+  --ld-drop-down-suggestion-container-border-width: 1px; 
+  --ld-drop-down-suggestion-container-border-color: var(--ld-border-color);
+  --ld-drop-down-suggestion-container-border-radius: var(--ld-border-radius);
+  --ld-drop-down-suggestion-container-min-block-size: 200px;
+
   --ld-checkbox-width: 1rem;
   --ld-checkbox-margin-inline-end: .5rem;
   --ld-checkbox-color-disabled: var(--ld-main-color-light);

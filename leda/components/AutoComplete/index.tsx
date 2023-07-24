@@ -34,6 +34,8 @@ import {
 } from './types';
 import { useValidation } from '../Validation';
 import { LedaContext } from '../LedaProvider';
+import { Icon } from '../Icon';
+import { Icons } from '../Icon/types';
 
 export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: React.Ref<AutoCompleteRefCurrent>): React.ReactElement | null => {
   const {
@@ -228,7 +230,8 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
           value={inputValue}
         />
         {shouldShowClearButton && (
-          <i
+          <Icon
+            icon={Icons.X}
             className={theme.closeIcon}
             onClick={clearButtonClickHandler}
           />

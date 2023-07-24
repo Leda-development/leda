@@ -42,7 +42,7 @@ export interface KeyboardChangeEvent<T extends Suggestion> extends React.Keyboar
   },
 }
 
-export interface MouseChangeEvent<T extends Suggestion> extends React.MouseEvent<HTMLElement> {
+export interface MouseChangeEvent<T extends Suggestion> extends React.MouseEvent<HTMLElement | SVGElement> {
   component: {
     value: string,
     method: CHANGE_METHOD.click | CHANGE_METHOD.clear,

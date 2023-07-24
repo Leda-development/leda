@@ -1,0 +1,53 @@
+%suggestion {
+  padding-inline: var(--ld-drop-down-suggestion-padding-inline);
+  padding-block: var(--ld-drop-down-suggestion-padding-block);
+  margin: 2px;
+  border-radius: var(--ld-drop-down-suggestion-border-radius);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--ld-drop-down-suggestion-bg-hover);
+  }
+}
+
+%suggestion-highlighted {
+  background-color: var(--ld-drop-down-suggestion-bg-highlighted);
+  &:hover {
+    background-color: var(--ld-drop-down-suggestion-bg-hover);
+  }
+}
+
+%suggestion-selected {
+  background-color: var(--ld-drop-down-suggestion-bg-selected);
+  &:hover {
+    background-color: var(--ld-drop-down-suggestion-bg-hover);
+  }
+}
+
+%suggestion-container-list {
+  max-block-size: var(--ld-drop-down-suggestion-container-min-block-size);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+%suggestion-wrapper {
+  background-color: var(--ld-drop-down-suggestion-bg);
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 1;
+  border: var(--ld-drop-down-suggestion-container-border-width) solid var(--ld-drop-down-suggestion-container-border-color);
+  border-radius: var(--ld-drop-down-suggestion-container-border-radius);
+}
+
+%pos-top {
+  top: auto;
+  bottom: 100%;
+}
+
+%nodata {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-block-size: var(--ld-drop-down-suggestion-container-min-block-size);
+}

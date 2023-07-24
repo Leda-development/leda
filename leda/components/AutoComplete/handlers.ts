@@ -32,7 +32,7 @@ export const clearButtonClickHandlerCreator = ({
   name?: string,
   onChange: (event: ChangeEvent) => void,
   setStateValue: SetState<string>,
-}): React.MouseEventHandler<HTMLElement> => (event) => {
+}): React.MouseEventHandler<SVGElement> => (event) => {
   if (isDisabled) return;
   if (inputRef.current) inputRef.current.focus();
   // todo check it is needed
@@ -71,9 +71,10 @@ export const suggestionClickHandlerCreator = ({
   setIsFocused: SetState<boolean>,
   setHighlightedSuggestion: SetState<Suggestion>,
 }): CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget> => (event) => {
-  if (isObject(event.target.value)) return;
-
-  if (typeof(textField) === 'undefined') return; 
+  if (isObject(event.target.value) && textField === undefined) {
+    // todo handle error
+    return;
+  }
 
   const value = isObject(event.target.value)
     ? event.target.value[textField as string] as string

@@ -1,0 +1,47 @@
+.ld-autocomplete-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.ld-autocomplete-input-wrapper {
+  @extend %input-element-wrapper;
+}
+
+.ld-autocomplete-input {
+  @extend %input-element;
+}
+
+.ld-autocomplete-clear-icon {
+  @extend %input-clear-icon;
+}
+
+// dropdown list styles
+.ld-suggestion-wrapper {
+  @extend %suggestion-wrapper;
+}
+
+.ld-suggestion-list {
+  @extend %suggestion-container-list;
+}
+
+.ld-suggestion-item {
+  @extend %suggestion;
+}
+
+.ld-highlighted {
+  @extend %suggestion-highlighted;
+
+}
+
+.ld-selected {
+  @extend %suggestion-selected;
+}
+
+.ld-pos-top {
+  @extend %pos-top;
+}
+
+.ld-nodata {
+  @extend %nodata; 
+}

@@ -1,0 +1,27 @@
+.ld-dropdownselect-wrapper {
+  position: relative;
+}
+
+.ld-dropdownselect-input-wrapper {
+  @extend %input-element-wrapper;
+}
+
+.ld-dropdownselect-input {
+  @extend %input-element;
+}
+
+.ld-dropdownselect-clear-icon {
+  @extend %input-clear-icon;
+}
+
+.ld-dropdownselect-select-icon {
+  @extend %input-clear-icon;
+}
+
+.ld-opened {
+  transform: rotate(180deg);
+}
+
+.ld-closed {
+  transform: rotate(0deg);
+}

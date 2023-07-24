@@ -141,16 +141,15 @@ export type BlurHandler = CustomEventHandler<React.FocusEvent<HTMLInputElement>>
 
 export type FocusHandler = CustomEventHandler<React.FocusEvent<HTMLInputElement>>;
 
-export type IconClickHandler = CustomEventHandler<React.MouseEvent<HTMLElement>>;
+export type IconClickHandler = CustomEventHandler<React.MouseEvent<SVGElement>>;
 
 export type KeyDownHandler = CustomEventHandler<React.KeyboardEvent<HTMLInputElement>>;
 
 export type FilterChangeHandler = CustomEventHandler<React.ChangeEvent<HTMLInputElement>>;
 
-export type ClearIconClickHandler = CustomEventHandler<React.MouseEvent<HTMLElement>>;
+export type ClearIconClickHandler = CustomEventHandler<React.MouseEvent<SVGElement>>;
 
 export interface CustomElements {
-  Icon: React.FC<SpanProps>,
   Input: React.FC<React.InputHTMLAttributes<HTMLInputElement> & React.RefAttributes<HTMLInputElement>>,
   Wrapper: React.FC<DivProps>,
 }

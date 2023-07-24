@@ -62,7 +62,6 @@ export const WorkTypes = (args: SomeObject): React.ReactElement => {
         isRequired
         requiredMessage="Укажите одно или несколько значений"
         isDisabled={isDisabled}
-        theme={{ buttonActive: 'active' }}
         {...props}
         {...colorProps}
       />

@@ -1,9 +1,9 @@
 /* eslint-disable key-spacing */
 export const defaultButtonTheme = {
   // todo replace classes when base theme is ready
-  disabled:                 'disabled',
-  loading:                  'loading',
-  loadingIcon:              'loading-icon',
+  disabled:                 'ld-disabled',
+  loading:                  'ld-loading',
+  loadingIcon:              'ld-loading-icon',
   wrapper:                  'ld-btn',
 };
 /* eslint-enable key-spacing */

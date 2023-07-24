@@ -1,17 +1,7 @@
-// Theme
-// button:                     'ld-button-group-item',
-// buttonActive:               'active',
-// buttonFirst:                'first',
-// buttonLast:                 'last',
-// wrapperDisabled:            'disabled',
-// wrapperRequired:            'required',
-// buttonsWrapper:             'ld-button-group-buttons-wrapper',
-// wrapper:                    'ld-button-group-wrapper',
-
 .ld-button-group-buttons-wrapper {
   display: flex;
 
-  &.disabled {
+  &.ld-disabled {
     filter: opacity(50%);
 
     .ld-button-group-item {
@@ -20,7 +10,7 @@
         border-color: var(--ld-btn-border-color);
         cursor: not-allowed;
       }
-      &.active:hover {
+      &.ld-active:hover {
         background-color: var(--ld-btn-group-active-color);
         border-color: var(--ld-btn-group-active-color);
       }
@@ -31,15 +21,15 @@
 .ld-button-group-item {
   border-radius: 0;
 
-  &.first {
+  &.ld-first {
     border-radius: var(--ld-btn-border-radius) 0 0 var(--ld-btn-border-radius);
   }
 
-  &.last {
+  &.ld-last {
     border-radius: 0 var(--ld-btn-border-radius) var(--ld-btn-border-radius) 0;
   }
 
-  &.active {
+  &.ld-active {
     background-color: var(--ld-btn-group-active-color);
     border-color: var(--ld-btn-group-active-color);
   }

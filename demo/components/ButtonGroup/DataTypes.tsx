@@ -18,7 +18,6 @@ export const DataTypes = (args: SomeObject): React.ReactElement => {
         data={['one', 'two', 'three']}
         defaultValue="two"
         isDisabled={isDisabled}
-        theme={{ buttonActive: 'active' }}
         onChange={(ev) => {
           console.log('ev.component.value', ev.component.value);
         }}

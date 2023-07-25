@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { Div } from '../Div';
 import { Span } from '../Span';
 import { DescriptionMessage } from './helpers';
 import * as messages from '../../messages';
 import { DefaultComponentProps } from './types';
+import { Icon } from '../Icon';
+import { IconTypes } from '../..';
 
 export const DefaultComponent = (props: DefaultComponentProps) => {
   const {
@@ -18,7 +19,10 @@ export const DefaultComponent = (props: DefaultComponentProps) => {
   } = props;
   return (
     <DefaultItem className={theme.description}>
-      <Div className={theme.cloudIcon} />
+      <Icon
+        icon={IconTypes.Icons.UploadCloud}
+        className={theme.cloudIcon}
+      />
       <Span>
         Перетащите сюда файл для загрузки
       </Span>

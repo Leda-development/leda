@@ -2,6 +2,8 @@ import * as React from 'react';
 import { Span } from '../Span';
 import { Button } from '../Button';
 import { ErrorComponentProps } from './types';
+import { Icon } from '../Icon';
+import { IconTypes } from '../..';
 
 export const ErrorComponent = (props: ErrorComponentProps) => {
   const {
@@ -10,7 +12,10 @@ export const ErrorComponent = (props: ErrorComponentProps) => {
 
   return (
     <ErrorItem className={theme.description}>
-      <Span className={theme.errorIcon} />
+      <Icon
+        icon={IconTypes.Icons.Frown}
+        className={theme.errorIcon}
+      />
       <Span>
         Не удалось загрузить файл
         {errorMessage ? `. ${errorMessage}` : null}

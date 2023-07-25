@@ -17,6 +17,7 @@
   --ld-bg-color-disabled: #e5e5e5; // tailwind neutral 200
   --ld-padding-block: .4rem;
   --ld-color-danger: #dc2626; // tailwind red 600
+  --ld-color-success: #15803d; // tailwind green 700
 
   // component variables
   // do not use component variables in other component variables
@@ -50,10 +51,6 @@
   --ld-input-close-icon-size: 2.25rem; 
   --ld-input-close-icon-padding: .5rem;
   --ld-input-bg-color: var(--ld-bg-color);
-  --ld-input-bg-color-disabled: var(--ld-bg-color-disabled);
-  --ld-input-border-color-focused: var(--ld-border-color-hover);
-  --ld-input-border-color-danger: var(--ld-color-danger);
-  --ld-input-border-color-required: var(--ld-border-color);
 
   --ld-password-rule-text-color: var(--ld-main-color);
 
@@ -79,4 +76,14 @@
   --ld-dropzone-delete-icon-size: .75rem;
   --ld-dropzone-delete-icon-margin-inline-end: .5rem;
 
+  --ld-filedrop-icon-size: 4rem;
+  --ld-filedrop-icon-color: var(--ld-main-color);
+  --ld-filedrop-ok-icon-color: var(--ld-color-success);
+  --ld-filedrop-error-icon-color: var(--ld-color-danger);
+  --ld-filedrop-retry-icon-size: 1rem;
+  --ld-filedrop-retry-icon-margin-inline-end: .5rem;
+  --ld-filedrop-progress-stroke: var(--ld-color-success);
+  --ld-filedrop-progress-stroke-size: 70px;
+  --ld-filedrop-progress-stroke-width: 2;
+  --ld-filedrop-progress-base: 2px solid var(--ld-bg-color-disabled);
 }

@@ -154,7 +154,7 @@ export const createDownloadLink = (file: File, fileName: string | undefined, the
     : { href: URL.createObjectURL(file), download: fileName };
 
   return (
-    <A theme={theme.fileDownloadLink} {...linkProps}>
+    <A className={theme.fileDownloadLink} {...linkProps}>
       {fileName}
     </A>
   );

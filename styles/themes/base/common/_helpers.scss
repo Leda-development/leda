@@ -1,0 +1,26 @@
+.ld-danger {
+  border-color: var(--ld-color-danger);
+  &:hover {
+    border-color: var(--ld-color-danger);
+  }
+}
+
+.ld-required {
+  border-color: var(--ld-color-danger);
+  &:hover {
+    border-color: var(--ld-color-danger);
+  }
+}
+
+.ld-disabled {
+  cursor: not-allowed;
+  background-color: var(--ld-input-bg-color-disabled);
+  
+  &:hover {
+    border-color: var(--ld-input-border-color);
+  }
+}
+
+.ld-focused {
+  border-color: var(--ld-input-border-color-hover);
+}

@@ -3,9 +3,9 @@ import { defaultSuggestionListTheme } from '../../src/SuggestionList/theme';
 
 export const defaultAutoCompleteTheme = {
   ...defaultSuggestionListTheme,
-  closeIcon:                  'ld-autocomplete-clear-icon',
-  input:                      'ld-autocomplete-input',
-  inputWrapper:               'ld-autocomplete-input-wrapper',
+  closeIcon:                  'ld-input-icon',
+  input:                      'ld-input-element',
+  inputWrapper:               'ld-input-element-wrapper',
   inputWrapperDisabled:       'ld-disabled',
   inputWrapperFocused:        'ld-focused',
   inputWrapperInvalid:        'ld-danger',

@@ -1,0 +1,73 @@
+.ld-filedrop-wrapper {
+  border: var(--ld-dropzone-border);
+  border-radius: var(--ld-dropzone-border-radius);
+  padding: var(--ld-dropzone-padding);
+}
+
+.ld-filedrop-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ld-filedrop-description {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ld-filedrop-ok-icon {
+  width: var(--ld-filedrop-icon-size);
+  height: var(--ld-filedrop-icon-size);
+  color: var(--ld-filedrop-ok-icon-color);
+}
+
+.ld-filedrop-error-icon {
+  width: var(--ld-filedrop-icon-size);
+  height: var(--ld-filedrop-icon-size);
+  color: var(--ld-filedrop-error-icon-color);
+}
+
+.ld-filedrop-cloud-icon {
+  width: var(--ld-filedrop-icon-size);
+  height: var(--ld-filedrop-icon-size);
+  color: var(--ld-filedrop-icon-color);
+}
+
+.ld-filedrop-button {
+  display: inline-flex;
+}
+
+.ld-filedrop-retry-icon {
+  width: var(--ld-filedrop-retry-icon-size);
+  margin-inline-end: var(--ld-filedrop-retry-icon-margin-inline-end);
+}
+
+.ld-filedrop-progress-loader {
+  position: relative;
+}
+
+.ld-filedrop-progress-base {
+  width: var(--ld-filedrop-progress-stroke-size);
+  height: var(--ld-filedrop-progress-stroke-size);
+  border: var(--ld-filedrop-progress-base);
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.ld-filedrop-progress-circle {
+  stroke: var(--ld-filedrop-progress-stroke);
+  width: var(--ld-filedrop-progress-stroke-size);
+  height: var(--ld-filedrop-progress-stroke-size);
+  stroke-width: var(--ld-filedrop-progress-stroke-width);
+  position: absolute;
+  top: 0;
+  fill: none; 
+  
+  & circle {
+    transition: stroke-dashoffset 0.3s;
+  }
+}
+

@@ -10,7 +10,7 @@ export const TrailingZeros = (args: any) => {
   const { update, EventInfo } = useEventSpy(['formattedValue']);
 
   return (
-    <L.Div _demoStory>
+    <L.Div _demo-story>
       <L.NumericTextBox
         format="#.####"
         value={value}

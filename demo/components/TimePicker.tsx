@@ -8,8 +8,8 @@ export const TimePicker = () => {
   const [value, setValue] = React.useState('14:30:45');
 
   return (
-    <L.Div _demoStory>
-      <L.H4 _title>TimePicker</L.H4>
+    <L.Div _demo-story>
+      <L.H4 _story-title>TimePicker</L.H4>
       <br />
       <br />
       <L.TimePicker

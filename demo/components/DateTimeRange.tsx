@@ -7,8 +7,8 @@ export const DateTimeRange = (): React.ReactElement => {
   const [DTRValue, setDTRValue] = React.useState<[string, string]>(['12.05.2018 12:30', '15.05.2018 16:30']);
 
   return (
-    <L.Div _demoStory>
-      <L.H4 _title>DateTimeRange</L.H4>
+    <L.Div _demo-story>
+      <L.H4 _story-title>DateTimeRange</L.H4>
       <br />
       Value: {DTRValue[0]}, {DTRValue[1]}
       <br />

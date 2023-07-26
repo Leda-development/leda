@@ -64,8 +64,8 @@ export const StatusBar = () => {
   }, progress < 100 ? 500 : null);
 
   return (
-    <L.Div _demoStory>
-      <L.H4 _title>StatusBar & StatusBarCustom</L.H4>
+    <L.Div _demo-story>
+      <L.H4 _story-title>StatusBar & StatusBarCustom</L.H4>
       <L.StatusBar
         data={data}
         value={data[2]}

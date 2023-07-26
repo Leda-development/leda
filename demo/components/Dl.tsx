@@ -2,8 +2,8 @@ import React from 'react';
 import * as L from '../../leda';
 
 export const Dl = () => (
-  <L.Div _demoStory>
-    <L.H4 _title>Description List</L.H4>
+  <L.Div _demo-story>
+    <L.H4 _story-title>Description List</L.H4>
     <br />
     <L.Dl _list _w25>
       <L.Dt>Название</L.Dt>

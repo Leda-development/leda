@@ -10,7 +10,7 @@ export const NameArray = (args: any) => {
   const { update, EventInfo } = useEventSpy();
 
   return (
-    <L.Div _demoStory>
+    <L.Div _demo-story>
       <L.NumericRange
         format="#.## %"
         _width70

@@ -7,7 +7,7 @@ export const Customization = (args: any) => {
   const [value, setValue] = React.useState<[number | null, number | null] | null>([5, 13]);
 
   return (
-    <L.Div _demoStory>
+    <L.Div _demo-story>
       <L.NumericRange
         format="#.## %"
         _width70

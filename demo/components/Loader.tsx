@@ -7,8 +7,8 @@ export const Loader = () => {
   const [props, setProps] = React.useState({ });
 
   return (
-    <L.Div _demoStory>
-      <L.H4 _title>Loader</L.H4>
+    <L.Div _demo-story>
+      <L.H4 _story-title>Loader</L.H4>
       <p>Лоадер как обертка:</p>
       <L.Loader
         isLoading

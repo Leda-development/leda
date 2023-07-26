@@ -8,8 +8,8 @@ export const Pagination = (): React.ReactElement => {
   const [currentPage, setCurrentPage] = React.useState<number>(1);
 
   return (
-    <L.Div _demoStory>
-      <L.H4 _title>Pagination</L.H4>
+    <L.Div _demo-story>
+      <L.H4 _story-title>Pagination</L.H4>
       <br />
       <L.Pagination
         pageSize={pageSize}

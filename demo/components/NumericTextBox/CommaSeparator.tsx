@@ -10,7 +10,7 @@ export const CommaSeparator = (args: any) => {
   const { update, EventInfo } = useEventSpy(['formattedValue']);
 
   return (
-    <L.Div _demoStory>
+    <L.Div _demo-story>
       <L.NumericTextBox
         format="#,#### кг."
         name="numer"

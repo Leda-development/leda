@@ -9,7 +9,7 @@ export const Icon = () => {
   const [stroke, setStroke] = useState<string>();
 
   return (
-    <L.Div _demoStory>
+    <L.Div _demo-story>
       <L.H4 _story-title>Icon</L.H4>
       <br />
       <L.Div

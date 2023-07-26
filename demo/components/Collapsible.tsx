@@ -5,8 +5,8 @@ export const Collapsible = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <L.Div _demoStory>
-      <L.H4 _title>Collapsible</L.H4>
+    <L.Div _demo-story>
+      <L.H4 _story-title>Collapsible</L.H4>
       <br />
 
       <L.Button onClick={() => setIsOpen(!isOpen)} >

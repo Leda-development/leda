@@ -118,7 +118,7 @@ export const Tour = (): React.ReactElement => {
 
   return (
     <L.Div _demo-story>
-      <L.H4 _title>Tour</L.H4>
+      <L.H4 _story-title>Tour</L.H4>
       <L.Div _inner>
         <L.Button _warning onClick={() => setActiveStep('1')}>
           Начать гайд-тур

@@ -1,0 +1,76 @@
+.ld-tooltip-wrapper {
+  display: inline-block;
+}
+
+.ld-tooltip {
+  position: absolute;
+  z-index: var(--ld-tooltip-z-index);
+  max-width: var(--ld-tooltip-max-width);
+  min-width: var(--ld-tooltip-min-width);
+  padding: var(--ld-tooltip-padding);
+  color: var(--ld-tooltip-text-color);
+  background-color: var(--ld-tooltip-bg-color);
+  border-radius: var(--ld-tooltip-border-radius);
+  transition: var(--ld-tooltip-transition);
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+  }
+}
+
+.ld-tooltip.ld-top {
+  margin-top: calc(-1*var(--ld-tooltip-arrow-length));
+  transform: translate(-50%, -100%);
+
+  &::after {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: var(--ld-tooltip-arrow-length) var(--ld-tooltip-arrow-width) 0;
+    border-top-color: var(--ld-tooltip-bg-color);
+  }
+}
+
+.ld-tooltip.ld-bottom {
+  margin-top: var(--ld-tooltip-arrow-length);
+  transform: translateX(-50%);
+
+  &::after {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 var(--ld-tooltip-arrow-width) var(--ld-tooltip-arrow-length);
+    border-bottom-color: var(--ld-tooltip-bg-color);
+  }
+}
+
+.ld-tooltip.ld-left {
+  margin-left: calc(-1*var(--ld-tooltip-arrow-length));
+  transform: translate(-100%, -50%);
+
+  &::after {
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    border-width: var(--ld-tooltip-arrow-width) 0 var(--ld-tooltip-arrow-width) var(--ld-tooltip-arrow-length);
+    border-left-color: var(--ld-tooltip-bg-color);
+  }
+}
+
+.ld-tooltip.ld-right {
+  margin-left: var(--ld-tooltip-arrow-length);
+  transform: translateY(-50%);
+
+  &::after {
+    top: 50%;
+    right: 100%;
+    transform: translateY(-50%);
+    border-width: var(--ld-tooltip-arrow-width) var(--ld-tooltip-arrow-length) var(--ld-tooltip-arrow-width) 0;
+    border-right-color: var(--ld-tooltip-bg-color);
+  }
+}
+

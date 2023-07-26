@@ -8,8 +8,8 @@ export const Rating = () => {
   const [props, setProps] = React.useState<any>();
 
   return (
-    <L.Div _demoStory>
-      <L.H4 _title>Rating</L.H4>
+    <L.Div _demo-story>
+      <L.H4 _story-title>Rating</L.H4>
       <L.Div>
         <L.Rating
           max={10}

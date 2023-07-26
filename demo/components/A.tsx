@@ -7,8 +7,8 @@ export const A = () => {
   const [props, setProps] = React.useState({ href: 'https://google.com/', _external: true });
 
   return (
-    <L.Div _demoStory>
-      <L.H4 _title>A</L.H4>
+    <L.Div _demo-story>
+      <L.H4 _story-title>A</L.H4>
       <br />
       <L.A
         onClick={ev => {

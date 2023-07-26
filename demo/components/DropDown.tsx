@@ -5,8 +5,8 @@ export const DropDown = () => {
   const containerRef = React.useRef(null);
 
   return (
-    <L.Div _demoStory>
-      <L.H4 _title>DropDown</L.H4>
+    <L.Div _demo-story>
+      <L.H4 _story-title>DropDown</L.H4>
       <br/>
       <L.DropDown _more wrapperRender={({elementProps}: any) => <L.Button {...elementProps} />}>
         <L.Span>Hello</L.Span>

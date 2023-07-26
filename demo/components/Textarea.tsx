@@ -10,8 +10,8 @@ export const Textarea = () => {
   const [eventType, setEventType] = React.useState<string | null>(null);
 
   return (
-    <L.Div _demoStory>
-      <L.H4 _title>Textarea</L.H4>
+    <L.Div _demo-story>
+      <L.H4 _story-title>Textarea</L.H4>
       <br />
       <L.Textarea
         placeholder="Tell me your secrets..."

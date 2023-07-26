@@ -2,8 +2,8 @@ import React from 'react';
 import * as L from '../../leda';
 
 export const Div = () => (
-  <L.Div _demoStory>
-    <L.H4 _title>Div</L.H4>
+  <L.Div _demo-story>
+    <L.H4 _story-title>Div</L.H4>
     <br />
     <L.Div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <L.Div style={{ display: 'flex', flexDirection: 'row' }}>

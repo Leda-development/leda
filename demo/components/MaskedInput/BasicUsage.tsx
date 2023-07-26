@@ -5,7 +5,7 @@ export const BasicUsage = (props: any): React.ReactElement => {
   const [value, setValue] = React.useState('');
 
   return (
-    <L.Div _demoStory>
+    <L.Div _demo-story>
       <L.MaskedInput
         form="MItest"
         name="test"

@@ -6,8 +6,8 @@ export const Radio = (): React.ReactElement => {
   const [value, setValue] = React.useState<string | number>(0);
 
   return (
-    <L.Div _demoStory>
-      <L.H4 _title>Radio</L.H4>
+    <L.Div _demo-story>
+      <L.H4 _story-title>Radio</L.H4>
       <L.Div style={{ display: 'flex' }}>
         <L.RadioGroup
           name="radio"

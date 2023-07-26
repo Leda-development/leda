@@ -8,8 +8,8 @@ export const DateTimePicker = () => {
   const [value, setValue] = React.useState('23.10.18 14:30:25');
 
   return (
-    <L.Div _demoStory>
-      <L.H4 _title>DateTimePicker</L.H4>
+    <L.Div _demo-story>
+      <L.H4 _story-title>DateTimePicker</L.H4>
       <br />
       <br />
       <L.DateTimePicker

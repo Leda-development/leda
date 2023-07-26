@@ -15,8 +15,8 @@ export const CheckBox = () => {
   const [subValue2, setSubValue2] = React.useState<boolean>(true);
 
   return (
-    <L.Div _demoStory>
-      <L.H4 _title>CheckBox</L.H4>
+    <L.Div _demo-story>
+      <L.H4 _story-title>CheckBox</L.H4>
       <L.Div style={{ display: 'flex' }}>
         <L.Div>
           <L.CheckBox

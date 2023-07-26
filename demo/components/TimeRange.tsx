@@ -6,8 +6,8 @@ export const TimeRange = () => {
   const [value, setValue] = React.useState<[string, string]>(['13:30', '15:00']);
 
   return (
-    <L.Div _demoStory>
-      <L.H4 _title>TimeRange</L.H4>
+    <L.Div _demo-story>
+      <L.H4 _story-title>TimeRange</L.H4>
       <br />
       <L.Div style={{ display: 'flex' }}>
         <L.TimeRange

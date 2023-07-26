@@ -11,8 +11,8 @@ export const Table = () => {
   const [activeKey, setActiveKey] = React.useState<string | string[] | null>('1');
 
   return (
-    <L.Div _demoStory>
-      <L.H4 _title>Table</L.H4>
+    <L.Div _demo-story>
+      <L.H4 _story-title>Table</L.H4>
       <br />
       <L.Collapse isAccordion activePanelKey={activeKey} onSelect={(ev) => setActiveKey(ev.component.value)}>
         <L.Table>

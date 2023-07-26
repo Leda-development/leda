@@ -5,8 +5,8 @@ export const Story = (props: {
   children: React.ReactNode,
   title: string,
 }) => (
-  <L.Div _demoStory>
-    <L.H4 _storyTitle>{props.title}</L.H4>
+  <L.Div _demo-story>
+    <L.H4 _story-title>{props.title}</L.H4>
     <L.Tabs>
       {React.Children.map(props.children, (child, index) => (
         // @ts-ignore

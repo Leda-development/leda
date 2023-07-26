@@ -7,8 +7,8 @@ export const Collapse = () => {
   const [isDisabled, setIsDisabled] = React.useState(false);
 
   return (
-    <L.Div _demoStory>
-      <L.H4 _title>Collapse</L.H4>
+    <L.Div _demo-story>
+      <L.H4 _story-title>Collapse</L.H4>
       <br />
       <L.Collapse isAccordion={isAccordion} activePanelKey={activeKey} onSelect={(event) => setActiveKey(event.component.value)}>
         <L.Collapse.Panel panelKey="1" wrapperRender={({ elementProps }) => <L.Div {...elementProps} />}>

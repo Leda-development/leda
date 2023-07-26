@@ -12,7 +12,7 @@ export const BasicUsage = (args: any) => {
   const { update, EventInfo } = useEventSpy(['formattedValue']);
 
   return (
-    <L.Div _demoStory>
+    <L.Div _demo-story>
       <L.NumericRange
         format="#.## %"
         _width-70

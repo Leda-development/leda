@@ -35,8 +35,8 @@ export const ProgressBar = () => {
     }
   };
   return (
-    <L.Div _demoStory>
-      <L.H4 _title>ProgressBar</L.H4>
+    <L.Div _demo-story>
+      <L.H4 _story-title>ProgressBar</L.H4>
       <L.ProgressBar value={value} valueRender={() => null} />
       <br />
       <br />

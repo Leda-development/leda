@@ -6,8 +6,8 @@ export const Modal = () => {
   const [isOpen, setOpen] = React.useState(false);
 
   return (
-    <L.Div _demoStory>
-      <L.H4 _title>Modal</L.H4>
+    <L.Div _demo-story>
+      <L.H4 _story-title>Modal</L.H4>
       <br />
       <L.Modal
         isOpen={isOpen}

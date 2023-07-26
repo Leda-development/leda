@@ -71,8 +71,8 @@ export const Notifications = () => {
   };
 
   return (
-    <L.Div _demoStory>
-      <L.H4 _title>Notifications</L.H4>
+    <L.Div _demo-story>
+      <L.H4 _story-title>Notifications</L.H4>
       <L.Notifications
         value={items}
         maxItems={3}

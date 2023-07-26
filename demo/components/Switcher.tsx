@@ -7,8 +7,8 @@ export const Switcher = () => {
   const [value, setValue] = React.useState(true);
 
   return (
-    <L.Div _demoStory>
-      <L.H4 _title>Switcher</L.H4>
+    <L.Div _demo-story>
+      <L.H4 _story-title>Switcher</L.H4>
       <br />
         Uncontrolled<br />
       <L.Switcher {...props}>Switcher</L.Switcher>

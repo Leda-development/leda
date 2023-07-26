@@ -6,14 +6,14 @@ export const Slider = () => {
   const [firstSliderValue, setFirstSliderValue] = React.useState<number | number[] | null | undefined>(10);
   const [secondSliderValue, setSecondSliderValue] = React.useState<number | number[] | null | undefined>([2, 10, 15]);
   return (
-    <L.Div _demoStory>
-      <L.H4 _title>Slider</L.H4>
+    <L.Div _demo-story>
+      <L.H4 _story-title>Slider</L.H4>
       <br />
       <L.Slider
         max={20}
         value={firstSliderValue}
         onChange={ev => { console.log('Slider onChange', ev); setFirstSliderValue(ev.component.value); }}
-        _width50
+        _width-50
         labelType="current"
         unitsRender={() => 'млн.руб.'}
         name="Slider 1"
@@ -45,7 +45,7 @@ export const Slider = () => {
         max={20}
         value={secondSliderValue}
         onChange={ev => { console.log('Slider onChange', ev); setSecondSliderValue(ev.component.value); }}
-        _width50
+        _width-50
         labelType="minmax"
         unitsRender={() => 'млн.руб.'}
         name="Slider 1"

@@ -16,6 +16,7 @@
   --ld-border-color-hover: #09090b; // tailwind neutral 950
   --ld-bg-color-disabled: #e5e5e5; // tailwind neutral 200
   --ld-padding-block: .4rem;
+  --ld-padding-inline: 1rem;
   --ld-color-danger: #dc2626; // tailwind red 600
   --ld-color-success: #15803d; // tailwind green 700
 
@@ -28,7 +29,7 @@
   --ld-btn-line-height: var(--ld-line-height);
   --ld-btn-text-color: var(--ld-main-color-contrast);
   --ld-btn-border-width: 2px;
-  --ld-btn-padding-inline: 1rem; 
+  --ld-btn-padding-inline: var(--ld-padding-inline); 
   --ld-btn-padding-block: calc(var(--ld-padding-block) - var(--ld-btn-border-width));
   --ld-btn-border-color: var(--ld-main-color);
   --ld-btn-bg-color: var(--ld-main-color);
@@ -47,14 +48,14 @@
   --ld-input-border-radius: var(--ld-border-radius);
   --ld-input-border-width: 1px;
   --ld-input-padding-block: calc(var(--ld-padding-block) - var(--ld-input-border-width));
-  --ld-input-padding-inline: 1rem;
+  --ld-input-padding-inline: var(--ld-padding-inline);
   --ld-input-close-icon-size: 2.25rem; 
   --ld-input-close-icon-padding: .5rem;
   --ld-input-bg-color: var(--ld-bg-color);
 
   --ld-password-rule-text-color: var(--ld-main-color);
 
-  --ld-drop-down-suggestion-padding-inline: 1rem; 
+  --ld-drop-down-suggestion-padding-inline: var(--ld-padding-inline); 
   --ld-drop-down-suggestion-padding-block: .5rem; 
   --ld-drop-down-suggestion-border-radius: var(--ld-border-radius);
   --ld-drop-down-suggestion-bg: var(--ld-main-color-contrast);
@@ -124,6 +125,12 @@
   --ld-tooltip-arrow-length: 7px;
   --ld-tooltip-arrow-width: 4px;
 
+  --ld-textarea-height: 120px;
+  --ld-textarea-padding: 1rem var(--ld-padding-inline);
+  --ld-textarea-border: 1px solid  var(--ld-border-color);
+  --ld-textarea-border-color-hover: var(--ld-border-color-hover);
+  --ld-textarea-border-radius: var(--ld-border-radius);
+
   --ld-switcher-active-color: var(--ld-color-success);
   --ld-switcher-handler-bg: var(--ld-main-color-contrast);
   --ld-switcher-handler-bg-hovered: var(--ld-main-color-contrast);
@@ -135,7 +142,5 @@
   --ld-switcher-wrapper-bg-disabled: var(--ld-bg-color-disabled);
   --ld-switcher-wrapper-width: 34px;
   --ld-switcher-label-margin-inline-start: .5rem;
-
-
 
 }

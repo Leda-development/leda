@@ -1,0 +1,12 @@
+.ld-textarea {
+  width: 100%;
+  resize: none;
+  height: var(--ld-textarea-height);
+  padding: var(--ld-textarea-padding);
+  border: var(--ld-textarea-border);
+  border-radius: var(--ld-textarea-border-radius);
+
+  &:hover {
+    border-color: var(--ld-textarea-border-color-hover);
+  }
+}

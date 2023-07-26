@@ -21,7 +21,7 @@ export const Textarea = () => {
         name="textarea"
         form="one-lonely-form"
         style={{ height: '200px' }}
-        _width50
+        _width-50
         maxLength={20}
         onChange={(event: L.TextareaTypes.ChangeEvent) => {
           const { component } = event;
@@ -55,7 +55,7 @@ export const Textarea = () => {
 
       <L.H5>Event: {eventType}</L.H5>
       <L.Div _inner>
-        <L.Dl _list _w30 _form>
+        <L.Dl _list _w-30 _form>
           <L.Dt>name</L.Dt>
           <L.Dd>{`${name}`}</L.Dd>
           <L.Dt>value</L.Dt>

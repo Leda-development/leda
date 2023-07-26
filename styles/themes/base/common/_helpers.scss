@@ -19,8 +19,16 @@
   &:hover {
     border-color: var(--ld-input-border-color);
   }
+
+  &.ld-required {
+    border-color: var(--ld-input-border-color);
+  }
 }
 
 .ld-focused {
   border-color: var(--ld-input-border-color-hover);
+
+  &:hover{
+    border-color: var(--ld-input-border-color-hover);
+  }
 }

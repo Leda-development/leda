@@ -15,7 +15,7 @@ export const BasicUsage = (args: any) => {
     <L.Div _demoStory>
       <L.NumericRange
         format="#.## %"
-        _width70
+        _width-70
         name="numer-range"
         onBlur={ev => {
           update('Blur', ev);
@@ -33,28 +33,6 @@ export const BasicUsage = (args: any) => {
         form="foobar"
         value={value}
         placeholder={['Число', 'Тоже число']}
-        inputsRender={[
-          ({ Element, elementProps }) => (
-            <>
-              <L.Span _numericTextBoxPrefix style={{ color: 'steelblue' }}>Цена от</L.Span>
-              <Element {...elementProps} />
-              <L.Span _numericTextBoxSuffix>млн. 💲</L.Span>
-            </>
-          ),
-          ({ Element, elementProps }) => (
-            <>
-              <L.Span _numericTextBoxPrefix style={{ color: 'steelblue' }}>Цена до</L.Span>
-              <Element {...elementProps} />
-              <L.Span _numericTextBoxSuffix>млн. 💲</L.Span>
-            </>
-          ),
-        ]}
-        wrapperRender={({ Element, elementProps }) => (
-          <Element {...elementProps}>
-            <L.Span _marginRight _flexRow _colMd2>Проценты <L.I _icon20 _iSearch /></L.Span>
-            {elementProps.children}
-          </Element>
-        )}
         isRequired={[false, true]}
         {...props}
       />

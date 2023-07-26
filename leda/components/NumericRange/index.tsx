@@ -8,7 +8,6 @@ import {
 } from '../../utils';
 import { Div } from '../Div';
 import { NumericTextBox } from '../NumericTextBox';
-import { Span } from '../Span';
 import {
   createNumericChangeHandler,
 } from './handlers';
@@ -114,7 +113,7 @@ export const NumericRange = React.forwardRef((props: NumericRangeProps, ref?: Re
         value={value[0]}
         {...commonProps}
       />
-      <Span className={theme.delimiter}>&mdash;</Span>
+      <Div className={theme.delimiter}>&mdash;</Div>
       <NumericTextBox
         inputRender={Array.isArray(inputsRender) ? inputsRender[1] : undefined}
         isDisabled={disabled[1]}

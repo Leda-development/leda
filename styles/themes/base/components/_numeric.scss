@@ -1,0 +1,29 @@
+.ld-numeric-arrows {
+  display: flex;
+  flex-direction: column;
+}
+
+.ld-numeric-arrow-down {
+  width: var(--ld-numeric-arrow-width);
+  padding-inline: var(--ld-numeric-arrow-padding-inline);
+  cursor: pointer;
+  block-size: 50%;
+  color: var(--ld-input-border-color);
+
+  &:hover {
+    color: black;
+  }
+}
+
+.ld-numeric-arrow-up {
+  width: var(--ld-numeric-arrow-width);
+  padding-inline: var(--ld-numeric-arrow-padding-inline);
+  cursor: pointer;
+  block-size: 50%;
+  color: var(--ld-input-border-color);
+
+  &:hover {
+    color: var(--ld-input-border-hover-color);
+  }
+}
+

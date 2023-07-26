@@ -6,7 +6,6 @@ import {
   bindFunctionalRef, getClassNames, getIsEmptyAndRequired, useProps, useTheme, useValue,
 } from '../../utils';
 import { Div } from '../Div';
-import { Span } from '../Span';
 import { useValidation } from '../Validation';
 import {
   createArrowButtonClick,
@@ -23,6 +22,8 @@ import {
 import { useCustomElements, useSyncedValue } from './hooks';
 import { NumericRefCurrent, NumericTextBoxProps, NormalizeParameters } from './types';
 import { DEFAULT_VALUES } from './constants';
+import { Icon } from '../Icon';
+import { IconTypes } from '../..';
 
 export const NumericTextBox = React.forwardRef((props: NumericTextBoxProps, ref: React.Ref<NumericRefCurrent>): React.ReactElement => {
   const {
@@ -145,11 +146,13 @@ export const NumericTextBox = React.forwardRef((props: NumericTextBoxProps, ref:
           value={getComponentValue}
         />
         <ArrowButtons className={theme.arrowButtons} onClick={(event) => event.stopPropagation()}>
-          <Span
+          <Icon
+            icon={IconTypes.Icons.ChevronUp}
             className={theme.arrowUp}
             onClick={handleArrowButtonClick('increase')}
           />
-          <Span
+          <Icon
+            icon={IconTypes.Icons.ChevronDown}
             className={theme.arrowDown}
             onClick={handleArrowButtonClick('decrease')}
           />

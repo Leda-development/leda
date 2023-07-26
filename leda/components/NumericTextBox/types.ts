@@ -24,7 +24,7 @@ interface KeyArrowChangeEvent extends React.KeyboardEvent<HTMLElement> {
 }
 
 // the event from clicking up/down arrows in the input field
-interface MouseArrowChangeEvent extends React.MouseEvent<HTMLElement> {
+interface MouseArrowChangeEvent extends React.MouseEvent<SVGElement> {
   component: {
     formattedValue: string,
     name?: string,
@@ -112,7 +112,7 @@ export interface NumericTextBoxProps extends ValidationProps {
   /** Обработчик изменения состояния */
   onChange?: (event: ChangeEvent) => void,
   /** Обработчик изменения состояния */
-  onClick?: (event: React.MouseEvent) => void,
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void,
   /** Обработчик нажатия Enter */
   onEnterPress?: (event: EnterPressEvent) => void,
   /** Обработчик фокуса на поле */
@@ -154,7 +154,7 @@ export interface NumericHandlers {
   handleChange: CustomEventHandler<React.ChangeEvent<HTMLInputElement>>,
   handleKeyDown: CustomEventHandler<React.KeyboardEvent<HTMLInputElement>>,
   handlePaste: CustomEventHandler<React.ClipboardEvent<HTMLInputElement>>,
-  handleArrowButtonClick: (type: 'increase' | 'decrease') => CustomEventHandler<React.MouseEvent<HTMLElement>>,
+  handleArrowButtonClick: (type: 'increase' | 'decrease') => CustomEventHandler<React.MouseEvent<SVGElement>>,
 }
 
 export interface WrapperProps extends React.HTMLAttributes<HTMLDivElement> {

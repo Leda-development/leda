@@ -34,14 +34,7 @@ export const BasicUsage = (args: any) => {
         form="foobar"
         isRequired
         placeholder="Gimme ur number!"
-        inputRender={({ Element, elementProps }) => (
-          <>
-            <L.Span _numericTextBoxPrefix>from</L.Span>
-            <Element {...elementProps} />
-            <L.Span _numericTextBoxSuffix>Dollars</L.Span>
-          </>
-        )}
-        _width30
+        _width-30
         {...props}
       />
       <br />

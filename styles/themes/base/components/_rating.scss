@@ -1,0 +1,14 @@
+.ld-rating-item {
+  padding: var(--ld-rating-icon-padding);
+  width: var(--ld-rating-icon-width);
+  cursor: pointer;
+  color: var(--ld-rating-base-color);
+}
+
+.ld-filled {
+  color: var(--ld-rating-active-color);
+}
+
+.ld-rating-disabled {
+  cursor: not-allowed;
+}

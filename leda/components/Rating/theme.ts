@@ -1,6 +1,7 @@
 /* eslint-disable key-spacing */
 export const defaultRatingTheme = {
-  wrapper:      'rating-wrapper',
-  item:         'rating-item',
-  itemFilled:   'filled',
+  wrapper:      'ld-rating-wrapper',
+  item:         'ld-rating-item',
+  itemFilled:   'ld-filled',
+  disabled:     'ld-rating-disabled'
 };

@@ -97,4 +97,9 @@
   --ld-radio-active-color-disabled: var(--ld-bg-color-disabled);
   --ld-radio-contrast-color: var(--ld-main-color-contrast);
 
+
+  --ld-rating-base-color: var(--ld-border-color);
+  --ld-rating-active-color: var(--ld-main-color);
+  --ld-rating-icon-width: 2rem;
+  --ld-rating-icon-padding: 2px;
 }

@@ -1,7 +1,7 @@
 import { isFunction } from 'lodash';
 import * as React from 'react';
 import {
-  RatingProps, SetCurrentSelected, SetIsHovered,
+  RatingProps, SetCurrentSelected,
 } from './types';
 import { getCurrentStarValue } from './helpers';
 
@@ -25,12 +25,10 @@ export const createChangeHandler = (props: RatingProps) => (event: React.MouseEv
   if (isFunction(onChange)) onChange(customEvent);
 };
 
-export const createMouseOutHandler = (value: number | undefined, setCurrentSelected: SetCurrentSelected, setIsHovered: SetIsHovered) => () => {
+export const createMouseOutHandler = (value: number | undefined, setCurrentSelected: SetCurrentSelected) => () => {
   setCurrentSelected(value ? value - 1 : -1);
-  setIsHovered(false);
 };
 
-export const createMouseOverHandler = (setCurrentSelected: SetCurrentSelected, setIsHovered: SetIsHovered) => (event: React.MouseEvent<HTMLElement>) => {
+export const createMouseOverHandler = (setCurrentSelected: SetCurrentSelected) => (event: React.MouseEvent<HTMLElement>) => {
   setCurrentSelected(getCurrentStarValue(event.target as Element) - 1);
-  setIsHovered(true);
 };

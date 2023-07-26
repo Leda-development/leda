@@ -2,6 +2,7 @@ import * as React from 'react';
 import { CustomRender } from '../../commonTypes';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
+import { IconTypes } from '../..';
 
 export interface ChangeEvent {
   component: {
@@ -27,10 +28,10 @@ export type SetCurrentSelected = React.Dispatch<React.SetStateAction<number>>;
 export type SetIsHovered = React.Dispatch<React.SetStateAction<boolean>>;
 
 export interface RatingProps {
-  /** Кастомизация иконки */
-  iconRender?: CustomRender<RatingProps, RatingState, IconProps>,
-  /** Выключенное состояние */
-  isReadOnly?: boolean,
+  /** Icon, default is Star */
+  icon?: IconTypes.Icons,
+  /** Don't click the rating */
+  isDisabled?: boolean,
   /** Количество звезд */
   max?: number,
   /** Имя компонента */

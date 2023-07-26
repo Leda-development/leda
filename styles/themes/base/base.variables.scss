@@ -91,4 +91,10 @@
   --ld-numeric-arrow-padding-inline: .5rem;
 
   --ld-numeric-range-delimeter-width: 2rem;
+
+  --ld-radio-active-color: var(--ld-main-color);
+  --ld-radio-active-color-hover: var(--ld-main-color-dark);
+  --ld-radio-active-color-disabled: var(--ld-bg-color-disabled);
+  --ld-radio-contrast-color: var(--ld-main-color-contrast);
+
 }

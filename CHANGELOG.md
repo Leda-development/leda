@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.28.0] - 2023-07-26
+
+### Added
+- AutoComplete: base theme
+- DropZone: base theme
+- DropDownSelect: base theme
+- FileDrop: base theme
+- MaskedInput: base theme
+- Numeric: base theme
+- NumericRange: base theme
+- Radio: base theme
+- Rating: base theme
+- Tooltip: base theme
+- Slider: base theme
+- Switcher: base theme
+- Textarea: base theme
+
+
 ## [0.27.5] - 2023-07-23
 
 ### Added

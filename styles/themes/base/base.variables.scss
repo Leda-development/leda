@@ -123,4 +123,19 @@
   --ld-tooltip-padding: .5rem 1rem;
   --ld-tooltip-arrow-length: 7px;
   --ld-tooltip-arrow-width: 4px;
+
+  --ld-switcher-active-color: var(--ld-color-success);
+  --ld-switcher-handler-bg: var(--ld-main-color-contrast);
+  --ld-switcher-handler-bg-hovered: var(--ld-main-color-contrast);
+  --ld-switcher-handler-bg-disabled: var(--ld-border-color);
+  --ld-switcher-handler-border: 1px solid var(--ld-main-color);
+  --ld-switcher-handler-border-radius: 10px;
+  --ld-switcher-handler-size: 17px;
+  --ld-switcher-wrapper-bg: var(--ld-border-color);
+  --ld-switcher-wrapper-bg-disabled: var(--ld-bg-color-disabled);
+  --ld-switcher-wrapper-width: 34px;
+  --ld-switcher-label-margin-inline-start: .5rem;
+
+
+
 }

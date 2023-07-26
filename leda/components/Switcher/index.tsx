@@ -33,10 +33,10 @@ export const Switcher = React.forwardRef((props: SwitcherProps, ref: React.Ref<S
   const value = !isNil(valueProp) ? valueProp : stateValue;
 
   const switcherClassName = getClassNames(
-    [theme.wrapper],
+    [theme.switcher],
     {
-      active: value,
-      disabled: isDisabled,
+      [theme.active]: value,
+      [theme.disabled]: isDisabled,
     },
   );
 
@@ -49,7 +49,7 @@ export const Switcher = React.forwardRef((props: SwitcherProps, ref: React.Ref<S
 
   return (
     <Wrapper
-      className={className}
+      className={getClassNames(theme.wrapper, className)}
       ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
         wrapper: component.wrapper,
       }))}

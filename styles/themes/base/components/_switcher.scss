@@ -1,0 +1,58 @@
+.ld-switcher-handler {
+  cursor: pointer;
+  border-radius: var(--ld-switcher-handler-border-radius);
+  transition: all 0.1s linear;
+  height: var(--ld-switcher-handler-size);
+  width: var(--ld-switcher-handler-size);
+  border: var(--ld-switcher-handler-border);
+  background: var(--ld-switcher-handler-bg);
+}
+
+.ld-switcher {
+  vertical-align: middle;
+  display: inline-block;
+  cursor: pointer;
+  background: var(--ld-switcher-wrapper-bg); 
+  border-radius: var(--ld-switcher-handler-border-radius);
+  width: var(--ld-switcher-wrapper-width);
+
+  &:hover .ld-switcher-handler {
+      background: var(--ld-switcher-handler-bg-hovered);
+  }
+}
+
+.ld-switcher-active {
+  background-color: var(--ld-switcher-active-color);
+  
+  .ld-switcher-handler {
+    transform: translateX(100%);
+    background: var(--ld-switcher-handler-bg);
+  }
+
+  &:hover {
+    .ld-switcher-handler {
+      background-color: var(--ld-switcher-handler-bg-hovered);
+    }
+  }
+}
+
+.ld-switcher-disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  background: var(--ld-switcher-wrapper-bg-disabled);
+  .ld-switcher-handler {
+    background-color: var(--ld-switcher-handler-bg-disabled);
+  }
+}
+
+.ld-switcher-active.ld-switcher-disabled {
+  background-color: var(--ld-switcher-handler-bg-disabled);
+  .ld-switcher-handler {
+    background-color: var(--ld-switcher-handler-bg-disabled);
+  }
+}
+
+.ld-switcher-label:not(:empty) {
+  margin-inline-start: var(--ld-switcher-label-margin-inline-start);
+  cursor: pointer;
+}

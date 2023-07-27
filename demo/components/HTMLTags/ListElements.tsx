@@ -26,7 +26,7 @@ export const BlockElements = () => (
         <L.Li>Icons</L.Li>
         <L.Li>Navigations</L.Li>
       </L.Ol>
-      <L.Dl _list _w20 _width50 _box>
+      <L.Dl _list _w20 _width-50 _box>
         <L.Dt><strong>Потерянное поколение</strong></L.Dt>
         <L.Dd>
           — это молодые люди, призванные на фронт в возрасте 18 лет, часто ещё не окончившие школу, рано начавшие убивать.
@@ -66,7 +66,7 @@ export const ListElements = () => (
         <L.Li>Icons</L.Li>
         <L.Li>Navigations</L.Li>
       </L.Ol>
-      <L.Dl _list _w20 _width50 _box _colMd4>
+      <L.Dl _list _w20 _width-50 _box _colMd4>
         <L.Dt><strong>Потерянное поколение</strong></L.Dt>
         <L.Dd>
             — это молодые люди, призванные на фронт в возрасте 18 лет, часто ещё не окончившие школу, рано начавшие убивать.

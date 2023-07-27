@@ -4,6 +4,8 @@ import { Span } from '../Span';
 import { Div } from '../Div';
 import { getText } from '../../src/SuggestionList/helpers';
 import { SomeObject } from '../../commonTypes';
+import { Icon } from '../Icon';
+import { IconTypes } from '../..';
 
 export const TagsContainer = (props: TagsContainerProps): React.ReactElement | null => {
   const {
@@ -30,7 +32,7 @@ export const TagsContainer = (props: TagsContainerProps): React.ReactElement | n
     >
       {(value as (string | number | SomeObject)[]).map((item, index) => React.cloneElement(children, {
         key: index.toString(),
-        onIconClick: (ev: React.MouseEvent<HTMLElement>) => onTagClick({
+        onIconClick: (ev: React.MouseEvent<SVGElement>) => onTagClick({
           ...ev,
           target: {
             ...ev.target,
@@ -40,7 +42,8 @@ export const TagsContainer = (props: TagsContainerProps): React.ReactElement | n
         children: getText(item, textField),
       }))}
       {hasClearButton && (
-        <Span
+        <Icon
+          icon={IconTypes.Icons.X}
           className={theme.clearIcon}
           onClick={onClearIconClick}
         />

@@ -1,0 +1,62 @@
+.ld-multiselect-wrapper {
+  position: relative;
+}
+
+.ld-multiselect-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: var(--ld-multiselect-tags-container-padding);
+  .ld-tag {
+    margin: var(--ld-multiselect-tag-margin);
+  }
+}
+
+.ld-multiselect-tags-union {
+  margin: var(--ld-multiselect-tags-union-margin);
+}
+
+.ld-multiselect-placeholder {
+  padding: var(--ld-multiselect-placeholder-padding);
+  color: var(--ld-multiselect-placeholder-color);
+}
+
+.ld-multiselect-input-wrapper {
+  flex-direction: column;
+  border: var(--ld-multiselect-border);
+  background-color: var(--ld-multiselect-bg-color);
+  border-radius: var(--ld-multiselect-border-radius);
+}
+
+.ld-multiselect-input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  height: var(--ld-multiselect-input-height);
+  font-family: inherit;
+  padding: var(--ld-multiselect-input-padding);
+}
+
+.ld-multiselect-clear-icon {
+  position: absolute;
+  right: var(--ld-multiselect-clear-icon-right);
+  top: var(--ld-multiselect-clear-icon-top);
+  padding: var(--ld-multiselect-clear-icon-padding);
+  color: var(--ld-multiselect-clear-icon-color);
+  cursor: pointer;
+  &:hover{
+    color: var(--ld-multiselect-clear-icon-color-hover);
+  }
+}
+
+.ld-multiselect-checkbox-container {
+  display: flex;
+}
+
+.ld-multiselect-checkbox-wrapper {
+  display: flex;
+}
+.ld-multiselect-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+}

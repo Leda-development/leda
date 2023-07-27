@@ -26,7 +26,7 @@ export const DateTimeRange = (): React.ReactElement => {
             setDTRValue(value);
           }}
           isRequired
-          _width50
+          _width-50
           {...props}
         />
         <L.Div style={{ marginLeft: '50px' }}>

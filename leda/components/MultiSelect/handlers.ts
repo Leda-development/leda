@@ -68,7 +68,7 @@ export const createBlurHandler = (
 
 export const createSelectHandler = (
   props: MultiSelectProps, extraData: SelectData,
-): CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget> => (ev) => {
+): CustomEventHandler<React.MouseEvent<HTMLElement | SVGElement> & SuggestionTarget> => (ev) => {
   const {
     data, onChange, name, value: valueProp, isDisabled, maxSelected,
   } = props;
@@ -133,7 +133,7 @@ export const createSelectHandler = (
 
 export const createClearHandler = (
   props: MultiSelectProps, extraData: ClearData,
-): React.MouseEventHandler<HTMLElement> => (ev) => {
+): React.MouseEventHandler<SVGElement> => (ev) => {
   const {
     onChange, name, value: valueProp, isDisabled,
   } = props;

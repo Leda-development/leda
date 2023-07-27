@@ -16,7 +16,7 @@ export const TimeRange = () => {
           value={value}
           onChange={ev => setValue(ev.component.value)}
           isRequired={[true, false]}
-          _width50
+          _width-50
           {...props}
         />
         <L.Div style={{ marginLeft: '50px' }}>

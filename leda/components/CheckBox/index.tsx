@@ -56,8 +56,6 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
     props,
   );
 
-  const labelClassNames = getClassNames(theme.label, className);
-
   const checkBoxId = id || `checkbox-${generateId()}`;
 
   const handleChange = createChangeHandler(props, setUncontrolledValue);
@@ -78,6 +76,7 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
           label: wrapper.firstElementChild ? wrapper.firstElementChild.nextElementSibling as HTMLLabelElement : null,
         });
       })}
+      className={className}
     >
       <Input
         {...restProps}
@@ -91,7 +90,7 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
       />
       <LabelElement
         htmlFor={checkBoxId}
-        className={labelClassNames}
+        className={theme.label}
       >
         <Icon
           icon={(() => {

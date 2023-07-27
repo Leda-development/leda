@@ -53,7 +53,7 @@ export const Filterable = (args: SomeObject): React.ReactElement => {
             </>
           );
         }}
-        _width40
+        _width-40
         {...props}
       >
       </L.DropDownSelect>

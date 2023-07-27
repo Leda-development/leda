@@ -32,7 +32,7 @@ export const CompareObjectsBy = (args: SomeObject): React.ReactElement => {
         compareObjectsBy="id"
         // defaultValue={[data[0]]}
         value={value}
-        _width40
+        _width-40
         maxSelected={3}
         onChange={(ev) => {
           console.log('ev.component.value', ev.component.value);

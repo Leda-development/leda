@@ -13,7 +13,7 @@ export const InvalidMessage = (props: StoryProps) => (
           name="email"
           validator="email"
           placeholder="email с предопределённым сообщением"
-          _width50
+          _width-50
         />
       </L.Div>
       <L.Div _inner>
@@ -23,7 +23,7 @@ export const InvalidMessage = (props: StoryProps) => (
           validator="email"
           invalidMessage="пользовательское сообщение об ошибке email"
           placeholder="email с пользовательским сообщением"
-          _width50
+          _width-50
         />
       </L.Div>
       <L.Div _inner>
@@ -33,7 +33,7 @@ export const InvalidMessage = (props: StoryProps) => (
           validator={val => (val.length > 10)}
           invalidMessage="пользовательское сообщение об ошибке function (введите не менее десяти символов)"
           placeholder="function с пользовательским сообщением"
-          _width50
+          _width-50
         />
       </L.Div>
       <L.Div _inner>
@@ -43,7 +43,7 @@ export const InvalidMessage = (props: StoryProps) => (
           validator={val => /[A-Z]/.test(val)}
           invalidMessage="пользовательское сообщение об ошибке regexp (введите прописные буквы)"
           placeholder="regexp с пользовательским сообщением"
-          _width50
+          _width-50
         />
       </L.Div>
       <L.Div _inner>
@@ -69,7 +69,7 @@ export const InvalidMessage = (props: StoryProps) => (
           ]}
           invalidMessage="общее пользовательское сообщение, которое не должно появляться"
           placeholder="массивы валидаторов с пользовательскими сообщением"
-          _width50
+          _width-50
         />
       </L.Div>
     </L.Div>

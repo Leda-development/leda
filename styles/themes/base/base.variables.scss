@@ -5,6 +5,7 @@
   --ld-main-color: #737373; // tailwind neutral 500
   --ld-main-color-dark: #525252; // tailwind neutral 600
   --ld-main-color-light: #a3a3a3; // tailwind neutral 400
+  --ld-main-color-lightest: #e5e5e5; // tailwind neutral 200
   --ld-main-color-contrast: white;
   --ld-bg-color: white;
   --ld-border-radius: 4px;
@@ -59,7 +60,7 @@
   --ld-drop-down-suggestion-padding-block: .5rem; 
   --ld-drop-down-suggestion-border-radius: var(--ld-border-radius);
   --ld-drop-down-suggestion-bg: var(--ld-main-color-contrast);
-  --ld-drop-down-suggestion-bg-hover: #e5e5e5; // tw neutral 200
+  --ld-drop-down-suggestion-bg-hover: var(--ld-main-color-lightest);
   --ld-drop-down-suggestion-bg-selected: #a3a3a3; // tw neutal 400
   --ld-drop-down-suggestion-bg-highlighted: #d4d4d4; // tw neutal 300
   --ld-drop-down-suggestion-container-border-width: 1px; 
@@ -67,7 +68,7 @@
   --ld-drop-down-suggestion-container-border-radius: var(--ld-border-radius);
   --ld-drop-down-suggestion-container-min-block-size: 200px;
 
-  --ld-checkbox-width: 1rem;
+  --ld-checkbox-size: 1rem;
   --ld-checkbox-margin-inline-end: .5rem;
   --ld-checkbox-color-disabled: var(--ld-main-color-light);
 
@@ -88,6 +89,22 @@
   --ld-filedrop-progress-stroke-width: 2;
   --ld-filedrop-progress-base: 2px solid var(--ld-bg-color-disabled);
 
+  --ld-multiselect-placeholder-color: var(--ld-border-color);
+  --ld-multiselect-placeholder-padding: 3px 0 0 var(--ld-padding-inline);
+  --ld-multiselect-tags-container-padding: 2px;
+  --ld-multiselect-tag-margin: 4px;
+  --ld-multiselect-tags-union-margin: var(--ld-multiselect-tag-margin) 1rem;
+  --ld-multiselect-input-padding: 0 0 0 10px;
+  --ld-multiselect-input-height: 30px;
+  --ld-multiselect-bg-color: white;
+  --ld-multiselect-border: 1px solid var(--ld-border-color);
+  --ld-multiselect-border-radius: var(--ld-border-radius);
+  --ld-multiselect-clear-icon-top: 4px;
+  --ld-multiselect-clear-icon-right: 4px;
+  --ld-multiselect-clear-icon-padding: 3px;
+  --ld-multiselect-clear-icon-color: var(--ld-border-color);
+  --ld-multiselect-clear-icon-color-hover: var(--ld-border-color-hover);
+
   --ld-numeric-arrow-width: 2rem;
   --ld-numeric-arrow-padding-inline: .5rem;
 
@@ -97,7 +114,6 @@
   --ld-radio-active-color-hover: var(--ld-main-color-dark);
   --ld-radio-active-color-disabled: var(--ld-bg-color-disabled);
   --ld-radio-contrast-color: var(--ld-main-color-contrast);
-
 
   --ld-rating-base-color: var(--ld-border-color);
   --ld-rating-active-color: var(--ld-main-color);
@@ -113,6 +129,18 @@
   --ld-slider-handle-border: 1px solid var(--ld-slider-active-color);
   --ld-slider-label-margin-top: 4px;
   --ld-slider-label-text-color: var(--ld-font-color);
+
+  --ld-tag-min-inline-size: 3rem;
+  --ld-tag-block-size: 1.75rem;
+  --ld-tag-padding: 2px 2px 2px 16px;
+  --ld-tag-margin-inline-end: 8px;
+  --ld-tag-border-color: var(--ld-border-color);
+  --ld-tag-border: 1px solid var(--ld-tag-border-color);
+  --ld-tag-border-radius: var(--ld-border-radius);
+  --ld-tag-bg: var(--ld-main-color-lightest);
+  --ld-tag-icon-padding: 3px;
+  --ld-tag-icon-color-hover: var(--ld-border-color-hover);
+  --ld-tag-transition: 250ms ease-out;
 
   --ld-tooltip-z-index: 10070;
   --ld-tooltip-max-width: 280px;
@@ -142,5 +170,6 @@
   --ld-switcher-wrapper-bg-disabled: var(--ld-bg-color-disabled);
   --ld-switcher-wrapper-width: 34px;
   --ld-switcher-label-margin-inline-start: .5rem;
+
 
 }

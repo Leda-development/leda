@@ -29,7 +29,7 @@ export const DataTypes = (args: SomeObject): React.ReactElement => {
         ]}
         data-test="multiselect"
         defaultValue={['London']}
-        _width40
+        _width-40
         maxSelected={3}
         onChange={ev => update('Change', ev)}
         onBlur={ev => update('Blur', ev)}

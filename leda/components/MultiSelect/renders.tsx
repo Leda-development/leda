@@ -8,20 +8,17 @@ import { selectAllSuggestion, SelectedState } from './constants';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { LedaContext } from '../LedaProvider';
 import { Span } from '../Span';
+import { IconTypes } from '../..';
 
 export const createCheckBoxesRender = ({ theme, itemRender }: { theme: typeof defaultMultiSelectTheme, itemRender: SuggestionListProps['itemRender'] }): SuggestionListProps['itemRender'] => ({ componentProps, Element, elementProps }) => {
   const {
-    isSelected, isSelectAllItem, selectAllState, selectAllItemRender,
+    isSelected, isSelectAllItem, selectAllState, selectAllItemRender
   } = componentProps;
 
-  const checkBoxItemClassNames = getClassNames(
-    theme.checkBoxItem,
+  const checkBoxWrapperClassNames = getClassNames(
+    theme.checkBoxContainer,
     elementProps.className,
   );
-
-  const checkBoxClassNames = getClassNames({
-    [theme.checkBoxSemi]: isSelectAllItem && selectAllState === SelectedState.Some,
-  });
 
   const { renders: { [COMPONENTS_NAMESPACES.multiSelect]: multiSelectRenders } } = React.useContext(LedaContext);
 
@@ -49,13 +46,15 @@ export const createCheckBoxesRender = ({ theme, itemRender }: { theme: typeof de
     return !!isSelected;
   })();
 
+  const isSemi = isSelectAllItem && selectAllState === SelectedState.Some;
   return (
-    <Element {...elementProps} className={checkBoxItemClassNames}>
+    <Element {...elementProps} className={checkBoxWrapperClassNames}>
       <CheckBox
         value={isCheckBoxSelected}
         // заменить label на div, чтобы при клике на чекбокс фокус не переходил из мультиселекта и не закрывался список
-        labelRender={({ elementProps: labelElementProps }) => <Div {...labelElementProps} />}
-        className={checkBoxClassNames}
+        labelRender={({ elementProps: labelElementProps }) => <Div {...labelElementProps} className={theme.checkBoxLabel} />}
+        checkboxIcon={isSemi && IconTypes.Icons.MinusSquare}
+        className={theme.checkBoxWrapper}
       />
       {isSelectAllItem && (
         <SelectAllItem>

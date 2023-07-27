@@ -20,7 +20,7 @@ export const EmptyValues = (args: SomeObject): React.ReactElement => (
       ]}
       placeholder="Choose a city..."
       shouldAllowEmpty
-      _width40
+      _width-40
     >
     </L.DropDownSelect>
   </L.Div>

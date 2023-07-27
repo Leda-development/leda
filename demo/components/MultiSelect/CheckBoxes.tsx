@@ -21,6 +21,7 @@ export const CheckBoxes = (args: any): React.ReactElement => {
           'Moscow',
         ]}
         maxTags={3}
+        isOpen
         shouldKeepSuggestions
         shouldSelectedGoFirst
         canSelectAll
@@ -33,7 +34,6 @@ export const CheckBoxes = (args: any): React.ReactElement => {
           console.log('ev.component.value', ev.component.value);
           setValue(ev.component.value as string[]);
         }}
-        isOpen
         hasCheckBoxes
         itemRender={({ componentProps, Element, elementProps }) => {
           const { isSelected } = componentProps;

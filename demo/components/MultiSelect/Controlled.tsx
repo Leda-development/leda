@@ -11,6 +11,9 @@ export const Controlled = (args: SomeObject): React.ReactElement => {
   return (
     <L.Div _box _inner _demoBg>
       <L.MultiSelect
+        form='ms-form'
+        name='ms'
+        isRequired
         data={[
           'London',
           'Islamabad',
@@ -24,9 +27,10 @@ export const Controlled = (args: SomeObject): React.ReactElement => {
           'Moscow',
         ]}
         defaultValue={['London']}
-        _width40
+        _width-40
         isOpen={isOpen}
         isLoading={isLoading}
+        hasClearButton
         onChange={ev => {
           console.log('ev.component.selectedValue', ev.component.selectedValue);
           console.log('ev.component.value', ev.component.value);

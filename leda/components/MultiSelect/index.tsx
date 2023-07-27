@@ -28,8 +28,8 @@ import {
   filterData, getShouldUniteTags, getSortedSuggestions, getValue,
 } from './helpers';
 import { createCheckBoxesRender } from './renders';
-import { Span } from '../Span';
 import { selectAllSuggestion, SelectedState } from './constants';
+import { Icon, IconTypes } from '../..';
 
 export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React.Ref<MultiSelectRefCurrent>): React.ReactElement => {
   const {
@@ -151,7 +151,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
   const wrapperClassNames = getClassNames(className, theme.wrapper);
 
   const inputWrapperClassNames = getClassNames(theme.inputWrapper, {
-    [theme.inputFocused]: isFocused,
+    [theme.inputWrapperFocused]: isFocused,
     [theme.inputWrapperDisabled]: isDisabled,
     [theme.inputWrapperInvalid]: !isValid,
     [theme.inputWrapperRequired]: getIsEmptyAndRequired(value, isRequired),
@@ -256,7 +256,8 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
               Выбрано {value.length}
             </TagsUnionElement>
             {hasClearButton && (
-              <Span
+              <Icon
+                icon={IconTypes.Icons.X}
                 className={theme.clearIcon}
                 onClick={handleClear}
               />

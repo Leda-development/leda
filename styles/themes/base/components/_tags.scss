@@ -1,0 +1,27 @@
+.ld-tags-wrapper {
+  display: flex;
+}
+
+.ld-tag {
+  display: flex;
+  align-items: center;
+  min-inline-size: var(--ld-tag-min-inline-size);
+  padding: var(--ld-tag-padding);
+  margin-inline-end: var(--ld-tag-margin-inline-end);
+  block-size: var(--ld-tag-block-size);
+  background-color: var(--ld-tag-bg);
+  border: var(--ld-tag-border);
+  border-radius: var(--ld-tag-border-radius);
+  transition: var(--ld-tag-transition);
+  &:hover {
+    .ld-tag-icon {
+      color: var(--ld-tag-icon-color-hover);
+    }
+  }
+}
+
+.ld-tag-icon {
+  color: var(--ld-tag-border-color);
+  padding: var(--ld-tag-icon-padding);
+  cursor: pointer;
+}

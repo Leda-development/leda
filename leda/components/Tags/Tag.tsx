@@ -8,6 +8,8 @@ import {
 import { globalDefaultTheme, LedaContext } from '../LedaProvider';
 import { Span } from '../Span';
 import { TagProps, TagsRefCurrent } from './types';
+import { Icon } from '../Icon';
+import { IconTypes } from '../..';
 
 export const Tag = React.forwardRef((props: TagProps, ref?: React.Ref<TagsRefCurrent>): React.ReactElement => {
   const {
@@ -27,13 +29,6 @@ export const Tag = React.forwardRef((props: TagProps, ref?: React.Ref<TagsRefCur
     className,
   );
 
-  const Icon = useElement(
-    'Icon',
-    Span,
-    iconRender || tagsRenders.iconRender,
-    props,
-  );
-
   const Wrapper = useElement(
     'Wrapper',
     Span,
@@ -51,7 +46,8 @@ export const Tag = React.forwardRef((props: TagProps, ref?: React.Ref<TagsRefCur
     >
       { children }
       <Icon
-        className={getClassNames(theme.closeIcon, theme.defaultIcon)}
+        icon={IconTypes.Icons.X}
+        className={theme.closeIcon}
         onClick={onIconClick}
       />
     </Wrapper>

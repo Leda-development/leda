@@ -5,6 +5,7 @@
   padding: var(--ld-textarea-padding);
   border: var(--ld-textarea-border);
   border-radius: var(--ld-textarea-border-radius);
+  outline: none;
 
   &:hover {
     border-color: var(--ld-textarea-border-color-hover);

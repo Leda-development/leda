@@ -43,7 +43,7 @@ export const GroupedData = (args: SomeObject): React.ReactElement => {
         data={MSData}
         data-test="multiselect"
         defaultValue={[{ city: 'London', val: 1 }]}
-        _width40
+        _width-40
         maxSelected={3}
         onChange={ev => update('Change', ev)}
         onBlur={ev => update('Blur', ev)}

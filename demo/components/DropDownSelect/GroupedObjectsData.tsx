@@ -41,7 +41,7 @@ export const GroupedObjectsData = (args: SomeObject): React.ReactElement => {
         data={DDSData}
         hasClearButton
         data-test="dropdownselect"
-        _width40
+        _width-40
         isOpen={isOpen}
         isLoading={isLoading}
         isDisabled={isDisabled}

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { CustomRender, CustomEventHandler } from '../../commonTypes';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTheme';
+import { IconTypes } from '../..';
 
 export interface TagsProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Реф */
@@ -15,7 +16,7 @@ export interface TagsProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export interface IconProps {
-  onClick?: CustomEventHandler<React.MouseEvent<HTMLSpanElement>>,
+  onClick?: CustomEventHandler<React.MouseEvent<SVGElement>>,
   className?: string,
 }
 
@@ -25,11 +26,11 @@ export interface WrapperProps {
   children?: React.ReactNode,
 }
 
-export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface TagProps extends React.HTMLAttributes<SVGElement> {
   /** Иконка для тега */
-  iconRender?: CustomRender<TagProps, {}, IconProps>,
+  icon?: IconTypes.Icons,
   /** Обработчик клика по иконке */
-  onIconClick?: CustomEventHandler<React.MouseEvent<HTMLSpanElement>>,
+  onIconClick?: CustomEventHandler<React.MouseEvent<SVGElement>>,
   /** Реф */
   ref?: React.Ref<TagsRefCurrent>,
   /** Тема для компонента (передается через Tags) */

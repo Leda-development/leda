@@ -6,7 +6,7 @@ import {
 } from '../../commonTypes';
 import { ValidationProps } from '../Validation/types';
 import { FilterRules } from '../DropDownSelect/types';
-import { SuggestionItemComputedProps, SuggestionListProps, SuggestionTarget } from '../../src/SuggestionList/types';
+import { SuggestionListProps, SuggestionTarget } from '../../src/SuggestionList/types';
 import { DivProps } from '../Div';
 import { TagProps } from '../Tags/types';
 
@@ -167,9 +167,9 @@ export interface MultiSelectState {
 export interface TagsContainerProps {
   children: React.ReactElement<TagProps>,
   hasClearButton?: boolean,
-  onClearIconClick: React.MouseEventHandler<HTMLElement>,
+  onClearIconClick: React.MouseEventHandler<SVGElement>,
   onMouseDown: React.MouseEventHandler<HTMLElement>,
-  onTagClick: CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget>,
+  onTagClick: CustomEventHandler<React.MouseEvent<SVGElement> & SuggestionTarget>,
   placeholder?: MultiSelectProps['placeholder'],
   shouldHideInput?: MultiSelectProps['shouldHideInput'],
   textField?: string,

@@ -77,7 +77,7 @@ export const suggestionClickHandlerCreator = ({
   }
 
   const value = isObject(event.target.value)
-    ? event.target.value[textField as string] as string
+    ? event.target.value[textField as keyof typeof event.target.value] as string
     : event.target.value.toString();
 
   const suggestion = isObject(event.target.value)

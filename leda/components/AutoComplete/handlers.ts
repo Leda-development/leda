@@ -246,8 +246,6 @@ export const inputKeyDownHandlerCreator = ({
     event.preventDefault();
 
     // new index, suggestion list is cyclic
-``
-maybe like that? Forever loop sounds like an infinite "for" loop)
     const nextIndex = (suggestionIndex + 1) % suggestions.length;
 
     const newHighlightedSuggestion = suggestions[nextIndex];

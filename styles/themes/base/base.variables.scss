@@ -130,6 +130,19 @@
   --ld-slider-label-margin-top: 4px;
   --ld-slider-label-text-color: var(--ld-font-color);
 
+  --ld-tabs-border-bottom: 1px solid var(--ld-border-color);
+  --ld-tabs-tab-padding: 9px 14px;
+  --ld-tabs-tab-text-color-hover: var(--ld-main-color);
+  --ld-tabs-tab-active-border: 3px solid var(--ld-main-color);
+  --ld-tabs-disabled-color: var(--ld-border-color);
+  --ld-tabs-arrow-color: var(--ld-border-color);
+  --ld-tabs-arrow-color-hover: var(--ld-border-color-hover);
+  --ld-tabs-arrow-shadow: 0px 0px 5px 2px;
+  --ld-tabs-arrow-size: 1.5rem;
+  --ld-tabs-arrow-top: 10px;
+  --ld-tabs-arrow-padding-inner: 2px;
+  --ld-tabs-arrow-bg: var(--ld-bg-color);
+
   --ld-tag-min-inline-size: 3rem;
   --ld-tag-block-size: 1.75rem;
   --ld-tag-padding: 2px 2px 2px 16px;

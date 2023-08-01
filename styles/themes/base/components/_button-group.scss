@@ -10,7 +10,7 @@
         border-color: var(--ld-btn-border-color);
         cursor: not-allowed;
       }
-      &.ld-active:hover {
+      &.ld-button-active:hover {
         background-color: var(--ld-btn-group-active-color);
         border-color: var(--ld-btn-group-active-color);
       }
@@ -21,15 +21,15 @@
 .ld-button-group-item {
   border-radius: 0;
 
-  &.ld-first {
+  &.ld-button-first {
     border-radius: var(--ld-btn-border-radius) 0 0 var(--ld-btn-border-radius);
   }
 
-  &.ld-last {
+  &.ld-button-last {
     border-radius: 0 var(--ld-btn-border-radius) var(--ld-btn-border-radius) 0;
   }
 
-  &.ld-active {
+  &.ld-button-active {
     background-color: var(--ld-btn-group-active-color);
     border-color: var(--ld-btn-group-active-color);
   }

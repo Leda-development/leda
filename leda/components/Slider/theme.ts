@@ -3,7 +3,7 @@ export const defaultSliderTheme = {
   wrapper:                  'ld-slider-wrapper',
   container:                'ld-slider-container',
   track:                    'ld-slider-track',
-  trackActive:              'ld-active',
+  trackActive:              'ld-track-active',
   handle:                   'ld-slider-handle',
   labelContainer:           'ld-slider-label-container',
   label:                    'ld-slider-label',

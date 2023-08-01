@@ -1,0 +1,69 @@
+.ld-tabs-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.ld-tabs-container {
+  border-bottom: var(--ld-tabs-border-bottom);
+}
+
+.ld-tabs-bar {
+  display: inline-flex;
+}
+
+.ld-tab-scroll {
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.ld-tab {
+  cursor: pointer;
+  padding: var(--ld-tabs-tab-padding);
+  &:hover {
+    color: var(--ld-tabs-tab-text-color-hover);
+  }
+}
+
+.ld-tab-active {
+  border-bottom: var(--ld-tabs-tab-active-border);
+  cursor: default;
+  &:hover {
+    color: initial;
+  }
+}
+
+.ld-tab-disabled {
+  cursor: not-allowed;
+  color: var(--ld-tabs-disabled-color);
+  &:hover {
+    color: var(--ld-tabs-disabled-color);
+  }
+}
+
+.ld-tabs-arrow {
+  position: absolute;
+  top: var(--ld-tabs-arrow-top);
+  background: var(--ld-tabs-arrow-bg);
+  box-shadow: var(--ld-tabs-arrow-shadow);
+  color: var(--ld-tabs-arrow-color);
+  border-radius: 50%;
+  cursor: pointer;
+  width: var(--ld-tabs-arrow-size);
+  height: var(--ld-tabs-arrow-size);
+  &:hover {
+    color: var(--ld-tabs-arrow-color-hover);
+  }
+}
+
+.ld-tabs-arrow-left {
+  left: 0;
+  padding-right: var(--ld-tabs-arrow-padding-inner);
+}
+
+.ld-tabs-arrow-right {
+  right: 0;
+  padding-left: var(--ld-tabs-arrow-padding-inner);
+}

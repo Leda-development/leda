@@ -51,7 +51,7 @@ export const Tabs = (props: any) => {
                 alert('Good!');
               }}
             >
-              <L.I _noviconPlusInCircle />
+              <L.Icon icon={L.IconTypes.Icons.Anchor} size={16} />
             </Element>
           )}
         />

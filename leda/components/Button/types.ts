@@ -11,32 +11,31 @@ export interface SubmitEvent extends React.MouseEvent<HTMLButtonElement> {
 export type ValidationFailEvent = React.MouseEvent<HTMLButtonElement> & { invalidForms: Form[] };
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement>, ValidationButtonProps {
-  /** Название формы */
+  /** Form names */
   form?: string | string[],
-  /** Отключение кнопки */
+  /** Disable component */
   isDisabled?: boolean,
-  /** Показывать лоадер */
+  /** Loading state */
   isLoading?: boolean,
-  /** Обработчик клика */
+  /** Form submit handler. It does not work if the form has invalid fields */
   onClick?: (event: SubmitEvent) => void,
-  /** Применяется к кнопке. Обработчик, который срабатывает, если есть невалидные поля,
-   * если срабатывает onValidationFail, то onClick на кнопке не сработает */
+  /** It fires when the button is clicked and the form has invalid fields */
   onValidationFail?: (ev: ValidationFailEvent) => void,
-  /** Реф */
+  /** Ref */
   ref?: React.Ref<ButtonRefCurrent>,
-  /** Задержка перед скроллом к невалидным полям */
+  /** How many seconds the form should wait before scrolling to invalid fields */
   scrollDelay?: number,
-  /** Дополнительный сдвиг в px при скролинге к кнопке */
+  /** How many pixels should be added between the screen top and the first invalid field */
   scrollOffset?: number,
-  /** Если передано false, компонент не будет рендериться */
+  /** To render or not to render */
   shouldRender?: boolean,
-  /** Прокрутка к невалидным полям при нажатии на кнопку */
+  /** Scroll to invalid fields on button click */
   shouldScrollToInvalidFields?: boolean,
-  /** Тема компонета */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.button],
-  /** Тип кнопки */
+  /** Button type */
   type?: React.ButtonHTMLAttributes<{}>['type'],
-  /** Классы переданные через _ */
+  /** _css-class-name */
   [x: string]: unknown,
 }
 

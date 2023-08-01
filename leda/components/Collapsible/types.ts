@@ -1,26 +1,26 @@
 import * as React from 'react';
 
 export interface TransitionOptions {
-  /** Длительность анимации коллапса. Число в миллисекундах. Строки с единицами измерения */
+  /** Aimation duration. A number of milliseconds or a string containing units: '200ms' or '0.5s' */
   duration: number | string,
-  /** Функция анимации коллапса. См. https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function */
+  /** https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function */
   animation: string,
-  /** Длительность задержки перед началом анимации. Число в миллисекундах. Строки с единицами измерения */
+  /** A delay before animation. A number of milliseconds or a string containing units: '200ms' or '0.5s' */
   delay?: number | string,
 }
 
 export interface CollapsibleProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Состояние элемента открыт/закрыт */
+  /** Open or not */
   isOpen: boolean,
-  /** Функция обратного вызова при окончании закрытия коллапса */
+  /** Close handler */
   onClose?: () => void,
-  /** Функция обратного вызова при окончании открытия коллапса */
+  /** Open handler */
   onOpen?: () => void,
-  /** Функция обратного вызова при окончании анимации коллапса */
+  /** Toggle handler */
   onToggle?: () => void,
-  /** Реф */
+  /** Ref */
   ref?: React.Ref<CollapsibleRefCurrent>,
-  /** Описание открытия/закрытия коллапса. Описывается как CSS Transition. См. https://developer.mozilla.org/en-US/docs/Web/CSS/transition. По умолчанию height 250ms cubic-bezier(.4, 0, .2, 1) */
+  /** CSS transition format. 'height 250ms cubic-bezier(.4, 0, .2, 1)' by default */
   transition?: string | TransitionOptions,
 }
 

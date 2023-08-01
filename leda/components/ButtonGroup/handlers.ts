@@ -18,9 +18,6 @@ export const createChangeHandler = (
 
   if (isFunction(onClick)) onClick(ev);
 
-  // выбор нового значения
-  // если тип radio - значение просто заменяется на новое
-  // если тип checkbox - значение добавляется в массив или удаляется из него
   const newValue = (() => {
     if (type === 'radio') return currentItem;
     if (type === 'checkbox') return getArrayValue(value, currentItem);
@@ -29,7 +26,6 @@ export const createChangeHandler = (
 
   validateCurrent(newValue);
 
-  // Неконтролируемый режим при рендере data
   setUncontrolledValue(newValue);
 
   if (!isFunction(onChange)) return;

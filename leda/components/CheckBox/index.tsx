@@ -3,7 +3,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
 import {
-  bindFunctionalRef, getClassNames, useTheme, useElement, generateId, useValue, useProps,
+  bindFunctionalRef, useTheme, useElement, generateId, useValue, useProps,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { createChangeHandler } from './handlers';

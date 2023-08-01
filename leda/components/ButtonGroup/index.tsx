@@ -1,7 +1,6 @@
 'use client'
 
 import * as React from 'react';
-import { isObject } from 'lodash';
 import { Div } from '../Div';
 import { Button as DefaultButton } from '../Button';
 import {

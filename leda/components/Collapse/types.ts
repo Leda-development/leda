@@ -18,66 +18,66 @@ export interface BodyClickCustomEvent {
 
 
 export interface CollapseProps {
-  /** Признак активной панели. Сюда передается значение panelKey активной панели. Когда панель(панели) закрыта, значение равно null */
+  /** panelKey of the active panel goes here. If the value is null the panel is closed */
   activePanelKey?: string | string[] | null,
-  /** Дочерние элементы */
+  /** Child elements */
   children: React.ReactNode,
-  /** Признак возможности открытия нескольких панелей для неконтролируемого режима */
+  /** Only one open panel is allowed */
   isAccordion?: boolean,
-  /** Обработчик клика на панель */
+  /** Panel click handler */
   onSelect?: CustomEventHandler<SelectEvent>,
-  /** Тема */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.collapse],
 }
 
 export interface HeadingProps {
-  /** Дочерние элементы */
+  /** Child elements */
   children: React.ReactNode,
-  /** Иконка возле заголовка */
+  /** Icon customizator */
   iconRender?: CustomRender<HeadingProps, { }, IconProps>,
-  /** Обработчик клика */
+  /** Click handler */
   onClick?: React.MouseEventHandler<HTMLDivElement>,
-  /** Реф */
+  /** Ref */
   ref?: React.Ref<HeadingRefCurrent>,
-  /** Компонент-обертка в который будет помещен Collapse.Heading. Передавать в виде <Wrapper props />. По умолчанию - <Div /> */
+  /** Wrapper customizator */
   wrapperRender?: CustomRender<HeadingProps, { }, HeadingWrapperProps>,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 
 export interface BodyProps {
-  /** Дочерние элементы */
+  /** Child elements */
   children?: React.ReactNode,
-  /** Состояние загрузки данных */
+  /** Loading state */
   isLoading?: boolean,
-  /** Функция обратного вызова на закрытие коллапса */
+  /** Panel close handler */
   onClose?: CustomEventHandler<BodyClickCustomEvent>,
-  /** Функция обратного вызова на закрытие коллапса по клику */
+  /** Panel close handler triggered by a click */
   onCloseByClick?: CustomEventHandler<BodyClickCustomEvent>,
-  /** Функция обратного вызова на открытие коллапса */
+  /** Panel open handler */
   onOpen?: CustomEventHandler<BodyClickCustomEvent>,
-  /** Реф */
+  /** Ref */
   ref?: React.Ref<BodyRefCurrent>,
-  /** Описание открытия/закрытия коллапса. Описывается как CSS Transition. См. https://developer.mozilla.org/ru/docs/Web/CSS/transition. По умолчанию height 250ms cubic-bezier(.4, 0, .2, 1) */
+  /** CSS transition format */
   transition?: string,
-  /** Компонент-обертка в который будет помещен Collapse.Body. Передавать в виде <Wrapper props />. По умолчанию - <Div /> */
+  /** Wrapper customizator */
   wrapperRender?: CustomRender<BodyProps, { }, BodyWrapperProps>,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 
 export interface PanelProps {
-  /** Дочерние элементы */
+  /** Child elements */
   children: React.ReactNode,
-  /** Отключение панели */
+  /** Disable the panel */
   isDisabled?: boolean,
-  /** Имя панели */
+  /** Panel name */
   name?: string,
-  /** Идентификатор события панели, данное значение передается в activeKey компонента Collapse */
+  /** A key to put into Collapse activePanelKey pro */
   panelKey: string,
-  /** Компонент-обертка для панели, например Div. Передавать в виде <Wrapper props /> */
+  /** Wrapper customizator */
   wrapperRender?: CustomRender<PanelProps, { isClicked: boolean }, PanelWrapperProps>,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 

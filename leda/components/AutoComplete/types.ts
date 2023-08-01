@@ -7,30 +7,35 @@ import { UlProps } from '../Ul';
 import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 
-/** DataObject - обьект с данными для отображения в выпадающем списке
- * Обьект должен содержать минимум одно поле (TextField), название которого передаётся через атрибут textField
- * его значение должно быть строкой, используется для отображения
- *
- * см. примеры в документации
- * */
-
+/** DataObject contains strings to show in the dropdown list
+ * The object must contain a property with a string value
+ * The property's name is passed through textField
+*/
 export interface DataObject {
   [textField: string]: any,
 }
 
 export type Suggestion = DataObject | string | number | null;
 
-// Значения, которые приходят в onChange, помогают определить, какое событие вызвало срабатывание onChange
 export enum CHANGE_METHOD {
-  type = 'type', // ввод символа с клавиатуры
-  click = 'click', // клик по элементу в выпадающем списке
-  enter = 'enter', // нажатие на enter при выборе элемента в выпадающем списке с клавиатуры
-  trigger = 'trigger', // программный вызвов onChange
-  up = 'up', // нажатие вверх при переходе по выпадающему списку с клавиатуры
-  down = 'down', // нажатие вниз при переходе по выпадающему списку с клавиатуры
-  escape = 'escape', // нажатие escape
-  clear = 'clear', // клик по иконке закрытия в инпуте
-  reset = 'reset', // сборс значения
+  /** typing */
+  type = 'type',
+  /** clicking */
+  click = 'click',
+  /** pressing Enter key */
+  enter = 'enter',
+  /** triggering programmatically */
+  trigger = 'trigger',
+  /** pressing Up key */
+  up = 'up',
+  /** pressing Down key */
+  down = 'down',
+  /** pressing Escape */
+  escape = 'escape',
+  /** clicking clear button in the input */
+  clear = 'clear',
+  /** resetting through Vlidation APIs */
+  reset = 'reset',
 }
 
 export interface KeyboardChangeEvent<T extends Suggestion> extends React.KeyboardEvent<HTMLInputElement> {
@@ -96,69 +101,67 @@ export interface BlurEvent extends React.FocusEvent<HTMLInputElement> {
 }
 
 export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends ValidationProps {
-  /** Браузерное автозаполнение поля ввода, по умолчанию "off" */
+  /** Browser autofill, off is the default value. Works as HTML autoComplete attribute */
   autoComplete?: string,
-  /** Сравнение объектов по произвольному полю, а не по ссылке */
+  /** ... */
   compareObjectsBy?: T extends object ? ((suggestionListItem: T) => any) | string : never,
-  /** Данные для отображения в выпадающем списке */
+  /** Data for the dropdown list */
   data: T[],
-  /** Отключить ввод в инпуте компонента  */
+  /** In case you want to disable component  */
   isDisabled?: boolean,
-  /** Фильтр данных по правилу. smart (дефолтное значение) "умный" поиск, startsWith - фильтр по началу строку в инпуте, includes - поиск по вхождению. Не желательно использовать "умный" поиск при больших обьемах данных(1-2 тысячи значений) */
+  /** Search mode, smart is default, looks for one or several words regardless of their order, can be slow if data has thousands of elements or more */
   filterRule?: 'smart' | 'startsWith' | 'includes',
-  /** Футер под значениями в выпадающем списке */
-  footerRender?: () => React.ReactNode,
-  /** Ключ для группировки */
+  /** How to group suggestions */
   groupBy?: (option: T) => string | undefined,
-  /** Хедер над значениями в выпадающем списке */
-  headerRender?: () => React.ReactNode,
-  /** Отображение кнопки для очистки значения в инпуте */
+  /** Whether or not to show a clear button inside the input element. Default is false */
   hasClearButton?: boolean,
-  /** Вместо выпадающего списка в момент загрузки будет отображаться лоадер - полезно при подгрузке данных для списка с сервера */
+  /** Display a loading icon inside the dropdown */
   isLoading?: boolean,
-  /** Рендерить компонент с открытым выпадающим списком */
+  /** Control the dropdown state */
   isOpen?: boolean,
-  /** Кастомизация внешнего вида элемента выпадающего списка. */
+  /** Suggestion item customizator */
   itemRender?: SuggestionListProps['itemRender'],
-  /** Кастомизация внешнего вида выпадающего списка. */
+  /** Input field customizator */
   inputRender?: CustomRender<AutoCompleteProps, AutoCompleteState, InputElementProps>,
-  /** Обязательное поле или нет */
+  /** Required or not */
   isRequired?: boolean,
-  /** Кастомизация внешнего вида выпадающего списка. */
+  /** Dropdown list customizator */
   listRender?: CustomRender<SuggestionListProps, {}, UlProps>,
-  /** Количество символов в инпуте после которых начать показывать выпадающий список */
+  /** The minimal number of symbols that trigger the dropdown opening */
   minSearchLength?: number,
-  /** Имя поля ввода */
+  /** Component name */
   name?: string,
   /** This will be shown when no suggestions are found */
   noSuggestionsText?: React.ReactNode,
-  /** Принимает JSX */
+  /** No suggetions label customizator */
   noSuggestionsRender?: SuggestionListProps['noSuggestionsRender'],
-  /** Обработчик события потери фокуса */
+  /** Blur handler */
   onBlur?: (event: BlurEvent) => void,
-  /** Обработчик события изменения значения в инпуте */
+  /** Change handler */
   onChange: (event: ChangeEvent<T>) => void,
-  /** Обработчик события фокуса */
+  /** Focus handler */
   onFocus?: (event: FocusEvent) => void,
-  /** Плейсхолдер */
+  /** Placeholder */
   placeholder?: string,
-  /** При потере фокуса проверяет введенное значение на соответствие значениям в data и подставляет последнее корректное (есть в data) или пустое значение */
+  /** If true it puts the last correct (present in data) value into the input field or clears it. It is triggered by Blur event */
   shouldCorrectValue?: boolean,
-  /** Показывать все элементы из data, не фильтруя */
+  /** Show all data elements regardless of what is in the input field */
   shouldShowAllSuggestions?: boolean,
-  /** Поля, в которых содержатся данные для поиска */
+  /** DataObject fields to search */
   searchFields?: string[],
-  /** Сортировка выпадающего списка */
+  /** Suggestions sorting */
   sortSuggestions?: (a: T, b: T) => number,
-  /** Устанавливает поле из data, которое будет использоваться для отображения если передан объект. Значение в поле объекта также должно быть типом string. Если data - массив примитивов, не задавайте эту настройку */
+  /** textField is mandatory if data is an array of objects, textField specifies which object's field is used to get dropdown item text value.
+   * It takes no effect if data is an array of strings
+   * */
   textField?: T extends object ? string : never,
-  /** Реф */
+  /** Ref */
   ref?: React.Ref<AutoCompleteRefCurrent>,
-  /** Тема */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.autoComplete],
-  /** Значение компонента */
+  /** Value */
   value?: string | null,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 

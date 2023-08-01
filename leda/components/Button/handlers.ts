@@ -10,9 +10,9 @@ export const createClickHandler = (props: ButtonProps) => (ev: React.MouseEvent<
     scrollOffset, form: formProp, shouldScrollToInvalidFields,
   } = props;
 
-  if (isDisabled || isLoading) return; // если кнопка отключена или в состояниии загрузки, прервать выполнение функции
+  if (isDisabled || isLoading) return;
 
-  // если кнопка участвует в валидации форм
+  // if the button is connected to a form
   if (formProp) {
     const buttonFormNames = Array.isArray(formProp) ? formProp : [formProp];
     const formNames = getForms().map((form) => form.name);
@@ -33,9 +33,10 @@ export const createClickHandler = (props: ButtonProps) => (ev: React.MouseEvent<
 
       if (shouldScrollToInvalidFields && invalidForms.length > 0) {
         const firstInvalidFormName = invalidForms[0].name;
-        // data-form для buttonGroup, использовать просто [from=""] нельзя, т.к. захватит кнопки тоже
+        // data-form form is used for ButtonGroup
+        // don't use [form=""] as it will grab buttons too
         const formElements = document.querySelectorAll(`input[form="${firstInvalidFormName}"], [data-form="${firstInvalidFormName}"`);
-        // ждем пока обновятся данные
+        // waiting for data to update
         setTimeout(() => {
           const invalidElement = Array.from(formElements).find((element) => element.getAttribute('aria-invalid') === 'true');
 

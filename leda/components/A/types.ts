@@ -2,17 +2,17 @@ import React from 'react';
 import { CustomEventHandler } from '../../commonTypes';
 
 export interface AProps extends React.HTMLAttributes<HTMLAnchorElement> {
-  /** Текст ссылки */
+  /** Link text */
   children?: React.ReactNode,
-  /** Ссылка */
+  /** Link address */
   href?: string,
-  /** Обработчик клика */
+  /** Click handler */
   onClick?: CustomEventHandler<React.MouseEvent<HTMLAnchorElement>>,
-  /** Реф */
+  /** Ref */
   ref?: React.Ref<ARefCurrent>,
-  /** Если передано false, компонент не будет рендериться */
+  /** To render or not to render */
   shouldRender?: boolean,
-  /** Классы переданные через _ */
+  /** _css-class-name */
   [x: string]: unknown,
 }
 

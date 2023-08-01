@@ -38,7 +38,7 @@ export interface CheckBoxProps {
   value?: boolean,
   /** Wrapper customization */
   wrapperRender?: CustomRender<CheckBoxProps, {}, Partial<CheckBoxProps>>,
-  /** _classNames */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 

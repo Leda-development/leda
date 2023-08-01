@@ -242,10 +242,12 @@ export const inputKeyDownHandlerCreator = ({
     : suggestions.indexOf(placeholder || '');
 
   if (event.key === 'ArrowDown' || event.key === 'Down') {
-    // предотвращаем скроллинг страницы
+    // prevent page scrolling
     event.preventDefault();
 
-    // новый индекс, механизм работает как барабан
+    // new index, suggestion list is cyclic
+``
+maybe like that? Forever loop sounds like an infinite "for" loop)
     const nextIndex = (suggestionIndex + 1) % suggestions.length;
 
     const newHighlightedSuggestion = suggestions[nextIndex];
@@ -254,10 +256,10 @@ export const inputKeyDownHandlerCreator = ({
   }
 
   if (event.key === 'ArrowUp' || event.key === 'Up') {
-    // предотвращаем скроллинг страницы
+    // prevent page scroll
     event.preventDefault();
 
-    // новый индекс, механизм работает как барабан
+    // new index, suggestion list is a forever loop
     const nextIndex = (() => {
       if (suggestionIndex <= 0) return suggestions.length - 1;
 
@@ -303,7 +305,7 @@ export const inputKeyDownHandlerCreator = ({
   if (isFunction(onKeyDown)) onKeyDown(event);
 
   // todo investigate
-  // 32 это space
+  // 32 stands for space character
   // if (event.keyCode === 32 && !shouldFilterValues) {
   //   event.preventDefault();
   //

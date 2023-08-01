@@ -9,7 +9,6 @@ import { createClickHandler } from './handlers';
 import { ButtonProps, ButtonRefCurrent } from './types';
 import { Icon, IconTypes } from '../../';
 
-// как настраивать кнопку для валидации ввода: ../Validation/validation.md
 export const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<ButtonRefCurrent>): React.ReactElement | null => {
   const {
     children,

@@ -45,7 +45,7 @@ export const getSuggestionFromValue = ({
   return suggestion || null;
 };
 
-// возвращает список строк, которые содержат строку из инпута
+// returns suggestions containing the string from the input
 export const getSuggestions = ({
   data,
   textField,
@@ -77,7 +77,7 @@ export const getSuggestions = ({
   return data.filter((suggestion) => {
     if (suggestion === null) return false;
 
-    // обработка массива строк
+    // handling an array of strinds
     if (typeof suggestion === 'string') {
       return filterSuggestionByRule(suggestion, trimmedValue, filterRule);
     }
@@ -86,7 +86,7 @@ export const getSuggestions = ({
       return value === suggestion.toString();
     }
 
-    // если нужно искать по дополнительным полям в объекте
+    // if additional object fields search is required
     if (isArray(searchFields) && textField && suggestion[textField]) {
       const suggestionValue = suggestion[textField].toString();
       const isValueMatchingTextField = filterSuggestionByRule(suggestionValue, trimmedValue, filterRule);
@@ -103,7 +103,7 @@ export const getSuggestions = ({
       return isValueMatchingTextField || isValueMatchingSearchFields;
     }
 
-    // обработка массива обьектов
+    // handling an array of objects
     if (textField && suggestion[textField]) {
       const suggestionValue = suggestion[textField].toString();
       return filterSuggestionByRule(suggestionValue, trimmedValue, filterRule);
@@ -150,8 +150,8 @@ export const correctValue = ({
   setStateValue: (val: string) => void,
   value?: string | null,
 }): void => {
-  // если value нет в data
-  // использовать последнее корректное (есть в списке data, или пустое) value
+  // if data does not contain the value
+  // use the last valid (either exists in data or empty) value
   const {
     data, name, textField, onChange, filterRule = FILTER_RULES.smart, isOpen, minSearchLength,
   } = props;
@@ -164,8 +164,8 @@ export const correctValue = ({
 
   const dataIncludesValue = suggestionValues.includes(value || '');
 
-  // если значение корректно, записать его в lastCorrectValue
-  // иначе, передать наверх последнее корректное значение
+  // if the value is valid put in into lastCorrectValue
+  // or pass back the last correct value
   if (value === '' || dataIncludesValue) {
     setLastCorrectValue(value || '');
   } else {

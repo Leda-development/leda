@@ -37,12 +37,12 @@ export const ProgressBar = () => {
   return (
     <L.Div _demo-story>
       <L.H4 _story-title>ProgressBar</L.H4>
-      <L.ProgressBar value={value} valueRender={() => null} />
+      <L.ProgressBar value={value} />
       <br />
       <br />
-      <L.Button _warning onClick={launchProgress}>{state.interval !== null ? 'Stop' : 'Launch'} progress</L.Button>
+      <L.Button onClick={launchProgress}>{state.interval !== null ? 'Stop' : 'Launch'} progress</L.Button>
       {' '}
-      <L.Button _warning onClick={resetProgress}>Reset progress</L.Button>
+      <L.Button onClick={resetProgress}>Reset progress</L.Button>
     </L.Div>
   );
 };

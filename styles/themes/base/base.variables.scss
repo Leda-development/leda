@@ -110,6 +110,12 @@
 
   --ld-numeric-range-delimeter-width: 2rem;
 
+  --ld-progressbar-bg: var(--ld-border-color);
+  --ld-progressbar-bg-fill: var(--ld-color-success);
+  --ld-progressbar-height: 20px;
+  --ld-progressbar-value-text-color: var(--ld-main-color-contrast);
+  --ld-progressbar-value-font-size: 12px;
+
   --ld-radio-active-color: var(--ld-main-color);
   --ld-radio-active-color-hover: var(--ld-main-color-dark);
   --ld-radio-active-color-disabled: var(--ld-bg-color-disabled);

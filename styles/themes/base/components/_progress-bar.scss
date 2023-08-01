@@ -1,0 +1,21 @@
+.ld-progressbar-wrapper {
+  background: var(--ld-progressbar-bg);
+  height: var(--ld-progressbar-height);
+  position: relative;
+}
+
+.ld-progressbar-fill {
+  background: var(--ld-progressbar-bg-fill);
+  transition: width 0.25s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  left: 0;
+}
+
+.ld-progressbar-value {
+  font-size: var(--ld-progressbar-value-font-size);
+  color: var(--ld-progressbar-value-text-color);
+}

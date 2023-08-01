@@ -1,0 +1,52 @@
+.ld-loader-wrapper {
+  position: relative;
+  min-height: var(--ld-loader-wrapper-min-height);
+}
+
+.ld-loader-container {
+  background-color: var(--ld-loader-bg-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--ld-loader-container-border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ld-loader-element {
+  width: var(--ld-loader-size);
+  height: var(--ld-loader-size);
+  animation: var(--ld-loader-animation);
+  color: var(--ld-loader-color);
+  @keyframes r-to-left {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.ld-loader-fullscreen {
+  background-color: var(--ld-loader-bg-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--ld-loader-fullscreen-z-index);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ld-loader-global {
+  overflow: hidden;
+}

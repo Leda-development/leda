@@ -97,6 +97,14 @@
   --ld-filedrop-progress-stroke-width: 2;
   --ld-filedrop-progress-base: 2px solid var(--ld-bg-color-disabled);
 
+  --ld-loader-wrapper-min-height: 200px;
+  --ld-loader-bg-color: rgba(255,255,255, 0.8);
+  --ld-loader-size: 30px;
+  --ld-loader-animation: r-to-left 2s linear infinite;
+  --ld-loader-color: var(--ld-border-color);
+  --ld-loader-fullscreen-z-index: 10100;
+  --ld-loader-container-border-radius: var(--ld-border-radius);
+
   --ld-modal-wrapper-z-index: 10000;
   --ld-modal-wrapper-bg: rgba(0,0,0,0.6);
   --ld-modal-wrapper-backdrop-filter: blur(3px);

@@ -6,8 +6,9 @@ import {
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { IconProps, LoaderProps, LoaderRefCurrent } from './types';
-import { Span } from '../Span';
 import { Div } from '../Div';
+import { Icon } from '../Icon';
+import { IconTypes } from '../..';
 
 export const Loader = React.forwardRef((props: LoaderProps, ref?: React.Ref<LoaderRefCurrent>): React.ReactElement => {
   const {
@@ -16,6 +17,7 @@ export const Loader = React.forwardRef((props: LoaderProps, ref?: React.Ref<Load
     iconRender,
     isGlobal,
     isLoading = true,
+    size,
     theme: themeProp,
     ...restProps
   } = useProps(props);
@@ -26,10 +28,6 @@ export const Loader = React.forwardRef((props: LoaderProps, ref?: React.Ref<Load
     className,
     [theme.wrapper],
     { [theme.fullscreen]: isGlobal },
-  );
-
-  const loaderClassName = getClassNames(
-    theme.element,
   );
 
   useEffect(() => {
@@ -44,9 +42,9 @@ export const Loader = React.forwardRef((props: LoaderProps, ref?: React.Ref<Load
     };
   }, [isLoading, isGlobal, theme.bodyOverflow]);
 
-  const Icon = useElement<LoaderProps, {}, IconProps>(
+  const IconElement = useElement<LoaderProps, {}, IconProps>(
     'Icon',
-    Span,
+    Icon,
     iconRender,
     props,
   );
@@ -60,7 +58,7 @@ export const Loader = React.forwardRef((props: LoaderProps, ref?: React.Ref<Load
         }))}
         className={wrapperClassName}
       >
-        <Icon className={loaderClassName} />
+        <Icon icon={IconTypes.Icons.Loader} className={theme.element} />
       </Div>
     )) as unknown as React.ReactElement;
   }
@@ -77,7 +75,7 @@ export const Loader = React.forwardRef((props: LoaderProps, ref?: React.Ref<Load
         <div
           className={theme.container}
         >
-          <Icon className={loaderClassName} />
+          <IconElement icon={IconTypes.Icons.Loader} className={theme.element} />
         </div>
       )}
       {children}

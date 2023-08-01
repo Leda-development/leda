@@ -4,21 +4,23 @@ import { COMPONENTS_NAMESPACES } from '../../constants';
 import { CustomRender } from '../../commonTypes';
 
 export interface LoaderProps extends React.HTMLAttributes<HTMLDivElement> {
+  /** Put your own loader here */
   iconRender?: CustomRender<LoaderProps, {}, {}>,
-  /** Глобальный лоадер */
+  /** Fullscreen loader */
   isGlobal?: boolean,
-  /** Показывается ли лоадер */
+  /** Or not */
   isLoading?: boolean,
-  /** Реф */
+  /** Ref */
   ref?: React.Ref<LoaderRefCurrent>,
-  /** Тема компонента */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.loader],
-  /** Классы переданные через _ */
+  /** Underscore CSS classes */
   [x: string]: unknown,
 }
 
 export interface IconProps {
   className?: string,
+  icon: string,
 }
 
 export interface LoaderRefCurrent {

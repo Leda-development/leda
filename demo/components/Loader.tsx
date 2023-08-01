@@ -26,12 +26,11 @@ export const Loader = () => {
       <StateButtonGroup
         data={[
           { text: 'Default', props: { } },
-          { text: 'Spinner', props: { iconRender: ({ elementProps }) => <L.Div _loaderSpinner {...elementProps} /> } },
-          { text: 'Custom', props: { iconRender: ({ elementProps }) => <><L.Div _loaderHourglass {...elementProps}></L.Div><L.Span>БЛАБЛАБЛАБЛАБЛА</L.Span></> } },
+          { text: 'Spinner', props: { iconRender: ({ elementProps }) => <L.Div _loader-spinner {...elementProps} /> } },
+          { text: 'Custom', props: { iconRender: ({ elementProps }) => <><L.Div _loader-hourglass {...elementProps}></L.Div><L.Span>БЛАБЛАБЛАБЛАБЛА</L.Span></> } },
           { text: 'Disabled', props: { isLoading: false } },
         ]}
         setProps={setProps}
-        theme={{ activeButton: 'warning' }}
       />
       <br />
       <br />

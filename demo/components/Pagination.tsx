@@ -18,8 +18,6 @@ export const Pagination = (): React.ReactElement => {
         currentPage={currentPage}
         onChange={(ev: any) => setCurrentPage(ev.component.value)}
         onPageSizeChange={(ev: any) => setPageSize(ev.component.value ? parseInt(ev.component.value, 10) : undefined)}
-        itemsRangeInfoRender={({ elementProps }: any) => `${elementProps.startingItemNumber} -- ${elementProps.endingItemNumber}, всего: ${elementProps.totalItemsNumber}`}
-        itemsTotalInfoRender={({ elementProps }: any) => `Итого: ${elementProps.totalItemsNumber}`}
         {...props}
       />
       <br />

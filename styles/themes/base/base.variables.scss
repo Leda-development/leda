@@ -138,6 +138,19 @@
 
   --ld-numeric-range-delimeter-width: 2rem;
 
+  --ld-pagination-button-margin-inline: 5px;
+  --ld-pagination-button-size: 24px;
+  --ld-pagination-button-color: var(--ld-font-color);
+  --ld-pagination-button-color-hover: var(--ld-font-color);
+  --ld-pagination-control-color: var(--ld-border-color);
+  --ld-pagination-control-color-hover: var(--ld-font-color);
+  --ld-pagination-number-selected-font-size: 1.1rem;
+  --ld-pagination-number-selected-color: var(--ld-font-color);
+  --ld-pagination-options-dropdown-width: 100px;
+  --ld-pagination-options-label-color: var(--ld-font-color);
+  --ld-pagination-options-label-margin-inline-end: 1rem;
+  --ld-pagination-info-label-color: var(--ld-font-color);
+
   --ld-progressbar-bg: var(--ld-border-color);
   --ld-progressbar-bg-fill: var(--ld-color-success);
   --ld-progressbar-height: 20px;

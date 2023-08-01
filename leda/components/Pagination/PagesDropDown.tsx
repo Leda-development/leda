@@ -24,7 +24,7 @@ export const PagesDropDown = (props: PagesDropDownProps): React.ReactElement => 
   };
 
   return (
-    <div className={theme.labelSizeOptions}>
+    <div className={theme.optionsWrapper}>
       { isPageSizeChangeable && (
         <>
           <DropDownSelect
@@ -32,8 +32,11 @@ export const PagesDropDown = (props: PagesDropDownProps): React.ReactElement => 
             value={isNil(pageSize) ? pageSize : pageSize.toString()}
             onChange={handleChange}
             placeholder="Все"
+            className={theme.options}
           />
-          Показать на странице
+          <div className={theme.optionsLabel}>
+            Показать на странице
+          </div>
         </>
       )}
     </div>

@@ -1,0 +1,65 @@
+.ld-pagination-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.ld-pagination-button {
+  margin-inline: var(--ld-pagination-button-margin-inline);
+  width: var(--ld-pagination-button-size);
+  height: var(--ld-pagination-button-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  order: 2;
+  color: var(--ld-pagination-button-color);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--ld-pagination-button-color-hover);
+  }
+}
+
+.ld-pagination-controls {
+  color: var(--ld-pagination-control-color);
+  &:hover {
+    color: var(--ld-pagination-control-color-hover);
+  }
+}
+
+.ld-pagination-numbers {
+  display: flex;
+  list-style: none;
+  order: 2;
+}
+
+.ld-pagination-number-selected {
+  font-weight: bold;
+  cursor: default;
+  font-size: var(--ld-pagination-number-selected-font-size);
+  color: var(--ld-pagination-number-selected-color);
+}
+
+.ld-pagination-options-wrapper {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+  align-items: baseline;
+}
+
+.ld-pagination-options {
+  width: var(--ld-pagination-options-dropdown-width);
+}
+
+.ld-pagination-options-label {
+  margin-inline-end: var(--ld-pagination-options-label-margin-inline-end);
+  color: var(--ld-pagination-options-label-color);
+}
+
+.ld-pagination-info-label {
+  display: flex;
+  flex: 1;
+  order: 3;
+  justify-content: flex-end;
+  color: var(--ld-pagination-info-label-color);
+}

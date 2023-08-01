@@ -7,13 +7,14 @@ import {
   bindFunctionalRef, getClassNames, useProps, useTheme,
 } from '../../utils';
 import { Div } from '../Div';
-import { Span } from '../Span';
 import { createPageChangeHandler, createPageSizeChangeHandler } from './handlers';
 import { getPageNumbers, normalizePageNumber } from './helpers';
 import { useCustomElements } from './hooks';
 import { PagesList } from './PagesList';
 import { PaginationControl } from './PaginationControl';
 import { PaginationProps, PaginationRefCurrent } from './types';
+import { Icon } from '../Icon';
+import { IconTypes } from '../..';
 
 export const Pagination = React.forwardRef((props: PaginationProps, ref: React.Ref<PaginationRefCurrent>): React.ReactElement => {
   const {
@@ -30,8 +31,6 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
   } = useProps(props);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.pagination);
-
-  const wrapperRef = React.useRef<HTMLDivElement | null>(null);
 
   const [currentPageState, setCurrentPageState] = React.useState<number>(1);
 
@@ -104,7 +103,10 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
         page={isSinglePage || isFirstPage ? 0 : 1}
         onClick={handlePageChange}
       >
-        <Span className={theme.iconFirst} />
+        <Icon
+          icon={IconTypes.Icons.ChevronsLeft}
+          className={theme.iconFirst}
+        />
       </PaginationControl>
       <PaginationControl
         className={getClassNames(
@@ -116,7 +118,10 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
         page={isSinglePage || isFirstPage ? 0 : currentPage - 1}
         onClick={handlePageChange}
       >
-        <Span className={theme.iconPrev} />
+        <Icon
+          icon={IconTypes.Icons.ChevronLeft}
+          className={theme.iconPrev}
+        />
       </PaginationControl>
       { !isFirstPageShown && (
       <PaginationControl
@@ -156,7 +161,10 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
         title="Следующая"
         onClick={handlePageChange}
       >
-        <Span className={theme.iconNext} />
+        <Icon
+          icon={IconTypes.Icons.ChevronRight}
+          className={theme.iconNext}
+        />
       </PaginationControl>
       <PaginationControl
         className={getClassNames(
@@ -168,7 +176,9 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
         title="Последняя"
         onClick={handlePageChange}
       >
-        <Span className={theme.iconLast} />
+        <Icon
+          icon={IconTypes.Icons.ChevronsRight}
+          className={theme.iconLast} />
       </PaginationControl>
       <PagesDropDown
         handlePageSizeChange={handlePageSizeChange}

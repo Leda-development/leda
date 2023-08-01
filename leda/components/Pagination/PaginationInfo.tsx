@@ -9,7 +9,7 @@ export const PaginationInfo = (props: PaginationInfoProps): React.ReactElement =
   } = props;
 
   return (
-    <Span className={theme.labelInfo}>
+    <Span className={theme.infoLabel}>
       {children}
     </Span>
   );

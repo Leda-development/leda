@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { useElement } from '../../utils';
-import { A } from '../A';
 import { Div } from '../Div';
 import { LedaContext } from '../LedaProvider';
 import { CustomElements, ModalWindowProps } from './types';
+import { Icon } from '../Icon';
 
 export const useCustomElements = (props: ModalWindowProps): CustomElements => {
   const {
@@ -19,15 +19,15 @@ export const useCustomElements = (props: ModalWindowProps): CustomElements => {
     props,
   );
 
-  const Icon = useElement(
+  const IconElement = useElement(
     'Icon',
-    A,
+    Icon,
     iconRender || modalRenders.iconRender,
     props,
   );
 
   return {
     Wrapper,
-    Icon,
+    Icon: IconElement,
   };
 };

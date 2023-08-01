@@ -8,6 +8,7 @@ import { ModalWindowProps } from './types';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { getModalWidth } from './helpers';
 import { ModalContext } from './ModalContext';
+import { IconTypes } from '../..';
 
 export const ModalWindow = (props: ModalWindowProps): React.ReactElement => {
   const {
@@ -82,7 +83,11 @@ export const ModalWindow = (props: ModalWindowProps): React.ReactElement => {
           className={theme.window}
           style={windowStyles}
         >
-          <Icon onClick={handleCloseButtonClick} className={theme.cross} />
+          <Icon
+            icon={IconTypes.Icons.X}
+            onClick={handleCloseButtonClick}
+            className={theme.cross}
+          />
           {children}
         </div>
       </Wrapper>

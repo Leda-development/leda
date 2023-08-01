@@ -1,10 +1,10 @@
 /* eslint-disable key-spacing */
 export const defaultModalTheme = {
-  body:       'modal-body',
-  cross:      'modal-cross',
-  footer:     'modal-footer',
-  header:     'modal-header',
-  window:     'modal-window',
-  wrapper:    'modal-wrapper',
+  body:       'ld-modal-body',
+  cross:      'ld-modal-cross',
+  footer:     'ld-modal-footer',
+  header:     'ld-modal-header',
+  window:     'ld-modal-window',
+  wrapper:    'ld-modal-wrapper',
 };
 /* eslint-enable key-spacing */

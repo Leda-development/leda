@@ -89,6 +89,26 @@
   --ld-filedrop-progress-stroke-width: 2;
   --ld-filedrop-progress-base: 2px solid var(--ld-bg-color-disabled);
 
+  --ld-modal-wrapper-z-index: 10000;
+  --ld-modal-wrapper-bg: rgba(0,0,0,0.6);
+  --ld-modal-wrapper-backdrop-filter: blur(3px);
+  --ld-modal-z-index: 10002;
+  --ld-modal-top: 64px;
+  --ld-modal-border-radius: 5px;
+  --ld-modal-box-shadow: 0 2px 10px 1px rgba(0,0,0,0.2);
+  --ld-modal-cross-right: -20px;
+  --ld-modal-cross-top: 15px;
+  --ld-modal-cross-size: 35px;
+  --ld-modal-cross-color: white;
+  --ld-modal-body-bg: white;
+  --ld-modal-border: 1px solid var(--ld-border-color);
+  --ld-modal-heading-padding: 25px 30px;
+  --ld-modal-footer-padding: 25px 30px;
+  --ld-modal-heading-font-size: 1.5rem;
+  --ld-modal-heading-font-weight: 600;
+  --ld-modal-heading-bg: white;
+  --ld-modal-footer-bg: white;
+
   --ld-multiselect-placeholder-color: var(--ld-border-color);
   --ld-multiselect-placeholder-padding: 3px 0 0 var(--ld-padding-inline);
   --ld-multiselect-tags-container-padding: 2px;

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { CustomRender, CustomEventHandler } from '../../commonTypes';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTheme';
+import { IconTypes } from '../..';
 
 export interface SelectEvent {
   component: {
@@ -104,7 +105,7 @@ export interface HeadingWrapperProps {
 
 export interface IconProps {
   className?: string,
-  isExpanded: boolean,
+  icon: IconTypes.Icons,
 }
 
 export interface BodyWrapperProps {

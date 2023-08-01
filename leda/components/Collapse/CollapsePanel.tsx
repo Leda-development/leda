@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react';
 import { createPanelHandlers } from './handlers';
 import { usePanelWrapper } from './helpers';

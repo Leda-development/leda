@@ -1,9 +1,12 @@
+'use client'
+
 import React from 'react';
 import { useCollapseHeading, useIcon } from './helpers';
 import { bindFunctionalRef, getClassNames, useProps } from '../../utils';
 import { handleHeadingClick } from './handlers';
 import { CollapsePanelContext } from './CollapseContext';
 import { HeadingProps, HeadingRefCurrent } from './types';
+import { IconTypes } from '../..';
 
 export const Heading = React.forwardRef((props: HeadingProps, ref?: React.Ref<HeadingRefCurrent>): React.ReactElement => {
   const { children, className } = useProps(props);
@@ -43,8 +46,8 @@ export const Heading = React.forwardRef((props: HeadingProps, ref?: React.Ref<He
     >
       {children}
       <Icon
+        icon={IconTypes.Icons.ChevronDown}
         className={iconClassNames}
-        isExpanded={isExpanded}
       />
     </HeadingWrapper>
   );

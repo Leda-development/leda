@@ -40,6 +40,14 @@
 
   --ld-btn-group-active-color: var(--ld-main-color-dark);
 
+  --ld-collapse-border-radius: var(--ld-border-radius);
+  --ld-collapse-border-color: var(--ld-border-color);
+  --ld-collapse-border: 1px solid var(--ld-collapse-border-color);
+  --ld-collapse-padding: 10px;
+  --ld-collapse-border-color-hover: var(--ld-border-color-hover);
+  --ld-collapse-bg-color-disabled: var(--ld-bg-color-disabled);
+  --ld-collapse-icon-trabsition: transform 0.2s linear;
+
   --ld-input-font-size: var(--ld-font-size);
   --ld-input-line-height: var(--ld-line-height);
   --ld-input-font-weight: var(--ld-font-weight);

@@ -31,11 +31,8 @@ export const COMPONENTS_NAMESPACES = {
   collapseBody: 'collapseBody',
   collapseHeading: 'collapseHeading',
   collapsePanel: 'collapsePanel',
-  currency: 'currency',
   dateTimeInput: 'dateTimeInput',
   dateTimeInputRange: 'dateTimeInputRange',
-  dropDown: 'dropDown',
-  dropDownLink: 'dropDownLink',
   dropDownSelect: 'dropDownSelect',
   dropZone: 'dropZone',
   fileDrop: 'fileDrop',
@@ -57,15 +54,12 @@ export const COMPONENTS_NAMESPACES = {
   radio: 'radio',
   rating: 'rating',
   slider: 'slider',
-  statusBar: 'statusBar',
-  stickyPanel: 'stickyPanel',
   suggestionList: 'suggestionList',
   switcher: 'switcher',
   tabs: 'tabs',
   tags: 'tags',
   textarea: 'textarea',
   tooltip: 'tooltip',
-  vstepper: 'vstepper',
 } as const;
 
 /** Error codes for DropZone, FileDrop и FileUpload */

@@ -39,14 +39,14 @@ export const Tooltip = React.forwardRef((props: TooltipProps, ref?: React.Ref<To
 
   const tooltipClassNames = getClassNames(position ? theme[position] : theme.tooltip);
 
-  // добавление обертки если нужно
+  // adding a wrapper if necessary
   const element = React.isValidElement(children) ? children : (
     <div className={theme.wrapper}>
       {children}
     </div>
   );
 
-  // невидимый элемент нужен для получения element
+  // invisible element is needed to get element
   return (
     <>
       <div

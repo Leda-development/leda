@@ -1,12 +1,13 @@
 import * as React from 'react';
 
 export interface SvgProps extends Omit<React.SVGProps<SVGSVGElement>, 'ref'> {
-  /** Убрать дефолтный класс icon-namespace */
+  /** Do not add default icon-namespace css class */
   noIconClass?: boolean,
-  /** Обработчик клика */
+  /** Click handler */
   onClick?: React.MouseEventHandler<SVGSVGElement>,
+  /** Ref */
   ref?: React.Ref<SvgRefCurrent>,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 

@@ -2,7 +2,6 @@ import * as React from 'react';
 import { getText } from '../../src/SuggestionList/helpers';
 import { useElement } from '../../utils';
 import { Div } from '../Div';
-import { Span } from '../Span';
 import { filterData } from './helpers';
 import {
   CustomElements, DropDownSelectProps, DropDownSelectState, UseCustomElementsExtra, Value,
@@ -36,7 +35,7 @@ export const useCustomElements = (
   { inputSuggestion }: UseCustomElementsExtra,
 ): CustomElements => {
   const {
-    wrapperRender, inputRender, iconRender,
+    wrapperRender, inputRender,
   } = props;
 
   const Wrapper = useElement(

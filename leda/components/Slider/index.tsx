@@ -17,15 +17,15 @@ import {
   SliderProps, SliderRefCurrent, SliderValue,
 } from './types';
 
-// Слайдер взят здесь:
+// Slider taken here:
 // https://github.com/mpowaga/react-slider#readme
 
-// Количество ползунков зависит от того, что передано в value или defaultValue
-// если передано число, то ползунок будет один
-// если передан массив, то количество ползунков будет равно количеству элементов в массиве
+// The number of sliders depends on what is passed in value or defaultValue
+// if a number is passed, the number of sliders will be one
+// if an array is passed, the number of sliders will be equal to the number of elements in the array.
 
-// Компонент может использоваться как контроилруемый (через value, defaultValue не используется)
-// и как неконтролируемый (начальное значение задаётся через defaultValue)
+// The component can be used as controllable (via value, defaultValue is not used)
+// and as uncontrollable (initial value is set via defaultValue)
 
 export const Slider = React.forwardRef((props: SliderProps, ref?: React.Ref<SliderRefCurrent>): React.ReactElement => {
   const {
@@ -57,8 +57,8 @@ export const Slider = React.forwardRef((props: SliderProps, ref?: React.Ref<Slid
   const shouldRenderMinMaxLabels = labelType === LABELS.MINMAX;
 
   const shouldRenderCurrentLabel = labelType === LABELS.CURRENT && (
-    (Array.isArray(value) && value.length === 1) // массив из одного элемента
-      || isNumber(value) // или число
+    (Array.isArray(value) && value.length === 1) // An array of one element
+      || isNumber(value) // or a number
   );
 
   const shouldRender = shouldRenderCurrentLabel || shouldRenderMinMaxLabels;

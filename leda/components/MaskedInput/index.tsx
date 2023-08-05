@@ -26,8 +26,8 @@ export const MaskedInput = React.forwardRef((props: MaskedInputProps, ref: React
     isValid: isValidProp,
     mask,
     name,
-    onBlur, // не должно попасть в restProps
-    onChange, // не должно попасть в restProps
+    onBlur, // should not get into restProps
+    onChange, // should not get into restProps
     onEnterPress,
     onFocus,
     placeholder,

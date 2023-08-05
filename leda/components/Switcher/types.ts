@@ -11,31 +11,31 @@ export interface ChangeEvent extends React.MouseEvent<HTMLDivElement> {
 }
 
 export interface SwitcherProps {
-  /** Кастомный switcher для компонента (подложка + иконка) */
+  /** Switcher customizator */
   baseRender?: CustomRender<SwitcherProps, SwitcherState, BaseProps>,
-  /** Дочерние элементы (рендерятся внутри <label> */
+  /** Child elements, get rendered inside label */
   children?: React.ReactNode,
-  /** Кастомная иконка для компонента (перемещающийся круг) */
+  /** Icon customizator */
   iconRender?: CustomRender<SwitcherProps, SwitcherState, IconProps>,
-  /** Отключение переключателя */
+  /** Disabled state */
   isDisabled?: boolean,
-  /** Кастомный label для компонента */
+  /** Label customizator */
   labelRender?: CustomRender<SwitcherProps, SwitcherState, LabelProps>,
-  /** Имя элемента, возвращаемое в функции обратного вызова */
+  /** Name */
   name?: string,
-  /** Функция обратного вызова при смене состояния переключателя */
+  /** Change handler */
   onChange?: (ev: ChangeEvent) => void,
-  /** Функция обратного вызова при клике по переключателю */
+  /** Click handler */
   onClick?: (ev: React.MouseEvent<HTMLDivElement>) => void,
-  /** Реф */
+  /** Ref */
   ref?: React.Ref<SwitcherRefCurrent>,
-  /** Тема компонента */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.switcher],
-  /** Состояние переключателя */
+  /** Value */
   value?: boolean,
-  /** Кастомный wrapper для компонента */
+  /** Wrapper customizator */
   wrapperRender?: CustomRender<SwitcherProps, SwitcherState, WrapperProps>,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 

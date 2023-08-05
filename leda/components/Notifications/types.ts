@@ -6,14 +6,14 @@ import { DivProps } from '../Div';
 import { ChangeMethods } from './constants';
 
 export interface Item {
-  // текст, можно использовать html
+  // text/html
   text: string,
-  // по умолчанию 5000 мс, чтобы уведомление не закрывалось по timeout - передайте 0
+  // 5000 ms by default, pass 0 to disable closing on timeout
   delay?: number,
   id: string | number,
   className?: string,
   iconClassName?: string,
-  // можно передать любые дополнительные данные
+  // any other data
   [x: string]: unknown,
 }
 
@@ -27,38 +27,38 @@ export interface ChangeEvent {
 }
 
 export interface NotificationItemProps {
-  /** Кастомизация кнопки внутри оповещения, по-умолчанию не отображается */
+  /** Notification button customizator */
   actionButtonRender?: CustomRender<NotificationItemProps, {}, React.PropsWithChildren<{}>>,
-  /** Сообщение внутри оповещения. Принимается функция. */
+  /** Content customizator */
   contentRender?: CustomRender<NotificationItemProps, {}, DivProps>,
-  /** Кастомизация иконки */
+  /** Icon customizator */
   iconRender?: CustomRender<NotificationItemProps, {}, DivProps>,
-  /** Объект с уведомлением */
+  /** Obejct containing notification data */
   item: Item,
-  /** Обработчик изменения, срабатывает при клике по крестику или по таймауту */
+  /** Change handler, fires when the notification gets closed on timeout or by click */
   onChange: (item: Item, method: ChangeMethods) => void,
-  /** Тема компонента */
+  /** Theme */
   theme: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.notifications],
 }
 
 export interface NotificationsProps {
-  /** Кастомизация кнопки внутри оповещения, по-умолчанию не отображается */
+  /** Notification button customizator */
   actionButtonRender?: CustomRender<NotificationItemProps, {}, React.PropsWithChildren<{}>>,
-  /** Сообщение внутри оповещения. Принимается функция. */
+  /** Content customizator */
   contentRender?: CustomRender<NotificationItemProps, {}, DivProps>,
-  /** Кастомизация иконки */
+  /** Icon customizator */
   iconRender?: CustomRender<NotificationItemProps, {}, DivProps>,
-  /** Максимальное количество оповещений на экране, по-умолчанию 3 */
+  /** Max amount of notifications, 3 by default */
   maxItems?: number,
-  /** Обработчик изменения, срабатывает при клике по крестику или по таймауту  */
+  /** Change handler, fires when the notification gets closed on timeout or by click */
   onChange: (event: ChangeEvent) => void,
-  /** Реф */
+  /** Ref */
   ref?: React.Ref<NotificationRefCurrent>,
-  /** Тема компонента */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.notifications],
-  /** Уведомления, если передано больше, чем maxItems - отображаются в порядке очереди */
+  /** Notifications. If value has more items than is set in maxItems notifications get shown one by one */
   value: Item[],
-  /** Классы, переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 

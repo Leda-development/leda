@@ -23,49 +23,49 @@ export interface RangeChangeEvent {
 }
 
 export interface NumericRangeProps {
-  /** Классы для компонента */
+  /** CSS class names */
   className?: string,
-  /** Формат. подробнее: formatting.md */
+  /** Format, see formatting.md */
   format?: string,
-  /** Имя формы, нужно для валидации */
+  /** Form name, is required for validation */
   form?: string,
-  /** Рендеры для инпутов, [render, render] */
+  /** Input fields customizators, [render, render] */
   inputsRender?: [NumericTextBoxProps['inputRender'] | null, NumericTextBoxProps['inputRender'] | null],
-  /** Выключенное состояние */
+  /** Disabled state */
   isDisabled?: boolean | [boolean, boolean],
-  /** Являются ли поля обязательными */
+  /** Shows if the field is required  */
   isRequired?: boolean | [boolean, boolean],
-  /** Внешняя валидация */
+  /** Control valid state */
   isValid?: boolean,
-  /** Максимальное значение для всего диапазона */
+  /** Max range value */
   max?: number,
-  /** Минимальное значение для всего диапазона */
+  /** Min range value */
   min?: number,
-  /** Имя для нумериков ОТ и ДО */
+  /** Numerics names */
   name?: string | [string | undefined, string | undefined],
-  /** Обработчик изменения, срабатывает при изменении любого из нумериков, реагирует на onBlur */
+  /** Change handler */
   onChange?: (event: RangeChangeEvent) => void,
-  /** Обработчик блюра, приходит из NumericTextBox без изменений */
+  /** Blur handler, comes from NumericTextBox unchanged */
   onBlur?: (event: BlurEvent) => void,
-  /** Обработчик фокуса, приходит из NumericTextBox без изменений */
+  /** Focus handler, comes from NumericTextBox unchanged */
   onFocus?: (event: FocusEvent) => void,
-  /** Плейсхолдер для нумериков ОТ и ДО */
+  /** Placeholders */
   placeholder?: [string | undefined, string | undefined] | string,
-  /** Реф для компонента */
+  /** Ref */
   ref?: NumericRangeRefCurrent,
-  /** Условие обрезки нулей в форматированной строке  */
+  /** To trim or not to trim */
   shouldTrimTrailingZeros?: boolean,
-  /** Шаговое значение */
+  /** How much the value is increased/decreased on mouse events */
   step?: number,
-  /** Разделитель разрядов */
+  /** A space by default: 1 000 000.00 */
   thousandsSeparator?: string,
-  /** Тема для компонента */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.numericRange],
-  /** Значение для нумериков ОТ и ДО */
+  /** Values */
   value?: [number | null, number | null] | null,
-  /** Кастомный рендер для враппера */
+  /** Wrapper customizator */
   wrapperRender?: CustomRender<NumericRangeProps, NumericRangeState, DivProps>,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 

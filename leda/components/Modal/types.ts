@@ -7,34 +7,34 @@ import { DivRefCurrent } from '../Div';
 export type WindowSizeType = 'sm' | 'md' | 'lg';
 
 export interface ModalProps {
-  /** Дочерние элементы */
+  /** Child elements */
   children?: React.ReactNode,
-  /** Имена классов */
+  /** In case you want to add some more css classes */
   className?: string,
-  /** Кастомный рендер для иконки закрытия */
+  /** Close icon customizator */
   iconRender?: CustomRender<ModalWindowProps, {}, IconProps>,
-  /** Признак состояния. Обязательное, т.к. всегда нужен стейт для отслеживания состояния */
+  /** Whether the modal is open */
   isOpen: boolean,
-  /** Обработчик закрытия модалки по клику на оверлей, нажатию на крестик или нажатию Escape */
+  /** Close handler, works on any type of closing */
   onClose?: (ev: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>) => void,
-  /** Наличие кнопки закрытия окна и обработчик */
+  /** Close button click handler */
   onCloseButtonClick?: CustomEventHandler<React.MouseEvent<HTMLElement>>,
-  /** Закрытие окна по escape и обработчик */
+  /** Escape press handler */
   onEscapePress?: CustomEventHandler<React.KeyboardEvent<HTMLElement>>,
-  /** Обработчик клика за пределами модального окна */
+  /** Click handler outside the modal window */
   onOverlayClick?: CustomEventHandler<React.MouseEvent<HTMLElement>>,
-  /** Реф */
+  /** Ref */
   ref?: React.Ref<ModalRefCurrent>,
-  /** Размер окна.
-   * Имеет три стандартных значения sm=480, md=608, lg=868.
-   * Принимает строку вида "50%", "50px", "50rem"
-   * Если не задан, то устанавливается значение md=608 */
+  /** Window size.
+   * There are three standard sizes: sm=480, md=608, lg=868.
+   * Any custom values can be put as "50%", "50px", "50rem" etc.
+   * md=608 is the default value */
   size?: WindowSizeType | string,
-  /** Темизация компонента */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.modal],
-  /** Кастомный рендер для wrapper */
+  /** Wrapper customizator */
   wrapperRender?: CustomRender<ModalWindowProps, {}, WrapperProps>,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 

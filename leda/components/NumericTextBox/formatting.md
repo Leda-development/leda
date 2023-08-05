@@ -1,46 +1,47 @@
-# Форматирование чисел
+# Number formatting
 
-Применяется к компонентам NumericTextBox и NumericRange.
-Задает формат отображения числового значения в инпуте.
-Выбирается путем передачи одного из вариантов в пропсу `format`.
+Applies to NumericTextBox and NumericRange components.
+Sets the format of displaying a numeric value in an input.
+It is selected by passing one of the options to the `format` prop.
 
-Вы можете создавать любые форматы строк, используя следующий порядок построения.
+You can create any string format using the following construction order.
 
-* **Символ `"#"`** &mdash; Подставляет значение. округленное до целого. Должен обязательно присутствовать в формате.
+* ** **Symbol `"#"`** &mdash; Sets a value rounded to an integer. Must necessarily be present in the format.
 
-      Введенное в инпут число: 1234.5678;
+      The number entered in the input is: 1234.5678;
 
-      format="#"  // Выведет 1234
+      format="#" // Outputs 1234.
 
-* **Символ `"."` или `","`** &mdash; Указатель начала дробной части числа. Является связующим символом, непосредственно на формат не влияет.
+* **Symbol `"."` or `","`** &mdash; Pointer to the beginning of the fractional part of the number. It is a linking character, it does not affect the format directly.
 
-      Введенное в инпут число: 1234.5678;
+      The number entered into the input: 1234.5678;
 
-      format="#." // Выведет 1234
+      format="#." // Outputs 1234
 
-* **Символ `"#"`** &mdash; Указатель точности округления. Количество символов обозначает количество знаков после запятой.
+* **Symbol `"#"`** &mdash; Indicator of rounding accuracy. The number of characters indicates the number of decimal places.
 
-      Введенное в инпут число: 1234.5678;
+      The number entered in the input is: 1234.5678;
 
-      format="#.##"  // Выведет 1234.57
+      format="#.##" // Prints 1234.57
 
-      format="#.####"   // Выведет 1234.5678
+      format="#.####" // Prints 1234.5678.
 
-      format="#.#####"   // Выведет 1234.56780
+      format="#.#####" // Prints 1234.56780.
 
-* **Символ `string`** &mdash; Суфффикс. Символы, переданные после маски будут подставлены в суффикс без изменений.
-ВАЖНО: Перед суффиксом ОБЯЗАТЕЛЬНО должен быть символ пробела!
+* **Symbol `string`** &mdash; Suffix. Characters passed after the mask will be put into the suffix unchanged.
+IMPORTANT: There MUST be a space character before the suffix!
 
-      Введенное в инпут число: 1234.5678;
+      The number entered in the input is: 1234.5678;
 
-      format="#.## foo" // Выведет 1234.56 foo
+      format="#.## foo" // Prints 1234.56 foo
 
-      format="#.## x100 psc." // Выведет 1234.56 x100 psc.
-      
-* **Символ `string`** &mdash; Префикс. Символы, переданные переданные перед маской будут подставлены в префикс без изменений.
+      format="#.## x100 psc." // Outputs 1234.56 x100 psc.
 
-      Введенное в инпут число: 1234.5678;
 
-      format="от #.##" // Выведет от 1234.57
+* **Symbol `string`** &mdash; Prefix. Characters passed before the mask will be put into the prefix unchanged.
 
-      format="до #.##"// Выведет до 1234.57
+      The number entered in the input is: 1234.5678;
+
+      format="from #.##" // Outputs from 1234.57
+
+      format="up to #.##"// Outputs up to 1234.57      

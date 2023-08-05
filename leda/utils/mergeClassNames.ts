@@ -3,7 +3,7 @@ import { getClassNames } from './helpers';
 import { SomeObject } from '../commonTypes';
 import { underscorePropToClassName } from './underscorePropToClassName';
 
-// собирает все _классы и объединяет их с классами из props.className и записывает в props.className
+// collects all _classes and merges them with classes from props.className and writes them to props.className
 export const mergeClassNames = <Props>(props: Props): Props & { className?: string } => {
   const classNames: Set<string> = new Set();
   const restProps: {[prop: string]: unknown} = {};
@@ -11,16 +11,16 @@ export const mergeClassNames = <Props>(props: Props): Props & { className?: stri
 
   Object.keys(componentProps)
     .forEach((prop: string): void => {
-      // Если атрибут начинается со специального символа _ и он = true
+      // If the attribute starts with the special character _ and is true
       if (componentProps[prop] && prop[0] === '_' && componentProps[prop] === true) {
         const transformedClassName = underscorePropToClassName(prop);
 
         classNames.add(transformedClassName);
 
-        // если атрибут = false, но начинается с _, то ничего не делаем или если это className
+        // if attribute = false but starts with _ or it is a className, then do nothing
       } else if ((componentProps[prop] === false && prop[0] === '_')) {
 
-        // остальные атрибуты передаём без изменений
+        // pass the other attributes unchanged
       } else {
         restProps[prop] = componentProps[prop];
       }

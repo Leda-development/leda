@@ -36,7 +36,7 @@ export interface ValidationState {
   value?: any,
 }
 
-// результат - isValid, validateField, validateForm
+// result: isValid, validateField, validateForm
 export interface ValidationResult {
   isValid: boolean,
   validateCurrent: (value?: any) => boolean,

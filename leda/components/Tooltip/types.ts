@@ -3,21 +3,21 @@ import { COMPONENTS_NAMESPACES } from '../../constants';
 import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 
 export interface TooltipProps {
-  /** Размер стрелки тултипа в px */
+  /** Arrow size in px */
   arrowSize?: number,
-  /** Дочерние элементы */
+  /** Child elements */
   children?: React.ReactNode,
-  /** Показан ли тултип (удобно для отладки) */
+  /** Controlled open state */
   isOpen?: boolean,
-  /** Расположение тултипа, одно из: top, right, bottom, left. По-умолчанию - top */
+  /** Position: top, right, bottom, left. Defaults to top */
   position?: TooltipPosition,
-  /** Реф */
+  /** Ref */
   ref?: React.Ref<TooltipRefCurrent>,
-  /** Тема компонента */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.tooltip],
-  /** Заголовок принимается в виде строки, html, JSX */
+  /** Title: a string, html or JSX */
   title: React.ReactNode,
-  /** Максимальная продолжительность выполнения анимации в ms */
+  /** Max animation duration, ms */
   transitionTimeout?: number,
 }
 

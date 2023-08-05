@@ -109,14 +109,14 @@ const isValidValue = (value: string, mask: string, placeholderChar = '_'): boole
   if (value.length !== mask.length) return false;
 
   return mask.split('').every((item, index) => {
-    // текущий символ - символ маски
+    // the current character is a mask character
     if (Object.keys(baseMaskRules).includes(item)) {
       if (value[index] === placeholderChar) return true;
-      // проверку сделали выше
+      // the check was done above
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       return baseMaskRules[item]!.validate(value[index]);
     }
-    // статический символ
+    // static character
     return value[index] === item;
   });
 };
@@ -214,11 +214,11 @@ export const addChar = ({
       if (index === nextEditableIndex && isValidChar) return char;
 
       if (
-        editableCharsIndex.includes(index) // символ является изменяемым
-        && selectionDiff !== 0 // выделено более 1 символа
-        && index > selection[0] // текущий символ является выделенным
+        editableCharsIndex.includes(index) // the character is editable
+        && selectionDiff !== 0  // more than 1 character is selected
+        && index > selection[0] // the current character is selected
         && index < selection[1]
-      ) return placeholderChar; // заменяем на placeholderChar
+      ) return placeholderChar; // relace with placeholderChar
 
       return item;
     })

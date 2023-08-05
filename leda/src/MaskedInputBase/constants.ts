@@ -33,7 +33,7 @@ export enum INPUT_METHODS {
   add = 'add',
   remove = 'remove',
   replace = 'replace',
-  // метод, обозначающий отсутствие изменений
+  // method to indicate no change
   nothing = 'nothing'
 }
 

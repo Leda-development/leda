@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
-// Элемент с интерактивным доступом имеет хотя бы один прослушиватель событий клавиатуры (нам не нужен)
-// Статический HTML элемент с обработчиком событий требует роль
+// An element with interactive access has at least one keyboard event listener (we don't need it)
+// Static HTML element with event handler requires the role of
 import * as React from 'react';
 import { isString } from 'lodash';
 import {

@@ -47,8 +47,7 @@ export const getSeparator = (format: string): string | null => {
   return format[numberStartIndex + 1] !== ' ' ? format[numberStartIndex + 1] : null;
 };
 
-// форматирует значение (значение при блюре)
-// "1200.05" -> "1 200.05 Руб."
+// "1200.05" -> "1 200.05 USD"
 export const formatValue = ({
   value,
   format = '#',
@@ -70,9 +69,9 @@ export const formatValue = ({
   const integerPart = Math.floor(number);
 
   const decimalPart = (() => {
-    /* Округление и приведение к целочисленному значению дробной части числа */
+    // Rounding and conversion to an integer value of a fractional part of the number
     const unformattedDecimalPart = Math.ceil(Math.floor((number % 1) * (10 ** (precision + 1))) / 10);
-    /* Форматирование дробной части числа в соответствии с маской */
+    // Formatting the fractional part of a number according to the mask
     const formattedDecimalPart = separator + unformattedDecimalPart.toString().padStart(precision, '0');
     if (shouldTrimTrailingZeros) {
       return unformattedDecimalPart === 0 ? '' : formattedDecimalPart.replace(/0*$/, '');
@@ -85,7 +84,7 @@ export const formatValue = ({
     .replace(/.#+/, precision === 0 ? '' : decimalPart);
 };
 
-// выбирает какое значение отобразить (formatted или inputValue)
+// chooses which value to show (formatted or inputValue)
 export const getValue = ({
   value,
   inputValue,
@@ -122,8 +121,8 @@ export const getValue = ({
   );
 };
 
-// извлекает из строки число
-// "1 200.05 Руб." -> 1200.05
+// gets a number from a string
+// "1 200.05 USD" -> 1200.05
 export const extractValue = (value: string, format = '#', thousandsSeparator = ' '): number | null => {
   if (value.length === 0) return null;
 
@@ -148,7 +147,7 @@ export const extractValue = (value: string, format = '#', thousandsSeparator = '
   return Number.isNaN(parsedValue) ? null : parsedValue;
 };
 
-// ограничивает число по min/max и количеству знаков после запятой
+// limits the number by min/max and fractionsl part length
 export const normalizeValue = ({
   format = '#',
   min,
@@ -157,7 +156,7 @@ export const normalizeValue = ({
   value,
   step,
 }: NormalizeParameters): number | null => {
-  // данная проверка необходима для случая, когда заданы значения min и/или max и значения в boxes = null
+  // this is required when min and /or max values are set and boxes are null
   if (value == null && sign != null) {
     if (max !== DEFAULT_VALUES.maxValue && sign === -1) {
       return max ?? null;
@@ -231,13 +230,14 @@ export const getRestProps = (props: NumericTextBoxProps): WrapperProps => {
 };
 
 // форматирует inputValue (значение при фокусе)
-// "1 200.05 Руб." -> "1200.05" (Отличается от числа)
+// formats inputValue (value in the focused input)
+// "1 200.05 USD" -> "1200.05" (a string, not a bumber)
 export const formatInputValue = (formattedValue: string, format: string): string => {
   const fractionSeparator = getSeparator(format);
 
   const separator = fractionSeparator?.length ? `\\${fractionSeparator}` : '';
 
-  // значение без лишних символов "1 200.05 Руб." -> "1200.05"
+  // trimmed value "1 200.05 USD" -> "1200.05"
   const clearValue = formattedValue.replace(new RegExp(`[^-\\d${separator}]`, 'g'), '');
 
   return clearValue.match(new RegExp(`^-?\\d*(${separator}\\d*)?`))?.[0] ?? '';

@@ -16,35 +16,35 @@ export interface PageSizeChangeEvent {
 }
 
 export interface PaginationProps {
-  /** Номер текущей страницы */
+  /** Current page number */
   currentPage?: number,
-  /** Начальное количество элементов на странице при передаче pageSizeOptions. По умолчанию - первый элемент массива */
+  /** Initial number of elements on the page when passing pageSizeOptions. Defaults to the first element of the array */
   defaultPageSize?: number,
-  /** Состояние загрузки, на это время блокируются все клики */
+  /** Loading state, for this time all clicks are blocked */
   isLoading?: boolean,
-  /** Кастомизация информации о пагинации */
+  /** Info customizator */
   itemsInfoRender?: CustomRender<PaginationProps, PaginationState, PaginationInfoProps>,
-  /** Кастомизация текста "1-10 из 124" */
+  /** Range info text customizator */
   itemsRangeInfoRender?: CustomRender<PaginationProps, PaginationState, PaginationRangeInfoProps>,
-  /** Кастомизация текста "Отображено записей 124" */
+  /** Total items info customizator */
   itemsTotalInfoRender?: CustomRender<PaginationProps, PaginationState, PaginationTotalInfoProps>,
-  /** Обработчик изменения страницы */
+  /** Page change handler */
   onChange?: (event: ChangeEvent) => void,
-  /** Обработчик изменения количества отображаемых элементов */
+  /** Page size change handler */
   onPageSizeChange?: (event: PageSizeChangeEvent) => void,
-  /** Кастомизация выпадающего списка с выбором количества записей на странице */
+  /** Page size dropdown customizator */
   pagesDropDownRender?: CustomRender<PaginationProps, PaginationState, PagesDropDownProps>,
-  /** Количество элементов на странице */
+  /** Number of items on the page */
   pageSize?: number,
-  /** Выбор вариантов количества элементов на странице, если передан, то появляется выпадающий список */
+  /** Selects options for the number of elements on the page, if passed, a drop-down list appears */
   pageSizeOptions?: number[],
   /** Reference */
   ref?: React.Ref<PaginationRefCurrent>,
-  /** Тема компонента */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.pagination],
-  /** Общее количество записей */
+  /** Totl number of items */
   totalItems: number,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 
@@ -54,51 +54,39 @@ export interface PaginationState {
 }
 
 export interface PagesDropDownProps {
-  /** Обработка выбора занчений в выпадающем списке */
+  /** Handling selection of items in the drop-down list */
   handlePageSizeChange: (event: PageSizeChangeEvent) => void,
-  /** Возможно ли изменение числа элементов на странице */
+  /** Is it possible to change the number of elements on the page */
   isPageSizeChangeable: boolean,
-  /** Количество элементов на странице */
+  /** Number of elements on the page */
   pageSize: number,
-  /** Варианты количества элементов на странице */
+  /** Options for the number of elements on the page */
   pageSizeOptions?: number[],
-  /** Тема компонента */
+  /** Theme */
   theme: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.pagination],
 }
 
 export interface PaginationInfoProps {
-  /** Вложенные компоненты */
   children?: React.ReactNode,
-  /** Тема компонента */
   theme: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.pagination],
 }
 
 export interface PaginationRangeInfoProps {
-  /** Начало диапазона числа элементов на странице */
   startingItemNumber: number,
-  /** Конец диапазона числа элементов на странице */
   endingItemNumber: number,
-  /** Общее количество элементов на странице */
   totalItemsNumber: number,
 }
 
 export interface PaginationTotalInfoProps {
-  /** Общее количество элементов на странице */
   totalItemsNumber: number,
 }
 
 export interface PaginationControlProps {
-  /** Классы для компонента */
   className?: string,
-  /** Дочерние элементы */
   children?: React.ReactNode,
-  /** Контрол с номером страницы */
   isPageNumber?: boolean,
-  /** Обработчик клика */
   onClick: PageChangeHandler,
-  /** Номер страницы, на которую будет осуществлен переход */
   page: number,
-  /** Всплывающая подсказка */
   title?: string,
 }
 

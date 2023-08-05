@@ -73,14 +73,14 @@ export const validate = (formName: string | undefined, fieldName?: string, exter
 
   const isFilled = checkIsFilled(value);
 
-  // не проверяем валидаторы, если поле обязательное и не заполнено
+  // do not check validators if the field is mandatory and not filled in
   if (currentField.isRequired && !isFilled) {
     isValid = false;
 
     if (currentField.requiredMessage) invalidMessages.push(currentField.requiredMessage);
   } else if (isFilled) {
     currentField.validators.forEach((validator) => {
-      // если валидатор имеет вид { validator, invalidMessage } - извлекаем сообщение об ошибке
+      // if validator has the form { validator, invalidMessage } - retrieve the error message
       if (isObject(validator) && 'validator' in validator) {
         const result = validator.validator(value);
 
@@ -221,7 +221,7 @@ export const removeField = (formName: string, fieldName: string, options: Remove
 
       const newFields = [...currentForm.fields.map((field) => {
         if (field.name !== fieldName) return field;
-        // заглушка для unmounted компонента
+        // stub for unmounted component
         return { ...field, setIsValid: () => {} };
       })];
 
@@ -281,13 +281,13 @@ export const updateField = ({
   }
 
   const isValid = (() => {
-    // если контролируемая валидация
+    // if validation is controlled
     if (!isNil(isValidProp)) return isValidProp;
-    // если значение поменялось - снять невалидность
+    // if the value has changed - remove invalid state
     if (value !== currentField.value) return true;
-    // если изменилась обязательность поля - снять невалидность
+    // if the field mandatoryity has changed - remove invalid state
     if (isRequired !== currentField.isRequired) return true;
-    // ничего не делать
+    // do nothing
     return currentField.isValid;
   })();
 
@@ -316,7 +316,7 @@ export const updateField = ({
   if (currentField.isValid !== isValid) {
     currentField.setIsValid(isValid);
   }
-  // если invalidMessages поменялись или были убраные (length === 0)
+  // if invalidMessages changed or were removed (length === 0)
   if (currentField.invalidMessages !== invalidMessages && invalidMessages && invalidMessages.length !== 0) {
     currentField.setMessages(invalidMessages);
   }

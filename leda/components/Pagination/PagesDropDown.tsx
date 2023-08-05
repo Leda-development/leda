@@ -4,7 +4,7 @@ import * as L from '../../index';
 import {
   DropDownSelect,
 } from '../DropDownSelect';
-import { PagesDropDownProps, PageSizeChangeEvent } from './types';
+import { PagesDropDownProps } from './types';
 
 export const PagesDropDown = (props: PagesDropDownProps): React.ReactElement => {
   const {
@@ -31,7 +31,7 @@ export const PagesDropDown = (props: PagesDropDownProps): React.ReactElement => 
             data={pageSizeOptions && pageSizeOptions.map((item) => item.toString())}
             value={isNil(pageSize) ? pageSize : pageSize.toString()}
             onChange={handleChange}
-            placeholder="Все"
+            placeholder="All"
             className={theme.options}
           />
           <div className={theme.optionsLabel}>

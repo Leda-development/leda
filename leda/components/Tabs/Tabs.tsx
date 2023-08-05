@@ -31,7 +31,7 @@ export const Tabs = React.forwardRef((props: TabsProps, ref?: React.Ref<TabsRefC
 
   const [activeTabKeyState, setActiveTabKeyState] = React.useState<string | number>(0);
 
-  // если не передано activeTabKey - работать в неконтролируемом режиме
+  // if activeTabKey is not passed - work in uncontrolled mode
   const activeTabKey = isNil(activeTabKeyProp)
     ? activeTabKeyState
     : activeTabKeyProp;

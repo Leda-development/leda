@@ -1,4 +1,4 @@
-// функция для получения враппера, переданного в виде JSX, без потомков
+// function to get a wrapper passed as JSX, without descendants
 
 import * as React from 'react';
 

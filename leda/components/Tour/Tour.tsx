@@ -37,13 +37,13 @@ export const Tour = (props: TourProps): React.ReactElement | null => {
   }, [activeItem]);
 
   React.useEffect((): () => void => {
-    const prevOverflow = document.body.style.overflow; // реализация как в Modal
+    const prevOverflow = document.body.style.overflow;
 
     if (activeItem?.element) {
       const scrollOffsetTop = activeItem.offsetTop ?? 200;
       const viewportOffsetTop = Math.ceil(activeItem.element.getBoundingClientRect().top);
       const documentOffsetTop = viewportOffsetTop + window.scrollY;
-      const shiftedDocumentOffsetTop = documentOffsetTop > scrollOffsetTop ? documentOffsetTop - scrollOffsetTop : documentOffsetTop; // позиция элемента со смещением
+      const shiftedDocumentOffsetTop = documentOffsetTop > scrollOffsetTop ? documentOffsetTop - scrollOffsetTop : documentOffsetTop; // position of the element with offset
       const bodyScrollHeight = document.body.scrollHeight;
       const availableScrollLength = bodyScrollHeight - (window.scrollY + window.innerHeight);
       const neededToScrollAmount = shiftedDocumentOffsetTop - window.scrollY;
@@ -51,17 +51,17 @@ export const Tour = (props: TourProps): React.ReactElement | null => {
       document.body.style.overflow = 'hidden';
 
       if (
-        bodyScrollHeight <= window.innerHeight // высота body меньше, чем высота экрана, скролла нет
-        || window.scrollY === shiftedDocumentOffsetTop // страница уже прокручена до элемента
-        || neededToScrollAmount >= availableScrollLength // страница прокручена до конца и не может быть прокручена дальше
-      ) { // прокручивать не нужно - отображаем тур сразу
+        bodyScrollHeight <= window.innerHeight // body height is less than screen height, no scrolling
+        || window.scrollY === shiftedDocumentOffsetTop // the page is already scrolled to the element
+        || neededToScrollAmount >= availableScrollLength // the page is scrolled to the end and cannot be scrolled any further
+      ) { // no need to scroll - display the tour at once
         setSvgPath(createOverlaySvgPath(activeItem?.element, borderRadius));
-      } else { // иначе отобразим тур после скролла
+      } else { // otherwise display the tour after scrolling
         setIsScrolling(true);
         setSvgPath(createOverlaySvgPath(null, borderRadius));
 
         const scrollHandler = debounce(() => {
-          // прокрутка закончилась
+          // scrolling is over
           setSvgPath(createOverlaySvgPath(activeItem?.element, borderRadius));
           setIsScrolling(false);
 

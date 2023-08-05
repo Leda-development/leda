@@ -80,81 +80,81 @@ export interface FocusEvent<T = Value> extends React.FocusEvent<HTMLInputElement
 export type ChangeEvent<T = Value> = MouseSelectEvent<T> | EnterSelectEvent<T> | ClearEvent<T> | ResetEvent<T>;
 
 export interface MultiSelectProps<T extends MultiSelectValue | null | undefined = MultiSelectValue | null | undefined> extends ValidationProps {
-  /** Браузерное автозаполнение поля ввода, по умолчанию "off" */
+  /** Browser autofill, off is the default value. Works as HTML autoComplete attribute */
   autoComplete?: string,
-  /** "Выбрать все" в выпадающем списке */
+  /** Add "Select all" to the dropdown list */
   canSelectAll?: boolean,
-  /** Сравнение объектов по произвольному полю, а не по ссылке */
+  /** ... */
   compareObjectsBy?: T extends object ? ((suggestionListItems: SomeObject) => any) | string : never,
-  /** Данные для отображения в списке.
-   * Если передаётся массив обьектов, нужно указать textField - поле обьекта, которое содержит данные для вывода в списке
-  */
+  /** Data for the dropdown list.
+    * If data is an array of objects, use textField to specify which object's field should be used as text for the dropdown items
+    * */
   data?: MultiSelectValue,
-  /** Значение по-умолчанию */
+  /** Default value */
   defaultValue?: T,
-  /** Фильтр данных по правилу. smart (дефолтное значение) - "умный" поиск, startsWith - поиск по первым символам, includes - поиск по вхождению. При больших обьемах данных(больше 1-2 тысяч значений) не желательно использовать "умный поиск". */
+  /** Search mode, smart is default, looks for one or several words regardless of their order, can be slow if data has thousands of elements or more */
   filterRule?: FilterRules,
-  /** Ключ для группировки */
+  /** Grouping key */
   groupBy?: (option: Value) => string | undefined,
-  /** Чекбоксы в выпадающем списке. */
+  /** Should show checkboxes in the dropdown list */
   hasCheckBoxes?: boolean,
-  /** Кнопка очистки данных в инпуте. Появляется только в непустом инпуте. */
+  /** Whether or not to show a clear button inside the input element. Default is false */
   hasClearButton?: boolean,
-  /** Кастомный рендер инпута */
+  /** Input customizator */
   inputRender?: CustomRender<MultiSelectProps, MultiSelectState, React.InputHTMLAttributes<HTMLInputElement> & { ref?: React.Ref<HTMLInputElement | null>}>,
-  /** Выключенное состояние инпута */
+  /** Disabled state */
   isDisabled?: boolean,
-  /** Состояние загрузки лоадера - вместо списка в момент загрузки будет отображаться лоадер */
+  /** Display a loading icon inside the dropdown */
   isLoading?: boolean,
-  /** Устанавливает открытое состояние списка */
+  /** Control opened state */
   isOpen?: boolean,
-  /** Кастомизации внешнего вида элемента выпадающего списка. */
+  /** Suggestion item customizator */
   itemRender?: SuggestionListProps['itemRender'],
-  /** Кастомизации внешнего вида выпадающего списка. */
+  /** Suggestion list customizator */
   listRender?: SuggestionListProps['listRender'],
-  /** Ограничение на количество выбранных элементов. После достижения лимита выпадающее окно перестает появляться */
+  /** Limit the number of selected elements. Reaching the limit stops displaying the dropdown */
   maxSelected?: number,
-  /** Количество тегов, после которого они будут объединены в один "выбрано n значений" */
+  /** Max number of elements shown separately as tags. After exceeding this number the elements will be grouped as "n values selected" */
   maxTags?: number,
-  /** Имя компонента */
-  name?: string,
   /** This will be shown when no suggestions are found */
   noSuggestionsText?: React.ReactNode,
-  /** Атрибут рендера выпадающего списка, если в data нет значений, равных содержимому инпута. Принимает JSX */
+  /** No suggestions test customizator */
   noSuggestionsRender?: any,
-  /** Обработчик события потери фокуса */
+  /** Blur handler */
   onBlur?: (event: FocusEvent) => void,
-  /** Обработчик изменения данных в инпуте */
+  /** Change handler */
   onChange?: (event: ChangeEvent) => void,
-  /** Обработчик фокуса элемента */
+  /** Focus handler */
   onFocus?: (event: FocusEvent) => void,
-  /** Плейсхолдер инпута */
+  /** Placeholder */
   placeholder?: string,
-  /** Реф */
+  /** Ref */
   ref?: React.Ref<MultiSelectRefCurrent>,
-  /** Кастомизация текста "Выбрать все" в выпадающем списке */
+  /** Select all text customizator */
   selectAllItemRender?: SuggestionListProps['selectAllItemRender'],
-  /** Отображать компонент без фильтра */
+  /** Renders the component without an input field */
   shouldHideInput?: boolean,
-  /** Постоянный список, элементы не исчезают при клике */
+  /** Suggestions do not disappear from the list on selection */
   shouldKeepSuggestions?: boolean,
-  /** Выводить сначала выбранные значения в списке */
+  /** Selected values go first in the list */
   shouldSelectedGoFirst?: boolean,
-  /** Сортировка выпадающего списка */
+  /** Sort dropdown list items */
   sortSuggestions?: (a: Value, b: Value) => number,
-  /** Кастомный рендер тегов */
+  /** Tags customizator */
   tagRender?: CustomRender<MultiSelectProps, MultiSelectState, TagProps>,
-  /** Кастомное сообщение об объединённых тегах */
+  /** Tags combined message customizator */
   tagsUnionRender?: CustomRender<MultiSelectProps, MultiSelectState, DivProps>,
-  /** Имя поля объекта, данные из которого будут рендериться в качестве элементов списка */
+  /** It is mandatory if data is an array of objects, textField specifies which object's field is used to get dropdown item text value.
+   * No effect if data is an array of strings
+   * */
   textField?: T extends object ? string : never,
-  /** Тема */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.multiSelect],
-  /** Устанавливает значение в инпуте (будет отображенио в виде выбранных тегов) */
+  /** Value */
   value?: T,
-  /** Кастомный рендер враппера */
+  /** Wrapper customizator */
   wrapperRender?: CustomRender<MultiSelectProps, MultiSelectState, DivProps>,
-  /** Классы переданные через _ */
+  /** _css-classes */
   [x: string]: unknown,
 }
 

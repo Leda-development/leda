@@ -73,14 +73,14 @@ export enum FileErrorCodes {
   NameIsTooLong,
 }
 
-/** Ошибки DropZone, FileDrop и FileUpload */
+/** DropZone, FileDrop и FileUpload errors */
 export const ERROR_MESSAGES = [
-  { errorCode: FileErrorCodes.FileIsTooSmall, message: 'Файл меньше допустимого размера' },
-  { errorCode: FileErrorCodes.FileIsTooBig, message: 'Превышен максимальный размер файла' },
-  { errorCode: FileErrorCodes.WrongFileFormat, message: 'Недопустимый формат файла' },
-  { errorCode: FileErrorCodes.AlreadyLoaded, message: 'Файл уже загружен' },
-  { errorCode: FileErrorCodes.TooManyFiles, message: 'Превышено максимальное количество файлов' },
-  { errorCode: FileErrorCodes.NameIsTooLong, message: 'Превышена максимальная длина имени файла' },
+  { errorCode: FileErrorCodes.FileIsTooSmall, message: 'The file is smaller than the allowed size' },
+  { errorCode: FileErrorCodes.FileIsTooBig, message: 'Maximum file size exceeded' },
+  { errorCode: FileErrorCodes.WrongFileFormat, message: 'File format not allowed' },
+  { errorCode: FileErrorCodes.AlreadyLoaded, message: 'The file has already been uploaded' },
+  { errorCode: FileErrorCodes.TooManyFiles, message: 'Maximum number of files exceeded' },
+  { errorCode: FileErrorCodes.NameIsTooLong, message: 'Maximum file name length exceeded' },
 ];
 
 export const predefinedAllowedSymbols = {

@@ -9,13 +9,13 @@ export const createClickHandler = (props: SwitcherProps, stateValue: boolean, se
 
   if (isDisabled) return;
 
-  // Проверяем, контролируемый ли компонент через наличие пропсы value
+  // Check if the component is controlled by the presence of value prop
   const isControlled = !isNil(valueProp);
 
-  // Если компонент контролируемый, берем value из пропсы, если нет - из стейта и инвертируем значение
+  // If the component is controlled, take value from props, if not - from state and invert the value
   const value = isControlled ? !valueProp : !stateValue;
 
-  // Обрабатываем неконтролируемый режим
+  // Process uncontrolled mode
   if (!isControlled) setStateValue(value);
 
   if (isFunction(onClick)) onClick(ev);

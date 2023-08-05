@@ -23,37 +23,35 @@ export interface ResetEvent {
 export type ChangeEvent = BaseChangeEvent | ResetEvent;
 
 export interface MaskedInputProps extends ValidationProps {
-  /** Значение по-умолчанию, для неконтролируемого режима */
+  /** Default value */
   defaultValue?: string,
-  /** Кастомный рендер инпута (Заменяет MaskedInputBase!) */
+  /** Input customizator. It replaces MaskedInputBase! */
   inputRender?: CustomRender<MaskedInputProps, MaskedInputState, MaskedInputBaseProps>,
-  /** Отключить поле ввода */
+  /** Disabled state */
   isDisabled?: boolean,
-  /** Маска ввода. Задается по правилам, описанным в mask.md */
+  /** Mask, see mask.md for details */
   mask: string,
-  /** имя компонента для использования в формах */
-  name?: string,
-  /** Обработчик изменения значения */
+  /** Change handler */
   onChange?: (event: ChangeEvent) => void,
-  /** Обработчик изменения значения */
+  /** Blur handler */
   onBlur?: (event: BlurEvent) => void,
-  /** Обработчик нажатия Enter */
+  /** Enter press handler */
   onEnterPress?: (ev: EnterPressEvent) => void,
-  /** Обработчик изменения значения */
+  /** Focus handler */
   onFocus?: (event: FocusEvent) => void,
-  /** Значение, отображаемое при пустом инпуте */
+  /** Placeholder */
   placeholder?: string,
-  /** Представление места ввода символа. По умолчанию - "_" */
+  /** _ by default */
   placeholderChar?: string,
-  /** Реф */
+  /** Ref */
   ref?: React.Ref<MaskedInputRefCurrent>,
-  /** Тема компонента */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.maskedInput],
-  /** Текущее значение */
+  /** Value */
   value?: string | null,
-  /** Кастомный враппер */
+  /** Wrapper customizator */
   wrapperRender?: CustomRender<MaskedInputProps, MaskedInputState, DivProps>,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 

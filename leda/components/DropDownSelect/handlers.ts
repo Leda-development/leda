@@ -122,9 +122,7 @@ export const createFocusHandler = ({
     onFocus(customEvent);
   }
 
-  // открываем список
   mergeState({ isOpen: true });
-  // добавляем фокус
   mergeState({ isFocused: true });
 };
 
@@ -137,10 +135,8 @@ export const createIconClickHandler = ({
 
   if (isDisabled) return;
 
-  // фокусим инпут
   if (inputRef.current) inputRef.current.focus();
 
-  // переключаем состояние списка (открыт/закрыт)
   mergeState({
     isOpen: !state.isOpen,
   });
@@ -181,16 +177,15 @@ export const createKeyDownHandler = ({
 
   const fullData = placeholder && shouldAllowEmpty ? [placeholder, ...filteredData] : filteredData;
 
-  // текущий индекс
   const suggestionIndex = highlightedSuggestion !== null
     ? fullData.indexOf(highlightedSuggestion || '')
     : fullData.indexOf(placeholder || '');
 
   if (ev.key === 'ArrowDown' || ev.key === 'Down') {
-    // предотвращение прокрутки страницы
+    // prevent page scroll
     ev.preventDefault();
 
-    // механизм работает как барабан
+    // suggestion list is a cycle
     const nextIndex = (suggestionIndex + 1) % fullData.length;
 
     const nextSuggestion = fullData[nextIndex];
@@ -203,10 +198,10 @@ export const createKeyDownHandler = ({
   }
 
   if (ev.key === 'ArrowUp' || ev.key === 'Up') {
-    // предотвращение прокрутки страницы
+    // prevent page scroll
     ev.preventDefault();
 
-    // механизм работает как барабан
+    // suggestion list is a cycle
     const nextIndex = (() => {
       if (suggestionIndex <= 0) return fullData.length - 1;
 

@@ -18,37 +18,37 @@ export interface ChangeEvent {
 }
 
 export interface SliderProps {
-  /** Значение по умолчанию */
+  /** Default value */
   defaultValue?: SliderValue,
-  /** Невозможно изменить значение */
+  /** Disabled state */
   isDisabled?: boolean,
-  /** Показывать тултипы над ползунками */
+  /** Tooltips over handlers */
   hasTooltip?: boolean,
-  /** Тип лейблов */
+  /** Label type */
   labelType?: 'current' | 'minmax',
-  /** Максимальное значение */
+  /** Max value */
   max?: number,
-  /** Минимальное значение */
+  /** Min value */
   min?: number,
-  /** Минимальное значение между ползунками */
+  /** Min handlers distance */
   minRange?: number,
-  /** Имя */
+  /** Name */
   name?: string,
-  /** Обработчик события изменения значения. */
+  /** Change handler */
   onChange?: (event: ChangeEvent) => void,
-  /** Обработчик события перемещения ползунка */
+  /** Handler move handler */
   onMove?: (event: ChangeEvent) => void,
-  /** Реф компонента */
+  /** Ref */
   ref?: React.Ref<SliderRefCurrent>,
-  /** Шаг изменения значения. По умолчанию - 1. */
+  /** Step, defaults to 1 */
   step?: number,
-  /** Тема компонента */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.slider],
-  /** Единицы измерения для лейблов */
+  /** Units customizator */
   unitsRender?: CustomRender<SliderProps, SliderState, {}>,
-  /** Текущее значение */
+  /** Value */
   value?: SliderValue | null,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 

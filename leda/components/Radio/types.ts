@@ -11,42 +11,42 @@ export interface ChangeEvent extends React.ChangeEvent {
 }
 
 export interface RadioGroupProps {
-  /** Дочерние элементы L.RadioButton */
+  /** RadioButton child components */
   children: React.ReactNode,
-  /** Выключенное состояние всей группы */
+  /** Whole component disabled state */
   isDisabled?: boolean,
-  /** Имя группы radio-элементов */
+  /** Name */
   name?: string,
-  /** Обработчик изменения состояния элементов */
+  /** Change handler */
   onChange?: (event: ChangeEvent) => void,
   /** Reference */
   ref?: React.Ref<RadioGroupRefCurrent>,
-  /** Тема копмонента */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.radio],
-  /** Текущий выбранный элемент */
+  /** Value */
   value?: string | number,
-  /** Компонент-обертка для группы radio-элементов. */
+  /** Wrapper customizator */
   wrapperRender?: CustomRender<RadioGroupProps, { value?: string | number }, WrapperProps>,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 
 export interface RadioButtonProps extends React.HTMLAttributes<HTMLInputElement> {
-  /** Id радио-кнопки */
+  /** Radio button id */
   id?: string,
-  /** Сделать неактивным */
+  /** Disabled state */
   isDisabled?: boolean,
-  /** Имя */
+  /** Name */
   name?: string,
-  /** Реф */
+  /** Ref */
   ref?: React.Ref<RadioGroupRefCurrent>,
-  /** Тема компонента */
+  /** Theme */
   theme?: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.radio],
-  /** Уникальный идентификатор кнопки (используется для выбора активной кнопки) */
+  /** Unique button identifier (used to select the active button) */
   value: string | number,
-  /** Компонент-обертка для RadioButton. Передавать в виде <Wrapper props />. По умолчанию - <Div /> */
+  /** Wrapper customizator */
   wrapperRender?: CustomRender<RadioButtonProps, {}, WrapperProps>,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 

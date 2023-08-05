@@ -51,7 +51,7 @@ export const createCheckBoxesRender = ({ theme, itemRender }: { theme: typeof de
     <Element {...elementProps} className={checkBoxWrapperClassNames}>
       <CheckBox
         value={isCheckBoxSelected}
-        // заменить label на div, чтобы при клике на чекбокс фокус не переходил из мультиселекта и не закрывался список
+        // replaсe label with div so that the focus does not move from the multiselect and the list does not close when clicking on a checkbox 
         labelRender={({ elementProps: labelElementProps }) => <Div {...labelElementProps} className={theme.checkBoxLabel} />}
         checkboxIcon={isSemi && IconTypes.Icons.MinusSquare}
         className={theme.checkBoxWrapper}

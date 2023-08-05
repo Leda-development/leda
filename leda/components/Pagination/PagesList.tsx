@@ -17,7 +17,7 @@ export const PagesList = (props: PagesListProps): React.ReactElement => {
   return (
     <Ul className={theme.numberButtons}>
       {pageNumbers.map((page) => {
-        const isCurrentPage = page === currentPage; // может не выполняться для одного элемента в контролируемом режиме
+        const isCurrentPage = page === currentPage; // may not be executed for one element in controlled mode
 
         const classNames = getClassNames(theme.button, theme.numberSelected, { disabled: pageNumbers.length === 1 });
 
@@ -28,7 +28,7 @@ export const PagesList = (props: PagesListProps): React.ReactElement => {
               : (
                 <PaginationControl
                   className={theme.button}
-                  page={pageNumbers.length === 1 ? 0 : page} // по идее это условие никогда не должно выполниться, но "защита от дурака"
+                  page={pageNumbers.length === 1 ? 0 : page} // this condition should never be met, but "foolproof"
                   isPageNumber
                   onClick={onClick}
                 >

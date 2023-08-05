@@ -6,29 +6,29 @@ import { LiProps } from '../Li';
 import { defaultTabsTheme } from './theme';
 
 export interface TabsProps {
-  /** Устанавливает номер выбранного таба */
+  /** Active tab number */
   activeTabKey?: string | number,
-  /** Вложенные элементы */
+  /** Tabs */
   children?: React.ReactNode,
-  /** Кастомный content */
+  /** Content customizator */
   contentRender?: CustomRender<TabsProps, TabsState, ContentProps>,
-  /** Кастомный heading */
+  /** Heading customizator */
   headingRender?: CustomRender<TabsProps, TabsState, HeadingProps>,
-  /** Обработчик выбора таба */
+  /** Tab change handler */
   onChange?: (event: ChangeEvent) => void,
   /** Reference */
   ref?: React.Ref<TabsRefCurrent>,
-  /** Скролл для табов */
+  /** Horizontal tabs scroll if there are too many tabs */
   shouldScrollTabs?: boolean,
-  /** DOM-узел, в который будет помещено содержимое вкладки */
+  /** DOM-node to put tab content in */
   tabContentNode?: HTMLElement | null,
-  /** Кастомный tab */
+  /** Tab customizator */
   tabRender?: CustomRender<TabProps, {}, LiProps>,
-  /** Тема компонента */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.tabs],
-  /** Кастомный wrapper */
+  /** Wrapper customizator */
   wrapperRender?: CustomRender<TabsProps, TabsState, WrapperProps>,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 
@@ -37,19 +37,19 @@ export interface TabsState {
 }
 
 export type TabProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> & {
-  /** Вложенные элементы */
+  /** Tab content */
   children?: React.ReactNode,
-  /** Делает вкладку неактивной */
+  /** In case you want the tab to be disabled */
   isDisabled?: boolean,
-  /** Номер вкладки. Нумерация от 0, т.к. обработчик onSelect комопнента Tabs возвращает номер вкладки начиная с 0. */
+  /** Tab number. Numbering from 0, because the onSelect handler of the Tabs comoponent returns the tab number starting from 0 */
   tabKey: string | number,
-  /** Кастомный tab */
+  /** Tab customizator */
   tabRender?: CustomRender<TabProps, {}, LiProps>,
-  /** Тема копмонента */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.tabs],
-  /** Название таба. Может принимать название в виде строки или ReactNode */
+  /** Title */
   title: React.ReactNode,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 };
 
@@ -73,9 +73,9 @@ export interface CreateSelectHandler {
 }
 
 export interface TabContentProps {
-  /** EventKey выбранной вкладки */
+  /** EventKey of the selected tab */
   activeTabKey: string | number,
-  /** Вложенные элементы */
+  /** Nested elements */
   children?: React.ReactNode,
 }
 

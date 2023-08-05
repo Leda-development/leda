@@ -1,26 +1,26 @@
-# Ввод по маске
+# Masked input
 
-Применяется к компоненту `MaskedInput`.
-Задает формат вводимого в инпут значения.
-Составляется из набора спецсимволов и передается в пропсу `mask`:
+Applies to the `MaskedInput` component.
+Specifies the format of the value to be entered into the input.
+It is composed of a set of special characters and passed to the `mask` prop:
 
-## Описание символов
+## Character Description
 
-* `#` — Требует цифру (0-9).
-* `l` — Требует символ английского алфавита (a-Z).
-* `L` — Требует символ английского алфавита (a-Z), при вводе преобразуется в прописную букву.
-* `c` — Требует символ русского алфавита (а-Я).
-* `C` — Требует символ русского алфавита (а-Я), при вводе преобразуется в прописную букву.
-* `x` — Любой символ.
-* `w` — Требует цифру (0-9) или символ латинского алфавита (a-Z).
-* `z` — Требует цифру (0-9), символ латинского алфавита (a-Z) или символ русского алфавита (а-Я).
+* `#` - Requires a digit (0-9).
+* `l` - Requires an Latin alphabet character (a-Z).
+* `L` - Requires an Latin alphabet character (a-Z), converts to an uppercase letter when entered.
+* `c` - Requires a Cyrillic alphabet character (а-Я).
+* `C` - Requires a Cyrillic alphabet character (а-Я), converts to an uppercase letter when entered.
+* `x` - Any character.
+* `w` - Requires a digit (0-9) or a Latin alphabet character (a-Z).
+* `z` - Requires a digit (0-9), a Latin alphabet character (a-Z), or a Cyrillic alphabet character (а-Я).
 
-## Примеры
+## Examples
 
-      mask="+7 (###) ###-##-##"  // +7 (123) 456-78-90 (номер телефона)
+mask="+49 (###) ###-###-###" // +49 (123) 456-78-90 (phone number)
 
-      mask="#### #### #### ####"  // 1234 5678 9012 3456 (номер банковской карты)
+mask="#### #### #### ####" // 1234 5678 9012 3456 (bank card number)
 
-      mask="LL#########LL"  // CA123456789UA (трек-номер международного почтового отправления)
+mask="LL#########LL" // CA123456789UA (track number of international mail)
 
-      mask="Ccccc"  // Корус
+mask="CC-##" // АБ-22

@@ -27,7 +27,7 @@ export const Notifications = React.forwardRef((
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.notifications);
 
   const wrapperClassNames = getClassNames(theme.wrapper, className);
-  // используется для получения самого свежего value в onChange
+  // getting the latest value in the change handler
   const valueRef = React.useRef(value);
 
   valueRef.current = value;

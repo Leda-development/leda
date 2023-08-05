@@ -8,7 +8,7 @@ export const createPageChangeHandler = (
   isLoading: boolean,
   setCurrentPageState: SetState<number>,
 ): PageChangeHandler => (pageNumber: number): void => {
-  // на время загрузки блокируем смену страниц до прихода нового значения currentPage в props
+  // block page changes during loading until the new currentPage value comes to props
   if (!isLoading) {
     setCurrentPageState(pageNumber);
 

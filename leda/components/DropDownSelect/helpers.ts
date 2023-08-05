@@ -4,7 +4,7 @@ import { getText } from '../../src/SuggestionList/helpers';
 import { filterSuggestionByRule, getClassNames, getIsEmptyAndRequired } from '../../utils';
 import { DropDownSelectProps, FilterDataProps, GetComponentClassNames } from './types';
 
-/** классы для элементов компонента */
+// component elements class names
 export const getComponentClassNames: GetComponentClassNames = ({
   theme, className, isDisabled, isFocused, isOpen, isValid, isRequired, value,
 }) => {

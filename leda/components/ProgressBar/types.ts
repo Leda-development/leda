@@ -4,15 +4,15 @@ import { COMPONENTS_NAMESPACES } from '../../constants';
 import { CustomRender } from '../../commonTypes';
 
 export interface ProgressBarProps {
-  /** Реф */
+  /** Ref */
   ref?: React.Ref<ProgressBarRefCurrent>,
-  /** Тема компонента */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.progressBar],
-  /** Значение "завершенности" прогресс бара */
+  /** How much it is complete */
   value: number,
-  /** Кастомный рендер для цифр со значением компонента, если цифры не нужны - передайте () => null */
+  /** Value customizator, if digits are not needed pass () => null */
   valueRender?: CustomRender<ProgressBarProps, {}, ValueLabelProps>,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 

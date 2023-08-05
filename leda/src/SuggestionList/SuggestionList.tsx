@@ -88,7 +88,7 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
   });
 
   React.useEffect((): void => {
-    // скроллим эффективно
+    // scrolling efficiently
     scrollToSuggestion(containerRef, suggestionRef);
   }, [isOpen, value, selectedSuggestion, highlightedSuggestion]);
 
@@ -185,7 +185,6 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
         }}
       >
         {groupBy && suggestions?.map((suggestion, index) => {
-          // todo: переделать группировку списков
           if ((suggestion as GroupedSomeObject)?.key) {
             const groupedSomeObject = suggestion as GroupedSomeObject;
             return (

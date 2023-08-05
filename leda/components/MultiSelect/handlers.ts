@@ -191,13 +191,13 @@ export const createKeyDownHandler = (
   }) || [];
 
   const highlightedItem = (filteredData as (string | number | SomeObject)[]).find((item) => item === highlightedSuggestion);
-  // текущий индекс
+  
   const currentIndex = (filteredData as (string | number | SomeObject)[]).indexOf(highlightedItem || '');
 
   if (ev.key === 'ArrowDown' || ev.key === 'Down') {
-    // предотвращаем скролл страницы
+    // prevent page scroll
     ev.preventDefault();
-    // новый индекс, механизм работает как барабан
+    // new index, suggestion list is cyclic
     const nextIndex = (currentIndex + 1) % filteredData.length;
 
     const newHighlightedSuggestion = filteredData[nextIndex];
@@ -208,9 +208,9 @@ export const createKeyDownHandler = (
   }
 
   if (ev.key === 'ArrowUp' || ev.key === 'Up') {
-    // предотвращаем скроллинг страницы
+    // prevent page scroll
     ev.preventDefault();
-    // новый индекс, механизм работает как барабан
+    // new index, suggestion list is cyclic
     const nextIndex = (() => {
       if (currentIndex <= 0) return filteredData.length - 1;
 
@@ -229,7 +229,6 @@ export const createKeyDownHandler = (
 
     setHighlightedSuggestion(null);
 
-    // вызываем обработчик
     handleSelect({
       ...ev,
       target: {
@@ -245,7 +244,6 @@ export const createKeyDownHandler = (
     const shouldUniteTags = getShouldUniteTags({ maxTags, value });
     if (shouldUniteTags) return;
 
-    // вызываем обработчик
     handleSelect({
       ...ev,
       target: {

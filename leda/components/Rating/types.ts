@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { CustomRender } from '../../commonTypes';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { IconTypes } from '../..';
@@ -32,21 +31,21 @@ export interface RatingProps {
   icon?: IconTypes.Icons,
   /** Don't click the rating */
   isDisabled?: boolean,
-  /** Количество звезд */
+  /** Stars number */
   max?: number,
-  /** Имя компонента */
+  /** Name */
   name?: string,
-  /** Обработчик изменения рейтинга. Если свойство задано - рейтинг можно менять, если отсутствует - рейтинг менять нельзя. */
+  /** Change handler */
   onChange?: (event: ChangeEvent) => void,
-  /** Обработчик клика, если Rating в неактивном состоянии */
+  /** Click handler */
   onClick?: React.MouseEventHandler<HTMLSpanElement>,
-  /** Рефы для компонента */
+  /** Ref */
   ref?: React.Ref<RatingRefCurrent>,
-  /** Тема */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.rating],
-  /** Рейтинг */
+  /** Rating value */
   value: number,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 

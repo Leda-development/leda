@@ -1,5 +1,5 @@
-/** Функция для подставления окончаний.
- * Пример использования:
+/** Function for substituting endings.
+ * An example:
    getPluralForm({
      count: 5,
      one: 'значение',

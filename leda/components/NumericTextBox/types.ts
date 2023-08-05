@@ -91,54 +91,52 @@ export interface FocusEvent extends React.FocusEvent<HTMLInputElement> {
 }
 
 export interface NumericTextBoxProps extends ValidationProps {
-  /** Кастомный рендер для стрелочек */
+  /** Arrow buttons customizator */
   arrowButtonsRender?: CustomRender<NumericTextBoxProps, NumericTextBoxState, ArrowButtonsProps>,
-  /** Значение по-умолчанию */
+  /** Default value */
   defaultValue?: number | null,
-  /** Формат. подробнее: formatting.md, по умолчанию - "#" */
+  /** Format, see: formatting.md, "#" by default */
   format?: string,
-  /** Кастомный рендер для инпута */
+  /** Input customizator */
   inputRender?: CustomRender<NumericTextBoxProps, NumericTextBoxState, InputProps> | null,
-  /** Выключенное состояние компонента */
+  /** Disabled state */
   isDisabled?: boolean,
-  /** Минимальное значение */
+  /** Max value */
   max?: number,
-  /** Максимальное значение */
+  /** Min value */
   min?: number,
-  /** Имя инпута */
-  name?: string,
-  /** Обработчик потери фокусировки */
+  /** Blur handler */
   onBlur?: (event: BlurEvent) => void,
-  /** Обработчик изменения состояния */
+  /** Change handler */
   onChange?: (event: ChangeEvent) => void,
-  /** Обработчик изменения состояния */
+  /** Click handler */
   onClick?: (event: React.MouseEvent<HTMLElement>) => void,
-  /** Обработчик нажатия Enter */
+  /** Enter press handler */
   onEnterPress?: (event: EnterPressEvent) => void,
-  /** Обработчик фокуса на поле */
+  /** Focus handler */
   onFocus?: (event: FocusEvent) => void,
-  /** Реф */
+  /** Ref */
   ref?: React.Ref<NumericRefCurrent>,
-  /** Условие обрезки нулей в форматированной строке  */
+  /** To trim or not to trim */
   shouldTrimTrailingZeros?: boolean,
-  /** Шаговое значение */
+  /** Step */
   step?: number,
-  /** Тема компонента */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.numericTextBox],
-  /** Разделитьель разрядов - по-умолчанию пробел */
+  /** A space by default: 1 000 000.00 */
   thousandsSeparator?: string,
-  /** Значение компонента */
+  /** Value */
   value?: number | null,
-  /** Кастомный рендер враппера */
+  /** Wrapper customizator */
   wrapperRender?: CustomRender<NumericTextBoxProps, NumericTextBoxState, WrapperProps>,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 
 export interface NumericTextBoxState {
-  /** Значение компонента */
+  /** Value */
   value: number | null,
-  /** Состояние фокуса */
+  /** Focused state */
   isFocused: boolean,
 }
 

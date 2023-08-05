@@ -58,41 +58,39 @@ export interface FocusEvent extends React.FocusEvent<HTMLInputElement> {
 }
 
 export interface InputProps extends ValidationProps {
-  /** Позволяет вводить в инпут только символы, удовлеторвяющие RegExp или из списка предопределённых */
+  /** Put 'numbers' to allow numbers only or a RegExp to use your own pattern */
   allowedSymbols?: PredefinedAllowedSymbols | RegExp,
-  /** Значение по умолчанию */
+  /** Default value */
   defaultValue?: string | null,
-  /** Запрещает вводить в инпут символы, удовлеторвяющие RegExp или из списка предопределённых */
+  /** Put 'numbers' to forbid numbers only or a RegExp to use your own pattern */
   forbiddenSymbols?: PredefinedForbiddenSymbols | RegExp,
-  /** Отображение кнопки очистки в инпуте */
+  /** Whether or not to show a clear button inside the input element. Default is false */
   hasClearButton?: boolean,
-  /** Отключенное состояние инпута */
+  /** Disabled state */
   isDisabled?: boolean,
-  /** Рендер инпута */
+  /** Input customizator */
   inputRender?: CustomRender<InputProps, InputState, React.InputHTMLAttributes<HTMLInputElement>>,
-  /** Переводит все вводимые буквы в верхний или нижний регистр */
+  /** Makes all letters upper or lowercase */
   letterCase?: 'lower' | 'upper',
-  /** Максимальная длина введенного значения */
+  /** Max number of characters */
   maxLength?: number,
-  /** Имя компонента, используется в валидации и для сохранения данных из формы */
-  name?: string,
-  /** Обработчик блюра */
+  /** Blur handler  */
   onBlur?: (ev: BlurEvent) => void,
-  /** Обработчик изменения */
+  /** Change handler */
   onChange?: (ev: ChangeEvent) => void,
-  /** Обработчик нажатия Enter */
+  /** Enter press handler */
   onEnterPress?: (ev: EnterPressEvent) => void,
-  /** Обработчик фокуса */
+  /** Focus handler */
   onFocus?: (ev: FocusEvent) => void,
-  /** Реф */
+  /** Ref */
   ref?: React.Ref<InputRefCurrent>,
-  /** Тема компонента */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.input],
-  /** Значение для инпута */
+  /** Value */
   value?: string | null,
-  /** Рендер враппера */
+  /** Wrapper customizator */
   wrapperRender?: CustomRender<InputProps, InputState, DivProps>,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 

@@ -1,4 +1,4 @@
-// скопировано с https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/round
+// copied from https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/round
 import * as React from 'react';
 import { isFunction } from 'lodash';
 // eslint-disable-next-line import/no-unresolved
@@ -31,10 +31,10 @@ const initRef = <T, C>(ref: React.Ref<T> | React.MutableRefObject<T>, current: C
   }
 };
 
-// привязка рефа к функциональному компоненту
+// binding of a ref to a functional component
 export const bindFunctionalRef = <V, T, C>(component: V, ref: React.Ref<T> | React.MutableRefObject<T>, current: C): void => {
   if (!ref) return;
-  // если компонент null - запишем в реф null
+  // if component is null - write null to ref
   if (!component || !current) {
     initRef<T, null>(ref, null);
   } else {
@@ -45,7 +45,7 @@ export const bindFunctionalRef = <V, T, C>(component: V, ref: React.Ref<T> | Rea
 
 export const getComputedTheme = <D, T>(defaultTheme: D, theme: T): D & T => ({ ...defaultTheme, ...theme });
 
-// привязка рефа к классовому компоненту
+// bind ref to a class component
 export const bindClassRef = <T, C>(instance: T, current: C | undefined | null): void => {
   if (!current || !instance) return;
 
@@ -54,14 +54,14 @@ export const bindClassRef = <T, C>(instance: T, current: C | undefined | null): 
   });
 };
 
-// возвращает строку, которая содержит классы, или undefined, если классы не были переданы
+// returns a string that contains classes, or undefined if no classes were passed in
 export const getClassNames = (...classNames: ClassValue[]): string | undefined => classnames(...classNames) || undefined;
-// возвращает строку, которая содержит классы без повторений, или undefined, если классы не были переданы
+// returns a string that contains classes without duplication, or undefined if no classes were passed in
 export const getDedupedClassNames = (...classNames: ClassValue[]): string | undefined => classnamesDedupe(...classNames) || undefined;
 
 // TEST UTILS
 
-// при генерации снапшотов некоторые проперти изменяются динамически и снапшоты ломаются, чтобы избежать этого удалим ненужные проперти
+// when generating snapshots some properties are changed dynamically and snapshots are broken. To avoid this, let's remove unnecessary properties.
 const removeProp = <T extends object>(obj: T): Partial<T> => {
   const object = { ...obj } as { props: { [x: string]: unknown}, children: unknown};
   const forbiddenProps = [
@@ -89,7 +89,7 @@ const removeProp = <T extends object>(obj: T): Partial<T> => {
   if (object.props) {
     Object.keys(object.props).forEach((prop) => {
       if (forbiddenProps.includes(prop)) object.props[prop] = '';
-      // у DatePicker в календаре каждый день падает тест, тк меняется ячейка с классом k-today, уберем этот класс
+      // DatePicker in the calendar has a test crash every day, because the cell with class k-today is changed, let's remove this class.
       if (prop === 'className' && object.props[prop] === 'k-today') delete object.props[prop];
     });
   }

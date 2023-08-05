@@ -78,7 +78,7 @@ export const getSuggestionItemProps = ({
     });
   })();
 
-  // является ли текущий элемент целью scrollToSuggestion
+  // whether the current element is the target of scrollToSuggestion
   const isScrollTarget = (() => {
     if (highlightedSuggestion) return isHighlighted;
     if (isArray(selectedSuggestion)) return false; // do not scroll to selected items in MultiSelect mode

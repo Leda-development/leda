@@ -1,5 +1,5 @@
 import React from 'react';
-import { delay, isFunction } from 'lodash';
+import { isFunction } from 'lodash';
 import {
   BlurData, ChangeData, ExtendedEvent, FocusData, KeyDownData, MaskedInputBaseProps,
 } from './types';
@@ -95,7 +95,7 @@ export const createChangeHandler = (
         input,
       });
     }
-    // это inputMethod === 'nothing'
+    // inputMethod === 'nothing'
     return inputValue;
   })();
 
@@ -167,7 +167,7 @@ export const createPasteHandler = (
   } = props;
 
   ev.preventDefault();
-  // по неизвестным причинам onPaste работает даже на отключенных инпутах
+  // for unknown reasons onPaste works even on disabled inputs
   if (isDisabled) return;
 
   const newValue = maskValue(ev.clipboardData.getData('Text'), mask, placeholderChar);

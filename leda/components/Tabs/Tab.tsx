@@ -19,11 +19,11 @@ export const Tab = React.forwardRef((props: TabProps, ref: React.Ref<TabRefCurre
 
   const tabRender = childTabRender ?? parentTabRender;
 
-  // тема, переданная в таб перекрывает родительскую тему и дефолтную
+  // the theme passed to the tab overrides the parent theme and the default theme
   const theme = { ...parentTheme, ...themeProp };
 
   const isTabActive = tabKey === activeTabKey;
-  // если таб активен - у него появляется класс active
+
   const combinedClassNames = getClassNames(
     theme.tab,
     { [theme.tabActive]: isTabActive },

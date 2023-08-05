@@ -7,8 +7,8 @@ export const extractIdAndNamespace = (props: SvgProps): SvgProps & { id: string,
     return { ...acc, namespace: attr };
   }
 
-  if (!isFunction((props as { [x: string]: unknown})[attr]) && attr !== 'style') { // исключить из поиска обработчики (onClick etc.)
-    // не нужно передавать id, namespace дальше в элемент
+  if (!isFunction((props as { [x: string]: unknown})[attr]) && attr !== 'style') { // do not search through handlers (onClick etc.)
+    // do not pass id, namespace further
     return { ...acc, id: kebabCase(attr) };
   }
 

@@ -1,4 +1,4 @@
-// Возможные опции для фильтра значений в выпадающем списке
+// Possible options for filtering values in the drop-down list
 export const FILTER_RULES = {
   smart: 'smart' as const,
   startsWith: 'startsWith' as const,
@@ -70,16 +70,16 @@ export const getIsSentenceIncludingWords = (sentence: string, words: string): bo
 export const filterSuggestionByRule = (suggestion: string, value: string, filterRule?: keyof typeof FILTER_RULES): boolean => {
   switch (filterRule) {
     case FILTER_RULES.smart:
-      // "умный" поиск. Фильтрует строки, которые содержат все значения в строке из инпута.
-      // Возвращает "true" если в строке присутствуют все значения из инпута, не смотря на положение значений.
+      // "smart" search. Filters strings that contain all the values in the string from the input.
+      // Returns "true" if the string contains all values from the input, regardless of the position of the values.
       return getIsSentenceIncludingWords(suggestion, value);
 
     case FILTER_RULES.startsWith:
-      // фильтрует строки, которые начинаются со строки в инпуте
+      // filters strings that start with the string in the input
       return filterByStartsWith(suggestion, value);
 
     case FILTER_RULES.includes:
-      // фильтрует строки, которые содержат строку из инпута, независимо от её положения
+      // filters strings that contain an input string, regardless of its position
       return filterByIncludes(suggestion, value);
     default:
       return getIsSentenceIncludingWords(suggestion, value);

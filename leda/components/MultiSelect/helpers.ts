@@ -21,11 +21,11 @@ export const filterData = ({
     if (shouldKeepSuggestions) return data;
 
     return data
-      // убираем все значения, которые уже выбраны
+      // removing all selected values
       .filter((item) => !values.find((value) => checkIsTheSameObject({ obj1: item, obj2: value, compareObjectsBy })));
   })();
 
-  // и фильтруем по filterValue
+  // and filtering by filterValue
   const filteredData = suggestions.filter((item) => filterSuggestionByRule(getText(item, textField), filterValue || '', filterRule));
 
   if (filteredData.length === 0) return undefined;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-// декларативный setInterval на хуках, запускает callback с интервалом delay, передайте в delay null, чтобы прекратить запускать callback
+// declarative setInterval on hooks, runs callback with delay interval, pass null into delay to stop running callback
 // https://overreacted.io/making-setinterval-declarative-with-react-hooks/
 export const useInterval = (callback: (...args: any[]) => any, delay: number | null) => {
   const savedCallback = React.useRef<typeof callback>();

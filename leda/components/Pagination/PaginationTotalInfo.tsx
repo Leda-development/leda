@@ -6,5 +6,5 @@ export const PaginationTotalInfo = (props: PaginationTotalInfoProps): React.Reac
     totalItemsNumber,
   } = props;
 
-  return `Всего записей: ${totalItemsNumber}` as unknown as React.ReactElement;
+  return `Total: ${totalItemsNumber}` as unknown as React.ReactElement;
 };

@@ -1,6 +1,6 @@
 
 export const selectAllSuggestion = {
-  text: 'Выбрать все',
+  text: 'Select all',
 };
 
 export enum SelectedState {

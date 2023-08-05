@@ -49,33 +49,31 @@ export interface FocusEvent extends React.FocusEvent<HTMLTextAreaElement> {
 }
 
 export interface TextareaProps extends ValidationProps {
-  /** Значение по умолчанию */
+  /** Default value */
   defaultValue?: string,
-  /** Переданные дети в качестве value */
+  /** Value as child component */
   children?: React.ReactNode,
-  /** Отключение ввода в компоненте */
+  /** Disabled state */
   isDisabled?: boolean,
-  /** Максимальная длина значения */
+  /** Max value length */
   maxLength?: number,
-  /** Имя комопнента */
-  name?: string,
-  /** Обработчик блюра */
+  /** Blur handler */
   onBlur?: (ev: BlurEvent) => void,
-  /** Обработчик изменения */
+  /** Change handler */
   onChange?: (ev: ChangeEvent) => void,
-  /** Обработчик нажатия Enter */
+  /** Enter press handler */
   onEnterPress?: (ev: EnterPressEvent) => void,
-  /** Обработчик фокуса */
+  /** Focus handler */
   onFocus?: (ev: FocusEvent) => void,
-  /** Плейсхолдер в инпуте */
+  /** Placeholder */
   placeholder?: string,
-  /** Тема для компонента */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.textarea],
-  /** Значение в textarea */
+  /** Value */
   value?: string,
-  /** Обертка компонента */
+  /** Wrapper customizator */
   wrapperRender?: CustomRender<TextareaProps, { value: string }, DivProps>,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 

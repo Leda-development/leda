@@ -5,13 +5,13 @@ import { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTh
 import { IconTypes } from '../..';
 
 export interface TagsProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Реф */
+  /** Ref */
   ref?: React.Ref<TagsRefCurrent>,
-  /* Тема для компонента */
+  /* Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.tags],
-  /** Кастомный wrapper */
+  /** Wrapper customizator */
   wrapperRender?: CustomRender<TagsProps, {}, WrapperProps>,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 
@@ -27,17 +27,17 @@ export interface WrapperProps {
 }
 
 export interface TagProps extends React.HTMLAttributes<SVGElement> {
-  /** Иконка для тега */
+  /** Tag icon */
   icon?: IconTypes.Icons,
-  /** Обработчик клика по иконке */
+  /** Icon click handler */
   onIconClick?: CustomEventHandler<React.MouseEvent<SVGElement>>,
-  /** Реф */
+  /** Ref */
   ref?: React.Ref<TagsRefCurrent>,
-  /** Тема для компонента (передается через Tags) */
+  /** Theme, is passed trough Tags */
   theme?: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.tags],
-  /** Кастомный wrapper */
+  /** Wrappes customizator */
   wrapperRender?: CustomRender<TagProps, {}, WrapperProps>,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }
 

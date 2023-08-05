@@ -3,7 +3,7 @@ import { CreateSelectHandler } from './types';
 
 export const createSelectHandler: CreateSelectHandler = (props, activeTabKeyState, setActiveTabKeyState) => (ev, tabKey) => {
   const { activeTabKey, onChange } = props;
-  // Если не передано activeTabKey - использовать стейт
+  // If activeTabKey is not passed - use state
   if (isNil(activeTabKey)) {
     setActiveTabKeyState(tabKey);
   }

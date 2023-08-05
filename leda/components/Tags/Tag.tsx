@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-// Статический HTML элемент с обработчиком событий требует роль
+// Static HTML element with event handler requires role
 import * as React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {

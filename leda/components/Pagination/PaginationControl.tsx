@@ -15,7 +15,7 @@ export const PaginationControl = (props: PaginationControlProps): React.ReactEle
   } = props;
 
   const handlePageChange = React.useCallback((event: React.MouseEvent<HTMLAnchorElement>) => {
-    // Убираем фокус иначе остается рамка на выбранном элементе
+    // Remove the focus, otherwise the frame on the selected element remains
     event.currentTarget.blur();
     if (isFunction(onClick) && page !== 0) onClick(page);
   }, [onClick, page]);

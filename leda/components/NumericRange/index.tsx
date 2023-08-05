@@ -40,7 +40,7 @@ export const NumericRange = React.forwardRef((props: NumericRangeProps, ref?: Re
     wrapperRender,
     ...restProps
   } = useProps(props);
-  // вернет value из props или value из state, функция setUncontrolledState сработает только в неконтролируемом режиме
+  // returns value from props or from state, setUncontrolledState works only in uncontrolled mode
   const [value, setUncontrolledValue] = useValue<NumericRangeState['value']>(getControlledValue(valueProp), [null, null]);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.numericRange);

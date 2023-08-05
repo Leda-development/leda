@@ -8,19 +8,19 @@ export interface ContentProps {
 }
 
 export interface TourStepItem {
-  /** Скругление у выделенных элементов в px, по-умолчанию 15px */
+  /** Highlighted elements border-radius, по-умолчанию 15px */
   borderRadius?: number,
-  /** Контент */
+  /** Content */
   content: (props: ContentProps) => React.ReactElement | null,
-  /** Элемент, который надо подсветить */
+  /** Element to highlight */
   element: HTMLElement | null,
-  /** Отступ при скролле в px, по умолчанию 200px */
+  /** Scroll offset, px, defaults to 200px */
   offsetTop?: number,
-  /** Цвет фона оверлея, по-умолчанию rgba(33, 33, 33, 0.7) */
+  /** Overlay color rgba(33, 33, 33, 0.7) */
   overlayBackgroundColor?: string,
-  /** Положение модалки */
+  /** Modal window position */
   position: 'top' | 'right' | 'bottom' | 'left',
-  /** Идентификатор шага */
+  /** Step key */
   stepKey: string | number,
 }
 
@@ -32,10 +32,10 @@ export interface ChangeEvent {
 }
 
 export interface TourProps {
-  /** Идентификатор активного шага, если null - гайд-тур закрыт */
+  /** Identifier of the active step, if null - the guided tour is closed */
   activeStepKey?: number | string | null,
-  /** Шаги гайд-тура */
+  /** Tour steps */
   data: TourStepItem[],
-  /** Обработчик изменения */
+  /** Change handler */
   onChange: (ev: ChangeEvent) => void,
 }

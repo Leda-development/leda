@@ -1,6 +1,6 @@
-import { Action, Values } from '../../commonTypes';
-import { VIEW_TYPES } from '../CalendarBase/constants';
-import { StateActionPayloads, StateActionTypes } from './types';
+import type { Action, Values } from '../../commonTypes';
+import type { VIEW_TYPES } from '../CalendarBase/constants';
+import type { StateActionPayloads, StateActionTypes } from './types';
 
 export const stateActionTypes = {
   SET_DATE: 'SET_DATE',

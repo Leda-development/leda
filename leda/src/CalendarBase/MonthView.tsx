@@ -6,12 +6,15 @@ import {
   getMonthYearArray, getShortMonthName,
 } from './helpers';
 import { getClassNames } from '../../utils';
-import { MonthViewProps } from './types';
+import type { MonthViewProps } from './types';
+import { useMessages } from '../../utils/useMessages';
 
 export const MonthView = (props: MonthViewProps): React.ReactElement | null => {
   const {
     min, max, viewDate, theme, onClick, viewType, ...restProps
   } = props;
+
+  const messages = useMessages('calendar');
 
   if (viewType !== VIEW_TYPES.MONTHS) return null;
 
@@ -41,7 +44,7 @@ export const MonthView = (props: MonthViewProps): React.ReactElement | null => {
                       theme.monthCellDisabled,
                     )}
                   >
-                    {getShortMonthName(monthCell)}
+                    {getShortMonthName(monthCell, messages)}
                   </Div>
                 );
               }
@@ -54,9 +57,9 @@ export const MonthView = (props: MonthViewProps): React.ReactElement | null => {
                     { [theme.monthCellActive]: viewDate.getMonth() === monthCell },
                   )}
                   onClick={(ev) => onClick(CALENDAR_CLICK_ACTION.MONTHS_SELECT, ev, { monthCell })}
-                  title={getMonthName(monthCell)}
+                  title={getMonthName(monthCell, messages)}
                 >
-                  {getShortMonthName(monthCell)}
+                  {getShortMonthName(monthCell, messages)}
                 </Div>
               );
             })}

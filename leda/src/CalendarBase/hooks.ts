@@ -4,7 +4,7 @@ import { useElement } from '../../utils';
 import { CalendarHeader as DefaultCalendarHeader } from './CalendarHeader';
 import { DateView as DefaultDateView } from './DateView';
 import { MonthView as DefaultMonthView } from './MonthView';
-import { CalendarBaseProps, CustomElements } from './types';
+import type { CalendarBaseProps, CustomElements } from './types';
 import { YearView as DefaultYearView } from './YearView';
 import { Div } from '../../components/Div';
 

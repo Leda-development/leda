@@ -1,5 +1,5 @@
 import { stateActionTypes } from './actions';
-import { AllActions, DateTimeInputState } from './types';
+import type { AllActions, DateTimeInputState } from './types';
 
 export const stateReducer = (state: DateTimeInputState, action: AllActions): DateTimeInputState => {
   switch (action.type) {

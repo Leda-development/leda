@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { getClassNames, useProps, useTheme } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import {
+import type {
   StandaloneCalendarProps, CalendarRefCurrent, StandaloneCalendarState, StandaloneCalendarActionTypes,
 } from './types';
 import { CALENDAR_CLICK_ACTION, DEFAULT_DATE_FORMAT, VIEW_TYPES } from '../../src/CalendarBase/constants';
@@ -12,7 +12,6 @@ import { useCustomElements } from './hooks';
 import { getCalendarConditions } from '../../src/CalendarBase/helpers';
 import { createClickHandler } from './handlers';
 import { stateReducer } from './reducer';
-
 
 export const Calendar = React.forwardRef((props: StandaloneCalendarProps, ref?: React.Ref<CalendarRefCurrent>): React.ReactElement => {
   const {

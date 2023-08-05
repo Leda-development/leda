@@ -3,7 +3,7 @@ import { Div } from '../../components/Div';
 import { LedaContext } from '../../components/LedaProvider';
 import { Span } from '../../components/Span';
 import { useElement } from '../../utils';
-import { CustomElements, DateTimeInputRangeProps, DateTimeInputRangeState } from './types';
+import type { CustomElements, DateTimeInputRangeProps, DateTimeInputRangeState } from './types';
 import { getDateRangeFromValue } from './helpers';
 
 export const useDateRange = (props: DateTimeInputRangeProps): DateTimeInputRangeState => {

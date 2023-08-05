@@ -1,10 +1,9 @@
 import { isFunction } from 'lodash';
 import { setFocused } from '../actions';
-import {
+import type {
   HandlersData,
 } from '../types';
-import { FocusEvent } from '../../MaskedInputBase/types';
-
+import type { FocusEvent } from '../../MaskedInputBase/types';
 
 export const createFocusHandler = ({ props, state, dispatch }: HandlersData) => (ev: FocusEvent): void => {
   const { onFocus, name } = props;

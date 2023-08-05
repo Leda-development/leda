@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { DivProps, DivRefCurrent } from '../../components/Div';
-import {
+import type * as React from 'react';
+import type { DivProps, DivRefCurrent } from '../../components/Div';
+import type {
   CalendarHeaderProps,
   CalendarBaseProps,
   DateCellItemProps,
@@ -10,13 +10,38 @@ import {
   WeekRowProps,
   YearViewProps,
 } from '../CalendarBase/types';
-import {
+import type {
   BlurEvent, ChangeEvent, FocusEvent, DateTimeInputProps, DateTimeInputState, IconProps, WrapperProps,
 } from '../DateTimeInput/types';
-import { CustomRender, Values } from '../../commonTypes';
-import { COMPONENTS_NAMESPACES } from '../../constants';
-import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
-import { COMPONENT_TYPES } from '../DateTimeInput/constants';
+import type { CustomRender, Values } from '../../commonTypes';
+import type { COMPONENTS_NAMESPACES } from '../../constants';
+import type { PartialGlobalDefaultTheme } from '../../utils/useTheme';
+import type { COMPONENT_TYPES } from '../DateTimeInput/constants';
+
+export interface DateTimeInputRangeState {
+  date: [Date | null, Date | null],
+  setDate: (date: [Date | null, Date | null]) => void,
+  setValueFrom: (value: string) => void,
+  setValueTo: (value: string) => void,
+  value: [string, string],
+}
+
+export interface CustomRangeEvent {
+  component: {
+    value: [string, string],
+    date: [Date | null, Date | null],
+    name?: string | [string | undefined, string | undefined],
+  },
+}
+
+export interface WrapperRangeProps {
+  className?: string,
+  ref?: React.Ref<DivRefCurrent>,
+}
+
+export interface DelimiterProps {
+  className?: string,
+}
 
 export interface DateTimeInputRangeProps {
   boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement }>,
@@ -38,61 +63,36 @@ export interface DateTimeInputRangeProps {
   name?: string | [string | undefined, string | undefined],
   isOpen?: boolean | [boolean, boolean],
   isDisabled?: boolean | [boolean, boolean],
-  /** Кастомный враппер */
+  /** Custom wrapper */
   wrapperRangeRender?: CustomRender<DateTimeInputRangeProps, DateTimeInputRangeState, WrapperRangeProps>,
-  /** Кастомный разделитель инпутов */
+  /** Custom input delimiter */
   delimiterRender?: CustomRender<DateTimeInputRangeProps, DateTimeInputRangeState, DelimiterProps>,
-  /** Кастомный враппер DateTimeInput */
+  /** Custom wrapper for DateTimeInput */
   wrapperRender?: CustomRender<DateTimeInputProps, DateTimeInputState, WrapperProps>,
-  /** Кастомная иконка календаря */
+  /** Custom calendar icon */
   iconRender?: CustomRender<DateTimeInputProps, DateTimeInputState, IconProps>,
-  /** Рендеры для инпутов, [render, render] */
+  /** Custom inputs render, [render, render] */
   inputsRender?: [DateTimeInputProps['inputRender'] | null, DateTimeInputProps['inputRender'] | null],
-  /** Кастомная ячейка с датой */
-  dateCellRender?: CustomRender<DateCellProps, {}, DateCellItemProps>,
-  /** Кастомный список дней недели (строка "Пн Вт Ср Чт Пт Сб Вс") */
-  weeksRowRender?: CustomRender<DateViewProps, {}, WeekRowProps>,
-  /** Кастомный вид выбора даты */
-  dateViewRender?: CustomRender<DateViewProps, {}, DateViewProps>,
-  /** Кастомный вид выбора месяца */
-  monthViewRender?: CustomRender<DateViewProps, {}, MonthViewProps>,
-  /** Кастомный вид выбора года */
-  yearViewRender?: CustomRender<DateViewProps, {}, YearViewProps>,
-  /** Кастомный заголовок календаря */
-  calendarHeaderRender?: CustomRender<DateViewProps, {}, CalendarHeaderProps>,
-  /** Кастомный рендер враппера календаря */
-  calendarWrapperRender?: CustomRender<CalendarBaseProps, {}, DivProps>,
-}
-
-export interface DateTimeInputRangeState {
-  date: [Date | null, Date | null],
-  setDate: (date: [Date | null, Date | null]) => void,
-  setValueFrom: (value: string) => void,
-  setValueTo: (value: string) => void,
-  value: [string, string],
+  /** Custom date cell */
+  dateCellRender?: CustomRender<DateCellProps, Record<string, never>, DateCellItemProps>,
+  /** Custom weekdays row */
+  weeksRowRender?: CustomRender<DateViewProps, Record<string, never>, WeekRowProps>,
+  /** Custom date view */
+  dateViewRender?: CustomRender<DateViewProps, Record<string, never>, DateViewProps>,
+  /** Custom month view */
+  monthViewRender?: CustomRender<DateViewProps, Record<string, never>, MonthViewProps>,
+  /** Custom year view */
+  yearViewRender?: CustomRender<DateViewProps, Record<string, never>, YearViewProps>,
+  /** Custom calendar header */
+  calendarHeaderRender?: CustomRender<DateViewProps, Record<string, never>, CalendarHeaderProps>,
+  /** Custom calendar wrapper */
+  calendarWrapperRender?: CustomRender<CalendarBaseProps, Record<string, never>, DivProps>,
 }
 
 export interface DateTimeInputRangeRefCurrent {
   wrapper: HTMLDivElement | null,
   inputFrom: HTMLInputElement | null,
   inputTo: HTMLInputElement | null,
-}
-
-export interface CustomRangeEvent {
-  component: {
-    value: [string, string],
-    date: [Date | null, Date | null],
-    name?: string | [string | undefined, string | undefined],
-  },
-}
-
-export interface WrapperRangeProps {
-  className?: string,
-  ref?: React.Ref<DivRefCurrent>,
-}
-
-export interface DelimiterProps {
-  className?: string,
 }
 
 export interface CustomElements {

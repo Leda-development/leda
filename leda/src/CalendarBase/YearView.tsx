@@ -3,7 +3,7 @@ import { Div } from '../../components/Div';
 import { CALENDAR_CLICK_ACTION, VIEW_TYPES } from './constants';
 import { getMonthYearArray, getYearCellClassNames } from './helpers';
 import { getClassNames } from '../../utils';
-import { YearViewProps } from './types';
+import type { YearViewProps } from './types';
 
 export const YearView = (props: YearViewProps): React.ReactElement | null => {
   const {

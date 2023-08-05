@@ -11,7 +11,7 @@ import {
   stringToDate,
 } from './helpers';
 import { stateReducer } from './reducer';
-import {
+import type {
   AllActions, CustomElements, DateTimeInputProps, DateTimeInputState, EffectData,
 } from './types';
 
@@ -38,12 +38,12 @@ export const useDateTimeInputEffects = ({
   }, [valueProp, dispatch, isFocused]);
 
   React.useEffect(() => {
-    // синхронизируем отображение календаря с value
+    // sync calendar display with current value
     if (dateState && conditions.isValueInRange) dispatch(setViewDate(dateState));
   }, [conditions.isValueInRange, dispatch, dateState]);
 
   React.useEffect(() => {
-    // если в value пустая строка - нужно обнулить date для валидации
+    // if value is an empty string we have to set the date to null for validation
     if (isDate(valueProp) || isNil(valueProp) || isFocused) return;
 
     if (valueProp.length === 0) {
@@ -51,7 +51,7 @@ export const useDateTimeInputEffects = ({
     }
 
     const newDate = stringToDate(valueProp, format);
-    // если в инпуте валидная дата - записываем в date, иначе - запиываем null
+    // if the date is correct - set to the date, otherwise - set to null
     if (newDate && newDate.getDate()) dispatch(setDate(newDate));
     else dispatch(setDate(null));
   }, [dispatch, format, isFocused, max, min, valueProp]);
@@ -62,11 +62,11 @@ export const useDateTimeInputState = (props: DateTimeInputProps): [DateTimeInput
     value: valueProp, format, min, max,
   } = props;
 
-  // если сегодняшняя дата за пределами min/max - открываем календарь с датой min или max
+  // if today's date is out of min/max range - open the calendar with the min/max date instead
   const todayIsMin = (min && new Date() < min) ? min : null;
 
   const todayIsMax = (max && new Date() > max) ? max : null;
-  // сегодня, время берется равно 00:00
+  // today's date, the time is 00:00
   const today = new Date();
 
   const stringValue = isDate(valueProp) || valueProp === null ? '' : valueProp;

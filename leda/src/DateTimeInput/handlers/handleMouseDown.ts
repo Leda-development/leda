@@ -1,7 +1,7 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { VIEW_TYPES } from '../../CalendarBase/constants';
 import { setOpen, setViewType } from '../actions';
-import { HandlersData } from '../types';
+import type { HandlersData } from '../types';
 
 export const createCalendarIconMouseDownHandler = ({
   dispatch,
@@ -29,7 +29,6 @@ export const createCalendarIconMouseDownHandler = ({
     if (maskedInputRef.current) maskedInputRef.current.focus();
   }, 0);
 };
-
 
 export const createCalendarMouseDownHandler = ({ maskedInputRef }: HandlersData) => (ev: React.MouseEvent<HTMLDivElement>): void => {
   ev.preventDefault();

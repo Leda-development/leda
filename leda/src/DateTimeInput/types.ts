@@ -1,12 +1,12 @@
-import * as React from 'react';
-import {
+import type * as React from 'react';
+import type {
   Action, CustomRender, CustomEventHandler, Values,
 } from '../../commonTypes';
-import { DivProps, DivRefCurrent } from '../../components/Div';
-import { COMPONENTS_NAMESPACES } from '../../constants';
-import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
-import { VIEW_TYPES } from '../CalendarBase/constants';
-import {
+import type { DivProps, DivRefCurrent } from '../../components/Div';
+import type { COMPONENTS_NAMESPACES } from '../../constants';
+import type { PartialGlobalDefaultTheme } from '../../utils/useTheme';
+import type { VIEW_TYPES } from '../CalendarBase/constants';
+import type {
   CalendarClickHandler,
   CalendarConditions,
   CalendarHeaderProps,
@@ -18,11 +18,11 @@ import {
   WeekRowProps,
   YearViewProps,
 } from '../CalendarBase/types';
-import { MaskedInputBaseProps } from '../MaskedInputBase/types';
-import { stateActionTypes } from './actions';
-import { COMPONENT_TYPES } from './constants';
-import { ValidationProps } from '../../components/Validation/types';
-import { StandaloneCalendarActionTypes } from '../../components/Calendar/types';
+import type { MaskedInputBaseProps } from '../MaskedInputBase/types';
+import type { stateActionTypes } from './actions';
+import type { COMPONENT_TYPES } from './constants';
+import type { ValidationProps } from '../../components/Validation/types';
+import type { StandaloneCalendarActionTypes } from '../../components/Calendar/types';
 
 // todo: extend type
 export interface ChangeEvent {
@@ -48,6 +48,27 @@ export interface FocusEvent extends React.FocusEvent<HTMLInputElement> {
     name?: string,
     date: Date | null,
   },
+}
+
+export interface DateTimeInputState {
+  date: Date | null,
+  isFocused: boolean,
+  isOpen: boolean,
+  isValid: boolean,
+  value: string,
+  viewDate: Date,
+  viewType: Values<typeof VIEW_TYPES>,
+}
+
+export interface IconProps {
+  className?: string,
+  onMouseDown?: React.MouseEventHandler<HTMLSpanElement>,
+}
+
+export interface WrapperProps {
+  className?: string,
+  ref?: React.Ref<DivRefCurrent>,
+  onKeyDown?: React.KeyboardEventHandler<HTMLDivElement>,
 }
 
 export interface DateTimeInputProps extends ValidationProps {
@@ -94,29 +115,19 @@ export interface DateTimeInputProps extends ValidationProps {
   /** Кастомный инпут */
   inputRender?: CustomRender<DateTimeInputProps, DateTimeInputState, MaskedInputBaseProps>,
   /** Кастомная ячейка с датой */
-  dateCellRender?: CustomRender<DateCellProps, {}, DateCellItemProps>,
+  dateCellRender?: CustomRender<DateCellProps, Record<string, never>, DateCellItemProps>,
   /** Кастомный список дней недели */
-  weeksRowRender?: CustomRender<DateViewProps, {}, WeekRowProps>,
+  weeksRowRender?: CustomRender<DateViewProps, Record<string, never>, WeekRowProps>,
   /** Кастомный вид выбора даты */
-  dateViewRender?: CustomRender<DateViewProps, {}, DateViewProps>,
+  dateViewRender?: CustomRender<CalendarBaseProps, Record<string, never>, DateViewProps>,
   /** Кастомный вид выбора месяца */
-  monthViewRender?: CustomRender<DateViewProps, {}, MonthViewProps>,
+  monthViewRender?: CustomRender<CalendarBaseProps, Record<string, never>, MonthViewProps>,
   /** Кастомный вид выбора года */
-  yearViewRender?: CustomRender<DateViewProps, {}, YearViewProps>,
+  yearViewRender?: CustomRender<CalendarBaseProps, Record<string, never>, YearViewProps>,
   /** Кастомный заголовок календаря */
-  calendarHeaderRender?: CustomRender<DateViewProps, {}, CalendarHeaderProps>,
+  calendarHeaderRender?: CustomRender<CalendarBaseProps, Record<string, never>, CalendarHeaderProps>,
   /** Кастомный рендер враппера календаря */
-  calendarWrapperRender?: CustomRender<CalendarBaseProps, {}, DivProps>,
-}
-
-export interface DateTimeInputState {
-  date: Date | null,
-  isFocused: boolean,
-  isOpen: boolean,
-  isValid: boolean,
-  value: string,
-  viewDate: Date,
-  viewType: Values<typeof VIEW_TYPES>,
+  calendarWrapperRender?: CustomRender<CalendarBaseProps, Record<string, never>, DivProps>,
 }
 
 export interface DateTimeInputRefCurrent {
@@ -135,6 +146,18 @@ export interface DateShorthand {
   month: number,
   year: number,
 }
+
+export interface StateActionPayloads {
+  SET_DATE: Date | null,
+  SET_FOCUSED: boolean,
+  SET_OPEN: boolean,
+  SET_VALID: boolean,
+  SET_VALUE: string,
+  SET_VIEW_DATE: Date,
+  SET_VIEW_TYPE: Values<typeof VIEW_TYPES>,
+}
+
+export type AllActions = Values<{ [K in keyof typeof stateActionTypes]: Action<typeof stateActionTypes[K], StateActionPayloads[K]> }>;
 
 export interface LeftRightKeyPressPayload {
   dateShorthand: DateShorthand,
@@ -196,19 +219,7 @@ export interface Handlers {
   handleFocus: CustomEventHandler<FocusEvent>,
 }
 
-export interface StateActionPayloads {
-  SET_DATE: Date | null,
-  SET_FOCUSED: boolean,
-  SET_OPEN: boolean,
-  SET_VALID: boolean,
-  SET_VALUE: string,
-  SET_VIEW_DATE: Date,
-  SET_VIEW_TYPE: Values<typeof VIEW_TYPES>,
-}
-
 export type StateActionTypes = typeof stateActionTypes;
-
-export type AllActions = Values<{ [K in keyof typeof stateActionTypes]: Action<typeof stateActionTypes[K], StateActionPayloads[K]>}>;
 
 export interface DatesPrevClickPayload {
   isPrevButtonDisabled: boolean,
@@ -300,17 +311,6 @@ export interface TodayButtonClickPayload {
   max?: Date,
   dispatch: React.Dispatch<AllActions> | React.Dispatch<StandaloneCalendarActionTypes>,
   updateDate: (newDate: Date) => void,
-}
-
-export interface IconProps {
-  className?: string,
-  onMouseDown?: React.MouseEventHandler<HTMLSpanElement>,
-}
-
-export interface WrapperProps {
-  className?: string,
-  ref?: React.Ref<DivRefCurrent>,
-  onKeyDown?: React.KeyboardEventHandler<HTMLDivElement>,
 }
 
 export interface CustomElements {

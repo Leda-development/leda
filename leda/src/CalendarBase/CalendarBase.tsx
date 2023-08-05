@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { CALENDAR_CLICK_ACTION } from './constants';
 import { useCustomElements } from './hooks';
-import { CalendarBaseProps } from './types';
-import { DivRefCurrent } from '../../components/Div';
+import type { CalendarBaseProps } from './types';
+import type { DivRefCurrent } from '../../components/Div';
 import {
   getCalendarConditions, getCalendarFormat,
 } from './helpers';
@@ -27,7 +27,7 @@ export const CalendarBase = (props: CalendarBaseProps): React.ReactElement | nul
     weeksRowRender,
   } = props;
 
-  // следующие флаги используются для отключения кнопок в header в случае min-max
+  // following flags are used to disable header buttons in case of min/max
   const conditions = getCalendarConditions(props);
 
   const format = getCalendarFormat(props.format);
@@ -40,7 +40,7 @@ export const CalendarBase = (props: CalendarBaseProps): React.ReactElement | nul
     right: theme.wrapperRight,
   }), [theme.wrapperRight, theme.wrapperTop, theme.wrapperVisible]);
 
-  // смена позиции календаря при скролле/открытии
+  // calendar position change on scroll/open
   useAdaptivePosition({
     boundingContainerRef,
     elRef: calendarRef,

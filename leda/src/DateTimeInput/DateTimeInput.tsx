@@ -27,7 +27,7 @@ import {
 } from './helpers';
 import { useCustomElements, useDateTimeInputEffects, useDateTimeInputState } from './hooks';
 import { Span } from '../../components/Span';
-import { DateTimeInputProps, DateTimeInputRefCurrent } from './types';
+import type { DateTimeInputProps, DateTimeInputRefCurrent } from './types';
 
 export const DateTimeInput = React.forwardRef((props: DateTimeInputProps, ref: React.Ref<DateTimeInputRefCurrent>) => {
   const {
@@ -67,7 +67,7 @@ export const DateTimeInput = React.forwardRef((props: DateTimeInputProps, ref: R
 
   handleErrors(props);
 
-  // Преоброзвание moment в Date, если передан moment
+  // Convert moment to Date, if moment was passed to props
   const min = React.useMemo(() => convertToDate(minProp), [minProp]);
 
   const max = React.useMemo(() => convertToDate(maxProp), [maxProp]);
@@ -76,14 +76,14 @@ export const DateTimeInput = React.forwardRef((props: DateTimeInputProps, ref: R
 
   const [state, dispatch] = useDateTimeInputState(newProps);
 
-  // реф у maskedInput, используется в валидации и для focus/blur
+  // Ref from maskedInput is used for validation and focus/blur
   const maskedInputRef = React.useRef<HTMLInputElement | null>(null);
 
-  // набор условий для обработки событий календаря (отключенные даты, неактивные стрелочки и тд)
+  // conditions for processing calendar events (disabled dates, inactive arrows etc)
   const conditions = getCalendarConditions({
     min, max, viewDate: state.viewDate, viewType: state.viewType, value: state.date,
   });
-  // валидируем по Date, а не по строке. Т.к. 12.__.____ - невалидная дата
+  // validating Date instead of the string. E.g: "12.__.____" is not a valid date
   const validationValue = isDate(valueProp) || isNil(valueProp) ? valueProp : stringToDate(valueProp, format);
 
   const validationProps = React.useMemo(() => ({

@@ -1,57 +1,54 @@
-import * as React from 'react';
-import { Action, CustomRender, Values } from '../../commonTypes';
-import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
-import { COMPONENTS_NAMESPACES } from '../../constants';
-import {
+import type * as React from 'react';
+import type { Action, CustomRender, Values } from '../../commonTypes';
+import type { PartialGlobalDefaultTheme } from '../../utils/useTheme';
+import type { COMPONENTS_NAMESPACES } from '../../constants';
+import type {
   CalendarConditions,
   CalendarHeaderProps,
-  DateCellItemProps,
-  DateCellProps,
   DateViewProps,
   MonthViewProps,
-  WeekRowProps,
   YearViewProps,
 } from '../../src/CalendarBase/types';
-import { VIEW_TYPES } from '../../src/CalendarBase/constants';
-import { stateActionTypes } from '../../src/DateTimeInput/actions';
-import { DivProps } from '../Div';
+import type { VIEW_TYPES } from '../../src/CalendarBase/constants';
+import type { stateActionTypes } from '../../src/DateTimeInput/actions';
+import type { DivProps } from '../Div';
 
-export interface ChangeEvent extends React.ChangeEvent {
+export interface ChangeEvent extends React.MouseEvent {
   component: {
     value: Date,
     name?: string,
   },
 }
 
-export interface StandaloneCalendarProps {
-  /** Кнопка "Сегодня" */
-  hasTodayButton?: boolean,
-  /** Максимальная доступная дата */
-  max?: Date,
-  /** Минимальная доступная дата */
-  min?: Date,
-  /** Имя компонента */
-  name?: string,
-  /** Обработчик изменения состояния элементов */
-  onChange: (event: ChangeEvent) => void,
-  /** Реф */
-  ref?: React.Ref<CalendarRefCurrent>,
-  /** Тема компонента */
-  theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.calendar],
-  /** Выбранная дата в календаре */
-  value?: Date,
-  /** Кастомизация */
-  dateViewRender?: CustomRender<StandaloneCalendarProps, {}, DateViewProps>,
-  headerRender?: CustomRender<StandaloneCalendarProps, {}, CalendarHeaderProps>,
-  monthViewRender?: CustomRender<StandaloneCalendarProps, {}, MonthViewProps>,
-  wrapperRender?: CustomRender<StandaloneCalendarProps, {}, DivProps>,
-  yearViewRender?: CustomRender<StandaloneCalendarProps, {}, YearViewProps>,
-  /** Классы переданные через _ */
-  [x: string]: unknown,
-}
-
 export interface CalendarRefCurrent {
   wrapper: HTMLDivElement | null,
+}
+
+export interface StandaloneCalendarProps {
+  /** "Today" button */
+  hasTodayButton?: boolean,
+  /** Max available date */
+  max?: Date,
+  /** Min available date */
+  min?: Date,
+  /** Component name (is used in forms) */
+  name?: string,
+  /** Change handler */
+  onChange: (event: ChangeEvent) => void,
+  /** React Ref */
+  ref?: React.Ref<CalendarRefCurrent>,
+  /** Component theme */
+  theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.calendar],
+  /** Currently selected date */
+  value?: Date,
+  /** Customization */
+  dateViewRender?: CustomRender<StandaloneCalendarProps, Record<string, never>, DateViewProps>,
+  headerRender?: CustomRender<StandaloneCalendarProps, Record<string, never>, CalendarHeaderProps>,
+  monthViewRender?: CustomRender<StandaloneCalendarProps, Record<string, never>, MonthViewProps>,
+  wrapperRender?: CustomRender<StandaloneCalendarProps, Record<string, never>, DivProps>,
+  yearViewRender?: CustomRender<StandaloneCalendarProps, Record<string, never>, YearViewProps>,
+  /** Class names passed with _ */
+  [x: string]: unknown,
 }
 
 export type StandaloneCalendarActionTypes = Action<typeof stateActionTypes.SET_VIEW_DATE, Date>

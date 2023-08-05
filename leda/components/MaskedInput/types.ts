@@ -8,7 +8,7 @@ import {
   ChangeEvent as BaseChangeEvent, BlurEvent, EnterPressEvent, FocusEvent, MaskedInputBaseProps,
 } from '../../src/MaskedInputBase/types';
 
-export {
+export type {
   BlurEvent, EnterPressEvent, FocusEvent,
 };
 

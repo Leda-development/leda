@@ -1,16 +1,18 @@
-import * as React from 'react';
+import type * as React from 'react';
 import {
   isNil, isFunction, isString, isDate,
 } from 'lodash';
-import { Values } from '../../commonTypes';
+import type { Values } from '../../commonTypes';
 import { getClassNames, getIsEmptyAndRequired } from '../../utils';
-import { GlobalDefaultTheme } from '../../utils/useTheme';
+import type { GlobalDefaultTheme } from '../../utils/useTheme';
 import { COMPONENT_TYPES } from './constants';
-import {
+import type {
   DateWithToDateMethod, DateTimeInputProps, DateTimeInputState,
 } from './types';
+import { getMonthName } from '../CalendarBase/helpers';
+import type { DefaultCalendarMessages } from '../CalendarBase/messages';
 
-// извлекает число по паттерну и формату. Пример: ("dd.MM.yy", "dd", "18.05.19") => 18
+/** extracts the number by pattern and format. For example: ("dd.MM.yy", "dd", "18.05.19") => 18 */
 const extractFromFormat = (format: string, pattern: string, string: string): number | null => {
   const formatStartIndex = format.indexOf(pattern);
 
@@ -29,12 +31,14 @@ export const stringToDate = (string: string | undefined, format: string | undefi
   || string.includes('_')) return null;
 
   if (!format) {
-    // по-умолчанию формат dd.MM.yyyy hh:mm
-    return new Date(+string.slice(6, 10),
+    // default format is dd.MM.yyyy hh:mm
+    return new Date(
+      +string.slice(6, 10),
       +string.slice(3, 5) - 1,
       +string.slice(0, 2),
       +string.slice(11, 13),
-      +string.slice(14, 16));
+      +string.slice(14, 16),
+    );
   }
 
   const today = new Date();
@@ -92,29 +96,10 @@ export const formatDateTime = (date: Date | null, format: string): string => {
   }, format);
 };
 
-export const getMonthNameOfDate = (month: number): string => {
-  const months = [
-    'января',
-    'февраля',
-    'марта',
-    'апреля',
-    'мая',
-    'июня',
-    'июля',
-    'августа',
-    'сентября',
-    'октября',
-    'ноября',
-    'декабря',
-  ];
-
-  return months[month];
-};
-
-export const formatDate = (date: Date): string => {
+export const formatDate = (date: Date, messages: DefaultCalendarMessages): string => {
   if (!date) return '';
 
-  return `${date.getDate()} ${getMonthNameOfDate(date.getMonth())} ${date.getFullYear()}`;
+  return `${date.getDate()} ${getMonthName(date.getMonth(), messages)} ${date.getFullYear()}`;
 };
 
 export const createMask = (format: string, type: Values<typeof COMPONENT_TYPES>): string => {

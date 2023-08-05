@@ -1,7 +1,8 @@
-import { Values } from '../../commonTypes';
+import type { Values } from '../../commonTypes';
 import { getClassNames } from '../../utils';
 import { BUTTON_TYPE, CALENDAR_CLICK_ACTION, VIEW_TYPES } from './constants';
-import {
+import type { DefaultCalendarMessages } from './messages';
+import type {
   CalendarConditionProps,
   CalendarConditions,
   DateCellConditions,
@@ -75,29 +76,32 @@ export const getMonthYearArray = (props?: MonthViewProps | YearViewProps): numbe
   return array;
 };
 
-const getWeekDays = (firstDay: number, month: number, year: number): number[] => {
-  const weekDays = [];
+const getWeekDays = (firstDayIndex: number, month: number, year: number, messages: DefaultCalendarMessages): number[] => {
+  const weekDays: number[] = [];
+  const firstDay = firstDayIndex + 1;
   const currentDate = new Date(year, month, firstDay);
 
-  for (let i = 0; i < 7; i += 1) {
+  const weekDayIndicies = Array.from(new Array(7)).map((_item, index) => index);
+  const orderedWeekDayIndicies = [...weekDayIndicies.slice(messages.firstWeekDay), ...weekDayIndicies.slice(0, messages.firstWeekDay).map((item) => 7 + item)];
+
+  orderedWeekDayIndicies.forEach((weekDayIndex) => {
     const currentDay = currentDate.getDay();
 
-    if (currentDay !== 1) {
-      weekDays.push(new Date(year, month, firstDay + i + 1 - currentDay).getDate());
-    } else {
-      weekDays.push(new Date(year, month, firstDay + i).getDate());
-    }
-  }
+    const weekDiff = weekDayIndex - currentDay;
+    const weekDate = firstDay + weekDiff;
+
+    weekDays.push(new Date(year, month, weekDate).getDate());
+  });
 
   return weekDays;
 };
 
-export const getMonthDays = (month: number, year: number): number[][] => {
+export const getMonthDays = (month: number, year: number, messages: DefaultCalendarMessages): number[][] => {
   const monthDays: number[][] = [];
 
-  let i = 0;
+  if (new Date(year, month, 1).getDay() === 1) monthDays.push(getWeekDays(-7, month, year, messages));
 
-  if (new Date(year, month, 1).getDay() === 1) monthDays.push(getWeekDays(-7, month, year));
+  let i = 0;
 
   const isLastWeekReached = (): boolean => monthDays.length >= 1
     && i > 1
@@ -106,85 +110,26 @@ export const getMonthDays = (month: number, year: number): number[][] => {
     );
 
   while (!isLastWeekReached()) {
-    monthDays.push(getWeekDays(7 * i, month, year));
+    monthDays.push(getWeekDays(7 * i, month, year, messages));
     i += 1;
   }
 
-  if (new Date(year, month + 1, 0).getDay() === 0) monthDays.push(getWeekDays(1, month + 1, year));
+  if (new Date(year, month + 1, 0).getDay() === 0) monthDays.push(getWeekDays(1, month + 1, year, messages));
 
   return monthDays;
 };
 
+export const getMonthName = (month: number, messages: DefaultCalendarMessages): string => messages.monthNames[month];
 
-export const getMonthName = (month: number): string => {
-  const months = [
-    'Январь',
-    'Февраль',
-    'Март',
-    'Апрель',
-    'Май',
-    'Июнь',
-    'Июль',
-    'Август',
-    'Сентябрь',
-    'Октябрь',
-    'Ноябрь',
-    'Декабрь',
-  ];
+export const getShortMonthName = (month: number, messages: DefaultCalendarMessages): string => messages.shortMonthNames[month];
 
-  return months[month];
-};
+export const getWeekDayName = (number: number, messages: DefaultCalendarMessages): string => messages.weekDays[number];
 
-export const getShortMonthName = (month: number): string => {
-  const months = [
-    'янв',
-    'фев',
-    'мар',
-    'апр',
-    'май',
-    'июн',
-    'июл',
-    'авг',
-    'сен',
-    'окт',
-    'ноя',
-    'дек',
-  ];
+export const getShortWeekDayName = (number: number, messages: DefaultCalendarMessages): string => messages.shortWeekDays[number % messages.shortWeekDays.length];
 
-  return months[month];
-};
-
-export const getShortWeekDayName = (number: number): string => {
-  const weekDays = [
-    'Пн',
-    'Вт',
-    'Ср',
-    'Чт',
-    'Пт',
-    'Сб',
-    'Вс',
-  ];
-
-  return weekDays[number];
-};
-
-export const getWeekDayName = (number: number): string => {
-  const weekDays = [
-    'Понедельник',
-    'Вторник',
-    'Среда',
-    'Четверг',
-    'Пятница',
-    'Суббота',
-    'Воскресенье',
-  ];
-
-  return weekDays[number];
-};
-
-export const getCalendarTitle = (viewDate: Date, viewType: Values<typeof VIEW_TYPES>): string => {
+export const getCalendarTitle = (viewDate: Date, viewType: Values<typeof VIEW_TYPES>, messages: DefaultCalendarMessages): string => {
   if (viewType === VIEW_TYPES.DATES) {
-    return `${getMonthName(viewDate.getMonth())} ${viewDate.getFullYear()}`;
+    return `${getMonthName(viewDate.getMonth(), messages)} ${viewDate.getFullYear()}`;
   }
 
   if (viewType === VIEW_TYPES.MONTHS) {
@@ -230,9 +175,9 @@ export const getCalendarConditions = (props: CalendarConditionProps): CalendarCo
   const firstDecadeYear = getFirstDecadeYear(viewDate);
   const isDateOutOfMinDecadeRange = !!min && firstDecadeYear < min.getFullYear();
   const isDateOutOfMaxDecadeRange = !!max && firstDecadeYear + 10 > max.getFullYear();
-  // используется чтобы отключить title в dates view
+  // is used to turn off title in dates view
   const isOneMonthInRange = !!min && !!max && +new Date(min.getFullYear(), min.getMonth(), 1) === +new Date(max.getFullYear(), max.getMonth(), 1);
-  // используется чтобы отключить title в months view
+  // is used to turn off title in months view
   const isOneYearInRange = !!min && !!max && min.getFullYear() === max.getFullYear();
 
   const isPrevButtonDisabled = (viewType === VIEW_TYPES.DATES && !!isDateOutOfMinMonthRange)
@@ -308,7 +253,7 @@ export const getDateCellConditions = (props: DateCellProps): DateCellConditions 
 
 export const getDateCellClassNames = (props: DateCellProps, renderedDate: Date): string | undefined => {
   const {
-    theme, value, viewDate, weekIndex,
+    theme, value, viewDate, weekDayIndex,
   } = props;
 
   return getClassNames(
@@ -316,7 +261,7 @@ export const getDateCellClassNames = (props: DateCellProps, renderedDate: Date):
     { [theme.dateCellSelected]: value && isDatesEqual(value, renderedDate) },
     { [theme.dateCellActive]: isDatesEqual(viewDate, renderedDate) },
     { [theme.dateCellToday]: isDatesEqual(new Date(), renderedDate) },
-    { [theme.dateCellDayOff]: weekIndex === 5 || weekIndex === 6 },
+    { [theme.dateCellDayOff]: weekDayIndex === 6 || weekDayIndex === 0 },
   );
 };
 

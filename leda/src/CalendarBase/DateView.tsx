@@ -7,12 +7,15 @@ import { DateCell } from './DateCell';
 import {
   getMonthDays, getShortWeekDayName, getWeekDayName,
 } from './helpers';
-import { DateViewProps } from './types';
+import type { DateViewProps } from './types';
+import { useMessages } from '../../utils/useMessages';
 
 export const DateView = (props: DateViewProps): React.ReactElement | null => {
   const {
     viewDate, theme, viewType, onClick, min, max, value, dateCellRender, weeksRowRender, ...restProps
   } = props;
+
+  const messages = useMessages('calendar');
 
   const { renders: { dateTimeInput: dateTimeInputRenders } } = React.useContext(LedaContext);
 
@@ -25,15 +28,18 @@ export const DateView = (props: DateViewProps): React.ReactElement | null => {
 
   if (viewType !== VIEW_TYPES.DATES) return null;
 
+  const weekDayIndicies = Array.from(new Array(7)).map((_item, index) => index);
+  const orderedWeekDayIndicies = [...weekDayIndicies.slice(messages.firstWeekDay), ...weekDayIndicies.slice(0, messages.firstWeekDay)];
+
   return (
     <>
       <WeekRow className={theme.weekDaysRow}>
-        {Array.from(new Array(7)).map((item, index) => {
-          const weekDay = getShortWeekDayName(index);
+        {orderedWeekDayIndicies.map((index) => {
+          const weekDay = getShortWeekDayName(index, messages);
           return (
             <Div
               key={weekDay}
-              title={getWeekDayName(index)}
+              title={getWeekDayName(index, messages)}
               className={theme.dateCell}
             >
               {weekDay}
@@ -43,7 +49,7 @@ export const DateView = (props: DateViewProps): React.ReactElement | null => {
       </WeekRow>
       <Div className={theme.dateView} {...restProps}>
         {
-          getMonthDays(viewDate.getMonth(), viewDate.getFullYear()).map((week, index, dates) => (
+          getMonthDays(viewDate.getMonth(), viewDate.getFullYear(), messages).map((week, index, dates) => (
             <Div key={`week-${index.toString()}`} className={theme.dateRow}>
               {week.map((date, weekIndex) => (
                 <DateCell
@@ -54,6 +60,7 @@ export const DateView = (props: DateViewProps): React.ReactElement | null => {
                   dateCellRender={dateCellRender}
                   index={index}
                   weekIndex={weekIndex}
+                  weekDayIndex={orderedWeekDayIndicies[weekIndex]}
                   dates={dates}
                   onClick={onClick}
                   theme={theme}

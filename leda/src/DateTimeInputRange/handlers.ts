@@ -1,9 +1,9 @@
-import * as React from 'react';
+import type * as React from 'react';
 import {
   isFunction, isNil, isDate, isString,
 } from 'lodash';
-import { ChangeEvent, DateTimeInputRefCurrent } from '../DateTimeInput/types';
-import { DateTimeInputRangeProps, DateTimeInputRangeState } from './types';
+import type { ChangeEvent, DateTimeInputRefCurrent } from '../DateTimeInput/types';
+import type { DateTimeInputRangeProps, DateTimeInputRangeState } from './types';
 import { isDateValue } from './helpers';
 import { formatDateTime, stringToDate } from '../DateTimeInput/helpers';
 import { COMPONENT_TYPES } from '../DateTimeInput/constants';

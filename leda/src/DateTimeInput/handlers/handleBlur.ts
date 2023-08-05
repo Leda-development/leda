@@ -5,10 +5,10 @@ import {
 import { setDate, setFocused, setOpen } from '../actions';
 import { COMPONENT_TYPES } from '../constants';
 import { formatDateTime } from '../helpers';
-import {
+import type {
   HandlersData,
 } from '../types';
-import { FocusEvent } from '../../MaskedInputBase/types';
+import type { FocusEvent } from '../../MaskedInputBase/types';
 
 export const createBlurHandler = ({
   props,
@@ -46,7 +46,7 @@ export const createBlurHandler = ({
     return minDate || maxDate || date;
   })();
 
-  // при блюре - нормализуем значение по min/max
+  // normalize with min/max on blur
   dispatch(setDate(newDate));
 
   if (isFunction(onChange)) {

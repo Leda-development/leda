@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { Div } from '../../components/Div';
 import { formatDate } from '../DateTimeInput/helpers';
-import { TodayButtonProps } from './types';
+import type { TodayButtonProps } from './types';
+import { useMessages } from '../../utils/useMessages';
 
 export const TodayButton = (props: TodayButtonProps): React.ReactElement => {
   const {
@@ -9,13 +10,15 @@ export const TodayButton = (props: TodayButtonProps): React.ReactElement => {
     theme,
   } = props;
 
+  const messages = useMessages('calendar');
+
   return (
     <Div
       className={theme.footer}
-      title={formatDate(new Date())}
+      title={formatDate(new Date(), messages)}
       onClick={onClick}
     >
-      {formatDate(new Date())}
+      {formatDate(new Date(), messages)}
     </Div>
   );
 };

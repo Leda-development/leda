@@ -1,7 +1,7 @@
 import { isNil, isString, isDate } from 'lodash';
 import { COMPONENT_TYPES } from '../constants';
 import { checkIsDateFormatIncorrect, stringToDate } from '../helpers';
-import { DateTimeInputProps } from '../types';
+import type { DateTimeInputProps } from '../types';
 import { isDateGreater, isDateLess } from '../../CalendarBase/helpers';
 
 const handleFormatErrors = (format: DateTimeInputProps['format'], type: DateTimeInputProps['type']): never | void => {

@@ -5,6 +5,7 @@ import { MinMax } from './MinMax';
 import { Uncontrolled } from './Uncontrolled';
 import { Ref } from './Ref';
 import { Customization } from './Customization';
+import { Localization } from './Localization';
 
 export const Calendar = () => (
   <Story title="Calendar">
@@ -13,5 +14,6 @@ export const Calendar = () => (
     <Uncontrolled title="Неконтролируемый режим" />
     <Ref title="Ref" />
     <Customization title="Customization" />
+    <Localization title="Localization" />
   </Story>
 );

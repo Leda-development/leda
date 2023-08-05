@@ -1,6 +1,6 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { isFunction } from 'lodash';
-import { DateTimeInputProps, AllActions } from '../types';
+import type { DateTimeInputProps, AllActions } from '../types';
 import { setDate, setValue } from '../actions';
 
 export const createResetHandler = ({

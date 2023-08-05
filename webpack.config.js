@@ -2,7 +2,6 @@ const path = require('path');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
@@ -92,9 +91,6 @@ module.exports = {
         },
         'assets/css/leda.base.css',
       ],
-    }),
-    new ScriptExtHtmlWebpackPlugin({
-      defaultAttribute: 'defer',
     }),
   ],
 };

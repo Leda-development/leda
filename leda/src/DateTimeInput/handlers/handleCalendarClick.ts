@@ -1,12 +1,12 @@
 import { isFunction, isNil } from 'lodash';
 import { CALENDAR_CLICK_ACTION, VIEW_TYPES } from '../../CalendarBase/constants';
-import { CalendarClickHandler } from '../../CalendarBase/types';
+import type { CalendarClickHandler } from '../../CalendarBase/types';
 import {
   setDate, setOpen, setViewDate, setViewType,
 } from '../actions';
 import { COMPONENT_TYPES } from '../constants';
 import { formatDateTime, getDatesShorthand, updateInputSelection } from '../helpers';
-import {
+import type {
   DatesNextClickPayload,
   DatesPrevClickPayload,
   DatesSelectPayload,
@@ -63,7 +63,6 @@ export const handleDatesNextClick = (payload: DatesNextClickPayload): void => {
     && dateVal > max.getDate();
 
   const newDate = isDateGreaterThanMax && max ? max.getDate() : dateVal;
-
 
   dispatch(setViewDate(
     new Date(
@@ -346,9 +345,9 @@ export const createCalendarClickHandler = ({
   } = state;
 
   const updateDate = (newDate: Date): void => {
-    // неконтролируемый режим
+    // uncontrolled mode
     dispatch(setDate(newDate));
-    // контролируемый режим
+    // controlled mode
     if (isFunction(onChange)) {
       onChange({
         ...ev,
@@ -373,7 +372,7 @@ export const createCalendarClickHandler = ({
     isPrevButtonDisabled,
     isNextButtonDisabled,
   } = conditions;
-  // пишем атрибуты в две строки
+  // to write args in two lines
   /* eslint-disable object-property-newline */
   switch (type) {
     case CALENDAR_CLICK_ACTION.DATES_PREV: {

@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { CustomRender, Values } from '../../commonTypes';
-import { AllActions } from '../DateTimeInput/types';
-import { CALENDAR_CLICK_ACTION, VIEW_TYPES } from './constants';
-import { defaultCalendarTheme } from './theme';
-import { DivProps } from '../../components/Div';
+import type * as React from 'react';
+import type { CustomRender, Values } from '../../commonTypes';
+import type { AllActions } from '../DateTimeInput/types';
+import type { CALENDAR_CLICK_ACTION, VIEW_TYPES } from './constants';
+import type { defaultCalendarTheme } from './theme';
+import type { DivProps } from '../../components/Div';
 
 export interface CalendarClickHandler {
   (type: Values<typeof CALENDAR_CLICK_ACTION>, ev: React.MouseEvent<HTMLElement>, payload?: { dateCell?: number, monthCell?: number, yearCell?: number }): void,
@@ -24,18 +24,18 @@ export interface CalendarBaseProps {
   value: Date | null,
   viewDate: Date,
   viewType: Values<typeof VIEW_TYPES>,
-  dateCellRender?: CustomRender<DateCellProps, {}, DateCellItemProps>,
-  weeksRowRender?: CustomRender<DateViewProps, {}, WeekRowProps>,
-  dateViewRender?: CustomRender<CalendarBaseProps, {}, DateViewProps>,
-  monthViewRender?: CustomRender<CalendarBaseProps, {}, MonthViewProps>,
-  yearViewRender?: CustomRender<CalendarBaseProps, {}, YearViewProps>,
-  calendarHeaderRender?: CustomRender<CalendarBaseProps, {}, CalendarHeaderProps>,
-  calendarWrapperRender?: CustomRender<CalendarBaseProps, {}, DivProps>,
+  dateCellRender?: CustomRender<DateCellProps, Record<string, never>, DateCellItemProps>,
+  weeksRowRender?: CustomRender<DateViewProps, Record<string, never>, WeekRowProps>,
+  dateViewRender?: CustomRender<CalendarBaseProps, Record<string, never>, DateViewProps>,
+  monthViewRender?: CustomRender<CalendarBaseProps, Record<string, never>, MonthViewProps>,
+  yearViewRender?: CustomRender<CalendarBaseProps, Record<string, never>, YearViewProps>,
+  calendarHeaderRender?: CustomRender<CalendarBaseProps, Record<string, never>, CalendarHeaderProps>,
+  calendarWrapperRender?: CustomRender<CalendarBaseProps, Record<string, never>, DivProps>,
 }
 
 export interface DateCellProps {
   date: number,
-  dateCellRender?: CustomRender<DateCellProps, {}, DateCellItemProps>,
+  dateCellRender?: CustomRender<DateCellProps, Record<string, never>, DateCellItemProps>,
   dates: number[][],
   min?: Date,
   max?: Date,
@@ -46,6 +46,7 @@ export interface DateCellProps {
   viewType: Values<typeof VIEW_TYPES>,
   theme: typeof defaultCalendarTheme,
   weekIndex: number,
+  weekDayIndex: number,
   children?: React.ReactNode,
 }
 
@@ -60,25 +61,25 @@ export interface CalendarHeaderProps {
 
 export interface DateViewProps {
   viewDate: Date,
-  dateCellRender?: CustomRender<DateCellProps, {}, DateCellItemProps>,
-  weeksRowRender?: CustomRender<DateViewProps, {}, WeekRowProps>,
+  dateCellRender?: CustomRender<DateCellProps, Record<string, never>, DateCellItemProps>,
+  weeksRowRender?: CustomRender<DateViewProps, Record<string, never>, WeekRowProps>,
   min?: Date,
   max?: Date,
   value: Date | null,
   viewType: Values<typeof VIEW_TYPES>,
   onClick: CalendarClickHandler,
-  theme: typeof defaultCalendarTheme,
   children?: React.ReactNode,
+  theme: typeof defaultCalendarTheme,
 }
 
 export interface MonthViewProps {
   max?: Date,
   min?: Date,
-  theme: typeof defaultCalendarTheme,
   onClick: CalendarClickHandler,
   children?: React.ReactNode,
   viewDate: Date,
   viewType: Values<typeof VIEW_TYPES>,
+  theme: typeof defaultCalendarTheme,
 }
 
 export interface YearViewProps {

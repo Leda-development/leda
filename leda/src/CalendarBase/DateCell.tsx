@@ -7,12 +7,15 @@ import {
   getDateCellClassNames, getDateCellConditions,
 } from './helpers';
 import { getClassNames, useElement } from '../../utils';
-import { DateCellProps } from './types';
+import type { DateCellProps } from './types';
+import { useMessages } from '../../utils/useMessages';
 
 export const DateCell = (props: DateCellProps): React.ReactElement => {
   const {
     date, index, theme, onClick, viewDate, dateCellRender,
   } = props;
+
+  const messages = useMessages('calendar');
 
   const { renders: { dateTimeInput: dateTimeInputRenders } } = React.useContext(LedaContext);
 
@@ -50,7 +53,7 @@ export const DateCell = (props: DateCellProps): React.ReactElement => {
         key={`${index.toString()}-${date}`}
         className={getClassNames(theme.dateCell, theme.dateCellDifferentMonth)}
         onClick={(ev) => onClick(CALENDAR_CLICK_ACTION.DATES_SELECT, ev, { dateCell: date, monthCell })}
-        title={formatDate(renderedDate)}
+        title={formatDate(renderedDate, messages)}
       >
         {date}
       </DateCellItem>
@@ -62,7 +65,7 @@ export const DateCell = (props: DateCellProps): React.ReactElement => {
       key={`${index.toString()}-${date}`}
       className={getDateCellClassNames(props, renderedDate)}
       onClick={(ev) => onClick(CALENDAR_CLICK_ACTION.DATES_SELECT, ev, { dateCell: date })}
-      title={formatDate(renderedDate)}
+      title={formatDate(renderedDate, messages)}
     >
       {date}
     </DateCellItem>

@@ -4,10 +4,10 @@ import { useElement } from '../../utils';
 import { CalendarHeader as DefaultCalendarHeader } from '../../src/CalendarBase/CalendarHeader';
 import { DateView as DefaultDateView } from '../../src/CalendarBase/DateView';
 import { MonthView as DefaultMonthView } from '../../src/CalendarBase/MonthView';
-import { CustomElements } from '../../src/CalendarBase/types';
+import type { CustomElements } from '../../src/CalendarBase/types';
 import { YearView as DefaultYearView } from '../../src/CalendarBase/YearView';
 import { Div } from '../Div';
-import { StandaloneCalendarProps } from './types';
+import type { StandaloneCalendarProps } from './types';
 
 export const useCustomElements = (props: StandaloneCalendarProps): CustomElements => {
   const {

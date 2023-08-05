@@ -5,7 +5,7 @@ import { DateTimeInput } from '../DateTimeInput';
 import {
   bindFunctionalRef, getClassNames, useProps, useTheme,
 } from '../../utils';
-import { DateTimeInputRefCurrent } from '../DateTimeInput/types';
+import type { DateTimeInputRefCurrent } from '../DateTimeInput/types';
 import {
   getDisabled, getName, getOpen, getPlaceholder, getRequired, getRequiredMessage, isDateValue,
 } from './helpers';
@@ -13,7 +13,7 @@ import { useCustomElements, useDateRange } from './hooks';
 import {
   createChangeHandler, createEnterPressHandler, handleErrors,
 } from './handlers';
-import { DateTimeInputRangeProps, DateTimeInputRangeRefCurrent, DateTimeInputRangeState } from './types';
+import type { DateTimeInputRangeProps, DateTimeInputRangeRefCurrent, DateTimeInputRangeState } from './types';
 
 export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangeProps, ref: React.Ref<DateTimeInputRangeRefCurrent>) => {
   const {
@@ -58,7 +58,7 @@ export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangePro
   const toDateTimeInputRef = React.useRef<DateTimeInputRefCurrent | null>(null);
 
   const {
-    value: valueState, date, setDate,
+    date, setDate,
   } = state;
 
   const value = isNil(valueProp) ? date : valueProp;

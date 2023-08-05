@@ -27,17 +27,12 @@ import { Calendar } from './components/Calendar';
 import { CheckBox } from './components/CheckBox';
 import { Collapse } from './components/Collapse';
 import { Collapsible } from './components/Collapsible';
-import {
-  Currency, EUR, USD,
-} from './components/Currency';
 import { DatePicker } from './components/DatePicker';
 import { DateRange } from './components/DateRange';
 import { DateTimePicker } from './components/DateTimePicker';
 import { DateTimeRange } from './components/DateTimeRange';
 import { Div } from './components/Div';
 import { Dl, Dd, Dt } from './components/Dl';
-import { DropDown } from './components/DropDown';
-import { DropDownLink } from './components/DropDownLink';
 import { DropDownSelect } from './components/DropDownSelect';
 import { DropZone } from './components/DropZone';
 import { FileDrop } from './components/FileDrop';
@@ -77,8 +72,6 @@ import { Section } from './components/Section';
 import { Slider } from './components/Slider';
 import { Small } from './components/Small';
 import { Span } from './components/Span';
-import { StatusBar } from './components/StatusBar';
-import { StickyPanel } from './components/StickyPanel';
 import { Svg } from './components/Svg';
 import { Switcher } from './components/Switcher';
 import { Tab, Tabs } from './components/Tabs';
@@ -94,7 +87,6 @@ import { Tooltip } from './components/Tooltip';
 import { Ul } from './components/Ul';
 import { Leda, LedaContext } from './components/LedaProvider';
 import { validate } from './validators';
-import { VStepper } from './components/VStepper';
 
 import * as Validation from './components/Validation';
 import * as AutoCompleteTypes from './components/AutoComplete/types';
@@ -120,8 +112,6 @@ import * as NumericTextBoxTypes from './components/NumericTextBox/types';
 import * as PaginationTypes from './components/Pagination/types';
 import * as PasswordTypes from './components/Password/types';
 import * as RadioTypes from './components/Radio/types';
-import * as StatusBarTypes from './components/StatusBar/types';
-import * as StickyPanelTypes from './components/StickyPanel/types';
 import * as SwitcherTypes from './components/Switcher/types';
 import * as TabsTypes from './components/Tabs/types';
 import * as TagsTypes from './components/Tags/types';
@@ -130,7 +120,6 @@ import * as TourTypes from './components/Tour/types';
 import * as TextareaTypes from './components/Textarea/types';
 import * as TooltipTypes from './components/Tooltip/types';
 import * as ValidationTypes from './components/Validation/types';
-import * as VStepperTypes from './components/VStepper/types';
 import * as commonTypes from './commonTypes';
 
 import { form } from './form';
@@ -177,8 +166,6 @@ export {
   PaginationTypes,
   PasswordTypes,
   RadioTypes,
-  StatusBarTypes,
-  StickyPanelTypes,
   SwitcherTypes,
   TabsTypes,
   TableTypes,
@@ -187,7 +174,6 @@ export {
   TextareaTypes,
   TooltipTypes,
   ValidationTypes,
-  VStepperTypes,
   commonTypes,
 
   A,
@@ -202,9 +188,6 @@ export {
   CheckBox,
   Collapse,
   Collapsible,
-  Currency,
-  EUR,
-  USD,
   DatePicker,
   DateRange,
   DateTimePicker,
@@ -213,8 +196,6 @@ export {
   Dl,
   Dd,
   Dt,
-  DropDown,
-  DropDownLink,
   DropDownSelect,
   DropZone,
   FileDrop,
@@ -250,8 +231,6 @@ export {
   Slider,
   Small,
   Span,
-  StatusBar,
-  StickyPanel,
   Svg,
   Switcher,
   Tab, Tabs,
@@ -265,7 +244,6 @@ export {
   Ul,
   Leda, LedaContext,
   validate,
-  VStepper,
   form,
   utils,
   Validation,

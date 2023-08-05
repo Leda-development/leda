@@ -4,23 +4,22 @@ import * as React from 'react';
 import * as L from '../leda';
 import {
   AutoComplete, ButtonGroup, Calendar, CheckBox, DatePicker, DateRange,
-  DropDown, DropDownSelect, Input, Icon, A, LedaProvider, Loader, MaskedInput, Modal,
+  DropDownSelect, Input, Icon, A, LedaProvider, Loader, MaskedInput, Modal,
   MultiSelect, Notifications, NumericRange, NumericTextBox, Password,
-  Pagination, Radio, ProgressBar, Slider, StatusBar, StickyPanel, Switcher,
+  Pagination, Radio, ProgressBar, Slider, Switcher,
   Tabs, Tags, DropZone, Textarea, DateTimePicker, TimePicker,
-  DateTimeRange, TimeRange, DropDownLink, Currency, Rating,
+  DateTimeRange, TimeRange, Rating,
   Div, Table, Dl, FileUpload, HTMLTags, Validation,
-  Collapsible, Collapse, VStepper, Button, Tooltip, FileDrop, Tour,
+  Collapsible, Collapse, Button, Tooltip, FileDrop, Tour,
 } from './components';
-import { useElementRef } from '../leda/utils';
 
 export const Demo = hot(() => (
   <L.Div style={{ color: 'black' }} _wrapper>
     {/*<Navigation />*/}
     <L.Div _container>
-      <L.Div _row _demoMainTitle _noGutters>
-        <L.H1 _colMd12>Demo sandbox</L.H1>
-        <L.P _colMd12>
+      <L.Div _row _demo-main-title _no-gutters>
+        <L.H1 _col-md-12>Demo sandbox</L.H1>
+        <L.P _col-md-12>
           Специально созданная страница для тестирования компонентов, дебага и написания кода
         </L.P>
       </L.Div>
@@ -33,15 +32,12 @@ export const Demo = hot(() => (
       <CheckBox />
       <Collapse />
       <Collapsible />
-      <Currency />
       <DateTimePicker />
       <DateTimeRange />
       <DatePicker />
       <DateRange />
       <Div />
       <Dl />
-      <DropDown />
-      <DropDownLink />
       <DropDownSelect />
       <DropZone />
       <FileDrop />
@@ -62,8 +58,6 @@ export const Demo = hot(() => (
       <Radio />
       <Rating />
       <Slider />
-      <StatusBar />
-      <StickyPanel />
       <Switcher />
       <Table />
       <Tabs />
@@ -74,7 +68,6 @@ export const Demo = hot(() => (
       <Tooltip />
       <Tour />
       <Validation />
-      <VStepper />
     </L.Div>
   </L.Div>
 ));

@@ -7,8 +7,6 @@ import { defaultCheckBoxTheme } from '../CheckBox/theme';
 import { defaultDateTimeInputRangeTheme } from '../../src/DateTimeInputRange/theme';
 import { defaultDateTimeInputTheme } from '../../src/DateTimeInput/theme';
 import { defaultCollapseTheme } from '../Collapse/theme';
-import { defaultDropDownLinkTheme } from '../DropDownLink/theme';
-import { defaultDropDownTheme } from '../DropDown/theme';
 import { defaultDropDownSelectTheme } from '../DropDownSelect/theme';
 import { defaultDropZoneTheme } from '../DropZone/theme';
 import { defaultInputTheme } from '../Input/theme';
@@ -23,13 +21,10 @@ import { defaultProgressBarTheme } from '../ProgressBar/theme';
 import { defaultRadioTheme } from '../Radio/theme';
 import { defaultRatingTheme } from '../Rating/theme';
 import { defaultSliderTheme } from '../Slider/theme';
-import { defaultStatusBarTheme } from '../StatusBar/theme';
-import { defaultStickyPanelTheme } from '../StickyPanel/theme';
 import { defaultSwitcherTheme } from '../Switcher/theme';
 import { defaultTabsTheme } from '../Tabs/theme';
 import { defaultTagsTheme } from '../Tags/theme';
 import { defaultTooltipTheme } from '../Tooltip/theme';
-import { defaultVStepperTheme } from '../VStepper/theme';
 import { defaultTextAreaTheme } from '../Textarea/theme';
 import { defaultNotificationsTheme } from '../Notifications/theme';
 import { defaultMultiSelectTheme } from '../MultiSelect/theme';
@@ -44,8 +39,6 @@ export const globalDefaultTheme = {
   collapse: defaultCollapseTheme,
   dateTimeInput: defaultDateTimeInputTheme,
   dateTimeInputRange: defaultDateTimeInputRangeTheme,
-  dropDown: defaultDropDownTheme,
-  dropDownLink: defaultDropDownLinkTheme,
   dropDownSelect: defaultDropDownSelectTheme,
   dropZone: defaultDropZoneTheme,
   fileDrop: defaultFileDropTheme,
@@ -63,13 +56,10 @@ export const globalDefaultTheme = {
   radio: defaultRadioTheme,
   rating: defaultRatingTheme,
   slider: defaultSliderTheme,
-  statusBar: defaultStatusBarTheme,
-  stickyPanel: defaultStickyPanelTheme,
   suggestionList: defaultSuggestionListTheme,
   switcher: defaultSwitcherTheme,
   tabs: defaultTabsTheme,
   tags: defaultTagsTheme,
   tooltip: defaultTooltipTheme,
   textarea: defaultTextAreaTheme,
-  vstepper: defaultVStepperTheme,
 };

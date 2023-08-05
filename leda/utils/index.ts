@@ -13,7 +13,7 @@ export { isElementInViewport } from './isElementInViewport';
 export { scrollIntoView } from './scrollIntoView';
 
 export {
-  fixJSON, bindFunctionalRef, getComputedTheme, getFileWordEnding, getClassNames, stringToMaxLength,
+  fixJSON, bindFunctionalRef, getComputedTheme, getClassNames, stringToMaxLength,
 } from './helpers';
 
 export {
@@ -47,8 +47,6 @@ export { useAdaptivePosition } from './useAdaptivePosition';
 export { useInterval } from './useInterval';
 
 export { checkIsTheSameObject } from './checkIsTheSameObject';
-
-export { getWordEnding } from './getWordEnding';
 
 export { getIsEmptyAndRequired } from './getIsEmptyAndRequired';
 

@@ -6,7 +6,6 @@ import {
   getClassNames,
   getIsSentenceIncludingWords,
   getSizeInBytes,
-  getWordEnding,
   scrollIntoView,
   useElement,
   useElementRef,
@@ -34,12 +33,9 @@ import { DateTimeRange } from './components/DateTimeRange';
 import { Div } from './components/Div';
 import { Dl, Dd, Dt } from './components/Dl';
 import { DropDownSelect } from './components/DropDownSelect';
-import { DropZone } from './components/DropZone';
-import { FileDrop } from './components/FileDrop';
 import { Figcaption } from './components/Figcaption';
 import { Figure } from './components/Figure';
 import { Footer } from './components/Footer';
-import { FileUpload } from './components/FileUpload';
 import {
   Header, H1, H2, H3, H4, H5, H6,
 } from './components/Headers';
@@ -98,10 +94,7 @@ import * as CollapseTypes from './components/Collapse/types';
 import * as DateTimeInputTypes from './src/DateTimeInput/types';
 import * as DateTimeInputRangeTypes from './src/DateTimeInputRange/types';
 import * as DropDownSelectTypes from './components/DropDownSelect/types';
-import * as DropZoneTypes from './components/DropZone/types';
-import * as FileDropTypes from './components/FileDrop/types';
 import * as DivTypes from './components/Div';
-import * as FileUploadTypes from './components/FileUpload/types';
 import * as IconTypes from './components/Icon/types';
 import * as InputTypes from './components/Input/types';
 import * as MaskedInputTypes from './components/MaskedInput/types';
@@ -132,7 +125,6 @@ const utils = {
   getClassNames,
   getIsSentenceIncludingWords,
   getSizeInBytes,
-  getWordEnding,
   scrollIntoView,
   stringToDate,
   useElement,
@@ -152,10 +144,7 @@ export {
   DateTimeInputRangeTypes,
   DateTimeInputTypes,
   DropDownSelectTypes,
-  DropZoneTypes,
-  FileDropTypes,
   DivTypes,
-  FileUploadTypes,
   IconTypes,
   InputTypes,
   MaskedInputTypes,
@@ -197,12 +186,9 @@ export {
   Dd,
   Dt,
   DropDownSelect,
-  DropZone,
-  FileDrop,
   Figcaption,
   Figure,
   Footer,
-  FileUpload,
   Header, H1, H2, H3, H4, H5, H6,
   I,
   Icon,

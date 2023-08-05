@@ -7,10 +7,10 @@ import {
   DropDownSelect, Input, Icon, A, LedaProvider, Loader, MaskedInput, Modal,
   MultiSelect, Notifications, NumericRange, NumericTextBox, Password,
   Pagination, Radio, ProgressBar, Slider, Switcher,
-  Tabs, Tags, DropZone, Textarea, DateTimePicker, TimePicker,
+  Tabs, Tags, Textarea, DateTimePicker, TimePicker,
   DateTimeRange, TimeRange, Rating,
-  Div, Table, Dl, FileUpload, HTMLTags, Validation,
-  Collapsible, Collapse, Button, Tooltip, FileDrop, Tour,
+  Div, Table, Dl, HTMLTags, Validation,
+  Collapsible, Collapse, Button, Tooltip, Tour,
 } from './components';
 
 export const Demo = hot(() => (
@@ -39,9 +39,6 @@ export const Demo = hot(() => (
       <Div />
       <Dl />
       <DropDownSelect />
-      <DropZone />
-      <FileDrop />
-      <FileUpload />
       <Input />
       <Icon />
       <LedaProvider />

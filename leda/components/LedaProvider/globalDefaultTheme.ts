@@ -8,7 +8,6 @@ import { defaultDateTimeInputRangeTheme } from '../../src/DateTimeInputRange/the
 import { defaultDateTimeInputTheme } from '../../src/DateTimeInput/theme';
 import { defaultCollapseTheme } from '../Collapse/theme';
 import { defaultDropDownSelectTheme } from '../DropDownSelect/theme';
-import { defaultDropZoneTheme } from '../DropZone/theme';
 import { defaultInputTheme } from '../Input/theme';
 import { defaultLoaderTheme } from '../Loader/theme';
 import { defaultMaskedInputTheme } from '../MaskedInput/theme';
@@ -28,7 +27,6 @@ import { defaultTooltipTheme } from '../Tooltip/theme';
 import { defaultTextAreaTheme } from '../Textarea/theme';
 import { defaultNotificationsTheme } from '../Notifications/theme';
 import { defaultMultiSelectTheme } from '../MultiSelect/theme';
-import { defaultFileDropTheme } from '../FileDrop/theme';
 
 export const globalDefaultTheme = {
   autoComplete: defaultAutoCompleteTheme,
@@ -40,8 +38,6 @@ export const globalDefaultTheme = {
   dateTimeInput: defaultDateTimeInputTheme,
   dateTimeInputRange: defaultDateTimeInputRangeTheme,
   dropDownSelect: defaultDropDownSelectTheme,
-  dropZone: defaultDropZoneTheme,
-  fileDrop: defaultFileDropTheme,
   input: defaultInputTheme,
   loader: defaultLoaderTheme,
   maskedInput: defaultMaskedInputTheme,

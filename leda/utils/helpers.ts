@@ -7,15 +7,6 @@ import classnames from 'classnames';
 import classnamesDedupe from 'classnames/dedupe';
 import { SomeObject } from '../commonTypes';
 
-export const getFileWordEnding = (number: number): string => {
-  const beforeLast = number.toString().slice(-2, -1);
-  const last = number.toString().slice(-1);
-
-  if (last === '1' && beforeLast !== '1') return 'a';
-
-  return 'ов';
-};
-
 export const stringToMaxLength = (str: string, maxLength?: number) => {
   if (maxLength != null && maxLength < str.length) {
     return str.substring(0, maxLength);

@@ -6,6 +6,8 @@ import { BUTTON_TYPE, CALENDAR_CLICK_ACTION } from './constants';
 import { getButtonActionType, getCalendarTitle } from './helpers';
 import type { CalendarHeaderProps } from './types';
 import { useMessages } from '../../utils/useMessages';
+import { Icon } from '../../components/Icon';
+import { IconTypes } from '../..';
 
 export const CalendarHeader = (props: CalendarHeaderProps): React.ReactElement => {
   const {
@@ -20,7 +22,10 @@ export const CalendarHeader = (props: CalendarHeaderProps): React.ReactElement =
         className={getClassNames(theme.prevButton, { [theme.buttonDisabled]: conditions.isPrevButtonDisabled })}
         onClick={(ev) => onClick(getButtonActionType(viewType, BUTTON_TYPE.PREV), ev)}
       >
-        <i className={theme.prevIcon} />
+        <Icon
+          icon={IconTypes.Icons.ChevronLeft}
+          className={theme.prevIcon}
+        />
       </Span>
       <Span
         className={getClassNames(theme.title, { [theme.titleDisabled]: conditions.isTitleDisabled })}
@@ -32,7 +37,10 @@ export const CalendarHeader = (props: CalendarHeaderProps): React.ReactElement =
         className={getClassNames(theme.nextButton, { [theme.buttonDisabled]: conditions.isNextButtonDisabled })}
         onClick={(ev) => onClick(getButtonActionType(viewType, BUTTON_TYPE.NEXT), ev)}
       >
-        <i className={theme.nextIcon} />
+        <Icon
+          icon={IconTypes.Icons.ChevronRight}
+          className={theme.nextIcon}
+        />
       </Span>
     </Div>
   );

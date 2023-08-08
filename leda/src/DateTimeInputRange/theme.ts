@@ -2,8 +2,8 @@
 import { defaultDateTimeInputTheme } from '../DateTimeInput/theme';
 
 export const defaultDateTimeInputRangeTheme = {
-  delimiter:              'daterange-delimiter',
-  wrapper:                'daterange-wrapper',
+  delimiter:              'ld-daterange-delimiter',
+  wrapper:                'ld-daterange-wrapper',
   from:                   defaultDateTimeInputTheme,
   to:                     defaultDateTimeInputTheme,
 };

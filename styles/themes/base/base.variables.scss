@@ -40,6 +40,43 @@
 
   --ld-btn-group-active-color: var(--ld-main-color-dark);
 
+  --ld-calendar-width: 290px;
+  --ld-calendar-bg: var(--ld-bg-color);
+  --ld-calendar-box-shadow: 0 1rem 2rem 0 var(--ld-border-color);
+  --ld-calendar-border-radius: var(--ld-border-radius);
+  --ld-calendar-z-index: 2;
+  --ld-calendar-padding: 10px;
+  --ld-calendar-header-padding: 10px;
+  --ld-calendar-footer-padding: 10px;
+  --ld-calendar-date-cell-size: 32px;
+  --ld-calendar-date-cell-border-radius: 50%;
+  --ld-calendar-date-font-color: var(--ld-font-color);
+  --ld-calendar-bg-hover: var(--ld-main-color-lightest);
+  --ld-calendar-active-date-bg: var(--ld-main-color-lightest);
+  --ld-calendar-day-off-color: var(--ld-main-color-dark);
+  --ld-calendar-different-date-color: var(--ld-border-color);
+  --ld-calendar-bg-selected: #a3a3a3;
+  --ld-calendar-disabled-color: var(--ld-border-color);
+  --ld-calendar-disabled-bg-hover: var(--ld-bg-color);
+  --ld-calendar-header-font-size: 1rem;
+  --ld-calendar-header-color: var(--ld-border-color);
+  --ld-calendar-header-color-hover: var(--ld-font-color);
+  --ld-calendar-footer-color: var(--ld-border-color);
+  --ld-calendar-footer-color-hover: var(--ld-font-color);
+  --ld-calendar-month-cell-size: 70px;
+  --ld-calendar-month-cell-border-radius: 4px;
+  --ld-calendar-month-cell-margin: 2px;
+  --ld-calendar-year-cell-size: 70px;
+  --ld-calendar-year-cell-border-radius: 4px;
+  --ld-calendar-year-cell-margin: 2px;
+  --ld-calendar-button-color: var(--ld-border-color);
+  --ld-calendar-button-color-hover: var(--ld-font-color);
+  --ld-calendar-week-day-color: var(--ld-main-color);
+  --ld-calendar-week-day-font-size: 0.75rem;
+
+  --ld-date-range-delimeter-width: 10%;
+  --ld-date-range-delimeter-min-width: 2rem;
+
   --ld-collapse-border-radius: var(--ld-border-radius);
   --ld-collapse-border-color: var(--ld-border-color);
   --ld-collapse-border: 1px solid var(--ld-collapse-border-color);

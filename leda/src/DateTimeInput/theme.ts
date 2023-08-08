@@ -3,14 +3,13 @@ import { defaultCalendarTheme } from '../CalendarBase/theme';
 /* eslint-disable key-spacing */
 export const defaultDateTimeInputTheme = {
   calendar:             defaultCalendarTheme,
-  iconsWrapper:         'datepicker-icons-wrapper',
-  input:                'datepicker-input',
-  inputWrapper:         'datepicker-input-wrapper',
-  calendarIcon:         'datepicker-calendar-icon',
-  inputWrapperFocused:  'focused',
-  inputWrapperInvalid:  'danger',
-  inputWrapperRequired: 'required',
-  wrapper:              'datepicker-wrapper',
-  wrapperDisabled:      'disabled-state',
+  calendarIcon:         'ld-input-icon',
+  input:                'ld-input-element',
+  inputWrapper:         'ld-input-element-wrapper',
+  inputWrapperFocused:  'ld-focused',
+  inputWrapperInvalid:  'ld-danger',
+  inputWrapperRequired: 'ld-required',
+  wrapper:              'ld-datepicker-wrapper',
+  wrapperDisabled:      'ld-datepicker-disabled',
 };
 /* eslint-enable key-spacing */

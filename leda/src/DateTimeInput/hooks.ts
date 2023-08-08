@@ -2,7 +2,6 @@ import * as React from 'react';
 import { isNil, isDate } from 'lodash';
 import { Div } from '../../components/Div';
 import { LedaContext } from '../../components/LedaProvider';
-import { Span } from '../../components/Span';
 import { useElement } from '../../utils';
 import { VIEW_TYPES } from '../CalendarBase/constants';
 import { MaskedInputBase } from '../MaskedInputBase';
@@ -14,6 +13,7 @@ import { stateReducer } from './reducer';
 import type {
   AllActions, CustomElements, DateTimeInputProps, DateTimeInputState, EffectData,
 } from './types';
+import { Icon } from '../../components/Icon';
 
 export const useDateTimeInputEffects = ({
   conditions,
@@ -101,9 +101,9 @@ export const useCustomElements = (props: DateTimeInputProps, state: DateTimeInpu
     state,
   );
 
-  const Icon = useElement(
+  const IconElement = useElement(
     'Icon',
-    Span,
+    Icon,
     iconRender || dateTimeInputRenders.iconRender,
     props,
     state,
@@ -120,6 +120,6 @@ export const useCustomElements = (props: DateTimeInputProps, state: DateTimeInpu
   return {
     Wrapper,
     Input,
-    Icon,
+    Icon: IconElement,
   };
 };

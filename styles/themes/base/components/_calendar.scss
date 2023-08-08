@@ -1,0 +1,229 @@
+.ld-calendar-wrapper {
+  width: var(--ld-calendar-width);
+  background-color: var(--ld-calendar-bg);
+  box-shadow: var(--ld-calendar-box-shadow);
+  border-radius: var(--ld-calendar-border-radius);
+  position: absolute;
+  z-index: var(--ld-calendar-z-index);
+  padding: var(--ld-calendar-padding);
+}
+
+.ld-calendar-top {
+  bottom: 100%;
+}
+
+.ld-calendar-right {
+  right: 0;
+}
+
+.ld-calendar-standalone {
+  position: static;
+}
+
+.ld-calendar-date {
+  width: var(--ld-calendar-date-cell-size);
+  height: var(--ld-calendar-date-cell-size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: var(--ld-calendar-date-font-color);
+  border-radius: var(--ld-calendar-date-cell-border-radius);
+
+  &:hover {
+    background-color: var(--ld-calendar-bg-hover);
+  }
+}
+
+.ld-calendar-date-active {
+  background-color: var(--ld-calendar-bg-selected);
+}
+
+.ld-calendar-date-day-off {
+  color: var(--ld-calendar-day-off-color);
+}
+
+.ld-calendar-date-different-month {
+  color: var(--ld-calendar-different-date-color);
+}
+
+.ld-calendar-date-selected {
+  background-color: var(--ld-calendar-bg-selected);
+  &:hover {
+    background-color: var(--ld-calendar-bg-selected);
+  }
+}
+
+.ld-calendar-date-disabled {
+  color: var(--ld-calendar-disabled-color);
+  cursor: not-allowed;
+
+  &:hover {
+    background-color: var(--ld-calendar-bg);
+  }
+}
+
+.ld-calendar-date-today {
+  font-weight: bold;
+}
+
+.ld-calendar-date-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ld-calendar-footer {
+  text-align: center;
+  padding: var(--ld-calendar-footer-padding);
+  cursor: pointer;
+  color: var(--ld-calendar-footer-color);
+  &:hover {
+    color: var(--ld-calendar-footer-color-hover);
+  }
+}
+
+.ld-calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--ld-calendar-header-padding);
+}
+
+.ld-calendar-month-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--ld-calendar-month-cell-size);
+  height: var(--ld-calendar-month-cell-size);
+  cursor: pointer;
+  border-radius: var(--ld-calendar-month-cell-border-radius);
+  margin: var(--ld-calendar-month-cell-margin);
+  &:hover {
+    background-color: var(--ld-calendar-bg-hover);
+  }
+}
+
+.ld-calendar-month-cell-active {
+  background-color: var(--ld-calendar-bg-selected);
+  &:hover {
+    background-color: var(--ld-calendar-bg-selected);
+  }
+}
+
+.ld-calendar-month-row {
+  display: flex;
+}
+
+.ld-calendar-month-cell-disabled {
+  color: var(--ld-calendar-disabled-color);
+  cursor: not-allowed;
+
+  &:hover {
+    background-color: var(--ld-calendar-bg);
+  }
+}
+
+.ld-calendar-next-button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: var(--ld-calendar-button-color);
+
+  &:hover {
+    color: var(--ld-calendar-button-color-hover);
+  }
+}
+
+.ld-calendar-prev-button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: var(--ld-calendar-button-color);
+
+  &:hover {
+    color: var(--ld-calendar-button-color-hover);
+  }
+}
+
+.ld-calendar-button-disabled {
+  color: var(--ld-calendar-disabled-color);
+  cursor: not-allowed;
+
+  &:hover {
+    color: var(--ld-calendar-disabled-color);
+  }
+}
+
+.ld-calendar-title {
+  color: var(--ld-calendar-header-color);
+  font-size: var(--ld-calendar-header-font-size);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--ld-calendar-button-color-hover);
+  }
+}
+
+.ld-calendar-title-disabled {
+  color: var(--ld-calendar-disabled-color);
+  cursor: not-allowed;
+
+  &:hover {
+    color: var(--ld-calendar-disabled-color);
+  }
+}
+
+.ld-calendar-week-days-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ld-calendar-week-day {
+  font-size: var(--ld-calendar-week-day-font-size);
+  color: var(--ld-calendar-week-day-color);
+  width: var(--ld-calendar-date-cell-size);
+  height: var(--ld-calendar-date-cell-size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ld-calendar-year-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--ld-calendar-year-cell-size);
+  height: var(--ld-calendar-year-cell-size);
+  cursor: pointer;
+  border-radius: var(--ld-calendar-year-cell-border-radius);
+  margin: var(--ld-calendar-year-cell-margin);
+  
+  &:hover {
+    background-color: var(--ld-calendar-bg-hover);
+  }
+}
+
+.ld-calendar-year-cell-active {
+  background-color: var(--ld-calendar-bg-selected);
+
+  &:hover {
+    background-color: var(--ld-calendar-bg-selected);
+  }
+}
+
+.ld-calendar-year-cell-different-decade {
+  color: var(--ld-calendar-different-date-color);
+}
+
+.ld-calendar-year-row {
+  display: flex;
+}
+
+.ld-calendar-year-cell-disabled {
+  color: var(--ld-calendar-disabled-color);
+  cursor: not-allowed;
+
+  &:hover {
+    background-color: var(--ld-calendar-bg);
+  }
+}

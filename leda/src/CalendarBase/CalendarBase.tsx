@@ -36,9 +36,8 @@ export const CalendarBase = (props: CalendarBaseProps): React.ReactElement | nul
 
   const classMap = React.useMemo(() => ({
     top: theme.wrapperTop,
-    visible: theme.wrapperVisible,
     right: theme.wrapperRight,
-  }), [theme.wrapperRight, theme.wrapperTop, theme.wrapperVisible]);
+  }), [theme.wrapperRight, theme.wrapperTop]);
 
   // calendar position change on scroll/open
   useAdaptivePosition({

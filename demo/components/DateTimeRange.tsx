@@ -12,7 +12,7 @@ export const DateTimeRange = (): React.ReactElement => {
       <br />
       Value: {DTRValue[0]}, {DTRValue[1]}
       <br />
-      <L.Div style={{ display: 'flex' }}>
+      <L.Div>
         <L.DateTimeRange
           min={new Date(2001, 3, 14, 16, 30)}
           max={new Date(2019, 5, 20, 17, 0)}
@@ -29,10 +29,9 @@ export const DateTimeRange = (): React.ReactElement => {
           _width-50
           {...props}
         />
-        <L.Div style={{ marginLeft: '50px' }}>
+        <br />
+        <L.Div>
           <L.Switcher onChange={() => setProps(prevProps => ({ ...prevProps, isOpen: props.isOpen ? undefined : true }))}>isOpen</L.Switcher>
-          <br />
-          <br />
           <L.Switcher onChange={() => setProps(prevProps => ({ ...prevProps, isDisabled: props.isDisabled ? undefined : true }))}>isDisabled</L.Switcher>
         </L.Div>
       </L.Div>

@@ -8,7 +8,7 @@ export const createCalendarIconMouseDownHandler = ({
   maskedInputRef,
   props,
   state,
-}: HandlersData) => (ev: React.MouseEvent<HTMLSpanElement>): void => {
+}: HandlersData) => (ev: React.MouseEvent<SVGElement>): void => {
   const { isDisabled } = props;
   const {
     isOpen,

@@ -1,0 +1,16 @@
+.ld-daterange-wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  .ld-datepicker-wrapper {
+    flex-grow: 1;
+  }
+}
+
+.ld-daterange-delimiter {
+  width: var(--ld-date-range-delimeter-width);
+  min-width: var(--ld-date-range-delimeter-min-width);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -7,7 +7,7 @@ export const BasicUsage = (args: SomeObject): React.ReactElement => {
   const [props, setProps] = React.useState({});
 
   return (
-    <L.Div _box _inner _demoBg>
+    <L.Div _box _inner _demo-bg>
       <L.DatePicker {...props} data-test="datepicker" _width-20 />
       <br />
       <br />

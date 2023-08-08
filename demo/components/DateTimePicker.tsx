@@ -28,7 +28,7 @@ export const DateTimePicker = () => {
         }}
         hasTodayButton
         value={value}
-        _width30
+        _width-30
         {...props}
       />
       <br />

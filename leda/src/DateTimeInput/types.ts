@@ -23,6 +23,7 @@ import type { stateActionTypes } from './actions';
 import type { COMPONENT_TYPES } from './constants';
 import type { ValidationProps } from '../../components/Validation/types';
 import type { StandaloneCalendarActionTypes } from '../../components/Calendar/types';
+import { IconTypes } from '../..';
 
 // todo: extend type
 export interface ChangeEvent {
@@ -61,8 +62,9 @@ export interface DateTimeInputState {
 }
 
 export interface IconProps {
+  icon: IconTypes.Icons,
   className?: string,
-  onMouseDown?: React.MouseEventHandler<HTMLSpanElement>,
+  onMouseDown?: React.MouseEventHandler<SVGElement>,
 }
 
 export interface WrapperProps {
@@ -212,7 +214,7 @@ export interface TabKeyPressPayload {
 export interface Handlers {
   handleCalendarClick: CalendarClickHandler,
   handleBlur: CustomEventHandler<FocusEvent>,
-  handleCalendarIconMouseDown: CustomEventHandler<React.MouseEvent<HTMLSpanElement>>,
+  handleCalendarIconMouseDown: CustomEventHandler<React.MouseEvent<SVGElement>>,
   handleCalendarKeyDown: CustomEventHandler<React.KeyboardEvent<HTMLDivElement>>,
   handleCalendarMouseDown: CustomEventHandler<React.MouseEvent<HTMLDivElement>>,
   handleChange: CustomEventHandler<ChangeEvent>,

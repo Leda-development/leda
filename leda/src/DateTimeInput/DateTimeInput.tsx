@@ -26,8 +26,8 @@ import {
   getInputWrapperClassNames, getValue, stringToDate,
 } from './helpers';
 import { useCustomElements, useDateTimeInputEffects, useDateTimeInputState } from './hooks';
-import { Span } from '../../components/Span';
 import type { DateTimeInputProps, DateTimeInputRefCurrent } from './types';
+import { IconTypes } from '../..';
 
 export const DateTimeInput = React.forwardRef((props: DateTimeInputProps, ref: React.Ref<DateTimeInputRefCurrent>) => {
   const {
@@ -170,14 +170,13 @@ export const DateTimeInput = React.forwardRef((props: DateTimeInputProps, ref: R
           ref={maskedInputRef}
           value={inputValue}
         />
-        <Span className={theme.iconsWrapper}>
           {type !== COMPONENT_TYPES.TIME_ONLY && (
             <Icon
+              icon={IconTypes.Icons.Calendar}
               onMouseDown={handleCalendarIconMouseDown}
               className={theme.calendarIcon}
             />
           )}
-        </Span>
       </Div>
       {!state.isFocused && !isDisabled && <InvalidMessage />}
       {type !== COMPONENT_TYPES.TIME_ONLY && (

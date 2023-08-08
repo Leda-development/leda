@@ -40,7 +40,7 @@ export const DateView = (props: DateViewProps): React.ReactElement | null => {
             <Div
               key={weekDay}
               title={getWeekDayName(index, messages)}
-              className={theme.dateCell}
+              className={theme.weekDay}
             >
               {weekDay}
             </Div>

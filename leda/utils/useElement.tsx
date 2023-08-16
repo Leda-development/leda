@@ -1,6 +1,8 @@
+'use client';
+
 import * as React from 'react';
 import { isFunction } from 'lodash';
-import { CustomRender, SomeRefCurrent } from '../commonTypes';
+import type { CustomRender, SomeRefCurrent } from '../commonTypes';
 
 export interface UseElementHook {
   <P, S, E>

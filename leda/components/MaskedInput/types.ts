@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { ValidationProps } from '../Validation/types';
-import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
-import { COMPONENTS_NAMESPACES } from '../../constants';
-import { CustomRender, SetState } from '../../commonTypes';
-import { DivProps } from '../Div';
-import {
-  ChangeEvent as BaseChangeEvent, BlurEvent, EnterPressEvent, FocusEvent, MaskedInputBaseProps,
+import type * as React from 'react';
+import type { ValidationProps } from '../Validation/types';
+import type { PartialGlobalDefaultTheme } from '../../utils/useTheme';
+import type { COMPONENTS_NAMESPACES } from '../../constants';
+import type { CustomRender, SetState } from '../../commonTypes';
+import type { DivProps } from '../Div';
+import type {
+  ChangeEvent as BaseChangeEvent, MaskedInputBaseProps, BlurEvent, EnterPressEvent, FocusEvent,
 } from '../../src/MaskedInputBase/types';
 
 export type {

@@ -1,6 +1,6 @@
-import React from 'react';
+import type React from 'react';
 import { isFunction } from 'lodash';
-import {
+import type {
   BlurData, ChangeData, ExtendedEvent, FocusData, KeyDownData, MaskedInputBaseProps,
 } from './types';
 import {
@@ -16,9 +16,7 @@ import {
 } from './helpers';
 import { INPUT_METHODS } from './constants';
 
-export const createChangeHandler = (
-  props: MaskedInputBaseProps, extraData: ChangeData,
-): React.ChangeEventHandler<HTMLInputElement> => (ev) => {
+export const createChangeHandler = (props: MaskedInputBaseProps, extraData: ChangeData): React.ChangeEventHandler<HTMLInputElement> => (ev) => {
   ev.preventDefault();
 
   const {
@@ -116,9 +114,7 @@ export const createChangeHandler = (
   }
 };
 
-export const createKeyDownHandler = (
-  props: MaskedInputBaseProps, extraData: KeyDownData,
-): React.KeyboardEventHandler<HTMLInputElement> => (ev) => {
+export const createKeyDownHandler = (props: MaskedInputBaseProps, extraData: KeyDownData): React.KeyboardEventHandler<HTMLInputElement> => (ev) => {
   const {
     onChange, value, mask, onKeyDown, placeholderChar = '_',
   } = props;
@@ -184,9 +180,7 @@ export const createPasteHandler = (
   }
 };
 
-export const createFocusHandler = (
-  props: MaskedInputBaseProps, extraData: FocusData,
-): React.FocusEventHandler<HTMLInputElement> => (ev) => {
+export const createFocusHandler = (props: MaskedInputBaseProps, extraData: FocusData): React.FocusEventHandler<HTMLInputElement> => (ev) => {
   const {
     value: valueProp, onFocus, mask, placeholderChar = '_',
   } = props;
@@ -235,9 +229,7 @@ export const createFocusHandler = (
   }
 };
 
-export const createBlurHandler = (
-  props: MaskedInputBaseProps, extraData: BlurData,
-): React.FocusEventHandler<HTMLInputElement> => (ev) => {
+export const createBlurHandler = (props: MaskedInputBaseProps, extraData: BlurData): React.FocusEventHandler<HTMLInputElement> => (ev) => {
   const {
     onBlur, value,
   } = props;

@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
-    "allowJs": false,
+    "allowJs": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
     "module": "esnext",
     "sourceMap": true,
     "strict": true,
     "target": "es5",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "incremental": false,
+    "skipLibCheck": true,
     "checkJs": false,
     "typeRoots": [
       "./types",
@@ -22,6 +23,7 @@
   },
   "exclude": [
     "node_modules",
+    "docs",
     "dist",
     "demo"
   ],

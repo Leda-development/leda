@@ -1,4 +1,4 @@
-import { MaskRules } from './types';
+import type { MaskRules } from './types';
 
 export const baseMaskRules: MaskRules = {
   '#': {
@@ -34,7 +34,7 @@ export enum INPUT_METHODS {
   remove = 'remove',
   replace = 'replace',
   // method to indicate no change
-  nothing = 'nothing'
+  nothing = 'nothing',
 }
 
 export const DEFAULT_PLACEHOLDER_CHAR = '_';

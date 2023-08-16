@@ -1,5 +1,7 @@
+'use client';
+
 import * as React from 'react';
-import { SetState } from '../commonTypes';
+import type { SetState } from '../commonTypes';
 
 export const useValue = <V>(valueProp: V | undefined, defaultValue: V): [V, SetState<V>] => {
   const [value, setValue] = React.useState<V>(defaultValue);

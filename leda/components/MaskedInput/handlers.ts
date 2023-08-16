@@ -1,12 +1,11 @@
-import * as React from 'react';
 import { isFunction } from 'lodash';
-import {
+import type {
   BlurData, ChangeData, FocusData, MaskedInputProps, MaskedInputState,
 } from './types';
-import {
+import type {
   BlurEvent, FocusEvent, ChangeEvent, EnterPressEvent,
 } from '../../src/MaskedInputBase/types';
-import { CustomEventHandler, SetState } from '../../commonTypes';
+import type { CustomEventHandler, SetState } from '../../commonTypes';
 import { getValueToValidate } from './helpers';
 import { maskValue } from '../../src/MaskedInputBase/helpers';
 

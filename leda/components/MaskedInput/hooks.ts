@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CustomElements, MaskedInputProps, MaskedInputState } from './types';
+import type { CustomElements, MaskedInputProps, MaskedInputState } from './types';
 import { Div } from '../Div';
 import { MaskedInputBase } from '../../src/MaskedInputBase';
 import { useElement } from '../../utils';

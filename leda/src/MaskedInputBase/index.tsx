@@ -1,6 +1,6 @@
 import React from 'react';
 import { isFunction, isObject } from 'lodash';
-import { MaskedInputBaseProps } from './types';
+import type { MaskedInputBaseProps } from './types';
 import { useProps } from '../../utils';
 import {
   createBlurHandler,

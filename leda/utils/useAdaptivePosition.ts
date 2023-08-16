@@ -1,7 +1,9 @@
+'use client';
+
 import * as React from 'react';
 import isNil from 'lodash/isNil';
 import throttle from 'lodash/throttle';
-import { DivRefCurrent } from '../components/Div';
+import type { DivRefCurrent } from '../components/Div';
 
 export interface ClassNamesMap {
   top?: string,
@@ -13,7 +15,7 @@ interface AdaptivePositionProps {
   elRef: React.MutableRefObject<DivRefCurrent | null>,
   isOpen: boolean,
   classNames: ClassNamesMap,
-  boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement | null}>,
+  boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement | null }>,
 }
 
 const getElRectFromRef = (ref?: React.RefObject<HTMLElement | { wrapper: HTMLElement | null }>) => {

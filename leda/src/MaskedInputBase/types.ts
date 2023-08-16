@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { SetState } from '../../commonTypes';
+import type * as React from 'react';
+import type { SetState } from '../../commonTypes';
 
 export interface MaskRules {
   [x: string]: {
@@ -8,7 +8,7 @@ export interface MaskRules {
   } | null,
 }
 
-export type ExtendedEvent<T> = T & { component: { inputValue: string, isValid?: boolean, name?: string, value: string }};
+export type ExtendedEvent<T> = T & { component: { inputValue: string, isValid?: boolean, name?: string, value: string } };
 
 export interface KeyEvent extends React.KeyboardEvent<HTMLInputElement> {
   component: {

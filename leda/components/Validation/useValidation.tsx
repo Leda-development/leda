@@ -1,3 +1,4 @@
+
 import * as React from 'react';
 import { isString, isNil } from 'lodash';
 import { useElement } from '../../utils';
@@ -5,7 +6,7 @@ import {
   addField, getValidators, removeField, updateField, validate,
 } from './helpers';
 import { InvalidMessage as DefaultInvalidMessage } from './InvalidMessage';
-import {
+import type {
   ValidationProps, ValidationState, ValidationExtra, ValidationResult,
 } from './types';
 
@@ -62,7 +63,7 @@ export const useValidation = <P extends ValidationProps, S extends ValidationSta
   }, [form, name]);
 
   // update forms on every props change
-  // required for correct validation 
+  // required for correct validation
   React.useEffect(() => {
     if (form && name) {
       const validators = getValidators(validator, invalidMessage);

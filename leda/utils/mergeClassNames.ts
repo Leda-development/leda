@@ -1,12 +1,12 @@
 import { isString } from 'lodash';
 import { getClassNames } from './helpers';
-import { SomeObject } from '../commonTypes';
+import type { SomeObject } from '../commonTypes';
 import { underscorePropToClassName } from './underscorePropToClassName';
 
 // collects all _classes and merges them with classes from props.className and writes them to props.className
 export const mergeClassNames = <Props>(props: Props): Props & { className?: string } => {
   const classNames: Set<string> = new Set();
-  const restProps: {[prop: string]: unknown} = {};
+  const restProps: { [prop: string]: unknown } = {};
   const componentProps = props as unknown as SomeObject;
 
   Object.keys(componentProps)

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { LedaContext, globalDefaultTheme } from '../components/LedaProvider';
-import { RecursivePartial, RecursiveRequired } from '../commonTypes';
+import type { RecursivePartial, RecursiveRequired } from '../commonTypes';
 
 export type GlobalDefaultTheme = typeof globalDefaultTheme;
 

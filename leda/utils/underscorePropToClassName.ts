@@ -1,3 +1,1 @@
-export const underscorePropToClassName = (prop: string): string => {
-  return prop.slice(1);
-};
+export const underscorePropToClassName = (prop: string): string => prop.slice(1);

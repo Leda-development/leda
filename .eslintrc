@@ -1,27 +1,23 @@
 {
+  "root": true,
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json"
   },
   "rules": {
-    // Максимальная длина строки с учетом пробелов, в стандарте 100
+    // Max line length, default value was 100
     "max-len": ["error", 250],
-    // Точка с запятой нужна всегда
+    // Semi colon everwhere
     "babel/semi": "error",
 
-    // Дефолтные пропсы нам не нужны
+    // No use of default props
     "react/require-default-props": 0,
 
-    // Отключаем соответствие defaulProps и propTypes (propTypes не используются)
+    // Do not check for defaulProps and propTypes match (we don't use them)
     "react/default-props-match-prop-types": 0,
-
-    // В js файлах мы используем jsx синтаксис
-    "react/jsx-filename-extension": 0,
 
     "react/jsx-one-expression-per-line": "off",
 
-    // Отредактируем организацию для порядка методов при создании React компонента
-    // Добавим в начало определение типов (type-annotations)
     "react/sort-comp": [2, {
       "order": [
         "type-annotations",
@@ -35,33 +31,28 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
 
-    // Не используем дефолтный экспорт
+    // No use of default export
     "import/prefer-default-export": "off",
-    // один файл может содержать несколько экспортов
+    // one file can contain multiple exports
     "import/no-cycle": "warn",
 
-    // По умолчанию рекомендуется проверять как вложенность, так и идентификатор на сопоставление лейбла с элементом управления
-    // Сделаем так, чтобы одной проверки было достаточно
+    // Not always using label with htmlFor
     "jsx-a11y/label-has-for": "off",
 
-    // Правила для accessibility:
+    // Accessibility rules:
 
-    // Элемент с обработчиком кликов должен иметь обработчик клавиатуры
     "jsx-a11y/click-events-have-key-events": "off",
 
-    // Принудительное срабатывание onfocus/onblur при onmouseover/onmouseout
     "jsx-a11y/mouse-events-have-key-events": "off",
 
-    // HTML элемент с обработчиком должен иметь роль
     "jsx-a11y/no-static-element-interactions": "off",
 
     "jsx-a11y/anchor-is-valid": "off",
-    // не всегда используется
-    // todo: обновить правило, когда появится опция minAttributes
+
     "react/destructuring-assignment": "off",
-    // у нас лейбл не всегда имеет htmlFor
+    // we do not always have label with htmlFor
     "jsx-a11y/label-has-associated-control": "off",
-    // поле current у ref является мутируемым
+    // Ref's current field is mutable
     "no-param-reassign": ["error", { "ignorePropertyModificationsFor": ["ref"]}],
 
     "@typescript-eslint/member-delimiter-style": ["error", {
@@ -78,7 +69,7 @@
     // note you must disable the base rule as it can report incorrect errors
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error", { "functions":  false }],
-    // spread разрешен
+    // spread is ok
     "react/jsx-props-no-spreading": "off",
 
     "react/static-property-placement": "warn",
@@ -100,12 +91,14 @@
 
     "unused-imports/no-unused-imports": "error",
 
+    // react is always in scope now
+    "react/react-in-jsx-scope": "off",
+
     "no-unused-expressions": "off",
 
     "@typescript-eslint/no-unused-expressions": "error",
-    // TODO: удалить и починить ошибки
-    "@typescript-eslint/no-empty-function": "warn",
-    "import/no-extraneous-dependencies": "off"
+    // TODO: remove and fix errors
+    "@typescript-eslint/no-empty-function": "warn"
   },
 
   "plugins": [

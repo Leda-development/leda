@@ -1,11 +1,11 @@
-'use client'
+'use client';
 
 import * as React from 'react';
 import {
   getClassNames, useTheme, bindFunctionalRef, toStringOrEmpty, useProps, getIsEmptyAndRequired,
 } from '../../utils';
 import { Div } from '../Div';
-import { MaskedInputProps, MaskedInputRefCurrent } from './types';
+import type { MaskedInputProps, MaskedInputRefCurrent } from './types';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { useValidation } from '../Validation';
 import {

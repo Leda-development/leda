@@ -1,5 +1,5 @@
 import { baseMaskRules } from './constants';
-import { SelectionType } from './types';
+import type { SelectionType } from './types';
 
 export const getSelection = (el: HTMLInputElement): SelectionType => {
   let start;
@@ -11,10 +11,10 @@ export const getSelection = (el: HTMLInputElement): SelectionType => {
   } else {
     try {
       el.focus();
-      // @ts-ignore IE-SPECIFIC
+      // @ts-expect-error IE-SPECIFIC
       const rangeEl = el.createTextRange();
       const clone = rangeEl.duplicate();
-      // @ts-ignore
+      // @ts-expect-error IE-SPECIFIC
       rangeEl.moveToBookmark(document.selection.createRange().getBookmark());
       clone.setEndPoint('EndToStart', rangeEl);
 

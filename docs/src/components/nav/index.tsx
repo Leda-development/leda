@@ -7,11 +7,11 @@ export const MainNav = () => {
         Basics
       </div>
       <ul>
-        <NavLi to='/styles'>Styles</NavLi>
-        <NavLi to='/customization'>Customization</NavLi>
-        <NavLi to='/css-classes-props'>CSS classes props</NavLi>
-        <NavLi to='/forms'>Forms</NavLi>
-        <NavLi to='/validation'>Validation</NavLi>
+        <NavLi to='/basics/styles'>Styles</NavLi>
+        <NavLi to='/basics/customization'>Customization</NavLi>
+        <NavLi to='/basics/css-classes-props'>CSS classes props</NavLi>
+        <NavLi to='/basics/forms'>Forms</NavLi>
+        <NavLi to='/basics/validation'>Validation</NavLi>
       </ul>
       
       <div className='py-4 font-bold'>

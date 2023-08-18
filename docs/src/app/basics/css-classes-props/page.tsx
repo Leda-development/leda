@@ -1,4 +1,5 @@
 'use client'
+
 import * as L from '@leda';
 import { H1, P } from '@/components/typography';
 import { Live } from '@/components/live';

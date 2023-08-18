@@ -32,34 +32,35 @@ export const BaseLayout = ({
   }, []);
 
   return (
-      <div>
-          <MainHeader
-            isMenuOpen={isMenuOpen}
-            isMobile={isMobile}
-            setIsMenuOpen={setIsMenuOpen}
-          />
-          <L.Div
-            className='md:flex md:flex-row overflow-hidden'
-          >
-            <L.Div
-              shouldRender={!isMobile || isMenuOpen}
-              onClick={(ev) => {
-                if (isMobile && ev.target.href) {
-                  setTimeout(() => setIsMenuOpen(false), 200)
-                }
-              }}
-              className="
-                p-4 md:w-52 md:flex-none md:static
-                w-full fixed top-13 bg-white overflow-y-scroll
-                h-screen z-10 pb-24"
-            >
-              <MainNav />
-            </L.Div>
-            <L.Div
-              className='md:flex-auto p-4 text-sm'
-            >
-              { children }
-            </L.Div>
-          </L.Div>
-      </div>
-);};
+    <div className='bg-white'>
+      <MainHeader
+        isMenuOpen={isMenuOpen}
+        isMobile={isMobile}
+        setIsMenuOpen={setIsMenuOpen}
+      />
+      <L.Div
+        className='md:flex md:flex-row overflow-hidden'
+      >
+        <L.Div
+          shouldRender={!isMobile || isMenuOpen}
+          onClick={(ev: any) => {
+            if (isMobile && ev.target.href) {
+              setTimeout(() => setIsMenuOpen(false), 200)
+            }
+          }}
+          className="
+            p-4 md:w-52 md:flex-none md:static
+            w-full fixed top-13 bg-white overflow-y-scroll
+            h-screen z-10 pb-24"
+        >
+          <MainNav />
+        </L.Div>
+        <L.Div
+          className='md:flex-auto p-4 text-sm'
+        >
+          { children }
+        </L.Div>
+      </L.Div>
+    </div>
+  );
+};

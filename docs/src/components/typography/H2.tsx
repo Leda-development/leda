@@ -9,7 +9,7 @@ export const H2 = ({
 }) => {
   return (
     <L.H2
-      className={className}
+      className='mt-6 mb-3 border-b font-bold'
     >
       {children}
     </L.H2>

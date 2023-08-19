@@ -9,7 +9,7 @@ export const P = ({
 }) => {
   return (
     <L.P
-      className={className}
+      className={className + ' my-2'}
     >
       {children}
     </L.P>

@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { isFunction } from 'lodash';
-import type { CustomRender, SomeRefCurrent } from '../commonTypes';
+import type { CustomRender } from '../commonTypes';
 
 export interface UseElementHook {
   <P, S, E>
@@ -31,7 +31,7 @@ export const useElement: UseElementHook = <P, S, E>(displayName: string, Default
   React.useDebugValue(displayName);
 
   return React.useMemo(() => {
-    const element = React.forwardRef<SomeRefCurrent, E>(<T extends E>(props: T, ref: React.Ref<SomeRefCurrent>): React.ReactElement => {
+    const element = React.forwardRef<Element, E>(<T extends E>(props: T, ref: React.Ref<Element>): React.ReactElement => {
       if (isFunction(customRenderRef.current)) {
         return customRenderRef.current({
           Element: DefaultElement,

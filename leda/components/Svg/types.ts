@@ -6,11 +6,7 @@ export interface SvgProps extends Omit<React.SVGProps<SVGSVGElement>, 'ref'> {
   /** Click handler */
   onClick?: React.MouseEventHandler<SVGSVGElement>,
   /** Ref */
-  ref?: React.Ref<SvgRefCurrent>,
+  ref?: React.Ref<SVGSVGElement>,
   /** _css-class-names */
   [x: string]: unknown,
-}
-
-export interface SvgRefCurrent {
-  wrapper: SVGSVGElement | null,
 }

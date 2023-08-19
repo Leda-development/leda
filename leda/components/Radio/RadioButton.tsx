@@ -1,16 +1,13 @@
-'use client'
-
 import React from 'react';
 import {
-  bindFunctionalRef, getClassNames, useElement, useProps,
+  getClassNames, useElement, useProps,
 } from '../../utils';
 import { generateId } from '../../utils/generateId';
 import { Div } from '../Div';
-import { PropsFromParent, RadioButtonProps, RadioGroupRefCurrent } from './types';
+import { PropsFromParent, RadioButtonProps } from './types';
 import { globalDefaultTheme } from '../LedaProvider';
-import { getWrapperRef } from '../../utils/getWrapperRef';
 
-export const RadioButton = React.forwardRef((props: RadioButtonProps, ref?: React.Ref<RadioGroupRefCurrent>): React.ReactElement => {
+export const RadioButton = React.forwardRef((props: RadioButtonProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {
     children,
     className,
@@ -58,14 +55,7 @@ export const RadioButton = React.forwardRef((props: RadioButtonProps, ref?: Reac
     <Wrapper
       {...restProps}
       className={wrapperClassNames}
-      ref={ref && ((component: RadioGroupRefCurrent | HTMLElement | null) => {
-        const wrapperRef = getWrapperRef<RadioGroupRefCurrent>(component);
-        bindFunctionalRef(component, ref, component && {
-          wrapper: wrapperRef,
-          input: wrapperRef ? wrapperRef.firstElementChild : null,
-          label: wrapperRef ? wrapperRef.lastElementChild : null,
-        });
-      })}
+      ref={ref}
     >
       <input
         checked={isChecked}

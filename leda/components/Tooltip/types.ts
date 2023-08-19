@@ -12,7 +12,7 @@ export interface TooltipProps {
   /** Position: top, right, bottom, left. Defaults to top */
   position?: TooltipPosition,
   /** Ref */
-  ref?: React.Ref<TooltipRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.tooltip],
   /** Title: a string, html or JSX */
@@ -36,10 +36,6 @@ export interface TooltipBodyProps {
   tooltipClassNames?: string,
   style: TooltipStyle,
   title: React.ReactNode,
-}
-
-export interface TooltipRefCurrent {
-  wrapper: HTMLDivElement | null,
 }
 
 export interface GetTooltipPosition {

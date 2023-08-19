@@ -1,7 +1,3 @@
-// copied from https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/round
-import * as React from 'react';
-import { isFunction } from 'lodash';
-// eslint-disable-next-line import/no-unresolved
 import { ClassValue } from 'classnames/types';
 import classnames from 'classnames';
 import classnamesDedupe from 'classnames/dedupe';
@@ -13,26 +9,6 @@ export const stringToMaxLength = (str: string, maxLength?: number) => {
   }
   return str;
 };
-
-const initRef = <T, C>(ref: React.Ref<T> | React.MutableRefObject<T>, current: C): void => {
-  if (isFunction(ref)) {
-    ref(current as unknown as T);
-  } else if (ref) {
-    (ref as React.MutableRefObject<T>).current = current as unknown as T;
-  }
-};
-
-// binding of a ref to a functional component
-export const bindFunctionalRef = <V, T, C>(component: V, ref: React.Ref<T> | React.MutableRefObject<T>, current: C): void => {
-  if (!ref) return;
-  // if component is null - write null to ref
-  if (!component || !current) {
-    initRef<T, null>(ref, null);
-  } else {
-    initRef<T, C>(ref, current);
-  }
-};
-
 
 export const getComputedTheme = <D, T>(defaultTheme: D, theme: T): D & T => ({ ...defaultTheme, ...theme });
 

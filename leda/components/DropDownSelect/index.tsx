@@ -1,11 +1,9 @@
-'use client'
-
 import * as React from 'react';
 import { isNil } from 'lodash';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { SuggestionList } from '../../src/SuggestionList';
 import {
-  bindFunctionalRef, useProps, useTheme,
+  useProps, useTheme,
 } from '../../utils';
 import { Div } from '../Div';
 import { useValidation } from '../Validation';
@@ -22,13 +20,13 @@ import {
 import { filterData, getComponentClassNames, getInputValue } from './helpers';
 import { useCorrectSuggestionsInControlledMode, useCustomElements, useSyncedHighlightedValue } from './hooks';
 import {
-  DropDownSelectProps, DropDownSelectRefCurrent, DropDownSelectState, Value,
+  DropDownSelectProps, DropDownSelectState, Value,
 } from './types';
 import { getText } from '../../src/SuggestionList/helpers';
 import { Icon } from '../Icon';
 import { IconTypes } from '../..';
 
-export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref: React.Ref<DropDownSelectRefCurrent>): React.ReactElement | null => {
+export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref: React.Ref<HTMLElement>): React.ReactElement | null => {
   const {
     autoComplete = 'off',
     boundingContainerRef,
@@ -169,10 +167,7 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
   return (
     <Wrapper
       className={wrapperClassNames}
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-        wrapper: component.wrapper,
-        input: inputRef.current,
-      }))}
+      ref={ref}
     >
       <Div className={inputWrapperClassNames}>
         <Input
@@ -233,6 +228,6 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
       )}
     </Wrapper>
   );
-}) as <T extends Value>(props: DropDownSelectProps<T>, ref?: React.Ref<DropDownSelectRefCurrent>) => React.ReactElement;
+}) as <T extends Value>(props: DropDownSelectProps<T>, ref?: React.Ref<HTMLElement>) => React.ReactElement;
 
 (DropDownSelect as React.FC<DropDownSelectProps>).displayName = 'DropDownSelect';

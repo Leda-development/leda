@@ -40,7 +40,7 @@ export interface RatingProps {
   /** Click handler */
   onClick?: React.MouseEventHandler<HTMLSpanElement>,
   /** Ref */
-  ref?: React.Ref<RatingRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.rating],
   /** Rating value */
@@ -52,8 +52,4 @@ export interface RatingProps {
 export interface RatingIconProps {
   isFilled: boolean,
   sizeRem?: number,
-}
-
-export interface RatingRefCurrent {
-  wrapper: HTMLSpanElement | null,
 }

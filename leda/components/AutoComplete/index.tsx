@@ -1,12 +1,9 @@
-'use client'
-
 import * as React from 'react';
 import {
   isString, isBoolean,
 } from 'lodash';
 import { SuggestionList } from '../../src/SuggestionList';
 import {
-  bindFunctionalRef,
   getClassNames,
   getIsEmptyAndRequired,
   useElement,
@@ -30,14 +27,14 @@ import {
 } from './handlers';
 
 import {
-  AutoCompleteProps, AutoCompleteRefCurrent, Suggestion,
+  AutoCompleteProps, Suggestion,
 } from './types';
 import { useValidation } from '../Validation';
 import { LedaContext } from '../LedaProvider';
 import { Icon } from '../Icon';
 import { Icons } from '../Icon/types';
 
-export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: React.Ref<AutoCompleteRefCurrent>): React.ReactElement | null => {
+export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: React.Ref<HTMLElement>): React.ReactElement | null => {
   const {
     autoComplete = 'off',
     className,
@@ -136,8 +133,6 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     return isFocused;
   })();
 
-  const inputRef = React.useRef<HTMLInputElement | null>(null);
-
   const inputChangeHandler = inputChangeHandlerCreator({
     data, textField, name, onChange, isValueControlled, setSelectedSuggestion, setStateValue,
   });
@@ -145,7 +140,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     data, textField, name, onChange, isValueControlled, setHighlightedSuggestion, setStateValue, setIsFocused,
   });
   const clearButtonClickHandler = clearButtonClickHandlerCreator({
-    inputRef, name, onChange, isValueControlled, setStateValue, isDisabled,
+    name, onChange, isValueControlled, setStateValue, isDisabled,
   });
   const inputFocusHandler = inputFocusHandlerCreator({
     onFocus, setIsFocused,
@@ -204,10 +199,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
   return (
     <Div
       className={wrapperClassNames}
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-        wrapper: component.wrapper,
-        input: inputRef.current,
-      }))}
+      ref={ref}
     >
       <Div className={inputWrapperClassNames}>
         <InputElement
@@ -224,7 +216,6 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
           onFocus={inputFocusHandler}
           onKeyDown={inputKeyDownHandler}
           placeholder={placeholder}
-          ref={inputRef}
           value={inputValue}
         />
         {shouldShowClearButton && (

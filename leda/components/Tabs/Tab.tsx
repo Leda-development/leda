@@ -2,13 +2,13 @@
 
 import React from 'react';
 import {
-  bindFunctionalRef, getClassNames, useElement, useProps,
+  getClassNames, useElement, useProps,
 } from '../../utils';
 import { Li, LiProps } from '../Li';
 import { TabsContext } from './TabsContext';
-import { TabProps, TabRefCurrent } from './types';
+import { TabProps } from './types';
 
-export const Tab = React.forwardRef((props: TabProps, ref: React.Ref<TabRefCurrent>): React.ReactElement => {
+export const Tab = React.forwardRef((props: TabProps, ref: React.Ref<HTMLElement>): React.ReactElement => {
   const {
     onTabSelect, activeTabKey, theme: parentTheme, tabRender: parentTabRender,
   } = React.useContext(TabsContext);
@@ -48,9 +48,7 @@ export const Tab = React.forwardRef((props: TabProps, ref: React.Ref<TabRefCurre
     <TabItem
       className={combinedClassNames}
       onClick={handleClick}
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-        wrapper: component.wrapper,
-      }))}
+      ref={ref}
     >
       {title}
     </TabItem>

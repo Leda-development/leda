@@ -4,7 +4,7 @@ import * as React from 'react';
 import { isNil } from 'lodash';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
-  bindFunctionalRef, getClassNames, useProps, useTheme,
+  getClassNames, useProps, useTheme,
 } from '../../utils';
 import { Div } from '../Div';
 import { createPageChangeHandler, createPageSizeChangeHandler } from './handlers';
@@ -12,11 +12,11 @@ import { getPageNumbers, normalizePageNumber } from './helpers';
 import { useCustomElements } from './hooks';
 import { PagesList } from './PagesList';
 import { PaginationControl } from './PaginationControl';
-import { PaginationProps, PaginationRefCurrent } from './types';
+import { PaginationProps } from './types';
 import { Icon } from '../Icon';
 import { IconTypes } from '../..';
 
-export const Pagination = React.forwardRef((props: PaginationProps, ref: React.Ref<PaginationRefCurrent>): React.ReactElement => {
+export const Pagination = React.forwardRef((props: PaginationProps, ref: React.Ref<HTMLElement>): React.ReactElement => {
   const {
     className,
     theme: themeProp,
@@ -89,9 +89,7 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
   return (
     <Div
       className={wrapperClassNames}
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-        wrapper: component.wrapper,
-      }))}
+      ref={ref}
     >
       <PaginationControl
         className={getClassNames(

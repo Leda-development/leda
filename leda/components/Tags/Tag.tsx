@@ -3,15 +3,15 @@
 import * as React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
-  bindFunctionalRef, getClassNames, useElement, useProps,
+  getClassNames, useElement, useProps,
 } from '../../utils';
 import { globalDefaultTheme, LedaContext } from '../LedaProvider';
 import { Span } from '../Span';
-import { TagProps, TagsRefCurrent } from './types';
+import { TagProps } from './types';
 import { Icon } from '../Icon';
 import { IconTypes } from '../..';
 
-export const Tag = React.forwardRef((props: TagProps, ref?: React.Ref<TagsRefCurrent>): React.ReactElement => {
+export const Tag = React.forwardRef((props: TagProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {
     children,
     className,
@@ -40,9 +40,7 @@ export const Tag = React.forwardRef((props: TagProps, ref?: React.Ref<TagsRefCur
     <Wrapper
       className={combinedClassNames}
       {...restProps}
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-        wrapper: component,
-      }))}
+      ref={ref}
     >
       { children }
       <Icon

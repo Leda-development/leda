@@ -4,38 +4,37 @@ import {
 } from '../../src/DateTimeInput/types';
 import {
   CustomRangeEvent, DateTimeInputRangeProps,
-  DateTimeInputRangeRefCurrent,
 } from '../../src/DateTimeInputRange/types';
 
 export interface DateRangeProps extends DateTimeInputRangeProps {
-  /** Формат отображаемой и вводимой даты. По-умолчанию "dd.MM.yyyy" */
+  /** Date format, dd.MM.yyyy by default */
   format?: string,
-  /** Признак отключения инпута */
+  /** Disabled input state */
   isDisabled?: boolean | [boolean, boolean],
-  /** Открытое состояние компонента */
+  /** Control opened state */
   isOpen?: boolean | [boolean, boolean],
-  /** Являются ли поля обязательными для заполнения */
+  /** Is required or not */
   isRequired?: boolean | [boolean, boolean],
-  /** Максимальное значение диапазона */
+  /** Max range value */
   max?: Date,
-  /** Минимальное значение диапазона */
+  /** Min range value */
   min?: Date,
-  /** Имя полей ввода */
+  /** Input fields names */
   name?: string | [string | undefined, string | undefined],
-  /** Функция обратного вызова при блюре */
+  /** Blur handler */
   onBlur?: (ev: BlurEvent) => void,
-  /** Функция обратного вызова при изменении значения полей */
+  /** Change handler */
   onChange?: (ev: CustomRangeEvent) => void,
-  /** Функция обратного вызова при фокусе */
+  /** Focus handler */
   onFocus?: (ev: FocusEvent) => void,
-  /** Функция обратного вызова при нажатии Enter в поле "до" */
+  /** Enter press handler */
   onEnterPress?: (ev: ChangeEvent) => void,
-  /** Плейсхолдер полей "от" и "до" */
+  /** Placeholders */
   placeholder?: string | [string | undefined, string | undefined],
-  /** Реф */
-  ref?: React.Ref<DateTimeInputRangeRefCurrent>,
-  /** Значения полей "от" и "до" */
+  /** Ref */
+  ref?: React.Ref<HTMLElement>,
+  /** Value */
   value?: [string, string] | [Date | null, Date | null],
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }

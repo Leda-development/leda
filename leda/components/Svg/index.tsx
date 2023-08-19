@@ -1,14 +1,12 @@
 import React from 'react';
-import 'svgxuse'; // svg support for IE
 import {
-  bindFunctionalRef,
   getClassNames,
   useProps,
 } from '../../utils';
 import { extractIdAndNamespace } from './helpers';
-import { SvgProps, SvgRefCurrent } from './types';
+import { SvgProps } from './types';
 
-export const Svg = React.forwardRef((props: SvgProps, ref?: React.Ref<SvgRefCurrent>): React.ReactElement => {
+export const Svg = React.forwardRef((props: SvgProps, ref?: React.Ref<SVGSVGElement>): React.ReactElement => {
   const {
     className,
     noIconClass,
@@ -28,9 +26,7 @@ export const Svg = React.forwardRef((props: SvgProps, ref?: React.Ref<SvgRefCurr
     <svg
       {...wrapperProps}
       className={combinedClassNames}
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-        wrapper: component,
-      }))}
+      ref={ref}
     >
       <use xlinkHref={`/assets/images/svg/${namespace}.svg#${id}`} />
     </svg>

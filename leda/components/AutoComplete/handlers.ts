@@ -19,14 +19,12 @@ import { CustomEventHandler, SetState } from '../../commonTypes';
 import { SuggestionTarget } from '../../src/SuggestionList/types';
 
 export const clearButtonClickHandlerCreator = ({
-  inputRef,
   isDisabled,
   isValueControlled,
   name,
   onChange,
   setStateValue,
 }: {
-  inputRef: React.MutableRefObject<HTMLInputElement | null>,
   isDisabled?: boolean,
   isValueControlled: boolean,
   name?: string,
@@ -34,7 +32,6 @@ export const clearButtonClickHandlerCreator = ({
   setStateValue: SetState<string>,
 }): React.MouseEventHandler<SVGElement> => (event) => {
   if (isDisabled) return;
-  if (inputRef.current) inputRef.current.focus();
   // todo check it is needed
   // setIsFocused(true);
 

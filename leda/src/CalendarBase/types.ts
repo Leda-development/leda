@@ -10,7 +10,7 @@ export interface CalendarClickHandler {
 }
 
 export interface CalendarBaseProps {
-  boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement }>,
+  boundingContainerRef?: React.RefObject<HTMLElement>,
   dispatch: React.Dispatch<AllActions>,
   format: string,
   hasTodayButton?: boolean,

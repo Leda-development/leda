@@ -8,14 +8,14 @@ import { useCustomElements, useTabsScroll } from './hooks';
 import { TabContent } from './TabContent';
 import { Tab } from './Tab';
 import {
-  bindFunctionalRef, getClassNames, useProps, useTheme,
+  getClassNames, useProps, useTheme,
 } from '../../utils';
 import { TabsContext } from './TabsContext';
-import { TabsProps, TabsRefCurrent } from './types';
+import { TabsProps } from './types';
 import { ArrowLeft, ArrowRight } from './ScrollArrows';
 import { Div } from '../Div';
 
-export const Tabs = React.forwardRef((props: TabsProps, ref?: React.Ref<TabsRefCurrent>): React.ReactElement | null => {
+export const Tabs = React.forwardRef((props: TabsProps, ref?: React.Ref<HTMLElement>): React.ReactElement | null => {
   const {
     theme: themeProp,
     activeTabKey: activeTabKeyProp,
@@ -75,10 +75,7 @@ export const Tabs = React.forwardRef((props: TabsProps, ref?: React.Ref<TabsRefC
     <Wrapper
       className={combinedClassNames}
       style={style as React.CSSProperties}
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-        wrapper: component.wrapper,
-        content: component.wrapper && component.wrapper.querySelector(`.${theme.content}`),
-      }))}
+      ref={ref}
     >
       <Div
         ref={containerRef}

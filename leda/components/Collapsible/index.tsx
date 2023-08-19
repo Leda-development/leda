@@ -1,15 +1,13 @@
-'use client'
-
 import * as React from 'react';
 import { isFunction } from 'lodash';
-import { bindFunctionalRef, useProps } from '../../utils';
+import { useProps } from '../../utils';
 import { DEFAULT_TRANSITION } from './contants';
 import { generateTransitionProperty } from './helpers';
-import { CollapsibleProps, CollapsibleRefCurrent } from './types';
+import { CollapsibleProps } from './types';
 import { useCollapse } from '../Collapse/useCollapse';
 import { Div } from '../Div';
 
-export const Collapsible = React.forwardRef((props: CollapsibleProps, ref: React.Ref<CollapsibleRefCurrent>) => {
+export const Collapsible = React.forwardRef((props: CollapsibleProps, ref: React.Ref<HTMLElement>) => {
   const {
     children,
     className,
@@ -62,15 +60,7 @@ export const Collapsible = React.forwardRef((props: CollapsibleProps, ref: React
 
   return (
     <Div
-      ref={((component) => {
-        if (ref) {
-          bindFunctionalRef(component, ref, component && {
-            wrapper: component.wrapper ? component.wrapper : component,
-          });
-        }
-
-        bodyRef.current = component?.wrapper ?? undefined;
-      })}
+      ref={ref}
       onTransitionEnd={onTransitionEnd}
       className={className}
       style={styles as React.CSSProperties}

@@ -3,15 +3,15 @@
 import React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
-  bindFunctionalRef, getClassNames, useProps, useTheme,
+  getClassNames, useProps, useTheme,
 } from '../../utils';
-import { RatingProps, RatingRefCurrent } from './types';
+import { RatingProps } from './types';
 import { createChangeHandler, createMouseOutHandler, createMouseOverHandler } from './handlers';
 import { Span } from '../Span';
 import { Icon } from '../Icon';
 import { IconTypes } from '../..';
 
-export const Rating = React.forwardRef((props: RatingProps, ref?: React.Ref<RatingRefCurrent>): React.ReactElement => {
+export const Rating = React.forwardRef((props: RatingProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {
     max = 5,
     icon = IconTypes.Icons.Star,
@@ -49,9 +49,7 @@ export const Rating = React.forwardRef((props: RatingProps, ref?: React.Ref<Rati
       onMouseOver={!isDisabled ? handleMouseOver : undefined}
       onMouseOut={!isDisabled ? handleMouseOut : undefined}
       onClick={!isDisabled ? handleChange : onClick}
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-        wrapper: component,
-      }))}
+      ref={ref}
       {...restProps}
     >
       {

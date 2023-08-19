@@ -122,7 +122,7 @@ export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends Va
   /** Suggestion item customizator */
   itemRender?: SuggestionListProps['itemRender'],
   /** Input field customizator */
-  inputRender?: CustomRender<AutoCompleteProps, AutoCompleteState, InputElementProps>,
+  inputRender?: CustomRender<AutoCompleteProps, AutoCompleteState, React.InputHTMLAttributes<HTMLInputElement>>,
   /** Required or not */
   isRequired?: boolean,
   /** Dropdown list customizator */
@@ -156,7 +156,7 @@ export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends Va
    * */
   textField?: T extends object ? string : never,
   /** Ref */
-  ref?: React.Ref<AutoCompleteRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.autoComplete],
   /** Value */
@@ -182,13 +182,4 @@ export interface SuggestionsVal {
   minSearchLength?: number,
   shouldShowAllSuggestions?: boolean,
   searchFields?: string[],
-}
-
-export interface AutoCompleteRefCurrent {
-  wrapper: HTMLElement | null,
-  input: HTMLInputElement | null,
-}
-
-export interface InputElementProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  ref: React.Ref<HTMLInputElement | null>,
 }

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { LedaContext } from '../../components/LedaProvider';
 import { Loader } from '../../components/Loader';
-import { Div, DivRefCurrent } from '../../components/Div';
+import { Div } from '../../components/Div';
 import { Li } from '../../components/Li';
 import { Ul } from '../../components/Ul';
 import { COMPONENTS_NAMESPACES } from '../../constants';
@@ -69,7 +69,7 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
     props,
   );
 
-  const wrapperRef = React.useRef<DivRefCurrent | null>(null);
+  const wrapperRef = React.useRef<HTMLElement | null>(null);
   const containerRef = React.useRef<HTMLElement | null>(null);
   const suggestionRef = React.useRef<HTMLElement | null>(null);
 
@@ -181,7 +181,7 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
       <List
         className={theme.list}
         ref={(component) => {
-          containerRef.current = component && component.wrapper;
+          containerRef.current = component;
         }}
       >
         {groupBy && suggestions?.map((suggestion, index) => {

@@ -5,11 +5,6 @@ import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { DivProps } from '../Div';
 
-export interface TextareaRefCurrent {
-  wrapper: HTMLDivElement | null,
-  input: HTMLInputElement | null,
-}
-
 export interface ResetEvent {
   component: {
     value: string,
@@ -67,6 +62,8 @@ export interface TextareaProps extends ValidationProps {
   onFocus?: (ev: FocusEvent) => void,
   /** Placeholder */
   placeholder?: string,
+  /** Ref */
+  ref?: React.Ref<HTMLTextAreaElement>,
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.textarea],
   /** Value */

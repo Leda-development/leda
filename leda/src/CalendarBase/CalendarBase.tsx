@@ -2,7 +2,6 @@ import * as React from 'react';
 import { CALENDAR_CLICK_ACTION } from './constants';
 import { useCustomElements } from './hooks';
 import type { CalendarBaseProps } from './types';
-import type { DivRefCurrent } from '../../components/Div';
 import {
   getCalendarConditions, getCalendarFormat,
 } from './helpers';
@@ -32,7 +31,7 @@ export const CalendarBase = (props: CalendarBaseProps): React.ReactElement | nul
 
   const format = getCalendarFormat(props.format);
 
-  const calendarRef = React.useRef<DivRefCurrent | null>(null);
+  const calendarRef = React.useRef<HTMLElement | null>(null);
 
   const classMap = React.useMemo(() => ({
     top: theme.wrapperTop,

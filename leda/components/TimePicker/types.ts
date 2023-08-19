@@ -1,38 +1,37 @@
 import * as React from 'react';
 import {
   BlurEvent, ChangeEvent, FocusEvent, DateTimeInputProps,
-  DateTimeInputRefCurrent,
 } from '../../src/DateTimeInput/types';
 
 export interface TimePickerProps extends DateTimeInputProps {
-  /** Дата для компонента, используется вместо value */
+  /** Component date, can be used as value */
   date?: Date | null,
-  /** Формат отображаемого и вводимого времени. По-умолчанию "hh:mm" */
+  /** Date format, hh:mm by default */
   format?: string,
-  /** Признак отключения инпута */
+  /** Disabled input state */
   isDisabled?: boolean,
-  /** Признак принудительного открытия списка времени */
+  /** Control opened state */
   isOpen?: boolean,
-  /** Имя поля ввода */
+  /** Component name */
   name?: string,
-  /** Функция обратного вызова при потере фокуса */
+  /** Blur handler */
   onBlur?: (ev: BlurEvent) => void,
-  /** Функция обратного вызова при изменении значения в поле ввода */
+  /** Change handler */
   onChange?: (ev: ChangeEvent) => void,
-  /**  Функция обратного вызова при нажатии Enter */
+  /** Enter press handler */
   onEnterPress?: (ev: ChangeEvent) => void,
-  /** Функция обратного вызова при фокусе поля ввода */
+  /** Focus handler */
   onFocus?: (ev: FocusEvent) => void,
-  /** Плейсхолдер для поля ввода */
+  /** Placeholder */
   placeholder?: string,
-  /** Реф */
-  ref?: React.Ref<DateTimeInputRefCurrent>,
-  /** Минимальное время */
+  /** Ref */
+  ref?: React.Ref<HTMLElement>,
+  /** Min time */
   timeMin?: [number, number],
-  /** Максимальное время */
+  /** Max time */
   timeMax?: [number, number],
-  /** Значение поля ввода */
+  /** Value */
   value?: string | Date | null,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }

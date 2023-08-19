@@ -1,15 +1,13 @@
-'use client'
-
 import React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
-  getClassNames, bindFunctionalRef, useTheme, useProps,
+  getClassNames, useTheme, useProps,
 } from '../../utils';
 import { createClickHandler } from './handlers';
-import { ButtonProps, ButtonRefCurrent } from './types';
+import { ButtonProps } from './types';
 import { Icon, IconTypes } from '../../';
 
-export const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<ButtonRefCurrent>): React.ReactElement | null => {
+export const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<HTMLButtonElement>): React.ReactElement | null => {
   const {
     children,
     className,
@@ -47,9 +45,7 @@ export const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<Butto
       {...restProps}
       className={combinedClassNames}
       onClick={handleClick}
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-        wrapper: component,
-      }))}
+      ref={ref}
     >
       {isLoading && (
         <Icon

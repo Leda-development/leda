@@ -11,7 +11,7 @@ export interface LoaderProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Or not */
   isLoading?: boolean,
   /** Ref */
-  ref?: React.Ref<LoaderRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.loader],
   /** Underscore CSS classes */
@@ -21,8 +21,4 @@ export interface LoaderProps extends React.HTMLAttributes<HTMLDivElement> {
 export interface IconProps {
   className?: string,
   icon: string,
-}
-
-export interface LoaderRefCurrent {
-  wrapper: HTMLDivElement | null,
 }

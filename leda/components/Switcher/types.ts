@@ -28,7 +28,7 @@ export interface SwitcherProps {
   /** Click handler */
   onClick?: (ev: React.MouseEvent<HTMLDivElement>) => void,
   /** Ref */
-  ref?: React.Ref<SwitcherRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.switcher],
   /** Value */
@@ -45,7 +45,7 @@ export interface SwitcherState {
 
 export interface WrapperProps {
   className?: string,
-  ref?: React.Ref<SwitcherRefCurrent> | null,
+  ref?: React.Ref<HTMLElement> | null,
   children?: React.ReactNode,
 }
 
@@ -69,8 +69,4 @@ export interface CustomElements {
   Label: React.FC<LabelProps>,
   Base: React.FC<BaseProps>,
   Icon: React.FC<IconProps>,
-}
-
-export interface SwitcherRefCurrent {
-  wrapper: HTMLElement | null,
 }

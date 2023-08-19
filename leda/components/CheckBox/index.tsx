@@ -1,17 +1,15 @@
-'use client'
-
 import * as React from 'react';
 import classnames from 'classnames';
 import {
-  bindFunctionalRef, useTheme, useElement, generateId, useValue, useProps,
+  useTheme, useElement, generateId, useValue, useProps,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { createChangeHandler } from './handlers';
-import { CheckBoxProps, CheckBoxRefCurrent } from './types';
+import { CheckBoxProps } from './types';
 import { LedaContext } from '../LedaProvider';
 import { Div, Icon, IconTypes, Label } from '../../index';
 
-export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<CheckBoxRefCurrent>): React.ReactElement => {
+export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {
     checkboxIcon,
     children,
@@ -67,15 +65,7 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
 
   return (
     <Wrapper
-      ref={ref && ((component) => {
-        const wrapper = component ? (component.wrapper || component as unknown as HTMLElement) : null;
-
-        return bindFunctionalRef(component, ref, component && wrapper && {
-          wrapper,
-          input: wrapper.firstElementChild as HTMLInputElement,
-          label: wrapper.firstElementChild ? wrapper.firstElementChild.nextElementSibling as HTMLLabelElement : null,
-        });
-      })}
+      ref={ref}
       className={className}
     >
       <Input

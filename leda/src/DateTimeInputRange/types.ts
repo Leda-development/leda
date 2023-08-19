@@ -1,5 +1,5 @@
 import type * as React from 'react';
-import type { DivProps, DivRefCurrent } from '../../components/Div';
+import type { DivProps } from '../../components/Div';
 import type {
   CalendarHeaderProps,
   CalendarBaseProps,
@@ -36,7 +36,7 @@ export interface CustomRangeEvent {
 
 export interface WrapperRangeProps {
   className?: string,
-  ref?: React.Ref<DivRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
 }
 
 export interface DelimiterProps {
@@ -44,7 +44,7 @@ export interface DelimiterProps {
 }
 
 export interface DateTimeInputRangeProps {
-  boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement }>,
+  boundingContainerRef?: React.RefObject<HTMLElement>,
   className?: string,
   max?: Date,
   min?: Date,
@@ -87,12 +87,6 @@ export interface DateTimeInputRangeProps {
   calendarHeaderRender?: CustomRender<DateViewProps, Record<string, never>, CalendarHeaderProps>,
   /** Custom calendar wrapper */
   calendarWrapperRender?: CustomRender<CalendarBaseProps, Record<string, never>, DivProps>,
-}
-
-export interface DateTimeInputRangeRefCurrent {
-  wrapper: HTMLDivElement | null,
-  inputFrom: HTMLInputElement | null,
-  inputTo: HTMLInputElement | null,
 }
 
 export interface CustomElements {

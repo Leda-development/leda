@@ -4,14 +4,14 @@
 import * as React from 'react';
 import { isString } from 'lodash';
 import {
-  bindFunctionalRef, getClassNames, useTheme, useElement, useProps,
+  getClassNames, useTheme, useElement, useProps,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { Div } from '../Div';
 import { LedaContext } from '../LedaProvider';
-import { TagsProps, TagsRefCurrent } from './types';
+import { TagsProps } from './types';
 
-export const Tags = React.forwardRef((props: TagsProps, ref?: React.Ref<TagsRefCurrent>): React.ReactElement => {
+export const Tags = React.forwardRef((props: TagsProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {
     children,
     className,
@@ -40,9 +40,7 @@ export const Tags = React.forwardRef((props: TagsProps, ref?: React.Ref<TagsRefC
     <Wrapper
       className={combinedClassNames}
       {...restProps}
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-        wrapper: component,
-      }))}
+      ref={ref}
     >
       {
         isString(children)

@@ -53,15 +53,11 @@ export interface NotificationsProps {
   /** Change handler, fires when the notification gets closed on timeout or by click */
   onChange: (event: ChangeEvent) => void,
   /** Ref */
-  ref?: React.Ref<NotificationRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.notifications],
   /** Notifications. If value has more items than is set in maxItems notifications get shown one by one */
   value: Item[],
   /** _css-class-names */
   [x: string]: unknown,
-}
-
-export interface NotificationRefCurrent {
-  wrapper: HTMLElement | null,
 }

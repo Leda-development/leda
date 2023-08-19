@@ -2,7 +2,6 @@ import * as React from 'react';
 import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { CustomRender, CustomEventHandler } from '../../commonTypes';
-import { DivRefCurrent } from '../Div';
 
 export type WindowSizeType = 'sm' | 'md' | 'lg';
 
@@ -24,7 +23,7 @@ export interface ModalProps {
   /** Click handler outside the modal window */
   onOverlayClick?: CustomEventHandler<React.MouseEvent<HTMLElement>>,
   /** Ref */
-  ref?: React.Ref<ModalRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** Window size.
    * There are three standard sizes: sm=480, md=608, lg=868.
    * Any custom values can be put as "50%", "50px", "50rem" etc.
@@ -38,7 +37,7 @@ export interface ModalProps {
   [x: string]: unknown,
 }
 
-export type ModalWindowProps = ModalProps & { innerRef?: React.Ref<ModalRefCurrent> };
+export type ModalWindowProps = ModalProps & { innerRef?: React.Ref<HTMLElement> };
 
 export interface ModalElementsProps {
   children?: React.ReactNode,
@@ -53,10 +52,6 @@ export interface ModalContextType {
   headerClassName: string,
 }
 
-export interface ModalRefCurrent {
-  wrapper: HTMLDivElement | null,
-}
-
 export interface CustomElements {
   Icon: React.FC<IconProps>,
   Wrapper: React.FC<WrapperProps>,
@@ -64,7 +59,7 @@ export interface CustomElements {
 
 export interface WrapperProps extends ModalElementsProps {
   onClick?: React.MouseEventHandler<HTMLElement>,
-  ref?: React.Ref<DivRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
 }
 
 export interface IconProps extends ModalElementsProps {

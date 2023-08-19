@@ -1,6 +1,5 @@
 import { formatDateTime, stringToDate } from './src/DateTimeInput/helpers';
 import {
-  bindFunctionalRef,
   bytesSizeToUnitsSize,
   generateId,
   getClassNames,
@@ -118,7 +117,6 @@ import * as commonTypes from './commonTypes';
 import { form } from './form';
 
 const utils = {
-  bindFunctionalRef,
   bytesSizeToUnitsSize,
   formatDateTime,
   generateId,

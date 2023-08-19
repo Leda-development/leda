@@ -2,8 +2,8 @@ import * as React from 'react';
 import { CustomRender, CustomEventHandler } from '../../commonTypes';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
-import { DivRefCurrent } from '../Div';
 import { ValidationProps } from '../Validation/types';
+import { DivProps } from '../Div';
 
 // the event from keyboard type input
 interface InputChangeEvent extends React.ChangeEvent<HTMLInputElement> {
@@ -116,7 +116,7 @@ export interface NumericTextBoxProps extends ValidationProps {
   /** Focus handler */
   onFocus?: (event: FocusEvent) => void,
   /** Ref */
-  ref?: React.Ref<NumericRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** To trim or not to trim */
   shouldTrimTrailingZeros?: boolean,
   /** Step */
@@ -128,7 +128,7 @@ export interface NumericTextBoxProps extends ValidationProps {
   /** Value */
   value?: number | null,
   /** Wrapper customizator */
-  wrapperRender?: CustomRender<NumericTextBoxProps, NumericTextBoxState, WrapperProps>,
+  wrapperRender?: CustomRender<NumericTextBoxProps, NumericTextBoxState, React.HTMLAttributes<HTMLDivElement>>,
   /** _css-class-names */
   [x: string]: unknown,
 }
@@ -138,11 +138,6 @@ export interface NumericTextBoxState {
   value: number | null,
   /** Focused state */
   isFocused: boolean,
-}
-
-export interface NumericRefCurrent {
-  wrapper: HTMLDivElement | null,
-  input: HTMLInputElement | null,
 }
 
 export interface NumericHandlers {
@@ -156,7 +151,7 @@ export interface NumericHandlers {
 }
 
 export interface WrapperProps extends React.HTMLAttributes<HTMLDivElement> {
-  ref?: React.Ref<DivRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
 }
 
 export type ArrowButtonsProps = React.HTMLAttributes<HTMLDivElement>;
@@ -170,7 +165,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
 }
 
 export interface CustomElements {
-  Wrapper: React.FC<WrapperProps>,
+  Wrapper: React.FC<DivProps>,
   Input: React.FC<InputProps>,
   ArrowButtons: React.FC<ArrowButtonsProps>,
 }

@@ -43,27 +43,19 @@ export interface ButtonGroupProps<T extends Value | Value[] = Value | Value[]> e
   /** Only one active button is allowed in the radio mode. Use checkbox if you want many. Radio is default */
   type?: 'radio' | 'checkbox',
   /** Ref */
-  ref?: React.Ref<ButtonGroupRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** Value */
   value?: T,
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.buttonGroup],
   /** Wrapper customizator */
-  wrapperRender?: CustomRender<ButtonGroupProps, ButtonGroupState, WrapperProps>,
+  wrapperRender?: CustomRender<ButtonGroupProps, ButtonGroupState, React.HTMLAttributes<HTMLElement>>,
   /** _css-class-names */
   [x: string]: unknown,
 }
 
 export interface ButtonGroupState {
   value: Value | Value[],
-}
-
-export interface ButtonGroupRefCurrent {
-  wrapper: HTMLElement | null,
-}
-
-export interface WrapperProps extends React.HTMLAttributes<HTMLElement> {
-  ref?: React.Ref<ButtonGroupRefCurrent | null>,
 }
 
 export interface ChangeData {

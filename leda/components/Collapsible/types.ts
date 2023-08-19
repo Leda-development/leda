@@ -19,11 +19,7 @@ export interface CollapsibleProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Toggle handler */
   onToggle?: () => void,
   /** Ref */
-  ref?: React.Ref<CollapsibleRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** CSS transition format. 'height 250ms cubic-bezier(.4, 0, .2, 1)' by default */
   transition?: string | TransitionOptions,
-}
-
-export interface CollapsibleRefCurrent {
-  wrapper: HTMLDivElement | null,
 }

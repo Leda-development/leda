@@ -16,7 +16,6 @@ import { TriggerValidation } from './TriggerValidation';
 import { RequiredSubmit } from './RequiredSubmit';
 import { FormControlled } from './FormControlled';
 import { FormUncontrolled } from './FormUncontrolled';
-import { MixedValidation } from './MixedValidation';
 import { Refactoring } from './Refactoring';
 import { IsRequired } from './IsRequired';
 
@@ -44,7 +43,6 @@ export const Validation = () => (
       <ShouldValidateUnmounted title="validate unmounted" />
       <TriggerValidation title="trigger validation" />
       <RequiredSubmit title="All required and invalid" />
-      <MixedValidation title="Mixed validation" />
     </Story>
   </>
 );

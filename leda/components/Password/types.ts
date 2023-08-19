@@ -96,7 +96,7 @@ export interface PasswordProps extends ValidationProps {
   /** Visibility icon customizator */
   passwordVisibilityRender?: CustomRender<PasswordProps, PasswordState, PasswordVisibilityIconProps>,
   /** Ref */
-  ref?: React.Ref<PasswordRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.password],
   /** Value */
@@ -112,11 +112,6 @@ export interface PasswordState {
   isValid: boolean,
   isPasswordVisible: boolean,
   value: string,
-}
-
-export interface PasswordRefCurrent {
-  wrapper: HTMLDivElement | null,
-  input: HTMLInputElement | null,
 }
 
 export interface PasswordRulesMessageProps {

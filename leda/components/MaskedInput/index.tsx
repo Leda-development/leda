@@ -1,11 +1,8 @@
-'use client';
-
-import * as React from 'react';
 import {
-  getClassNames, useTheme, bindFunctionalRef, toStringOrEmpty, useProps, getIsEmptyAndRequired,
+  getClassNames, useTheme, toStringOrEmpty, useProps, getIsEmptyAndRequired,
 } from '../../utils';
 import { Div } from '../Div';
-import type { MaskedInputProps, MaskedInputRefCurrent } from './types';
+import type { MaskedInputProps } from './types';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { useValidation } from '../Validation';
 import {
@@ -14,7 +11,7 @@ import {
 import { useCustomElements } from './hooks';
 import { getValue, getValueToValidate } from './helpers';
 
-export const MaskedInput = React.forwardRef((props: MaskedInputProps, ref: React.Ref<MaskedInputRefCurrent>) => {
+export const MaskedInput = React.forwardRef((props: MaskedInputProps, ref: React.Ref<HTMLElement>) => {
   const {
     className,
     defaultValue,
@@ -133,10 +130,7 @@ export const MaskedInput = React.forwardRef((props: MaskedInputProps, ref: React
   return (
     <Wrapper
       className={wrapperClassNames}
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-        wrapper: component.wrapper,
-        input: maskedInputRef.current,
-      }))}
+      ref={ref}
     >
       <Div className={inputWrapperClassNames}>
         <Input

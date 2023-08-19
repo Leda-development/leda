@@ -2,7 +2,7 @@ import type * as React from 'react';
 import {
   isFunction, isNil, isDate, isString,
 } from 'lodash';
-import type { ChangeEvent, DateTimeInputRefCurrent } from '../DateTimeInput/types';
+import type { ChangeEvent } from '../DateTimeInput/types';
 import type { DateTimeInputRangeProps, DateTimeInputRangeState } from './types';
 import { isDateValue } from './helpers';
 import { formatDateTime, stringToDate } from '../DateTimeInput/helpers';
@@ -100,12 +100,12 @@ export const createChangeHandler = (
 
 export const createEnterPressHandler = (
   props: DateTimeInputRangeProps,
-  toDateTimeInputRef: React.MutableRefObject<DateTimeInputRefCurrent | null>,
+  toDateTimeInputRef: React.MutableRefObject<HTMLInputElement | null>,
 ) => (caller: 'from' | 'to') => (ev: ChangeEvent): void => {
   const { onEnterPress } = props;
 
-  if (caller === 'from' && toDateTimeInputRef.current && toDateTimeInputRef.current.input) {
-    toDateTimeInputRef.current.input.focus();
+  if (caller === 'from' && toDateTimeInputRef.current) {
+    toDateTimeInputRef.current.focus();
 
     return;
   }

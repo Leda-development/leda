@@ -1,14 +1,12 @@
-'use client'
-
 import React from 'react';
 import { useCollapseHeading, useIcon } from './helpers';
-import { bindFunctionalRef, getClassNames, useProps } from '../../utils';
+import { getClassNames, useProps } from '../../utils';
 import { handleHeadingClick } from './handlers';
 import { CollapsePanelContext } from './CollapseContext';
-import { HeadingProps, HeadingRefCurrent } from './types';
+import { HeadingProps } from './types';
 import { IconTypes } from '../..';
 
-export const Heading = React.forwardRef((props: HeadingProps, ref?: React.Ref<HeadingRefCurrent>): React.ReactElement => {
+export const Heading = React.forwardRef((props: HeadingProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const { children, className } = useProps(props);
 
   const context = React.useContext(CollapsePanelContext);
@@ -35,9 +33,7 @@ export const Heading = React.forwardRef((props: HeadingProps, ref?: React.Ref<He
   return (
     <HeadingWrapper
       // @ts-ignore
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-        wrapper: component.wrapper ? component.wrapper : component,
-      }))}
+      ref={ref}
       onClick={handleHeadingClick(
         props,
         context,

@@ -22,7 +22,7 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement>, Va
   /** It fires when the button is clicked and the form has invalid fields */
   onValidationFail?: (ev: ValidationFailEvent) => void,
   /** Ref */
-  ref?: React.Ref<ButtonRefCurrent>,
+  ref?: React.Ref<HTMLButtonElement>,
   /** How many seconds the form should wait before scrolling to invalid fields */
   scrollDelay?: number,
   /** How many pixels should be added between the screen top and the first invalid field */
@@ -37,8 +37,4 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement>, Va
   type?: React.ButtonHTMLAttributes<{}>['type'],
   /** _css-class-name */
   [x: string]: unknown,
-}
-
-export interface ButtonRefCurrent {
-  wrapper: HTMLButtonElement | null,
 }

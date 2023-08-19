@@ -1,12 +1,10 @@
-'use client'
-
 import React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
-  getClassNames, bindFunctionalRef, useTheme, useElement, useProps, getIsEmptyAndRequired,
+  getClassNames, useTheme, useElement, useProps, getIsEmptyAndRequired,
 } from '../../utils';
 import { useValidation } from '../Validation';
-import { PasswordProps, PasswordRefCurrent } from './types';
+import { PasswordProps } from './types';
 import { Div } from '../Div';
 import {
   createBlurHandler,
@@ -24,7 +22,7 @@ import { Icon } from '../Icon';
 import { Icons } from '../Icon/types';
 import { PasswordRulesMessage } from './PasswordRulesMessage';
 
-export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<PasswordRefCurrent>): React.ReactElement => {
+export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<HTMLElement>): React.ReactElement => {
   const {
     className,
     defaultValue,
@@ -146,10 +144,7 @@ export const Password = React.forwardRef((props: PasswordProps, ref: React.Ref<P
   return (
     <Wrapper
       className={wrapperClassNames}
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && component.wrapper && {
-        wrapper: component.wrapper,
-        input: component.wrapper.querySelector('input'),
-      }))}
+      ref={ref}
     >
       <Div
         className={inputClassNames}

@@ -158,7 +158,7 @@ export const getButtonActionType = (viewType: Values<typeof VIEW_TYPES>, buttonT
 
   if (viewType === VIEW_TYPES.YEARS && buttonType === BUTTON_TYPE.NEXT) return CALENDAR_CLICK_ACTION.YEARS_NEXT;
 
-  return CALENDAR_CLICK_ACTION.DATES_SELECT; // никогда не будет выполнено eslint: consistent-return
+  return CALENDAR_CLICK_ACTION.DATES_SELECT; // never works, it is added to satisfy eslint: consistent-return
 };
 
 export const getCalendarConditions = (props: CalendarConditionProps): CalendarConditions => {

@@ -1,5 +1,3 @@
-'use client'
-
 import React from 'react';
 import { isNumber, isNil } from 'lodash';
 import { Div } from '../Div';
@@ -7,14 +5,14 @@ import { Span } from '../Span';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { SliderSrc } from '../../src/ReactSlider';
 import {
-  getClassNames, useTheme, bindFunctionalRef, useElement, useProps,
+  getClassNames, useTheme, useElement, useProps,
 } from '../../utils';
 import { LABELS } from './constants';
 import { createAfterChangeHandler, createChangeHandler } from './handlers';
 import { SliderLabels } from './SliderLabels';
 import { SliderTooltip } from './SliderTooltip';
 import {
-  SliderProps, SliderRefCurrent, SliderValue,
+  SliderProps, SliderValue,
 } from './types';
 
 // Slider taken here:
@@ -27,7 +25,7 @@ import {
 // The component can be used as controllable (via value, defaultValue is not used)
 // and as uncontrollable (initial value is set via defaultValue)
 
-export const Slider = React.forwardRef((props: SliderProps, ref?: React.Ref<SliderRefCurrent>): React.ReactElement => {
+export const Slider = React.forwardRef((props: SliderProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {
     labelType = LABELS.MINMAX,
     hasTooltip = false,
@@ -83,9 +81,7 @@ export const Slider = React.forwardRef((props: SliderProps, ref?: React.Ref<Slid
   return (
     <Div
       className={wrapperClassNames}
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-        wrapper: component.wrapper,
-      }))}
+      ref={ref}
     >
       <SliderSrc
         ref={sliderRef}

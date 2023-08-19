@@ -2,7 +2,7 @@ import type * as React from 'react';
 import type {
   Action, CustomRender, CustomEventHandler, Values,
 } from '../../commonTypes';
-import type { DivProps, DivRefCurrent } from '../../components/Div';
+import type { DivProps } from '../../components/Div';
 import type { COMPONENTS_NAMESPACES } from '../../constants';
 import type { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import type { VIEW_TYPES } from '../CalendarBase/constants';
@@ -69,72 +69,67 @@ export interface IconProps {
 
 export interface WrapperProps {
   className?: string,
-  ref?: React.Ref<DivRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   onKeyDown?: React.KeyboardEventHandler<HTMLDivElement>,
 }
 
 export interface DateTimeInputProps extends ValidationProps {
-  /** Ссылка на контейнер, относительно которого нужно позиционировать элемент */
-  boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement }>,
-  /** Классы для компонента */
+  /** Ref to a container to position the element against */
+  boundingContainerRef?: React.RefObject<HTMLElement>,
+  /** Component classes */
   className?: string,
-  /** Формат даты, по-умолчанию dd.MM.yyyy */
+  /** Date format, dd.MM.yyyy by default */
   format?: string,
-  /** Кнопка "Сегодня" под календарем */
+  /** Today button under the calendar */
   hasTodayButton?: boolean,
-  /** Выключенное состояние */
+  /** Disabled state */
   isDisabled?: boolean,
-  /** Открытый календарь */
+  /** Controlled opened state */
   isOpen?: boolean,
-  /** Поле является обязательным */
+  /** Is required or not */
   isRequired?: boolean,
-  /** Максимальная дата */
+  /** Max date */
   max?: Date,
-  /** Минимальная дата */
+  /** Min date */
   min?: Date,
-  /** Имя компонента */
+  /** Component name */
   name?: string,
-  /** Обработчик блюра */
+  /** Blur handler */
   onBlur?: (ev: BlurEvent) => void,
-  /** Обработчик изменения */
+  /** Change handler */
   onChange?: (ev: ChangeEvent) => void,
-  /** Обработчик нажатия Enter */
+  /** Enter press handler */
   onEnterPress?: (ev: ChangeEvent) => void,
-  /** Обработчик фокуса */
+  /** Focus handler */
   onFocus?: (ev: FocusEvent) => void,
-  /** Плейсхолдер инпута */
+  /** Placeholder */
   placeholder?: string,
-  /** Тема для компонента */
+  /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.dateTimeInput],
-  /** Тип компонента */
+  /** Component type */
   type?: Values<typeof COMPONENT_TYPES>,
-  /** Значение в инпуте */
+  /** Value */
   value?: string | Date | null,
-  /** Кастомный враппер */
+  /** Wrapper customizator */
   wrapperRender?: CustomRender<DateTimeInputProps, DateTimeInputState, WrapperProps>,
-  /** Кастомная иконка календаря */
+  /** Icon customizator */
   iconRender?: CustomRender<DateTimeInputProps, DateTimeInputState, IconProps>,
-  /** Кастомный инпут */
+  /** Input customizator */
   inputRender?: CustomRender<DateTimeInputProps, DateTimeInputState, MaskedInputBaseProps>,
-  /** Кастомная ячейка с датой */
+  /** Date cell customizator */
   dateCellRender?: CustomRender<DateCellProps, Record<string, never>, DateCellItemProps>,
-  /** Кастомный список дней недели */
+  /** Weeks row customizator */
   weeksRowRender?: CustomRender<DateViewProps, Record<string, never>, WeekRowProps>,
-  /** Кастомный вид выбора даты */
+  /** Date view customizator */
   dateViewRender?: CustomRender<CalendarBaseProps, Record<string, never>, DateViewProps>,
-  /** Кастомный вид выбора месяца */
+  /** Month view customizator */
   monthViewRender?: CustomRender<CalendarBaseProps, Record<string, never>, MonthViewProps>,
-  /** Кастомный вид выбора года */
+  /** Year view customizator */
   yearViewRender?: CustomRender<CalendarBaseProps, Record<string, never>, YearViewProps>,
-  /** Кастомный заголовок календаря */
+  /** Header customizator */
   calendarHeaderRender?: CustomRender<CalendarBaseProps, Record<string, never>, CalendarHeaderProps>,
-  /** Кастомный рендер враппера календаря */
+  /** Calendar wrapper customizator */
   calendarWrapperRender?: CustomRender<CalendarBaseProps, Record<string, never>, DivProps>,
-}
-
-export interface DateTimeInputRefCurrent {
-  input: HTMLInputElement | null,
-  wrapper: HTMLDivElement | null,
 }
 
 export interface DateWithToDateMethod extends Date {

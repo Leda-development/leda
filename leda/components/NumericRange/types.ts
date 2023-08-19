@@ -52,7 +52,7 @@ export interface NumericRangeProps {
   /** Placeholders */
   placeholder?: [string | undefined, string | undefined] | string,
   /** Ref */
-  ref?: NumericRangeRefCurrent,
+  ref?: React.Ref<HTMLElement>,
   /** To trim or not to trim */
   shouldTrimTrailingZeros?: boolean,
   /** How much the value is increased/decreased on mouse events */
@@ -67,10 +67,4 @@ export interface NumericRangeProps {
   wrapperRender?: CustomRender<NumericRangeProps, NumericRangeState, DivProps>,
   /** _css-class-names */
   [x: string]: unknown,
-}
-
-export interface NumericRangeRefCurrent {
-  wrapper: HTMLDivElement | null,
-  inputFrom: HTMLInputElement | null,
-  inputTo: HTMLInputElement | null,
 }

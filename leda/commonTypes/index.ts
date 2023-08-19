@@ -40,10 +40,6 @@ export interface SomeFunction {
   (x: unknown): unknown,
 }
 
-export interface SomeRefCurrent {
-  [x: string]: Element | undefined,
-}
-
 export type RecursivePartial<T> = Partial<{
   [P in keyof T]?: T[P] extends object ? RecursivePartial<T[P]> : Partial<T[P]>;
 }>;
@@ -66,7 +62,3 @@ export interface Action<T, P = {}> {
 }
 
 export type ArrayElement<A> = A extends readonly (infer T)[] ? T : A;
-
-export interface CommonRefCurrent {
-  wrapper: HTMLElement | null,
-}

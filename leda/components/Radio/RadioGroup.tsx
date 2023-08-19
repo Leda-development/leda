@@ -1,18 +1,16 @@
-'use client'
-
 import React from 'react';
 import { isFunction, isBoolean } from 'lodash';
 import { RadioButton } from './RadioButton';
 import {
-  bindFunctionalRef, getClassNames, useTheme, useElement, useProps,
+  getClassNames, useTheme, useElement, useProps,
 } from '../../utils';
-import { Div, DivProps } from '../Div';
+import { Div } from '../Div';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
-  ChangeEvent, RadioGroupProps, RadioGroupRefCurrent, WrapperProps,
+  ChangeEvent, RadioGroupProps, WrapperProps,
 } from './types';
 
-export const RadioGroup = React.forwardRef((props: RadioGroupProps, ref?: React.Ref<RadioGroupRefCurrent>): React.ReactElement => {
+export const RadioGroup = React.forwardRef((props: RadioGroupProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {
     children,
     className,
@@ -51,9 +49,7 @@ export const RadioGroup = React.forwardRef((props: RadioGroupProps, ref?: React.
   return (
     <Wrapper
       className={combinedClassNames}
-      ref={ref && ((component: RadioGroupRefCurrent) => bindFunctionalRef(component, ref, component && {
-        wrapper: component.wrapper ? component.wrapper : component,
-      }))}
+      ref={ref}
     >
       {React.Children.toArray(children).map((child) => {
         if (child

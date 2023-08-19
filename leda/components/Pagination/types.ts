@@ -39,7 +39,7 @@ export interface PaginationProps {
   /** Selects options for the number of elements on the page, if passed, a drop-down list appears */
   pageSizeOptions?: number[],
   /** Reference */
-  ref?: React.Ref<PaginationRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.pagination],
   /** Totl number of items */
@@ -100,10 +100,6 @@ export interface PagesListProps {
   pageNumbers: number[],
   currentPage: number,
   onClick: PageChangeHandler,
-}
-
-export interface PaginationRefCurrent {
-  wrapper: HTMLDivElement | null,
 }
 
 export interface CustomElements {

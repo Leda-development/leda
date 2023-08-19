@@ -1,9 +1,7 @@
-'use client'
-
 import * as React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
-  bindFunctionalRef, getClassNames, getIsEmptyAndRequired, useProps, useTheme, useValue,
+  getClassNames, getIsEmptyAndRequired, useProps, useTheme, useValue,
 } from '../../utils';
 import { Div } from '../Div';
 import { useValidation } from '../Validation';
@@ -20,12 +18,12 @@ import {
   formatInputValue, formatValue, getRestProps, getValue, normalizeValue,
 } from './helpers';
 import { useCustomElements, useSyncedValue } from './hooks';
-import { NumericRefCurrent, NumericTextBoxProps, NormalizeParameters } from './types';
+import { NumericTextBoxProps, NormalizeParameters } from './types';
 import { DEFAULT_VALUES } from './constants';
 import { Icon } from '../Icon';
 import { IconTypes } from '../..';
 
-export const NumericTextBox = React.forwardRef((props: NumericTextBoxProps, ref: React.Ref<NumericRefCurrent>): React.ReactElement => {
+export const NumericTextBox = React.forwardRef((props: NumericTextBoxProps, ref: React.Ref<HTMLElement>): React.ReactElement => {
   const {
     className,
     defaultValue = null,
@@ -119,10 +117,7 @@ export const NumericTextBox = React.forwardRef((props: NumericTextBoxProps, ref:
   return (
     <Wrapper
       className={wrapperClassNames}
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-        wrapper: (component.wrapper || component) as HTMLDivElement,
-        input: inputRef.current,
-      }))}
+      ref={ref}
     >
       <Div
         className={inputWrapperClassNames}

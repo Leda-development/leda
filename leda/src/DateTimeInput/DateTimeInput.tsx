@@ -5,7 +5,7 @@ import { COMPONENTS_NAMESPACES } from '../../constants';
 import { getCalendarConditions } from '../CalendarBase/helpers';
 import { Div } from '../../components/Div';
 import {
-  bindFunctionalRef, getClassNames, useProps, useTheme,
+  getClassNames, useProps, useTheme,
 } from '../../utils';
 import { CalendarBase } from '../CalendarBase';
 import { COMPONENT_TYPES } from './constants';
@@ -26,10 +26,10 @@ import {
   getInputWrapperClassNames, getValue, stringToDate,
 } from './helpers';
 import { useCustomElements, useDateTimeInputEffects, useDateTimeInputState } from './hooks';
-import type { DateTimeInputProps, DateTimeInputRefCurrent } from './types';
+import type { DateTimeInputProps } from './types';
 import { IconTypes } from '../..';
 
-export const DateTimeInput = React.forwardRef((props: DateTimeInputProps, ref: React.Ref<DateTimeInputRefCurrent>) => {
+export const DateTimeInput = React.forwardRef((props: DateTimeInputProps, ref: React.Ref<HTMLElement>) => {
   const {
     boundingContainerRef,
     calendarHeaderRender,
@@ -147,10 +147,7 @@ export const DateTimeInput = React.forwardRef((props: DateTimeInputProps, ref: R
     <Wrapper
       className={wrapperClassNames}
       onKeyDown={(ev) => handleCalendarKeyDown(ev)}
-      ref={ref && ((divComponent) => bindFunctionalRef(divComponent, ref, divComponent && {
-        wrapper: divComponent.wrapper,
-        input: maskedInputRef.current,
-      }))}
+      ref={ref}
     >
       <Div
         className={getInputWrapperClassNames(theme, newProps, state, isValid)}

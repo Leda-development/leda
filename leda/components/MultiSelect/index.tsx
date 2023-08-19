@@ -1,12 +1,10 @@
-'use client'
-
 import * as React from 'react';
 import { isNil } from 'lodash';
 import {
-  MultiSelectComponent, MultiSelectProps, MultiSelectRefCurrent, Value,
+  MultiSelectComponent, MultiSelectProps, Value,
 } from './types';
 import {
-  bindFunctionalRef, getClassNames, getIsEmptyAndRequired, useElement, useProps, useTheme,
+  getClassNames, getIsEmptyAndRequired, useElement, useProps, useTheme,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { useValidation } from '../Validation';
@@ -31,7 +29,7 @@ import { createCheckBoxesRender } from './renders';
 import { selectAllSuggestion, SelectedState } from './constants';
 import { Icon, IconTypes } from '../..';
 
-export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React.Ref<MultiSelectRefCurrent>): React.ReactElement => {
+export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React.Ref<HTMLElement>): React.ReactElement => {
   const {
     autoComplete = 'off',
     canSelectAll,
@@ -241,10 +239,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
   return (
     <Wrapper
       className={wrapperClassNames}
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-        wrapper: component.wrapper,
-        input: inputRef.current,
-      }))}
+      ref={ref}
     >
       <Div
         className={inputWrapperClassNames}

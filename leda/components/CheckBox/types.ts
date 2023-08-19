@@ -31,7 +31,7 @@ export interface CheckBoxProps {
   /** Change handler */
   onChange?: (event: ChangeEvent) => void,
   /** Ref */
-  ref?: React.Ref<CheckBoxRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.checkBox],
   /** CheckBox value */
@@ -40,10 +40,4 @@ export interface CheckBoxProps {
   wrapperRender?: CustomRender<CheckBoxProps, {}, Partial<CheckBoxProps>>,
   /** _css-class-names */
   [x: string]: unknown,
-}
-
-export interface CheckBoxRefCurrent {
-  wrapper: HTMLElement | null,
-  input: HTMLInputElement | null,
-  label: HTMLLabelElement | null,
 }

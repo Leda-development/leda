@@ -16,7 +16,6 @@ export interface BodyClickCustomEvent {
   },
 }
 
-
 export interface CollapseProps {
   /** panelKey of the active panel goes here. If the value is null the panel is closed */
   activePanelKey?: string | string[] | null,
@@ -38,7 +37,7 @@ export interface HeadingProps {
   /** Click handler */
   onClick?: React.MouseEventHandler<HTMLDivElement>,
   /** Ref */
-  ref?: React.Ref<HeadingRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** Wrapper customizator */
   wrapperRender?: CustomRender<HeadingProps, { }, HeadingWrapperProps>,
   /** _css-class-names */
@@ -57,7 +56,7 @@ export interface BodyProps {
   /** Panel open handler */
   onOpen?: CustomEventHandler<BodyClickCustomEvent>,
   /** Ref */
-  ref?: React.Ref<BodyRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** CSS transition format */
   transition?: string,
   /** Wrapper customizator */
@@ -132,11 +131,3 @@ export interface CollapsePanelHandlers {
 }
 
 export type CollapseComponent = React.FC<CollapseProps> & { Panel: React.FC<PanelProps>, Body: React.FC<BodyProps>, Heading: React.FC<HeadingProps> };
-
-export interface BodyRefCurrent {
-  wrapper: HTMLElement | null,
-}
-
-export interface HeadingRefCurrent {
-  wrapper: HTMLElement | null,
-}

@@ -1,12 +1,10 @@
-'use client'
-
 import * as React from 'react';
 import {
-  getClassNames, useTheme, bindFunctionalRef, useProps, getIsEmptyAndRequired,
+  getClassNames, useTheme, useProps, getIsEmptyAndRequired,
 } from '../../utils';
 import { useValidation } from '../Validation';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import { TextareaProps, TextareaRefCurrent } from './types';
+import { TextareaProps } from './types';
 import {
   createBlurHandler, createChangeHandler, createFocusHandler, createKeyDownHandler, createResetHandler,
 } from './handlers';
@@ -14,7 +12,7 @@ import { useCustomElements } from './hooks';
 import { getValue } from './helpers';
 
 
-export const Textarea = React.forwardRef((props: TextareaProps, ref: React.Ref<TextareaRefCurrent>): React.ReactElement => {
+export const Textarea = React.forwardRef((props: TextareaProps, ref: React.Ref<HTMLTextAreaElement>): React.ReactElement => {
   const {
     children,
     className,
@@ -98,10 +96,7 @@ export const Textarea = React.forwardRef((props: TextareaProps, ref: React.Ref<T
         onKeyDown={handleKeyDown}
         onFocus={handleFocus}
         placeholder={placeholder}
-        ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-          wrapper: component.closest(`.${theme.wrapper}`),
-          input: component,
-        }))}
+        ref={ref}
         value={getValue(valueProp, value)}
       />
       {!isFocused && !isDisabled && <InvalidMessage />}

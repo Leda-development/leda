@@ -3,7 +3,6 @@
 import * as React from 'react';
 import isNil from 'lodash/isNil';
 import throttle from 'lodash/throttle';
-import type { DivRefCurrent } from '../components/Div';
 
 export interface ClassNamesMap {
   top?: string,
@@ -12,18 +11,18 @@ export interface ClassNamesMap {
 }
 
 interface AdaptivePositionProps {
-  elRef: React.MutableRefObject<DivRefCurrent | null>,
+  elRef: React.MutableRefObject<HTMLElement | null>,
   isOpen: boolean,
   classNames: ClassNamesMap,
-  boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement | null }>,
+  boundingContainerRef?: React.RefObject<HTMLElement>,
 }
 
-const getElRectFromRef = (ref?: React.RefObject<HTMLElement | { wrapper: HTMLElement | null }>) => {
+const getElRectFromRef = (ref?: React.RefObject<HTMLElement>) => {
   if (isNil(ref)) return null;
 
   const boundingEl = (() => {
     if (ref.current instanceof HTMLElement) return ref.current;
-    return ref.current?.wrapper;
+    return ref.current;
   })();
 
   return boundingEl?.getBoundingClientRect();
@@ -37,7 +36,7 @@ export const useAdaptivePosition = ({
 }: AdaptivePositionProps) => {
   React.useEffect((): () => void => {
     const onScroll = () => {
-      const el = elRef.current?.wrapper;
+      const el = elRef.current;
       const parent = el?.parentElement;
 
       const rect = el?.getBoundingClientRect();
@@ -86,7 +85,7 @@ export const useAdaptivePosition = ({
 
     const handler = throttle(onScroll, 200);
 
-    const el = elRef.current?.wrapper;
+    const el = elRef.current;
 
     if (isOpen && classNames.visible) {
       el?.classList.add(classNames.visible);

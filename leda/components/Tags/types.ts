@@ -6,7 +6,7 @@ import { IconTypes } from '../..';
 
 export interface TagsProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Ref */
-  ref?: React.Ref<TagsRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /* Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.tags],
   /** Wrapper customizator */
@@ -22,7 +22,7 @@ export interface IconProps {
 
 export interface WrapperProps {
   className?: string,
-  ref?: React.Ref<TagsRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   children?: React.ReactNode,
 }
 
@@ -32,15 +32,11 @@ export interface TagProps extends React.HTMLAttributes<SVGElement> {
   /** Icon click handler */
   onIconClick?: CustomEventHandler<React.MouseEvent<SVGElement>>,
   /** Ref */
-  ref?: React.Ref<TagsRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** Theme, is passed trough Tags */
   theme?: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.tags],
   /** Wrappes customizator */
   wrapperRender?: CustomRender<TagProps, {}, WrapperProps>,
   /** _css-class-names */
   [x: string]: unknown,
-}
-
-export interface TagsRefCurrent {
-  wrapper: HTMLElement | null,
 }

@@ -17,7 +17,7 @@ export interface TabsProps {
   /** Tab change handler */
   onChange?: (event: ChangeEvent) => void,
   /** Reference */
-  ref?: React.Ref<TabsRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** Horizontal tabs scroll if there are too many tabs */
   shouldScrollTabs?: boolean,
   /** DOM-node to put tab content in */
@@ -88,7 +88,7 @@ export interface ChangeEvent extends React.MouseEvent {
 export interface WrapperProps {
   className?: string,
   style?: React.CSSProperties,
-  ref?: React.Ref<TabsRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   children?: React.ReactNode,
 }
 
@@ -107,15 +107,6 @@ export interface CustomElements {
   Wrapper: React.FC<WrapperProps>,
   Content: React.FC<ContentProps>,
   Heading: React.FC<HeadingProps>,
-}
-
-export interface TabsRefCurrent {
-  wrapper: HTMLElement | null,
-  content: HTMLElement | null,
-}
-
-export interface TabRefCurrent {
-  wrapper: HTMLLIElement | null,
 }
 
 export interface ArrowProps {

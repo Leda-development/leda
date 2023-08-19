@@ -39,7 +39,7 @@ export interface SliderProps {
   /** Handler move handler */
   onMove?: (event: ChangeEvent) => void,
   /** Ref */
-  ref?: React.Ref<SliderRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** Step, defaults to 1 */
   step?: number,
   /** Theme */
@@ -66,8 +66,4 @@ export interface SliderTooltipProps {
   theme: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.slider],
   value: number | number[],
   shouldRender: boolean,
-}
-
-export interface SliderRefCurrent {
-  wrapper: HTMLDivElement | null,
 }

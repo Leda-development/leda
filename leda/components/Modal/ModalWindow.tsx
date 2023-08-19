@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  getClassNames, bindFunctionalRef, useTheme, useProps,
+  getClassNames, useTheme, useProps,
 } from '../../utils';
 import { createCloseButtonClickHandler, createEscapePressHandler, createOverlayClickHandler } from './handlers';
 import { useCustomElements } from './hooks';
@@ -72,9 +72,7 @@ export const ModalWindow = (props: ModalWindowProps): React.ReactElement => {
   return (
     <ModalContext.Provider value={modalContext}>
       <Wrapper
-        ref={innerRef && ((component) => bindFunctionalRef(component, innerRef, {
-          wrapper: component,
-        }))}
+        ref={innerRef}
         className={wrapperClassname}
         onClick={handleOverlayClick}
         {...restProp}

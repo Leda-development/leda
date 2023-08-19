@@ -1,12 +1,10 @@
-'use client'
-
 import React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
-  getClassNames, bindFunctionalRef, useTheme, useElement, useProps, getIsEmptyAndRequired,
+  getClassNames, useTheme, useElement, useProps, getIsEmptyAndRequired,
 } from '../../utils';
 import { useValidation } from '../Validation';
-import { InputProps, InputRefCurrent } from './types';
+import { InputProps } from './types';
 import { Div } from '../Div';
 import { Icon } from '../Icon';
 import { Icons } from '../Icon/types';
@@ -20,7 +18,7 @@ import {
 } from './handlers';
 import { getValue } from './helpers';
 
-export const Input = React.forwardRef((props: InputProps, ref: React.Ref<InputRefCurrent>): React.ReactElement => {
+export const Input = React.forwardRef((props: InputProps, ref: React.Ref<HTMLHtmlElement>): React.ReactElement => {
   const {
     className,
     defaultValue,
@@ -117,10 +115,7 @@ export const Input = React.forwardRef((props: InputProps, ref: React.Ref<InputRe
   return (
     <Wrapper
       className={wrapperClassNames}
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && component.wrapper && {
-        wrapper: component.wrapper,
-        input: component.wrapper.querySelector('input'),
-      }))}
+      ref={ref}
     >
       <Div
         className={inputClassNames}

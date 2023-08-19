@@ -4,14 +4,14 @@ import React from 'react';
 import { NotificationItem } from './NotificationItem';
 import { Div } from '../Div';
 import {
-  useTheme, bindFunctionalRef, getClassNames, useProps,
+  useTheme, getClassNames, useProps,
 } from '../../utils';
-import { Item, NotificationRefCurrent, NotificationsProps } from './types';
+import { Item, NotificationsProps } from './types';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { ChangeMethods } from './constants';
 
 export const Notifications = React.forwardRef((
-  props: NotificationsProps, ref?: React.Ref<NotificationRefCurrent>,
+  props: NotificationsProps, ref?: React.Ref<HTMLElement>,
 ): React.ReactElement | null => {
   const {
     className,
@@ -50,9 +50,7 @@ export const Notifications = React.forwardRef((
   return (
     <Div
       className={wrapperClassNames}
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-        wrapper: component.wrapper || component,
-      }))}
+      ref={ref}
     >
       {items.map((item) => (
         <NotificationItem

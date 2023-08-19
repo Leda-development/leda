@@ -1,10 +1,8 @@
-'use client'
-
 import * as React from 'react';
 import { isNil } from 'lodash';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
-  bindFunctionalRef, getClassNames, useElement, useProps, useTheme, useValue,
+  getClassNames, useElement, useProps, useTheme, useValue,
 } from '../../utils';
 import { Div } from '../Div';
 import { NumericTextBox } from '../NumericTextBox';
@@ -14,9 +12,9 @@ import {
 import {
   getPlaceholder, getRequired, getDisabled, getName, getControlledValue,
 } from './helpers';
-import { NumericRangeProps, NumericRangeRefCurrent, NumericRangeState } from './types';
+import { NumericRangeProps, NumericRangeState } from './types';
 
-export const NumericRange = React.forwardRef((props: NumericRangeProps, ref?: React.Ref<NumericRangeRefCurrent>): React.ReactElement => {
+export const NumericRange = React.forwardRef((props: NumericRangeProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {
     className,
     form,
@@ -90,15 +88,7 @@ export const NumericRange = React.forwardRef((props: NumericRangeProps, ref?: Re
     <Wrapper
       {...restProps}
       className={wrapperClassNames}
-      ref={ref && ((component) => {
-        const inputs = component && component.wrapper && component.wrapper.querySelectorAll('input');
-
-        bindFunctionalRef(component, ref, component && {
-          wrapper: component.wrapper,
-          inputFrom: inputs && inputs[0],
-          inputTo: inputs && inputs[1],
-        });
-      })}
+      ref={ref}
     >
       <NumericTextBox
         inputRender={Array.isArray(inputsRender) ? inputsRender[0] : undefined}

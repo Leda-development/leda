@@ -1,10 +1,8 @@
-'use client'
-
 import * as React from 'react';
 import { getClassNames, useProps, useTheme } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import type {
-  StandaloneCalendarProps, CalendarRefCurrent, StandaloneCalendarState, StandaloneCalendarActionTypes,
+  StandaloneCalendarProps,  StandaloneCalendarState, StandaloneCalendarActionTypes,
 } from './types';
 import { CALENDAR_CLICK_ACTION, DEFAULT_DATE_FORMAT, VIEW_TYPES } from '../../src/CalendarBase/constants';
 import { TodayButton } from '../../src/CalendarBase/TodayButton';
@@ -13,7 +11,7 @@ import { getCalendarConditions } from '../../src/CalendarBase/helpers';
 import { createClickHandler } from './handlers';
 import { stateReducer } from './reducer';
 
-export const Calendar = React.forwardRef((props: StandaloneCalendarProps, ref?: React.Ref<CalendarRefCurrent>): React.ReactElement => {
+export const Calendar = React.forwardRef((props: StandaloneCalendarProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {
     hasTodayButton,
     max,
@@ -48,7 +46,7 @@ export const Calendar = React.forwardRef((props: StandaloneCalendarProps, ref?: 
     return state.date; // uncontrolled mode
   })();
 
-  // следующие флаги используются для отключения кнопок в header в случае min-max
+  // these flags are used to switch off header buttons in min-max case
   const conditions = getCalendarConditions({
     ...props,
     viewDate,

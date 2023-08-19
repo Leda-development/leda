@@ -2,15 +2,15 @@
 
 import React, { useEffect } from 'react';
 import {
-  bindFunctionalRef, getClassNames, useTheme, useElement, useProps,
+  getClassNames, useTheme, useElement, useProps,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import { IconProps, LoaderProps, LoaderRefCurrent } from './types';
+import { IconProps, LoaderProps } from './types';
 import { Div } from '../Div';
 import { Icon } from '../Icon';
 import { IconTypes } from '../..';
 
-export const Loader = React.forwardRef((props: LoaderProps, ref?: React.Ref<LoaderRefCurrent>): React.ReactElement => {
+export const Loader = React.forwardRef((props: LoaderProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {
     children,
     className,
@@ -53,9 +53,7 @@ export const Loader = React.forwardRef((props: LoaderProps, ref?: React.Ref<Load
     return (isLoading && (
       <Div
         {...restProps}
-        ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-          wrapper: component,
-        }))}
+        ref={ref}
         className={wrapperClassName}
       >
         <Icon icon={IconTypes.Icons.Loader} className={theme.element} />
@@ -66,9 +64,7 @@ export const Loader = React.forwardRef((props: LoaderProps, ref?: React.Ref<Load
   return (
     <Div
       {...restProps}
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-        wrapper: component,
-      }))}
+      ref={ref}
       className={wrapperClassName}
     >
       {isLoading && (

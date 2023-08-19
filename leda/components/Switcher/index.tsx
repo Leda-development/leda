@@ -1,16 +1,14 @@
-'use client'
-
 import * as React from 'react';
 import { isNil } from 'lodash';
 import {
-  bindFunctionalRef, getClassNames, useTheme, useProps,
+  getClassNames, useTheme, useProps,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { createClickHandler } from './handlers';
 import { useCustomElements } from './hooks';
-import { SwitcherProps, SwitcherRefCurrent } from './types';
+import { SwitcherProps } from './types';
 
-export const Switcher = React.forwardRef((props: SwitcherProps, ref: React.Ref<SwitcherRefCurrent>): React.ReactElement => {
+export const Switcher = React.forwardRef((props: SwitcherProps, ref: React.Ref<HTMLElement>): React.ReactElement => {
   const {
     className,
     children,
@@ -50,9 +48,7 @@ export const Switcher = React.forwardRef((props: SwitcherProps, ref: React.Ref<S
   return (
     <Wrapper
       className={getClassNames(theme.wrapper, className)}
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-        wrapper: component.wrapper,
-      }))}
+      ref={ref}
       {...restProps}
     >
       <Base

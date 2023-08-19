@@ -1,21 +1,19 @@
-'use client'
-
 import * as React from 'react';
 import { Div } from '../Div';
 import { Button as DefaultButton } from '../Button';
 import {
-  bindFunctionalRef, getClassNames, useTheme, useValue, useElement, useProps, getIsEmptyAndRequired,
+  getClassNames, useTheme, useValue, useElement, useProps, getIsEmptyAndRequired,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { createChangeHandler, createResetHandler } from './handlers';
 import { compareItems } from './helpers';
 import {
-  ButtonGroupProps, ButtonGroupRefCurrent, Value,
+  ButtonGroupProps, Value,
 } from './types';
 import { useValidation } from '../Validation';
 import { SomeObject } from '../../commonTypes';
 
-export const ButtonGroup = React.forwardRef((props: ButtonGroupProps, ref?: React.Ref<ButtonGroupRefCurrent>): React.ReactElement | null => {
+export const ButtonGroup = React.forwardRef((props: ButtonGroupProps, ref?: React.Ref<HTMLElement>): React.ReactElement | null => {
   const {
     activeIndex,
     buttonRender,
@@ -84,9 +82,7 @@ export const ButtonGroup = React.forwardRef((props: ButtonGroupProps, ref?: Reac
   return (
     <Wrapper
       className={wrapperClassNames}
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-        wrapper: component.wrapper,
-      }))}
+      ref={ref}
       {...restProps}
     >
       <Div

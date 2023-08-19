@@ -83,7 +83,7 @@ export interface InputProps extends ValidationProps {
   /** Focus handler */
   onFocus?: (ev: FocusEvent) => void,
   /** Ref */
-  ref?: React.Ref<InputRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.input],
   /** Value */
@@ -98,9 +98,4 @@ export interface InputState {
   isFocused: boolean,
   isValid: boolean,
   value: string,
-}
-
-export interface InputRefCurrent {
-  wrapper: HTMLDivElement | null,
-  input: HTMLInputElement | null,
 }

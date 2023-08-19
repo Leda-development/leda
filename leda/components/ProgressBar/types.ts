@@ -5,7 +5,7 @@ import { CustomRender } from '../../commonTypes';
 
 export interface ProgressBarProps {
   /** Ref */
-  ref?: React.Ref<ProgressBarRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.progressBar],
   /** How much it is complete */
@@ -20,8 +20,4 @@ export interface ValueLabelProps {
   'data-value': number,
   children: React.ReactNode,
   className: string,
-}
-
-export interface ProgressBarRefCurrent {
-  wrapper: HTMLDivElement | null,
 }

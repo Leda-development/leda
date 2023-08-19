@@ -2,13 +2,13 @@
 
 import * as React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import { bindFunctionalRef, getClassNames, useTheme } from '../../utils';
+import { getClassNames, useTheme } from '../../utils';
 import { TooltipBody } from './TooltipBody';
 import { defaultArrowSize, defaultPosition, defaultTransitionTimeout } from './constants';
 import { useTooltip } from './hooks';
-import { TooltipProps, TooltipRefCurrent } from './types';
+import { TooltipProps } from './types';
 
-export const Tooltip = React.forwardRef((props: TooltipProps, ref?: React.Ref<TooltipRefCurrent>): React.ReactElement => {
+export const Tooltip = React.forwardRef((props: TooltipProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {
     arrowSize = defaultArrowSize,
     children,
@@ -64,13 +64,7 @@ export const Tooltip = React.forwardRef((props: TooltipProps, ref?: React.Ref<To
         ref={(instance) => {
           tooltipRef.current = instance || undefined;
 
-          if (ref) {
-            return bindFunctionalRef(instance, ref, instance && {
-              wrapper: instance,
-            });
-          }
-
-          return undefined;
+          return ref;
         }}
       />
     </>

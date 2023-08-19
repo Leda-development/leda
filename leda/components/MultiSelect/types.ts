@@ -129,7 +129,7 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   /** Placeholder */
   placeholder?: string,
   /** Ref */
-  ref?: React.Ref<MultiSelectRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** Select all text customizator */
   selectAllItemRender?: SuggestionListProps['selectAllItemRender'],
   /** Renders the component without an input field */
@@ -175,11 +175,6 @@ export interface TagsContainerProps {
   textField?: string,
   theme: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.multiSelect],
   value: MultiSelectValue,
-}
-
-export interface MultiSelectRefCurrent {
-  input: HTMLInputElement | null,
-  wrapper: HTMLElement | null,
 }
 
 export interface FocusData {

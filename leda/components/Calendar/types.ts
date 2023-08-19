@@ -20,10 +20,6 @@ export interface ChangeEvent extends React.MouseEvent {
   },
 }
 
-export interface CalendarRefCurrent {
-  wrapper: HTMLDivElement | null,
-}
-
 export interface StandaloneCalendarProps {
   /** "Today" button */
   hasTodayButton?: boolean,
@@ -36,7 +32,7 @@ export interface StandaloneCalendarProps {
   /** Change handler */
   onChange: (event: ChangeEvent) => void,
   /** React Ref */
-  ref?: React.Ref<CalendarRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** Component theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.calendar],
   /** Currently selected date */

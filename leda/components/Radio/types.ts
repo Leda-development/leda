@@ -20,7 +20,7 @@ export interface RadioGroupProps {
   /** Change handler */
   onChange?: (event: ChangeEvent) => void,
   /** Reference */
-  ref?: React.Ref<RadioGroupRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.radio],
   /** Value */
@@ -39,7 +39,7 @@ export interface RadioButtonProps extends React.HTMLAttributes<HTMLInputElement>
   /** Name */
   name?: string,
   /** Ref */
-  ref?: React.Ref<RadioGroupRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** Theme */
   theme?: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.radio],
   /** Unique button identifier (used to select the active button) */
@@ -58,8 +58,4 @@ export interface WrapperProps {
 export interface PropsFromParent {
   onChange: (event: ChangeEvent) => void,
   isChecked?: boolean,
-}
-
-export interface RadioGroupRefCurrent {
-  wrapper: HTMLElement | null,
 }

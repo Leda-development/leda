@@ -1,16 +1,14 @@
-'use client'
-
 import React from 'react';
 import {
-  bindFunctionalRef, useProps,
+  useProps,
 } from '../../utils';
 import { Loader } from '../Loader';
 import { CollapsePanelContext } from './CollapseContext';
 import { useBodyWrapper } from './helpers';
-import { BodyProps, BodyRefCurrent } from './types';
+import { BodyProps } from './types';
 import { useCollapse } from './useCollapse';
 
-export const Body = React.forwardRef((props: BodyProps, ref?: React.Ref<BodyRefCurrent>): React.ReactElement => {
+export const Body = React.forwardRef((props: BodyProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {
     onOpen, onCloseByClick, onClose, isLoading, transition, children, className,
   } = useProps(props);
@@ -77,15 +75,7 @@ export const Body = React.forwardRef((props: BodyProps, ref?: React.Ref<BodyRefC
   return (
     <BodyWrapper
       // @ts-ignore
-      ref={((component) => {
-        if (ref) {
-          bindFunctionalRef(component, ref, component && {
-            wrapper: component.wrapper ? component.wrapper : component,
-          });
-        }
-
-        bodyRef.current = component?.wrapper;
-      })}
+      ref={ref}
       onTransitionEnd={onTransitionEnd}
       className={className}
       style={styles}

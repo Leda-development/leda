@@ -44,7 +44,7 @@ export interface MaskedInputProps extends ValidationProps {
   /** _ by default */
   placeholderChar?: string,
   /** Ref */
-  ref?: React.Ref<MaskedInputRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.maskedInput],
   /** Value */
@@ -53,11 +53,6 @@ export interface MaskedInputProps extends ValidationProps {
   wrapperRender?: CustomRender<MaskedInputProps, MaskedInputState, DivProps>,
   /** _css-class-names */
   [x: string]: unknown,
-}
-
-export interface MaskedInputRefCurrent {
-  wrapper: HTMLElement | null,
-  input: HTMLInputElement | null,
 }
 
 export interface MaskedInputState {

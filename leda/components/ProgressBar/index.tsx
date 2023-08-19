@@ -3,14 +3,14 @@
 import React, { useContext } from 'react';
 import { Div } from '../Div';
 import {
-  bindFunctionalRef, getClassNames, useElement, useProps, useTheme,
+  getClassNames, useElement, useProps, useTheme,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import { ProgressBarProps, ProgressBarRefCurrent } from './types';
+import { ProgressBarProps } from './types';
 import { Span } from '../Span';
 import { LedaContext } from '../LedaProvider';
 
-export const ProgressBar = React.forwardRef((props: ProgressBarProps, ref?: React.Ref<ProgressBarRefCurrent>) => {
+export const ProgressBar = React.forwardRef((props: ProgressBarProps, ref?: React.Ref<HTMLElement>) => {
   const {
     value,
     className,
@@ -38,9 +38,7 @@ export const ProgressBar = React.forwardRef((props: ProgressBarProps, ref?: Reac
     <Div
       {...restProps}
       className={wrapperClassNames}
-      ref={ref && ((component) => bindFunctionalRef(component, ref, component && {
-        wrapper: component.wrapper,
-      }))}
+      ref={ref}
     >
       <div className={theme.fill} style={{ width }}>
         <Value data-value={value} className={theme.value}>

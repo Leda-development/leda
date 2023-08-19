@@ -1,40 +1,39 @@
 import * as React from 'react';
 import {
   BlurEvent, ChangeEvent, FocusEvent, DateTimeInputProps,
-  DateTimeInputRefCurrent,
 } from '../../src/DateTimeInput/types';
 
 export interface DateTimePickerProps extends DateTimeInputProps {
-  /** Формат отображаемой и вводимой даты. По-умолчанию "dd.MM.yyyy hh:mm" */
+  /** Date format, dd.MM.yyyy hh:mm by default */
   format?: string,
-  /** Признак принудительного открытия календаря */
+  /** Control opened state */
   isOpen?: boolean,
-  /** Признак отключения инпута */
+  /** Disabled input state */
   isDisabled?: boolean,
-  /** Максимально доступная дата для выбора */
+  /** Max available date */
   max?: Date,
-  /** Минимально доступная дата для выбора */
+  /** Min available date */
   min?: Date,
-  /** Имя поля ввода */
+  /** Component name */
   name?: string,
-  /** Функция обратного вызова при потере фокуса */
+  /** Blur handler */
   onBlur?: (ev: BlurEvent) => void,
-  /** Функция обратного вызова при изменении значения в поле ввода */
+  /** Change handler */
   onChange?: (ev: ChangeEvent) => void,
-  /**  Функция обратного вызова при нажатии Enter */
+  /** Enter press handler */
   onEnterPress?: (ev: ChangeEvent) => void,
-  /** Функция обратного вызова при фокусе поля ввода */
+  /** Focus handler */
   onFocus?: (ev: FocusEvent) => void,
-  /** Плейсхолдер для поля ввода */
+  /** Placeholder */
   placeholder?: string,
-  /** Минимальное время */
+  /** Min time */
   timeMin?: [number, number],
-  /** Максимальное время */
+  /** Max time */
   timeMax?: [number, number],
-  /** Реф */
-  ref?: React.Ref<DateTimeInputRefCurrent>,
-  /** Значение поля ввода */
+  /** Ref */
+  ref?: React.Ref<HTMLElement>,
+  /** Value */
   value?: string | Date | null,
-  /** Классы переданные через _ */
+  /** _css-class-names */
   [x: string]: unknown,
 }

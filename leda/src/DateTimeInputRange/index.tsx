@@ -3,9 +3,8 @@ import { isNil } from 'lodash';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { DateTimeInput } from '../DateTimeInput';
 import {
-  bindFunctionalRef, getClassNames, useProps, useTheme,
+  getClassNames, useProps, useTheme,
 } from '../../utils';
-import type { DateTimeInputRefCurrent } from '../DateTimeInput/types';
 import {
   getDisabled, getName, getOpen, getPlaceholder, getRequired, getRequiredMessage, isDateValue,
 } from './helpers';
@@ -13,9 +12,9 @@ import { useCustomElements, useDateRange } from './hooks';
 import {
   createChangeHandler, createEnterPressHandler, handleErrors,
 } from './handlers';
-import type { DateTimeInputRangeProps, DateTimeInputRangeRefCurrent, DateTimeInputRangeState } from './types';
+import type { DateTimeInputRangeProps, DateTimeInputRangeState } from './types';
 
-export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangeProps, ref: React.Ref<DateTimeInputRangeRefCurrent>) => {
+export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangeProps, ref: React.Ref<HTMLElement>) => {
   const {
     boundingContainerRef,
     calendarHeaderRender,
@@ -55,7 +54,7 @@ export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangePro
 
   const state: DateTimeInputRangeState = useDateRange(props);
 
-  const toDateTimeInputRef = React.useRef<DateTimeInputRefCurrent | null>(null);
+  const toDateTimeInputRef = React.useRef<HTMLInputElement | null>(null);
 
   const {
     date, setDate,
@@ -101,14 +100,7 @@ export const DateTimeInputRange = React.forwardRef((props: DateTimeInputRangePro
     <WrapperRange
       {...restProps}
       className={wrapperClassNames}
-      ref={ref && ((component) => {
-        const inputs = (component && component.wrapper && component.wrapper.querySelectorAll('input')) || [null, null];
-        bindFunctionalRef(component, ref, component && {
-          wrapper: component.wrapper,
-          inputFrom: inputs[0],
-          inputTo: inputs[1],
-        });
-      })}
+      ref={ref}
     >
       <DateTimeInput
         boundingContainerRef={boundingContainerRef}

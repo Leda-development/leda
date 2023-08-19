@@ -58,7 +58,7 @@ export interface FocusEvent<T extends Value = Value> extends React.FocusEvent<HT
 
 export interface DropDownSelectProps<T extends Value = Value> extends ValidationProps {
   autoComplete?: string,
-  boundingContainerRef?: React.RefObject<HTMLElement | { wrapper: HTMLElement | null }>,
+  boundingContainerRef?: React.RefObject<HTMLElement>,
   compareObjectsBy?: T extends object ? ((suggestionListItem: T) => any) | string : never,
   data?: T[],
   defaultValue?: Value,
@@ -81,7 +81,7 @@ export interface DropDownSelectProps<T extends Value = Value> extends Validation
   onFilterChange?: CustomEventHandler<ChangeEvent<string>>,
   onFocus?: CustomEventHandler<FocusEvent<T>>,
   placeholder?: string,
-  ref?: React.Ref<DropDownSelectRefCurrent>,
+  ref?: React.Ref<HTMLElement>,
   /** You can use any of the data object's fields for seraching */
   searchFields?: string[],
   shouldAllowEmpty?: boolean,
@@ -102,11 +102,6 @@ export interface DropDownSelectState {
   isFocused: boolean,
   isOpen: boolean,
   value: string | number | SomeObject | null,
-}
-
-export interface DropDownSelectRefCurrent {
-  input: HTMLInputElement | null,
-  wrapper: HTMLElement | null,
 }
 
 export interface GetComponentClassNames {

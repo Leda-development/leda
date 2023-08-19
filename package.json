@@ -41,14 +41,12 @@
     "classnames": "2.2.6",
     "feather-icons-react": "0.6.2",
     "lodash": "^4.17.21",
-    "react-slider": "1.0.1",
-    "svgxuse": "1.2.6"
-  },
-  "peerDependencies": {
-    "react": ">=18.2.0 <19.0.0",
-    "react-dom": ">=18.2.0 <19.0.0"
+    "react-slider": "1.0.1"
   },
   "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@hot-loader/react-dom": "^17.0.2",
     "@testing-library/jest-dom": "5.1.1",
     "@testing-library/react": "9.4.0",
     "@testing-library/user-event": "8.1.3",

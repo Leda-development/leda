@@ -99,6 +99,7 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
           theme.button,
           theme.controlFirst,
         )}
+        theme={theme}
         title="First"
         page={isSinglePage || isFirstPage ? 0 : 1}
         onClick={handlePageChange}
@@ -114,6 +115,7 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
           theme.button,
           theme.controlPrev,
         )}
+        theme={theme}
         title="Previous"
         page={isSinglePage || isFirstPage ? 0 : currentPage - 1}
         onClick={handlePageChange}
@@ -126,6 +128,7 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
       { !isFirstPageShown && (
       <PaginationControl
         className={theme.button}
+        theme={theme}
         isPageNumber
         page={previousBlock}
         title="Previous pages"
@@ -143,6 +146,7 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
       { !isLastPageShown && (
       <PaginationControl
         className={theme.button}
+        theme={theme}
         isPageNumber
         page={nextBlock}
         title="Next pages"
@@ -157,6 +161,7 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
           theme.button,
           theme.controlNext,
         )}
+        theme={theme}
         page={isSinglePage || isLastPage ? 0 : currentPage + 1}
         title="Next"
         onClick={handlePageChange}
@@ -172,6 +177,7 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
           theme.button,
           theme.controlLast,
         )}
+        theme={theme}
         page={isSinglePage || isLastPage ? 0 : pages}
         title="Last"
         onClick={handlePageChange}

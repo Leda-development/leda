@@ -28,7 +28,7 @@ export const Objects = (componentProps: any) => {
         placeholder="Type your city..."
         hasClearButton
         isRequired
-        _width30
+        _width-30
         {...props}
       />
       <br />

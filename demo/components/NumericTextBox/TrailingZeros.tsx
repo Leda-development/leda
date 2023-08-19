@@ -30,7 +30,7 @@ export const TrailingZeros = (args: any) => {
         name="numer"
         isRequired
         placeholder="Gimme ur number!"
-        _width30
+        _width-30
       />
       <br />
       <L.Switcher

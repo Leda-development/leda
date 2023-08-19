@@ -7,6 +7,7 @@ export const defaultPaginationTheme = {
   controlPrev:                'ld-pagination-prev',
   controlNext:                'ld-pagination-next',
   controlLast:                'ld-pagination-last',
+  disabled:                   'ld-pagination-disabled',
   iconFirst:                  'ld-pagination-icon-first',
   iconPrev:                   'ld-pagination-icon-prev',
   iconNext:                   'ld-pagination-icon-next',

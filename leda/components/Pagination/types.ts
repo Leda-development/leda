@@ -88,6 +88,7 @@ export interface PaginationControlProps {
   onClick: PageChangeHandler,
   page: number,
   title?: string,
+  theme: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.pagination],
 }
 
 export interface PageChangeHandler {

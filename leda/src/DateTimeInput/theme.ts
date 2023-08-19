@@ -10,6 +10,6 @@ export const defaultDateTimeInputTheme = {
   inputWrapperInvalid:  'ld-danger',
   inputWrapperRequired: 'ld-required',
   wrapper:              'ld-datepicker-wrapper',
-  wrapperDisabled:      'ld-datepicker-disabled',
+  wrapperDisabled:      'ld-disabled',
 };
 /* eslint-enable key-spacing */

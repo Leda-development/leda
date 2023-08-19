@@ -60,7 +60,7 @@ export const Basic = (componentProps: any) => {
         }}
         isRequired
         requiredMessage="Required"
-        _width30
+        _width-30
         {...props}
       />
 
@@ -73,7 +73,7 @@ export const Basic = (componentProps: any) => {
         invalidMessage='Passwords do not match'
         isRequired
         placeholder='Repeat the password'
-        _width30
+        _width-30
       />
 
       <br />

@@ -1,7 +1,10 @@
 .ld-autocomplete-wrapper {
   display: flex;
-  // flex-direction: column;
   position: relative;
+
+  .ld-input-element-wrapper {
+    width: 100%;
+  }
 }
 
 // dropdown list styles

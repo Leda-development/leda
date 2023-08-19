@@ -29,7 +29,7 @@ export const AllSuggestions = (componentProps: any) => {
           setValue(ev.component.value);
           console.log('ev.component', ev.component);
         }}
-        _width30
+        _width-30
       />
     </L.Div>
   );

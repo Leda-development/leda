@@ -49,7 +49,7 @@ export const Scroll = (props: StoryProps) => (
           }}
           form="scroll3"
           name="masked"
-          _width30
+          _width-30
         />
       </L.Div>
       <L.Div _inner>

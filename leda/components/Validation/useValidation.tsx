@@ -9,6 +9,7 @@ import { InvalidMessage as DefaultInvalidMessage } from './InvalidMessage';
 import type {
   ValidationProps, ValidationState, ValidationExtra, ValidationResult,
 } from './types';
+import { defaultValidationTheme } from './theme';
 
 export const useValidation = <P extends ValidationProps, S extends ValidationState>(
   props: P, state: S, extra: ValidationExtra,
@@ -94,7 +95,7 @@ export const useValidation = <P extends ValidationProps, S extends ValidationSta
   );
 
   const invalidMessageComponent = React.useMemo(() => {
-    const message: React.FC<{}> = () => <InvalidMessage isValid={isValid} messages={messages} />;
+    const message: React.FC<{}> = () => <InvalidMessage theme={defaultValidationTheme} isValid={isValid} messages={messages} />;
     message.displayName = 'InvalidMessageWrapper';
 
     return message;

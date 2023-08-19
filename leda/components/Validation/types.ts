@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from 'react';
 import { CustomRender, SetState } from '../../commonTypes';
+import { GlobalDefaultTheme } from '../../utils/useTheme';
+import { COMPONENTS_NAMESPACES } from '../../constants';
 
 export interface ValidationProps {
   form?: string,
@@ -79,6 +81,7 @@ export interface FormsObject {
 export interface InvalidMessageProps {
   isValid: boolean,
   messages?: string[],
+  theme: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.validation],
 }
 
 export type PredefinedValidator =

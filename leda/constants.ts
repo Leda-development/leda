@@ -46,6 +46,7 @@ export const COMPONENTS_NAMESPACES = {
   tags: 'tags',
   textarea: 'textarea',
   tooltip: 'tooltip',
+  validation: 'validation',
 } as const;
 
 export const predefinedAllowedSymbols = {

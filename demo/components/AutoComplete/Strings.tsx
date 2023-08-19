@@ -57,7 +57,7 @@ export const Strings = (componentProps: any) => {
           />
         </>}
         isOpen
-        _width30
+        _width-30
         {...props}
       />
 

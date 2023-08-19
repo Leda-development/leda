@@ -27,6 +27,7 @@ import { defaultTooltipTheme } from '../Tooltip/theme';
 import { defaultTextAreaTheme } from '../Textarea/theme';
 import { defaultNotificationsTheme } from '../Notifications/theme';
 import { defaultMultiSelectTheme } from '../MultiSelect/theme';
+import { defaultValidationTheme } from '../Validation/theme';
 
 export const globalDefaultTheme = {
   autoComplete: defaultAutoCompleteTheme,
@@ -58,4 +59,5 @@ export const globalDefaultTheme = {
   tags: defaultTagsTheme,
   tooltip: defaultTooltipTheme,
   textarea: defaultTextAreaTheme,
+  validation: defaultValidationTheme,
 };

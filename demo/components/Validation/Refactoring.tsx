@@ -13,7 +13,7 @@ export const Refactoring = (props: StoryProps) => {
         name="input"
         isRequired
         validator="postalCode"
-        _width30
+        _width-30
       />
       <br/>
       <br/>
@@ -22,7 +22,7 @@ export const Refactoring = (props: StoryProps) => {
         name="another-input"
         validator={(val) => val.length > 4}
         invalidMessage="More than 4 symbols please"
-        _width30
+        _width-30
       />
       <br/>
       <br/>
@@ -37,7 +37,7 @@ export const Refactoring = (props: StoryProps) => {
           setACValue(ev.component.value);
           console.log('ev.component', ev.component);
         }}
-        _width30
+        _width-30
       />
       <br/>
       <br/>

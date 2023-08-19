@@ -49,7 +49,7 @@ export const Customization = (componentProps: any) => {
             <L.Div _inner _txtWarning>nothing</L.Div>
           </L.Div>
         )}
-        _width30
+        _width-30
         {...props}
       />
 

@@ -1,5 +1,3 @@
-@import "themes/light/variables";
-
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -198,21 +196,6 @@
   }
   &-bolder {
     font-weight: bolder;
-  }
-  &-warning {
-    color: $brand-warning;
-  }
-  &-success {
-    color: $brand-primary;
-  }
-  &-danger {
-    color: $brand-danger;
-  }
-  &-gray {
-    color: $black-04;
-  }
-  &-black {
-    color: $black-01;
   }
   &-white {
     color: white;

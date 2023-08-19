@@ -79,13 +79,6 @@ module.exports = {
         'assets/css/lists.css',
         'assets/css/demo.css',
         'assets/css/scrollbar.css',
-        {
-          path: 'assets/css/leda.light.css',
-          type: 'css',
-          attributes: {
-            id: 'leda-css',
-          }
-        },
         'assets/css/leda.base.css',
       ],
     }),

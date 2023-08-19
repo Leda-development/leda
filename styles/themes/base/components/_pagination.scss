@@ -63,3 +63,12 @@
   justify-content: flex-end;
   color: var(--ld-pagination-info-label-color);
 }
+
+.ld-pagination-disabled {
+  color: var(--ld-pagination-disabled-color);
+  cursor: not-allowed;
+  
+  &:hover {
+    color: var(--ld-pagination-disabled-color);
+  }
+}

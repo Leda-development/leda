@@ -2,24 +2,38 @@
   // base variables
   // base variables must not be used in CSS classes directly
   // use base variables in component variables only
-  --ld-main-color: #737373; // tailwind neutral 500
-  --ld-main-color-dark: #525252; // tailwind neutral 600
-  --ld-main-color-light: #a3a3a3; // tailwind neutral 400
-  --ld-main-color-lightest: #e5e5e5; // tailwind neutral 200
-  --ld-main-color-contrast: white;
-  --ld-bg-color: white;
   --ld-border-radius: 4px;
   --ld-font-size: .875rem;
   --ld-line-height: 1.5rem;
   --ld-font-weight: 800;
-  --ld-font-color: #09090b; // tailwind neutral 950
-  --ld-border-color: #a3a3a3; // tailwind neutral 400
-  --ld-border-color-hover: #09090b; // tailwind neutral 950
-  --ld-bg-color-disabled: #e5e5e5; // tailwind neutral 200
   --ld-padding-block: .4rem;
   --ld-padding-inline: 1rem;
+
   --ld-color-danger: #dc2626; // tailwind red 600
   --ld-color-success: #15803d; // tailwind green 700
+
+  --ld-font-color: #09090b; // tailwind neutral 950
+  --ld-font-color-hihglight: #7f1d1d; // tailwind neutral 950
+  
+  // borders and clickable elements
+  --ld-base-color: #a3a3a3; // tailwind neutral 400
+  --ld-base-color-hover: #09090b; // tailwind neutral 950
+  --ld-base-color-disabled: #a3a3a3; // tailwind neutral 400
+
+  // component elements backgrounds
+  --ld-bg-color: white;
+  --ld-bg-color-hover: #e5e5e5; // tailwind neutral 200
+  --ld-bg-color-selected: #a3a3a3; // tailwind neutral 400
+  --ld-bg-color-active: #f5f5f5; // tailwind neutral 100
+  --ld-bg-color-disabled: #e5e5e5; // tailwind neutral 200
+
+  // inverted font color elemets (buttons, tooltips etc.)
+  --ld-font-inverted-color: white;  
+  --ld-bg-inverted-color: #737373; // tailwind neutral 500  
+  --ld-bg-inverted-color-hover: #a3a3a3; // tailwind neutral 400
+  --ld-bg-inverted-color-selected: #525252; // tailwind neutral 600
+  --ld-bg-inverted-color-disabled: #d4d4d4; // tailwind neutral 300
+
 
   // component variables
   // do not use component variables in other component variables
@@ -28,21 +42,23 @@
   --ld-btn-border-radius: var(--ld-border-radius);
   --ld-btn-min-width: 0;
   --ld-btn-line-height: var(--ld-line-height);
-  --ld-btn-text-color: var(--ld-main-color-contrast);
+  --ld-btn-text-color: var(--ld-font-inverted-color);
   --ld-btn-border-width: 2px;
   --ld-btn-padding-inline: var(--ld-padding-inline); 
   --ld-btn-padding-block: calc(var(--ld-padding-block) - var(--ld-btn-border-width));
-  --ld-btn-border-color: var(--ld-main-color);
-  --ld-btn-bg-color: var(--ld-main-color);
-  --ld-btn-text-color-hover: var(--ld-main-color-contrast);
-  --ld-btn-border-color-hover: var(--ld-main-color-light);
-  --ld-btn-bg-color-hover: var(--ld-main-color-light);
+  --ld-btn-border-color: var(--ld-bg-inverted-color);
+  --ld-btn-bg-color: var(--ld-bg-inverted-color);
+  --ld-btn-border-color-disabled: var(--ld-bg-inverted-color-disabled);
+  --ld-btn-bg-color-disabled: var(--ld-bg-inverted-color-disabled);
+  --ld-btn-text-color-hover: var(--ld-font-inverted-color);
+  --ld-btn-border-color-hover: var(--ld-bg-inverted-color-hover);
+  --ld-btn-bg-color-hover: var(--ld-bg-inverted-color-hover);
 
-  --ld-btn-group-active-color: var(--ld-main-color-dark);
+  --ld-btn-group-active-color: var(--ld-bg-inverted-color-selected);
 
   --ld-calendar-width: 290px;
   --ld-calendar-bg: var(--ld-bg-color);
-  --ld-calendar-box-shadow: 0 1rem 2rem 0 var(--ld-border-color);
+  --ld-calendar-box-shadow: 0 1rem 2rem 0 var(--ld-base-color);
   --ld-calendar-border-radius: var(--ld-border-radius);
   --ld-calendar-z-index: 2;
   --ld-calendar-padding: 10px;
@@ -51,46 +67,64 @@
   --ld-calendar-date-cell-size: 32px;
   --ld-calendar-date-cell-border-radius: 50%;
   --ld-calendar-date-font-color: var(--ld-font-color);
-  --ld-calendar-bg-hover: var(--ld-main-color-lightest);
-  --ld-calendar-active-date-bg: var(--ld-main-color-lightest);
-  --ld-calendar-day-off-color: var(--ld-main-color-dark);
-  --ld-calendar-different-date-color: var(--ld-border-color);
-  --ld-calendar-bg-selected: #a3a3a3;
-  --ld-calendar-disabled-color: var(--ld-border-color);
+  --ld-calendar-bg-hover: var(--ld-bg-color-hover);
+  --ld-calendar-bg-active: var(--ld-bg-color-active);
+  --ld-calendar-day-off-color: var(--ld-font-color-hihglight);
+  --ld-calendar-different-date-color: var(--ld-base-color);
+  --ld-calendar-bg-selected: var(--ld-bg-color-selected);
+  --ld-calendar-disabled-color: var(--ld-base-color-disabled);
   --ld-calendar-disabled-bg-hover: var(--ld-bg-color);
   --ld-calendar-header-font-size: 1rem;
-  --ld-calendar-header-color: var(--ld-border-color);
-  --ld-calendar-header-color-hover: var(--ld-font-color);
-  --ld-calendar-footer-color: var(--ld-border-color);
-  --ld-calendar-footer-color-hover: var(--ld-font-color);
+  --ld-calendar-header-color: var(--ld-base-color);
+  --ld-calendar-header-color-hover: var(--ld-base-color-hover);
+  --ld-calendar-footer-color: var(--ld-base-color);
+  --ld-calendar-footer-color-hover: var(--ld-base-color-hover);
   --ld-calendar-month-cell-size: 70px;
   --ld-calendar-month-cell-border-radius: 4px;
   --ld-calendar-month-cell-margin: 2px;
   --ld-calendar-year-cell-size: 70px;
   --ld-calendar-year-cell-border-radius: 4px;
   --ld-calendar-year-cell-margin: 2px;
-  --ld-calendar-button-color: var(--ld-border-color);
-  --ld-calendar-button-color-hover: var(--ld-font-color);
-  --ld-calendar-week-day-color: var(--ld-main-color);
+  --ld-calendar-button-color: var(--ld-base-color);
+  --ld-calendar-button-color-hover: var(--ld-base-color-hover);
+  --ld-calendar-week-day-color: var(--ld-base-color);
   --ld-calendar-week-day-font-size: 0.75rem;
 
+  --ld-checkbox-size: 1rem;
+  --ld-checkbox-margin-inline-end: .5rem;
+  --ld-checkbox-color-disabled: var(--ld-base-color-disabled);
+
+  --ld-collapse-border-radius: var(--ld-border-radius);
+  --ld-collapse-border-color: var(--ld-base-color);
+  --ld-collapse-border: 1px solid var(--ld-base-color);
+  --ld-collapse-padding: 10px;
+  --ld-collapse-border-color-hover: var(--ld-base-color-hover);
+  --ld-collapse-bg-color-disabled: var(--ld-bg-color-disabled);
+  --ld-collapse-icon-trabsition: transform 0.2s linear;
+  
+  --ld-datepicker-disabled-bg: var(--ld-bg-color-disabled);
+  
   --ld-date-range-delimeter-width: 10%;
   --ld-date-range-delimeter-min-width: 2rem;
 
-  --ld-collapse-border-radius: var(--ld-border-radius);
-  --ld-collapse-border-color: var(--ld-border-color);
-  --ld-collapse-border: 1px solid var(--ld-collapse-border-color);
-  --ld-collapse-padding: 10px;
-  --ld-collapse-border-color-hover: var(--ld-border-color-hover);
-  --ld-collapse-bg-color-disabled: var(--ld-bg-color-disabled);
-  --ld-collapse-icon-trabsition: transform 0.2s linear;
+  --ld-drop-down-suggestion-padding-inline: var(--ld-padding-inline); 
+  --ld-drop-down-suggestion-padding-block: .5rem; 
+  --ld-drop-down-suggestion-border-radius: var(--ld-border-radius);
+  --ld-drop-down-suggestion-bg: var(--ld-bg-color);
+  --ld-drop-down-suggestion-bg-hover: var(--ld-bg-color-hover);
+  --ld-drop-down-suggestion-bg-selected: var(--ld-bg-color-selected);
+  --ld-drop-down-suggestion-bg-highlighted: var(--ld-bg-color-hover);
+  --ld-drop-down-suggestion-container-border-width: 1px; 
+  --ld-drop-down-suggestion-container-border-color: var(--ld-base-color);
+  --ld-drop-down-suggestion-container-border-radius: var(--ld-border-radius);
+  --ld-drop-down-suggestion-container-min-block-size: 200px;
 
   --ld-input-font-size: var(--ld-font-size);
   --ld-input-line-height: var(--ld-line-height);
   --ld-input-font-weight: var(--ld-font-weight);
   --ld-input-text-color: var(--ld-font-color);
-  --ld-input-border-color: var(--ld-border-color);
-  --ld-input-border-hover-color: var(--ld-border-color-hover);
+  --ld-input-border-color: var(--ld-base-color);
+  --ld-input-border-hover-color: var(--ld-base-color-hover);
   --ld-input-border-radius: var(--ld-border-radius);
   --ld-input-border-width: 1px;
   --ld-input-padding-block: calc(var(--ld-padding-block) - var(--ld-input-border-width));
@@ -98,30 +132,15 @@
   --ld-input-close-icon-size: 2.25rem; 
   --ld-input-close-icon-padding: .5rem;
   --ld-input-bg-color: var(--ld-bg-color);
+  --ld-input-bg-color-disabled: var(--ld-bg-color-disabled);
 
-  --ld-password-rule-text-color: var(--ld-main-color);
-
-  --ld-drop-down-suggestion-padding-inline: var(--ld-padding-inline); 
-  --ld-drop-down-suggestion-padding-block: .5rem; 
-  --ld-drop-down-suggestion-border-radius: var(--ld-border-radius);
-  --ld-drop-down-suggestion-bg: var(--ld-main-color-contrast);
-  --ld-drop-down-suggestion-bg-hover: var(--ld-main-color-lightest);
-  --ld-drop-down-suggestion-bg-selected: #a3a3a3; // tw neutal 400
-  --ld-drop-down-suggestion-bg-highlighted: #d4d4d4; // tw neutal 300
-  --ld-drop-down-suggestion-container-border-width: 1px; 
-  --ld-drop-down-suggestion-container-border-color: var(--ld-border-color);
-  --ld-drop-down-suggestion-container-border-radius: var(--ld-border-radius);
-  --ld-drop-down-suggestion-container-min-block-size: 200px;
-
-  --ld-checkbox-size: 1rem;
-  --ld-checkbox-margin-inline-end: .5rem;
-  --ld-checkbox-color-disabled: var(--ld-main-color-light);
+  --ld-invalid-message-color: var(--ld-color-danger);
 
   --ld-loader-wrapper-min-height: 200px;
   --ld-loader-bg-color: rgba(255,255,255, 0.8);
   --ld-loader-size: 30px;
   --ld-loader-animation: r-to-left 2s linear infinite;
-  --ld-loader-color: var(--ld-border-color);
+  --ld-loader-color: var(--ld-base-color);
   --ld-loader-fullscreen-z-index: 10100;
   --ld-loader-container-border-radius: var(--ld-border-radius);
 
@@ -135,17 +154,17 @@
   --ld-modal-cross-right: -20px;
   --ld-modal-cross-top: 15px;
   --ld-modal-cross-size: 35px;
-  --ld-modal-cross-color: white;
-  --ld-modal-body-bg: white;
-  --ld-modal-border: 1px solid var(--ld-border-color);
+  --ld-modal-cross-color: var(--ld-bg-color);
+  --ld-modal-body-bg: var(--ld-bg-color);
+  --ld-modal-border: 1px solid var(--ld-base-color);
   --ld-modal-heading-padding: 25px 30px;
   --ld-modal-footer-padding: 25px 30px;
   --ld-modal-heading-font-size: 1.5rem;
   --ld-modal-heading-font-weight: 600;
-  --ld-modal-heading-bg: white;
-  --ld-modal-footer-bg: white;
+  --ld-modal-heading-bg: var(--ld-bg-color);
+  --ld-modal-footer-bg: var(--ld-bg-color);
 
-  --ld-multiselect-placeholder-color: var(--ld-border-color);
+  --ld-multiselect-placeholder-color: var(--ld-base-color);
   --ld-multiselect-placeholder-padding: 3px 0 0 var(--ld-padding-inline);
   --ld-multiselect-tags-container-padding: 2px;
   --ld-multiselect-tag-margin: 4px;
@@ -153,13 +172,13 @@
   --ld-multiselect-input-padding: 0 0 0 10px;
   --ld-multiselect-input-height: 30px;
   --ld-multiselect-bg-color: white;
-  --ld-multiselect-border: 1px solid var(--ld-border-color);
+  --ld-multiselect-border: 1px solid var(--ld-base-color);
   --ld-multiselect-border-radius: var(--ld-border-radius);
   --ld-multiselect-clear-icon-top: 4px;
   --ld-multiselect-clear-icon-right: 4px;
   --ld-multiselect-clear-icon-padding: 3px;
-  --ld-multiselect-clear-icon-color: var(--ld-border-color);
-  --ld-multiselect-clear-icon-color-hover: var(--ld-border-color-hover);
+  --ld-multiselect-clear-icon-color: var(--ld-base-color);
+  --ld-multiselect-clear-icon-color-hover: var(--ld-base-color-hover);
 
   --ld-numeric-arrow-width: 2rem;
   --ld-numeric-arrow-padding-inline: .5rem;
@@ -170,7 +189,7 @@
   --ld-pagination-button-size: 24px;
   --ld-pagination-button-color: var(--ld-font-color);
   --ld-pagination-button-color-hover: var(--ld-font-color);
-  --ld-pagination-control-color: var(--ld-border-color);
+  --ld-pagination-control-color: var(--ld-base-color);
   --ld-pagination-control-color-hover: var(--ld-font-color);
   --ld-pagination-number-selected-font-size: 1.1rem;
   --ld-pagination-number-selected-color: var(--ld-font-color);
@@ -178,40 +197,58 @@
   --ld-pagination-options-label-color: var(--ld-font-color);
   --ld-pagination-options-label-margin-inline-end: 1rem;
   --ld-pagination-info-label-color: var(--ld-font-color);
+  --ld-pagination-disabled-color: var(--ld-base-color-disabled);
 
-  --ld-progressbar-bg: var(--ld-border-color);
+  --ld-password-rule-text-color: var(--ld-font-color-hihglight);
+
+  --ld-progressbar-bg: var(--ld-bg-inverted-color-disabled);
   --ld-progressbar-bg-fill: var(--ld-color-success);
   --ld-progressbar-height: 20px;
-  --ld-progressbar-value-text-color: var(--ld-main-color-contrast);
+  --ld-progressbar-value-text-color: var(--ld-font-inverted-color);
   --ld-progressbar-value-font-size: 12px;
 
-  --ld-radio-active-color: var(--ld-main-color);
-  --ld-radio-active-color-hover: var(--ld-main-color-dark);
+  --ld-radio-active-color: var(--ld-base-color);
+  --ld-radio-active-color-hover: var(--ld-base-color-hover);
   --ld-radio-active-color-disabled: var(--ld-bg-color-disabled);
-  --ld-radio-contrast-color: var(--ld-main-color-contrast);
+  --ld-radio-contrast-color: var(--ld-bg-color);
 
-  --ld-rating-base-color: var(--ld-border-color);
-  --ld-rating-active-color: var(--ld-main-color);
+  --ld-rating-base-color: var(--ld-base-color);
+  --ld-rating-active-color: var(--ld-font-color);
   --ld-rating-icon-width: 2rem;
   --ld-rating-icon-padding: 2px;
 
-  --ld-slider-active-color: var(--ld-main-color);
-  --ld-slider-active-color-hover: var(--ld-main-color-dark);
-  --ld-slider-bg-color: var(--ld-border-color);
+  --ld-slider-active-color: var(--ld-bg-inverted-color);
+  --ld-slider-active-color-hover: var(--ld-base-color-hover);
+  --ld-slider-bg-color: var(--ld-bg-color-disabled);
   --ld-slider-height: 16px;
   --ld-slider-track-height: 4px;
   --ld-slider-track-border-radius: 2px;
+  --ld-slider-handle-bg: var(--ld-bg-inverted-color);
+  --ld-slider-handle-bg-hover: var(--ld-bg-inverted-color-hover);
+  --ld-slider-handle-border-color-hover: var(--ld-base-color-hover);
   --ld-slider-handle-border: 1px solid var(--ld-slider-active-color);
   --ld-slider-label-margin-top: 4px;
   --ld-slider-label-text-color: var(--ld-font-color);
 
-  --ld-tabs-border-bottom: 1px solid var(--ld-border-color);
+  --ld-switcher-active-color: var(--ld-color-success);
+  --ld-switcher-handler-bg: var(--ld-bg-color);
+  --ld-switcher-handler-bg-hovered: var(--ld-bg-color);
+  --ld-switcher-handler-bg-disabled: var(--ld-base-color);
+  --ld-switcher-handler-border: 1px solid var(--ld-base-color);
+  --ld-switcher-handler-border-radius: 10px;
+  --ld-switcher-handler-size: 17px;
+  --ld-switcher-wrapper-bg: var(--ld-base-color);
+  --ld-switcher-wrapper-bg-disabled: var(--ld-bg-color-disabled);
+  --ld-switcher-wrapper-width: 34px;
+  --ld-switcher-label-margin-inline-start: .5rem;
+
+  --ld-tabs-border-bottom: 1px solid var(--ld-base-color);
   --ld-tabs-tab-padding: 9px 14px;
-  --ld-tabs-tab-text-color-hover: var(--ld-main-color);
-  --ld-tabs-tab-active-border: 3px solid var(--ld-main-color);
-  --ld-tabs-disabled-color: var(--ld-border-color);
-  --ld-tabs-arrow-color: var(--ld-border-color);
-  --ld-tabs-arrow-color-hover: var(--ld-border-color-hover);
+  --ld-tabs-tab-text-color-hover: var(--ld-base-color-hover);
+  --ld-tabs-tab-active-border: 3px solid var(--ld-base-color);
+  --ld-tabs-disabled-color: var(--ld-base-color);
+  --ld-tabs-arrow-color: var(--ld-base-color);
+  --ld-tabs-arrow-color-hover: var(--ld-base-color-hover);
   --ld-tabs-arrow-shadow: 0px 0px 5px 2px;
   --ld-tabs-arrow-size: 1.5rem;
   --ld-tabs-arrow-top: 10px;
@@ -222,42 +259,29 @@
   --ld-tag-block-size: 1.75rem;
   --ld-tag-padding: 2px 2px 2px 16px;
   --ld-tag-margin-inline-end: 8px;
-  --ld-tag-border-color: var(--ld-border-color);
-  --ld-tag-border: 1px solid var(--ld-tag-border-color);
+  --ld-tag-border-color: var(--ld-base-color);
+  --ld-tag-border: 1px solid var(--ld-base-color);
   --ld-tag-border-radius: var(--ld-border-radius);
-  --ld-tag-bg: var(--ld-main-color-lightest);
+  --ld-tag-bg: var(--ld-bg-color-active);
+  --ld-tag-icon-color: var(--ld-base-color);
   --ld-tag-icon-padding: 3px;
-  --ld-tag-icon-color-hover: var(--ld-border-color-hover);
+  --ld-tag-icon-color-hover: var(--ld-base-color-hover);
   --ld-tag-transition: 250ms ease-out;
+
+  --ld-textarea-height: 120px;
+  --ld-textarea-padding: 1rem var(--ld-padding-inline);
+  --ld-textarea-border: 1px solid  var(--ld-base-color);
+  --ld-textarea-border-color-hover: var(--ld-base-color-hover);
+  --ld-textarea-border-radius: var(--ld-border-radius);
 
   --ld-tooltip-z-index: 10070;
   --ld-tooltip-max-width: 280px;
   --ld-tooltip-min-width: 50px;
-  --ld-tooltip-text-color: var(--ld-main-color-contrast);
-  --ld-tooltip-bg-color: var(--ld-main-color-dark);
+  --ld-tooltip-text-color: var(--ld-font-inverted-color);
+  --ld-tooltip-bg-color: var(--ld-bg-inverted-color-selected);
   --ld-tooltip-border-radius: var(--ld-border-radius);
   --ld-tooltip-transition: opacity .2s;
   --ld-tooltip-padding: .5rem 1rem;
   --ld-tooltip-arrow-length: 7px;
   --ld-tooltip-arrow-width: 4px;
-
-  --ld-textarea-height: 120px;
-  --ld-textarea-padding: 1rem var(--ld-padding-inline);
-  --ld-textarea-border: 1px solid  var(--ld-border-color);
-  --ld-textarea-border-color-hover: var(--ld-border-color-hover);
-  --ld-textarea-border-radius: var(--ld-border-radius);
-
-  --ld-switcher-active-color: var(--ld-color-success);
-  --ld-switcher-handler-bg: var(--ld-main-color-contrast);
-  --ld-switcher-handler-bg-hovered: var(--ld-main-color-contrast);
-  --ld-switcher-handler-bg-disabled: var(--ld-border-color);
-  --ld-switcher-handler-border: 1px solid var(--ld-main-color);
-  --ld-switcher-handler-border-radius: 10px;
-  --ld-switcher-handler-size: 17px;
-  --ld-switcher-wrapper-bg: var(--ld-border-color);
-  --ld-switcher-wrapper-bg-disabled: var(--ld-bg-color-disabled);
-  --ld-switcher-wrapper-width: 34px;
-  --ld-switcher-label-margin-inline-start: .5rem;
-
-
 }

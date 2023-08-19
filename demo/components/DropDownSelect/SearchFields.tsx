@@ -24,7 +24,7 @@ export const SearchFields = (args: SomeObject): React.ReactElement => {
         searchFields={['capital', 'id']}
         textField="country"
         shouldFilterValues
-        _width30
+        _width-30
       />
     </L.Div>
   );

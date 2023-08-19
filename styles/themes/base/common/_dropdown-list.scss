@@ -20,7 +20,7 @@
 %suggestion-selected {
   background-color: var(--ld-drop-down-suggestion-bg-selected);
   &:hover {
-    background-color: var(--ld-drop-down-suggestion-bg-hover);
+    background-color: var(--ld-drop-down-suggestion-bg-selected);
   }
 }
 

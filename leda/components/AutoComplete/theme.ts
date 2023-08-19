@@ -10,9 +10,5 @@ export const defaultAutoCompleteTheme = {
   inputWrapperFocused:        'ld-focused',
   inputWrapperInvalid:        'ld-danger',
   inputWrapperRequired:       'ld-required',
-  suggestion:                 'ld-suggestion-item',
-  suggestionHighlighted:      'ld-highlighted',
-  suggestionsContainer:       'ld-suggestion-wrapper',
-  suggestionsList:            'ld-suggestion-list',
   wrapper:                    'ld-autocomplete-wrapper',
 };

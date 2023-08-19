@@ -14,7 +14,7 @@ export const Customization = (attrs: any) => {
   return (
     <L.Div _box _inner _demoBg>
       <L.Input
-        _width30
+        _width-30
         placeholder="Type only capitals..."
         hasClearButton
         value={value}

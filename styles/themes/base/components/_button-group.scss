@@ -1,19 +1,19 @@
 .ld-button-group-buttons-wrapper {
   display: flex;
+}
+  
+.ld-button-disabled {
+  filter: opacity(50%);
 
-  &.ld-disabled {
-    filter: opacity(50%);
-
-    .ld-button-group-item {
-      &:hover {
-        background-color: var(--ld-btn-bg-color);
-        border-color: var(--ld-btn-border-color);
-        cursor: not-allowed;
-      }
-      &.ld-button-active:hover {
-        background-color: var(--ld-btn-group-active-color);
-        border-color: var(--ld-btn-group-active-color);
-      }
+  .ld-button-group-item {
+    &:hover {
+      background-color: var(--ld-btn-bg-color);
+      border-color: var(--ld-btn-border-color);
+      cursor: not-allowed;
+    }
+    &.ld-button-active:hover {
+      background-color: var(--ld-btn-group-active-color);
+      border-color: var(--ld-btn-group-active-color);
     }
   }
 }

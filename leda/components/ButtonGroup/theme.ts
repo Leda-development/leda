@@ -7,7 +7,7 @@ export const defaultButtonGroupTheme = {
   buttonLast:                 'ld-button-last',
   buttonsWrapper:             'ld-button-group-buttons-wrapper',
   wrapper:                    'ld-button-group-wrapper',
-  wrapperDisabled:            'ld-disabled',
+  wrapperDisabled:            'ld-button-disabled',
   wrapperRequired:            'ld-required',
 };
 /* eslint-enable key-spacing */

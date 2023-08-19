@@ -11,6 +11,7 @@ export const PaginationControl = (props: PaginationControlProps): React.ReactEle
     className,
     isPageNumber,
     title,
+    theme,
     children,
   } = props;
 
@@ -20,7 +21,10 @@ export const PaginationControl = (props: PaginationControlProps): React.ReactEle
     if (isFunction(onClick) && page !== 0) onClick(page);
   }, [onClick, page]);
 
-  const classNames = getClassNames(className, { disabled: page === 0 });
+  const classNames = getClassNames(
+    className,
+    { [theme.disabled]: page === 0 },
+  );
 
   return (
     <A

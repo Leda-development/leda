@@ -21,17 +21,7 @@
     border-color: var(--ld-btn-border-color-hover);
   }
 
-  &.ld-disabled {
-    filter: opacity(50%);
-    cursor: not-allowed;
-    &:hover {
-      background-color: var(--ld-btn-bg-color);
-      border-color: var(--ld-btn-border-color);
-    }
-  }
-
   &.ld-loading {
-    filter: opacity(90%);
     cursor: progress;
     &:hover {
       background-color: var(--ld-btn-bg-color);
@@ -48,5 +38,15 @@
     left: calc(var(--ld-btn-padding-inline)/2 - var(--ld-font-size)/2);
     top: calc(var(--ld-btn-padding-block) + var(--ld-btn-line-height)/2 - var(--ld-btn-font-size)/2);
     animation: cog 2s linear infinite;
+  }
+}
+
+.ld-btn-disabled {
+  background-color: var(--ld-btn-bg-color-disabled);
+  border-color: var(--ld-btn-border-color-disabled);
+  cursor: not-allowed;
+  &:hover {
+    background-color: var(--ld-btn-bg-color-disabled);
+    border-color: var(--ld-btn-border-color-disabled);
   }
 }

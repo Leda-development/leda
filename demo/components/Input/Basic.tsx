@@ -47,7 +47,7 @@ export const Basic = (componentProps: any) => {
             invalidMessage: 'Minimum 10 symbols',
           },
         ]}
-        _width30
+        _width-30
         {...props}
       />
 

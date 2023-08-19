@@ -17,7 +17,7 @@
 }
 
 .ld-slider-handle {
-  background: var(--ld-slider-active-color);
+  background: var(--ld-slider-handle-bg);
   width: var(--ld-slider-height);
   height: var(--ld-slider-height);
   border-radius: 50%;
@@ -31,7 +31,8 @@
   }
 
   &:hover, &:active {
-    background: var(--ld-slider-active-color-hover);
+    background: var(--ld-slider-handle-bg-hover);
+    border-color: var(--ld-slider-handle-border-color-hover);
 
     .ld-tooltip {
       display: block;

@@ -39,7 +39,7 @@ export const CommaSeparator = (args: any) => {
             <L.Span _numericTextBoxSuffix>Рублей</L.Span>
           </>
         )}
-        _width30
+        _width-30
         {...props}
       />
       <br />

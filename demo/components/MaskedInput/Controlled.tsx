@@ -27,7 +27,7 @@ export const Controlled = (some: any): React.ReactElement => {
         }}
         form="masked"
         name="masked-name"
-        _width30
+        _width-30
         ref={ref}
         value={value}
         onFocus={ev => {
@@ -43,19 +43,19 @@ export const Controlled = (some: any): React.ReactElement => {
       <L.MaskedInput
         mask="###-###-### ##"
         placeholder="___-___-___ __"
-        _width30
+        _width-30
       />
       <br />
       <L.MaskedInput
         mask="LL##LL####"
         placeholder="Car number"
-        _width30
+        _width-30
       />
       <br />
       <L.MaskedInput
         mask="####-####-####-####"
         placeholderChar="X"
-        _width30
+        _width-30
       />
       <br />
       <L.Button onClick={() => { setProps({}); }}>Defaults</L.Button>

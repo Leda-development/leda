@@ -29,7 +29,7 @@ export const MinSearchLength = (componentProps: any) => {
         minSearchLength={0}
         hasClearButton
         isRequired
-        _width30
+        _width-30
         {...props}
       />
       <br />

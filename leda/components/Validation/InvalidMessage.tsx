@@ -1,15 +1,20 @@
 import React from 'react';
-import { Span } from '../Span';
 import { InvalidMessageProps } from './types';
 
-export const InvalidMessage = ({ isValid, messages = [] }: InvalidMessageProps): React.ReactElement | null => (isValid || messages.length === 0
+export const InvalidMessage = (
+  {
+    isValid,
+    messages = [],
+    theme,
+  }: InvalidMessageProps
+): React.ReactElement | null => (isValid || messages.length === 0
   ? null
   : (
-    <Span _invalid-message-list>
+    <div className={theme.invalidMessagesList}>
       {messages.map((message) => (
-        <Span key={message} _invalid-message-item>
+        <div key={message} className={theme.invalidMessage}>
           {message}
-        </Span>
+        </div>
       ))}
-    </Span>
+    </div>
   ));

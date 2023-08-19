@@ -82,7 +82,7 @@ export const MixedValidation = (props: { title: string }) => {
         form="MixedValidation2"
         name="masked"
         value={valueM}
-        _width30
+        _width-30
       />
       <br />
       <br />

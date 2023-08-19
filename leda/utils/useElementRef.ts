@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 // special helper for using DOM element ref after mount

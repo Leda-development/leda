@@ -1,8 +1,8 @@
 import { isNil, isArray, isObject } from 'lodash';
-import { SomeObject } from '../../commonTypes';
+import type { SomeObject } from '../../commonTypes';
 import { getText } from '../../src/SuggestionList/helpers';
 import { filterSuggestionByRule, getClassNames, getIsEmptyAndRequired } from '../../utils';
-import { DropDownSelectProps, FilterDataProps, GetComponentClassNames } from './types';
+import type { DropDownSelectProps, FilterDataProps, GetComponentClassNames } from './types';
 
 // component elements class names
 export const getComponentClassNames: GetComponentClassNames = ({

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import * as React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
@@ -6,7 +6,7 @@ import { getClassNames, useTheme } from '../../utils';
 import { TooltipBody } from './TooltipBody';
 import { defaultArrowSize, defaultPosition, defaultTransitionTimeout } from './constants';
 import { useTooltip } from './hooks';
-import { TooltipProps } from './types';
+import type { TooltipProps } from './types';
 
 export const Tooltip = React.forwardRef((props: TooltipProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {

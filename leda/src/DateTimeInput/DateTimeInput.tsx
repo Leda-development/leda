@@ -167,13 +167,13 @@ export const DateTimeInput = React.forwardRef((props: DateTimeInputProps, ref: R
           ref={maskedInputRef}
           value={inputValue}
         />
-          {type !== COMPONENT_TYPES.TIME_ONLY && (
-            <Icon
-              icon={IconTypes.Icons.Calendar}
-              onMouseDown={handleCalendarIconMouseDown}
-              className={theme.calendarIcon}
-            />
-          )}
+        {type !== COMPONENT_TYPES.TIME_ONLY && (
+        <Icon
+          icon={IconTypes.Icons.Calendar}
+          onMouseDown={handleCalendarIconMouseDown}
+          className={theme.calendarIcon}
+        />
+        )}
       </Div>
       {!state.isFocused && !isDisabled && <InvalidMessage />}
       {type !== COMPONENT_TYPES.TIME_ONLY && (

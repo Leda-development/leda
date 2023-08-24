@@ -1,8 +1,8 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { isFunction } from 'lodash';
 import { getArrayValue } from './helpers';
-import { ButtonGroupProps, ChangeData, Value } from './types';
-import { SomeObject, SetState } from '../../commonTypes';
+import type { ButtonGroupProps, ChangeData, Value } from './types';
+import type { SomeObject, SetState } from '../../commonTypes';
 
 export const createChangeHandler = (
   props: ButtonGroupProps,

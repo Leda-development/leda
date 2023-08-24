@@ -1,11 +1,11 @@
-'use client'
+'use client';
 
 import * as React from 'react';
 import { debounce } from 'lodash';
 import ReactDOM from 'react-dom';
 import { createOverlaySvgPath, getModalPositionStyles } from './helpers';
 import { Div } from '../Div';
-import { TourProps, TourStepItem } from './types';
+import type { TourProps, TourStepItem } from './types';
 
 export const Tour = (props: TourProps): React.ReactElement | null => {
   const {

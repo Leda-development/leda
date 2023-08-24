@@ -1,6 +1,6 @@
 import React from 'react';
 import { globalDefaultTheme } from '../LedaProvider';
-import { CollapseContextType, CollapsePanelContextType } from './types';
+import type { CollapseContextType, CollapsePanelContextType } from './types';
 
 export const CollapseContext = React.createContext<CollapseContextType>({
   activePanelKey: null,

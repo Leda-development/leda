@@ -3,7 +3,7 @@ import { createPanelHandlers } from './handlers';
 import { usePanelWrapper } from './helpers';
 import { CollapseContext, CollapsePanelContext } from './CollapseContext';
 import { useProps } from '../../utils';
-import { PanelProps } from './types';
+import type { PanelProps } from './types';
 
 export const Panel: React.FC<PanelProps> = (props: PanelProps): React.ReactElement => {
   const {

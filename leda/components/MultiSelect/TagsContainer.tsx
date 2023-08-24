@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { TagsContainerProps } from './types';
+import type { TagsContainerProps } from './types';
 import { Span } from '../Span';
 import { Div } from '../Div';
 import { getText } from '../../src/SuggestionList/helpers';
-import { SomeObject } from '../../commonTypes';
+import type { SomeObject } from '../../commonTypes';
 import { Icon } from '../Icon';
 import { IconTypes } from '../..';
 

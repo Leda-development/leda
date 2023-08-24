@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Span } from '../Span';
 import { LABELS } from './constants';
-import { SliderLabelsProps } from './types';
+import type { SliderLabelsProps } from './types';
 
 export const SliderLabels = (props: SliderLabelsProps): React.ReactElement | null => {
   const {
@@ -25,13 +25,11 @@ export const SliderLabels = (props: SliderLabelsProps): React.ReactElement | nul
         </>
       )}
       {type === LABELS.CURRENT && (
-        <>
-          <Span className={theme.label}>
+        <Span className={theme.label}>
             {value.toLocaleString()}
             {' '}
             {children}
-          </Span>
-        </>
+        </Span>
       )}
     </div>
   )

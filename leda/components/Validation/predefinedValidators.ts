@@ -1,11 +1,11 @@
 import { validate } from '../../validators';
-import { NormalizedValidatorObject, PredefinedValidator } from './types';
+import type { NormalizedValidatorObject, PredefinedValidator } from './types';
 
 export const PREDEFINED_VALIDATORS: Record<PredefinedValidator, NormalizedValidatorObject> = {
   // Common validators
   creditCardNumber: {
     validator: validate.creditCardNumber,
-    invalidMessage: 'Card number is not valid'
+    invalidMessage: 'Card number is not valid',
   },
   email: {
     validator: validate.email,
@@ -16,7 +16,7 @@ export const PREDEFINED_VALIDATORS: Record<PredefinedValidator, NormalizedValida
     invalidMessage: 'Url is not valid',
   },
 
-  // Russia specific validators  
+  // Russia specific validators
   cadastralNumber: {
     validator: validate.cadastralNumber,
     invalidMessage: 'Введите кадастровый номер',

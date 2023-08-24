@@ -1,6 +1,5 @@
-import { RecursivePartial } from '../../commonTypes';
+import type { RecursivePartial } from '../../commonTypes';
 import { defaultCalendarMessages } from '../../src/CalendarBase/messages';
-
 
 export const globalDefaultMessages = {
   calendar: defaultCalendarMessages,

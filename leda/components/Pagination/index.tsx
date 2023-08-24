@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import * as React from 'react';
 import { isNil } from 'lodash';
@@ -12,7 +12,7 @@ import { getPageNumbers, normalizePageNumber } from './helpers';
 import { useCustomElements } from './hooks';
 import { PagesList } from './PagesList';
 import { PaginationControl } from './PaginationControl';
-import { PaginationProps } from './types';
+import type { PaginationProps } from './types';
 import { Icon } from '../Icon';
 import { IconTypes } from '../..';
 
@@ -182,7 +182,8 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
       >
         <Icon
           icon={IconTypes.Icons.ChevronsRight}
-          className={theme.iconLast} />
+          className={theme.iconLast}
+        />
       </PaginationControl>
       <PagesDropDown
         handlePageSizeChange={handlePageSizeChange}

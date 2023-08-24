@@ -23,7 +23,7 @@ import type { stateActionTypes } from './actions';
 import type { COMPONENT_TYPES } from './constants';
 import type { ValidationProps } from '../../components/Validation/types';
 import type { StandaloneCalendarActionTypes } from '../../components/Calendar/types';
-import { IconTypes } from '../..';
+import type { IconTypes } from '../..';
 
 // todo: extend type
 export interface ChangeEvent {

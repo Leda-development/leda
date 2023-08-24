@@ -1,4 +1,3 @@
-
 const checkOgrn = (ogrn: string | number, validLength: number): boolean => {
   const ogrnString = String(ogrn);
 

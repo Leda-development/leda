@@ -4,7 +4,7 @@ import {
 } from '../../utils';
 import { generateId } from '../../utils/generateId';
 import { Div } from '../Div';
-import { PropsFromParent, RadioButtonProps } from './types';
+import type { PropsFromParent, RadioButtonProps } from './types';
 import { globalDefaultTheme } from '../LedaProvider';
 
 export const RadioButton = React.forwardRef((props: RadioButtonProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {

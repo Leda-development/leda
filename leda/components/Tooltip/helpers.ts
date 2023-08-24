@@ -1,4 +1,4 @@
-import {
+import type {
   GetTooltipPosition, GetTooltipOffsets, TooltipPosition,
 } from './types';
 

@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import * as React from 'react';
-import { CustomRender, SetState } from '../../commonTypes';
-import { GlobalDefaultTheme } from '../../utils/useTheme';
-import { COMPONENTS_NAMESPACES } from '../../constants';
+import type * as React from 'react';
+import type { CustomRender, SetState } from '../../commonTypes';
+import type { GlobalDefaultTheme } from '../../utils/useTheme';
+import type { COMPONENTS_NAMESPACES } from '../../constants';
 
 export interface ValidationProps {
   form?: string,

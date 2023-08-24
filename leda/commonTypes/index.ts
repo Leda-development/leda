@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 
 export interface AttributesType {
   className?: string,
@@ -14,7 +14,7 @@ export interface AttributesType {
   width?: number,
 }
 
-export interface ValidatedBlurEvent<T = HTMLInputElement> extends React.FocusEvent<T>{
+export interface ValidatedBlurEvent<T = HTMLInputElement> extends React.FocusEvent<T> {
   target: EventTarget & T & { isValid?: boolean },
   relatedTarget: EventTarget,
 }

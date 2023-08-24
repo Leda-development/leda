@@ -1,12 +1,12 @@
-import * as React from 'react';
-import { COMPONENTS_NAMESPACES } from '../../constants';
-import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
-import { ValidationProps } from '../Validation/types';
-import { CustomRender } from '../../commonTypes';
-import { defaultPasswordTheme } from './theme';
-import { DivProps } from '../Div';
-import { PredefinedAllowedSymbols } from '../../utils/isSymbolAllowed';
-import { PredefinedForbiddenSymbols } from '../../utils/isSymbolForbidden';
+import type * as React from 'react';
+import type { COMPONENTS_NAMESPACES } from '../../constants';
+import type { PartialGlobalDefaultTheme } from '../../utils/useTheme';
+import type { ValidationProps } from '../Validation/types';
+import type { CustomRender } from '../../commonTypes';
+import type { defaultPasswordTheme } from './theme';
+import type { DivProps } from '../Div';
+import type { PredefinedAllowedSymbols } from '../../utils/isSymbolAllowed';
+import type { PredefinedForbiddenSymbols } from '../../utils/isSymbolForbidden';
 
 export interface ClearEvent extends React.MouseEvent<SVGElement> {
   component: {

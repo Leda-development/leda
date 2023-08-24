@@ -7,7 +7,7 @@ import {
 } from '../../utils';
 import { globalDefaultTheme, LedaContext } from '../LedaProvider';
 import { Span } from '../Span';
-import { TagProps } from './types';
+import type { TagProps } from './types';
 import { Icon } from '../Icon';
 import { IconTypes } from '../..';
 

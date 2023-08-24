@@ -2,7 +2,7 @@ import {
   isArray, isFunction, isRegExp, isString,
 } from 'lodash';
 import { PREDEFINED_VALIDATORS } from '../components/Validation/predefinedValidators';
-import {
+import type {
   ExternalValidator, Field, Form, SingleFunctionValidator,
 } from './types';
 
@@ -30,9 +30,7 @@ export const getForm = (name: string): Form | undefined => {
 
 const getFormFields = (formName: string): Field[] => getForm(formName)?.fields ?? [];
 
-export const pickField = (
-  fields: Field[], fieldName: string,
-): Field | undefined => fields.find((formField: Field) => fieldName === formField.name);
+export const pickField = (fields: Field[], fieldName: string): Field | undefined => fields.find((formField: Field) => fieldName === formField.name);
 
 export const getField = (formName: string, fieldName: string): Field | undefined => {
   const fields = getFormFields(formName);

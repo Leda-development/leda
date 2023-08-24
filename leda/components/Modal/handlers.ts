@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { ModalWindowProps } from './types';
+import type * as React from 'react';
+import type { ModalWindowProps } from './types';
 
 export const createEscapePressHandler = (props: ModalWindowProps) => (ev: React.KeyboardEvent<HTMLElement>): void => {
   const { onEscapePress, onClose } = props;

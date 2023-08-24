@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 // declarative setInterval on hooks, runs callback with delay interval, pass null into delay to stop running callback

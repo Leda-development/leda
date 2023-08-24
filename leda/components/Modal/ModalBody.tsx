@@ -1,11 +1,11 @@
-'use client'
+'use client';
 
 import React from 'react';
 import { getClassNames, useElement, useProps } from '../../utils';
 import { Div } from '../Div';
 import { LedaContext } from '../LedaProvider';
 import { ModalContext } from './ModalContext';
-import { ModalElementsProps } from './types';
+import type { ModalElementsProps } from './types';
 
 export const ModalBody: React.FC<ModalElementsProps> = (props: ModalElementsProps): React.ReactElement => {
   const {

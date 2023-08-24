@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import { isNil } from 'lodash';
 import { COMPONENTS_NAMESPACES } from '../../constants';
@@ -12,7 +14,7 @@ import {
 import {
   getPlaceholder, getRequired, getDisabled, getName, getControlledValue,
 } from './helpers';
-import { NumericRangeProps, NumericRangeState } from './types';
+import type { NumericRangeProps, NumericRangeState } from './types';
 
 export const NumericRange = React.forwardRef((props: NumericRangeProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {

@@ -4,7 +4,7 @@ import { useElement } from '../../utils';
 import { Div } from '../Div';
 import { LedaContext } from '../LedaProvider';
 import { Span } from '../Span';
-import { CustomElements, SwitcherProps, SwitcherState } from './types';
+import type { CustomElements, SwitcherProps, SwitcherState } from './types';
 
 export const useCustomElements = (props: SwitcherProps, state: SwitcherState): CustomElements => {
   const { renders: { [COMPONENTS_NAMESPACES.switcher]: switcherRenders } } = React.useContext(LedaContext);

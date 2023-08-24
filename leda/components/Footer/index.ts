@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { htmlTagFactory } from '../../src/HTMLTagsFactory';
 
 export interface FooterProps extends React.HTMLAttributes<HTMLElement> {

@@ -1,6 +1,6 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { htmlTagFactory } from '../../src/HTMLTagsFactory';
-import { DdProps, DlProps, DtProps } from './types';
+import type { DdProps, DlProps, DtProps } from './types';
 
 export const Dl = htmlTagFactory('Dl') as React.FC<DlProps>;
 export const Dt = htmlTagFactory('Dt') as React.FC<DtProps>;

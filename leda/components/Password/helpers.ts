@@ -1,6 +1,6 @@
-import { PasswordProps, PasswordRule } from './types';
-import { ValidatorObject } from '../Validation/types';
 import { isNil } from 'lodash';
+import type { PasswordProps, PasswordRule } from './types';
+import type { ValidatorObject } from '../Validation/types';
 
 export const transformToCase = (letter: string, letterCase: PasswordProps['letterCase']): string | never => {
   if (letterCase === 'lower') return letter.toLowerCase();
@@ -20,13 +20,9 @@ export const getValue = (valueProp: string | null | undefined, valueState: strin
   return valueProp;
 };
 
-export const rulesToValidators = (rules: PasswordRule[]): ValidatorObject[] => {
-  return rules.map(({ rule }) => {
-    return {
-      validator: rule,
-    }
-  });
-}; 
+export const rulesToValidators = (rules: PasswordRule[]): ValidatorObject[] => rules.map(({ rule }) => ({
+  validator: rule,
+}));
 
 export const isValuePassingRule = (value: string | null, rule: RegExp | ((password: string) => boolean)): boolean => {
   if (isNil(value)) return false;
@@ -36,4 +32,4 @@ export const isValuePassingRule = (value: string | null, rule: RegExp | ((passwo
   }
 
   return rule(value);
-}
+};

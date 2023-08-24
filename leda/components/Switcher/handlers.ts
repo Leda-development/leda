@@ -1,6 +1,6 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { isFunction, isNil } from 'lodash';
-import { SwitcherProps } from './types';
+import type { SwitcherProps } from './types';
 
 export const createClickHandler = (props: SwitcherProps, stateValue: boolean, setStateValue: React.Dispatch<React.SetStateAction<boolean>>) => (ev: React.MouseEvent<HTMLDivElement>): void => {
   const {

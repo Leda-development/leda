@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
@@ -18,7 +20,7 @@ import {
   formatInputValue, formatValue, getRestProps, getValue, normalizeValue,
 } from './helpers';
 import { useCustomElements, useSyncedValue } from './hooks';
-import { NumericTextBoxProps, NormalizeParameters } from './types';
+import type { NumericTextBoxProps, NormalizeParameters } from './types';
 import { DEFAULT_VALUES } from './constants';
 import { Icon } from '../Icon';
 import { IconTypes } from '../..';

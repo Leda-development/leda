@@ -4,7 +4,7 @@ import {
   useProps,
 } from '../../utils';
 import { extractIdAndNamespace } from './helpers';
-import { SvgProps } from './types';
+import type { SvgProps } from './types';
 
 export const Svg = React.forwardRef((props: SvgProps, ref?: React.Ref<SVGSVGElement>): React.ReactElement => {
   const {

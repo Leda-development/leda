@@ -15,4 +15,10 @@ module.exports = {
     },
   },
   plugins: [],
+  safelist: [
+    { pattern: /w-\d+/ },
+    { pattern: /m\w-\d+/ },
+    { pattern: /p\w-\d+/ },
+    { pattern: /flex-?\w*/ },
+  ],
 };

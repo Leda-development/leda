@@ -1,6 +1,8 @@
+'use client';
+
 import * as React from 'react';
 import { isNil } from 'lodash';
-import {
+import type {
   MultiSelectComponent, MultiSelectProps, Value,
 } from './types';
 import {

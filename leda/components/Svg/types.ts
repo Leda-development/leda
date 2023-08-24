@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 
 export interface SvgProps extends Omit<React.SVGProps<SVGSVGElement>, 'ref'> {
   /** Do not add default icon-namespace css class */

@@ -1,4 +1,4 @@
-import { TransitionOptions } from './types';
+import type { TransitionOptions } from './types';
 
 export const generateTransitionProperty = (options: TransitionOptions): string => {
   const {

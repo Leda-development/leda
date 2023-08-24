@@ -4,7 +4,7 @@ import { useElement, useElementRef } from '../../utils';
 import { Div } from '../Div';
 import { LedaContext } from '../LedaProvider';
 import { Ul } from '../Ul';
-import {
+import type {
   CustomElements, TabsProps, TabsScroll, TabsScrollProps,
 } from './types';
 import { ContentElement } from './ContentElement';

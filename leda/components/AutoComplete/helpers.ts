@@ -1,15 +1,17 @@
-import * as React from 'react';
+import type * as React from 'react';
 import {
-  every, isArray, isFunction, isObject, isString, isNumber
+  every, isArray, isFunction, isObject, isString, isNumber,
 } from 'lodash';
 
-import {
+import type {
   AutoCompleteProps,
-  CHANGE_METHOD,
   ChangeEvent,
   DataObject,
   SuggestionsVal,
   Suggestion,
+} from './types';
+import {
+  CHANGE_METHOD,
 } from './types';
 
 import { FILTER_RULES, filterSuggestionByRule } from '../../utils';
@@ -126,7 +128,7 @@ export const getSuggestionValue = (suggestion: Suggestion, textField?: string): 
     return suggestion.toString();
   }
 
-  if (typeof(textField) === 'string') {
+  if (typeof (textField) === 'string') {
     return suggestion[textField];
   }
 

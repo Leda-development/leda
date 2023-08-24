@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { CustomEventHandler, SetState } from '../../commonTypes';
+import type * as React from 'react';
+import type { CustomEventHandler, SetState } from '../../commonTypes';
 import {
   extractValue, formatInputValue, formatValue, getSeparator, normalizeValue,
 } from './helpers';
-import {
+import type {
   BlurEvent,
   FocusEvent,
   ChangeEvent,

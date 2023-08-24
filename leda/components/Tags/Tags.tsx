@@ -9,7 +9,7 @@ import {
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { Div } from '../Div';
 import { LedaContext } from '../LedaProvider';
-import { TagsProps } from './types';
+import type { TagsProps } from './types';
 
 export const Tags = React.forwardRef((props: TagsProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {

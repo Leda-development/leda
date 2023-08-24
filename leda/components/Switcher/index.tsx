@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import { isNil } from 'lodash';
 import {
@@ -6,7 +8,7 @@ import {
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { createClickHandler } from './handlers';
 import { useCustomElements } from './hooks';
-import { SwitcherProps } from './types';
+import type { SwitcherProps } from './types';
 
 export const Switcher = React.forwardRef((props: SwitcherProps, ref: React.Ref<HTMLElement>): React.ReactElement => {
   const {

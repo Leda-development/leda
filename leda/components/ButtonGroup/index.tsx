@@ -7,11 +7,11 @@ import {
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { createChangeHandler, createResetHandler } from './handlers';
 import { compareItems } from './helpers';
-import {
+import type {
   ButtonGroupProps, Value,
 } from './types';
 import { useValidation } from '../Validation';
-import { SomeObject } from '../../commonTypes';
+import type { SomeObject } from '../../commonTypes';
 
 export const ButtonGroup = React.forwardRef((props: ButtonGroupProps, ref?: React.Ref<HTMLElement>): React.ReactElement | null => {
   const {
@@ -104,12 +104,12 @@ export const ButtonGroup = React.forwardRef((props: ButtonGroupProps, ref?: Reac
           );
 
           const buttonText = (() => {
-            if (typeof(textField) === 'string') {
-              if (typeof(item) === 'object') return item[textField];
+            if (typeof (textField) === 'string') {
+              if (typeof (item) === 'object') return item[textField];
             }
 
             return item.toString();
-          })();    
+          })();
 
           return (
             <Button
@@ -126,6 +126,5 @@ export const ButtonGroup = React.forwardRef((props: ButtonGroupProps, ref?: Reac
     </Wrapper>
   );
 }) as <T extends Value | Value[]>(props: ButtonGroupProps<T>) => React.ReactElement;
-
 
 (ButtonGroup as React.FC<ButtonGroupProps>).displayName = 'ButtonGroup';

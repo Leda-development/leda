@@ -6,7 +6,7 @@ import { PagesDropDown as PaginationPagesDropDown } from './PagesDropDown';
 import { PaginationInfo } from './PaginationInfo';
 import { PaginationRangeInfo } from './PaginationRangeInfo';
 import { PaginationTotalInfo } from './PaginationTotalInfo';
-import { CustomElements, PaginationProps, PaginationState } from './types';
+import type { CustomElements, PaginationProps, PaginationState } from './types';
 
 export const useCustomElements = (props: PaginationProps, state: PaginationState): CustomElements => {
   const {

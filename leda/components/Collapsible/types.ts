@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 
 export interface TransitionOptions {
   /** Aimation duration. A number of milliseconds or a string containing units: '200ms' or '0.5s' */

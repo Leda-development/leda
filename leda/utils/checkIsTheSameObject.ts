@@ -1,12 +1,11 @@
 import { isFunction, isObject, isString } from 'lodash';
-import { SomeObject } from '../commonTypes';
+import type { SomeObject } from '../commonTypes';
 
 interface CompareObjectsParams {
   compareObjectsBy?: ((suggestionListItems: SomeObject) => any) | string,
   obj1: any,
   obj2: any,
 }
-
 
 export const checkIsTheSameObject = ({
   obj1,

@@ -1,9 +1,9 @@
-import React from 'react';
-import { ValidationProps } from '../Validation/types';
-import { CustomRender } from '../../commonTypes';
-import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
-import { COMPONENTS_NAMESPACES } from '../../constants';
-import { DivProps } from '../Div';
+import type React from 'react';
+import type { ValidationProps } from '../Validation/types';
+import type { CustomRender } from '../../commonTypes';
+import type { PartialGlobalDefaultTheme } from '../../utils/useTheme';
+import type { COMPONENTS_NAMESPACES } from '../../constants';
+import type { DivProps } from '../Div';
 
 export interface ResetEvent {
   component: {

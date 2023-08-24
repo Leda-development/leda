@@ -1,4 +1,3 @@
-
 export const selectAllSuggestion = {
   text: 'Select all',
 };
@@ -6,5 +5,5 @@ export const selectAllSuggestion = {
 export enum SelectedState {
   Nothing,
   Some,
-  All
+  All,
 }

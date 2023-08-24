@@ -4,7 +4,7 @@ export const defaultInputTheme = {
   input:                    'ld-input-element',
   inputWrapper:             'ld-input-element-wrapper',
   wrapper:                  'ld-input-wrapper',
-  
+
   inputWrapperDisabled:     'ld-disabled',
   inputWrapperFocused:      'ld-focused',
   inputWrapperInvalid:      'ld-danger',

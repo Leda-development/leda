@@ -2,7 +2,7 @@ import * as React from 'react';
 import debounce from 'lodash/debounce';
 import isMatch from 'lodash/isMatch';
 import { getTooltipPosition, getTooltipOffsets } from './helpers';
-import { TooltipPosition, TooltipStyle, UseTooltip } from './types';
+import type { TooltipPosition, TooltipStyle, UseTooltip } from './types';
 
 export const useTooltip: UseTooltip = ({
   arrowSize,

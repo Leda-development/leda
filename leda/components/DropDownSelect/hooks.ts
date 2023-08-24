@@ -3,7 +3,7 @@ import { getText } from '../../src/SuggestionList/helpers';
 import { useElement } from '../../utils';
 import { Div } from '../Div';
 import { filterData } from './helpers';
-import {
+import type {
   CustomElements, DropDownSelectProps, DropDownSelectState, UseCustomElementsExtra, Value,
 } from './types';
 

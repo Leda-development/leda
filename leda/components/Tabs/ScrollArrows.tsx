@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowProps } from './types';
+import type { ArrowProps } from './types';
 import { Icon } from '../Icon';
 import { IconTypes } from '../..';
 

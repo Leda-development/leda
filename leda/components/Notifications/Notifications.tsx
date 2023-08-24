@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React from 'react';
 import { NotificationItem } from './NotificationItem';
@@ -6,13 +6,11 @@ import { Div } from '../Div';
 import {
   useTheme, getClassNames, useProps,
 } from '../../utils';
-import { Item, NotificationsProps } from './types';
+import type { Item, NotificationsProps } from './types';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import { ChangeMethods } from './constants';
+import type { ChangeMethods } from './constants';
 
-export const Notifications = React.forwardRef((
-  props: NotificationsProps, ref?: React.Ref<HTMLElement>,
-): React.ReactElement | null => {
+export const Notifications = React.forwardRef((props: NotificationsProps, ref?: React.Ref<HTMLElement>): React.ReactElement | null => {
   const {
     className,
     maxItems = 3,

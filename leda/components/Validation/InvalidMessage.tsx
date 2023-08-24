@@ -1,12 +1,12 @@
 import React from 'react';
-import { InvalidMessageProps } from './types';
+import type { InvalidMessageProps } from './types';
 
 export const InvalidMessage = (
   {
     isValid,
     messages = [],
     theme,
-  }: InvalidMessageProps
+  }: InvalidMessageProps,
 ): React.ReactElement | null => (isValid || messages.length === 0
   ? null
   : (

@@ -1,10 +1,9 @@
 import { difference } from 'lodash';
 import { filterSuggestionByRule, checkIsTheSameObject } from '../../utils';
 import { getText } from '../../src/SuggestionList/helpers';
-import {
+import type {
   FilterDataParams, GetSortedSuggestionsProps, MultiSelectProps, Value,
 } from './types';
-
 
 export const filterData = ({
   compareObjectsBy,

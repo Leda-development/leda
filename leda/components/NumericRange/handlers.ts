@@ -1,7 +1,7 @@
 import { isFunction } from 'lodash';
-import { SetState } from '../../commonTypes';
-import { ChangeEvent } from '../NumericTextBox/types';
-import { NumericRangeProps, NumericRangeState } from './types';
+import type { SetState } from '../../commonTypes';
+import type { ChangeEvent } from '../NumericTextBox/types';
+import type { NumericRangeProps, NumericRangeState } from './types';
 import { formatValue } from '../NumericTextBox/helpers';
 
 export const createNumericChangeHandler = ({

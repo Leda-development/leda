@@ -1,11 +1,11 @@
-'use client'
+'use client';
 
 import React, { useEffect } from 'react';
 import {
   getClassNames, useTheme, useElement, useProps,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import { IconProps, LoaderProps } from './types';
+import type { IconProps, LoaderProps } from './types';
 import { Div } from '../Div';
 import { Icon } from '../Icon';
 import { IconTypes } from '../..';

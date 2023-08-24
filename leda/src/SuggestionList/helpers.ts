@@ -1,7 +1,7 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { isArray, isObject } from 'lodash';
-import { SomeObject } from '../../commonTypes';
-import { GetSuggestionItemProps, SuggestionItemComputedProps } from './types';
+import type { SomeObject } from '../../commonTypes';
+import type { GetSuggestionItemProps, SuggestionItemComputedProps } from './types';
 import { checkIsTheSameObject } from '../../utils';
 import { selectAllSuggestion, SelectedState } from '../../components/MultiSelect/constants';
 

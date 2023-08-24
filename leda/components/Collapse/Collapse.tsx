@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { useTheme } from '../../utils';
@@ -6,7 +8,7 @@ import { CollapseContext } from './CollapseContext';
 import { Panel } from './CollapsePanel';
 import { Body } from './CollapseBody';
 import { Heading } from './CollapseHeading';
-import { CollapseComponent, CollapseProps } from './types';
+import type { CollapseComponent, CollapseProps } from './types';
 
 export const Collapse: CollapseComponent = (props: CollapseProps): React.ReactElement => {
   const { children, theme: themeProp } = props;

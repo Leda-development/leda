@@ -1,5 +1,6 @@
+import type { PredefinedValidator, FormGetField } from '../components/Validation/types';
 import {
-  Form, Field, PredefinedValidator, FormGetField,
+  Form, Field,
 } from '../components/Validation/types';
 
 export {

@@ -1,10 +1,10 @@
 import React from 'react';
 import { isNil } from 'lodash';
-import * as L from '../../index';
+import type * as L from '../../index';
 import {
   DropDownSelect,
 } from '../DropDownSelect';
-import { PagesDropDownProps } from './types';
+import type { PagesDropDownProps } from './types';
 
 export const PagesDropDown = (props: PagesDropDownProps): React.ReactElement => {
   const {

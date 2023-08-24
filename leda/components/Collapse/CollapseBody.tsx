@@ -5,7 +5,7 @@ import {
 import { Loader } from '../Loader';
 import { CollapsePanelContext } from './CollapseContext';
 import { useBodyWrapper } from './helpers';
-import { BodyProps } from './types';
+import type { BodyProps } from './types';
 import { useCollapse } from './useCollapse';
 
 export const Body = React.forwardRef((props: BodyProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {

@@ -1,16 +1,17 @@
+'use client';
+
 import * as React from 'react';
 import {
   getClassNames, useTheme, useProps, getIsEmptyAndRequired,
 } from '../../utils';
 import { useValidation } from '../Validation';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import { TextareaProps } from './types';
+import type { TextareaProps } from './types';
 import {
   createBlurHandler, createChangeHandler, createFocusHandler, createKeyDownHandler, createResetHandler,
 } from './handlers';
 import { useCustomElements } from './hooks';
 import { getValue } from './helpers';
-
 
 export const Textarea = React.forwardRef((props: TextareaProps, ref: React.Ref<HTMLTextAreaElement>): React.ReactElement => {
   const {

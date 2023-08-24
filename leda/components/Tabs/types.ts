@@ -1,9 +1,9 @@
-import React from 'react';
-import { CustomRender } from '../../commonTypes';
-import { COMPONENTS_NAMESPACES } from '../../constants';
-import { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTheme';
-import { LiProps } from '../Li';
-import { defaultTabsTheme } from './theme';
+import type React from 'react';
+import type { CustomRender } from '../../commonTypes';
+import type { COMPONENTS_NAMESPACES } from '../../constants';
+import type { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTheme';
+import type { LiProps } from '../Li';
+import type { defaultTabsTheme } from './theme';
 
 export interface TabsProps {
   /** Active tab number */

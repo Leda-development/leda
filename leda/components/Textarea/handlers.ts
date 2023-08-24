@@ -1,12 +1,10 @@
 import { isFunction } from 'lodash';
-import React from 'react';
-import { TextareaProps } from './types';
-import { SetState } from '../../commonTypes';
+import type React from 'react';
+import type { TextareaProps } from './types';
+import type { SetState } from '../../commonTypes';
 import { stringToMaxLength } from '../../utils';
 
-export const createChangeHandler = (
-  props: TextareaProps, setValue: SetState<string>,
-): React.ChangeEventHandler<HTMLTextAreaElement> => (ev) => {
+export const createChangeHandler = (props: TextareaProps, setValue: SetState<string>): React.ChangeEventHandler<HTMLTextAreaElement> => (ev) => {
   const {
     onChange, maxLength, value: valueProp, name,
   } = props;
@@ -30,9 +28,7 @@ export const createChangeHandler = (
   if (valueProp === undefined) setValue(maxLengthAdjustedValue);
 };
 
-export const createBlurHandler = (
-  props: TextareaProps, validate: () => boolean, setIsFocused: SetState<boolean>,
-): React.FocusEventHandler<HTMLTextAreaElement> => (ev) => {
+export const createBlurHandler = (props: TextareaProps, validate: () => boolean, setIsFocused: SetState<boolean>): React.FocusEventHandler<HTMLTextAreaElement> => (ev) => {
   const { onBlur, name } = props;
 
   const isValid = validate();
@@ -53,9 +49,7 @@ export const createBlurHandler = (
   setIsFocused(false);
 };
 
-export const createFocusHandler = (
-  props: TextareaProps, isValid: boolean, setIsFocused: SetState<boolean>,
-): React.FocusEventHandler<HTMLTextAreaElement> => (ev) => {
+export const createFocusHandler = (props: TextareaProps, isValid: boolean, setIsFocused: SetState<boolean>): React.FocusEventHandler<HTMLTextAreaElement> => (ev) => {
   const { onFocus, name } = props;
 
   if (isFunction(onFocus)) {

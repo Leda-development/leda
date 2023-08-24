@@ -68,18 +68,20 @@ describe('AutoComplete SNAPSHOTS', () => {
       expect(wrapper.container).toMatchSnapshot();
     });
     test('opened', () => {
-      const wrapper = render((
-        <AutoComplete
-          onChange={jest.fn()}
-          data={['value0', 'value1']}
-          value="value"
-          isOpen
-        />
-      ), {
-        queries: {
+      const wrapper = render(
+        (
+          <AutoComplete
+            onChange={jest.fn()}
+            data={['value0', 'value1']}
+            value="value"
+            isOpen
+          />
+        ), {
+          queries: {
 
+          },
         },
-      });
+      );
       expect(screen.getAllByRole('listitem')).toHaveLength(2);
       expect(wrapper.container).toMatchSnapshot();
     });

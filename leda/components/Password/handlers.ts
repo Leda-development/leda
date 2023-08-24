@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { CustomEventHandler, SetState } from '../../commonTypes';
-import { PasswordProps } from './types';
+import type * as React from 'react';
+import type { CustomEventHandler, SetState } from '../../commonTypes';
+import type { PasswordProps } from './types';
 import { transformToCase } from './helpers';
 import { isSymbolAllowed } from '../../utils/isSymbolAllowed';
 import { isSymbolForbidden } from '../../utils/isSymbolForbidden';

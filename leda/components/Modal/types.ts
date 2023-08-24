@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
-import { COMPONENTS_NAMESPACES } from '../../constants';
-import { CustomRender, CustomEventHandler } from '../../commonTypes';
+import type * as React from 'react';
+import type { PartialGlobalDefaultTheme } from '../../utils/useTheme';
+import type { COMPONENTS_NAMESPACES } from '../../constants';
+import type { CustomRender, CustomEventHandler } from '../../commonTypes';
 
 export type WindowSizeType = 'sm' | 'md' | 'lg';
 

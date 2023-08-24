@@ -1,7 +1,7 @@
-import { ClassValue } from 'classnames/types';
+import type { ClassValue } from 'classnames/types';
 import classnames from 'classnames';
 import classnamesDedupe from 'classnames/dedupe';
-import { SomeObject } from '../commonTypes';
+import type { SomeObject } from '../commonTypes';
 
 export const stringToMaxLength = (str: string, maxLength?: number) => {
   if (maxLength != null && maxLength < str.length) {
@@ -30,7 +30,7 @@ export const getDedupedClassNames = (...classNames: ClassValue[]): string | unde
 
 // when generating snapshots some properties are changed dynamically and snapshots are broken. To avoid this, let's remove unnecessary properties.
 const removeProp = <T extends object>(obj: T): Partial<T> => {
-  const object = { ...obj } as { props: { [x: string]: unknown}, children: unknown};
+  const object = { ...obj } as { props: { [x: string]: unknown }, children: unknown };
   const forbiddenProps = [
     'activedescendant',
     'anchor',

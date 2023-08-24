@@ -1,5 +1,5 @@
 import { isNil } from 'lodash';
-import { CreateSelectHandler } from './types';
+import type { CreateSelectHandler } from './types';
 
 export const createSelectHandler: CreateSelectHandler = (props, activeTabKeyState, setActiveTabKeyState) => (ev, tabKey) => {
   const { activeTabKey, onChange } = props;

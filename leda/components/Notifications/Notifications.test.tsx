@@ -4,7 +4,7 @@ import { act } from 'react-dom/test-utils';
 import shortid from 'shortid';
 import userEvent from '@testing-library/user-event';
 import { Notifications } from './index';
-import { ChangeEvent, Item } from './types';
+import type { ChangeEvent, Item } from './types';
 import { Button } from '../Button';
 
 jest.useFakeTimers();

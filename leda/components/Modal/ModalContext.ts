@@ -1,6 +1,6 @@
 import React from 'react';
 import { globalDefaultTheme } from '../LedaProvider';
-import { ModalContextType } from './types';
+import type { ModalContextType } from './types';
 
 export const ModalContext = React.createContext<ModalContextType>({
   headerClassName: globalDefaultTheme.modal.header,

@@ -1,5 +1,5 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { htmlTagFactory } from '../../src/HTMLTagsFactory';
-import { TdProps } from './types';
+import type { TdProps } from './types';
 
 export const Td = htmlTagFactory('Td') as React.FC<TdProps>;

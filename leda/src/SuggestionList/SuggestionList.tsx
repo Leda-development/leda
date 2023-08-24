@@ -8,7 +8,7 @@ import { COMPONENTS_NAMESPACES } from '../../constants';
 import { useAdaptivePosition, useElement, useTheme } from '../../utils';
 import { getSuggestionItemProps, scrollToSuggestion } from './helpers';
 import { SuggestionItem } from './SuggestionItem';
-import { SuggestionListProps, GroupedSomeObject, Value } from './types';
+import type { SuggestionListProps, GroupedSomeObject, Value } from './types';
 import { NoSuggestions } from './NoSuggestions';
 
 export const SuggestionList = (props: SuggestionListProps): React.ReactElement | null => {

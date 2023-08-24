@@ -215,7 +215,7 @@ export const addChar = ({
 
       if (
         editableCharsIndex.includes(index) // the character is editable
-        && selectionDiff !== 0  // more than 1 character is selected
+        && selectionDiff !== 0 // more than 1 character is selected
         && index > selection[0] // the current character is selected
         && index < selection[1]
       ) return placeholderChar; // relace with placeholderChar

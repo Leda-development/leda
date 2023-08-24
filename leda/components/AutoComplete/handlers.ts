@@ -1,22 +1,24 @@
-import * as React from 'react';
+import type * as React from 'react';
 import {
   isFunction, isObject,
 } from 'lodash';
 import {
   correctValue, getSuggestionFromValue,
 } from './helpers';
-import {
+import type {
   AutoCompleteProps,
   BlurEvent,
-  CHANGE_METHOD,
   ChangeEvent,
   FocusEvent,
   DataObject,
   Suggestion,
 } from './types';
+import {
+  CHANGE_METHOD,
+} from './types';
 import { getText } from '../../src/SuggestionList/helpers';
-import { CustomEventHandler, SetState } from '../../commonTypes';
-import { SuggestionTarget } from '../../src/SuggestionList/types';
+import type { CustomEventHandler, SetState } from '../../commonTypes';
+import type { SuggestionTarget } from '../../src/SuggestionList/types';
 
 export const clearButtonClickHandlerCreator = ({
   isDisabled,

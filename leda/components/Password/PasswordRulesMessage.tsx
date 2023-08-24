@@ -1,6 +1,6 @@
 import React from 'react';
 import { Div } from '../Div';
-import { PasswordRulesMessageProps } from './types';
+import type { PasswordRulesMessageProps } from './types';
 import { isValuePassingRule } from './helpers';
 
 export const PasswordRulesMessage = (props: PasswordRulesMessageProps) => {
@@ -21,7 +21,7 @@ export const PasswordRulesMessage = (props: PasswordRulesMessageProps) => {
           >
             { ruleMessage }
           </div>
-        )
+        );
       }) }
     </Div>
   );

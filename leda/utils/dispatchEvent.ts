@@ -1,6 +1,6 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { isFunction } from 'lodash';
-import { CustomEventHandler } from '../commonTypes';
+import type { CustomEventHandler } from '../commonTypes';
 
 export const dispatchEvent = <E extends React.SyntheticEvent, T extends {}, B extends HTMLElement>(baseEvent: E, handler?: CustomEventHandler<E & { target: T & EventTarget & B }>, target?: T): void => {
   if (isFunction(handler)) {

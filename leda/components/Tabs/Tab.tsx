@@ -1,12 +1,13 @@
-'use client'
+'use client';
 
 import React from 'react';
 import {
   getClassNames, useElement, useProps,
 } from '../../utils';
-import { Li, LiProps } from '../Li';
+import type { LiProps } from '../Li';
+import { Li } from '../Li';
 import { TabsContext } from './TabsContext';
-import { TabProps } from './types';
+import type { TabProps } from './types';
 
 export const Tab = React.forwardRef((props: TabProps, ref: React.Ref<HTMLElement>): React.ReactElement => {
   const {

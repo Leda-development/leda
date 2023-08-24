@@ -3,7 +3,7 @@ import { useCollapseHeading, useIcon } from './helpers';
 import { getClassNames, useProps } from '../../utils';
 import { handleHeadingClick } from './handlers';
 import { CollapsePanelContext } from './CollapseContext';
-import { HeadingProps } from './types';
+import type { HeadingProps } from './types';
 import { IconTypes } from '../..';
 
 export const Heading = React.forwardRef((props: HeadingProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {

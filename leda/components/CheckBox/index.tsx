@@ -5,9 +5,11 @@ import {
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { createChangeHandler } from './handlers';
-import { CheckBoxProps } from './types';
+import type { CheckBoxProps } from './types';
 import { LedaContext } from '../LedaProvider';
-import { Div, Icon, IconTypes, Label } from '../../index';
+import {
+  Div, Icon, IconTypes, Label,
+} from '../../index';
 
 export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {
@@ -35,7 +37,7 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
 
   const Wrapper = useElement(
     'Wrapper',
-    Div, 
+    Div,
     wrapperRender || checkBoxRenders.wrapperRender,
     props,
   );

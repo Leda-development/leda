@@ -1,6 +1,6 @@
 import { isFunction, isNil } from 'lodash';
-import { CustomEventHandler, SetState } from '../../commonTypes';
-import { ChangeEvent, SliderValue } from './types';
+import type { CustomEventHandler, SetState } from '../../commonTypes';
+import type { ChangeEvent, SliderValue } from './types';
 
 export const createChangeHandler = ({
   onMove, setValueState, name,

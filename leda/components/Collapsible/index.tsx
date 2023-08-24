@@ -1,9 +1,11 @@
+'use client';
+
 import * as React from 'react';
 import { isFunction } from 'lodash';
 import { useProps } from '../../utils';
 import { DEFAULT_TRANSITION } from './contants';
 import { generateTransitionProperty } from './helpers';
-import { CollapsibleProps } from './types';
+import type { CollapsibleProps } from './types';
 import { useCollapse } from '../Collapse/useCollapse';
 import { Div } from '../Div';
 
@@ -39,18 +41,20 @@ export const Collapsible = React.forwardRef((props: CollapsibleProps, ref: React
     content: bodyRef,
   });
 
-  const onTransitionEnd = React.useCallback((ev: React.TransitionEvent) => {
-    if (ev.target === bodyRef.current && ev.propertyName === 'height') {
-      if (isOpen) {
-        setIsExpandedStyle();
-      } else {
-        setIsCollapsedStyle();
-      }
+  const onTransitionEnd = React.useCallback(
+    (ev: React.TransitionEvent) => {
+      if (ev.target === bodyRef.current && ev.propertyName === 'height') {
+        if (isOpen) {
+          setIsExpandedStyle();
+        } else {
+          setIsCollapsedStyle();
+        }
 
-      onRest();
-    }
-  },
-  [isOpen, onRest, setIsCollapsedStyle, setIsExpandedStyle]);
+        onRest();
+      }
+    },
+    [isOpen, onRest, setIsCollapsedStyle, setIsExpandedStyle],
+  );
 
   const styles = React.useMemo(() => ({
     willChange: 'height',

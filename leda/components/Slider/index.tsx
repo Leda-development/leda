@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { isNumber, isNil } from 'lodash';
 import { Div } from '../Div';
@@ -11,7 +13,7 @@ import { LABELS } from './constants';
 import { createAfterChangeHandler, createChangeHandler } from './handlers';
 import { SliderLabels } from './SliderLabels';
 import { SliderTooltip } from './SliderTooltip';
-import {
+import type {
   SliderProps, SliderValue,
 } from './types';
 

@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { CustomEventHandler, SetState } from '../../commonTypes';
-import { InputProps } from './types';
+import type * as React from 'react';
+import type { CustomEventHandler, SetState } from '../../commonTypes';
+import type { InputProps } from './types';
 import { isSymbolAllowed, isSymbolForbidden, transformToCase } from './helpers';
 import { stringToMaxLength } from '../../utils';
 

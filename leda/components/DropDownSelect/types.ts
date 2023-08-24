@@ -1,13 +1,13 @@
-import * as React from 'react';
-import {
+import type * as React from 'react';
+import type {
   CustomEventHandler, CustomRender, SomeObject,
 } from '../../commonTypes';
-import { COMPONENTS_NAMESPACES } from '../../constants';
-import { SuggestionListProps } from '../../src/SuggestionList/types';
-import { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTheme';
-import { DivProps } from '../Div';
-import { SpanProps } from '../Span';
-import { ValidationProps } from '../Validation/types';
+import type { COMPONENTS_NAMESPACES } from '../../constants';
+import type { SuggestionListProps } from '../../src/SuggestionList/types';
+import type { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTheme';
+import type { DivProps } from '../Div';
+import type { SpanProps } from '../Span';
+import type { ValidationProps } from '../Validation/types';
 
 export type Value = SomeObject | string | number | null;
 
@@ -130,7 +130,7 @@ export interface HandlerCreatorData {
   validate: (value?: string | number | SomeObject | null) => boolean,
 }
 
-export type ChangeHandler = CustomEventHandler<React.MouseEvent<HTMLElement> & { target: { value: string | number | SomeObject }}>;
+export type ChangeHandler = CustomEventHandler<React.MouseEvent<HTMLElement> & { target: { value: string | number | SomeObject } }>;
 
 export type BlurHandler = CustomEventHandler<React.FocusEvent<HTMLInputElement>>;
 

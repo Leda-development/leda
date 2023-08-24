@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { CustomRender } from '../../commonTypes';
-import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
-import { COMPONENTS_NAMESPACES } from '../../constants';
-import { IconTypes } from '../..';
+import type * as React from 'react';
+import type { CustomRender } from '../../commonTypes';
+import type { PartialGlobalDefaultTheme } from '../../utils/useTheme';
+import type { COMPONENTS_NAMESPACES } from '../../constants';
+import type { IconTypes } from '../..';
 
 export interface ChangeEvent extends React.ChangeEvent<HTMLInputElement> {
   component: {

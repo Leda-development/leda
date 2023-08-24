@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useProps } from '../../utils';
+import { useProps } from '../../utils/usePops';
 
 export const htmlTagFactory = (tagName: string): React.ForwardRefExoticComponent<React.RefAttributes<unknown>> => {
   const tagComponent = React.forwardRef(<P, R>(props: P, ref: React.Ref<R>): React.ReactElement | null => {

@@ -1,5 +1,5 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { htmlTagFactory } from '../../src/HTMLTagsFactory';
-import { HeaderProps } from './types';
+import type { HeaderProps } from './types';
 
 export const H2 = htmlTagFactory('H2') as React.FC<HeaderProps>;

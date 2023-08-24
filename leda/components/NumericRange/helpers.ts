@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import { isString, isBoolean } from 'lodash';
-import { NumericRangeProps } from './types';
+import type { NumericRangeProps } from './types';
 
 export const getName = (name?: string | [string | undefined, string | undefined]): [string | undefined, string | undefined] => {
   if (isString(name)) return [`${name}-from`, `${name}-to`];

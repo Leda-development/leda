@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CustomElements, TextareaProps } from './types';
+import type { CustomElements, TextareaProps } from './types';
 import { useElement } from '../../utils';
 import { Div } from '../Div';
 import { LedaContext } from '../LedaProvider';

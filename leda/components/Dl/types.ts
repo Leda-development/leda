@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 
 export interface DlProps extends React.HTMLAttributes<HTMLDListElement> {
   ref?: React.Ref<HTMLElement>,

@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import {
   isString, isBoolean,
@@ -26,7 +28,7 @@ import {
   createResetHandler,
 } from './handlers';
 
-import {
+import type {
   AutoCompleteProps, Suggestion,
 } from './types';
 import { useValidation } from '../Validation';
@@ -95,7 +97,6 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     selectedSuggestion,
     stateValue,
   }), [highlightedSuggestion, isFocused, lastCorrectValue, selectedSuggestion, stateValue]);
-
 
   const {
     isValid, validateCurrent, InvalidMessage,

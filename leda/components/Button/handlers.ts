@@ -1,7 +1,7 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { isFunction, intersection } from 'lodash';
 import { getForms, validate } from '../Validation';
-import { ButtonProps } from './types';
+import type { ButtonProps } from './types';
 import { fromFormArraytoFormObject } from './helpers';
 
 export const createClickHandler = (props: ButtonProps) => (ev: React.MouseEvent<HTMLButtonElement>): void => {

@@ -1,6 +1,6 @@
 import { isString } from 'lodash';
 import { predefinedAllowedSymbols, predefinedForbiddenSymbols } from './constants';
-import { InputProps } from './types';
+import type { InputProps } from './types';
 
 export const isSymbolAllowed = (value: string, allowedSymbols?: keyof typeof predefinedAllowedSymbols | RegExp): boolean => {
   if (!allowedSymbols || value.length === 0) return true;

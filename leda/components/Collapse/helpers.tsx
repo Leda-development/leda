@@ -1,7 +1,7 @@
 import React from 'react';
 import { useElement } from '../../utils';
 import { Div } from '../Div';
-import {
+import type {
   HeadingProps,
   BodyProps,
   BodyWrapperProps,
@@ -42,7 +42,6 @@ export const useBodyWrapper = (props: BodyProps): React.FC<BodyWrapperProps> => 
     props,
   );
 };
-
 
 export const useIcon = (props: HeadingProps): React.FC<IconProps> => {
   const { iconRender } = props;

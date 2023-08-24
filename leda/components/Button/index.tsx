@@ -4,8 +4,8 @@ import {
   getClassNames, useTheme, useProps,
 } from '../../utils';
 import { createClickHandler } from './handlers';
-import { ButtonProps } from './types';
-import { Icon, IconTypes } from '../../';
+import type { ButtonProps } from './types';
+import { Icon, IconTypes } from '../..';
 
 export const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<HTMLButtonElement>): React.ReactElement | null => {
   const {
@@ -28,7 +28,9 @@ export const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<HTMLB
 
   if (shouldRender === false) return null;
 
-  const { disabled, loading, loadingIcon, wrapper } = theme;
+  const {
+    disabled, loading, loadingIcon, wrapper,
+  } = theme;
 
   const handleClick = createClickHandler(props);
 

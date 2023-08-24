@@ -1,8 +1,9 @@
+'use client';
+
 import * as React from 'react';
 import { COMPONENT_TYPES } from '../../src/DateTimeInput/constants';
 import { DateTimeInputRange } from '../../src/DateTimeInputRange';
-import { DateRangeProps } from './types';
-
+import type { DateRangeProps } from './types';
 
 export const DateRange = React.forwardRef((props: DateRangeProps, ref: React.Ref<HTMLElement>) => (
   <DateTimeInputRange

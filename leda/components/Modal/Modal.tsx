@@ -1,9 +1,9 @@
-'use client'
+'use client';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ModalWindow } from './ModalWindow';
-import { ModalProps } from './types';
+import type { ModalProps } from './types';
 
 export const Modal = React.forwardRef((props: ModalProps, ref?: React.Ref<HTMLElement>): React.ReactElement => (
   <>

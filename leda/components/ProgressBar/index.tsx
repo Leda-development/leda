@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React, { useContext } from 'react';
 import { Div } from '../Div';
@@ -6,7 +6,7 @@ import {
   getClassNames, useElement, useProps, useTheme,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import { ProgressBarProps } from './types';
+import type { ProgressBarProps } from './types';
 import { Span } from '../Span';
 import { LedaContext } from '../LedaProvider';
 

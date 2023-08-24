@@ -1,6 +1,6 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { isFunction, isNil } from 'lodash';
-import {
+import type {
   BlurData,
   ClearData,
   FocusData,
@@ -10,14 +10,12 @@ import {
   SelectData,
   Value,
 } from './types';
-import { CustomEventHandler, SetState, SomeObject } from '../../commonTypes';
-import { SuggestionTarget } from '../../src/SuggestionList/types';
+import type { CustomEventHandler, SetState, SomeObject } from '../../commonTypes';
+import type { SuggestionTarget } from '../../src/SuggestionList/types';
 import { filterData, getShouldUniteTags } from './helpers';
 import { selectAllSuggestion } from './constants';
 
-export const createFocusHandler = (
-  props: MultiSelectProps, extraData: FocusData,
-): React.FocusEventHandler<HTMLInputElement> => (ev) => {
+export const createFocusHandler = (props: MultiSelectProps, extraData: FocusData): React.FocusEventHandler<HTMLInputElement> => (ev) => {
   const { onFocus, name } = props;
 
   const { value, setFocused } = extraData;
@@ -37,9 +35,7 @@ export const createFocusHandler = (
   setFocused(true);
 };
 
-export const createBlurHandler = (
-  props: MultiSelectProps, extraData: BlurData,
-): React.FocusEventHandler<HTMLInputElement> => (ev) => {
+export const createBlurHandler = (props: MultiSelectProps, extraData: BlurData): React.FocusEventHandler<HTMLInputElement> => (ev) => {
   const { onBlur, name } = props;
 
   const {
@@ -66,9 +62,7 @@ export const createBlurHandler = (
   setFilterValue('');
 };
 
-export const createSelectHandler = (
-  props: MultiSelectProps, extraData: SelectData,
-): CustomEventHandler<React.MouseEvent<HTMLElement | SVGElement> & SuggestionTarget> => (ev) => {
+export const createSelectHandler = (props: MultiSelectProps, extraData: SelectData): CustomEventHandler<React.MouseEvent<HTMLElement | SVGElement> & SuggestionTarget> => (ev) => {
   const {
     data, onChange, name, value: valueProp, isDisabled, maxSelected,
   } = props;
@@ -131,9 +125,7 @@ export const createSelectHandler = (
   }
 };
 
-export const createClearHandler = (
-  props: MultiSelectProps, extraData: ClearData,
-): React.MouseEventHandler<SVGElement> => (ev) => {
+export const createClearHandler = (props: MultiSelectProps, extraData: ClearData): React.MouseEventHandler<SVGElement> => (ev) => {
   const {
     onChange, name, value: valueProp, isDisabled,
   } = props;
@@ -158,9 +150,7 @@ export const createClearHandler = (
   }
 };
 
-export const createMouseDownHandler = (
-  props: MultiSelectProps, extraData: MouseDownData,
-): React.MouseEventHandler<HTMLElement> => (ev) => {
+export const createMouseDownHandler = (props: MultiSelectProps, extraData: MouseDownData): React.MouseEventHandler<HTMLElement> => (ev) => {
   ev.preventDefault();
 
   const { inputRef: { current: input } } = extraData;
@@ -168,9 +158,7 @@ export const createMouseDownHandler = (
   if (input) input.focus();
 };
 
-export const createKeyDownHandler = (
-  props: MultiSelectProps, extraData: KeyDownData,
-): React.KeyboardEventHandler<HTMLInputElement> => (ev) => {
+export const createKeyDownHandler = (props: MultiSelectProps, extraData: KeyDownData): React.KeyboardEventHandler<HTMLInputElement> => (ev) => {
   const {
     data, textField, filterRule, compareObjectsBy, maxTags,
   } = props;
@@ -191,7 +179,7 @@ export const createKeyDownHandler = (
   }) || [];
 
   const highlightedItem = (filteredData as (string | number | SomeObject)[]).find((item) => item === highlightedSuggestion);
-  
+
   const currentIndex = (filteredData as (string | number | SomeObject)[]).indexOf(highlightedItem || '');
 
   if (ev.key === 'ArrowDown' || ev.key === 'Down') {

@@ -1,15 +1,13 @@
 import { isString } from 'lodash';
 import * as helpers from './helpers';
-import {
+import type {
   ExternalValidator, Field, FormFieldHelpers, FormFieldsHelpers,
 } from './types';
 import { removeField, validate, getField } from '../components/Validation';
 import { getFieldValidState, removeForm } from '../components/Validation/helpers';
-import { FormGetField } from '../components/Validation/types';
+import type { FormGetField } from '../components/Validation/types';
 
-const validateFieldUsingExternalValidator = (
-  field: Field, externalValidators: ExternalValidator[] | ExternalValidator,
-): Field => {
+const validateFieldUsingExternalValidator = (field: Field, externalValidators: ExternalValidator[] | ExternalValidator): Field => {
   const invalidMessages: string[] = [];
 
   const externalValidatorsArray = Array.isArray(externalValidators) ? externalValidators : [externalValidators];
@@ -36,7 +34,6 @@ const validateFieldUsingExternalValidator = (
 
   return field;
 };
-
 
 const getFormFieldHelpers = (formName: string, fieldName: string): FormFieldHelpers => ({
   get: () => getFieldValidState(formName, fieldName),

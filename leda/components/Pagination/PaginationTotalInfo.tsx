@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { PaginationTotalInfoProps } from './types';
+import type * as React from 'react';
+import type { PaginationTotalInfoProps } from './types';
 
 export const PaginationTotalInfo = (props: PaginationTotalInfoProps): React.ReactElement => {
   const {

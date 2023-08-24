@@ -1,6 +1,4 @@
-
 // функция валидации СНИЛС по контрольной сумме
-
 
 export const validateSnils = (snils: number | string = ''): boolean => {
   if (typeof snils === 'number') return validateSnils(`${snils}`);

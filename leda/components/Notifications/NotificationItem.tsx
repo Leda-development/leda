@@ -1,7 +1,7 @@
 import React from 'react';
 import { isNil } from 'lodash';
 import { Div } from '../Div';
-import { NotificationItemProps } from './types';
+import type { NotificationItemProps } from './types';
 import { getClassNames, useElement } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { LedaContext } from '../LedaProvider';

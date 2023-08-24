@@ -4,7 +4,7 @@ import { Li } from '../Li';
 import { Span } from '../Span';
 import { Ul } from '../Ul';
 import { PaginationControl } from './PaginationControl';
-import { PagesListProps } from './types';
+import type { PagesListProps } from './types';
 
 export const PagesList = (props: PagesListProps): React.ReactElement => {
   const {
@@ -22,7 +22,8 @@ export const PagesList = (props: PagesListProps): React.ReactElement => {
         const classNames = getClassNames(
           theme.button,
           theme.numberSelected,
-          { [theme.disabled]: pageNumbers.length === 1 });
+          { [theme.disabled]: pageNumbers.length === 1 },
+        );
 
         return (
           <Li key={page}>

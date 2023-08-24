@@ -1,5 +1,5 @@
 import React from 'react';
-import { SliderTooltipProps } from './types';
+import type { SliderTooltipProps } from './types';
 
 export const SliderTooltip = (props: SliderTooltipProps): React.ReactElement | null => {
   const { value, theme, shouldRender } = props;

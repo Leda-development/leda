@@ -1,14 +1,14 @@
-import React from 'react';
-import { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTheme';
-import { COMPONENTS_NAMESPACES } from '../../constants';
-import {
+import type React from 'react';
+import type { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTheme';
+import type { COMPONENTS_NAMESPACES } from '../../constants';
+import type {
   CustomEventHandler, CustomRender, SetState, SomeObject,
 } from '../../commonTypes';
-import { ValidationProps } from '../Validation/types';
-import { FilterRules } from '../DropDownSelect/types';
-import { SuggestionListProps, SuggestionTarget } from '../../src/SuggestionList/types';
-import { DivProps } from '../Div';
-import { TagProps } from '../Tags/types';
+import type { ValidationProps } from '../Validation/types';
+import type { FilterRules } from '../DropDownSelect/types';
+import type { SuggestionListProps, SuggestionTarget } from '../../src/SuggestionList/types';
+import type { DivProps } from '../Div';
+import type { TagProps } from '../Tags/types';
 
 export type Value = SomeObject | string | number | null;
 
@@ -101,7 +101,7 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   /** Whether or not to show a clear button inside the input element. Default is false */
   hasClearButton?: boolean,
   /** Input customizator */
-  inputRender?: CustomRender<MultiSelectProps, MultiSelectState, React.InputHTMLAttributes<HTMLInputElement> & { ref?: React.Ref<HTMLInputElement | null>}>,
+  inputRender?: CustomRender<MultiSelectProps, MultiSelectState, React.InputHTMLAttributes<HTMLInputElement> & { ref?: React.Ref<HTMLInputElement | null> }>,
   /** Disabled state */
   isDisabled?: boolean,
   /** Display a loading icon inside the dropdown */

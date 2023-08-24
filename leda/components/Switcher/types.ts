@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { CustomRender } from '../../commonTypes';
-import { COMPONENTS_NAMESPACES } from '../../constants';
-import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
+import type * as React from 'react';
+import type { CustomRender } from '../../commonTypes';
+import type { COMPONENTS_NAMESPACES } from '../../constants';
+import type { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 
 export interface ChangeEvent extends React.MouseEvent<HTMLDivElement> {
   component: {

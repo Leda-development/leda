@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
-import { COMPONENTS_NAMESPACES } from '../../constants';
-import { CustomRender } from '../../commonTypes';
+import type * as React from 'react';
+import type { PartialGlobalDefaultTheme } from '../../utils/useTheme';
+import type { COMPONENTS_NAMESPACES } from '../../constants';
+import type { CustomRender } from '../../commonTypes';
 
 export interface LoaderProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Put your own loader here */

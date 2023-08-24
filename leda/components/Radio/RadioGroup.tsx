@@ -6,7 +6,7 @@ import {
 } from '../../utils';
 import { Div } from '../Div';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import {
+import type {
   ChangeEvent, RadioGroupProps, WrapperProps,
 } from './types';
 
@@ -62,7 +62,7 @@ export const RadioGroup = React.forwardRef((props: RadioGroupProps, ref?: React.
             isDisabled: isBoolean(isDisabled) ? isDisabled : child.props.isDisabled,
             isChecked: child.props.value === value,
             theme: { ...theme, ...child.props.theme },
-          // todo find a better way to fix TS issue with the name property  
+          // todo find a better way to fix TS issue with the name property
           } as any);
         }
         return child;

@@ -1,6 +1,6 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { isFunction, isNil } from 'lodash';
-import {
+import type {
   CollapsePanelContextType,
   CollapsePanelHandlers,
   CollapseProps,

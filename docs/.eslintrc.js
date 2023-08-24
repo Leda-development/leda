@@ -17,5 +17,8 @@ module.exports = {
   rules: {
     'tailwindcss/classnames-order': ['warn', { config: getTwConfig() }],
     'tailwindcss/no-custom-classname': ['warn', { config: getTwConfig() }],
+    'import/extensions': ['error', {
+      ts: 'never',
+    }],
   },
 };

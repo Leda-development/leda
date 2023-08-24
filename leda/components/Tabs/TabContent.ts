@@ -1,6 +1,6 @@
 import React from 'react';
 import { isNil } from 'lodash';
-import { TabContentProps } from './types';
+import type { TabContentProps } from './types';
 
 export const TabContent = (props: TabContentProps): React.ReactElement | null => {
   // if children are not passed - the function will return an empty array

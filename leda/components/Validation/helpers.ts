@@ -2,7 +2,7 @@ import {
   isArray, isFunction, isNil, isString, isRegExp, isObject,
 } from 'lodash';
 import { PREDEFINED_VALIDATORS } from './predefinedValidators';
-import {
+import type {
   AddFieldData,
   Field,
   Form, FormGetField, NormalizedValidatorObject,

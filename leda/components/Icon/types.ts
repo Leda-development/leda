@@ -1,4 +1,4 @@
-import { SVGProps } from "react";
+import type { SVGProps } from 'react';
 
 export type IconProps = {
   // fill color, e.g. red or #ff0000 or rgb(255,0,0), default is none
@@ -18,11 +18,11 @@ export type IconProps = {
   // _ css classes
   [x: string]: unknown,
 } & Omit<
-  SVGProps<SVGElement>,
-  'fill'
-  | 'stroke'
-  | 'strokeOpacity'
-  | 'strokeWidth'
+SVGProps<SVGElement>,
+'fill'
+| 'stroke'
+| 'strokeOpacity'
+| 'strokeWidth'
 >;
 
 export enum Icons {
@@ -312,5 +312,5 @@ export enum Icons {
   ZapOff = 'zap-off',
   Zap = 'zap',
   ZoomIn = 'zoom-in',
-  ZoomOut = 'zoom-out'
+  ZoomOut = 'zoom-out',
 }

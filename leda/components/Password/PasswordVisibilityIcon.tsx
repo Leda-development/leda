@@ -1,5 +1,5 @@
 import React from 'react';
-import { PasswordVisibilityIconProps } from './types';
+import type { PasswordVisibilityIconProps } from './types';
 import { Icon, IconTypes } from '../..';
 
 export const PasswordVisibilityIcon = (props: PasswordVisibilityIconProps) => {

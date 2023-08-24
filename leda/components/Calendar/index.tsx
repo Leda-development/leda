@@ -1,8 +1,10 @@
+'use client';
+
 import * as React from 'react';
 import { getClassNames, useProps, useTheme } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import type {
-  StandaloneCalendarProps,  StandaloneCalendarState, StandaloneCalendarActionTypes,
+  StandaloneCalendarProps, StandaloneCalendarState, StandaloneCalendarActionTypes,
 } from './types';
 import { CALENDAR_CLICK_ACTION, DEFAULT_DATE_FORMAT, VIEW_TYPES } from '../../src/CalendarBase/constants';
 import { TodayButton } from '../../src/CalendarBase/TodayButton';

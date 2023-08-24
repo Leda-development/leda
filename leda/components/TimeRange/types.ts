@@ -1,8 +1,8 @@
-import * as React from 'react';
-import {
+import type * as React from 'react';
+import type {
   BlurEvent, ChangeEvent, FocusEvent,
 } from '../../src/DateTimeInput/types';
-import {
+import type {
   CustomRangeEvent, DateTimeInputRangeProps,
 } from '../../src/DateTimeInputRange/types';
 

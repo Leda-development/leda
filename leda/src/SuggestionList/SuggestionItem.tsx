@@ -4,7 +4,7 @@ import { Li } from '../../components/Li';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { getClassNames, useElement } from '../../utils';
 import { createClickHandler } from './handlers';
-import { SuggestionItemProps } from './types';
+import type { SuggestionItemProps } from './types';
 
 export const SuggestionItem = (props: SuggestionItemProps): React.ReactElement => {
   const {

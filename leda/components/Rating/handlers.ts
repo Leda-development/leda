@@ -1,6 +1,6 @@
 import { isFunction } from 'lodash';
-import * as React from 'react';
-import {
+import type * as React from 'react';
+import type {
   RatingProps, SetCurrentSelected,
 } from './types';
 import { getCurrentStarValue } from './helpers';

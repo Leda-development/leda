@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { COMPONENTS_NAMESPACES } from '../../constants';
-import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
-import { IconTypes } from '../..';
+import type * as React from 'react';
+import type { COMPONENTS_NAMESPACES } from '../../constants';
+import type { PartialGlobalDefaultTheme } from '../../utils/useTheme';
+import type { IconTypes } from '../..';
 
 export interface ChangeEvent {
   component: {

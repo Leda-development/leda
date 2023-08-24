@@ -4,7 +4,7 @@ import {
   getClassNames, useTheme, useElement, useProps, getIsEmptyAndRequired,
 } from '../../utils';
 import { useValidation } from '../Validation';
-import { PasswordProps } from './types';
+import type { PasswordProps } from './types';
 import { Div } from '../Div';
 import {
   createBlurHandler,

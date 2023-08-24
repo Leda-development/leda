@@ -4,7 +4,7 @@ import {
   getClassNames, useTheme, useElement, useProps, getIsEmptyAndRequired,
 } from '../../utils';
 import { useValidation } from '../Validation';
-import { InputProps } from './types';
+import type { InputProps } from './types';
 import { Div } from '../Div';
 import { Icon } from '../Icon';
 import { Icons } from '../Icon/types';

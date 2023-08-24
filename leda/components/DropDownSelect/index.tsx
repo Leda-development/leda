@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import { isNil } from 'lodash';
 import { COMPONENTS_NAMESPACES } from '../../constants';
@@ -19,7 +21,7 @@ import {
 } from './handlers';
 import { filterData, getComponentClassNames, getInputValue } from './helpers';
 import { useCorrectSuggestionsInControlledMode, useCustomElements, useSyncedHighlightedValue } from './hooks';
-import {
+import type {
   DropDownSelectProps, DropDownSelectState, Value,
 } from './types';
 import { getText } from '../../src/SuggestionList/helpers';

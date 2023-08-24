@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React from 'react';
 import isNil from 'lodash/isNil';
@@ -11,7 +11,7 @@ import {
   getClassNames, useProps, useTheme,
 } from '../../utils';
 import { TabsContext } from './TabsContext';
-import { TabsProps } from './types';
+import type { TabsProps } from './types';
 import { ArrowLeft, ArrowRight } from './ScrollArrows';
 import { Div } from '../Div';
 

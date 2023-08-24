@@ -1,6 +1,6 @@
 import * as React from 'react';
 import FeatherIcon from 'feather-icons-react';
-import { IconProps } from './types';
+import type { IconProps } from './types';
 import { useProps } from '../../utils';
 
 export const Icon = (props: IconProps): React.ReactElement | null => {

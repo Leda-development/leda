@@ -1,5 +1,5 @@
 import { WINDOW_SIZES } from './constants';
-import { WindowSizeType } from './types';
+import type { WindowSizeType } from './types';
 
 export const getModalWidth = (width?: string): number | string => {
   if (width && !Object.keys(WINDOW_SIZES).includes(width)) return width;

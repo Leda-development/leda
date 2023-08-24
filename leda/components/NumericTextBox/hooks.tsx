@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { SetState } from '../../commonTypes';
+import type { SetState } from '../../commonTypes';
 import { useElement } from '../../utils';
 import { Div } from '../Div';
 import { LedaContext } from '../LedaProvider';
 import { formatInputValue, formatValue } from './helpers';
-import { CustomElements, NumericTextBoxProps, NumericTextBoxState } from './types';
+import type { CustomElements, NumericTextBoxProps, NumericTextBoxState } from './types';
 
 const defaultInput = React.forwardRef((props, ref: React.Ref<HTMLInputElement>) => (
   <input {...props} ref={ref} />

@@ -1,11 +1,11 @@
-'use client'
+'use client';
 
 import React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
   getClassNames, useProps, useTheme,
 } from '../../utils';
-import { RatingProps } from './types';
+import type { RatingProps } from './types';
 import { createChangeHandler, createMouseOutHandler, createMouseOverHandler } from './handlers';
 import { Span } from '../Span';
 import { Icon } from '../Icon';

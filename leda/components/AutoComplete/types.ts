@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { FILTER_RULES } from '../../utils';
-import { ValidationProps } from '../Validation/types';
-import { CustomRender, Values } from '../../commonTypes';
-import { SuggestionListProps } from '../../src/SuggestionList/types';
-import { UlProps } from '../Ul';
-import { PartialGlobalDefaultTheme } from '../../utils/useTheme';
-import { COMPONENTS_NAMESPACES } from '../../constants';
+import type * as React from 'react';
+import type { FILTER_RULES } from '../../utils';
+import type { ValidationProps } from '../Validation/types';
+import type { CustomRender, Values } from '../../commonTypes';
+import type { SuggestionListProps } from '../../src/SuggestionList/types';
+import type { UlProps } from '../Ul';
+import type { PartialGlobalDefaultTheme } from '../../utils/useTheme';
+import type { COMPONENTS_NAMESPACES } from '../../constants';
 
 /** DataObject contains strings to show in the dropdown list
  * The object must contain a property with a string value

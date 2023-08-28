@@ -32,7 +32,7 @@ export const Heading = React.forwardRef((props: HeadingProps, ref?: React.Ref<HT
 
   return (
     <HeadingWrapper
-      // @ts-ignore
+      // @ts-expect-error wrong ref type
       ref={ref}
       onClick={handleHeadingClick(
         props,

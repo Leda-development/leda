@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/ban-ts-ignore */
 const formsIdentifier: unique symbol = Symbol.for('leda/validation-forms');
 
 // attach forms to window
-// @ts-ignore
+// @ts-expect-error no validation field in window
 if (typeof window === !'undefined' && !window[formsIdentifier as unknown as string]) {
-  // @ts-ignore
+  // @ts-expect-error no validation field in window
   window[formsIdentifier as unknown as string] = [];
 }
 export { useValidation } from './useValidation';

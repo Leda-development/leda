@@ -16,11 +16,12 @@ export interface AttributesType {
 
 export interface ValidatedBlurEvent<T = HTMLInputElement> extends React.FocusEvent<T> {
   target: EventTarget & T & { isValid?: boolean },
-  relatedTarget: EventTarget,
+  relatedTarget: EventTarget & Element,
 }
 
 export interface DataObject { [x: string]: string | number }
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export interface RenderEvent<P = {}, S = {}, E = {}> {
   Element: React.ElementType,
   componentProps: P,
@@ -33,6 +34,7 @@ export interface CustomRender<P, S, E> {
 }
 
 export interface SomeObject {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [x: string]: any,
 }
 
@@ -56,6 +58,7 @@ export type Values<T> = T[keyof T];
 
 export type SetState<S> = React.Dispatch<React.SetStateAction<S>>;
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export interface Action<T, P = {}> {
   type: T,
   payload: P,

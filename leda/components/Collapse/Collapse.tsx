@@ -21,6 +21,8 @@ export const Collapse: CollapseComponent = (props: CollapseProps): React.ReactEl
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.collapse);
 
+  // todo optimization (remove eslint disable to get further info)
+  // eslint-disable-next-line react/jsx-no-constructed-context-values
   const context = {
     activePanelKey: props.activePanelKey || activePanelKey,
     onSelect: handlers.handleSelect,

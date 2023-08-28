@@ -1,6 +1,6 @@
 import * as L from '@leda';
 import {
-  Code, H2, P, Section, Table, Td, THead, CodeBlock, A, propsTableCommonHeaders,
+  Code, H2, P, Section, Table, Td, TdCode, THead, CodeBlock, A, propsTableCommonHeaders,
 } from '@/components/typography';
 
 export const ValidationSection = ({
@@ -32,70 +32,66 @@ export const ValidationSection = ({
       <THead headers={propsTableCommonHeaders} />
       <tbody>
         <L.Tr shouldRender={Boolean(all || form)}>
-          <Td><b>form</b></Td>
-          <Td>string</Td>
+          <TdCode><b>form</b></TdCode>
+          <TdCode>string</TdCode>
           <Td>Form name</Td>
         </L.Tr>
         <L.Tr shouldRender={Boolean(all || name)}>
-          <Td><b>name</b></Td>
-          <Td>string</Td>
+          <TdCode><b>name</b></TdCode>
+          <TdCode>string</TdCode>
           <Td>Component name</Td>
         </L.Tr>
         <L.Tr shouldRender={Boolean(all || isRequired)}>
-          <Td>isRequired</Td>
-          <Td>boolean</Td>
+          <TdCode>isRequired</TdCode>
+          <TdCode>boolean</TdCode>
           {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
           <Td>{"If you don't want the field to be empty"}</Td>
         </L.Tr>
         <L.Tr shouldRender={Boolean(all || isValid)}>
-          <Td>isValid</Td>
-          <Td>boolean</Td>
+          <TdCode>isValid</TdCode>
+          <TdCode>boolean</TdCode>
           <Td>Controlled valid state</Td>
         </L.Tr>
         <L.Tr shouldRender={Boolean(all || invalidMessage)}>
-          <Td>invalidMessage</Td>
-          <Td>ReactNode</Td>
+          <TdCode>invalidMessage</TdCode>
+          <TdCode>ReactNode</TdCode>
           <Td>Text to show when the value does not match requirements</Td>
         </L.Tr>
         <L.Tr shouldRender={Boolean(all || invalidMessageRender)}>
-          <Td>invalidMessageRender</Td>
-          <Td>
+          <TdCode>invalidMessageRender</TdCode>
+          <TdCode>
             {'RenderEvent => ReactNode'}
-          </Td>
+          </TdCode>
           <Td>Invalid message customizator</Td>
         </L.Tr>
         <L.Tr shouldRender={Boolean(all || requiredMessage)}>
-          <Td>requiredMessage</Td>
-          <Td>ReactNode</Td>
+          <TdCode>requiredMessage</TdCode>
+          <TdCode>ReactNode</TdCode>
           <Td>Text to show when the field is not filled</Td>
         </L.Tr>
         <L.Tr shouldRender={Boolean(all || shouldValidateUnmounted)}>
-          <Td>shouldValidateUnmounted</Td>
-          <Td>boolean</Td>
+          <TdCode>shouldValidateUnmounted</TdCode>
+          <TdCode>boolean</TdCode>
           <Td>The field can still affect form submission even if it is not rendered</Td>
         </L.Tr>
 
         <L.Tr shouldRender={Boolean(all || validator)}>
-          <Td>validator</Td>
-          <Td>
-            <CodeBlock>
-              {`Validator
+          <TdCode>validator</TdCode>
+          <TdCode>
+            {`Validator
 | PredefinedValidator
 | RegExp
 | ValidatorObject[]`}
-            </CodeBlock>
-          </Td>
+          </TdCode>
           <Td />
         </L.Tr>
         <L.Tr shouldRender={Boolean(all || validator)}>
           <Td />
-          <Td>
-            <CodeBlock>
-              {`interface Validator {
+          <TdCode>
+            {`interface Validator {
   (value: any): boolean,
 }`}
-            </CodeBlock>
-          </Td>
+          </TdCode>
           <Td>
             <P>
               A validator is a function that takes a value and returns true or false depending on the logic it contains
@@ -107,15 +103,13 @@ export const ValidationSection = ({
         </L.Tr>
         <L.Tr shouldRender={Boolean(all || validator)}>
           <Td />
-          <Td>
-            <CodeBlock>
-              {`type PredefinedValidator =
+          <TdCode>
+            {`type PredefinedValidator =
   | 'creditCardNumber'
   | 'email'
   | 'url'
 `}
-            </CodeBlock>
-          </Td>
+          </TdCode>
           <Td>
             <P>
               See <A href="/examples/predefined-validators">predefined validators</A>
@@ -124,14 +118,14 @@ export const ValidationSection = ({
         </L.Tr>
         <L.Tr shouldRender={Boolean(all || validator)}>
           <Td />
-          <Td>
-            <CodeBlock>
-              {`interface ValidatorObject {
-  validator: PredefinedValidator | RegExp | Validator,
+          <TdCode>
+            {`interface ValidatorObject {
+  validator: PredefinedValidator
+             | RegExp
+             | Validator,
   invalidMessage?: string,
 }`}
-            </CodeBlock>
-          </Td>
+          </TdCode>
           <Td>
             <P>
               <Code>ValidatorObject</Code> is useful wnen you need to validate a value against
@@ -145,11 +139,13 @@ export const ValidationSection = ({
               {`[
   {
     validator: (value) => value.length > 4,
-    invalidMessage: 'More than 4 sympols please'
+    invalidMessage:
+      'More than 4 sympols please'
   },
   {
     validator: /^\\w+$/,
-    invalidMessage: 'Only a-z, A-Z, 0-9 and _ are allowed'
+    invalidMessage:
+      'Only a-z, A-Z, 0-9 and _ are allowed'
   }
 ]`}
             </CodeBlock>
@@ -165,13 +161,13 @@ export const ButtonValidationPropsTable = () => (
     <THead headers={propsTableCommonHeaders} />
     <tbody>
       <tr>
-        <Td><b>form</b></Td>
-        <Td>string | string[]</Td>
+        <TdCode><b>form</b></TdCode>
+        <TdCode>string | string[]</TdCode>
         <Td><Code>Button</Code> can be attached to a form or to several forms</Td>
       </tr>
       <tr>
-        <Td>onClick</Td>
-        <Td>{'(SubmitEvent) => void'}</Td>
+        <TdCode>onClick</TdCode>
+        <TdCode>{'(SubmitEvent) => void'}</TdCode>
         <Td>
           <p>Form submit handler.</p>
           <p>It does not work if the form has invalid fields</p>
@@ -179,9 +175,8 @@ export const ButtonValidationPropsTable = () => (
       </tr>
       <tr>
         <Td />
-        <Td>
-          <CodeBlock>
-            {`interface SubmitEvent
+        <TdCode>
+          {`interface SubmitEvent
   extends React.MouseEvent<HTMLButtonElement> {
     form?: {
       [formName: string]: {
@@ -190,8 +185,7 @@ export const ButtonValidationPropsTable = () => (
     },
     forms?: Form[],
   }`}
-          </CodeBlock>
-        </Td>
+        </TdCode>
         <Td>
           <P>
             Submit event is a plain click event with <Code>form</Code> and <Code>forms</Code> fields being added.
@@ -209,14 +203,12 @@ export const ButtonValidationPropsTable = () => (
         </Td>
       </tr>
       <tr>
-        <Td>onValidationFail</Td>
-        <Td>
-          <CodeBlock>
-            {`type ValidationFailEvent =
+        <TdCode>onValidationFail</TdCode>
+        <TdCode>
+          {`type ValidationFailEvent =
   React.MouseEvent<HTMLButtonElement>
     & { invalidForms: Form[] }`}
-          </CodeBlock>
-        </Td>
+        </TdCode>
         <Td>
           <P>
             It fires when the button is clicked and the form has invalid fields.
@@ -228,21 +220,18 @@ export const ButtonValidationPropsTable = () => (
       </tr>
       <tr>
         <Td />
-        <Td>
-          <CodeBlock>
-            {`interface Form {
+        <TdCode>
+          {`interface Form {
   name: string,
   fields: Field[],
 }`}
-          </CodeBlock>
-        </Td>
+        </TdCode>
         <Td />
       </tr>
       <tr>
         <Td />
-        <Td>
-          <CodeBlock>
-            {`interface Field {
+        <TdCode>
+          {`interface Field {
   invalidMessages?: string[],
   isRequired: boolean,
   isValid: boolean,
@@ -255,8 +244,7 @@ export const ButtonValidationPropsTable = () => (
   validators: ValidatorObject[],
   value: any,
 }`}
-          </CodeBlock>
-        </Td>
+        </TdCode>
         <Td>
           <P>
             <Code>Field</Code> has all available data for a particular form field
@@ -264,18 +252,18 @@ export const ButtonValidationPropsTable = () => (
         </Td>
       </tr>
       <tr>
-        <Td>scrollDelay</Td>
-        <Td>number</Td>
+        <TdCode>scrollDelay</TdCode>
+        <TdCode>number</TdCode>
         <Td>How many seconds the form should wait before scrolling to invalid fields</Td>
       </tr>
       <tr>
-        <Td>scrollOffset</Td>
-        <Td>number</Td>
+        <TdCode>scrollOffset</TdCode>
+        <TdCode>number</TdCode>
         <Td>How many pixels should be added between the screen top and the first invalid field</Td>
       </tr>
       <tr>
-        <Td>shouldScrollToInvalidFields</Td>
-        <Td>boolean</Td>
+        <TdCode>shouldScrollToInvalidFields</TdCode>
+        <TdCode>boolean</TdCode>
         <Td>Scroll to invalid fields on button click</Td>
       </tr>
     </tbody>

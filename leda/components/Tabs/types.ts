@@ -23,7 +23,7 @@ export interface TabsProps {
   /** DOM-node to put tab content in */
   tabContentNode?: HTMLElement | null,
   /** Tab customizator */
-  tabRender?: CustomRender<TabProps, {}, LiProps>,
+  tabRender?: CustomRender<TabProps, Record<string, never>, LiProps>,
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.tabs],
   /** Wrapper customizator */
@@ -44,7 +44,7 @@ export type TabProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> & {
   /** Tab number. Numbering from 0, because the onSelect handler of the Tabs comoponent returns the tab number starting from 0 */
   tabKey: string | number,
   /** Tab customizator */
-  tabRender?: CustomRender<TabProps, {}, LiProps>,
+  tabRender?: CustomRender<TabProps, Record<string, never>, LiProps>,
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.tabs],
   /** Title */
@@ -56,7 +56,7 @@ export type TabProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> & {
 export interface TabsContextType {
   activeTabKey: string | number,
   onTabSelect: SelectHandler,
-  tabRender?: CustomRender<TabProps, {}, LiProps>,
+  tabRender?: CustomRender<TabProps, Record<string, never>, LiProps>,
   theme: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.tabs],
 }
 
@@ -115,7 +115,7 @@ export interface ArrowProps {
 }
 
 export interface TabsScroll {
-  containerRef: React.Ref<any>,
+  containerRef: React.Ref<HTMLElement>,
   hasScroll: boolean,
   hasLeftArrow: boolean,
   hasRightArrow: boolean,

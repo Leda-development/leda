@@ -28,11 +28,11 @@ export interface ChangeEvent {
 
 export interface NotificationItemProps {
   /** Notification button customizator */
-  actionButtonRender?: CustomRender<NotificationItemProps, {}, React.PropsWithChildren<{}>>,
+  actionButtonRender?: CustomRender<NotificationItemProps, Record<string, never>, React.PropsWithChildren<unknown>>,
   /** Content customizator */
-  contentRender?: CustomRender<NotificationItemProps, {}, DivProps>,
+  contentRender?: CustomRender<NotificationItemProps, Record<string, never>, DivProps>,
   /** Icon customizator */
-  iconRender?: CustomRender<NotificationItemProps, {}, DivProps>,
+  iconRender?: CustomRender<NotificationItemProps, Record<string, never>, DivProps>,
   /** Obejct containing notification data */
   item: Item,
   /** Change handler, fires when the notification gets closed on timeout or by click */
@@ -43,11 +43,11 @@ export interface NotificationItemProps {
 
 export interface NotificationsProps {
   /** Notification button customizator */
-  actionButtonRender?: CustomRender<NotificationItemProps, {}, React.PropsWithChildren<{}>>,
+  actionButtonRender?: CustomRender<NotificationItemProps, Record<string, never>, React.PropsWithChildren<unknown>>,
   /** Content customizator */
-  contentRender?: CustomRender<NotificationItemProps, {}, DivProps>,
+  contentRender?: CustomRender<NotificationItemProps, Record<string, never>, DivProps>,
   /** Icon customizator */
-  iconRender?: CustomRender<NotificationItemProps, {}, DivProps>,
+  iconRender?: CustomRender<NotificationItemProps, Record<string, never>, DivProps>,
   /** Max amount of notifications, 3 by default */
   maxItems?: number,
   /** Change handler, fires when the notification gets closed on timeout or by click */

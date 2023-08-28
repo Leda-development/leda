@@ -11,7 +11,7 @@ export interface ModalProps {
   /** In case you want to add some more css classes */
   className?: string,
   /** Close icon customizator */
-  iconRender?: CustomRender<ModalWindowProps, {}, IconProps>,
+  iconRender?: CustomRender<ModalWindowProps, Record<string, never>, IconProps>,
   /** Whether the modal is open */
   isOpen: boolean,
   /** Close handler, works on any type of closing */
@@ -32,7 +32,7 @@ export interface ModalProps {
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.modal],
   /** Wrapper customizator */
-  wrapperRender?: CustomRender<ModalWindowProps, {}, WrapperProps>,
+  wrapperRender?: CustomRender<ModalWindowProps, Record<string, never>, WrapperProps>,
   /** _css-class-names */
   [x: string]: unknown,
 }
@@ -42,7 +42,7 @@ export type ModalWindowProps = ModalProps & { innerRef?: React.Ref<HTMLElement> 
 export interface ModalElementsProps {
   children?: React.ReactNode,
   className?: string,
-  wrapperRender?: CustomRender<ModalElementsProps, {}, React.HTMLAttributes<HTMLDivElement>>,
+  wrapperRender?: CustomRender<ModalElementsProps, Record<string, never>, React.HTMLAttributes<HTMLDivElement>>,
   [x: string]: unknown,
 }
 

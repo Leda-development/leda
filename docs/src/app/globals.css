@@ -1,5 +1,4 @@
 @import url(../../../dist/styles/leda.base.css);
-@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -26,3 +25,8 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+/* rewrite tailwind default styles */
+/* button, [type='button'], [type='reset'], [type='submit'] {
+  background-color: var(--ld-btn-bg-color);
+} */

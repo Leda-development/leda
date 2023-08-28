@@ -66,6 +66,8 @@ export const Rating = React.forwardRef((props: RatingProps, ref?: React.Ref<HTML
             <Icon
               icon={icon}
               className={iconClassNames}
+              // todo: use non-index key
+              // eslint-disable-next-line react/no-array-index-key
               key={index.toString()}
             />
           );

@@ -2,7 +2,9 @@
 
 import { Button } from '@leda';
 import { ShouldRender, UnderscoreClasses } from '@/components/commonProps';
-import { H1, H2, Td } from '@/components/typography';
+import {
+  H1, H2, Td, TdCode,
+} from '@/components/typography';
 import { Live } from '@/components/live';
 import { PropsTableSection } from '@/sections';
 import { ButtonValidationPropsTable } from '@/sections/ValidationSection';
@@ -13,31 +15,33 @@ const ButtonPage = () => (
 
     <PropsTableSection>
       <tr>
-        <Td>isDisabled</Td>
-        <Td>boolean</Td>
+        <TdCode>isDisabled</TdCode>
+        <TdCode>boolean</TdCode>
         <Td>Disabled state</Td>
       </tr>
       <tr>
-        <Td>isLoading</Td>
-        <Td>boolean</Td>
+        <TdCode>isLoading</TdCode>
+        <TdCode>boolean</TdCode>
         <Td>Loading state</Td>
       </tr>
       <tr>
-        <Td>onClick</Td>
-        <Td>
+        <TdCode>onClick</TdCode>
+        <TdCode>
           (event: SyntheticBaseEvent) ={'>'} void
-        </Td>
+        </TdCode>
         <Td>Click handler</Td>
       </tr>
       <ShouldRender />
       <tr>
-        <Td>theme</Td>
-        <Td>PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.button]</Td>
+        <TdCode>theme</TdCode>
+        <TdCode>
+          ...
+        </TdCode>
         <Td />
       </tr>
       <tr>
-        <Td>type</Td>
-        <Td>{"React.ButtonHTMLAttributes<{}>['type']"}</Td>
+        <TdCode>type</TdCode>
+        <TdCode>{"React.ButtonHTMLAttributes<{}>['type']"}</TdCode>
         <Td>Button type</Td>
       </tr>
       <UnderscoreClasses />

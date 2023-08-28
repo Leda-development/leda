@@ -8,6 +8,7 @@ export interface UseElementHook {
   <P, S, E>
   (
     displayName: string,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     DefaultElement: React.ComponentType<any>,
     customRender: CustomRender<P, S, E> | undefined,
     componentProps: P,
@@ -15,6 +16,7 @@ export interface UseElementHook {
   ): React.FC<E>,
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useElement: UseElementHook = <P, S, E>(displayName: string, DefaultElement: React.ComponentType<any>, customRender: CustomRender<P, S, E> | undefined, componentProps: P, componentState?: S) => {
   const propsRef = React.useRef(componentProps);
 

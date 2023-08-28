@@ -21,11 +21,11 @@ export interface CheckBoxProps {
   /** Id */
   id?: string,
   /** Input customizator */
-  inputRender?: CustomRender<CheckBoxProps, {}, React.InputHTMLAttributes<HTMLInputElement>>,
+  inputRender?: CustomRender<CheckBoxProps, Record<string, never>, React.InputHTMLAttributes<HTMLInputElement>>,
   /** In case you want to disable it */
   isDisabled?: boolean,
   /** Label customization */
-  labelRender?: CustomRender<CheckBoxProps, {}, React.LabelHTMLAttributes<any>>,
+  labelRender?: CustomRender<CheckBoxProps, Record<string, never>, React.LabelHTMLAttributes<HTMLElement>>,
   /** Component name */
   name?: string,
   /** Change handler */
@@ -37,7 +37,7 @@ export interface CheckBoxProps {
   /** CheckBox value */
   value?: boolean,
   /** Wrapper customization */
-  wrapperRender?: CustomRender<CheckBoxProps, {}, Partial<CheckBoxProps>>,
+  wrapperRender?: CustomRender<CheckBoxProps, Record<string, never>, Partial<CheckBoxProps>>,
   /** _css-class-names */
   [x: string]: unknown,
 }

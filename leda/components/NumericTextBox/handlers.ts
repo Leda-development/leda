@@ -116,7 +116,7 @@ export const createChangeHandler = (
 
   if (separator.length && (event.target.value.match(new RegExp(`\\${separator}`, 'ig'))?.length ?? 0) === 2) return;
 
-  if ((event.target.value.match(new RegExp('-', 'ig'))?.length ?? 0) === 2) return;
+  if ((event.target.value.match(/-/ig)?.length ?? 0) === 2) return;
 
   const newValue = extractValue(event.target.value, format, thousandsSeparator);
 

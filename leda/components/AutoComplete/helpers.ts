@@ -11,7 +11,7 @@ import type {
   Suggestion,
 } from './types';
 import {
-  CHANGE_METHOD,
+  ChangeMethod,
 } from './types';
 
 import { FILTER_RULES, filterSuggestionByRule } from '../../utils';
@@ -179,7 +179,7 @@ export const correctValue = ({
       const customEvent: ChangeEvent = {
         ...event,
         component: {
-          method: CHANGE_METHOD.trigger,
+          method: ChangeMethod.trigger,
           name,
           suggestion,
           value: newValue,

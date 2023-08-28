@@ -24,6 +24,8 @@ export const Panel: React.FC<PanelProps> = (props: PanelProps): React.ReactEleme
     ? parentContext.activePanelKey.includes(panelKey)
     : panelKey === parentContext.activePanelKey;
 
+  // todo consider using useMemo hook for optimization
+  // eslint-disable-next-line react/jsx-no-constructed-context-values
   const context = {
     panelKey,
     isClicked,

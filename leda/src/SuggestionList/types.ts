@@ -19,22 +19,22 @@ export interface SuggestionTarget {
 
 export interface SuggestionListProps {
   boundingContainerRef?: React.RefObject<HTMLElement>,
-  compareObjectsBy?: ((suggestionListItem: SomeObject) => any) | string,
+  compareObjectsBy?: ((suggestionListItem: SomeObject) => unknown) | string,
   data?: Value[],
   groupBy?: (option: Value) => string | undefined,
-  groupLabelRender?: CustomRender<{}, {}, LiProps>,
-  groupWrapperRender?: CustomRender<{}, {}, DivProps>,
+  groupLabelRender?: CustomRender<object, Record<string, never>, LiProps>,
+  groupWrapperRender?: CustomRender<object, Record<string, never>, DivProps>,
   highlightedSuggestion?: Value,
   selectedSuggestion?: Value | Value[],
   isLoading?: boolean,
   isOpen: boolean,
-  itemRender?: CustomRender<SuggestionItemProps, {}, SuggestionElementProps>,
-  listRender?: CustomRender<SuggestionListProps, {}, UlProps>,
+  itemRender?: CustomRender<SuggestionItemProps, Record<string, never>, SuggestionElementProps>,
+  listRender?: CustomRender<SuggestionListProps, Record<string, never>, UlProps>,
   noSuggestionsText?: React.ReactNode,
-  noSuggestionsRender?: CustomRender<SuggestionListProps, {}, NoSuggestionsProps>,
+  noSuggestionsRender?: CustomRender<SuggestionListProps, Record<string, never>, NoSuggestionsProps>,
   onClick?: CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget>,
   placeholder?: string,
-  selectAllItemRender?: CustomRender<{}, {}, {}>,
+  selectAllItemRender?: CustomRender<Record<string, never>, Record<string, never>, Record<string, never>>,
   selectAllState?: SelectAllState,
   shouldAllowEmpty: boolean,
   textField?: string,
@@ -45,7 +45,9 @@ export interface SuggestionListProps {
 export interface SuggestionElementProps {
   children: React.ReactNode,
   className?: string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onClick?: CustomEventHandler<any>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ref?: React.Ref<any>,
 }
 
@@ -59,7 +61,7 @@ export interface SuggestionItemProps {
   selectAllState?: SelectedState,
   canSelectAll?: boolean,
   item: string | number | SomeObject | null,
-  itemRender?: CustomRender<SuggestionItemProps, {}, SuggestionElementProps>,
+  itemRender?: CustomRender<SuggestionItemProps, Record<string, never>, SuggestionElementProps>,
   onClick?: CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget>,
   suggestionRef: React.MutableRefObject<HTMLElement | null>,
   text: string | number,
@@ -78,7 +80,7 @@ export interface GroupedSomeObject {
 }
 
 export interface GetSuggestionItemProps {
-  compareObjectsBy?: ((suggestionListItem: SomeObject) => any) | string,
+  compareObjectsBy?: ((suggestionListItem: SomeObject) => unknown) | string,
   highlightedSuggestion?: Value,
   placeholder?: string,
   selectAllState?: SelectedState,

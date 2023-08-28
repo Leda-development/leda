@@ -38,6 +38,7 @@ export const Tabs = React.forwardRef((props: TabsProps, ref?: React.Ref<HTMLElem
 
   const handleSelect = createSelectHandler(props, activeTabKeyState, setActiveTabKeyState);
 
+  // eslint-disable-next-line react/jsx-no-constructed-context-values
   const tabsContext = {
     activeTabKey, onTabSelect: handleSelect, theme, tabRender,
   };

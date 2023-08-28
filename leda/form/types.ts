@@ -1,6 +1,5 @@
-import type { PredefinedValidator, FormGetField } from '../components/Validation/types';
-import {
-  Form, Field,
+import type {
+  PredefinedValidator, FormGetField, Form, Field,
 } from '../components/Validation/types';
 
 export {
@@ -8,6 +7,7 @@ export {
 };
 
 export interface FunctionalValidator {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (value: any): boolean,
 }
 

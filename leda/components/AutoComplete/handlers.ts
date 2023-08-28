@@ -14,7 +14,7 @@ import type {
   Suggestion,
 } from './types';
 import {
-  CHANGE_METHOD,
+  ChangeMethod,
 } from './types';
 import { getText } from '../../src/SuggestionList/helpers';
 import type { CustomEventHandler, SetState } from '../../commonTypes';
@@ -40,7 +40,7 @@ export const clearButtonClickHandlerCreator = ({
   const customEvent: ChangeEvent = {
     ...event,
     component: {
-      method: CHANGE_METHOD.clear,
+      method: ChangeMethod.clear,
       name,
       suggestion: null,
       value: '',
@@ -86,7 +86,7 @@ export const suggestionClickHandlerCreator = ({
   const customEvent: ChangeEvent = {
     ...event,
     component: {
-      method: CHANGE_METHOD.click,
+      method: ChangeMethod.click,
       name,
       suggestion,
       value,
@@ -126,7 +126,7 @@ export const inputChangeHandlerCreator = ({
   const customEvent: ChangeEvent = {
     ...event,
     component: {
-      method: CHANGE_METHOD.type,
+      method: ChangeMethod.type,
       name,
       suggestion,
       value,
@@ -281,7 +281,7 @@ export const inputKeyDownHandlerCreator = ({
       const customEvent: ChangeEvent = {
         ...event,
         component: {
-          method: CHANGE_METHOD.enter,
+          method: ChangeMethod.enter,
           name,
           suggestion: highlightedSuggestion,
           value,
@@ -323,7 +323,7 @@ export const createResetHandler = ({
   props.onChange({
     component: {
       value,
-      method: CHANGE_METHOD.reset,
+      method: ChangeMethod.reset,
       name: props.name,
       suggestion: null,
     },

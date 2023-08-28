@@ -15,7 +15,7 @@ export const Tab = React.forwardRef((props: TabProps, ref: React.Ref<HTMLElement
   } = React.useContext(TabsContext);
 
   const {
-    isDisabled, tabKey, title, className, style, theme: themeProp, tabRender: childTabRender,
+    isDisabled, tabKey, title, className, theme: themeProp, tabRender: childTabRender,
   } = useProps(props);
 
   const tabRender = childTabRender ?? parentTabRender;
@@ -32,7 +32,7 @@ export const Tab = React.forwardRef((props: TabProps, ref: React.Ref<HTMLElement
     className,
   );
 
-  const TabItem = useElement<TabProps, {}, LiProps>(
+  const TabItem = useElement<TabProps, Record<string, never>, LiProps>(
     'TabItem',
     Li,
     tabRender,

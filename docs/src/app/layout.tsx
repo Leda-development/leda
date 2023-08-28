@@ -1,3 +1,4 @@
+import './preflight.css';
 import './globals.css';
 import type { Metadata } from 'next';
 import { BaseLayout } from './BaseLayout';
@@ -14,8 +15,8 @@ const RootLayout = ({
   children: React.ReactNode,
 }) => (
   <html lang="en">
-    <body className={mainFont.className}>
-      <div>
+    <body className={`${mainFont.className} bg-white`}>
+      <div className="mx-auto max-w-7xl">
         <BaseLayout>
           {children}
         </BaseLayout>

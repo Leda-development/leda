@@ -56,6 +56,7 @@ export const NotificationItem = (props: NotificationItemProps): React.ReactEleme
 
   const ActionButton = useElement(
     'ActionButton',
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     (data) => <>{data.children}</>,
     actionButtonRender || notificationsRenders.actionButtonRender,
     props,

@@ -1,4 +1,4 @@
-import React from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   getNodeText, render, screen,
 } from '@testing-library/react';
@@ -410,7 +410,7 @@ describe('DropDownSelect ATTRIBUTES', () => {
           isOpen
           textField="value"
           defaultValue={{ ...data[0] }}
-          // @ts-ignore
+          // @ts-expect-error missing item type
           compareObjectsBy={(item) => item.INVALID}
         />,
       );

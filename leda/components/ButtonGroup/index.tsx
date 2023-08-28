@@ -85,6 +85,7 @@ export const ButtonGroup = React.forwardRef((props: ButtonGroupProps, ref?: Reac
       ref={ref}
       {...restProps}
     >
+      {/* eslint-disable-next-line jsx-a11y/role-supports-aria-props */}
       <Div
         className={buttonsWrapperClassNames}
         aria-invalid={!isValid}

@@ -31,6 +31,7 @@ export const TagsContainer = (props: TagsContainerProps): React.ReactElement | n
       onMouseDown={onMouseDown}
     >
       {(value as (string | number | SomeObject)[]).map((item, index) => React.cloneElement(children, {
+        // eslint-disable-next-line react/no-array-index-key
         key: index.toString(),
         onIconClick: (ev: React.MouseEvent<SVGElement>) => onTagClick({
           ...ev,

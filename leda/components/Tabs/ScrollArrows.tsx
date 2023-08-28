@@ -1,4 +1,3 @@
-import React from 'react';
 import type { ArrowProps } from './types';
 import { Icon } from '../Icon';
 import { IconTypes } from '../..';

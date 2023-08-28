@@ -11,7 +11,7 @@ export interface ProgressBarProps {
   /** How much it is complete */
   value: number,
   /** Value customizator, if digits are not needed pass () => null */
-  valueRender?: CustomRender<ProgressBarProps, {}, ValueLabelProps>,
+  valueRender?: CustomRender<ProgressBarProps, Record<string, never>, ValueLabelProps>,
   /** _css-class-names */
   [x: string]: unknown,
 }

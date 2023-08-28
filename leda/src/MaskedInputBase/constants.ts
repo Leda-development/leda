@@ -29,7 +29,7 @@ export const baseMaskRules: MaskRules = {
   },
 };
 
-export enum INPUT_METHODS {
+export enum InputMethod {
   add = 'add',
   remove = 'remove',
   replace = 'replace',

@@ -35,7 +35,7 @@ export const setSelection = (el: HTMLInputElement | null, selection: SelectionTy
     } else if (el) {
       setTimeout(() => {
         el.focus();
-        // @ts-ignore IE-SPECIFIC
+        // @ts-expect-error IE-SPECIFIC
         const rangeEl = el.createTextRange();
 
         rangeEl.collapse(true);

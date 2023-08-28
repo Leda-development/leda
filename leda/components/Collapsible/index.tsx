@@ -20,6 +20,8 @@ export const Collapsible = React.forwardRef((props: CollapsibleProps, ref: React
     transition = DEFAULT_TRANSITION,
   } = useProps(props);
 
+  // todo move to a useCallback
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const onRest = (): void => {
     if (isOpen && isFunction(onOpen)) {
       onOpen();

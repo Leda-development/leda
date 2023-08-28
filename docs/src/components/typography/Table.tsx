@@ -1,3 +1,5 @@
+import { CodeBlock } from '.';
+
 export const Table = (props: React.HTMLProps<HTMLTableElement>) => (
   <div
     className="overflow-x-scroll"
@@ -18,6 +20,16 @@ export const Td = (props: React.DetailedHTMLProps<React.TdHTMLAttributes<HTMLTab
     {...props}
     className={`px-4 py-2 align-top first:pl-0 ${props.className ? props.className : ''}`}
   />
+);
+
+export const TdCode = (props: React.DetailedHTMLProps<React.TdHTMLAttributes<HTMLTableCellElement>, HTMLTableCellElement>) => (
+  <td
+    className={`px-4 py-2 align-top first:pl-0 ${props.className ? props.className : ''}`}
+  >
+    <CodeBlock>
+      {props.children}
+    </CodeBlock>
+  </td>
 );
 
 export const THead = ({ headers }: { headers: string[] }) => (

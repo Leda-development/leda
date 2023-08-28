@@ -1,4 +1,3 @@
-import React from 'react';
 import type { PasswordVisibilityIconProps } from './types';
 import { Icon, IconTypes } from '../..';
 
@@ -9,9 +8,7 @@ export const PasswordVisibilityIcon = (props: PasswordVisibilityIconProps) => {
     <Icon
       icon={isVisible ? IconTypes.Icons.EyeOff : IconTypes.Icons.Eye}
       className={isVisible ? theme.isVisibleIcon : theme.isHiddenIcon}
-      onClick={(ev) => {
-        onIconClick();
-      }}
+      onClick={onIconClick}
     />
   );
 };

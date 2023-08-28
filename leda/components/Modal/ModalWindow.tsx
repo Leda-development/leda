@@ -63,6 +63,7 @@ export const ModalWindow = (props: ModalWindowProps): React.ReactElement => {
     Icon,
   } = useCustomElements(props);
 
+  // eslint-disable-next-line react/jsx-no-constructed-context-values
   const modalContext = {
     headerClassName: theme.header,
     bodyClassName: theme.body,

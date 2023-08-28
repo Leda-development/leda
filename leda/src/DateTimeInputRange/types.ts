@@ -35,11 +35,13 @@ export interface CustomRangeEvent {
 }
 
 export interface WrapperRangeProps {
+  children?: React.ReactNode,
   className?: string,
   ref?: React.Ref<HTMLElement>,
 }
 
 export interface DelimiterProps {
+  children?: React.ReactNode,
   className?: string,
 }
 

@@ -72,6 +72,7 @@ export const DateTimeInput = React.forwardRef((props: DateTimeInputProps, ref: R
 
   const max = React.useMemo(() => convertToDate(maxProp), [maxProp]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const newProps = { ...props, min, max };
 
   const [state, dispatch] = useDateTimeInputState(newProps);

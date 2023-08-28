@@ -5,7 +5,7 @@ import {
   H1, H2, P, Code,
 } from '@/components/typography';
 import { Live } from '@/components/live';
-import { ButtonSection, ValidationSection } from '@/components/propsSections';
+import { ButtonValidationPropsTable, ValidationSection } from '@/sections';
 import { log } from '@/utils';
 
 const Page = () => (
@@ -25,7 +25,7 @@ const Page = () => (
 
     <H2>Button validation props</H2>
 
-    <ButtonSection />
+    <ButtonValidationPropsTable />
 
     <Live scope={{ L, log }}>
       {`

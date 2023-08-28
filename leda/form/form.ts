@@ -116,6 +116,7 @@ const getFormFieldsHelpers = (formName: string, fieldNames?: string[]): FormFiel
 const form: {
   (name: string, field: string): FormFieldHelpers,
   (name: string, fields?: string[]): FormFieldsHelpers,
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 } = (formName: string, fieldNames?: string | string[]): any => {
   if (isString(fieldNames)) {
     return getFormFieldHelpers(formName, fieldNames);

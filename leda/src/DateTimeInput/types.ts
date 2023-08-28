@@ -68,6 +68,7 @@ export interface IconProps {
 }
 
 export interface WrapperProps {
+  children?: React.ReactNode,
   className?: string,
   ref?: React.Ref<HTMLElement>,
   onKeyDown?: React.KeyboardEventHandler<HTMLDivElement>,

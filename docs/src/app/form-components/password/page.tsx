@@ -4,7 +4,7 @@
 
 import { ShouldRender, UnderscoreClasses } from '@/components/commonProps';
 import {
-  A, CodeBlock, H1, P, Td,
+  A, H1, P, Td, TdCode,
 } from '@/components/typography';
 import { CustomizationPropsTableSection, PropsTableSection, ValidationSection } from '@/sections';
 import { Demos } from './Demos';
@@ -14,86 +14,84 @@ const PasswordPage = () => (
     <H1>Password</H1>
     <PropsTableSection>
       <tr>
-        <Td>allowedSymbols</Td>
-        <Td>PredefinedAllowedSymbols | RegExp</Td>
+        <TdCode>allowedSymbols</TdCode>
+        <TdCode>PredefinedAllowedSymbols | RegExp</TdCode>
         <Td>No other symbol shall pass</Td>
       </tr>
       <tr>
-        <Td>defaultValue</Td>
-        <Td>string | null</Td>
+        <TdCode>defaultValue</TdCode>
+        <TdCode>string | null</TdCode>
         <Td>Default value</Td>
       </tr>
       <tr>
-        <Td>forbiddenSymbols</Td>
-        <Td>PredefinedForbiddenSymbols | RegExp</Td>
-        <Td>{"Symbols you don't want to appear"}</Td>
+        <TdCode>forbiddenSymbols</TdCode>
+        <TdCode>PredefinedForbiddenSymbols | RegExp</TdCode>
+        <Td>Symbols you {"don't"} want to appear</Td>
       </tr>
       <tr>
-        <Td>hasClearButton</Td>
-        <Td>boolean</Td>
+        <TdCode>hasClearButton</TdCode>
+        <TdCode>boolean</TdCode>
         <Td>
           Whether or not to show a clear button inside the input element.
           Default is <b>false</b>
         </Td>
       </tr>
       <tr>
-        <Td>isDisabled</Td>
-        <Td>boolean</Td>
+        <TdCode>isDisabled</TdCode>
+        <TdCode>boolean</TdCode>
         <Td>Disable the component</Td>
       </tr>
       <tr>
-        <Td>letterCase</Td>
-        <Td>{"'lower' | 'upper'"}</Td>
+        <TdCode>letterCase</TdCode>
+        <TdCode>{"'lower' | 'upper'"}</TdCode>
         <Td />
       </tr>
       <tr>
-        <Td>maxLength</Td>
-        <Td>number</Td>
+        <TdCode>maxLength</TdCode>
+        <TdCode>number</TdCode>
         <Td>Max number of characters</Td>
       </tr>
       <tr>
-        <Td>minPasswordEvaluationLength</Td>
-        <Td>number</Td>
+        <TdCode>minPasswordEvaluationLength</TdCode>
+        <TdCode>number</TdCode>
         <Td>Minimal number of symbols to start evaluating password strength, default is 0</Td>
       </tr>
       <tr>
-        <Td>onBlur</Td>
-        <Td>
+        <TdCode>onBlur</TdCode>
+        <TdCode>
           (event: BlurEvent) ={'>'} void
-        </Td>
+        </TdCode>
         <Td>Blur handler</Td>
       </tr>
       <tr>
-        <Td>onChange</Td>
-        <Td>(event: ChangeEvent{'<'}T{'>'}) ={'>'} void</Td>
+        <TdCode>onChange</TdCode>
+        <TdCode>(event: ChangeEvent{'<'}T{'>'}) ={'>'} void</TdCode>
         <Td>Value change handler</Td>
       </tr>
       <tr>
-        <Td>onEnterPress</Td>
-        <Td>
+        <TdCode>onEnterPress</TdCode>
+        <TdCode>
           (event: EnterPressEvent) ={'>'} void
-        </Td>
+        </TdCode>
         <Td>Enter press handler</Td>
       </tr>
       <tr>
-        <Td>onFocus</Td>
-        <Td>(event: FocusEvent) ={'>'} void</Td>
+        <TdCode>onFocus</TdCode>
+        <TdCode>(event: FocusEvent) ={'>'} void</TdCode>
         <Td>Focus handler</Td>
       </tr>
       <tr>
-        <Td>passwordRules</Td>
-        <Td>
-          <CodeBlock>
-            {`PasswordRules[]
+        <TdCode>passwordRules</TdCode>
+        <TdCode>
+          {`PasswordRules[]
 
 ===
 interface PasswordRule {
   rule: RegExp | ((password: string) => boolean),
   ruleMessage: string,
 }
-              `}
-          </CodeBlock>
-        </Td>
+          `}
+        </TdCode>
         <Td>
           <P>
             Describe your password rules.
@@ -104,8 +102,8 @@ interface PasswordRule {
         </Td>
       </tr>
       <tr>
-        <Td>passwordStrength</Td>
-        <Td>{'(password: string) => React.ReactNode'}</Td>
+        <TdCode>passwordStrength</TdCode>
+        <TdCode>{'(password: string) => React.ReactNode'}</TdCode>
         <Td>
           <P>
             Password strength, evaluate it yourself and show the result.
@@ -119,8 +117,8 @@ interface PasswordRule {
       </tr>
       <ShouldRender />
       <tr>
-        <Td>value</Td>
-        <Td>string | null</Td>
+        <TdCode>value</TdCode>
+        <TdCode>string | null</TdCode>
         <Td>Component value</Td>
       </tr>
       <UnderscoreClasses />
@@ -141,22 +139,20 @@ interface PasswordRule {
 
     <CustomizationPropsTableSection>
       <tr>
-        <Td>
+        <TdCode>
           inputRender <br />
           invalidMessageRender <br />
           passwordVisibilityRender <br />
           wrapperRender
-        </Td>
-        <Td>
-          <CodeBlock>
-            {`({
+        </TdCode>
+        <TdCode>
+          {`({
   Element,
   elementprops,
   componentProps,
   componentState
 }): React.ReactNode`}
-          </CodeBlock>
-        </Td>
+        </TdCode>
         <Td>Customization</Td>
       </tr>
     </CustomizationPropsTableSection>

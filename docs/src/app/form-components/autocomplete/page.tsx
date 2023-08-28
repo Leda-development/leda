@@ -4,19 +4,20 @@
 
 import * as L from '@leda';
 import {
-  H1, H2, Section, Table, Th, Td, CodeBlock,
+  H1, H2, Section, Table, Th, Td, TdCode,
 } from '@/components/typography';
 import { Live } from '@/components/live';
 import { CustomizationPropsTableSection, PropsTableSection, ValidationSection } from '@/sections';
 import { Demos } from './Demos';
+import { UnderscoreClasses } from '@/components/commonProps';
 
 const AutoCompletePage = () => (
   <article>
     <H1>AutoComplete</H1>
     <PropsTableSection>
       <tr>
-        <Td>autoComplete</Td>
-        <Td>string</Td>
+        <TdCode>autoComplete</TdCode>
+        <TdCode>string</TdCode>
         <Td>
           <p>Browser autofill, off is the default value.</p>
           <p>Works as&nbsp;
@@ -32,12 +33,12 @@ const AutoCompletePage = () => (
         </Td>
       </tr>
       <tr>
-        <Td>
+        <TdCode>
           <b>data</b>
-        </Td>
-        <Td>
+        </TdCode>
+        <TdCode>
           T[]
-        </Td>
+        </TdCode>
         <Td>
           Data for the dropdown list.
           <br />
@@ -46,121 +47,117 @@ const AutoCompletePage = () => (
         </Td>
       </tr>
       <tr>
-        <Td>isDisabled</Td>
-        <Td>boolean</Td>
+        <TdCode>isDisabled</TdCode>
+        <TdCode>boolean</TdCode>
         <Td>Disable the component</Td>
       </tr>
       <tr>
-        <Td>filterRule</Td>
-        <Td>{"'smart' | 'startsWith' | 'includes'"}</Td>
+        <TdCode>filterRule</TdCode>
+        <TdCode>{"'smart' | 'startsWith' | 'includes'"}</TdCode>
         <Td>
           Search mode, <b>smart</b> is default, looks for one or several words regardless of their order,
           can be slow if <b>data</b> has thousands of elements or more
         </Td>
       </tr>
       <tr>
-        <Td>hasClearButton</Td>
-        <Td>boolean</Td>
+        <TdCode>hasClearButton</TdCode>
+        <TdCode>boolean</TdCode>
         <Td>
           Whether or not to show a clear button inside the input element.
           Default is <b>false</b>
         </Td>
       </tr>
       <tr>
-        <Td>isLoading</Td>
-        <Td>boolean</Td>
+        <TdCode>isLoading</TdCode>
+        <TdCode>boolean</TdCode>
         <Td>Display a loading icon inside the dropdown</Td>
       </tr>
       <tr>
-        <Td>isOpen</Td>
-        <Td>boolean</Td>
+        <TdCode>isOpen</TdCode>
+        <TdCode>boolean</TdCode>
         <Td>Control the dropdown state</Td>
       </tr>
       <tr>
-        <Td>isRequired</Td>
-        <Td>boolean</Td>
+        <TdCode>isRequired</TdCode>
+        <TdCode>boolean</TdCode>
         <Td>Validate the component as a required field</Td>
       </tr>
       <tr>
-        <Td>minSearchLength</Td>
-        <Td>number</Td>
+        <TdCode>minSearchLength</TdCode>
+        <TdCode>number</TdCode>
         <Td>The minimal number of symbols that triggers the dropdown opening</Td>
       </tr>
       <tr>
-        <Td>name</Td>
-        <Td>string</Td>
+        <TdCode>name</TdCode>
+        <TdCode>string</TdCode>
         <Td>A component name</Td>
       </tr>
       <tr>
-        <Td>noSuggestionsText</Td>
-        <Td>React.ReactNode</Td>
+        <TdCode>noSuggestionsText</TdCode>
+        <TdCode>React.ReactNode</TdCode>
         <Td>Text shown if nothing is found among suggestions</Td>
       </tr>
       <tr>
-        <Td>onBlur</Td>
-        <Td>
+        <TdCode>onBlur</TdCode>
+        <TdCode>
           (event: BlurEvent) ={'>'} void
-        </Td>
+        </TdCode>
         <Td>Blur handler</Td>
       </tr>
       <tr>
-        <Td><b>onChange</b></Td>
-        <Td>(event: ChangeEvent{'<'}T{'>'}) ={'>'} void</Td>
+        <TdCode><b>onChange</b></TdCode>
+        <TdCode>(event: ChangeEvent{'<'}T{'>'}) ={'>'} void</TdCode>
         <Td>Value change handler</Td>
       </tr>
       <tr>
-        <Td>onFocus</Td>
-        <Td>(event: FocusEvent) ={'>'} void</Td>
+        <TdCode>onFocus</TdCode>
+        <TdCode>(event: FocusEvent) ={'>'} void</TdCode>
         <Td>Focus handler</Td>
       </tr>
       <tr>
-        <Td>placeholder</Td>
-        <Td>string</Td>
+        <TdCode>placeholder</TdCode>
+        <TdCode>string</TdCode>
         <Td>Placeholder</Td>
       </tr>
       <tr>
-        <Td>shouldCorrectValue</Td>
-        <Td>boolean</Td>
+        <TdCode>shouldCorrectValue</TdCode>
+        <TdCode>boolean</TdCode>
         <Td>
           Puts the last correct (present in <b>data</b>) value into the input field or leaves it empty.
           Is triggered by a blur event
         </Td>
       </tr>
       <tr>
-        <Td>shouldShowAllSuggestions</Td>
-        <Td>boolean</Td>
+        <TdCode>shouldShowAllSuggestions</TdCode>
+        <TdCode>boolean</TdCode>
         <Td>Show all <b>data</b> elements regardless of what is in the input field</Td>
       </tr>
       <tr>
-        <Td>searchFields</Td>
-        <Td>string[]</Td>
+        <TdCode>searchFields</TdCode>
+        <TdCode>string[]</TdCode>
         <Td>
           You can use any of the <b>data</b> {"object's"} fields for seraching
         </Td>
       </tr>
       <tr>
-        <Td>sortSuggestions</Td>
-        <Td>(a: T, b: T) ={'>'} number</Td>
+        <TdCode>sortSuggestions</TdCode>
+        <TdCode>(a: T, b: T) ={'>'} number</TdCode>
         <Td>Sort dropdown items</Td>
       </tr>
       <tr>
-        <Td>textField</Td>
-        <Td>T extends object ? string : never</Td>
+        <TdCode>textField</TdCode>
+        <TdCode>T extends object ? string : never</TdCode>
         <Td>
           It is mandatory if <b>data</b> is an array of objects, <b>textField</b> specifies which {"object's"} field is used to get dropdown item text value.
           No effect if <b>data</b> is an array of strings
         </Td>
       </tr>
       <tr>
-        <Td>value</Td>
-        <Td>string | null</Td>
+        <TdCode>value</TdCode>
+        <TdCode>string | null</TdCode>
         <Td>Component value</Td>
       </tr>
-      <tr>
-        <Td>_[className]</Td>
-        <Td>[x: string]: unknown</Td>
-        <Td>E.g.: _width-40 adds css class <i>width-40</i> to the {"component's"} outer wrapper.</Td>
-      </tr>
+      <UnderscoreClasses />
     </PropsTableSection>
 
     <Demos />
@@ -201,23 +198,21 @@ const AutoCompletePage = () => (
 
     <CustomizationPropsTableSection>
       <tr>
-        <Td>
+        <TdCode>
           itemRender <br />
           inputRender <br />
           invalidMessageRender <br />
           listRender <br />
           noSuggestionsRender
-        </Td>
-        <Td>
-          <CodeBlock>
-            {`({
+        </TdCode>
+        <TdCode>
+          {`({
   Element,
   elementprops,
   componentProps,
   componentState
 }): React.ReactNode`}
-          </CodeBlock>
-        </Td>
+        </TdCode>
         <Td>Customization</Td>
       </tr>
     </CustomizationPropsTableSection>
@@ -251,48 +246,48 @@ const AutoCompletePage = () => (
         </thead>
         <tbody>
           <tr>
-            <Td>container</Td>
-            <Td>suggestion-wrapper</Td>
+            <TdCode>container</TdCode>
+            <TdCode>suggestion-wrapper</TdCode>
           </tr>
           <tr>
-            <Td>containerVisible</Td>
-            <Td>visible</Td>
+            <TdCode>containerVisible</TdCode>
+            <TdCode>visible</TdCode>
           </tr>
           <tr>
-            <Td>containerTop</Td>
-            <Td>pos-top</Td>
+            <TdCode>containerTop</TdCode>
+            <TdCode>pos-top</TdCode>
           </tr>
           <tr>
-            <Td>group</Td>
-            <Td>suggestion-group</Td>
+            <TdCode>group</TdCode>
+            <TdCode>suggestion-group</TdCode>
           </tr>
           <tr>
-            <Td>groupLabel</Td>
-            <Td>suggestion-group-label</Td>
+            <TdCode>groupLabel</TdCode>
+            <TdCode>suggestion-group-label</TdCode>
           </tr>
           <tr>
-            <Td>item</Td>
-            <Td>suggestion-item</Td>
+            <TdCode>item</TdCode>
+            <TdCode>suggestion-item</TdCode>
           </tr>
           <tr>
-            <Td>itemHighlighted</Td>
-            <Td>highlighted</Td>
+            <TdCode>itemHighlighted</TdCode>
+            <TdCode>highlighted</TdCode>
           </tr>
           <tr>
-            <Td>itemPlaceholder</Td>
-            <Td>placeholder</Td>
+            <TdCode>itemPlaceholder</TdCode>
+            <TdCode>placeholder</TdCode>
           </tr>
           <tr>
-            <Td>itemSelected</Td>
-            <Td>selected</Td>
+            <TdCode>itemSelected</TdCode>
+            <TdCode>selected</TdCode>
           </tr>
           <tr>
-            <Td>list</Td>
-            <Td>suggestion-list</Td>
+            <TdCode>list</TdCode>
+            <TdCode>suggestion-list</TdCode>
           </tr>
           <tr>
-            <Td>noSuggections</Td>
-            <Td>nodata</Td>
+            <TdCode>noSuggections</TdCode>
+            <TdCode>nodata</TdCode>
           </tr>
         </tbody>
       </Table>

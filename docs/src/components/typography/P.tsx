@@ -8,7 +8,7 @@ export const P = ({
   className?: string,
 }) => (
   <L.P
-    className={`${className} my-2`}
+    className={`${className} mb-2`}
   >
     {children}
   </L.P>

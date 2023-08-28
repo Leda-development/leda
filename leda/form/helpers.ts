@@ -5,10 +5,13 @@ import { PREDEFINED_VALIDATORS } from '../components/Validation/predefinedValida
 import type {
   ExternalValidator, Field, Form, SingleFunctionValidator,
 } from './types';
+import type { SomeObject } from '../commonTypes';
 
 // todo: types for value
 // todo: check is working for all components
-export const checkIsFilled = (value: any): boolean => {
+export const checkIsFilled = (
+  value: string | number | string [] | number[] | SomeObject | SomeObject[] | null | null[] | undefined,
+): boolean => {
   if (value == null) {
     return false;
   }
@@ -21,7 +24,7 @@ export const checkIsFilled = (value: any): boolean => {
 };
 
 export const getForm = (name: string): Form | undefined => {
-  // @ts-ignore
+  // @ts-expect-error no validation field in window
   const forms: Form[] = window[Symbol.for('leda/validation-forms')] || [];
   return forms.find(({
     name: formName,

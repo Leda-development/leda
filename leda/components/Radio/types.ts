@@ -45,7 +45,7 @@ export interface RadioButtonProps extends React.HTMLAttributes<HTMLInputElement>
   /** Unique button identifier (used to select the active button) */
   value: string | number,
   /** Wrapper customizator */
-  wrapperRender?: CustomRender<RadioButtonProps, {}, WrapperProps>,
+  wrapperRender?: CustomRender<RadioButtonProps, Record<string, never>, WrapperProps>,
   /** _css-class-names */
   [x: string]: unknown,
 }

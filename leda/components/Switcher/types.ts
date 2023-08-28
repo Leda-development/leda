@@ -56,6 +56,7 @@ export interface LabelProps {
 }
 
 export interface BaseProps {
+  children?: React.ReactNode,
   className?: string,
   onClick?: React.MouseEventHandler<HTMLDivElement>,
 }

@@ -49,7 +49,7 @@ export const Demos = () => (
   <L.Password
     form='passwordForm'
     name='password2'
-    validator={value => L.form('password form', 'password1').get().value === value}
+    validator={value => L.form('passwordForm', 'password1').get().value === value}
     invalidMessage='Passwords do not match'
     isRequired
     placeholder='Repeat the password'

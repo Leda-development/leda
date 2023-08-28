@@ -6,7 +6,7 @@
     "module": "esnext",
     "sourceMap": true,
     "strict": true,
-    "target": "es5",
+    "target": "ES6",
     "jsx": "react-jsx",
     "incremental": false,
     "skipLibCheck": true,

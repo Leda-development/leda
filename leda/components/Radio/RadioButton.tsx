@@ -29,7 +29,7 @@ export const RadioButton = React.forwardRef((props: RadioButtonProps, ref?: Reac
     props,
   );
 
-  const handleChange = React.useCallback((ev) => {
+  const handleChange = React.useCallback((ev: React.ChangeEvent) => {
     const customEvent = {
       ...ev,
       component: {

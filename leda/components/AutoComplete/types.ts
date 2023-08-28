@@ -12,12 +12,13 @@ import type { COMPONENTS_NAMESPACES } from '../../constants';
  * The property's name is passed through textField
 */
 export interface DataObject {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [textField: string]: any,
 }
 
 export type Suggestion = DataObject | string | number | null;
 
-export enum CHANGE_METHOD {
+export enum ChangeMethod {
   /** typing */
   type = 'type',
   /** clicking */
@@ -41,7 +42,7 @@ export enum CHANGE_METHOD {
 export interface KeyboardChangeEvent<T extends Suggestion> extends React.KeyboardEvent<HTMLInputElement> {
   component: {
     value: string,
-    method: CHANGE_METHOD.enter | CHANGE_METHOD.down | CHANGE_METHOD.up,
+    method: ChangeMethod.enter | ChangeMethod.down | ChangeMethod.up,
     name?: string,
     suggestion?: T,
   },
@@ -50,7 +51,7 @@ export interface KeyboardChangeEvent<T extends Suggestion> extends React.Keyboar
 export interface MouseChangeEvent<T extends Suggestion> extends React.MouseEvent<HTMLElement | SVGElement> {
   component: {
     value: string,
-    method: CHANGE_METHOD.click | CHANGE_METHOD.clear,
+    method: ChangeMethod.click | ChangeMethod.clear,
     name?: string,
     suggestion?: T,
   },
@@ -59,7 +60,7 @@ export interface MouseChangeEvent<T extends Suggestion> extends React.MouseEvent
 export interface TypeChangeEvent<T extends Suggestion> extends React.ChangeEvent<HTMLInputElement> {
   component: {
     value: string,
-    method: CHANGE_METHOD.type,
+    method: ChangeMethod.type,
     name?: string,
     suggestion?: T,
   },
@@ -68,7 +69,7 @@ export interface TypeChangeEvent<T extends Suggestion> extends React.ChangeEvent
 export interface TriggerChangeEvent<T extends Suggestion> extends React.FocusEvent<HTMLInputElement> {
   component: {
     value: string,
-    method: CHANGE_METHOD.trigger,
+    method: ChangeMethod.trigger,
     name?: string,
     suggestion?: T,
   },
@@ -77,7 +78,7 @@ export interface TriggerChangeEvent<T extends Suggestion> extends React.FocusEve
 export interface ResetChangeEvent<T extends Suggestion> {
   component: {
     value: string,
-    method: CHANGE_METHOD.reset,
+    method: ChangeMethod.reset,
     name?: string,
     suggestion?: T,
   },
@@ -104,7 +105,7 @@ export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends Va
   /** Browser autofill, off is the default value. Works as HTML autoComplete attribute */
   autoComplete?: string,
   /** ... */
-  compareObjectsBy?: T extends object ? ((suggestionListItem: T) => any) | string : never,
+  compareObjectsBy?: T extends object ? ((suggestionListItem: T) => unknown) | string : never,
   /** Data for the dropdown list */
   data: T[],
   /** In case you want to disable component  */
@@ -126,7 +127,7 @@ export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends Va
   /** Required or not */
   isRequired?: boolean,
   /** Dropdown list customizator */
-  listRender?: CustomRender<SuggestionListProps, {}, UlProps>,
+  listRender?: CustomRender<SuggestionListProps, Record<string, never>, UlProps>,
   /** The minimal number of symbols that trigger the dropdown opening */
   minSearchLength?: number,
   /** Component name */

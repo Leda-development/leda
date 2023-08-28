@@ -2,9 +2,9 @@ import { isFunction, isObject, isString } from 'lodash';
 import type { SomeObject } from '../commonTypes';
 
 interface CompareObjectsParams {
-  compareObjectsBy?: ((suggestionListItems: SomeObject) => any) | string,
-  obj1: any,
-  obj2: any,
+  compareObjectsBy?: ((suggestionListItems: SomeObject) => unknown) | string,
+  obj1: unknown,
+  obj2: unknown,
 }
 
 export const checkIsTheSameObject = ({

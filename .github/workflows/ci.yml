@@ -64,4 +64,4 @@ jobs:
         with:
           path: docs/node_modules
           key: package-lock=${{ hashFiles('docs/package-lock.json')}}
-      - run: npm run tsc && npm run tsc -- --prefix docs
+      - run: npm run tsc && npm run tsc:docs

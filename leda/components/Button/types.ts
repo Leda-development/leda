@@ -34,7 +34,7 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement>, Va
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.button],
   /** Button type */
-  type?: React.ButtonHTMLAttributes<{}>['type'],
+  type?: React.ButtonHTMLAttributes<HTMLElement>['type'],
   /** _css-class-name */
   [x: string]: unknown,
 }

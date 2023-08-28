@@ -106,6 +106,7 @@ export const useTabsScroll = ({ shouldScrollTabs, theme }: TabsScrollProps): Tab
     });
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(setScrollControls, [Element]);
 
   React.useEffect(() => {

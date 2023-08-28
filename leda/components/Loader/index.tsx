@@ -42,7 +42,7 @@ export const Loader = React.forwardRef((props: LoaderProps, ref?: React.Ref<HTML
     };
   }, [isLoading, isGlobal, theme.bodyOverflow]);
 
-  const IconElement = useElement<LoaderProps, {}, IconProps>(
+  const IconElement = useElement<LoaderProps, Record<string, never>, IconProps>(
     'Icon',
     Icon,
     iconRender,

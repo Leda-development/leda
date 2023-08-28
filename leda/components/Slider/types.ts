@@ -45,7 +45,7 @@ export interface SliderProps {
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.slider],
   /** Units customizator */
-  unitsRender?: CustomRender<SliderProps, SliderState, {}>,
+  unitsRender?: CustomRender<SliderProps, SliderState, Record<string, never>>,
   /** Value */
   value?: SliderValue | null,
   /** _css-class-names */

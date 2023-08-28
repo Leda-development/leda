@@ -5,7 +5,7 @@ import type { CustomRender } from '../../commonTypes';
 
 export interface LoaderProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Put your own loader here */
-  iconRender?: CustomRender<LoaderProps, {}, {}>,
+  iconRender?: CustomRender<LoaderProps, Record<string, never>, object>,
   /** Fullscreen loader */
   isGlobal?: boolean,
   /** Or not */

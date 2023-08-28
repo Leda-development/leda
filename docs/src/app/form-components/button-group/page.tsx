@@ -4,7 +4,7 @@
 
 import { Button, ButtonGroup } from '@leda';
 import { ShouldRender, UnderscoreClasses } from '@/components/commonProps';
-import { H1, Td } from '@/components/typography';
+import { H1, Td, TdCode } from '@/components/typography';
 import { Live } from '@/components/live';
 import { ValidationSection } from '@/sections/ValidationSection';
 import { PropsTableSection } from '@/sections';
@@ -15,8 +15,8 @@ const ButtonGroupPage = () => (
 
     <PropsTableSection>
       <tr>
-        <Td>data</Td>
-        <Td>ArrayElement{'<T>'}[]</Td>
+        <TdCode>data</TdCode>
+        <TdCode>ArrayElement{'<T>'}[]</TdCode>
         <Td>
           Buttons data, an array of strings, numbers or objects.
           Use <b>textField</b> attribute with objects.
@@ -24,41 +24,41 @@ const ButtonGroupPage = () => (
         </Td>
       </tr>
       <tr>
-        <Td>defaultValue</Td>
-        <Td>Value | Value[]</Td>
+        <TdCode>defaultValue</TdCode>
+        <TdCode>Value | Value[]</TdCode>
         <Td>Default value</Td>
       </tr>
       <tr>
-        <Td>isDisabled</Td>
-        <Td>boolean</Td>
+        <TdCode>isDisabled</TdCode>
+        <TdCode>boolean</TdCode>
         <Td>Disabled state</Td>
       </tr>
       <tr>
-        <Td>onChange</Td>
-        <Td>(ev: ChangeEvent{'<T>'}) ={'>'} void</Td>
+        <TdCode>onChange</TdCode>
+        <TdCode>(ev: ChangeEvent{'<T>'}) ={'>'} void</TdCode>
         <Td>Change handler</Td>
       </tr>
       <tr>
-        <Td>onClick</Td>
-        <Td>
+        <TdCode>onClick</TdCode>
+        <TdCode>
           (event: SubmitEvent) ={'>'} void
-        </Td>
+        </TdCode>
         <Td>Click handler</Td>
       </tr>
       <ShouldRender />
       <tr>
-        <Td>textField</Td>
-        <Td>string</Td>
+        <TdCode>textField</TdCode>
+        <TdCode>string</TdCode>
         <Td>Text field in <b>data</b> objects</Td>
       </tr>
       <tr>
-        <Td>theme</Td>
-        <Td>PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.button]</Td>
+        <TdCode>theme</TdCode>
+        <TdCode>...</TdCode>
         <Td />
       </tr>
       <tr>
-        <Td>type</Td>
-        <Td>{"'radio' | 'checkbox'"}</Td>
+        <TdCode>type</TdCode>
+        <TdCode>{"'radio' | 'checkbox'"}</TdCode>
         <Td>
           Only one active button is allowed in the <i>radio</i> mode.
           Use <i>checkbox</i> if you want many.
@@ -66,8 +66,8 @@ const ButtonGroupPage = () => (
         </Td>
       </tr>
       <tr>
-        <Td>value</Td>
-        <Td>T</Td>
+        <TdCode>value</TdCode>
+        <TdCode>T</TdCode>
         <Td>The value, makes the component controllable</Td>
       </tr>
       <UnderscoreClasses />

@@ -168,28 +168,28 @@ interface ExternalValidator {
       </L.Button>
 
       <L.Button
-        onClick={() => console.log(L.form('test-form-1', 'test-form-input').get())}
+        onClick={() => console.log(L.form('test-form-1', 'test-form-input-1').get())}
         _ml-4
       >
         get
       </L.Button>
 
       <L.Button
-        onClick={() => console.log(L.form('test-form-1', 'test-form-input').validate())}
+        onClick={() => console.log(L.form('test-form-1', 'test-form-input-1').validate())}
         _ml-4
       >
         validate
       </L.Button>
 
       <L.Button
-        onClick={() => console.log(L.form('test-form-1', 'test-form-input').reset())}
+        onClick={() => console.log(L.form('test-form-1', 'test-form-input-1').reset())}
         _ml-4
       >
         reset
       </L.Button>
 
       <L.Button
-        onClick={() => console.log(L.form('test-form-1', 'test-form-input').remove())}
+        onClick={() => console.log(L.form('test-form-1', 'test-form-input-1').remove())}
         _ml-4
       >
         remove

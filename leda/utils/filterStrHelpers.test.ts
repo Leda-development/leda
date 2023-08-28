@@ -330,6 +330,7 @@ describe('getIsSentenceIncludingWords', () => {
       )).toBeTruthy();
     });
     // todo: handle this case in the main function
+    // eslint-disable-next-line jest/no-disabled-tests
     it.skip('should return false for repeated words', () => {
       expect(getIsSentenceIncludingWords(
         'London is the capital of Great Britain',

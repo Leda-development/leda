@@ -8,7 +8,7 @@ const toReplaceANumIfResultIsBiggerThanNine = (element: string): number => {
 
 const getIsDividedByTen = (total: number): boolean => total % 10 === 0;
 
-const containsCertainQuantityOfDigits = new RegExp(/(^[2-7])\d{12,18}$/);
+const containsCertainQuantityOfDigits = /(^[2-7])\d{12,18}$/;
 
 const isEven = (element: number): boolean => element % 2 === 0;
 

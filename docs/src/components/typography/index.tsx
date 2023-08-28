@@ -5,5 +5,5 @@ export { P } from './P';
 export { Code, CodeBlock } from './Code';
 export { Section } from './Section';
 export {
-  Table, Th, Td, THead, propsTableCommonHeaders,
+  Table, Th, Td, TdCode, THead, propsTableCommonHeaders,
 } from './Table';

@@ -6,7 +6,7 @@ export const Code = ({
   children: React.ReactNode,
 }) => (
   <code
-    className={`bg-slate-100 text-sm ${liveFont.className}`}
+    className={`bg-slate-100 ${liveFont.className}`}
   >
     {children}
   </code>
@@ -14,7 +14,8 @@ export const Code = ({
 
 export const CodeBlock = (props: React.HTMLAttributes<HTMLElement>) => (
   <div
-    className={`whitespace-pre text-sm ${liveFont.className}`}
+    className={`whitespace-pre ${liveFont.className}`}
+    style={{ fontSize: '.8rem' }}
   >
     {props.children}
   </div>

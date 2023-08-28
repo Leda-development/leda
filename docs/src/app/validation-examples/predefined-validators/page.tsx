@@ -7,8 +7,6 @@ import {
 } from '@/components/typography';
 import { log } from '@/utils';
 
-export const loader = () => null;
-
 const PredefinedValidatorPage = () => (
   <div>
     <H1>Predefined validators</H1>

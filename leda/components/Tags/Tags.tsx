@@ -45,7 +45,7 @@ export const Tags = React.forwardRef((props: TagsProps, ref?: React.Ref<HTMLElem
       {
         isString(children)
           ? children
-          : React.Children.map(children, (child) => (React.isValidElement(child) ? React.cloneElement(child, { theme } as any) : child))
+          : React.Children.map(children, (child) => (React.isValidElement(child) ? React.cloneElement(child, { theme } as object) : child))
       }
     </Wrapper>
   );

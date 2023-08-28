@@ -138,6 +138,7 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
         {...suggestionItemComputedProps}
       />
     );
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [compareObjectsBy, highlightedSuggestion, itemRender, onClick, placeholder, selectedSuggestion, textField, theme]);
 
   if (!isOpen) return null;
@@ -184,11 +185,11 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
           containerRef.current = component;
         }}
       >
-        {groupBy && suggestions?.map((suggestion, index) => {
+        {groupBy && suggestions?.map((suggestion) => {
           if ((suggestion as GroupedSomeObject)?.key) {
             const groupedSomeObject = suggestion as GroupedSomeObject;
             return (
-              <GroupWrapper className={theme.group} key={index}>
+              <GroupWrapper className={theme.group} key={groupedSomeObject.key}>
                 <GroupLabel className={theme.groupLabel}>
                   {groupedSomeObject.key}
                 </GroupLabel>

@@ -34,7 +34,7 @@
     // No use of default export
     "import/prefer-default-export": "off",
     // one file can contain multiple exports
-    "import/no-cycle": "warn",
+    "import/no-cycle": "off",
 
     // Not always using label with htmlFor
     "jsx-a11y/label-has-for": "off",

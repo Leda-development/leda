@@ -14,7 +14,7 @@ import {
   removeChar,
   setSelection,
 } from './helpers';
-import { INPUT_METHODS } from './constants';
+import { InputMethod } from './constants';
 
 export const createChangeHandler = (props: MaskedInputBaseProps, extraData: ChangeData): React.ChangeEventHandler<HTMLInputElement> => (ev) => {
   ev.preventDefault();
@@ -31,18 +31,18 @@ export const createChangeHandler = (props: MaskedInputBaseProps, extraData: Chan
 
   const inputMethod = (() => {
     if (compareResult[1] && compareResult[2]) {
-      return INPUT_METHODS.replace;
+      return InputMethod.replace;
     }
 
     if (compareResult[1]) {
-      return INPUT_METHODS.add;
+      return InputMethod.add;
     }
 
     if (compareResult[2]) {
-      return INPUT_METHODS.remove;
+      return InputMethod.remove;
     }
 
-    return INPUT_METHODS.nothing;
+    return InputMethod.nothing;
   })();
 
   const char = compareResult[1];
@@ -50,7 +50,7 @@ export const createChangeHandler = (props: MaskedInputBaseProps, extraData: Chan
   const selection = getSelection(input);
 
   const newValue = (() => {
-    if (inputMethod === INPUT_METHODS.replace) {
+    if (inputMethod === InputMethod.replace) {
       const hurtValue = removeChar({
         value: inputValue,
         mask,
@@ -71,7 +71,7 @@ export const createChangeHandler = (props: MaskedInputBaseProps, extraData: Chan
       });
     }
 
-    if (inputMethod === INPUT_METHODS.add) {
+    if (inputMethod === InputMethod.add) {
       return addChar({
         value: inputValue,
         mask,
@@ -82,7 +82,7 @@ export const createChangeHandler = (props: MaskedInputBaseProps, extraData: Chan
       });
     }
 
-    if (inputMethod === INPUT_METHODS.remove) {
+    if (inputMethod === InputMethod.remove) {
       return removeChar({
         value: inputValue,
         mask,

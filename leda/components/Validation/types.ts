@@ -42,7 +42,7 @@ export interface ValidationState {
 export interface ValidationResult {
   isValid: boolean,
   validateCurrent: (value?: any) => boolean,
-  InvalidMessage: React.FC<{}>,
+  InvalidMessage: React.FC<Record<string, never>>,
 }
 
 export interface FormGetField {

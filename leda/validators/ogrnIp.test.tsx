@@ -18,6 +18,7 @@ describe('invalidate by length', () => {
   // тесты универсального валидатора с ОГРНИП длиной 16 символов
   it('should be invalid, universal, too long, 16 chars', () => {
     expect(validateOgrnIp('12345678910111155')).toBeFalsy();
+    // eslint-disable-next-line @typescript-eslint/no-loss-of-precision
     expect(validateOgrnIp(12345678910111155)).toBeFalsy();
   });
 });

@@ -96,10 +96,11 @@ export const useValidation = <P extends ValidationProps, S extends ValidationSta
   );
 
   const invalidMessageComponent = React.useMemo(() => {
-    const message: React.FC<{}> = () => <InvalidMessage theme={defaultValidationTheme} isValid={isValid} messages={messages} />;
+    const message: React.FC<Record<string, never>> = () => <InvalidMessage theme={defaultValidationTheme} isValid={isValid} messages={messages} />;
     message.displayName = 'InvalidMessageWrapper';
 
     return message;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isValid, messages]);
 
   // return a dummy if there is no form

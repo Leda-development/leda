@@ -63,6 +63,7 @@ export const RadioGroup = React.forwardRef((props: RadioGroupProps, ref?: React.
             isChecked: child.props.value === value,
             theme: { ...theme, ...child.props.theme },
           // todo find a better way to fix TS issue with the name property
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           } as any);
         }
         return child;

@@ -6,7 +6,7 @@ import type {
 } from '../../commonTypes';
 import type { ValidationProps } from '../Validation/types';
 import type { FilterRules } from '../DropDownSelect/types';
-import type { SuggestionListProps, SuggestionTarget } from '../../src/SuggestionList/types';
+import type { NoSuggestionsProps, SuggestionListProps, SuggestionTarget } from '../../src/SuggestionList/types';
 import type { DivProps } from '../Div';
 import type { TagProps } from '../Tags/types';
 
@@ -85,7 +85,7 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   /** Add "Select all" to the dropdown list */
   canSelectAll?: boolean,
   /** ... */
-  compareObjectsBy?: T extends object ? ((suggestionListItems: SomeObject) => any) | string : never,
+  compareObjectsBy?: T extends object ? ((suggestionListItems: SomeObject) => unknown) | string : never,
   /** Data for the dropdown list.
     * If data is an array of objects, use textField to specify which object's field should be used as text for the dropdown items
     * */
@@ -119,7 +119,7 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   /** This will be shown when no suggestions are found */
   noSuggestionsText?: React.ReactNode,
   /** No suggestions test customizator */
-  noSuggestionsRender?: any,
+  noSuggestionsRender?: CustomRender<SuggestionListProps, Record<string, never>, NoSuggestionsProps>,
   /** Blur handler */
   onBlur?: (event: FocusEvent) => void,
   /** Change handler */

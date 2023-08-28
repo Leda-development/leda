@@ -33,13 +33,13 @@ export interface HeadingProps {
   /** Child elements */
   children: React.ReactNode,
   /** Icon customizator */
-  iconRender?: CustomRender<HeadingProps, { }, IconProps>,
+  iconRender?: CustomRender<HeadingProps, Record<string, never>, IconProps>,
   /** Click handler */
   onClick?: React.MouseEventHandler<HTMLDivElement>,
   /** Ref */
   ref?: React.Ref<HTMLElement>,
   /** Wrapper customizator */
-  wrapperRender?: CustomRender<HeadingProps, { }, HeadingWrapperProps>,
+  wrapperRender?: CustomRender<HeadingProps, Record<string, never>, HeadingWrapperProps>,
   /** _css-class-names */
   [x: string]: unknown,
 }
@@ -60,7 +60,7 @@ export interface BodyProps {
   /** CSS transition format */
   transition?: string,
   /** Wrapper customizator */
-  wrapperRender?: CustomRender<BodyProps, { }, BodyWrapperProps>,
+  wrapperRender?: CustomRender<BodyProps, Record<string, never>, BodyWrapperProps>,
   /** _css-class-names */
   [x: string]: unknown,
 }

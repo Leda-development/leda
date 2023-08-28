@@ -28,6 +28,7 @@
       border-color: var(--ld-btn-bg-color);
     }
   }
+  
 
   .ld-loading-icon {
     position: absolute;
@@ -37,7 +38,7 @@
     height: var(--ld-btn-font-size);
     left: calc(var(--ld-btn-padding-inline)/2 - var(--ld-font-size)/2);
     top: calc(var(--ld-btn-padding-block) + var(--ld-btn-line-height)/2 - var(--ld-btn-font-size)/2);
-    animation: cog 2s linear infinite;
+    animation: rotate 2s linear infinite;
   }
 }
 
@@ -48,5 +49,14 @@
   &:hover {
     background-color: var(--ld-btn-bg-color-disabled);
     border-color: var(--ld-btn-border-color-disabled);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

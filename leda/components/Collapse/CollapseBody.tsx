@@ -74,7 +74,7 @@ export const Body = React.forwardRef((props: BodyProps, ref?: React.Ref<HTMLElem
 
   return (
     <BodyWrapper
-      // @ts-ignore
+      // @ts-expect-error wrong ref type
       ref={ref}
       onTransitionEnd={onTransitionEnd}
       className={className}

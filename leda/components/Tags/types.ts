@@ -10,7 +10,7 @@ export interface TagsProps extends React.HTMLAttributes<HTMLDivElement> {
   /* Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.tags],
   /** Wrapper customizator */
-  wrapperRender?: CustomRender<TagsProps, {}, WrapperProps>,
+  wrapperRender?: CustomRender<TagsProps, Record<string, never>, WrapperProps>,
   /** _css-class-names */
   [x: string]: unknown,
 }
@@ -36,7 +36,7 @@ export interface TagProps extends React.HTMLAttributes<SVGElement> {
   /** Theme, is passed trough Tags */
   theme?: GlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.tags],
   /** Wrappes customizator */
-  wrapperRender?: CustomRender<TagProps, {}, WrapperProps>,
+  wrapperRender?: CustomRender<TagProps, Record<string, never>, WrapperProps>,
   /** _css-class-names */
   [x: string]: unknown,
 }

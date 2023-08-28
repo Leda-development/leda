@@ -73,6 +73,7 @@ export const MaskedInputBase = React.forwardRef((props: MaskedInputBaseProps, re
 
       setInputValue(newValue);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   React.useEffect((): void => {
@@ -107,7 +108,7 @@ export const MaskedInputBase = React.forwardRef((props: MaskedInputBaseProps, re
       ref={(component) => {
         if (isFunction(ref)) ref(component);
         else if (isObject(ref)) {
-          // @ts-ignore
+          // @ts-expect-error wrong ref type
           ref.current = component;
         }
 

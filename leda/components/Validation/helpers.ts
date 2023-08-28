@@ -13,7 +13,7 @@ import type {
 import { checkIsFilled } from '../../form/helpers';
 
 export const getForms = (formName?: string | string[]): Form[] => {
-  // @ts-ignore
+  // @ts-expect-error no validation field in window
   const forms: Form[] = window[Symbol.for('leda/validation-forms')] || [];
 
   if (isString(formName)) {
@@ -30,7 +30,7 @@ export const getForms = (formName?: string | string[]): Form[] => {
 };
 
 export const setForms = (newForms: Form[]): void => {
-  // @ts-ignore
+  // @ts-expect-error no validation field in window
   window[Symbol.for('leda/validation-forms')] = newForms;
 };
 

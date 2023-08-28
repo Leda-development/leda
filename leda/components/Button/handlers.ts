@@ -42,6 +42,7 @@ export const createClickHandler = (props: ButtonProps) => (ev: React.MouseEvent<
 
           if (invalidElement) {
             const invalidElementRect = invalidElement.getBoundingClientRect();
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const isIE = !!(document as any).documentMode || /Edge/.test(navigator.userAgent);
             const offset = invalidElementRect.top - (scrollOffset ?? 0);
             if (isIE) {

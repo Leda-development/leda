@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import * as React from 'react';
 import { Div } from '../Div';
 import { CheckBox } from '../CheckBox';
@@ -10,6 +11,7 @@ import { LedaContext } from '../LedaProvider';
 import { Span } from '../Span';
 import { IconTypes } from '../..';
 
+// eslint-disable-next-line func-names
 export const createCheckBoxesRender = ({ theme, itemRender }: { theme: typeof defaultMultiSelectTheme, itemRender: SuggestionListProps['itemRender'] }): SuggestionListProps['itemRender'] => function ({ componentProps, Element, elementProps }) {
   const {
     isSelected, isSelectAllItem, selectAllState, selectAllItemRender,
@@ -52,11 +54,14 @@ export const createCheckBoxesRender = ({ theme, itemRender }: { theme: typeof de
       <CheckBox
         value={isCheckBoxSelected}
         // replaсe label with div so that the focus does not move from the multiselect and the list does not close when clicking on a checkbox
+        // eslint-disable-next-line react/no-unstable-nested-components
         labelRender={({ elementProps: labelElementProps }) => <Div {...labelElementProps} className={theme.checkBoxLabel} />}
         checkboxIcon={isSemi && IconTypes.Icons.MinusSquare}
         className={theme.checkBoxWrapper}
       />
       {isSelectAllItem && (
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         <SelectAllItem>
           {selectAllSuggestion.text}
         </SelectAllItem>

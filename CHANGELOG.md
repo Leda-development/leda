@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.29.0] - 2023-08-28
+
+### Removed
+- No more Currency, DropDown, DropDownLink, StatusBar, StickyPanel, VStepper, DropZone, FileDrop, FileUpload
+
+### Added
+- Calendar and Dates: customize month names and weekdays names through messages API
+- Calendar base theme
+
+### Changed
+- refs are now pointing to the outer component wrapper, no nested ref structure
+
+
 ## [0.28.2] - 2023-08-01
 
 ### Added

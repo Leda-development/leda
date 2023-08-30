@@ -35,7 +35,6 @@ export const MainNav = () => (
       <NavLi to="/form-components/password">Password</NavLi>
       <NavLi to="/form-components/radio">Radio</NavLi>
       <NavLi to="/form-components/rating">Rating</NavLi>
-      <NavLi to="/form-components/slider">Slider</NavLi>
       <NavLi to="/form-components/switcher">Switcher</NavLi>
       <NavLi to="/form-components/textarea">Textarea</NavLi>
       <NavLi to="/form-components/time-picker">TimePicker</NavLi>

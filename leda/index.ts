@@ -65,7 +65,6 @@ import { ProgressBar } from './components/ProgressBar';
 import { RadioGroup, RadioButton } from './components/Radio';
 import { Rating } from './components/Rating';
 import { Section } from './components/Section';
-import { Slider } from './components/Slider';
 import { Small } from './components/Small';
 import { Span } from './components/Span';
 import { Svg } from './components/Svg';
@@ -213,7 +212,6 @@ export {
   RadioGroup, RadioButton,
   Rating,
   Section,
-  Slider,
   Small,
   Span,
   Svg,

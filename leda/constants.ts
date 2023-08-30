@@ -39,7 +39,6 @@ export const COMPONENTS_NAMESPACES = {
   progressBar: 'progressBar',
   radio: 'radio',
   rating: 'rating',
-  slider: 'slider',
   suggestionList: 'suggestionList',
   switcher: 'switcher',
   tabs: 'tabs',

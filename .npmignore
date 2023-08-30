@@ -1,10 +1,4 @@
-/cypress/
-/demo/
 /styles/
 /types/
 
 /.idea/
-
-/cypress.json
-/webpack.analyze.js
-/webpack.config.js

@@ -19,7 +19,6 @@ import { defaultPasswordTheme } from '../Password/theme';
 import { defaultProgressBarTheme } from '../ProgressBar/theme';
 import { defaultRadioTheme } from '../Radio/theme';
 import { defaultRatingTheme } from '../Rating/theme';
-import { defaultSliderTheme } from '../Slider/theme';
 import { defaultSwitcherTheme } from '../Switcher/theme';
 import { defaultTabsTheme } from '../Tabs/theme';
 import { defaultTagsTheme } from '../Tags/theme';
@@ -52,7 +51,6 @@ export const globalDefaultTheme = {
   progressBar: defaultProgressBarTheme,
   radio: defaultRadioTheme,
   rating: defaultRatingTheme,
-  slider: defaultSliderTheme,
   suggestionList: defaultSuggestionListTheme,
   switcher: defaultSwitcherTheme,
   tabs: defaultTabsTheme,

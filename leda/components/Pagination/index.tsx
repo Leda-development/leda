@@ -15,6 +15,7 @@ import { PaginationControl } from './PaginationControl';
 import type { PaginationProps } from './types';
 import { Icon } from '../Icon';
 import { IconTypes } from '../..';
+import { useMessages } from '../../utils/useMessages';
 
 export const Pagination = React.forwardRef((props: PaginationProps, ref: React.Ref<HTMLElement>): React.ReactElement => {
   const {
@@ -26,6 +27,7 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
     pageSizeOptions,
     totalItems = 0,
     isLoading = false,
+    messages,
     onChange,
     onPageSizeChange,
   } = useProps(props);
@@ -86,6 +88,8 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
     className,
   );
 
+  const msg = useMessages({ fieldName: COMPONENTS_NAMESPACES.pagination, messages });
+
   return (
     <Div
       className={wrapperClassNames}
@@ -98,7 +102,7 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
           theme.controlFirst,
         )}
         theme={theme}
-        title="First"
+        title={msg.titleFirst}
         page={isSinglePage || isFirstPage ? 0 : 1}
         onClick={handlePageChange}
       >
@@ -114,7 +118,7 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
           theme.controlPrev,
         )}
         theme={theme}
-        title="Previous"
+        title={msg.titlePrevious}
         page={isSinglePage || isFirstPage ? 0 : currentPage - 1}
         onClick={handlePageChange}
       >
@@ -129,7 +133,7 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
         theme={theme}
         isPageNumber
         page={previousBlock}
-        title="Previous pages"
+        title={msg.titleDotsPrevious}
         onClick={handlePageChange}
       >
         ...
@@ -147,7 +151,7 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
         theme={theme}
         isPageNumber
         page={nextBlock}
-        title="Next pages"
+        title={msg.titleDotsNext}
         onClick={handlePageChange}
       >
         ...
@@ -161,7 +165,7 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
         )}
         theme={theme}
         page={isSinglePage || isLastPage ? 0 : currentPage + 1}
-        title="Next"
+        title={msg.titleNext}
         onClick={handlePageChange}
       >
         <Icon
@@ -177,7 +181,7 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
         )}
         theme={theme}
         page={isSinglePage || isLastPage ? 0 : pages}
-        title="Last"
+        title={msg.titleLast}
         onClick={handlePageChange}
       >
         <Icon
@@ -191,6 +195,7 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
         pageSize={pageSize}
         pageSizeOptions={pageSizeOptions}
         theme={theme}
+        msg={msg}
       />
       <ItemsInfo
         theme={theme}
@@ -201,6 +206,7 @@ export const Pagination = React.forwardRef((props: PaginationProps, ref: React.R
               startingItemNumber={itemsFrom}
               endingItemNumber={itemsTo}
               totalItemsNumber={totalItems}
+              msg={msg}
             />
           )
           : (

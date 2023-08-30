@@ -8,13 +8,16 @@ import type { CalendarHeaderProps } from './types';
 import { useMessages } from '../../utils/useMessages';
 import { Icon } from '../../components/Icon';
 import { IconTypes } from '../..';
+import { COMPONENTS_NAMESPACES } from '../../constants';
 
 export const CalendarHeader = (props: CalendarHeaderProps): React.ReactElement => {
   const {
     theme, conditions, viewType, viewDate, onClick, ...restProps
   } = props;
 
-  const messages = useMessages('calendar');
+  const messages = useMessages({
+    fieldName: COMPONENTS_NAMESPACES.calendar,
+  });
 
   return (
     <Div className={theme.header} {...restProps}>

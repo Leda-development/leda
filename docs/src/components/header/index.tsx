@@ -21,7 +21,7 @@ export const MainHeader = ({
         font-bold"
     >
       <span className="text-3xl">Leda</span>
-      <span className="ml-2 text-xs">0.28.2</span>
+      <span className="ml-2 text-xs">0.29.1</span>
     </L.A>
     <L.A
       href="https://github.com/Apollo-11/leda"

@@ -1,10 +1,10 @@
-'use client';
-
-import * as L from '@leda';
 import { UnderscoreClasses } from '@/components/commonProps';
-import { H1, Td } from '@/components/typography';
-import { Live } from '@/components/live';
+import {
+  A, H1, P, Td, TdCode,
+} from '@/components/typography';
 import { CustomizationPropsTableSection, PropsTableSection } from '@/sections';
+import { MainDemo } from './MainDemo.tsx';
+import { PATHS } from '@/constants';
 
 const PaginationPage = () => (
   <article>
@@ -12,13 +12,13 @@ const PaginationPage = () => (
 
     <PropsTableSection>
       <tr>
-        <Td>currentPage</Td>
-        <Td>number</Td>
+        <TdCode>currentPage</TdCode>
+        <TdCode>number</TdCode>
         <Td>Current page number</Td>
       </tr>
       <tr>
-        <Td>defaultPageSize</Td>
-        <Td>number</Td>
+        <TdCode>defaultPageSize</TdCode>
+        <TdCode>number</TdCode>
         <Td>
           <p>
             Is used together with <b>pageSizeOptions</b>.
@@ -27,76 +27,89 @@ const PaginationPage = () => (
         </Td>
       </tr>
       <tr>
-        <Td>isLoading</Td>
-        <Td>boolean</Td>
+        <TdCode>isLoading</TdCode>
+        <TdCode>boolean</TdCode>
         <Td>No clicks are handled in this state</Td>
       </tr>
       <tr>
-        <Td>onChange</Td>
-        <Td>{'(event: ChangeEvent) => void'}</Td>
+        <TdCode>messages</TdCode>
+        <TdCode>
+          {
+`PaginationMessages
+
+====
+
+interface PaginationMessages {
+  outOf: string,
+  pageSize: string,
+  pageSizeAll: string,
+  titleDotsNext: string,
+  titleDotsPrevious: string,
+  titleFirst: string,
+  titleLast: string,
+  titleNext: string,
+  titlePrevious: string,
+}`
+          }
+        </TdCode>
+        <Td>
+          <P>
+            Customize component text labels
+          </P>
+          <P>
+            Consider using <A href={PATHS.ledaProvider}>Leda provider</A> to set messages globally.
+          </P>
+        </Td>
+      </tr>
+      <tr>
+        <TdCode>onChange</TdCode>
+        <TdCode>{'(event: ChangeEvent) => void'}</TdCode>
         <Td>Current page change handler</Td>
       </tr>
       <tr>
-        <Td>onPageSizeChangeHandler</Td>
-        <Td>{'(event: PageSizeChangeEvent) => void'}</Td>
+        <TdCode>onPageSizeChangeHandler</TdCode>
+        <TdCode>{'(event: PageSizeChangeEvent) => void'}</TdCode>
         <Td>Page size change handler</Td>
       </tr>
       <tr>
-        <Td>pageSize</Td>
-        <Td>number</Td>
+        <TdCode>pageSize</TdCode>
+        <TdCode>number</TdCode>
         <Td>Number of items on the page</Td>
       </tr>
       <tr>
-        <Td>pageSizeOptions</Td>
-        <Td>number[]</Td>
+        <TdCode>pageSizeOptions</TdCode>
+        <TdCode>number[]</TdCode>
         <Td>In case you want more</Td>
       </tr>
       <tr>
-        <Td><b>totalItems</b></Td>
-        <Td>number</Td>
+        <TdCode><b>totalItems</b></TdCode>
+        <TdCode>number</TdCode>
         <Td>Total number of items to split across pages</Td>
       </tr>
       <UnderscoreClasses />
     </PropsTableSection>
 
-    <Live scope={{ L }}>
-      {`
-() => {
-  const [pageSize, setPageSize] = React.useState(10);
-  const [currentPage, setCurrentPage] = React.useState(1);
-
-  return (
-    <L.Pagination
-      pageSize={pageSize}
-      pageSizeOptions={[5, 10, 20, 50]}
-      totalItems={1246}
-      currentPage={currentPage}
-      onChange={(ev) => setCurrentPage(ev.component.value)}
-      onPageSizeChange={(ev) => setPageSize(ev.component.value ? parseInt(ev.component.value, 10) : undefined)}
-    />
-  );
-}`}
-    </Live>
+    <MainDemo />
 
     <CustomizationPropsTableSection>
       <tr>
-        <Td>itemsInfoRender</Td>
-        <Td>{'CustomRender<PaginationProps, PaginationState, PaginationInfoProps>'}</Td>
+        <TdCode>itemsInfoRender</TdCode>
+        <TdCode>{'CustomRender<PaginationProps, PaginationState, PaginationInfoProps>'}</TdCode>
         <Td>...</Td>
       </tr>
       <tr>
-        <Td>itemsRangeInfoRender</Td>
-        <Td>{'CustomRender<PaginationProps, PaginationState, PaginationRangeInfoProps>'}</Td>
+        <TdCode>itemsRangeInfoRender</TdCode>
+        <TdCode>{'CustomRender<PaginationProps, PaginationState, PaginationRangeInfoProps>'}</TdCode>
         <Td>...</Td>
       </tr>
       <tr>
-        <Td>itemsTotalInfoRender</Td>
-        <Td>{'CustomRender<PaginationProps, PaginationState, PaginationTotalInfoProps>'}</Td>
+        <TdCode>itemsTotalInfoRender</TdCode>
+        <TdCode>{'CustomRender<PaginationProps, PaginationState, PaginationTotalInfoProps>'}</TdCode>
         <Td>...</Td>
       </tr>
       <tr>
-        <Td>pagesDropDownRender</Td>
-        <Td>{'CustomRender<PaginationProps, PaginationState, PagesDropDownProps>'}</Td>
+        <TdCode>pagesDropDownRender</TdCode>
+        <TdCode>{'CustomRender<PaginationProps, PaginationState, PagesDropDownProps>'}</TdCode>
         <Td>...</Td>
       </tr>
     </CustomizationPropsTableSection>

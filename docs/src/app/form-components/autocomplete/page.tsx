@@ -4,12 +4,13 @@
 
 import * as L from '@leda';
 import {
-  H1, H2, Section, Table, Th, Td, TdCode,
+  H1, H2, Section, Table, Th, Td, TdCode, P, A,
 } from '@/components/typography';
 import { Live } from '@/components/live';
 import { CustomizationPropsTableSection, PropsTableSection, ValidationSection } from '@/sections';
-import { Demos } from './Demos';
 import { UnderscoreClasses } from '@/components/commonProps';
+import { PATHS } from '@/constants';
+import { MainDemo } from './MainDemo.tsx';
 
 const AutoCompletePage = () => (
   <article>
@@ -81,6 +82,28 @@ const AutoCompletePage = () => (
         <TdCode>isRequired</TdCode>
         <TdCode>boolean</TdCode>
         <Td>Validate the component as a required field</Td>
+      </tr>
+      <tr>
+        <TdCode>messages</TdCode>
+        <TdCode>
+          {
+`AutoCompleteMessages
+
+====
+
+interface AutoCompleteMessages {
+  nothingFound: string,
+}`
+          }
+        </TdCode>
+        <Td>
+          <P>
+            Customize component text labels
+          </P>
+          <P>
+            Consider using <A href={PATHS.ledaProvider}>Leda provider</A> to set messages globally.
+          </P>
+        </Td>
       </tr>
       <tr>
         <TdCode>minSearchLength</TdCode>
@@ -160,7 +183,7 @@ const AutoCompletePage = () => (
       <UnderscoreClasses />
     </PropsTableSection>
 
-    <Demos />
+    <MainDemo />
 
     <ValidationSection
       form

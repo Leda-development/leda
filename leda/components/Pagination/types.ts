@@ -15,6 +15,18 @@ export interface PageSizeChangeEvent {
   },
 }
 
+export interface PaginationMessages {
+  outOf?: string,
+  pageSize?: string,
+  pageSizeAll?: string,
+  titleDotsNext?: string,
+  titleDotsPrevious?: string,
+  titleFirst?: string,
+  titleLast?: string,
+  titleNext?: string,
+  titlePrevious?: string,
+}
+
 export interface PaginationProps {
   /** Current page number */
   currentPage?: number,
@@ -28,6 +40,8 @@ export interface PaginationProps {
   itemsRangeInfoRender?: CustomRender<PaginationProps, PaginationState, PaginationRangeInfoProps>,
   /** Total items info customizator */
   itemsTotalInfoRender?: CustomRender<PaginationProps, PaginationState, PaginationTotalInfoProps>,
+  /** Customize component text labels */
+  messages?: PaginationMessages,
   /** Page change handler */
   onChange?: (event: ChangeEvent) => void,
   /** Page size change handler */
@@ -58,6 +72,8 @@ export interface PagesDropDownProps {
   handlePageSizeChange: (event: PageSizeChangeEvent) => void,
   /** Is it possible to change the number of elements on the page */
   isPageSizeChangeable: boolean,
+  /** Messages */
+  msg: PaginationMessages,
   /** Number of elements on the page */
   pageSize: number,
   /** Options for the number of elements on the page */
@@ -72,8 +88,9 @@ export interface PaginationInfoProps {
 }
 
 export interface PaginationRangeInfoProps {
-  startingItemNumber: number,
   endingItemNumber: number,
+  msg: PaginationMessages,
+  startingItemNumber: number,
   totalItemsNumber: number,
 }
 

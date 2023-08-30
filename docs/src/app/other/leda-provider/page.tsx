@@ -1,11 +1,9 @@
-'use client';
-
-import * as L from '@leda';
 import {
-  CodeBlock, H1, Td, P,
+  H1, Td, P, TdCode, A,
 } from '@/components/typography';
-import { Live } from '@/components/live';
 import { PropsTableSection } from '@/sections';
+import { MainDemo } from './MainDemo.tsx';
+import { PATHS } from '@/constants';
 
 const LedaProviderPage = () => (
   <article>
@@ -18,64 +16,37 @@ const LedaProviderPage = () => (
 
     <PropsTableSection>
       <tr>
-        <Td>children</Td>
-        <Td>React.ReactNode</Td>
+        <TdCode>children</TdCode>
+        <TdCode>React.ReactNode</TdCode>
         <Td>The app or a part of it that has access to the the other props</Td>
       </tr>
       <tr>
-        <Td>theme</Td>
+        <TdCode>messages</TdCode>
+        <TdCode>PartialGlobalDefaultMessages</TdCode>
         <Td>
-          <CodeBlock>
-            {`PartialGlobalDefaultTheme
-            
-===
-`}
-          </CodeBlock>
+          <P>Customize component text labels globally.</P>
+          <P>Available messages:</P>
+          <P><A href={PATHS.autoComplete}>autoComplete</A></P>
+          <P><A href={PATHS.pagination}>pagination</A></P>
         </Td>
+      </tr>
+      <tr>
+        <TdCode>theme</TdCode>
+        <TdCode>
+          PartialGlobalDefaultTheme
+        </TdCode>
         <Td>...</Td>
       </tr>
       <tr>
-        <Td>renders</Td>
-        <Td>
-          <CodeBlock>
-            {`GlobalDefaultRenders
-            
-===
-`}
-          </CodeBlock>
-        </Td>
+        <TdCode>renders</TdCode>
+        <TdCode>
+          GlobalDefaultRenders
+        </TdCode>
         <Td>...</Td>
-      </tr>
-      <tr>
-        <Td>underscoreClassesTransform</Td>
-        <Td>
-          <CodeBlock>
-            {`UnderscoreClasses
-                
-===
-enum UnderscoreClasses {
-  NoTransform,
-  CamelCaseTransform,
-}
-`}
-          </CodeBlock>
-        </Td>
-        <Td>NoTransform is default</Td>
       </tr>
     </PropsTableSection>
 
-    <Live scope={{ L }}>
-      {`
-() => {
-  return (
-    <>
-      <L.Leda>
-        ...
-      </L.Leda>
-    </>
-  );
-}`}
-    </Live>
+    <MainDemo />
   </article>
 );
 

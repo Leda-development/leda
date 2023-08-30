@@ -101,6 +101,10 @@ export interface BlurEvent extends React.FocusEvent<HTMLInputElement> {
   },
 }
 
+export interface AutoCompleteMessages {
+  nothingFound?: string,
+}
+
 export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends ValidationProps {
   /** Browser autofill, off is the default value. Works as HTML autoComplete attribute */
   autoComplete?: string,
@@ -132,8 +136,8 @@ export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends Va
   minSearchLength?: number,
   /** Component name */
   name?: string,
-  /** This will be shown when no suggestions are found */
-  noSuggestionsText?: React.ReactNode,
+  /** Customize component texts */
+  messages?: AutoCompleteMessages,
   /** No suggetions label customizator */
   noSuggestionsRender?: SuggestionListProps['noSuggestionsRender'],
   /** Blur handler */

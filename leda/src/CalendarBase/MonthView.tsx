@@ -8,13 +8,16 @@ import {
 import { getClassNames } from '../../utils';
 import type { MonthViewProps } from './types';
 import { useMessages } from '../../utils/useMessages';
+import { COMPONENTS_NAMESPACES } from '../../constants';
 
 export const MonthView = (props: MonthViewProps): React.ReactElement | null => {
   const {
     min, max, viewDate, theme, onClick, viewType, ...restProps
   } = props;
 
-  const messages = useMessages('calendar');
+  const messages = useMessages({
+    fieldName: COMPONENTS_NAMESPACES.calendar,
+  });
 
   if (viewType !== VIEW_TYPES.MONTHS) return null;
 

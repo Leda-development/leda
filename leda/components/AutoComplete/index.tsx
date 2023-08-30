@@ -35,6 +35,7 @@ import { useValidation } from '../Validation';
 import { LedaContext } from '../LedaProvider';
 import { Icon } from '../Icon';
 import { Icons } from '../Icon/types';
+import { useMessages } from '../../utils/useMessages';
 
 export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: React.Ref<HTMLElement>): React.ReactElement | null => {
   const {
@@ -56,9 +57,9 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     isValid: isValidProp,
     itemRender,
     listRender,
+    messages,
     minSearchLength,
     name,
-    noSuggestionsText,
     noSuggestionsRender,
     onBlur,
     onChange,
@@ -83,6 +84,11 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
   const isValueControlled = propValue === null || isString(propValue);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.autoComplete);
+
+  const msg = useMessages({
+    fieldName: COMPONENTS_NAMESPACES.autoComplete,
+    messages,
+  });
 
   const [stateValue, setStateValue] = React.useState('');
   const [isFocused, setIsFocused] = React.useState(false);
@@ -236,7 +242,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
         isOpen={isSuggestionsListOpen}
         itemRender={itemRender}
         listRender={listRender}
-        noSuggestionsText={noSuggestionsText}
+        noSuggestionsText={msg.nothingFound}
         noSuggestionsRender={noSuggestionsRender}
         onClick={suggestionClickHandler}
         placeholder={placeholder}

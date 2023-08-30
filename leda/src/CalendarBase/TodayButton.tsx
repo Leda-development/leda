@@ -3,6 +3,7 @@ import { Div } from '../../components/Div';
 import { formatDate } from '../DateTimeInput/helpers';
 import type { TodayButtonProps } from './types';
 import { useMessages } from '../../utils/useMessages';
+import { COMPONENTS_NAMESPACES } from '../../constants';
 
 export const TodayButton = (props: TodayButtonProps): React.ReactElement => {
   const {
@@ -10,7 +11,9 @@ export const TodayButton = (props: TodayButtonProps): React.ReactElement => {
     theme,
   } = props;
 
-  const messages = useMessages('calendar');
+  const messages = useMessages({
+    fieldName: COMPONENTS_NAMESPACES.calendar,
+  });
 
   return (
     <Div

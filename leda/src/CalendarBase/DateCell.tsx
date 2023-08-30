@@ -9,13 +9,16 @@ import {
 import { getClassNames, useElement } from '../../utils';
 import type { DateCellProps } from './types';
 import { useMessages } from '../../utils/useMessages';
+import { COMPONENTS_NAMESPACES } from '../../constants';
 
 export const DateCell = (props: DateCellProps): React.ReactElement => {
   const {
     date, index, theme, onClick, viewDate, dateCellRender,
   } = props;
 
-  const messages = useMessages('calendar');
+  const messages = useMessages({
+    fieldName: COMPONENTS_NAMESPACES.calendar,
+  });
 
   const { renders: { dateTimeInput: dateTimeInputRenders } } = React.useContext(LedaContext);
 

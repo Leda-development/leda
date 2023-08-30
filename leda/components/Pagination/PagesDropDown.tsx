@@ -10,6 +10,7 @@ export const PagesDropDown = (props: PagesDropDownProps): React.ReactElement => 
   const {
     handlePageSizeChange,
     isPageSizeChangeable,
+    msg,
     pageSize,
     pageSizeOptions,
     theme,
@@ -31,11 +32,11 @@ export const PagesDropDown = (props: PagesDropDownProps): React.ReactElement => 
             data={pageSizeOptions && pageSizeOptions.map((item) => item.toString())}
             value={isNil(pageSize) ? pageSize : pageSize.toString()}
             onChange={handleChange}
-            placeholder="All"
+            placeholder={msg.pageSizeAll}
             className={theme.options}
           />
           <div className={theme.optionsLabel}>
-            Показать на странице
+            {msg.pageSize}
           </div>
         </>
       )}

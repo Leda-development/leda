@@ -5,8 +5,8 @@ import {
 const Home = () => (
   <article>
     <H1>Leda the React components library</H1>
-    <P>
-      Leda is WIP atm, a few major API changes are expected.
+    <P className="text-red-600">
+      Leda is WIP atm, a few major API changes are expected. Some bugs are present. The library is being worked on.
     </P>
     <P>
       Leda is suitable for both rapid prototipying and production development.

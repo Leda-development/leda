@@ -70,7 +70,7 @@ const DateTimeRangePage = () => (
       <UnderscoreClasses />
     </PropsTableSection>
 
-    <Live scope={{ DateTimeRange }}>
+    <Live scope={{ DateTimeRange }} overflowTop>
       {
           `
 <DateTimeRange

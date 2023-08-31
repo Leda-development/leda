@@ -89,7 +89,7 @@ const DatePickerPage = () => (
       <UnderscoreClasses />
     </PropsTableSection>
 
-    <Live scope={{ DatePicker }}>
+    <Live scope={{ DatePicker }} overflowTop>
       {`
 <DatePicker
   onChange={({ component }) => console.log(component.value)}

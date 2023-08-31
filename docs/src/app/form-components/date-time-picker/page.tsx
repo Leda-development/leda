@@ -85,7 +85,7 @@ const DateTimePickerPage = () => (
       <UnderscoreClasses />
     </PropsTableSection>
 
-    <Live scope={{ DateTimePicker }}>
+    <Live scope={{ DateTimePicker }} overflowTop>
       {
           `
 <DateTimePicker

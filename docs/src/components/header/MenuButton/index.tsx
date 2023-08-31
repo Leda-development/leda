@@ -20,8 +20,9 @@ export const MenuButton = ({
         border-0
         py-2
         text-stone-900
+        bg-white
+        hover:bg-white
         md:hidden"
-
   >
     <L.Icon icon="menu" size={30} />
   </L.Button>

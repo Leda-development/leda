@@ -82,6 +82,8 @@ export interface InputProps extends ValidationProps {
   onEnterPress?: (ev: EnterPressEvent) => void,
   /** Focus handler */
   onFocus?: (ev: FocusEvent) => void,
+  /** Placeholder */
+  placeholder?: string,
   /** Ref */
   ref?: React.Ref<HTMLElement>,
   /** Theme */

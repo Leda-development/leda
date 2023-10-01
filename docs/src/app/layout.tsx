@@ -1,3 +1,4 @@
+import Script from 'next/script';
 import './preflight.css';
 import './globals.css';
 import type { Metadata } from 'next';
@@ -21,6 +22,12 @@ const RootLayout = ({
           {children}
         </BaseLayout>
       </div>
+      {process.env.MODE === 'prod' && (
+        <>
+          <Script src="/metrica.js" />
+          <noscript><div><img src="https://mc.yandex.ru/watch/95108082" style={{ position: 'absolute', left: '-9999px' }} alt="" /></div></noscript>
+        </>
+      )}
     </body>
   </html>
 );

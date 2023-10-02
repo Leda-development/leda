@@ -34,8 +34,12 @@
 
 .ld-modal-body {
   background: var(--ld-modal-body-bg);
-  border-top-left-radius: var(--ld-modal-border-radius);
-  border-top-right-radius: var(--ld-modal-border-radius);
+  padding: var(--ld-modal-body-padding);
+
+  &:first-of-type {
+    border-top-left-radius: var(--ld-modal-border-radius);
+    border-top-right-radius: var(--ld-modal-border-radius);
+  }
 
   &:last-child {
     border-bottom-left-radius: var(--ld-modal-border-radius);

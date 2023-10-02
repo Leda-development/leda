@@ -101,7 +101,7 @@ type WindowSizeType = 'sm' | 'md' | 'lg'
         size="sm"
       >
         <L.ModalHeader>New user</L.ModalHeader>
-        <L.ModalBody _p-4>
+        <L.ModalBody>
           <L.Div _mb-2>
             <L.Span>Name</L.Span>
             <L.Input form="modal-form" name="first-name" isRequired />

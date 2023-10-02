@@ -97,6 +97,7 @@ import * as DivTypes from './components/Div';
 import * as IconTypes from './components/Icon/types';
 import * as InputTypes from './components/Input/types';
 import * as MaskedInputTypes from './components/MaskedInput/types';
+import * as ModalTypes from './components/Modal/types';
 import * as MultiSelectTypes from './components/MultiSelect/types';
 import * as NotificationsTypes from './components/Notifications/types';
 import * as NumericRangeTypes from './components/NumericRange/types';
@@ -146,6 +147,7 @@ export {
   IconTypes,
   InputTypes,
   MaskedInputTypes,
+  ModalTypes,
   MultiSelectTypes,
   NotificationsTypes,
   NumericRangeTypes,

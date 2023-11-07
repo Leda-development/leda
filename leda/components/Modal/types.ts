@@ -3,8 +3,6 @@ import type { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import type { COMPONENTS_NAMESPACES } from '../../constants';
 import type { CustomRender, CustomEventHandler } from '../../commonTypes';
 
-export type WindowSizeType = 'sm' | 'md' | 'lg';
-
 export interface ModalProps {
   /** Child elements */
   children?: React.ReactNode,
@@ -24,11 +22,6 @@ export interface ModalProps {
   onOverlayClick?: CustomEventHandler<React.MouseEvent<HTMLElement>>,
   /** Ref */
   ref?: React.Ref<HTMLElement>,
-  /** Window size.
-   * There are three standard sizes: sm=480, md=608, lg=868.
-   * Any custom values can be put as "50%", "50px", "50rem" etc.
-   * md=608 is the default value */
-  size?: WindowSizeType | string,
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.modal],
   /** Wrapper customizator */

@@ -18,6 +18,8 @@
   transform: translate(-50%, 0);
   box-shadow: var(--ld-modal-box-shadow);
   border-radius: var(--ld-modal-border-radius);
+  width: var(--ld-modal-width);
+  max-width: var(--ld-modal-max-width);
 }
 
 .ld-modal-cross {

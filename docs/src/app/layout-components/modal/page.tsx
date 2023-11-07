@@ -4,7 +4,7 @@
 
 import * as L from '@leda';
 import { UnderscoreClasses } from '@/components/commonProps';
-import { CodeBlock, H1, Td } from '@/components/typography';
+import { H1, Td } from '@/components/typography';
 import { Live } from '@/components/live';
 import { CustomizationPropsTableSection, PropsTableSection } from '@/sections';
 
@@ -49,24 +49,6 @@ const ModalPage = () => (
         <Td>Click on the outside of the modal handler</Td>
       </tr>
       <tr>
-        <Td>size</Td>
-        <Td>
-          <CodeBlock>
-            {`WindowSizeType | string
-
-===
-type WindowSizeType = 'sm' | 'md' | 'lg'                  
-              `}
-          </CodeBlock>
-        </Td>
-        <Td>
-          <p>Window size.</p>
-          <p>Tere are three standard sizes: sm=480, md=608, lg=868.</p>
-          <p>{'Any custom values can be put as "50%", "50px", "50rem" etc.'}</p>
-          <p>md=608 is the default value</p>
-        </Td>
-      </tr>
-      <tr>
         <Td>theme</Td>
         <Td>...</Td>
         <Td>Theme</Td>
@@ -98,7 +80,6 @@ type WindowSizeType = 'sm' | 'md' | 'lg'
         //   console.log('esc pressed');
         //   setIsOpen(false);
         // }}
-        size="sm"
       >
         <L.ModalHeader>New user</L.ModalHeader>
         <L.ModalBody>

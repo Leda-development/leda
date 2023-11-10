@@ -127,6 +127,7 @@ export const addField = ({
   isRequired = false,
   requiredMessage,
   reset,
+  suggestion,
 }: AddFieldData): void => {
   const forms: Form[] = getForms();
 
@@ -146,6 +147,7 @@ export const addField = ({
         isRequired,
         requiredMessage,
         reset,
+        suggestion,
       }],
     }];
 
@@ -171,6 +173,7 @@ export const addField = ({
         isRequired,
         requiredMessage,
         reset,
+        suggestion,
       }];
 
       return { name: formName, fields: newFields };
@@ -264,6 +267,7 @@ export const updateField = ({
   isRequired = false,
   requiredMessage,
   shouldValidateUnmounted = false,
+  suggestion,
   validators,
 }: UpdateFieldData): void => {
   const forms: Form[] = getForms();
@@ -306,6 +310,7 @@ export const updateField = ({
         isRequired,
         requiredMessage,
         shouldValidateUnmounted,
+        suggestion,
         validators,
       };
     });
@@ -407,7 +412,7 @@ export const getFieldValidState = (formName: string, fieldName: string): FormGet
   if (rawField == null) return undefined;
 
   const {
-    name, value, validators, isRequired,
+    name, value, validators, isRequired, suggestion,
   } = rawField;
 
   const isFilled = checkIsFilled(value);
@@ -422,5 +427,6 @@ export const getFieldValidState = (formName: string, fieldName: string): FormGet
     isFilled,
     isRequired,
     isValid,
+    suggestion,
   };
 };

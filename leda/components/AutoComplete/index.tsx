@@ -108,6 +108,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     isValid, validateCurrent, InvalidMessage,
   } = useValidation(props, {
     value: stateValue,
+    suggestion: selectedSuggestion,
   }, {
     reset: createResetHandler({
       props, setStateValue, value: '',
@@ -144,7 +145,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     data, textField, name, onChange, isValueControlled, setSelectedSuggestion, setStateValue,
   });
   const suggestionClickHandler = suggestionClickHandlerCreator({
-    data, textField, name, onChange, isValueControlled, setHighlightedSuggestion, setStateValue, setIsFocused,
+    data, textField, name, onChange, isValueControlled, setHighlightedSuggestion, setSelectedSuggestion, setStateValue, setIsFocused,
   });
   const clearButtonClickHandler = clearButtonClickHandlerCreator({
     name, onChange, isValueControlled, setStateValue, isDisabled,

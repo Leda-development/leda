@@ -59,6 +59,7 @@ export const suggestionClickHandlerCreator = ({
   setIsFocused,
   setStateValue,
   setHighlightedSuggestion,
+  setSelectedSuggestion,
   textField,
 }: {
   data: Suggestion[],
@@ -69,6 +70,7 @@ export const suggestionClickHandlerCreator = ({
   setStateValue: SetState<string>,
   setIsFocused: SetState<boolean>,
   setHighlightedSuggestion: SetState<Suggestion>,
+  setSelectedSuggestion: SetState<Suggestion>,
 }): CustomEventHandler<React.MouseEvent<HTMLElement> & SuggestionTarget> => (event) => {
   if (isObject(event.target.value) && textField === undefined) {
     // todo handle error
@@ -94,6 +96,7 @@ export const suggestionClickHandlerCreator = ({
   };
 
   setHighlightedSuggestion(suggestion);
+  setSelectedSuggestion(suggestion);
 
   if (isFunction(onChange)) onChange(customEvent);
   if (!isValueControlled) setStateValue(value);

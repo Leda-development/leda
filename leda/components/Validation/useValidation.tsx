@@ -51,6 +51,7 @@ export const useValidation = <P extends ValidationProps, S extends ValidationSta
         isRequired,
         requiredMessage,
         reset: extra.reset,
+        suggestion: state.suggestion,
       });
 
       return (): void => {
@@ -79,9 +80,10 @@ export const useValidation = <P extends ValidationProps, S extends ValidationSta
         validators,
         shouldValidateUnmounted,
         requiredMessage,
+        suggestion: state.suggestion,
       });
     }
-  }, [form, isRequired, name, value, isValidProp, validator, invalidMessage, shouldValidateUnmounted, requiredMessage]);
+  }, [form, isRequired, name, value, isValidProp, validator, invalidMessage, shouldValidateUnmounted, requiredMessage, state.suggestion]);
 
   // user gets this function to validate the current field
   // it can be called in a handler, e.g. in onBlur

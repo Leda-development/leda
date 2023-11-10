@@ -3,6 +3,7 @@ import type * as React from 'react';
 import type { CustomRender, SetState } from '../../commonTypes';
 import type { GlobalDefaultTheme } from '../../utils/useTheme';
 import type { COMPONENTS_NAMESPACES } from '../../constants';
+import type { Suggestion } from '../AutoComplete/types';
 
 export interface ValidationProps {
   form?: string,
@@ -36,6 +37,7 @@ export interface NormalizedValidatorObject extends ValidatorObject {
 
 export interface ValidationState {
   value?: any,
+  suggestion?: Suggestion,
 }
 
 // result: isValid, validateField, validateForm
@@ -50,6 +52,7 @@ export interface FormGetField {
   isRequired: boolean,
   isValid: boolean,
   name: string,
+  suggestion?: Suggestion,
   value: any,
 }
 
@@ -63,6 +66,7 @@ export interface Field {
   setIsValid: SetState<boolean>,
   setMessages: SetState<string[] | undefined>,
   shouldValidateUnmounted: boolean,
+  suggestion?: Suggestion,
   validators: NormalizedValidatorObject[],
   value: any,
 }
@@ -110,6 +114,7 @@ export interface AddFieldData {
   isRequired?: boolean,
   requiredMessage?: string,
   reset: () => void,
+  suggestion?: Suggestion,
 }
 
 export interface UpdateFieldData {
@@ -120,6 +125,7 @@ export interface UpdateFieldData {
   isRequired?: boolean,
   requiredMessage?: string,
   shouldValidateUnmounted?: boolean,
+  suggestion?: Suggestion,
   validators: NormalizedValidatorObject[],
 }
 

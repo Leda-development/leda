@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.31.0] - 2023-11-10
+
+### Removed
+- Modal: no more **size** prop
+
+### Added
+- Validation: **suggestion** field to the submit event for the AutoComplete
+
+
 ## [0.30.1] - 2023-10-02
 
 ### Changed

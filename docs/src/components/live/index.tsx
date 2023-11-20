@@ -5,7 +5,7 @@ import {
   LiveProvider, LiveEditor, LiveError, LivePreview,
 } from 'react-live';
 import { themes } from 'prism-react-renderer';
-import { liveFont } from '@/utils/fonts';
+import { liveFont } from '@/fonts';
 
 const liveTheme = themes.vsLight;
 liveTheme.plain.backgroundColor = 'transparent';

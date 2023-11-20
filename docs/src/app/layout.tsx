@@ -3,7 +3,7 @@ import './preflight.css';
 import './globals.css';
 import type { Metadata } from 'next';
 import { BaseLayout } from './BaseLayout';
-import { mainFont } from '@/utils/fonts';
+import { mainFont } from '@/fonts';
 
 export const metadata: Metadata = {
   title: 'Leda',

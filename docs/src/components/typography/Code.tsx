@@ -1,4 +1,4 @@
-import { liveFont } from '@/utils/fonts';
+import { liveFont } from '@/fonts';
 
 export const Code = ({
   children,

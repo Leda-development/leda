@@ -1,5 +1,6 @@
 import * as L from '@leda';
 import { MenuButton } from './MenuButton';
+import { greekFont } from '@/fonts';
 
 export const MainHeader = ({
   isMobile,
@@ -16,12 +17,32 @@ export const MainHeader = ({
   >
     <L.A
       href="/"
-      className="mx-auto inline-block max-w-7xl p-4
-        pt-5 text-xl
-        font-bold"
+      className={`mx-auto
+        inline-block
+        max-w-7xl
+        p-4 pt-5
+        ${greekFont.className}
+      `}
     >
-      <span className="text-3xl">Leda</span>
-      <span className="ml-2 text-xs">0.30.0</span>
+      <span
+        className={`
+          text-3xl
+        `}
+      >
+        <span className="text-pink-500">
+          L
+        </span>
+        <span className="text-teal-500">
+          E
+        </span>
+        <span className="text-yellow-500">
+          D
+        </span>
+        <span className="text-cyan-600">
+          A
+        </span>
+      </span>
+      <span className="ml-2 text-xs">0.31.0</span>
     </L.A>
     <L.A
       href="https://github.com/Apollo-11/leda"

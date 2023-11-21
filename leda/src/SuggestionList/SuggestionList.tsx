@@ -127,6 +127,8 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
       textField,
     });
 
+    const { key, ...rest } = suggestionItemComputedProps;
+
     return (
       <SuggestionItem
         itemRender={itemRender}
@@ -135,7 +137,8 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
         suggestionRef={suggestionRef}
         textField={textField}
         theme={theme}
-        {...suggestionItemComputedProps}
+        key={key}
+        {...rest}
       />
     );
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -200,17 +203,21 @@ export const SuggestionList = (props: SuggestionListProps): React.ReactElement |
           return renderSuggestion(suggestion);
         })}
 
-        {!groupBy && suggestionItems.map((suggestionItem) => (
-          <SuggestionItem
-            itemRender={itemRender}
-            onClick={onClick}
-            suggestionRef={suggestionRef}
-            textField={textField}
-            theme={theme}
-            selectAllItemRender={selectAllItemRender}
-            {...suggestionItem}
-          />
-        ))}
+        {!groupBy && suggestionItems.map((suggestionItem) => {
+          const { key, ...rest } = suggestionItem;
+          return (
+            <SuggestionItem
+              itemRender={itemRender}
+              onClick={onClick}
+              suggestionRef={suggestionRef}
+              textField={textField}
+              theme={theme}
+              selectAllItemRender={selectAllItemRender}
+              key={key}
+              {...rest}
+            />
+          );
+        })}
       </List>
     </Div>
   );

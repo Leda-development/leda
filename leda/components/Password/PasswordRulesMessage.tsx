@@ -18,6 +18,7 @@ export const PasswordRulesMessage = (props: PasswordRulesMessageProps) => {
         return (
           <div
             className={theme?.ruleMessage}
+            key={ruleMessage}
           >
             { ruleMessage }
           </div>

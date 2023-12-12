@@ -99,6 +99,7 @@ const getWeekDays = (firstDayIndex: number, month: number, year: number, message
 export const getMonthDays = (month: number, year: number, messages: DefaultCalendarMessages): number[][] => {
   const monthDays: number[][] = [];
 
+  if (new Date(year, month, 1).getDay() === 0) monthDays.push(getWeekDays(-7, month, year, messages));
   if (new Date(year, month, 1).getDay() === 1) monthDays.push(getWeekDays(-7, month, year, messages));
 
   let i = 0;

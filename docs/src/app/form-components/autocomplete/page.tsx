@@ -92,7 +92,7 @@ const AutoCompletePage = () => (
 ====
 
 interface AutoCompleteMessages {
-  nothingFound: string,
+  nothingFound: React.ReactNode,
 }`
           }
         </TdCode>
@@ -114,11 +114,6 @@ interface AutoCompleteMessages {
         <TdCode>name</TdCode>
         <TdCode>string</TdCode>
         <Td>A component name</Td>
-      </tr>
-      <tr>
-        <TdCode>noSuggestionsText</TdCode>
-        <TdCode>React.ReactNode</TdCode>
-        <Td>Text shown if nothing is found among suggestions</Td>
       </tr>
       <tr>
         <TdCode>onBlur</TdCode>

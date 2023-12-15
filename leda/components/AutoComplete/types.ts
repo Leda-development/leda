@@ -102,7 +102,7 @@ export interface BlurEvent extends React.FocusEvent<HTMLInputElement> {
 }
 
 export interface AutoCompleteMessages {
-  nothingFound?: string,
+  nothingFound?: React.ReactNode,
 }
 
 export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends ValidationProps {

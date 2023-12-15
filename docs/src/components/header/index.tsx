@@ -42,10 +42,10 @@ export const MainHeader = ({
           A
         </span>
       </span>
-      <span className="ml-2 text-xs">0.31.0</span>
+      <span className="ml-2 text-xs">0.31.2</span>
     </L.A>
     <L.A
-      href="https://github.com/Apollo-11/leda"
+      href="https://github.com/leda-development/leda"
       target="_blank"
       className="absolute
         right-20

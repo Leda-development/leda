@@ -97,7 +97,10 @@
   --ld-collapse-border-radius: var(--ld-border-radius);
   --ld-collapse-border-color: var(--ld-base-color);
   --ld-collapse-border: 1px solid var(--ld-base-color);
-  --ld-collapse-padding: 10px;
+  --ld-collapse-summary-padding-inline: 1rem;
+  --ld-collapse-summary-padding-block: .5rem;
+  --ld-collapse-content-padding-inline: 1rem;
+  --ld-collapse-content-padding-block: 1rem;
   --ld-collapse-border-color-hover: var(--ld-base-color-hover);
   --ld-collapse-bg-color-disabled: var(--ld-bg-color-disabled);
   --ld-collapse-icon-trabsition: transform 0.2s linear;

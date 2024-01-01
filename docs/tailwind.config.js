@@ -20,5 +20,6 @@ module.exports = {
     { pattern: /m\w-\d+/ },
     { pattern: /p\w-\d+/ },
     { pattern: /flex-?\w*/ },
+    { pattern: /text-green-\d+/ },
   ],
 };

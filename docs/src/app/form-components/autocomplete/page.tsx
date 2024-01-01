@@ -10,7 +10,7 @@ import { Live } from '@/components/live';
 import { CustomizationPropsTableSection, PropsTableSection, ValidationSection } from '@/sections';
 import { UnderscoreClasses } from '@/components/commonProps';
 import { PATHS } from '@/constants';
-import { MainDemo } from './MainDemo.tsx';
+import { MainDemo } from './MainDemo';
 
 const AutoCompletePage = () => (
   <article>

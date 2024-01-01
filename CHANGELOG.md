@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.32.0] - 2024-01-01
+
+Happy new year!
+
+### Removed
+- Collapsible: component has been removed
+- AutoComplete: **noSuggestionsText** prop has been removed as the functionality is already implemented in **messages** feature
+
+### Changed
+- Collapse: new HTML based implementation
+
+
 ## [0.31.2] - 2023-12-14
 
 ### Fixed

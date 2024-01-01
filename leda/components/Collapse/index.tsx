@@ -8,7 +8,6 @@ import { IconTypes } from '../..';
 
 export const Collapse = React.forwardRef((props: CollapseProps, ref?: React.Ref<HTMLDetailsElement>): React.ReactElement | null => {
   const {
-    accordionId,
     children,
     className,
     isOpen,
@@ -16,6 +15,7 @@ export const Collapse = React.forwardRef((props: CollapseProps, ref?: React.Ref<
     shouldRender,
     summary,
     theme: themeProp,
+    ...restProps
   } = useProps(props);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.collapse);
@@ -29,15 +29,14 @@ export const Collapse = React.forwardRef((props: CollapseProps, ref?: React.Ref<
 
   return (
     <details
-      className={detailsClassName}
-      // @ts-expect-error name attribute in not present in the details types
-      name={accordionId}
       open={isOpen}
       onToggle={(ev: React.SyntheticEvent<HTMLDetailsElement, Event & { newState: 'open' | 'closed' }>) => {
         const isDetailsOpen = ev.nativeEvent.newState === 'open';
         onToggle?.({ isOpen: isDetailsOpen });
       }}
+      {...restProps}
       ref={ref}
+      className={detailsClassName}
     >
       <summary className={theme.summary}>
         {summary}

@@ -11,15 +11,13 @@ export const FILE_SIZE_UNITS = {
 };
 
 export const COMPONENTS_NAMESPACES = {
+  accordion: 'accordion',
   autoComplete: 'autoComplete',
   button: 'button',
   buttonGroup: 'buttonGroup',
   calendar: 'calendar',
   checkBox: 'checkBox',
   collapse: 'collapse',
-  collapseBody: 'collapseBody',
-  collapseHeading: 'collapseHeading',
-  collapsePanel: 'collapsePanel',
   dateTimeInput: 'dateTimeInput',
   dateTimeInputRange: 'dateTimeInputRange',
   dropDownSelect: 'dropDownSelect',

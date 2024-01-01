@@ -25,7 +25,6 @@ import { ButtonGroup } from './components/ButtonGroup';
 import { Calendar } from './components/Calendar';
 import { CheckBox } from './components/CheckBox';
 import { Collapse } from './components/Collapse';
-import { Collapsible } from './components/Collapsible';
 import { DatePicker } from './components/DatePicker';
 import { DateRange } from './components/DateRange';
 import { DateTimePicker } from './components/DateTimePicker';
@@ -176,7 +175,6 @@ export {
   Calendar,
   CheckBox,
   Collapse,
-  Collapsible,
   DatePicker,
   DateRange,
   DateTimePicker,

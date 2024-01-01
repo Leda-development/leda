@@ -62,7 +62,6 @@ export const MainNav = () => (
     </div>
     <ul>
       <NavLi to="/layout-components/collapse">Collapse</NavLi>
-      <NavLi to="/layout-components/collapsible">Collapsible</NavLi>
       <NavLi to="/layout-components/icon">Icon</NavLi>
       <NavLi to="/layout-components/loader">Loader</NavLi>
       <NavLi to="/layout-components/modal">Modal</NavLi>

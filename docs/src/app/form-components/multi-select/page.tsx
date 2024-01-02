@@ -5,11 +5,13 @@
 import * as L from '@leda';
 import { ShouldRender, UnderscoreClasses } from '@/components/commonProps';
 import {
-  A, CodeBlock, H1, P, Td,
+  A, CodeBlock, H1, P, Td, TdCode,
 } from '@/components/typography';
 import { Live } from '@/components/live';
 import { CustomizationPropsTableSection, PropsTableSection, ValidationSection } from '@/sections';
 import { Demos } from './Demos';
+import { PATHS } from '@/constants';
+import { MainDemo } from './MainDemo';
 
 const MultiSelectPage = () => (
   <article>
@@ -127,9 +129,26 @@ const MultiSelectPage = () => (
         </Td>
       </tr>
       <tr>
-        <Td>noSuggestionsText</Td>
-        <Td>React.ReactNode</Td>
-        <Td>Text shown if nothing is found among suggestions</Td>
+        <Td>messages</Td>
+        <TdCode>
+          {
+`MultiSelectMessages
+
+====
+
+interface MultiSelectMessages {
+  nothingFound: React.ReactNode,
+}`
+          }
+        </TdCode>
+        <Td>
+          <P>
+            Customize component text labels
+          </P>
+          <P>
+            Consider using <A href={PATHS.ledaProvider}>Leda provider</A> to set messages globally.
+          </P>
+        </Td>
       </tr>
       <tr>
         <Td>onBlur</Td>
@@ -190,7 +209,7 @@ const MultiSelectPage = () => (
       <UnderscoreClasses />
     </PropsTableSection>
 
-    <Demos />
+    <MainDemo />
 
     <ValidationSection
       form

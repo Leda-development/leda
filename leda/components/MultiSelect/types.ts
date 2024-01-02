@@ -79,6 +79,10 @@ export interface FocusEvent<T = Value> extends React.FocusEvent<HTMLInputElement
 
 export type ChangeEvent<T = Value> = MouseSelectEvent<T> | EnterSelectEvent<T> | ClearEvent<T> | ResetEvent<T>;
 
+export interface MultiSelectMessages {
+  nothingFound?: React.ReactNode,
+}
+
 export interface MultiSelectProps<T extends MultiSelectValue | null | undefined = MultiSelectValue | null | undefined> extends ValidationProps {
   /** Browser autofill, off is the default value. Works as HTML autoComplete attribute */
   autoComplete?: string,
@@ -116,8 +120,8 @@ export interface MultiSelectProps<T extends MultiSelectValue | null | undefined 
   maxSelected?: number,
   /** Max number of elements shown separately as tags. After exceeding this number the elements will be grouped as "n values selected" */
   maxTags?: number,
-  /** This will be shown when no suggestions are found */
-  noSuggestionsText?: React.ReactNode,
+  /** Customize component texts */
+  messages?: MultiSelectMessages,
   /** No suggestions test customizator */
   noSuggestionsRender?: CustomRender<SuggestionListProps, Record<string, never>, NoSuggestionsProps>,
   /** Blur handler */

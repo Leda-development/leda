@@ -1,7 +1,7 @@
 :root {
-  // base variables
-  // base variables must not be used in CSS classes directly
-  // use base variables in component variables only
+  /* base variables
+  base variables must not be used in CSS classes directly
+  use base variables in component variables only */
   --ld-border-radius: 4px;
   --ld-font-size: .875rem;
   --ld-line-height: 1.5rem;
@@ -9,34 +9,34 @@
   --ld-padding-block: .4rem;
   --ld-padding-inline: 1rem;
 
-  --ld-color-danger: #dc2626; // tailwind red 600
-  --ld-color-success: #15803d; // tailwind green 700
+  --ld-color-danger: #dc2626;  /* tailwind red 600 */
+  --ld-color-success: #15803d; /* tailwind green 700 */
 
-  --ld-font-color: #09090b; // tailwind neutral 950
-  --ld-font-color-hihglight: #7f1d1d; // tailwind neutral 950
+  --ld-font-color: #09090b; /* tailwind neutral 950 */
+  --ld-font-color-hihglight: #7f1d1d; /* tailwind neutral 950 */
   
-  // borders and clickable elements
-  --ld-base-color: #a3a3a3; // tailwind neutral 400
-  --ld-base-color-hover: #09090b; // tailwind neutral 950
-  --ld-base-color-disabled: #a3a3a3; // tailwind neutral 400
+  /* borders and clickable elements */
+  --ld-base-color: #a3a3a3; /* tailwind neutral 400 */
+  --ld-base-color-hover: #09090b; /* tailwind neutral 950 */
+  --ld-base-color-disabled: #a3a3a3; /* tailwind neutral 400 */
 
-  // component elements backgrounds
+  /* component elements backgrounds */
   --ld-bg-color: white;
-  --ld-bg-color-hover: #e5e5e5; // tailwind neutral 200
-  --ld-bg-color-selected: #a3a3a3; // tailwind neutral 400
-  --ld-bg-color-active: #f5f5f5; // tailwind neutral 100
-  --ld-bg-color-disabled: #e5e5e5; // tailwind neutral 200
+  --ld-bg-color-hover: #e5e5e5; /* tailwind neutral 200 */
+  --ld-bg-color-selected: #a3a3a3; /* tailwind neutral 400 */
+  --ld-bg-color-active: #f5f5f5; /* tailwind neutral 100 */
+  --ld-bg-color-disabled: #e5e5e5; /* tailwind neutral 200 */
 
-  // inverted font color elemets (buttons, tooltips etc.)
+  /* inverted font color elemets (buttons, tooltips etc.) */
   --ld-font-inverted-color: white;  
-  --ld-bg-inverted-color: #737373; // tailwind neutral 500  
-  --ld-bg-inverted-color-hover: #a3a3a3; // tailwind neutral 400
-  --ld-bg-inverted-color-selected: #525252; // tailwind neutral 600
-  --ld-bg-inverted-color-disabled: #d4d4d4; // tailwind neutral 300
+  --ld-bg-inverted-color: #737373; /* tailwind neutral 500 */
+  --ld-bg-inverted-color-hover: #a3a3a3; /* tailwind neutral 400 */
+  --ld-bg-inverted-color-selected: #525252; /* tailwind neutral 600 */
+  --ld-bg-inverted-color-disabled: #d4d4d4; /* tailwind neutral 300 */
 
 
-  // component variables
-  // do not use component variables in other component variables
+  /* component variables
+  do not use component variables in other component variables */
   --ld-btn-font-size: var(--ld-font-size);
   --ld-btn-font-weight: var(--ld-font-weight);
   --ld-btn-border-radius: var(--ld-border-radius);

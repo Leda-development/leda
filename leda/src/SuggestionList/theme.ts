@@ -5,9 +5,9 @@ export const defaultSuggestionListTheme = {
   group: 'ld-suggestion-group',
   groupLabel: 'ld-suggestion-group-label',
   item: 'ld-suggestion-item',
-  itemHighlighted: 'ld-highlighted',
+  itemHighlighted: 'ld-suggestion-highlighted',
   itemPlaceholder: 'ld-placeholder',
-  itemSelected: 'ld-selected',
+  itemSelected: 'ld-suggestion-selected',
   list: 'ld-suggestion-list',
   noSuggestions: 'ld-nodata',
 };

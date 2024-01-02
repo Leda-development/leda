@@ -1,0 +1,8 @@
+.ld-autocomplete-wrapper {
+  display: flex;
+  position: relative;
+
+  .ld-input-element-wrapper {
+    width: 100%;
+  }
+}

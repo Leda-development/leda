@@ -9,7 +9,6 @@ import {
 } from '@/components/typography';
 import { Live } from '@/components/live';
 import { CustomizationPropsTableSection, PropsTableSection, ValidationSection } from '@/sections';
-import { Demos } from './Demos';
 import { PATHS } from '@/constants';
 import { MainDemo } from './MainDemo';
 

@@ -30,6 +30,7 @@ import {
 import { createCheckBoxesRender } from './renders';
 import { selectAllSuggestion, SelectedState } from './constants';
 import { Icon, IconTypes } from '../..';
+import { useMessages } from '../../utils/useMessages';
 
 export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React.Ref<HTMLElement>): React.ReactElement => {
   const {
@@ -56,8 +57,8 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
     listRender,
     maxSelected,
     maxTags,
+    messages,
     name,
-    noSuggestionsText,
     noSuggestionsRender,
     onBlur,
     onChange,
@@ -95,6 +96,11 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
   const value = getValue(valueProp, valueState);
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.multiSelect);
+
+  const msg = useMessages({
+    fieldName: COMPONENTS_NAMESPACES.multiSelect,
+    messages,
+  });
 
   const {
     validateCurrent, isValid, InvalidMessage,
@@ -315,7 +321,7 @@ export const MultiSelect = React.forwardRef((props: MultiSelectProps, ref: React
           isOpen={isNil(isOpen) ? isFocused : isOpen}
           itemRender={hasCheckBoxes ? checkBoxesRender : itemRender}
           listRender={listRender}
-          noSuggestionsText={noSuggestionsText}
+          noSuggestionsText={msg.nothingFound}
           noSuggestionsRender={noSuggestionsRender}
           onClick={handleSelect}
           selectAllItemRender={selectAllItemRender}

@@ -6,14 +6,6 @@ const Home = () => (
   <article>
     <H1>Leda the React components library</H1>
     <P>
-      Leda is suitable for both rapid prototipying and production development.
-    </P>
-    <P>
-      You can customize components incrementally or all at once or not at all, to the extent you want.
-      <br />
-      CSS, HTML or behaviour.
-    </P>
-    <P>
       Super simple and powerful forms. Versatile validation.
     </P>
     <P>

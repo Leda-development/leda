@@ -1,4 +1,4 @@
-// helpers for components with input fields
+/* helpers for components with input fields */
 
 .ld-danger {
   border-color: var(--ld-color-danger);
@@ -6,13 +6,6 @@
     border-color: var(--ld-color-danger);
   }
 }
-
-// .ld-required {
-//   border-color: var(--ld-color-danger);
-//   &:hover {
-//     border-color: var(--ld-color-danger);
-//   }
-// }
 
 .ld-disabled {
   cursor: not-allowed;
@@ -22,7 +15,7 @@
     border-color: var(--ld-input-border-color);
   }
 
-  &.ld-required {
+  .ld-required {
     border-color: var(--ld-input-border-color);
   }
 

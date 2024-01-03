@@ -1,0 +1,13 @@
+.ld-numeric-range-wrapper {
+  align-items: center;
+  display: flex;
+  
+  & > .ld-numeric-wrapper {
+    flex-grow: 1;
+  }
+}
+
+.ld-numeric-range-delimiter {
+  text-align: center;
+  width: var(--ld-numeric-range-delimeter-width);
+}

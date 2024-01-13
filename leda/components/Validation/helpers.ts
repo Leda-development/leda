@@ -74,7 +74,11 @@ export const validate = (formName: string | undefined, fieldName?: string, exter
   const isFilled = checkIsFilled(value);
 
   // do not check validators if the field is mandatory and not filled in
-  if (currentField.isRequired && !isFilled) {
+  if (
+    (currentField.isRequired && !isFilled)
+    // checkboxes
+    || (currentField.isRequired && (value === false))
+  ) {
     isValid = false;
 
     if (currentField.requiredMessage) invalidMessages.push(currentField.requiredMessage);

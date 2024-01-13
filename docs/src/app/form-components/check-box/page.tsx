@@ -9,7 +9,8 @@ import {
   H1, H2, P, Section, Td,
 } from '@/components/typography';
 import { Live } from '@/components/live';
-import { PropsTableSection } from '@/sections';
+import { PropsTableSection, ValidationSection } from '@/sections';
+import { log } from '@/utils';
 
 const CheckBoxPage = () => {
   const [selected, setSelected] = useState<string | number>(0);
@@ -249,20 +250,79 @@ const CheckBoxPage = () => {
           </L.Tab>
         </L.Tabs>
       </Section>
-      {/* <Section>
-        <H2>Validation props</H2>
-        <FormPropsTable
-          form
-          name
-          isValid
-          isRequired
-          invalidMessage
-          invalidMessageRender
-          requiredMessage
-          shouldValidateUnmounted
-          validator
-        />
-      </Section> */}
+
+      <ValidationSection
+        form
+        isValid
+        isRequired
+        invalidMessage
+        name
+        requiredMessage
+        shouldValidateUnmounted
+        validator
+      />
+
+      <Section>
+        <H2>Examples</H2>
+
+        <L.Tabs>
+          <L.Tab title="Form" tabKey={0}>
+            <Live scope={{ L, log }}>
+              {
+`() => {
+
+  return (
+    <>
+      <L.CheckBox
+        form='demoCheckBoxForm'
+        name='checkbox'
+        _mb-2
+      >
+        click me
+      </L.CheckBox>
+
+      <L.Button
+        form='demoCheckBoxForm'
+        onClick={({ form }) => log(form)}
+      >
+        Submit
+      </L.Button>
+    </>
+  );
+}`
+              }
+            </Live>
+          </L.Tab>
+          <L.Tab title="Required" tabKey={1}>
+            <Live scope={{ L, log }}>
+              {
+`() => {
+
+  return (
+    <>
+      <L.CheckBox
+        form='demoCheckBoxForm'
+        name='checkbox'
+        isRequired
+        _mb-2
+      >
+        click me
+      </L.CheckBox>
+
+      <L.Button
+        form='demoCheckBoxForm'
+        onClick={({ form }) => log(form)}
+      >
+        Submit
+      </L.Button>
+    </>
+  );
+}`
+              }
+            </Live>
+          </L.Tab>
+        </L.Tabs>
+      </Section>
     </article>
   );
 };

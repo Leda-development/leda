@@ -5,5 +5,7 @@ export const defaultCheckBoxTheme = {
   icon:                     'ld-checkbox-icon',
   iconChecked:              'ld-checked',
   iconUnchecked:            'ld-unchecked',
+  invalid:                  'ld-checkbox-invalid',
+  required:                 'ld-checkbox-required',
 };
 /* eslint-enable key-spacing */

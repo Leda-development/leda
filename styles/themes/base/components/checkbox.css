@@ -22,3 +22,7 @@
   height: var(--ld-checkbox-size);
   margin-inline-end: var(--ld-checkbox-margin-inline-end);
 }
+
+.ld-checkbox-invalid {
+  color: var(--ld-color-danger);
+}

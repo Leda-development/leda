@@ -89,8 +89,6 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
     >
       <Input
         {...restProps}
-        aria-invalid={!isValid}
-        aria-required={isRequired}
         id={checkBoxId}
         onChange={handleChange}
         type="checkbox"

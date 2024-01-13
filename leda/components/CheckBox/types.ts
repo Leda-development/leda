@@ -3,6 +3,7 @@ import type { CustomRender } from '../../commonTypes';
 import type { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import type { COMPONENTS_NAMESPACES } from '../../constants';
 import type { IconTypes } from '../..';
+import type { ValidationProps } from '../Validation/types';
 
 export interface ChangeEvent extends React.ChangeEvent<HTMLInputElement> {
   component: {
@@ -11,7 +12,7 @@ export interface ChangeEvent extends React.ChangeEvent<HTMLInputElement> {
   },
 }
 
-export interface CheckBoxProps {
+export interface CheckBoxProps extends ValidationProps {
   /** Checkbox icon, is independent from value,  */
   checkboxIcon?: IconTypes.Icons | false | null,
   /** All you wrap into CheckBox goes to the label */

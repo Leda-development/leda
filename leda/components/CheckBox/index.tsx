@@ -10,6 +10,7 @@ import { LedaContext } from '../LedaProvider';
 import {
   Div, Icon, IconTypes, Label,
 } from '../../index';
+import { useValidation } from '../Validation';
 
 export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {
@@ -17,9 +18,11 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
     children,
     className,
     defaultValue = false,
+    form,
     id,
     inputRender,
     isDisabled,
+    isRequired,
     labelRender,
     name,
     onChange,
@@ -34,6 +37,12 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
   const [value, setUncontrolledValue] = useValue(valueProp, defaultValue);
 
   const { renders: { [COMPONENTS_NAMESPACES.checkBox]: checkBoxRenders } } = React.useContext(LedaContext);
+
+  const { isValid, InvalidMessage, validateCurrent } = useValidation(props, {
+    value,
+  }, {
+    reset: () => null,
+  });
 
   const Wrapper = useElement(
     'Wrapper',
@@ -58,11 +67,19 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
 
   const checkBoxId = id || `checkbox-${generateId()}`;
 
-  const handleChange = createChangeHandler(props, setUncontrolledValue);
+  const handleChange = createChangeHandler(props, setUncontrolledValue, validateCurrent);
 
-  const classNames = classnames(
+  const iconClassNames = classnames(
     theme.icon,
     value ? theme.iconChecked : theme.iconUnchecked,
+  );
+
+  const labelClassNames = classnames(
+    theme.label,
+    {
+      [theme.required]: isRequired,
+      [theme.invalid]: !isValid,
+    },
   );
 
   return (
@@ -82,7 +99,7 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
       />
       <LabelElement
         htmlFor={checkBoxId}
-        className={theme.label}
+        className={labelClassNames}
       >
         <Icon
           icon={(() => {
@@ -91,10 +108,13 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
               ? IconTypes.Icons.CheckSquare
               : IconTypes.Icons.Square;
           })()}
-          className={classNames}
+          className={iconClassNames}
         />
         {children}
       </LabelElement>
+      {!isDisabled && (
+        <InvalidMessage />
+      )}
     </Wrapper>
   );
 }) as React.FC<CheckBoxProps>;

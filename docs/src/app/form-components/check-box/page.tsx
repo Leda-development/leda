@@ -306,7 +306,7 @@ const CheckBoxPage = () => {
         isRequired
         _mb-2
       >
-        click me
+        I agree
       </L.CheckBox>
 
       <L.Button

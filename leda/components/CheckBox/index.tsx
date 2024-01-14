@@ -4,7 +4,7 @@ import {
   useTheme, useElement, generateId, useValue, useProps,
 } from '../../utils';
 import { COMPONENTS_NAMESPACES } from '../../constants';
-import { createChangeHandler } from './handlers';
+import { createChangeHandler, createResetHandler } from './handlers';
 import type { CheckBoxProps } from './types';
 import { LedaContext } from '../LedaProvider';
 import {
@@ -41,7 +41,7 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
   const { isValid, InvalidMessage, validateCurrent } = useValidation(props, {
     value,
   }, {
-    reset: () => null,
+    reset: createResetHandler(props, setUncontrolledValue),
   });
 
   const Wrapper = useElement(

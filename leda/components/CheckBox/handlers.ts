@@ -1,5 +1,5 @@
 import type * as React from 'react';
-import { isFunction } from 'lodash';
+import { isFunction, isNil } from 'lodash';
 import type { SetState } from '../../commonTypes';
 import type { CheckBoxProps } from './types';
 
@@ -25,4 +25,23 @@ export const createChangeHandler = (
   };
 
   onChange(customEvent);
+};
+
+export const createResetHandler = (
+  props: CheckBoxProps,
+  setValue: SetState<boolean>,
+) => () => {
+  const newValue = (() => {
+    if (!isNil(props.defaultValue)) return props.defaultValue;
+    return false;
+  })();
+
+  setValue(newValue);
+
+  props.onChange?.({
+    component: {
+      name: props.name,
+      value: newValue,
+    },
+  });
 };

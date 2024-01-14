@@ -160,6 +160,16 @@ interface ExternalValidator {
         _mb-4
       />
 
+      <L.CheckBox
+        form='test-form-1'
+        name='test-check-box'
+        defaultValue={true}
+        _w-48
+        _mb-4
+      >
+        CheckBox
+      </L.CheckBox>
+
       <L.Button
         form='test-form-1'
         onClick={({ form }) => console.log(form)}
@@ -185,7 +195,21 @@ interface ExternalValidator {
         onClick={() => console.log(L.form('test-form-1', 'test-form-input-1').reset())}
         _ml-4
       >
-        reset
+        reset input
+      </L.Button>
+
+      <L.Button
+        onClick={() => console.log(L.form('test-form-1', 'test-check-box').reset())}
+        _ml-4
+      >
+        reset check box
+      </L.Button>
+
+      <L.Button
+        onClick={() => console.log(L.form('test-form-1').reset())}
+        _ml-4
+      >
+        reset form
       </L.Button>
 
       <L.Button

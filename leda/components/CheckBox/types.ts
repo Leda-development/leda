@@ -5,12 +5,22 @@ import type { COMPONENTS_NAMESPACES } from '../../constants';
 import type { IconTypes } from '../..';
 import type { ValidationProps } from '../Validation/types';
 
-export interface ChangeEvent extends React.ChangeEvent<HTMLInputElement> {
+export interface CheckBoxChangeEvent extends React.ChangeEvent<HTMLInputElement> {
   component: {
     value: boolean,
     name?: string,
   },
 }
+
+export interface ResetEvent {
+  currentTarget?: undefined,
+  component: {
+    value: boolean,
+    name?: string,
+  },
+}
+
+export type ChangeEvent = CheckBoxChangeEvent | ResetEvent;
 
 export interface CheckBoxProps extends ValidationProps {
   /** Checkbox icon, is independent from value,  */

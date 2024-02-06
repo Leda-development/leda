@@ -21,15 +21,15 @@
 .ld-button-group-item {
   border-radius: 0;
 
-  .ld-button-first {
+  &.ld-button-first {
     border-radius: var(--ld-btn-border-radius) 0 0 var(--ld-btn-border-radius);
   }
 
-  .ld-button-last {
+  &.ld-button-last {
     border-radius: 0 var(--ld-btn-border-radius) var(--ld-btn-border-radius) 0;
   }
 
-  .ld-button-active {
+  &.ld-button-active {
     background-color: var(--ld-btn-group-active-color);
     border-color: var(--ld-btn-group-active-color);
   }

@@ -20,13 +20,16 @@
 
 .ld-button-group-item {
   border-radius: 0;
+  border-inline-width: var(--ld-btn-group-border-inline-width);
 
   &.ld-button-first {
     border-radius: var(--ld-btn-border-radius) 0 0 var(--ld-btn-border-radius);
+    border-inline-start-width: var(--ld-btn-group-border-width);
   }
 
   &.ld-button-last {
     border-radius: 0 var(--ld-btn-border-radius) var(--ld-btn-border-radius) 0;
+    border-inline-end-width: var(--ld-btn-group-border-width);
   }
 
   &.ld-button-active {

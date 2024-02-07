@@ -56,6 +56,8 @@
 
   --ld-btn-group-active-color: var(--ld-bg-inverted-color-selected);
   --ld-btn-group-active-text-color: var(--ld-font-inverted-color);
+  --ld-btn-group-border-width: 2px;
+  --ld-btn-group-border-inline-width: 1px;
 
   --ld-calendar-width: 290px;
   --ld-calendar-bg: var(--ld-bg-color);

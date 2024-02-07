@@ -104,15 +104,23 @@ const RadioPage = () => (
 
     <Live scope={{ L }}>
       {
-          `
-<L.RadioGroup
-  onChange={({ component }) => console.log(component.value)}
->
-  <L.RadioButton>One</L.RadioButton>
-  <L.RadioButton>Two</L.RadioButton>
-  <L.RadioButton>Three</L.RadioButton>
-</L.RadioGroup>
-  `
+`() => {
+  const [value, setValue] = React.useState(1);
+
+  return (
+    <L.RadioGroup
+      onChange={({ component }) => {
+        console.log(component.value)
+        setValue(component.value)
+      }}
+      value={value}
+    >
+      <L.RadioButton value={1}>One</L.RadioButton>
+      <L.RadioButton value={2}>Two</L.RadioButton>
+      <L.RadioButton value={3}>Three</L.RadioButton>
+    </L.RadioGroup>
+  )
+}`
         }
     </Live>
 

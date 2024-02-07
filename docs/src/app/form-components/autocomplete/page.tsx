@@ -151,6 +151,11 @@ interface AutoCompleteMessages {
         <Td>Show all <b>data</b> elements regardless of what is in the input field</Td>
       </tr>
       <tr>
+        <TdCode>shouldShowEmptySuggestionsList</TdCode>
+        <TdCode>boolean</TdCode>
+        <Td>False is default, pass true to enable Nothing found message</Td>
+      </tr>
+      <tr>
         <TdCode>searchFields</TdCode>
         <TdCode>string[]</TdCode>
         <Td>

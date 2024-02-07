@@ -152,6 +152,8 @@ export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends Va
   shouldCorrectValue?: boolean,
   /** Show all data elements regardless of what is in the input field */
   shouldShowAllSuggestions?: boolean,
+  /** false is default, pass true to enable Nothing found message */
+  shouldShowEmptySuggestionsList?: boolean,
   /** DataObject fields to search */
   searchFields?: string[],
   /** Suggestions sorting */

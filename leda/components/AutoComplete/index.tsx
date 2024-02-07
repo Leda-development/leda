@@ -70,6 +70,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     searchFields,
     shouldCorrectValue,
     shouldShowAllSuggestions,
+    shouldShowEmptySuggestionsList = false,
     shouldValidateUnmounted,
     sortSuggestions,
     textField,
@@ -234,25 +235,28 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
           />
         )}
       </Div>
-      <SuggestionList
-        compareObjectsBy={compareObjectsBy}
-        data={suggestionListData}
-        groupBy={groupBy}
-        highlightedSuggestion={highlightedSuggestion}
-        isLoading={isLoading}
-        isOpen={isSuggestionsListOpen}
-        itemRender={itemRender}
-        listRender={listRender}
-        noSuggestionsText={msg.nothingFound}
-        noSuggestionsRender={noSuggestionsRender}
-        onClick={suggestionClickHandler}
-        placeholder={placeholder}
-        selectedSuggestion={selectedSuggestion}
-        shouldAllowEmpty={false}
-        textField={textField}
-        theme={theme}
-        value={suggestionListValue}
-      />
+      {(suggestionListData.length > 0 || shouldShowEmptySuggestionsList) && (
+        <SuggestionList
+          compareObjectsBy={compareObjectsBy}
+          data={suggestionListData}
+          groupBy={groupBy}
+          highlightedSuggestion={highlightedSuggestion}
+          isLoading={isLoading}
+          isOpen={isSuggestionsListOpen}
+          itemRender={itemRender}
+          listRender={listRender}
+          noSuggestionsText={msg.nothingFound}
+          noSuggestionsRender={noSuggestionsRender}
+          onClick={suggestionClickHandler}
+          placeholder={placeholder}
+          selectedSuggestion={selectedSuggestion}
+          shouldAllowEmpty={false}
+          textField={textField}
+          theme={theme}
+          value={suggestionListValue}
+        />
+      )}
+      
       {!isDisabled && !isLoading && !isSuggestionsListOpen && !isFocused && (
         <InvalidMessage />
       )}

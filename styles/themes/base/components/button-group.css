@@ -32,5 +32,6 @@
   &.ld-button-active {
     background-color: var(--ld-btn-group-active-color);
     border-color: var(--ld-btn-group-active-color);
+    color: var(--ld-btn-group-active-text-color);
   }
 }

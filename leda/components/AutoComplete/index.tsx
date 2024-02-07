@@ -70,7 +70,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     searchFields,
     shouldCorrectValue,
     shouldShowAllSuggestions,
-    shouldShowEmptySuggestionsList = false,
+    shouldShowEmptySuggestionsList ,
     shouldValidateUnmounted,
     sortSuggestions,
     textField,

@@ -70,7 +70,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     searchFields,
     shouldCorrectValue,
     shouldShowAllSuggestions,
-    shouldShowEmptySuggestionsList ,
+    shouldShowNothingFound ,
     shouldValidateUnmounted,
     sortSuggestions,
     textField,
@@ -235,7 +235,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
           />
         )}
       </Div>
-      {(suggestionListData.length > 0 || shouldShowEmptySuggestionsList) && (
+      {(suggestionListData.length > 0 || shouldShowNothingFound) && (
         <SuggestionList
           compareObjectsBy={compareObjectsBy}
           data={suggestionListData}

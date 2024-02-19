@@ -38,6 +38,8 @@
   z-index: 1;
   border: var(--ld-drop-down-suggestion-container-border-width) solid var(--ld-drop-down-suggestion-container-border-color);
   border-radius: var(--ld-drop-down-suggestion-container-border-radius);
+  margin-top: var(--ld-drop-down-suggestion-container-margin-top);
+  box-shadow: var(--ld-drop-down-suggestion-container-box-shadow);
 }
 
 .ld-pos-top {
@@ -50,4 +52,5 @@
   justify-content: center;
   align-items: center;
   min-block-size: var(--ld-drop-down-suggestion-container-min-block-size);
+  color: var(--ld-drop-down-no-data-color);
 }

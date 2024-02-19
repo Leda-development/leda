@@ -10,8 +10,9 @@ export const MessagesDemo = () => (
 () => {
   return (
     <L.AutoComplete
+      shouldShowNothingFound
       messages={{
-        nothingFound: <span className='text-red-500'>No suggestions</span> 
+        nothingFound: <span className='font-bold'>No suggestions</span> 
       }}
       data={['Argentina', 'Spain']}
       onChange={({ component }) => console.log(component.value)}

@@ -30,6 +30,8 @@ export const SubmitEventDemo = () => (
         setValue(component.value);
       }}
       value={value}
+      minSearchLength={0}
+      hasClearButton
       _w-48
       _mb-4
     />
@@ -54,7 +56,8 @@ export const SubmitEventDemo = () => (
     <L.Button
       onClick={() => {
         const data = L.form(formName).get(componentName)
-        console.log(data[0])
+        console.log('value', data[0].value)
+        console.log('suggestion', data[0].suggestion)
       }}
     >
       Get values using form API

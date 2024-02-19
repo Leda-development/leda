@@ -123,7 +123,8 @@
   --ld-drop-down-suggestion-container-border-width: 1px; 
   --ld-drop-down-suggestion-container-border-color: var(--ld-bg-color);
   --ld-drop-down-suggestion-container-border-radius: var(--ld-border-radius);
-  --ld-drop-down-suggestion-container-min-block-size: 200px;
+  --ld-drop-down-suggestion-container-max-block-size: 200px;
+  --ld-drop-down-suggestion-container-nodata-block-size: 80px;
   --ld-drop-down-suggestion-container-box-shadow: 0px 3px 10px var(--ld-base-color);
   --ld-drop-down-suggestion-container-margin-top: 3px;
   --ld-drop-down-no-data-color: var(--ld-base-color);

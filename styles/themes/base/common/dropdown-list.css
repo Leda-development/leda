@@ -25,7 +25,7 @@
 }
 
 .ld-suggestion-list {
-  max-block-size: var(--ld-drop-down-suggestion-container-min-block-size);
+  max-block-size: var(--ld-drop-down-suggestion-container-max-block-size);
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -51,6 +51,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-block-size: var(--ld-drop-down-suggestion-container-min-block-size);
+  min-block-size: var(--ld-drop-down-suggestion-container-nodata-block-size);
   color: var(--ld-drop-down-no-data-color);
 }

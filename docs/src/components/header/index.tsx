@@ -42,7 +42,7 @@ export const MainHeader = ({
           A
         </span>
       </span>
-      <span className="ml-2 text-xs">1.3.1</span>
+      <span className="ml-2 text-xs">1.3.2</span>
     </L.A>
     <L.A
       href="https://github.com/leda-development/leda"

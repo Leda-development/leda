@@ -149,7 +149,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     data, textField, name, onChange, isValueControlled, setHighlightedSuggestion, setSelectedSuggestion, setStateValue, setIsFocused,
   });
   const clearButtonClickHandler = clearButtonClickHandlerCreator({
-    name, onChange, isValueControlled, setStateValue, isDisabled,
+    name, onChange, isValueControlled, setStateValue, isDisabled, setSelectedSuggestion,
   });
   const inputFocusHandler = inputFocusHandlerCreator({
     onFocus, setIsFocused,

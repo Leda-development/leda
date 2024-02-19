@@ -26,16 +26,20 @@ export const clearButtonClickHandlerCreator = ({
   name,
   onChange,
   setStateValue,
+  setSelectedSuggestion,
 }: {
   isDisabled?: boolean,
   isValueControlled: boolean,
   name?: string,
   onChange: (event: ChangeEvent) => void,
   setStateValue: SetState<string>,
+  setSelectedSuggestion: SetState<Suggestion>,
 }): React.MouseEventHandler<SVGElement> => (event) => {
   if (isDisabled) return;
   // todo check it is needed
   // setIsFocused(true);
+
+  setSelectedSuggestion(null)
 
   const customEvent: ChangeEvent = {
     ...event,

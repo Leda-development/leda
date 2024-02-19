@@ -162,7 +162,7 @@
   --ld-modal-cross-size: 35px;
   --ld-modal-cross-color: var(--ld-bg-color);
   --ld-modal-body-bg: var(--ld-bg-color);
-  --ld-modal-border: 1px solid #e7e5e4;
+  --ld-modal-border: 1px solid #e7e5e4; /* tw-stone-200 */
   --ld-modal-heading-padding: 25px 30px;
   --ld-modal-footer-padding: 25px 30px;
   --ld-modal-body-padding: 15px 30px;

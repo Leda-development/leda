@@ -4,7 +4,7 @@
 
 import * as L from '@leda';
 import { UnderscoreClasses } from '@/components/commonProps';
-import { H1, Td } from '@/components/typography';
+import { H1, H2, Section, Table, Td, TdCode, Th } from '@/components/typography';
 import { Live } from '@/components/live';
 import { CustomizationPropsTableSection, PropsTableSection } from '@/sections';
 
@@ -123,6 +123,45 @@ const ModalPage = () => (
         <Td>...</Td>
       </tr>
     </CustomizationPropsTableSection>
+
+    <Section>
+      <H2>Modal theme</H2>
+
+      <Table>
+        <thead>
+          <tr>
+            <Th>Theme prop</Th>
+            <Th>CSS class name</Th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <TdCode>body</TdCode>
+            <TdCode>ld-modal-body</TdCode>
+          </tr>
+          <tr>
+            <TdCode>cross</TdCode>
+            <TdCode>ld-modal-cross</TdCode>
+          </tr>
+          <tr>
+            <TdCode>footer</TdCode>
+            <TdCode>ld-modal-footer</TdCode>
+          </tr>
+          <tr>
+            <TdCode>header</TdCode>
+            <TdCode>ld-modal-header</TdCode>
+          </tr>
+          <tr>
+            <TdCode>window</TdCode>
+            <TdCode>ld-modal-window</TdCode>
+          </tr>
+          <tr>
+            <TdCode>wrapper</TdCode>
+            <TdCode>ld-modal-wrapper</TdCode>
+          </tr>
+        </tbody>
+      </Table>
+    </Section>
   </article>
 );
 

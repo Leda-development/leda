@@ -139,8 +139,8 @@ const RatingPage = () => (
 
       <L.Button
         form='rating-validation-form'
-        onClick={({ component }) => {
-          console.log(component.value)
+        onClick={({ form }) => {
+          console.log(form['rating-validation-form']['rating'].value)
         }}
       >
         Click me

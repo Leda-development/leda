@@ -119,6 +119,53 @@ const RatingPage = () => (
       validator
     />
 
+<L.Tabs className='mb-6'>
+      <L.Tab title="Get component data" tabKey={0}>
+        <Live scope={{ L }}>
+        {
+            `
+() => {
+
+  return (
+    <>
+      <L.Rating
+        form='rating-validation-form'
+        name='rating'
+        max={10}
+        _mb-6
+      >
+        Click me
+      </L.Rating>
+
+      <L.Button
+        form='rating-validation-form'
+        onClick={({ component }) => {
+          console.log(component.value)
+        }}
+      >
+        Click me
+      </L.Button>
+    </>
+  )
+}
+`
+          }
+        </Live>
+      </L.Tab>
+      <L.Tab title="Uncontrolled" tabKey={1}>
+        <Live scope={{ L }}>
+        {
+            `
+<L.Rating
+  onChange={({ component }) => console.log(component.value)}
+>
+  Click me
+</L.Rating>
+  `
+          }
+        </Live>
+      </L.Tab>
+    </L.Tabs>
 
     <Section>
       <H2>Rating theme</H2>
@@ -134,6 +181,10 @@ const RatingPage = () => (
           <tr>
             <TdCode>disabled</TdCode>
             <TdCode>ld-rating-disabled</TdCode>
+          </tr>
+          <tr>
+            <TdCode>invalid</TdCode>
+            <TdCode>ld-rating-invalid</TdCode>
           </tr>
           <tr>
             <TdCode>item</TdCode>

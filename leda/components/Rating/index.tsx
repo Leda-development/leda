@@ -5,11 +5,14 @@ import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
   getClassNames, useProps, useTheme, useValue,
 } from '../../utils';
-import type { RatingProps } from './types';
-import { createChangeHandler, createMouseOutHandler, createMouseOverHandler } from './handlers';
+import type { RatingProps, RatingValue } from './types';
+import { createChangeHandler, createMouseOutHandler, createMouseOverHandler, createResetHandler } from './handlers';
 import { Span } from '../Span';
 import { Icon } from '../Icon';
-import { IconTypes } from '../..';
+import { Div, IconTypes } from '../..';
+import { useValidation } from '../Validation';
+import { isNil } from 'lodash';
+
 
 export const Rating = React.forwardRef((props: RatingProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {
@@ -28,12 +31,18 @@ export const Rating = React.forwardRef((props: RatingProps, ref?: React.Ref<HTML
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.rating);
 
-  const [value, setUncontrolledValue] = useValue(valueProp, defaultValue);
+  const [value, setUncontrolledValue] = useValue<RatingValue>(valueProp, defaultValue);
 
-  const [currentSelected, setCurrentSelected] = React.useState<number>(-1);
+  const [currentSelected, setCurrentSelected] = React.useState<RatingValue>(-1);
+
+  const { isValid, InvalidMessage, validateCurrent } = useValidation(props, {
+    value,
+  }, {
+    reset: createResetHandler(props, setUncontrolledValue),
+  });
 
   React.useEffect(() => {
-    if (value !== currentSelected) setCurrentSelected(value - 1);
+    if (value !== currentSelected) setCurrentSelected((value ?? 0) - 1);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
@@ -45,49 +54,56 @@ export const Rating = React.forwardRef((props: RatingProps, ref?: React.Ref<HTML
 
   const starsArray = [...Array(max)];
 
-  const wrapperClassNames = getClassNames(className, theme.wrapper);
-
+  const wrapperClassNames = getClassNames(className, theme.wrapper, {
+    [theme.invalid]: !isValid,
+  });
+  
   return (
-    <Span
-      className={wrapperClassNames}
-      ref={ref}
-      {...restProps}
-    >
-      {
-        starsArray.map((_, index) => {
-          const fillToIndex = onChange ? currentSelected : value - 1;
-          const isFilled = fillToIndex >= index;
+    <>
+      <Span
+        className={wrapperClassNames}
+        ref={ref}
+        {...restProps}
+      >
+        {
+          starsArray.map((_, index) => {
+            const fillToIndex = currentSelected;
+            const isFilled = isNil(fillToIndex) ? false : fillToIndex >= index;
 
-          const iconClassNames = getClassNames(theme.item, {
-            [theme.itemFilled]: isFilled,
-            [theme.disabled]: isDisabled,
-          });
+            const iconClassNames = getClassNames(theme.item, {
+              [theme.itemFilled]: isFilled,
+              [theme.disabled]: isDisabled,
+            });
 
-          const iconWrapperClassNames = getClassNames(theme.itemWrapper, {
-            [theme.itemFilled]: isFilled,
-            [theme.disabled]: isDisabled,
-          });
+            const iconWrapperClassNames = getClassNames(theme.itemWrapper, {
+              [theme.itemFilled]: isFilled,
+              [theme.disabled]: isDisabled,
+            });
 
-          return (
-            <Span
-              // todo: use non-index key
-              // eslint-disable-next-line react/no-array-index-key
-              key={index.toString()}
-              onMouseEnter={!isDisabled ? handleMouseOver : undefined}
-              onMouseLeave={!isDisabled ? handleMouseOut : undefined}
-              onClick={!isDisabled ? handleChange : onClick}
-              className={iconWrapperClassNames}
-            >
-              <Icon
-                icon={icon}
-                className={iconClassNames}
-                {...iconProps}
-              />
-            </Span>
-          );
-        })
-      }
-    </Span>
+            return (
+              <Div
+                // todo: use non-index key
+                // eslint-disable-next-line react/no-array-index-key
+                key={index.toString()}
+                onMouseEnter={!isDisabled ? handleMouseOver : undefined}
+                onMouseLeave={!isDisabled ? handleMouseOut : undefined}
+                onClick={!isDisabled ? handleChange : onClick}
+                className={iconWrapperClassNames}
+              >
+                <Icon
+                  icon={icon}
+                  className={iconClassNames}
+                  {...iconProps}
+                />
+              </Div>
+            );
+          })
+        }
+      </Span>
+      {!isValid && (
+        <InvalidMessage />
+      )}
+    </>
   );
 }) as React.FC<RatingProps>;
 

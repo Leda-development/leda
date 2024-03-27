@@ -2,10 +2,13 @@ import type * as React from 'react';
 import type { COMPONENTS_NAMESPACES } from '../../constants';
 import type { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import type { IconTypes } from '../..';
+import { ValidationProps } from '../Validation/types';
+
+export type RatingValue = number | null | undefined
 
 export interface ChangeEvent {
   component: {
-    value: number,
+    value: RatingValue,
     index: number,
     name?: string,
   },
@@ -22,13 +25,13 @@ export interface RatingState {
   isHovered: boolean,
 }
 
-export type SetCurrentSelected = React.Dispatch<React.SetStateAction<number>>;
+export type SetCurrentSelected = React.Dispatch<React.SetStateAction<RatingValue>>;
 
 export type SetIsHovered = React.Dispatch<React.SetStateAction<boolean>>;
 
-export interface RatingProps {
+export interface RatingProps extends ValidationProps {
   /** Default rating value */
-  defaultValue?: number,
+  defaultValue?: RatingValue,
   /** Icon, default is Star */
   icon?: IconTypes.Icons,
   /** Icon props */
@@ -48,7 +51,7 @@ export interface RatingProps {
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.rating],
   /** Rating value */
-  value?: number,
+  value?: RatingValue,
   /** _css-class-names */
   [x: string]: unknown,
 }

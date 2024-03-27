@@ -46,9 +46,6 @@ export const Rating = React.forwardRef((props: RatingProps, ref?: React.Ref<HTML
   return (
     <Span
       className={wrapperClassNames}
-      onMouseOver={!isDisabled ? handleMouseOver : undefined}
-      onMouseOut={!isDisabled ? handleMouseOut : undefined}
-      onClick={!isDisabled ? handleChange : onClick}
       ref={ref}
       {...restProps}
     >
@@ -63,13 +60,17 @@ export const Rating = React.forwardRef((props: RatingProps, ref?: React.Ref<HTML
           });
 
           return (
-            <Icon
-              icon={icon}
-              className={iconClassNames}
-              // todo: use non-index key
-              // eslint-disable-next-line react/no-array-index-key
+            <Span
               key={index.toString()}
-            />
+              className={iconClassNames}
+              onMouseEnter={!isDisabled ? handleMouseOver : undefined}
+              onMouseLeave={!isDisabled ? handleMouseOut : undefined}
+              onClick={!isDisabled ? handleChange : onClick}
+            >
+              <Icon
+                icon={icon}
+              />
+            </Span>
           );
         })
       }

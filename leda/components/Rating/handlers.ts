@@ -10,8 +10,8 @@ export const createChangeHandler = (props: RatingProps) => (event: React.MouseEv
     onChange, onClick, name,
   } = props;
 
-  const currentSelected = getCurrentStarValue(event.target as Element);
-
+  const currentSelected = getCurrentStarValue(event.currentTarget);
+  
   const customEvent = {
     ...event,
     component: {
@@ -30,5 +30,5 @@ export const createMouseOutHandler = (value: number | undefined, setCurrentSelec
 };
 
 export const createMouseOverHandler = (setCurrentSelected: SetCurrentSelected) => (event: React.MouseEvent<HTMLElement>) => {
-  setCurrentSelected(getCurrentStarValue(event.target as Element) - 1);
+  setCurrentSelected(getCurrentStarValue(event.currentTarget) - 1);
 };

@@ -11,9 +11,14 @@ const RatingPage = () => (
     <H1>Rating</H1>
     <PropsTableSection>
       <tr>
-        <Td>isReadOnly</Td>
-        <Td>React.Node</Td>
-        <Td>Label content</Td>
+        <Td>icon</Td>
+        <Td>L.IconTypes.Icons</Td>
+        <Td>In case you want any other icon</Td>
+      </tr>
+      <tr>
+        <Td>isDisabled</Td>
+        <Td>boolean</Td>
+        <Td>Don't click the rating</Td>
       </tr>
       <tr>
         <Td>max</Td>
@@ -53,17 +58,46 @@ const RatingPage = () => (
       <UnderscoreClasses />
     </PropsTableSection>
 
-    <Live scope={{ L }}>
-      {
-          `
+    <L.Tabs>
+      <L.Tab title="Controlled" tabKey={0}>
+        <Live scope={{ L }}>
+        {
+            `
+() => {
+  const [rating, setRating] = React.useState()
+
+  return (
+    <L.Rating
+      value={rating}
+      onChange={({ component }) => {
+        setRating(component.value)
+        console.log(component.value)
+      }}
+    >
+      Click me
+    </L.Rating>
+  )
+}
+`
+          }
+        </Live>
+      </L.Tab>
+      <L.Tab title="Uncontrolled" tabKey={1}>
+        <Live scope={{ L }}>
+        {
+            `
 <L.Rating
   onChange={({ component }) => console.log(component.value)}
 >
   Click me
 </L.Rating>
   `
-        }
-    </Live>
+          }
+        </Live>
+      </L.Tab>
+    </L.Tabs>
+    
+    
 
     <ValidationSection
       form

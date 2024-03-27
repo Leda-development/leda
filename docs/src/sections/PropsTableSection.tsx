@@ -4,7 +4,7 @@ import { H2, THead, Table } from '@/components/typography';
 import { propsTableCommonHeaders } from '@/components/typography/Table';
 
 export const PropsTableSection = ({ children }: PropsWithChildren) => (
-  <section>
+  <section className='mb-6'>
     <H2>Props</H2>
     <L.Div
       _overflow-x-auto

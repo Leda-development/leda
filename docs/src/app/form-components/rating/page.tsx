@@ -58,7 +58,7 @@ const RatingPage = () => (
       <UnderscoreClasses />
     </PropsTableSection>
 
-    <L.Tabs>
+    <L.Tabs className='mb-6'>
       <L.Tab title="Controlled" tabKey={0}>
         <Live scope={{ L }}>
         {

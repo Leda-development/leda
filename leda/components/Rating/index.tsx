@@ -3,7 +3,7 @@
 import React from 'react';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
-  getClassNames, useProps, useTheme,
+  getClassNames, useProps, useTheme, useValue,
 } from '../../utils';
 import type { RatingProps } from './types';
 import { createChangeHandler, createMouseOutHandler, createMouseOverHandler } from './handlers';
@@ -13,10 +13,11 @@ import { IconTypes } from '../..';
 
 export const Rating = React.forwardRef((props: RatingProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {
+    defaultValue = 0,
     max = 5,
     icon = IconTypes.Icons.Star,
     onChange,
-    value,
+    value: valueProp,
     className,
     isDisabled,
     onClick,
@@ -26,6 +27,8 @@ export const Rating = React.forwardRef((props: RatingProps, ref?: React.Ref<HTML
 
   const theme = useTheme(themeProp, COMPONENTS_NAMESPACES.rating);
 
+  const [value, setUncontrolledValue] = useValue(valueProp, defaultValue);
+
   const [currentSelected, setCurrentSelected] = React.useState<number>(-1);
 
   React.useEffect(() => {
@@ -33,7 +36,7 @@ export const Rating = React.forwardRef((props: RatingProps, ref?: React.Ref<HTML
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
-  const handleChange = createChangeHandler(props);
+  const handleChange = createChangeHandler(props, { setUncontrolledValue, value });
 
   const handleMouseOut = createMouseOutHandler(value, setCurrentSelected);
 
@@ -42,7 +45,7 @@ export const Rating = React.forwardRef((props: RatingProps, ref?: React.Ref<HTML
   const starsArray = [...Array(max)];
 
   const wrapperClassNames = getClassNames(className, theme.wrapper);
-
+  
   return (
     <Span
       className={wrapperClassNames}

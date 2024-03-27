@@ -5,13 +5,24 @@ import type {
 } from './types';
 import { getCurrentStarValue } from './helpers';
 
-export const createChangeHandler = (props: RatingProps) => (event: React.MouseEvent<HTMLElement>): void => {
+export const createChangeHandler = (props: RatingProps, {
+  setUncontrolledValue,
+  value,
+}: {
+  setUncontrolledValue: React.Dispatch<React.SetStateAction<number>>
+  value?: number | null
+}) => (event: React.MouseEvent<HTMLElement>): void => {
   const {
     onChange, onClick, name,
   } = props;
 
   const currentSelected = getCurrentStarValue(event.currentTarget);
   
+  // previous equals current
+  if (value === currentSelected) return
+
+  setUncontrolledValue(currentSelected);
+
   const customEvent = {
     ...event,
     component: {

@@ -112,7 +112,7 @@ export const CheckBox = React.forwardRef((props: CheckBoxProps, ref?: React.Ref<
         />
         {children}
       </LabelElement>
-      {!isDisabled && (
+      {!isValid && (
         <InvalidMessage />
       )}
     </Wrapper>

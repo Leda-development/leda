@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import classNames from 'classnames';
 
 export const Section = ({
   children,
@@ -7,11 +7,10 @@ export const Section = ({
   children: React.ReactNode,
   className?: string,
 }) => {
-
   const classname = classNames(
     'mb-6',
     className,
-  )
+  );
 
   return (
     <section

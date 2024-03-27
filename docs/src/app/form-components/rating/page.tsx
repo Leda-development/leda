@@ -2,7 +2,9 @@
 
 import * as L from '@leda';
 import { Live } from '@/components/live';
-import { A, H1, H2, P, Section, Table, Td, TdCode, Th } from '@/components/typography';
+import {
+  A, H1, H2, P, Section, Table, Td, TdCode, Th,
+} from '@/components/typography';
 import { PropsTableSection, ValidationSection } from '@/sections';
 import { ShouldRender, UnderscoreClasses } from '@/components/commonProps';
 
@@ -20,13 +22,13 @@ const RatingPage = () => (
         <Td>IconProps</Td>
         <Td>
           <b>stroke</b>, <b>fill</b> etc.
-          See <A href='/layout-components/icon'>Icon</A>
+          See <A href="/layout-components/icon">Icon</A>
         </Td>
       </tr>
       <tr>
         <Td>isDisabled</Td>
         <Td>boolean</Td>
-        <Td>Don't click the rating</Td>
+        <Td>Don&apos;t click the rating</Td>
       </tr>
       <tr>
         <Td>max</Td>
@@ -66,10 +68,10 @@ const RatingPage = () => (
       <UnderscoreClasses />
     </PropsTableSection>
 
-    <L.Tabs className='mb-6'>
+    <L.Tabs className="mb-6">
       <L.Tab title="Controlled" tabKey={0}>
         <Live scope={{ L }}>
-        {
+          {
             `
 () => {
   const [rating, setRating] = React.useState()
@@ -92,7 +94,7 @@ const RatingPage = () => (
       </L.Tab>
       <L.Tab title="Uncontrolled" tabKey={1}>
         <Live scope={{ L }}>
-        {
+          {
             `
 <L.Rating
   onChange={({ component }) => console.log(component.value)}
@@ -104,8 +106,6 @@ const RatingPage = () => (
         </Live>
       </L.Tab>
     </L.Tabs>
-    
-    
 
     <ValidationSection
       form
@@ -119,10 +119,10 @@ const RatingPage = () => (
       validator
     />
 
-<L.Tabs className='mb-6'>
+    <L.Tabs className="mb-6">
       <L.Tab title="Get component data" tabKey={0}>
         <Live scope={{ L }}>
-        {
+          {
             `
 () => {
 
@@ -154,7 +154,7 @@ const RatingPage = () => (
       </L.Tab>
       <L.Tab title="Uncontrolled" tabKey={1}>
         <Live scope={{ L }}>
-        {
+          {
             `
 <L.Rating
   onChange={({ component }) => console.log(component.value)}

@@ -4,7 +4,9 @@
 
 import * as L from '@leda';
 import { UnderscoreClasses } from '@/components/commonProps';
-import { H1, H2, Section, Table, Td, TdCode, Th } from '@/components/typography';
+import {
+  H1, H2, Section, Table, Td, TdCode, Th,
+} from '@/components/typography';
 import { Live } from '@/components/live';
 import { CustomizationPropsTableSection, PropsTableSection } from '@/sections';
 

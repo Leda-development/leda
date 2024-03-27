@@ -16,6 +16,7 @@ export const Rating = React.forwardRef((props: RatingProps, ref?: React.Ref<HTML
     defaultValue = 0,
     max = 5,
     icon = IconTypes.Icons.Star,
+    iconProps,
     onChange,
     value: valueProp,
     className,
@@ -45,7 +46,7 @@ export const Rating = React.forwardRef((props: RatingProps, ref?: React.Ref<HTML
   const starsArray = [...Array(max)];
 
   const wrapperClassNames = getClassNames(className, theme.wrapper);
-  
+
   return (
     <Span
       className={wrapperClassNames}
@@ -62,16 +63,25 @@ export const Rating = React.forwardRef((props: RatingProps, ref?: React.Ref<HTML
             [theme.disabled]: isDisabled,
           });
 
+          const iconWrapperClassNames = getClassNames(theme.itemWrapper, {
+            [theme.itemFilled]: isFilled,
+            [theme.disabled]: isDisabled,
+          });
+
           return (
             <Span
+              // todo: use non-index key
+              // eslint-disable-next-line react/no-array-index-key
               key={index.toString()}
-              className={iconClassNames}
               onMouseEnter={!isDisabled ? handleMouseOver : undefined}
               onMouseLeave={!isDisabled ? handleMouseOut : undefined}
               onClick={!isDisabled ? handleChange : onClick}
+              className={iconWrapperClassNames}
             >
               <Icon
                 icon={icon}
+                className={iconClassNames}
+                {...iconProps}
               />
             </Span>
           );

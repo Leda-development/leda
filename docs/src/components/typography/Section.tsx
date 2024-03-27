@@ -1,13 +1,23 @@
+import classNames from "classnames";
+
 export const Section = ({
   children,
   className,
 }: {
   children: React.ReactNode,
   className?: string,
-}) => (
-  <section
-    className={className}
-  >
-    {children}
-  </section>
-);
+}) => {
+
+  const classname = classNames(
+    'mb-6',
+    className,
+  )
+
+  return (
+    <section
+      className={classname}
+    >
+      {children}
+    </section>
+  );
+};

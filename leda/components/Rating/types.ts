@@ -31,6 +31,8 @@ export interface RatingProps {
   defaultValue?: number,
   /** Icon, default is Star */
   icon?: IconTypes.Icons,
+  /** Icon props */
+  iconProps?: Omit<IconProps, 'icon'>,
   /** Don't click the rating */
   isDisabled?: boolean,
   /** Stars number */

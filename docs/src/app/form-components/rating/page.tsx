@@ -2,7 +2,7 @@
 
 import * as L from '@leda';
 import { Live } from '@/components/live';
-import { H1, P, Td } from '@/components/typography';
+import { A, H1, H2, P, Section, Table, Td, TdCode, Th } from '@/components/typography';
 import { PropsTableSection, ValidationSection } from '@/sections';
 import { ShouldRender, UnderscoreClasses } from '@/components/commonProps';
 
@@ -14,6 +14,14 @@ const RatingPage = () => (
         <Td>icon</Td>
         <Td>L.IconTypes.Icons</Td>
         <Td>In case you want any other icon</Td>
+      </tr>
+      <tr>
+        <Td>iconProps</Td>
+        <Td>IconProps</Td>
+        <Td>
+          <b>stroke</b>, <b>fill</b> etc.
+          See <A href='/layout-components/icon'>Icon</A>
+        </Td>
       </tr>
       <tr>
         <Td>isDisabled</Td>
@@ -110,6 +118,38 @@ const RatingPage = () => (
       shouldValidateUnmounted
       validator
     />
+
+
+    <Section>
+      <H2>Rating theme</H2>
+
+      <Table>
+        <thead>
+          <tr>
+            <Th>Theme prop</Th>
+            <Th>CSS class name</Th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <TdCode>disabled</TdCode>
+            <TdCode>ld-rating-disabled</TdCode>
+          </tr>
+          <tr>
+            <TdCode>item</TdCode>
+            <TdCode>ld-rating-item</TdCode>
+          </tr>
+          <tr>
+            <TdCode>itemFilled</TdCode>
+            <TdCode>ld-filled</TdCode>
+          </tr>
+          <tr>
+            <TdCode>itemWrapper</TdCode>
+            <TdCode>ld-rating-wrapper</TdCode>
+          </tr>
+        </tbody>
+      </Table>
+    </Section>
   </article>
 );
 

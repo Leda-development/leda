@@ -70,7 +70,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     searchFields,
     shouldCorrectValue,
     shouldShowAllSuggestions,
-    shouldShowNothingFound ,
+    shouldShowNothingFound,
     shouldValidateUnmounted,
     sortSuggestions,
     textField,
@@ -256,7 +256,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
           value={suggestionListValue}
         />
       )}
-      
+
       {!isDisabled && !isLoading && !isSuggestionsListOpen && !isFocused && (
         <InvalidMessage />
       )}

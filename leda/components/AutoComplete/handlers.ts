@@ -39,7 +39,7 @@ export const clearButtonClickHandlerCreator = ({
   // todo check it is needed
   // setIsFocused(true);
 
-  setSelectedSuggestion(null)
+  setSelectedSuggestion(null);
 
   const customEvent: ChangeEvent = {
     ...event,

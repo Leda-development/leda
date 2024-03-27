@@ -270,47 +270,47 @@ interface AutoCompleteMessages {
         <tbody>
           <tr>
             <TdCode>container</TdCode>
-            <TdCode>suggestion-wrapper</TdCode>
+            <TdCode>ld-suggestion-wrapper</TdCode>
           </tr>
           <tr>
             <TdCode>containerVisible</TdCode>
-            <TdCode>visible</TdCode>
+            <TdCode>ld-visible</TdCode>
           </tr>
           <tr>
             <TdCode>containerTop</TdCode>
-            <TdCode>pos-top</TdCode>
+            <TdCode>ld-pos-top</TdCode>
           </tr>
           <tr>
             <TdCode>group</TdCode>
-            <TdCode>suggestion-group</TdCode>
+            <TdCode>ld-suggestion-group</TdCode>
           </tr>
           <tr>
             <TdCode>groupLabel</TdCode>
-            <TdCode>suggestion-group-label</TdCode>
+            <TdCode>ld-suggestion-group-label</TdCode>
           </tr>
           <tr>
             <TdCode>item</TdCode>
-            <TdCode>suggestion-item</TdCode>
+            <TdCode>ld-suggestion-item</TdCode>
           </tr>
           <tr>
             <TdCode>itemHighlighted</TdCode>
-            <TdCode>highlighted</TdCode>
+            <TdCode>ld-highlighted</TdCode>
           </tr>
           <tr>
             <TdCode>itemPlaceholder</TdCode>
-            <TdCode>placeholder</TdCode>
+            <TdCode>ld-placeholder</TdCode>
           </tr>
           <tr>
             <TdCode>itemSelected</TdCode>
-            <TdCode>selected</TdCode>
+            <TdCode>ld-selected</TdCode>
           </tr>
           <tr>
             <TdCode>list</TdCode>
-            <TdCode>suggestion-list</TdCode>
+            <TdCode>ld-suggestion-list</TdCode>
           </tr>
           <tr>
             <TdCode>noSuggections</TdCode>
-            <TdCode>nodata</TdCode>
+            <TdCode>ld-nodata</TdCode>
           </tr>
         </tbody>
       </Table>

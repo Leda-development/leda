@@ -27,6 +27,8 @@ export type SetCurrentSelected = React.Dispatch<React.SetStateAction<number>>;
 export type SetIsHovered = React.Dispatch<React.SetStateAction<boolean>>;
 
 export interface RatingProps {
+  /** Default rating value */
+  defaultValue?: number,
   /** Icon, default is Star */
   icon?: IconTypes.Icons,
   /** Don't click the rating */
@@ -44,7 +46,7 @@ export interface RatingProps {
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.rating],
   /** Rating value */
-  value: number,
+  value?: number,
   /** _css-class-names */
   [x: string]: unknown,
 }

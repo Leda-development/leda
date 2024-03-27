@@ -152,19 +152,6 @@ const RatingPage = () => (
           }
         </Live>
       </L.Tab>
-      <L.Tab title="Uncontrolled" tabKey={1}>
-        <Live scope={{ L }}>
-          {
-            `
-<L.Rating
-  onChange={({ component }) => console.log(component.value)}
->
-  Click me
-</L.Rating>
-  `
-          }
-        </Live>
-      </L.Tab>
     </L.Tabs>
 
     <Section>

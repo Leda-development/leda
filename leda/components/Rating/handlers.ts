@@ -57,7 +57,7 @@ export const createResetHandler = (
 
   props.onChange?.({
     component: {
-      index: isNil(props.defaultValue) ? -1 : (props.defaultValue -1),
+      index: isNil(props.defaultValue) ? -1 : (props.defaultValue - 1),
       name: props.name,
       value: newValue,
     },

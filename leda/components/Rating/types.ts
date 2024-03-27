@@ -2,9 +2,9 @@ import type * as React from 'react';
 import type { COMPONENTS_NAMESPACES } from '../../constants';
 import type { PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import type { IconTypes } from '../..';
-import { ValidationProps } from '../Validation/types';
+import type { ValidationProps } from '../Validation/types';
 
-export type RatingValue = number | null | undefined
+export type RatingValue = number | null | undefined;
 
 export interface ChangeEvent {
   component: {

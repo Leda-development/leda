@@ -1,18 +1,22 @@
 'use client';
 
 import React from 'react';
+import { isNil } from 'lodash';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import {
   getClassNames, useProps, useTheme, useValue,
 } from '../../utils';
 import type { RatingProps, RatingValue } from './types';
-import { createChangeHandler, createMouseOutHandler, createMouseOverHandler, createResetHandler } from './handlers';
+import {
+  createChangeHandler,
+  createMouseOutHandler,
+  createMouseOverHandler,
+  createResetHandler,
+} from './handlers';
 import { Span } from '../Span';
 import { Icon } from '../Icon';
 import { Div, IconTypes } from '../..';
 import { useValidation } from '../Validation';
-import { isNil } from 'lodash';
-
 
 export const Rating = React.forwardRef((props: RatingProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {
@@ -35,7 +39,7 @@ export const Rating = React.forwardRef((props: RatingProps, ref?: React.Ref<HTML
 
   const [currentSelected, setCurrentSelected] = React.useState<RatingValue>(-1);
 
-  const { isValid, InvalidMessage, validateCurrent } = useValidation(props, {
+  const { isValid, InvalidMessage } = useValidation(props, {
     value,
   }, {
     reset: createResetHandler(props, setUncontrolledValue),
@@ -57,7 +61,7 @@ export const Rating = React.forwardRef((props: RatingProps, ref?: React.Ref<HTML
   const wrapperClassNames = getClassNames(className, theme.wrapper, {
     [theme.invalid]: !isValid,
   });
-  
+
   return (
     <>
       <Span

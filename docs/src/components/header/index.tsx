@@ -3,11 +3,9 @@ import { MenuButton } from './MenuButton';
 import { greekFont } from '@/fonts';
 
 export const MainHeader = ({
-  isMobile,
   isMenuOpen,
   setIsMenuOpen,
 }: {
-  isMobile: boolean,
   isMenuOpen: boolean,
   setIsMenuOpen: React.Dispatch<boolean>,
 }) => (
@@ -58,7 +56,6 @@ export const MainHeader = ({
     </L.A>
     <MenuButton
       isMenuOpen={isMenuOpen}
-      isMobile={isMobile}
       setIsMenuOpen={setIsMenuOpen}
     />
   </div>

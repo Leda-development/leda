@@ -33,7 +33,6 @@ export const BaseLayout = ({
     <div className="bg-white font-sans">
       <MainHeader
         isMenuOpen={isMenuOpen}
-        isMobile={isMobile}
         setIsMenuOpen={setIsMenuOpen}
       />
       <L.Div

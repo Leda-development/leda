@@ -1,17 +1,14 @@
 import * as L from '@leda';
 
 export const MenuButton = ({
-  isMobile,
   isMenuOpen,
   setIsMenuOpen,
 }: {
-  isMobile: boolean,
   isMenuOpen: boolean,
   setIsMenuOpen: React.Dispatch<boolean>,
 }) => (
   <L.Button
-    shouldRender={isMobile}
-    onClick={() => isMobile && setIsMenuOpen(!isMenuOpen)}
+    onClick={() => setIsMenuOpen(!isMenuOpen)}
     className="
         fixed
         right-3
@@ -24,6 +21,10 @@ export const MenuButton = ({
         hover:bg-white
         md:hidden"
   >
-    <L.Icon icon="menu" size={30} />
+    <L.Icon
+      icon="menu"
+      size={30}
+      className="text-black"
+    />
   </L.Button>
 );

@@ -84,6 +84,11 @@ const AutoCompletePage = () => (
         <Td>Validate the component as a required field</Td>
       </tr>
       <tr>
+        <TdCode>maxLength</TdCode>
+        <TdCode>number</TdCode>
+        <Td>Max number of characters</Td>
+      </tr>
+      <tr>
         <TdCode>messages</TdCode>
         <TdCode>
           {

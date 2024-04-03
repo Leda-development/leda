@@ -19,6 +19,7 @@ import {
 import { getText } from '../../src/SuggestionList/helpers';
 import type { CustomEventHandler, SetState } from '../../commonTypes';
 import type { SuggestionTarget } from '../../src/SuggestionList/types';
+import { stringToMaxLength } from '../../utils';
 
 export const clearButtonClickHandlerCreator = ({
   isDisabled,
@@ -115,6 +116,7 @@ export const inputChangeHandlerCreator = ({
   setStateValue,
   setSelectedSuggestion,
   textField,
+  maxLength,
 }: {
   data: Suggestion[],
   isValueControlled: boolean,
@@ -123,10 +125,17 @@ export const inputChangeHandlerCreator = ({
   setStateValue: SetState<string>,
   setSelectedSuggestion: SetState<Suggestion>,
   textField?: string,
+  maxLength?: number,
 }): React.ChangeEventHandler<HTMLInputElement> => (event) => {
   const { value } = event.currentTarget;
 
-  const suggestion = getSuggestionFromValue({ data, value, textField });
+  const maxLengthAdjustedValue = stringToMaxLength(value, maxLength);
+
+  const suggestion = getSuggestionFromValue({
+    data,
+    value: maxLengthAdjustedValue,
+    textField,
+  });
 
   setSelectedSuggestion(suggestion);
 
@@ -136,12 +145,12 @@ export const inputChangeHandlerCreator = ({
       method: ChangeMethod.type,
       name,
       suggestion,
-      value,
+      value: maxLengthAdjustedValue,
     },
   };
 
   if (isFunction(onChange)) onChange(customEvent);
-  if (!isValueControlled) setStateValue(value);
+  if (!isValueControlled) setStateValue(maxLengthAdjustedValue);
 };
 
 export const inputBlurHandlerCreator = ({

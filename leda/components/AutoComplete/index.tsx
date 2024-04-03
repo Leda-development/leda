@@ -57,6 +57,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     isValid: isValidProp,
     itemRender,
     listRender,
+    maxLength,
     messages,
     minSearchLength,
     name,
@@ -143,7 +144,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
   })();
 
   const inputChangeHandler = inputChangeHandlerCreator({
-    data, textField, name, onChange, isValueControlled, setSelectedSuggestion, setStateValue,
+    data, textField, name, onChange, isValueControlled, setSelectedSuggestion, setStateValue, maxLength,
   });
   const suggestionClickHandler = suggestionClickHandlerCreator({
     data, textField, name, onChange, isValueControlled, setHighlightedSuggestion, setSelectedSuggestion, setStateValue, setIsFocused,

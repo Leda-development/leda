@@ -132,6 +132,8 @@ export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends Va
   isRequired?: boolean,
   /** Dropdown list customizator */
   listRender?: CustomRender<SuggestionListProps, Record<string, never>, UlProps>,
+  /** Max number of characters */
+  maxLength?: number,
   /** The minimal number of symbols that trigger the dropdown opening */
   minSearchLength?: number,
   /** Component name */

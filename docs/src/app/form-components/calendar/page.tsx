@@ -1,13 +1,16 @@
 'use client';
 
-import { Calendar } from '@leda';
+import { Calendar, Tab, Tabs } from '@leda';
 import { ShouldRender, UnderscoreClasses } from '@/components/commonProps';
-import { H1, Td } from '@/components/typography';
+import { H1, Section, Td } from '@/components/typography';
 import { Live } from '@/components/live';
 import { PropsTableSection } from '@/sections';
+import { Uncontrolled } from './_demo/Uncontrolled';
+import { Controlled } from './_demo/Controlled';
+import { Form } from './_demo/Form';
 
 const CalendarPage = () => (
-  <article>
+  <article className='mb-20'>
     <H1>Calendar</H1>
 
     <PropsTableSection>
@@ -54,15 +57,19 @@ const CalendarPage = () => (
       <UnderscoreClasses />
     </PropsTableSection>
 
-    <Live scope={{ Calendar }}>
-      {
-          `
-<Calendar
-  onChange={({ component }) => console.log(component.value)}
-/>
-  `
-        }
-    </Live>
+    <Section>
+      <Tabs>
+        <Tab title="Uncontrolled" tabKey={0}>
+          <Uncontrolled />
+        </Tab>
+        <Tab title="Controlled" tabKey={1}>
+          <Controlled />
+        </Tab>
+        <Tab title="Form" tabKey={2}>
+          <Form />
+        </Tab>
+      </Tabs>
+    </Section>
   </article>
 );
 

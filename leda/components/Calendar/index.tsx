@@ -15,6 +15,7 @@ import { stateReducer } from './reducer';
 
 export const Calendar = React.forwardRef((props: StandaloneCalendarProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {
+    className,
     hasTodayButton,
     max,
     min,
@@ -68,7 +69,11 @@ export const Calendar = React.forwardRef((props: StandaloneCalendarProps, ref?: 
     CalendarWrapper,
   } = useCustomElements(props);
 
-  const wrapperClassNames = getClassNames(theme.wrapper, theme.standalone);
+  const wrapperClassNames = getClassNames(
+    theme.wrapper,
+    theme.standalone,
+    className,
+  );
 
   return (
     <CalendarWrapper

@@ -1,13 +1,14 @@
 'use client';
 
-import { Calendar, Tab, Tabs } from '@leda';
+import { Tab, Tabs } from '@leda';
 import { ShouldRender, UnderscoreClasses } from '@/components/commonProps';
 import { H1, Section, Td } from '@/components/typography';
-import { Live } from '@/components/live';
-import { PropsTableSection } from '@/sections';
+import { PropsTableSection, ValidationSection } from '@/sections';
 import { Uncontrolled } from './_demo/Uncontrolled';
 import { Controlled } from './_demo/Controlled';
 import { Form } from './_demo/Form';
+import { Reset } from './_demo/Reset';
+import { Required } from './_demo/Required';
 
 const CalendarPage = () => (
   <article className='mb-20'>
@@ -68,8 +69,25 @@ const CalendarPage = () => (
         <Tab title="Form" tabKey={2}>
           <Form />
         </Tab>
+        <Tab title="Reset" tabKey={3}>
+          <Reset />
+        </Tab>
+        <Tab title="Required" tabKey={4}>
+          <Required />
+        </Tab>
       </Tabs>
     </Section>
+
+    <ValidationSection
+      form
+      isValid
+      isRequired
+      invalidMessage
+      name
+      requiredMessage
+      shouldValidateUnmounted
+      validator
+    />
   </article>
 );
 

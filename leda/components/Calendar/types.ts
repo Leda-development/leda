@@ -12,7 +12,7 @@ import type {
 import type { VIEW_TYPES } from '../../src/CalendarBase/constants';
 import type { stateActionTypes } from '../../src/DateTimeInput/actions';
 import type { DivProps } from '../Div';
-import { ValidationProps } from '../Validation/types';
+import type { ValidationProps } from '../Validation/types';
 
 export interface ResetChangeEvent {
   component: {

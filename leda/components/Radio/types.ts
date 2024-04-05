@@ -2,7 +2,7 @@ import type * as React from 'react';
 import type { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import type { COMPONENTS_NAMESPACES } from '../../constants';
 import type { CustomRender } from '../../commonTypes';
-import { ValidationProps } from '../Validation/types';
+import type { ValidationProps } from '../Validation/types';
 
 export interface ResetEvent {
   component: {

@@ -1,5 +1,5 @@
-import { SetState } from "../../commonTypes";
-import { RadioGroupProps } from "./types";
+import type { SetState } from '../../commonTypes';
+import type { RadioGroupProps } from './types';
 
 export const createResetHandler = (
   props: RadioGroupProps,

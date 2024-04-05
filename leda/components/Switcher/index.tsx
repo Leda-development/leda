@@ -9,6 +9,7 @@ import { COMPONENTS_NAMESPACES } from '../../constants';
 import { createClickHandler } from './handlers';
 import { useCustomElements } from './hooks';
 import type { SwitcherProps } from './types';
+import { useValidation } from '../Validation';
 
 export const Switcher = React.forwardRef((props: SwitcherProps, ref: React.Ref<HTMLElement>): React.ReactElement => {
   const {
@@ -31,6 +32,12 @@ export const Switcher = React.forwardRef((props: SwitcherProps, ref: React.Ref<H
   const handleClick = createClickHandler(props, stateValue, setStateValue);
 
   const value = !isNil(valueProp) ? valueProp : stateValue;
+
+  useValidation(props, {
+    value,
+  }, {
+    reset: () => {},
+  });
 
   const switcherClassName = getClassNames(
     [theme.switcher],

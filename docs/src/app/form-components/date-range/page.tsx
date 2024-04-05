@@ -1,10 +1,13 @@
 'use client';
 
-import { DateRange } from '@leda';
+import { Tab, Tabs } from '@leda';
 import { ShouldRender, UnderscoreClasses } from '@/components/commonProps';
-import { H1, Td } from '@/components/typography';
-import { Live } from '@/components/live';
-import { PropsTableSection } from '@/sections';
+import { H1, Section, Td } from '@/components/typography';
+import { PropsTableSection, ValidationSection } from '@/sections';
+import { Controlled } from './_demo/Controlled';
+import { Form } from './_demo/Form';
+import { Required } from './_demo/Required';
+import { Uncontrolled } from './_demo/Uncontrolled';
 
 const DateRangePage = () => (
   <article>
@@ -70,16 +73,33 @@ const DateRangePage = () => (
       <UnderscoreClasses />
     </PropsTableSection>
 
-    <Live scope={{ DateRange }} overflowTop>
-      {
-          `
-<DateRange
-  onChange={({ component }) => console.log(component.value)}
-  _w-96
-/>
-  `
-        }
-    </Live>
+    <Section>
+      <Tabs>
+        <Tab title="Uncontrolled" tabKey={0}>
+          <Uncontrolled />
+        </Tab>
+        <Tab title="Controlled" tabKey={1}>
+          <Controlled />
+        </Tab>
+        <Tab title="Form" tabKey={2}>
+          <Form />
+        </Tab>
+        <Tab title="Required" tabKey={3}>
+          <Required />
+        </Tab>
+      </Tabs>
+    </Section>
+
+    <ValidationSection
+      form
+      isValid
+      isRequired
+      invalidMessage
+      name
+      requiredMessage
+      shouldValidateUnmounted
+      validator
+    />
   </article>
 );
 

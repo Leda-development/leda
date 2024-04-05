@@ -10,29 +10,21 @@ import { liveFont } from '@/fonts';
 const liveTheme = themes.vsLight;
 liveTheme.plain.backgroundColor = 'transparent';
 
-export const Live = ({
+export const DatesLive = ({
   scope,
   children,
-  overflowTop,
   className,
 }: {
   scope: Record<string, unknown> | undefined,
   children: string | undefined,
-  overflowTop?: boolean,
   className?: string,
 }) => {
-  const style = overflowTop ? {
-    paddingTop: '300px',
-    marginTop: '-300px',
-  } : {};
-
   return (
     <div
-      className={`overflow-x-scroll ${className}`}
-      style={style}
+      className={className}
     >
       <div
-        className="mt-4 min-w-max rounded-lg border py-4 text-sm md:min-w-full"
+        className="mt-4 rounded-lg border py-4 text-sm min-w-full"
         style={{
           minHeight: '200px',
           // eslint-disable-next-line max-len

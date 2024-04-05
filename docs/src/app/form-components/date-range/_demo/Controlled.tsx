@@ -1,12 +1,11 @@
-import { DatesLive } from "@/components/live/DatesLive"
-import { log } from "@/utils"
-import * as L from '@leda'
+import * as L from '@leda';
+import { DatesLive } from '@/components/live/DatesLive';
+import { log } from '@/utils';
 
-export const Controlled = () => {
-  return (
-    <div>
-      <DatesLive scope={{ L, log }}>
-        {
+export const Controlled = () => (
+  <div>
+    <DatesLive scope={{ L, log }}>
+      {
           `
 () => {
 
@@ -25,7 +24,6 @@ export const Controlled = () => {
 }
   `
         }
-      </DatesLive>
-    </div>
-  )
-}
+    </DatesLive>
+  </div>
+);

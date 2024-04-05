@@ -105,7 +105,7 @@ const IconPage = () => {
             }
 
             return (
-              <div className="flex-column my-4 w-16 items-center md:w-24">
+              <div className="my-4 w-16 flex-col items-center md:w-24">
                 <L.Icon icon={icon} />
                 <span className="mt-3 text-center text-xs">{icon}</span>
               </div>

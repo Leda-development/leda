@@ -1,12 +1,11 @@
-import { DatesLive } from "@/components/live/DatesLive"
-import { log } from "@/utils"
-import * as L from '@leda'
+import * as L from '@leda';
+import { DatesLive } from '@/components/live/DatesLive';
+import { log } from '@/utils';
 
-export const Form = () => {
-  return (
-    <div>
-      <DatesLive scope={{ L, log }}>
-        {
+export const Form = () => (
+  <div>
+    <DatesLive scope={{ L, log }}>
+      {
           `
 () => {
   return (
@@ -32,7 +31,6 @@ export const Form = () => {
 }
   `
         }
-      </DatesLive>
-    </div>
-  )
-}
+    </DatesLive>
+  </div>
+);

@@ -1,12 +1,11 @@
-import { Live } from "@/components/live"
-import { log } from "@/utils"
-import * as L from '@leda'
+import * as L from '@leda';
+import { Live } from '@/components/live';
+import { log } from '@/utils';
 
-export const Uncontrolled = () => {
-  return (
-    <div>
-      <Live scope={{ L, log }}>
-        {
+export const Uncontrolled = () => (
+  <div>
+    <Live scope={{ L, log }}>
+      {
           `
 () => {
   return (
@@ -20,7 +19,6 @@ export const Uncontrolled = () => {
 }
   `
         }
-      </Live>
-    </div>
-  )
-}
+    </Live>
+  </div>
+);

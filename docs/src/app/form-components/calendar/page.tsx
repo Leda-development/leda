@@ -11,7 +11,7 @@ import { Reset } from './_demo/Reset';
 import { Required } from './_demo/Required';
 
 const CalendarPage = () => (
-  <article className='mb-20'>
+  <article className="mb-20">
     <H1>Calendar</H1>
 
     <PropsTableSection>

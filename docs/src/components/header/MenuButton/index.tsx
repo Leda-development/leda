@@ -15,9 +15,9 @@ export const MenuButton = ({
         top-3
         z-10
         border-0
+        bg-white
         py-2
         text-stone-900
-        bg-white
         hover:bg-white
         md:hidden"
   >

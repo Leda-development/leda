@@ -1,12 +1,11 @@
-import { Live } from "@/components/live"
-import { log } from "@/utils"
-import * as L from '@leda'
+import * as L from '@leda';
+import { Live } from '@/components/live';
+import { log } from '@/utils';
 
-export const Reset = () => {
-  return (
-    <div>
-      <Live scope={{ L, log }}>
-        {
+export const Reset = () => (
+  <div>
+    <Live scope={{ L, log }}>
+      {
           `
 () => {
   return (
@@ -30,7 +29,6 @@ export const Reset = () => {
 }
   `
         }
-      </Live>
-    </div>
-  )
-}
+    </Live>
+  </div>
+);

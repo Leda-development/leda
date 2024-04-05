@@ -1,13 +1,14 @@
 'use client';
 
-import { CodeBlock, H1, Section, Td } from '@/components/typography';
+import { Tabs, Tab } from '@leda/index';
+import {
+  CodeBlock, H1, Section, Td,
+} from '@/components/typography';
 import { PropsTableSection, ValidationSection } from '@/sections';
 import { ShouldRender, UnderscoreClasses } from '@/components/commonProps';
-import { Tabs, Tab } from '@leda/index';
 import { Controlled } from './_demo/Controlled';
 import { Form } from './_demo/Form';
 import { Uncontrolled } from './_demo/Uncontrolled';
-;
 
 const SwitcherPage = () => (
   <article>

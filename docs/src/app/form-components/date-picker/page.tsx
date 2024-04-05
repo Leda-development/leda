@@ -1,9 +1,8 @@
 'use client';
 
-import { DatePicker, Section, Tab, Tabs } from '@leda';
+import { Section, Tab, Tabs } from '@leda';
 import { ShouldRender, UnderscoreClasses } from '@/components/commonProps';
 import { H1, Td } from '@/components/typography';
-import { Live } from '@/components/live';
 import { PropsTableSection, ValidationSection } from '@/sections';
 import { Controlled } from './_demo/Controlled';
 import { Form } from './_demo/Form';
@@ -93,7 +92,6 @@ const DatePickerPage = () => (
       </tr>
       <UnderscoreClasses />
     </PropsTableSection>
-
 
     <Section>
       <Tabs>

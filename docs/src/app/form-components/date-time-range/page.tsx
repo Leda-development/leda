@@ -1,9 +1,8 @@
 'use client';
 
-import { DateTimeRange, Tab, Tabs } from '@leda';
+import { Tab, Tabs } from '@leda';
 import { ShouldRender, UnderscoreClasses } from '@/components/commonProps';
 import { H1, Section, Td } from '@/components/typography';
-import { Live } from '@/components/live';
 import { PropsTableSection, ValidationSection } from '@/sections';
 import { Controlled } from './_demo/Controlled';
 import { Form } from './_demo/Form';

@@ -1,11 +1,10 @@
-import { Live } from "@/components/live"
-import { Calendar } from "@leda/index"
+import { Calendar } from '@leda/index';
+import { Live } from '@/components/live';
 
-export const Controlled = () => {
-  return (
-    <div>
-      <Live scope={{ Calendar: Calendar }}>
-        {
+export const Controlled = () => (
+  <div>
+    <Live scope={{ Calendar }}>
+      {
           `
 () => {
 
@@ -23,7 +22,6 @@ export const Controlled = () => {
 }
   `
         }
-      </Live>
-    </div>
-  )
-}
+    </Live>
+  </div>
+);

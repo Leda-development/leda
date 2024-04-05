@@ -1,9 +1,9 @@
 'use client';
 
+import { Tabs, Tab } from '@leda/index';
 import { ShouldRender, UnderscoreClasses } from '@/components/commonProps';
 import { H1, Section, Td } from '@/components/typography';
 import { PropsTableSection, ValidationSection } from '@/sections';
-import { Tabs, Tab } from '@leda/index';
 import { Controlled } from './_demo/Controlled';
 import { Form } from './_demo/Form';
 import { Required } from './_demo/Required';

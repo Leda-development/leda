@@ -12,7 +12,7 @@ const Page = () => (
   <article>
     <H1>Validation</H1>
 
-    <Live scope={{ L, log }} className='mb-6'>
+    <Live scope={{ L, log }} className="mb-6">
       {`
 <>
   <L.Input

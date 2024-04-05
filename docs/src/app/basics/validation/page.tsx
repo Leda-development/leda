@@ -12,22 +12,7 @@ const Page = () => (
   <article>
     <H1>Validation</H1>
 
-    <P>
-      Each Form component (except Button) has Validation props
-      which help validate user input, show messages etc.
-    </P>
-
-    <P>
-      <Code>form</Code> and <Code>name</Code> are obligatorty fields to enable validation.
-    </P>
-
-    <ValidationSection all />
-
-    <H2>Button validation props</H2>
-
-    <ButtonValidationPropsTable />
-
-    <Live scope={{ L, log }}>
+    <Live scope={{ L, log }} className='mb-6'>
       {`
 <>
   <L.Input
@@ -52,6 +37,21 @@ const Page = () => (
   </L.Button>
 </>`}
     </Live>
+
+    <P>
+      Each Form component (except Button) has Validation props
+      which help validate user input, show messages etc.
+    </P>
+
+    <P>
+      <Code>form</Code> and <Code>name</Code> are obligatorty fields to enable validation.
+    </P>
+
+    <ValidationSection all />
+
+    <H2>Button validation props</H2>
+
+    <ButtonValidationPropsTable />
 
     <P>
       See Validation examples section for more.

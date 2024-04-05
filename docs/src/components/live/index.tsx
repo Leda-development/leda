@@ -14,10 +14,12 @@ export const Live = ({
   scope,
   children,
   overflowTop,
+  className,
 }: {
   scope: Record<string, unknown> | undefined,
   children: string | undefined,
   overflowTop?: boolean,
+  className?: string,
 }) => {
   const style = overflowTop ? {
     paddingTop: '300px',
@@ -26,7 +28,7 @@ export const Live = ({
 
   return (
     <div
-      className="overflow-x-scroll"
+      className={`overflow-x-scroll ${className}`}
       style={style}
     >
       <div

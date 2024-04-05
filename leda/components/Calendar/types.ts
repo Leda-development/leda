@@ -12,6 +12,14 @@ import type {
 import type { VIEW_TYPES } from '../../src/CalendarBase/constants';
 import type { stateActionTypes } from '../../src/DateTimeInput/actions';
 import type { DivProps } from '../Div';
+import type { ValidationProps } from '../Validation/types';
+
+export interface ResetChangeEvent {
+  component: {
+    value: null,
+    name?: string,
+  },
+}
 
 export interface ChangeEvent extends React.MouseEvent {
   component: {
@@ -20,7 +28,7 @@ export interface ChangeEvent extends React.MouseEvent {
   },
 }
 
-export interface StandaloneCalendarProps {
+export interface StandaloneCalendarProps extends ValidationProps {
   /** "Today" button */
   hasTodayButton?: boolean,
   /** Max available date */
@@ -30,13 +38,13 @@ export interface StandaloneCalendarProps {
   /** Component name (is used in forms) */
   name?: string,
   /** Change handler */
-  onChange: (event: ChangeEvent) => void,
+  onChange: (event: ChangeEvent | ResetChangeEvent) => void,
   /** React Ref */
   ref?: React.Ref<HTMLElement>,
   /** Component theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.calendar],
   /** Currently selected date */
-  value?: Date,
+  value?: Date | null,
   /** Customization */
   dateViewRender?: CustomRender<StandaloneCalendarProps, Record<string, never>, DateViewProps>,
   headerRender?: CustomRender<StandaloneCalendarProps, Record<string, never>, CalendarHeaderProps>,

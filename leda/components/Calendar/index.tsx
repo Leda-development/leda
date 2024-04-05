@@ -10,11 +10,13 @@ import { CALENDAR_CLICK_ACTION, DEFAULT_DATE_FORMAT, VIEW_TYPES } from '../../sr
 import { TodayButton } from '../../src/CalendarBase/TodayButton';
 import { useCustomElements } from './hooks';
 import { getCalendarConditions } from '../../src/CalendarBase/helpers';
-import { createClickHandler } from './handlers';
+import { createClickHandler, createResetHandler } from './handlers';
 import { stateReducer } from './reducer';
+import { useValidation } from '../Validation';
 
 export const Calendar = React.forwardRef((props: StandaloneCalendarProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {
+    className,
     hasTodayButton,
     max,
     min,
@@ -48,6 +50,16 @@ export const Calendar = React.forwardRef((props: StandaloneCalendarProps, ref?: 
     return state.date; // uncontrolled mode
   })();
 
+  const {
+    isValid, InvalidMessage,
+  } = useValidation(props, {
+    value: calendarValue,
+  }, {
+    reset: createResetHandler({
+      props, dispatch, value: null,
+    }),
+  });
+
   // these flags are used to switch off header buttons in min-max case
   const conditions = getCalendarConditions({
     ...props,
@@ -68,53 +80,67 @@ export const Calendar = React.forwardRef((props: StandaloneCalendarProps, ref?: 
     CalendarWrapper,
   } = useCustomElements(props);
 
-  const wrapperClassNames = getClassNames(theme.wrapper, theme.standalone);
+  const wrapperClassNames = getClassNames(
+    theme.standaloneWrapper,
+    className,
+  );
+
+  const calendarWrapperClassNames = getClassNames(
+    theme.wrapper,
+    theme.standalone,
+    {
+      [theme.invalid]: !isValid,
+    },
+  );
 
   return (
-    <CalendarWrapper
-      className={wrapperClassNames}
-      ref={ref}
-    >
-      <CalendarHeader
-        conditions={conditions}
-        viewType={viewType}
-        viewDate={viewDate}
-        onClick={clickHandler}
-        theme={theme}
-      />
-      <DateView
-        onClick={clickHandler}
-        viewDate={viewDate}
-        min={min}
-        max={max}
-        value={calendarValue}
-        theme={theme}
-        viewType={viewType}
-      />
-      <MonthView
-        onClick={clickHandler}
-        theme={theme}
-        viewDate={viewDate}
-        viewType={viewType}
-        min={min}
-        max={max}
-      />
-      <YearView
-        format={DEFAULT_DATE_FORMAT}
-        onClick={clickHandler}
-        theme={theme}
-        viewType={viewType}
-        viewDate={viewDate}
-        min={min}
-        max={max}
-      />
-      {hasTodayButton && (
-        <TodayButton
-          onClick={(ev) => clickHandler(CALENDAR_CLICK_ACTION.TODAY_BUTTON_CLICK, ev)}
+    <div className={wrapperClassNames}>
+      <CalendarWrapper
+        className={calendarWrapperClassNames}
+        ref={ref}
+      >
+        <CalendarHeader
+          conditions={conditions}
+          viewType={viewType}
+          viewDate={viewDate}
+          onClick={clickHandler}
           theme={theme}
         />
-      )}
-    </CalendarWrapper>
+        <DateView
+          onClick={clickHandler}
+          viewDate={viewDate}
+          min={min}
+          max={max}
+          value={calendarValue}
+          theme={theme}
+          viewType={viewType}
+        />
+        <MonthView
+          onClick={clickHandler}
+          theme={theme}
+          viewDate={viewDate}
+          viewType={viewType}
+          min={min}
+          max={max}
+        />
+        <YearView
+          format={DEFAULT_DATE_FORMAT}
+          onClick={clickHandler}
+          theme={theme}
+          viewType={viewType}
+          viewDate={viewDate}
+          min={min}
+          max={max}
+        />
+        {hasTodayButton && (
+          <TodayButton
+            onClick={(ev) => clickHandler(CALENDAR_CLICK_ACTION.TODAY_BUTTON_CLICK, ev)}
+            theme={theme}
+          />
+        )}
+      </CalendarWrapper>
+      {!isValid && <InvalidMessage />}
+    </div>
   );
 }) as React.FC<StandaloneCalendarProps>;
 

@@ -1,10 +1,15 @@
 'use client';
 
-import { DateTimePicker } from '@leda';
+import { DateTimePicker, Tab, Tabs } from '@leda';
 import { ShouldRender, UnderscoreClasses } from '@/components/commonProps';
-import { H1, Td } from '@/components/typography';
+import { H1, Section, Td } from '@/components/typography';
 import { Live } from '@/components/live';
-import { PropsTableSection } from '@/sections';
+import { PropsTableSection, ValidationSection } from '@/sections';
+import { Controlled } from './_demo/Controlled';
+import { Form } from './_demo/Form';
+import { Required } from './_demo/Required';
+import { Reset } from './_demo/Reset';
+import { Uncontrolled } from './_demo/Uncontrolled';
 
 const DateTimePickerPage = () => (
   <article>
@@ -85,16 +90,36 @@ const DateTimePickerPage = () => (
       <UnderscoreClasses />
     </PropsTableSection>
 
-    <Live scope={{ DateTimePicker }} overflowTop>
-      {
-          `
-<DateTimePicker
-  onChange={({ component }) => console.log(component.value)}
-  _w-48
-/>
-  `
-        }
-    </Live>
+    <Section>
+      <Tabs>
+        <Tab title="Uncontrolled" tabKey={0}>
+          <Uncontrolled />
+        </Tab>
+        <Tab title="Controlled" tabKey={1}>
+          <Controlled />
+        </Tab>
+        <Tab title="Form" tabKey={2}>
+          <Form />
+        </Tab>
+        <Tab title="Reset" tabKey={3}>
+          <Reset />
+        </Tab>
+        <Tab title="Required" tabKey={4}>
+          <Required />
+        </Tab>
+      </Tabs>
+    </Section>
+
+    <ValidationSection
+      form
+      isValid
+      isRequired
+      invalidMessage
+      name
+      requiredMessage
+      shouldValidateUnmounted
+      validator
+    />
   </article>
 );
 

@@ -1,5 +1,5 @@
 import { isFunction } from 'lodash';
-import type { CreateChangeHandlerParams } from './types';
+import type { CreateChangeHandlerParams, StandaloneCalendarActionTypes, StandaloneCalendarProps } from './types';
 import { CALENDAR_CLICK_ACTION } from '../../src/CalendarBase/constants';
 import { setDate, setViewDate } from '../../src/DateTimeInput/actions';
 import { getDatesShorthand } from '../../src/DateTimeInput/helpers';
@@ -32,7 +32,7 @@ export const createClickHandler = ({
   } = state;
 
   const updateDate = (newDate: Date): void => {
-    dispatch(setDate(newDate)); // неконтролируемый режим
+    dispatch(setDate(newDate)); // uncontrolled mode
 
     if (isFunction(onChange)) {
       onChange({
@@ -142,4 +142,22 @@ export const createClickHandler = ({
     }
     default: break;
   }
+};
+
+export const createResetHandler = ({
+  props,
+  dispatch,
+  value,
+}: {
+  props: StandaloneCalendarProps,
+  dispatch: React.Dispatch<StandaloneCalendarActionTypes>,
+  value: null,
+}) => () => {
+  dispatch(setDate(null));
+  props.onChange({
+    component: {
+      value,
+      name: props.name,
+    },
+  });
 };

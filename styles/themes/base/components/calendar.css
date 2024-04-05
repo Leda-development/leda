@@ -1,3 +1,7 @@
+.ld-calendar-standalone-wrapper {
+  width: var(--ld-calendar-width);
+}
+
 .ld-calendar-wrapper {
   width: var(--ld-calendar-width);
   background-color: var(--ld-calendar-bg);
@@ -18,6 +22,7 @@
 
 .ld-calendar-standalone {
   position: static;
+  width: 100%;
 }
 
 .ld-calendar-date {

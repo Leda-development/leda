@@ -72,7 +72,9 @@ const Page = () => (
     <Live scope={{ L }}>
       {`
 <L.Button
-  isDisabled
+  onClick={() => {
+    console.log('clicked')
+  }}
 >
   Click me
 </L.Div>
@@ -89,64 +91,24 @@ const Page = () => (
       Each Form and Layout component exposes a <Code>theme</Code> prop.
     </P>
     <P>
-      It gives access to css classes of a component.
+      It lets you add your own css-classes to any component's element.
     </P>
 
     <P>
-      E.g. Button component has a few css classes:
-    </P>
-    <P className="pl-4">
-      <Code>button-wrapper</Code> with basic component styles
-    </P>
-    <P className="pl-4">
-      <Code>disabled</Code> for the disabled state
-    </P>
-
-    <P>
-      and more, see the docs for the Button component.
-    </P>
-
-    <P>
-      The classes can be replaced/augmented as follows (in this site we use
+      In this site we use
       {' '}<A target="_blank" href="https://tailwindcss.com/">Tailwind</A>{' '}
-      utility classes):
+      utility classes:
     </P>
 
     <Live scope={{ L }}>
       {`
 <L.Button
   theme={{
-    wrapper: 'pt-2 pb-1 px-4 bg-sky-100 border border-sky-300 hover:border-sky-200 text-sky-500 rounded-md text-xs',
-    disabled: 'bg-stone-100 border-stone-300 hover:border-stone-200 text-stone-500 cursor-not-allowed'
+    wrapper: 'ld-btn text-sky-500',
   }}
-  isDisabled
 >
   Click me
 </L.Div>
-        `}
-    </Live>
-
-    <P>
-      The code above changes default classes for one component.
-      To apply changes globally use <A href="/components/leda-provider">Leda</A> provider:
-    </P>
-
-    <Live scope={{ L }}>
-      {`
-<L.Leda
-  theme={{
-    button: {
-      wrapper: 'pt-2 pb-1 px-4 bg-orange-100 border border-orange-300 hover:border-orange-200 text-orange-500 rounded-md text-xs',
-      disabled: 'bg-stone-100 border-stone-300 hover:border-stone-200 text-stone-500 cursor-not-allowed'
-    }
-  }}
->
-  <L.Button
-    isDisabled
-  >
-    Click me harder
-  </L.Button>
-</L.leda>
         `}
     </Live>
   </article>

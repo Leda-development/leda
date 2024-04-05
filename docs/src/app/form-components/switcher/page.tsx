@@ -1,10 +1,13 @@
 'use client';
 
-import * as L from '@leda';
-import { Live } from '@/components/live';
-import { CodeBlock, H1, Td } from '@/components/typography';
+import { CodeBlock, H1, Section, Td } from '@/components/typography';
 import { PropsTableSection, ValidationSection } from '@/sections';
 import { ShouldRender, UnderscoreClasses } from '@/components/commonProps';
+import { Tabs, Tab } from '@leda/index';
+import { Controlled } from './_demo/Controlled';
+import { Form } from './_demo/Form';
+import { Uncontrolled } from './_demo/Uncontrolled';
+;
 
 const SwitcherPage = () => (
   <article>
@@ -69,17 +72,19 @@ interface ChangeEvent extends React.MouseEvent<HTMLDivElement> {
       <UnderscoreClasses />
     </PropsTableSection>
 
-    <Live scope={{ L }}>
-      {
-          `
-<L.Switcher
-  onChange={({ component }) => console.log(component.value)}
->
-  Click me
-</L.Switcher>
-  `
-        }
-    </Live>
+    <Section>
+      <Tabs>
+        <Tab title="Uncontrolled" tabKey={0}>
+          <Uncontrolled />
+        </Tab>
+        <Tab title="Controlled" tabKey={1}>
+          <Controlled />
+        </Tab>
+        <Tab title="Form" tabKey={2}>
+          <Form />
+        </Tab>
+      </Tabs>
+    </Section>
 
     <ValidationSection
       form

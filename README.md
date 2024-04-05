@@ -10,7 +10,9 @@ Leda is a React UI component library.
 
 ## Credit
 
-Made by [Artem Povolskikh][2] and [Andrew Dimitrov][3] with invaluable help of:
+Made by [Artem Povolskikh][2] and [Andrew Dimitrov][3].
+
+Contributors:
 
 - [Alexei Binetsky][6]
 - Andrey Shamin

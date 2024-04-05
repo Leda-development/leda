@@ -9,6 +9,11 @@ import {
 } from '@/components/typography';
 import { ShouldRender, UnderscoreClasses } from '@/components/commonProps';
 import { ValidationSection } from '@/sections';
+import { Controlled } from './_demo/Controlled';
+import { Form } from './_demo/Form';
+import { Required } from './_demo/Required';
+import { Reset } from './_demo/Reset';
+import { Uncontrolled } from './_demo/Uncontrolled';
 
 const RadioPage = () => (
   <article>
@@ -124,9 +129,35 @@ const RadioPage = () => (
         }
     </Live>
 
+    <Section>
+      <L.Tabs>
+        <L.Tab title="Uncontrolled" tabKey={0}>
+          <Uncontrolled />
+        </L.Tab>
+        <L.Tab title="Controlled" tabKey={1}>
+          <Controlled />
+        </L.Tab>
+        <L.Tab title="Form" tabKey={2}>
+          <Form />
+        </L.Tab>
+        <L.Tab title="Reset" tabKey={3}>
+          <Reset />
+        </L.Tab>
+        <L.Tab title="Required" tabKey={4}>
+          <Required />
+        </L.Tab>
+      </L.Tabs>
+    </Section>
+
     <ValidationSection
       form
+      isValid
+      isRequired
+      invalidMessage
       name
+      requiredMessage
+      shouldValidateUnmounted
+      validator
     />
   </article>
 );

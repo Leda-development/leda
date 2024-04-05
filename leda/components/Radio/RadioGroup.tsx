@@ -9,6 +9,8 @@ import { COMPONENTS_NAMESPACES } from '../../constants';
 import type {
   ChangeEvent, RadioGroupProps, WrapperProps,
 } from './types';
+import { createResetHandler } from './handlers';
+import { useValidation } from '../Validation';
 
 export const RadioGroup = React.forwardRef((props: RadioGroupProps, ref?: React.Ref<HTMLElement>): React.ReactElement => {
   const {
@@ -23,9 +25,15 @@ export const RadioGroup = React.forwardRef((props: RadioGroupProps, ref?: React.
 
   const theme = useTheme(props.theme, COMPONENTS_NAMESPACES.radio);
 
-  const [valueState, setValueState] = React.useState<string | number | undefined>();
+  const [valueState, setValueState] = React.useState<string | number | undefined | null>();
 
   const value = valueProp === undefined ? valueState : valueProp;
+
+  const { isValid, InvalidMessage } = useValidation(props, {
+    value,
+  }, {
+    reset: createResetHandler(props, setValueState),
+  });
 
   const combinedClassNames = getClassNames(
     theme.wrapper,
@@ -33,12 +41,12 @@ export const RadioGroup = React.forwardRef((props: RadioGroupProps, ref?: React.
   );
 
   const handleChange = React.useCallback((ev: ChangeEvent) => {
-    if (isFunction(onChange)) return onChange(ev);
+    if (isFunction(onChange)) onChange(ev);
 
     return setValueState(ev.component.value);
   }, [onChange]);
 
-  const Wrapper = useElement<RadioGroupProps, { value?: string | number }, WrapperProps>(
+  const Wrapper = useElement<RadioGroupProps, { value?: string | number | null }, WrapperProps>(
     'Wrapper',
     Div,
     wrapperRender,
@@ -68,6 +76,7 @@ export const RadioGroup = React.forwardRef((props: RadioGroupProps, ref?: React.
         }
         return child;
       })}
+      {!isValid && <InvalidMessage />}
     </Wrapper>
   );
 }) as React.FC<RadioGroupProps>;

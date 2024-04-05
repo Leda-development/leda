@@ -2,6 +2,14 @@ import type * as React from 'react';
 import type { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import type { COMPONENTS_NAMESPACES } from '../../constants';
 import type { CustomRender } from '../../commonTypes';
+import { ValidationProps } from '../Validation/types';
+
+export interface ResetEvent {
+  component: {
+    value: null,
+    name?: string,
+  },
+}
 
 export interface ChangeEvent extends React.ChangeEvent {
   component: {
@@ -10,7 +18,7 @@ export interface ChangeEvent extends React.ChangeEvent {
   },
 }
 
-export interface RadioGroupProps {
+export interface RadioGroupProps extends ValidationProps {
   /** RadioButton child components */
   children: React.ReactNode,
   /** Whole component disabled state */
@@ -18,15 +26,15 @@ export interface RadioGroupProps {
   /** Name */
   name?: string,
   /** Change handler */
-  onChange?: (event: ChangeEvent) => void,
+  onChange?: (event: ChangeEvent | ResetEvent) => void,
   /** Reference */
   ref?: React.Ref<HTMLElement>,
   /** Theme */
   theme?: PartialGlobalDefaultTheme[typeof COMPONENTS_NAMESPACES.radio],
   /** Value */
-  value?: string | number,
+  value?: string | number | null,
   /** Wrapper customizator */
-  wrapperRender?: CustomRender<RadioGroupProps, { value?: string | number }, WrapperProps>,
+  wrapperRender?: CustomRender<RadioGroupProps, { value?: string | number | null }, WrapperProps>,
   /** _css-class-names */
   [x: string]: unknown,
 }

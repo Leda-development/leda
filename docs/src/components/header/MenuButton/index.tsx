@@ -10,10 +10,7 @@ export const MenuButton = ({
   <L.Button
     onClick={() => setIsMenuOpen(!isMenuOpen)}
     className="
-        fixed
-        right-3
-        top-3
-        z-10
+        mr-2
         border-0
         bg-white
         py-2

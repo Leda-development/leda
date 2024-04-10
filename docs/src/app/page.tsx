@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import * as L from '@leda';
 import { Live } from '@/components/live';
@@ -9,16 +9,16 @@ import {
 import { log } from '@/utils';
 
 const Home = () => (
-  <article className='mb-10'>
+  <article className="mb-10">
     <H1>Leda the React components library</H1>
     <P>
       Hi!
     </P>
-    
+
     <section>
       <H2>This is the simplest Leda form</H2>
       <div>
-        <Live scope={{ L, log }} className='mb-6'>
+        <Live scope={{ L, log }} className="mb-6">
           {`() => {
   return (
     <>
@@ -51,16 +51,16 @@ const Home = () => (
         To create a form just put the same name to the <b>form</b> attribute.
       </P>
       <P>
-        Many examples use L. notaition. It is because we imported Leda as follows <Code>import * as L from '@leda'</Code>.
+        Many examples use L. notaition. It is because we imported Leda as follows <Code>import * as L from &apos;@leda&apos;</Code>.
         It is just the namespace to let you use any Leda component in the live edit window.
       </P>
       <P>
-        <Code>_w-60</Code> and <Code>_mb-4</Code> stand for <Code>className="mb-4 w-60"</Code>.
+        <Code>_w-60</Code> and <Code>_mb-4</Code> stand for <Code>className=&quot;mb-4 w-60&quot;</Code>.
         It gets handy when you need <b>conditional CSS class names</b>.
       </P>
 
       <div>
-        <Live scope={{ L, log }} className='mb-6'>
+        <Live scope={{ L, log }} className="mb-6">
           {`() => {
   const [isColored, setIsColored] = React.useState(false)
 
@@ -92,7 +92,7 @@ const Home = () => (
       <H2>Adding CSS classes to other component elements</H2>
 
       <div>
-        <Live scope={{ L, log }} className='mb-6'>
+        <Live scope={{ L, log }} className="mb-6">
           {`() => {
   return (
     <>
@@ -125,31 +125,31 @@ const Home = () => (
       <H2>And much more</H2>
 
       <P>
-        <A href={"/basics/styles"}>
+        <A href="/basics/styles">
           Styles
         </A>
       </P>
 
       <P>
-        <A href={"/basics/customization"}>
+        <A href="/basics/customization">
           Customization
         </A>
       </P>
 
       <P>
-        <A href={"/basics/validation"}>
+        <A href="/basics/validation">
           Validation
         </A>
       </P>
 
       <P>
-        <A href={"/form-helpers/form"}>
+        <A href="/form-helpers/form">
           Form helpers (submit forms programmaticaly)
         </A>
       </P>
 
       <P>
-        <A href={"/validation-examples/predefined-validators"}>
+        <A href="/validation-examples/predefined-validators">
           More validation examples
         </A>
       </P>

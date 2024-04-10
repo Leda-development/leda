@@ -319,47 +319,47 @@ interface RenderEvent<P = {}, S = {}, E = {}> {
         <tbody>
           <tr>
             <Td>closeIcon</Td>
-            <Td>input-clear-icon</Td>
+            <Td>ld-input-clear-icon</Td>
           </tr>
           <tr>
             <Td>icon</Td>
-            <Td>input-icon</Td>
+            <Td>ld-input-icon</Td>
           </tr>
           <tr>
             <Td>iconLeft</Td>
-            <Td>icon-left</Td>
+            <Td>ld-icon-left</Td>
           </tr>
           <tr>
             <Td>iconRight</Td>
-            <Td>icon-right</Td>
+            <Td>ld-icon-right</Td>
           </tr>
           <tr>
             <Td>input</Td>
-            <Td>input-element</Td>
+            <Td>ld-input-element</Td>
           </tr>
           <tr>
             <Td>inputWrapper</Td>
-            <Td>input-element-wrapper</Td>
+            <Td>ld-input-element-wrapper</Td>
           </tr>
           <tr>
             <Td>inputWrapperDisabled</Td>
-            <Td>disabled</Td>
+            <Td>ld-disabled</Td>
           </tr>
           <tr>
             <Td>inputWrapperFocused</Td>
-            <Td>focused</Td>
+            <Td>ld-focused</Td>
           </tr>
           <tr>
             <Td>inputWrapperInvalid</Td>
-            <Td>danger</Td>
+            <Td>ld-danger</Td>
           </tr>
           <tr>
             <Td>inputWrapperRequired</Td>
-            <Td>required</Td>
+            <Td>ld-required</Td>
           </tr>
           <tr>
             <Td>wrapper</Td>
-            <Td>input-wrapper</Td>
+            <Td>ld-input-wrapper</Td>
           </tr>
         </tbody>
       </Table>

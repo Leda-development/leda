@@ -8,9 +8,7 @@ export const MainNav = () => (
     <ul>
       <NavLi to="/basics/styles">Styles</NavLi>
       <NavLi to="/basics/customization">Customization</NavLi>
-      <NavLi to="/basics/forms">Forms</NavLi>
       <NavLi to="/basics/validation">Validation</NavLi>
-      <NavLi to="/basics/css-classes-props">CSS classes props</NavLi>
     </ul>
 
     <div className="py-4 font-bold">
@@ -80,6 +78,13 @@ export const MainNav = () => (
       <NavLi to="/other/html">HTML</NavLi>
       <NavLi to="/other/leda-provider">Leda provider</NavLi>
       <NavLi to="/other/utils">utils</NavLi>
+    </ul>
+
+    <div className="py-4 font-bold">
+      Contacts
+    </div>
+    <ul>
+      <NavLi to="/contacts">Contacts</NavLi>
     </ul>
   </nav>
 );

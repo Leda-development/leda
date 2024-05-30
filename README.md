@@ -5,7 +5,7 @@ Leda is a React UI component library.
 
 ## Documentation
 
-[https://leda.codes][1]
+[https://reactiveleda.dev][1]
 
 
 ## Credit
@@ -33,7 +33,7 @@ Contributors:
 Leda is licensed under the MIT License
 
 
-[1]: https://leda.codes
+[1]: https://reactiveleda.dev
 [2]: https://github.com/Apollo-11
 [3]: https://github.com/777PolarFox777
 [4]: https://github.com/roshal

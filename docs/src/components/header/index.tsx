@@ -47,7 +47,7 @@ export const MainHeader = ({
             A
           </span>
         </span>
-        <span className="ml-2 text-xs">1.3.5</span>
+        <span className="ml-2 text-xs">1.3.7</span>
       </L.A>
       <div
         className="

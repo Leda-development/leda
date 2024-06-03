@@ -6,7 +6,6 @@ import type { COMPONENTS_NAMESPACES } from '../../constants';
 import type { SuggestionListProps } from '../../src/SuggestionList/types';
 import type { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import type { DivProps } from '../Div';
-import type { SpanProps } from '../Span';
 import type { ValidationProps } from '../Validation/types';
 
 export type Value = SomeObject | string | number | null;
@@ -66,7 +65,7 @@ export interface DropDownSelectProps<T extends Value = Value> extends Validation
   filterValue?: string,
   groupBy?: (option: T) => string | undefined,
   hasClearButton?: boolean,
-  iconRender?: CustomRender<DropDownSelectProps<T>, DropDownSelectState, SpanProps>,
+  iconRender?: CustomRender<DropDownSelectProps<T>, DropDownSelectState, unknown>,
   inputRender?: CustomRender<DropDownSelectProps<T>, DropDownSelectState, React.InputHTMLAttributes<HTMLInputElement>>,
   isDisabled?: boolean,
   isLoading?: boolean,
@@ -161,4 +160,11 @@ export interface FilterDataProps {
 
 export interface UseCustomElementsExtra {
   inputSuggestion?: Value,
+}
+
+export interface IconProps {
+  className?: string,
+  icon?: string,
+  onMouseDown?: React.MouseEventHandler<Element>
+  onClick?: React.MouseEventHandler<Element>
 }

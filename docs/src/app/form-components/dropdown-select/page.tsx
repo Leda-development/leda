@@ -10,6 +10,7 @@ import {
 import { Live } from '@/components/live';
 import { PropsTableSection, ValidationSection, CustomizationPropsTableSection } from '@/sections';
 import { Demos } from './Demos';
+import { TranslateIcon } from './TranslateIcon';
 
 const DropDownSelectPage = () => (
   <article>
@@ -226,7 +227,8 @@ const DropDownSelectPage = () => (
         </Td>
         <Td>
           <CodeBlock>
-            {`({
+            {`
+({
   Element,
   elementprops,
   componentProps,
@@ -238,11 +240,22 @@ const DropDownSelectPage = () => (
       </tr>
     </CustomizationPropsTableSection>
 
-    <Live scope={{ L }}>
+    <Live scope={{ L, TranslateIcon }}>
       {`
 <L.DropDownSelect
-  data={['Argentina', 'Spain']}
+  data={['English', 'Spanish']}
+  defaultValue="English"
   onChange={({ component }) => console.log(component.value)}
+  iconRender={({ elementProps }) => {
+    return (
+      <TranslateIcon
+        {...elementProps}
+      />
+    )
+  }}
+  theme={{
+    selectIconOpened: '',  // disable icon movement
+  }}
   _w-48
 />
         `}

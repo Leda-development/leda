@@ -5,6 +5,7 @@ import { isNil } from 'lodash';
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { SuggestionList } from '../../src/SuggestionList';
 import {
+  useElement,
   useProps, useTheme,
 } from '../../utils';
 import { Div } from '../Div';
@@ -22,7 +23,7 @@ import {
 import { filterData, getComponentClassNames, getInputValue } from './helpers';
 import { useCorrectSuggestionsInControlledMode, useCustomElements, useSyncedHighlightedValue } from './hooks';
 import type {
-  DropDownSelectProps, DropDownSelectState, Value,
+  DropDownSelectProps, DropDownSelectState, IconProps, Value,
 } from './types';
 import { getText } from '../../src/SuggestionList/helpers';
 import { Icon } from '../Icon';
@@ -166,6 +167,17 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
     event.preventDefault();
   };
 
+  const DefaultIconElement = () => <Icon
+    icon={IconTypes.Icons.ChevronDown}
+  />;
+
+  const IconElement = useElement<DropDownSelectProps, DropDownSelectState, IconProps>(
+    'Icon',
+    DefaultIconElement,
+    iconRender,
+    props,
+  );
+
   return (
     <Wrapper
       className={wrapperClassNames}
@@ -198,8 +210,7 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
             onClick={handleClearIconClick}
           />
         )}
-        <Icon
-          icon={IconTypes.Icons.ChevronDown}
+        <IconElement
           className={selectIconClassNames}
           onMouseDown={handleIconMouseDown}
           onClick={handleIconClick}

@@ -1,3 +1,5 @@
+// @typescript-eslint-disable-file
+
 export const TranslateIcon = ({
   styles,
   ...rest
@@ -14,5 +16,5 @@ export const TranslateIcon = ({
         <path d="M 71.439 29.024 c -10.234 0 -18.561 8.327 -18.561 18.561 V 83.29 c 0 1.657 1.343 3 3 3 s 3 -1.343 3 -3 V 62.279 H 84 V 83.29 c 0 1.657 1.343 3 3 3 s 3 -1.343 3 -3 V 47.585 C 90 37.351 81.674 29.024 71.439 29.024 z M 58.879 56.279 v -8.694 c 0 -6.926 5.635 -12.561 12.561 -12.561 S 84 40.659 84 47.585 v 8.694 H 58.879 z" styles="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
       </g>
     </svg>
-  )
-}
+  );
+};

@@ -147,7 +147,7 @@ export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends Va
   /** Blur handler */
   onBlur?: (event: BlurEvent) => void,
   /** Change handler */
-  onChange: (event: ChangeEvent<T>) => void,
+  onChange?: (event: ChangeEvent<T>) => void,
   /** Focus handler */
   onFocus?: (event: FocusEvent) => void,
   /** Placeholder */

@@ -133,7 +133,7 @@ interface AutoCompleteMessages {
         <Td>Blur handler</Td>
       </tr>
       <tr>
-        <TdCode><b>onChange</b></TdCode>
+        <TdCode>onChange</TdCode>
         <TdCode>(event: ChangeEvent{'<'}T{'>'}) ={'>'} void</TdCode>
         <Td>Value change handler</Td>
       </tr>

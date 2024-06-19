@@ -32,7 +32,7 @@ export const clearButtonClickHandlerCreator = ({
   isDisabled?: boolean,
   isValueControlled: boolean,
   name?: string,
-  onChange: (event: ChangeEvent) => void,
+  onChange?: (event: ChangeEvent) => void,
   setStateValue: SetState<string>,
   setSelectedSuggestion: SetState<Suggestion>,
 }): React.MouseEventHandler<SVGElement> => (event) => {
@@ -70,7 +70,7 @@ export const suggestionClickHandlerCreator = ({
   data: Suggestion[],
   textField?: string,
   name?: string,
-  onChange: (event: ChangeEvent) => void,
+  onChange?: (event: ChangeEvent) => void,
   isValueControlled: boolean,
   setStateValue: SetState<string>,
   setIsFocused: SetState<boolean>,
@@ -121,7 +121,7 @@ export const inputChangeHandlerCreator = ({
   data: Suggestion[],
   isValueControlled: boolean,
   name?: string,
-  onChange: (event: ChangeEvent) => void,
+  onChange?: (event: ChangeEvent) => void,
   setStateValue: SetState<string>,
   setSelectedSuggestion: SetState<Suggestion>,
   textField?: string,
@@ -336,7 +336,7 @@ export const createResetHandler = ({
   value: string,
 }) => () => {
   setStateValue(value);
-  props.onChange({
+  props.onChange?.({
     component: {
       value,
       method: ChangeMethod.reset,

@@ -7,7 +7,7 @@ import type { SuggestionListProps } from '../../src/SuggestionList/types';
 import type { GlobalDefaultTheme, PartialGlobalDefaultTheme } from '../../utils/useTheme';
 import type { DivProps } from '../Div';
 import type { ValidationProps } from '../Validation/types';
-import { IconTypes } from '../..';
+import type { IconTypes } from '../..';
 
 export type Value = SomeObject | string | number | null;
 
@@ -166,6 +166,6 @@ export interface UseCustomElementsExtra {
 export interface IconProps {
   className?: string,
   icon?: IconTypes.Icons,
-  onMouseDown?: React.MouseEventHandler<Element>
-  onClick?: React.MouseEventHandler<Element>
+  onMouseDown?: React.MouseEventHandler<Element>,
+  onClick?: React.MouseEventHandler<Element>,
 }

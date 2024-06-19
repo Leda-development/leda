@@ -167,14 +167,14 @@ export const DropDownSelect = React.forwardRef((props: DropDownSelectProps, ref:
     event.preventDefault();
   };
 
-  const DefaultIconElement = (props: IconProps) => <Icon
-    icon={IconTypes.Icons.ChevronDown}
-    {...props}
-  />;
-
   const IconElement = useElement<DropDownSelectProps, DropDownSelectState, IconProps>(
     'Icon',
-    DefaultIconElement,
+    (elementProps: IconProps) => (
+      <Icon
+        icon={IconTypes.Icons.ChevronDown}
+        {...elementProps}
+      />
+    ),
     iconRender,
     props,
   );

@@ -15,6 +15,7 @@ import {
 import { COMPONENTS_NAMESPACES } from '../../constants';
 import { Div } from '../Div';
 import {
+  getSuggestionFromValue,
   getSuggestions,
   safeTrim,
 } from './helpers';
@@ -43,6 +44,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     className,
     compareObjectsBy,
     data,
+    defaultValue = null,
     filterRule,
     form,
     groupBy,
@@ -92,11 +94,17 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     messages,
   });
 
-  const [stateValue, setStateValue] = React.useState('');
+  const [stateValue, setStateValue] = React.useState(defaultValue ?? '');
   const [isFocused, setIsFocused] = React.useState(false);
-  const [selectedSuggestion, setSelectedSuggestion] = React.useState<Suggestion>(null);
+  const [selectedSuggestion, setSelectedSuggestion] = React.useState<Suggestion>(() => {
+    if (defaultValue != null) {
+      const defaultSuggestion = getSuggestionFromValue({ data, value: defaultValue, textField });
+      return defaultSuggestion;
+    }
+    return null;
+  });
   const [highlightedSuggestion, setHighlightedSuggestion] = React.useState<Suggestion>(null);
-  const [lastCorrectValue, setLastCorrectValue] = React.useState('');
+  const [lastCorrectValue, setLastCorrectValue] = React.useState(defaultValue ?? '');
 
   const autoCompleteState = React.useMemo(() => ({
     highlightedSuggestion,
@@ -113,7 +121,7 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     suggestion: selectedSuggestion,
   }, {
     reset: createResetHandler({
-      props, setStateValue, value: '',
+      props, setStateValue, value: defaultValue ?? '',
     }),
   });
 

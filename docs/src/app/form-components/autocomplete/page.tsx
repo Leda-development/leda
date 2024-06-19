@@ -48,6 +48,11 @@ const AutoCompletePage = () => (
         </Td>
       </tr>
       <tr>
+        <TdCode>defaultValue</TdCode>
+        <TdCode>string | null</TdCode>
+        <Td>Default value for the uncontrolled mode</Td>
+      </tr>
+      <tr>
         <TdCode>isDisabled</TdCode>
         <TdCode>boolean</TdCode>
         <Td>Disable the component</Td>

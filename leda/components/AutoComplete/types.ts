@@ -112,6 +112,8 @@ export interface AutoCompleteProps<T extends Suggestion = Suggestion> extends Va
   compareObjectsBy?: T extends object ? ((suggestionListItem: T) => unknown) | string : never,
   /** Data for the dropdown list */
   data: T[],
+  /** Default value */
+  defaultValue?: string | null,
   /** In case you want to disable component  */
   isDisabled?: boolean,
   /** Search mode, smart is default, looks for one or several words regardless of their order, can be slow if data has thousands of elements or more */

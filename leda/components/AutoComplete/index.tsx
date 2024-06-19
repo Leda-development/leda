@@ -97,6 +97,11 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
   const [stateValue, setStateValue] = React.useState(defaultValue ?? '');
   const [isFocused, setIsFocused] = React.useState(false);
   const [selectedSuggestion, setSelectedSuggestion] = React.useState<Suggestion>(() => {
+    if (propValue != null) {
+      const initialSuggestion = getSuggestionFromValue({ data, value: propValue, textField });
+      return initialSuggestion;
+    }
+
     if (defaultValue != null) {
       const defaultSuggestion = getSuggestionFromValue({ data, value: defaultValue, textField });
       return defaultSuggestion;
@@ -113,6 +118,19 @@ export const AutoComplete = React.forwardRef((props: AutoCompleteProps, ref: Rea
     selectedSuggestion,
     stateValue,
   }), [highlightedSuggestion, isFocused, lastCorrectValue, selectedSuggestion, stateValue]);
+
+  React.useEffect(() => {
+    if (propValue != null) {
+      const defaultSuggestion = getSuggestionFromValue({ data, value: propValue, textField });
+      setSelectedSuggestion(defaultSuggestion);
+      return;
+    }
+
+    if (defaultValue != null) {
+      const defaultSuggestion = getSuggestionFromValue({ data, value: defaultValue, textField });
+      setSelectedSuggestion(defaultSuggestion);
+    }
+  }, [data]);
 
   const {
     isValid, validateCurrent, InvalidMessage,

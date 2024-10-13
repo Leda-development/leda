@@ -1,6 +1,6 @@
 # Leda
 
-Leda is a React UI component library.
+Leda is a React UI component library with built-in declarative forms and validation.
 
 
 ## Documentation

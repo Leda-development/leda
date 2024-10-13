@@ -27,7 +27,7 @@ export const ValidationSection = ({
   validator?: boolean,
 }) => (
   <Section>
-    <H2>Validation</H2>
+    <H2>Validation components&apos; props</H2>
     <Table>
       <THead headers={propsTableCommonHeaders} />
       <tbody>

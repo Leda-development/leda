@@ -4,59 +4,75 @@ import * as L from '@leda';
 import { Live } from '@/components/live';
 import {
   A,
-  Code, H1, H2, P,
+  Code, H1, H2, Li, P,
+  Section,
+  Ul,
 } from '@/components/typography';
 import { log } from '@/utils';
 
 const Home = () => (
   <article className="mb-10">
-    <H1>Leda the React components library</H1>
+    <H1>Leda the React components library with built-in declarative forms and validation</H1>
+
     <P>
-      Hi!
+      Easy to start, easy to grow.
     </P>
 
-    <section>
-      <H2>This is the simplest Leda form</H2>
+    <Section>
+
+      <H2>Forms and validation</H2>
+
+      <Ul>
+        <Li>
+          22 components to build forms
+        </Li>
+        <Li>
+          declarative forms and validation
+        </Li>
+      </Ul>
+
+      <P>
+        Start as easy as this:
+      </P>
+
       <div>
-        <Live scope={{ L, log }} className="mb-6">
-          {`() => {
-  return (
-    <>
-      <L.Input
-        form="leda-simplest-form"
-        name="input"
-        _w-60
-        _mb-4
+        <Live scope={{ Input: L.Input, Button: L.Button, log }} className="mb-6">
+          {`<>
+      <Input
+        form="myForm" name="someName"
+        _w-60 _mb-4 // tailwind css classes
       />
 
-      <L.Button
-        form="leda-simplest-form"
+      <Button
+        form="myForm"
         onClick={({ form }) => {
-          log(form)
+          log(form) // prints form data to the console
         }}
       >
         Submit
-      </L.Button>
-    </>
-  )
-}`}
+      </Button>
+</>`}
         </Live>
       </div>
 
       <P>
-        Components can be controlled or uncontrolled,
-        all form data can be retrieved from the onClick event.
+        <A href="/basics/validation">
+          More on forms and validation
+        </A>
       </P>
-      <P>
-        To create a form just put the same name to the <b>form</b> attribute.
-      </P>
-      <P>
-        Many examples use L. notaition. It is because we imported Leda as follows <Code>import * as L from &apos;@leda&apos;</Code>.
-        It is just the namespace to let you use any Leda component in the live edit window.
-      </P>
+    </Section>
+    <Section>
+
+      <H2>
+        CSS classes
+      </H2>
       <P>
         <Code>_w-60</Code> and <Code>_mb-4</Code> stand for <Code>className=&quot;mb-4 w-60&quot;</Code>.
         It gets handy when you need <b>conditional CSS class names</b>.
+      </P>
+
+      <P>
+        Leda components can have both className and _your-class-name props.
       </P>
 
       <div>
@@ -84,45 +100,49 @@ const Home = () => (
       </div>
 
       <P>
-        Leda components can have both className and _your-class-name props.
+        Many examples use L. notaition. We have imported Leda as follows: <Code>import * as L from &apos;@leda&apos;</Code>.
       </P>
-    </section>
+      <P>
+        L is just a namespace to get access to any Leda component in the live edit window.
+      </P>
+    </Section>
 
-    <section>
-      <H2>Adding CSS classes to other component elements</H2>
+    <Section>
+      <H2>Themes</H2>
+
+      <P>
+        All colors, sizes and other numeric values have corresponding <A href="/basics/styles">css variables</A> so you can change everything to make components look different.
+      </P>
+
+      <P>
+        Also each component has a <b>theme</b> prop to add/replace css classes of any HTML element within the component.
+      </P>
 
       <div>
         <Live scope={{ L, log }} className="mb-6">
-          {`() => {
-  return (
-    <>
-      <L.Input
-        form="leda-simplest-form-2"
-        name="input"
-        isRequired
-        theme={{
-          wrapper: 'ld-wrapper w-60 mb-4',
-          inputWrapperRequired: 'border-orange-300'
-        }}
-      />
-
-      <L.Button
-        form="leda-simplest-form-2"
-        onClick={({ form }) => {
-          log(form)
-        }}
-      >
-        Submit
-      </L.Button>
-    </>
-  )
-}`}
+          {`<L.Input
+  theme={{
+    wrapper: 'ld-wrapper w-60 mb-4',
+    inputWrapper: 'ld-input-element-wrapper border-sky-500 hover:border-sky-700',
+  }}
+/>
+`}
         </Live>
       </div>
-    </section>
+    </Section>
 
-    <section>
-      <H2>And much more</H2>
+    <Section>
+      <H2>Requirements</H2>
+      <P>
+        React 16.8.0 and above (the one with hooks).
+      </P>
+      <P>
+        <Code>npm i leda</Code>
+      </P>
+    </Section>
+
+    <Section>
+      <H2>Further reading</H2>
 
       <P>
         <A href="/basics/styles">
@@ -137,12 +157,6 @@ const Home = () => (
       </P>
 
       <P>
-        <A href="/basics/validation">
-          Validation
-        </A>
-      </P>
-
-      <P>
         <A href="/form-helpers/form">
           Form helpers (submit forms programmaticaly)
         </A>
@@ -153,17 +167,7 @@ const Home = () => (
           More validation examples
         </A>
       </P>
-    </section>
-
-    <section>
-      <H2>Requirements</H2>
-      <P>
-        React 16.8.0 and above (the one with hooks).
-      </P>
-      <P>
-        <Code>npm i leda</Code>
-      </P>
-    </section>
+    </Section>
   </article>
 );
 

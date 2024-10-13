@@ -8,3 +8,5 @@ export { Section } from './Section';
 export {
   Table, Th, Td, TdCode, THead, propsTableCommonHeaders,
 } from './Table';
+export { Ul } from './Ul';
+export { Li } from './Li';

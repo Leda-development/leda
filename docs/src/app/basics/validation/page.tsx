@@ -2,9 +2,7 @@
 
 import * as L from '@leda';
 import {
-  H1, H2, P,
-  A,
-  Section,
+  H1, H2, P, A, Section,
 } from '@/components/typography';
 import { Live } from '@/components/live';
 import { ButtonValidationPropsTable, ValidationSection } from '@/sections';
@@ -30,29 +28,28 @@ const Page = () => (
       </P>
 
       <Live scope={{ L, log }} className="mb-6">
-        {`
-      <>
-      <L.Input
-      form='testForm'
-      name='inputField'
-      placeholder='enter an email please'
-      isRequired
-      requiredMessage='Do not leave me empty'
-      validator='email'
-      invalidMessage={<i>Please enter a valid email</i>}
-      _w-48
-      _mb-3
-      />
-      <L.Button
-      form='testForm'
-      onValidationFail={({ invalidForms }) => log(invalidForms)}
-      shouldScrollToInvalidFields
-      scrollOffset={100}
-      onClick={({ form }) => log(form)}
-      >
-      Submit
-      </L.Button>
-      </>`}
+        {`<>
+  <L.Input
+    form='testForm'
+    name='inputField'
+    placeholder='enter an email please'
+    isRequired
+    requiredMessage='Do not leave me empty'
+    validator='email'
+    invalidMessage={<i>Please enter a valid email</i>}
+    _w-48
+    _mb-3
+  />
+  <L.Button
+    form='testForm'
+    onValidationFail={({ invalidForms }) => log(invalidForms)}
+    shouldScrollToInvalidFields
+    scrollOffset={100}
+    onClick={({ form }) => log(form)}
+  >
+    Submit
+  </L.Button>
+</>`}
       </Live>
 
       <ValidationSection all />

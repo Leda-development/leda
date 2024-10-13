@@ -38,19 +38,19 @@ const Home = () => (
       <div>
         <Live scope={{ Input: L.Input, Button: L.Button, log }} className="mb-6">
           {`<>
-      <Input
-        form="myForm" name="someName"
-        _w-60 _mb-4 // tailwind css classes
-      />
+  <Input
+    form="myForm" name="someName"
+    _w-60 _mb-4 // tailwind css classes
+  />
 
-      <Button
-        form="myForm"
-        onClick={({ form }) => {
-          log(form) // prints form data to the console
-        }}
-      >
-        Submit
-      </Button>
+  <Button
+    form="myForm"
+    onClick={({ form }) => {
+      log(form) // prints form data to the console
+    }}
+  >
+    Submit
+  </Button>
 </>`}
         </Live>
       </div>

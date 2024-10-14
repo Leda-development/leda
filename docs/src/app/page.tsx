@@ -12,14 +12,11 @@ import { log } from '@/utils';
 
 const Home = () => (
   <article className="mb-10">
-    <H1>Leda the React components library with built-in declarative forms and validation</H1>
+    <H1>Leda the React components library</H1>
 
-    <P>
-      Easy to start, easy to grow.
-    </P>
+    <P>Built-in forms, validation, customization etc.</P>
 
     <Section>
-
       <H2>Forms and validation</H2>
 
       <Ul>

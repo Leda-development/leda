@@ -1,5 +1,9 @@
 .ld-dropdownselect-wrapper {
   position: relative;
+
+  .ld-input-element-wrapper {
+    cursor: pointer;
+  }
 }
 
 .ld-opened {

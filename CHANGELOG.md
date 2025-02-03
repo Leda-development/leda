@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [1.3.11] - 2025-02-03
+
+### Fixed
+- Radio: add missing color variables
+
+
 ## [1.3.10] - 2024-06-19
 
 ### Fixed
@@ -27,7 +33,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 - Calendar: missing form connection
-- DatePicker, DateRange, DateTimePicker, DateTimeRange, TimePicker, TimeRange,: missing form connection
+- DatePicker, DateRange, DateTimePicker, DateTimeRange, TimePicker, TimeRange: missing form connection
 - Radio: missing form connection
 - Radio: missing uncontrolled mode
 - Switcher: missing form connection

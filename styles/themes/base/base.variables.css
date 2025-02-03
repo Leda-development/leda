@@ -220,10 +220,14 @@
   --ld-progressbar-value-text-color: var(--ld-font-inverted-color);
   --ld-progressbar-value-font-size: 12px;
 
+  --ld-radio-color: var(--ld-base-color);
+  --ld-radio-color-hover: var(--ld-base-color-hover);
+  --ld-radio-color-disabled: var(--ld-bg-color-disabled);
+  --ld-radio-contrast-color: var(--ld-bg-color);
   --ld-radio-active-color: var(--ld-base-color);
   --ld-radio-active-color-hover: var(--ld-base-color-hover);
   --ld-radio-active-color-disabled: var(--ld-bg-color-disabled);
-  --ld-radio-contrast-color: var(--ld-bg-color);
+  --ld-radio-active-contrast-color: var(--ld-bg-color);
 
   --ld-rating-base-color: var(--ld-base-color);
   --ld-rating-active-color: var(--ld-font-color);

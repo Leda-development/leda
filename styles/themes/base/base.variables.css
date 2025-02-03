@@ -134,14 +134,18 @@
   --ld-input-font-weight: var(--ld-font-weight);
   --ld-input-text-color: var(--ld-font-color);
   --ld-input-border-color: var(--ld-base-color);
-  --ld-input-border-hover-color: var(--ld-base-color-hover);
+  --ld-input-border-color-hover: var(--ld-base-color-hover);
   --ld-input-border-radius: var(--ld-border-radius);
   --ld-input-border-width: 1px;
   --ld-input-padding-block: calc(var(--ld-padding-block) - var(--ld-input-border-width));
   --ld-input-padding-inline: var(--ld-padding-inline);
+  --ld-input-close-icon-color: var(--ld-base-color);
+  --ld-input-close-icon-color-hover: var(--ld-base-color);
   --ld-input-close-icon-size: 2.25rem; 
   --ld-input-close-icon-padding: .5rem;
+  --ld-input-close-icon-border-radius: var(--ld-border-radius);
   --ld-input-bg-color: var(--ld-bg-color);
+  --ld-input-element-bg-color: transparent;
   --ld-input-bg-color-disabled: var(--ld-bg-color-disabled);
 
   --ld-invalid-message-color: var(--ld-color-danger);

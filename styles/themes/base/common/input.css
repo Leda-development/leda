@@ -9,6 +9,7 @@
   cursor: inherit;
   inline-size: 100%;
   outline: none;
+  background-color: var(--ld-input-element-bg-color);
 }
 
 .ld-input-element-wrapper {
@@ -27,14 +28,14 @@
 }
 
 .ld-input-icon {
-  color: var(--ld-input-border-color);
+  color: var(--ld-input-close-icon-color);
   padding: var(--ld-input-close-icon-padding);
   block-size: 100%;
   inline-size: var(--ld-input-close-icon-size);
-  border-radius: var(--ld-input-border-radius);
+  border-radius: var(--ld-input-close-icon-border-radius);
   cursor: pointer;
 
   &:hover {
-    color: var(--ld-input-border-hover-color);
+    color: var(--ld-input-close-icon-color-hover);
   }
 }

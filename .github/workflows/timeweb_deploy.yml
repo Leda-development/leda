@@ -31,7 +31,7 @@ jobs:
       # - name: Build
       #   run: npm run build
 
-      - name: Debug SSH Key again
+      - name: Debug SSH Key test
         run: echo "${{ secrets.SERVER_SSH_KEY }}" > key && chmod 600 key && ls -la key
 
       # Step 5: Deploy to your server via SSH

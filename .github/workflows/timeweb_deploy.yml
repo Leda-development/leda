@@ -27,19 +27,19 @@ jobs:
       - name: TS
         run: npm run tsc
 
-      # # Step 4: Build Next.js (creates `.next/` folder)
-      # - name: Build
-      #   run: npm run build
+      # Step 4: Build Next.js (creates `.next/` folder)
+      - name: Build
+        run: npm run build
 
-      # # Step 5: Deploy to your server via SSH
-      # - name: Deploy
-      #   uses: appleboy/ssh-action@master
-      #   with:
-      #     host: ${{ secrets.SERVER_IP }} # From GitHub Secrets
-      #     username: deployer
-      #     key: ${{ secrets.SERVER_SSH_KEY }}
-      #     script: |
-      #       cd /var/www/nextjs  # Your server path
-      #       git pull origin main
-      #       npm ci --production  # Skip devDependencies
-      #       pm2 restart next-app  # Reload the app
+      # Step 5: Deploy to your server via SSH
+      - name: Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }} # From GitHub Secrets
+          username: deployer
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            cd /var/www/leda  # Your server path
+            git pull origin master
+            # npm ci --production  # Skip devDependencies
+            # pm2 restart next-app  # Reload the app

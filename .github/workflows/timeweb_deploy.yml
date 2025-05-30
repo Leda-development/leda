@@ -8,17 +8,17 @@ jobs:
     runs-on: ubuntu-latest # GitHub-hosted Linux VM
 
     steps:
-      # Step 0: Check
+      # Step 1: Clone your repo
+      - uses: actions/checkout@v4
+
+      # Step 2: Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24" # Matches your server
+
       - name: Check
         run: npm run check
-      # Step 1: Clone your repo
-      # - uses: actions/checkout@v4
-
-      # # Step 2: Set up Node.js
-      # - name: Setup Node.js
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: "24" # Matches your server
 
       # # Step 3: Install dependencies
       # - name: Install dependencies

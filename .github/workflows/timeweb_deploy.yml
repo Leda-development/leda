@@ -18,8 +18,8 @@ jobs:
           node-version: "24" # Matches your server
 
       # # Step 3: Install dependencies
-      # - name: Install dependencies
-      # run: npm ci # Clean install (uses package-lock.json)
+      - name: Install dependencies
+        run: npm ci # Clean install (uses package-lock.json)
 
       # - name: Lint
       #   run: npm run lint
@@ -28,11 +28,8 @@ jobs:
       #   run: npm run tsc
 
       # Step 4: Build Next.js (creates `.next/` folder)
-      # - name: Build
-      #   run: npm run build
-
-      - name: Debug SSH Key test
-        run: echo "${{ secrets.SERVER_SSH_KEY }}" > key && chmod 600 key && ls -la key
+      - name: Build
+        run: npm run build
 
       # Step 5: Deploy to your server via SSH
       - name: Deploy
@@ -44,5 +41,5 @@ jobs:
           script: |
             cd /var/www/leda  # Your server path
             git pull origin master
-            # npm ci --production  # Skip devDependencies
+            npm ci --production  # Skip devDependencies
             # pm2 restart next-app  # Reload the app

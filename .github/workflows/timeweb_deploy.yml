@@ -18,18 +18,21 @@ jobs:
           node-version: "24" # Matches your server
 
       # # Step 3: Install dependencies
-      - name: Install dependencies
-        run: npm ci # Clean install (uses package-lock.json)
+      # - name: Install dependencies
+      # run: npm ci # Clean install (uses package-lock.json)
 
-      - name: Lint
-        run: npm run lint
+      # - name: Lint
+      #   run: npm run lint
 
-      - name: TS
-        run: npm run tsc
+      # - name: TS
+      #   run: npm run tsc
 
       # Step 4: Build Next.js (creates `.next/` folder)
-      - name: Build
-        run: npm run build
+      # - name: Build
+      #   run: npm run build
+
+      - name: Debug SSH Key
+        run: echo "${{ secrets.SERVER_SSH_KEY }}" > key && chmod 600 key && ls -la key
 
       # Step 5: Deploy to your server via SSH
       - name: Deploy

@@ -21,8 +21,12 @@ jobs:
       - name: Install dependencies
         run: npm ci # Clean install (uses package-lock.json)
 
-      - name: Check chek
-        run: npm run check
+      - name: Lint
+        run: npm run lint
+
+      - name: TS
+        run: npm run tsc
+
       # # Step 4: Build Next.js (creates `.next/` folder)
       # - name: Build
       #   run: npm run build

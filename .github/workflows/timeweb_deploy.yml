@@ -1,0 +1,39 @@
+name: Deploy Leda to Server
+on:
+  push:
+    branches: ["master"] # Trigger on pushes to `main`
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest # GitHub-hosted Linux VM
+
+    steps:
+      # Step 1: Clone your repo
+      - uses: actions/checkout@v4
+
+      # Step 2: Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24" # Matches your server
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm ci # Clean install (uses package-lock.json)
+
+      # Step 4: Build Next.js (creates `.next/` folder)
+      - name: Build
+        run: npm run build
+
+      # Step 5: Deploy to your server via SSH
+      - name: Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }} # From GitHub Secrets
+          username: deployer
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            cd /var/www/nextjs  # Your server path
+            git pull origin main
+            npm ci --production  # Skip devDependencies
+            pm2 restart next-app  # Reload the app

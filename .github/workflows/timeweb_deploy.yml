@@ -1,25 +1,38 @@
-name: Deploy Leda to Server
+name: Deploy Leda to Main Station
 on:
   push:
-    branches: ["master"] # Trigger on pushes to `main`
+    branches: ["master"]
 
 jobs:
-  deploy:
+  # PHASE 1: BUILD THE APPLICATION
+  build:
+    name: Build Next.js Application
     runs-on: ubuntu-latest # GitHub-hosted Linux VM
 
     steps:
-      # Step 1: Clone your repo
-      - uses: actions/checkout@v4
+      # Step: Clone your repo
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      # Step 2: Set up Node.js
+      # Step: Set up Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "24" # Matches your server
+          cache: "npm"
 
-      # # Step 3: Install dependencies
-      - name: Install dependencies
-        run: npm ci # Clean install (uses package-lock.json)
+      # Step: Install dependencies
+      - name: Install leda dependencies
+        run: npm ci
+
+      - name: Build styles
+        run: npm build:css
+
+      - name: Install docs dependencies
+        run: npm ci:docs
+
+      - name: Build
+        run: build:docs
 
       # - name: Lint
       #   run: npm run lint
@@ -27,19 +40,16 @@ jobs:
       # - name: TS
       #   run: npm run tsc
 
-      # Step 4: Build Next.js (creates `.next/` folder)
-      - name: Build
-        run: npm run build
-
-      # Step 5: Deploy to your server via SSH
-      - name: Deploy
-        uses: appleboy/ssh-action@master
+      # Step: Package artifacts for deployment
+      - name: Save build artifacts
+        uses: actions/upload-artifact@v4
         with:
-          host: ${{ secrets.SERVER_IP }} # From GitHub Secrets
-          username: deployer
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          script: |
-            cd /var/www/leda  # Your server path
-            git pull origin master
-            npm ci --production  # Skip devDependencies
-            # pm2 restart next-app  # Reload the app
+          name: docs-build
+          path: |
+            docs/.next/       # Built Next.js docs
+            docs/public/      # Static files for docs
+            docs/package.json
+            docs/package-lock.json
+            dist/styles/      # Built CSS from your components
+            package.json      # Main project config
+            package-lock.json

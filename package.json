@@ -16,6 +16,7 @@
     "build:css": "postcss styles/leda.base.css -d dist/styles",
     "watch:css": "postcss styles/leda.base.css -d dist/styles -w",
     "install:docs": "npm install --legacy-peer-deps --prefix docs",
+    "ci:docs": "npm ci --legacy-peer-deps --prefix docs",
     "check": "npm run lint && npm run test && npm run tsc",
     "build": "npm run clean && npm run tsc && npm run build:css",
     "lint": "eslint --color --ext .ts,.tsx leda",

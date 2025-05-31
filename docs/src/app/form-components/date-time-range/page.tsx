@@ -11,7 +11,7 @@ import { Uncontrolled } from './_demo/Uncontrolled';
 
 const DateTimeRangePage = () => (
   <article>
-    <H1>DateRange</H1>
+    <H1>DateTimeRange</H1>
 
     <PropsTableSection>
       <tr>

@@ -67,6 +67,12 @@ jobs:
         with:
           name: docs-build # Matches the name from upload step
 
+      - name: List files before transfer (debug)
+        run: |
+          ls -la
+          ls -la docs/
+          [ -d docs/.next ] || echo "Warning: .next directory missing"
+
       # Step 2: Deploy to server via SSH
       - name: Deploy to Server
         uses: appleboy/ssh-action@master
@@ -84,7 +90,7 @@ jobs:
             # Transfer new files from GitHub to your server:
             # 1. tar -czf - creates a compressed package of our files
             # 2. Pipes (|) this to SSH which extracts it on your server
-            tar -czf - .next/ public/ package.json package-lock.json | \
+            tar -czf - -C docs .next/ public/ package.json package-lock.json | \
               ssh deployer@${{ secrets.SERVER_IP }} "cd /var/www/leda && tar -xzf -"
 
             # Install only production dependencies (no devDependencies)

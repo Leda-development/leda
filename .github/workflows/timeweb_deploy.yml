@@ -127,6 +127,12 @@ jobs:
       #     ls -la docs/
       #     [ -d docs/.next ] || echo "Warning: .next directory missing"
 
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: docs-build
+          path: .
+
       - name: Upload artifact to server
         uses: appleboy/scp-action@master
         with:

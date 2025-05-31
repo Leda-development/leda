@@ -73,21 +73,34 @@ jobs:
           echo "package.json:"
           ls -l package.json || echo "Missing"
 
-      # Step: Package artifacts for deployment
-      - name: Save build artifacts
+      - name: Create artifact archive
+        run: |
+          mkdir -p artifact-dir
+          cp -r docs/.next docs/public docs/package.json docs/package-lock.json dist/styles package.json package-lock.json artifact-dir/
+          zip -r docs-build.zip artifact-dir
+
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: docs-build
-          path: |
-            docs/.next       # Built Next.js docs
-            docs/public      # Static files for docs
-            docs/package.json
-            docs/package-lock.json
-            dist/styles      # Built CSS from your components
-            package.json      # Main project config
-            package-lock.json
-          if-no-files-found: error # Fail if .next is missing
-          retention-days: 1 # Keeps artifact for 1 day (reduce storage)
+          path: docs-build.zip
+          retention-days: 1
+
+      # Step: Package artifacts for deployment
+      # - name: Save build artifacts
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: docs-build
+      #     path: |
+      #       docs/.next       # Built Next.js docs
+      #       docs/public      # Static files for docs
+      #       docs/package.json
+      #       docs/package-lock.json
+      #       dist/styles      # Built CSS from your components
+      #       package.json      # Main project config
+      #       package-lock.json
+      #     if-no-files-found: error # Fail if .next is missing
+      #     retention-days: 1 # Keeps artifact for 1 day (reduce storage)
 
   # PHASE 2: DEPLOY TO SERVER
   deploy:

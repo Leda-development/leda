@@ -2,11 +2,9 @@
 
 Leda is a React UI component library with built-in declarative forms and validation.
 
-
 ## Documentation
 
-[https://reactiveleda.dev][1]
-
+[https://reactiveleda.online][1]
 
 ## Credit
 
@@ -27,13 +25,11 @@ Contributors:
 - [Oksana Kukushkina][5]
 - Vyacheslav Semyonov
 
-
 ## License
 
 Leda is licensed under the MIT License
 
-
-[1]: https://reactiveleda.dev
+[1]: https://reactiveleda.online
 [2]: https://github.com/Apollo-11
 [3]: https://github.com/777PolarFox777
 [4]: https://github.com/roshal

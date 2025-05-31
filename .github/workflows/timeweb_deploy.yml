@@ -49,6 +49,17 @@ jobs:
           ls -la docs/.next docs/public
           [ -d docs/.next ] || exit 1
 
+            # Debug: Show full docs directory after build
+      - name: Post-build docs directory check
+        run: |
+          echo "Full docs directory structure:"
+          ls -la docs
+          echo "Public directory:"
+          ls -la docs/public
+          echo "Checking required files exist..."
+          [ -f docs/.next/BUILD_ID ] || { echo "Error: BUILD_ID missing!"; exit 1; }
+          [ -d docs/.next/static ] || { echo "Error: static files missing!"; exit 1; }
+
       # Step: Package artifacts for deployment
       - name: Save build artifacts
         uses: actions/upload-artifact@v4

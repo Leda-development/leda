@@ -75,8 +75,14 @@ jobs:
 
       - name: Create artifact archive
         run: |
-          mkdir -p artifact-dir
-          cp -r docs/.next docs/public docs/package.json docs/package-lock.json dist/styles package.json package-lock.json artifact-dir/
+          mkdir -p artifact-dir/docs
+          mkdir -p artifact-dir/dist
+          mkdir -p artifact-dir/root
+
+          cp -r docs/.next docs/public docs/package.json docs/package-lock.json artifact-dir/docs/
+          cp -r dist/styles artifact-dir/dist/
+          cp package.json package-lock.json artifact-dir/root/
+
           zip -r docs-build.zip artifact-dir
 
       - name: Upload artifact

@@ -65,7 +65,7 @@ jobs:
       - name: Download build
         uses: actions/download-artifact@v4
         with:
-          name: nextjs-build # Matches the name from upload step
+          name: docs-build # Matches the name from upload step
 
       # Step 2: Deploy to server via SSH
       - name: Deploy to Server

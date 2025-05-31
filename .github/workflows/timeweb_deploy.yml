@@ -26,13 +26,13 @@ jobs:
         run: npm ci
 
       - name: Build styles
-        run: npm build:css
+        run: npm run build:css
 
       - name: Install docs dependencies
-        run: npm ci:docs
+        run: npm run ci:docs
 
       - name: Build
-        run: build:docs
+        run: npm run build:docs
 
       # - name: Lint
       #   run: npm run lint

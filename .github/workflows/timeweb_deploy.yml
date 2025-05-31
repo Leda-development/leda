@@ -116,16 +116,25 @@ jobs:
 
     steps:
       # Step 1: Get the build artifacts we saved earlier
-      - name: Download build
-        uses: actions/download-artifact@v4
-        with:
-          name: docs-build # Matches the name from upload step
+      # - name: Download build
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: docs-build # Matches the name from upload step
 
-      - name: List files before transfer (debug)
-        run: |
-          ls -la
-          ls -la docs/
-          [ -d docs/.next ] || echo "Warning: .next directory missing"
+      # - name: List files before transfer (debug)
+      #   run: |
+      #     ls -la
+      #     ls -la docs/
+      #     [ -d docs/.next ] || echo "Warning: .next directory missing"
+
+      - name: Upload artifact to server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: deployer
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          source: docs-build.zip
+          target: /var/www/leda/
 
       # Step 2: Deploy to server via SSH
       - name: Deploy to Server
@@ -135,20 +144,20 @@ jobs:
           username: deployer # The user we set up on your server
           key: ${{ secrets.SERVER_SSH_KEY }} # Private key for authentication
           script: |
-            # Navigate to your project directory
-            cd /var/www/leda
+            APP_DIR=/var/www/leda
+            ARTIFACT_NAME=docs-build.zip
 
-            # Remove old build files to prevent conflicts
-            rm -rf .next public
+            echo "==> Switching to app directory"
+            cd $APP_DIR
 
-            # Transfer new files from GitHub to your server:
-            # 1. tar -czf - creates a compressed package of our files
-            # 2. Pipes (|) this to SSH which extracts it on your server
-            tar -czf - -C docs .next/ public/ package.json package-lock.json | \
-              ssh deployer@${{ secrets.SERVER_IP }} "cd /var/www/leda && tar -xzf -"
+            echo "==> Unzipping artifact"
+            unzip -o $ARTIFACT_NAME
 
-            # Install only production dependencies (no devDependencies)
-            # npm ci --production
+            echo "==> Installing dependencies"
+            cd artifact-dir/docs
+            npm ci --omit=dev
 
-            # Restart the application using PM2 process manager
-            # pm2 restart next-app
+            echo "==> Restarting PM2 process"
+            pm2 restart leda-docs || pm2 start npm --name "leda-docs" -- run start
+
+            echo "✅ Deployment complete"

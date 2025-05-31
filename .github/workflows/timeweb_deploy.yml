@@ -60,6 +60,19 @@ jobs:
           [ -f docs/.next/BUILD_ID ] || { echo "Error: BUILD_ID missing!"; exit 1; }
           [ -d docs/.next/static ] || { echo "Error: static files missing!"; exit 1; }
 
+      - name: Debug artifact content
+        run: |
+          echo "docs/.next:"
+          ls -R docs/.next || echo "Missing"
+          echo "docs/public:"
+          ls -R docs/public || echo "Missing"
+          echo "dist/styles:"
+          ls -R dist/styles || echo "Missing"
+          echo "docs/package.json:"
+          ls -l docs/package.json || echo "Missing"
+          echo "package.json:"
+          ls -l package.json || echo "Missing"
+
       # Step: Package artifacts for deployment
       - name: Save build artifacts
         uses: actions/upload-artifact@v4

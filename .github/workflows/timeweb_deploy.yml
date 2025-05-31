@@ -55,14 +55,16 @@ jobs:
         with:
           name: docs-build
           path: |
-            docs/.next/       # Built Next.js docs
-            docs/public/      # Static files for docs
+            docs/.next/**       # Built Next.js docs
+            docs/public/**      # Static files for docs
             docs/package.json
             docs/package-lock.json
-            dist/styles/      # Built CSS from your components
+            dist/styles/**      # Built CSS from your components
             package.json      # Main project config
             package-lock.json
           if-no-files-found: error # Fail if .next is missing
+          retention-days: 1 # Keeps artifact for 1 day (reduce storage)
+          include-hidden-files: true
 
   # PHASE 2: DEPLOY TO SERVER
   deploy:

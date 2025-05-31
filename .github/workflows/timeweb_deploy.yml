@@ -53,3 +53,42 @@ jobs:
             dist/styles/      # Built CSS from your components
             package.json      # Main project config
             package-lock.json
+
+  # PHASE 2: DEPLOY TO SERVER
+  deploy:
+    name: Deploy to Production Server
+    needs: build # Waits for build job to complete
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Get the build artifacts we saved earlier
+      - name: Download build
+        uses: actions/download-artifact@v4
+        with:
+          name: nextjs-build # Matches the name from upload step
+
+      # Step 2: Deploy to server via SSH
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }} # Your server's IP address
+          username: deployer # The user we set up on your server
+          key: ${{ secrets.SERVER_SSH_KEY }} # Private key for authentication
+          script: |
+            # Navigate to your project directory
+            cd /var/www/leda
+
+            # Remove old build files to prevent conflicts
+            rm -rf .next public
+
+            # Transfer new files from GitHub to your server:
+            # 1. tar -czf - creates a compressed package of our files
+            # 2. Pipes (|) this to SSH which extracts it on your server
+            tar -czf - .next/ public/ package.json package-lock.json | \
+              ssh deployer@${{ secrets.SERVER_IP }} "cd /var/www/leda && tar -xzf -"
+
+            # Install only production dependencies (no devDependencies)
+            # npm ci --production
+
+            # Restart the application using PM2 process manager
+            # pm2 restart next-app
